@@ -1,0 +1,126 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ShooterEnemy : Enemy
+{
+    [SerializeField] private GameObject bulletPrefab;
+
+    private bool isFiring;
+    public float fireRate;
+    public float bulletSpeed;
+    public float bulletDamage;
+    public int amountOfBullets;
+    public float aimRange;
+    public float shootingAngle;
+    public float bulletLifetime;
+    private Coroutine firingCoroutine;
+
+
+    private float nextFireTime;
+
+    private void Start()
+    {
+        SpawnAnimation();
+        AdjustStatsBasedOnLevel();
+        InitializeStats(health, pointsWorth, speed);
+    }
+
+    private void FixedUpdate()
+    {
+        if (player == null) return;
+        Movement();
+        if (shouldRotate) Aim();
+
+        if (Vector2.Distance(transform.position, player.transform.position) < aimRange && Time.time >= nextFireTime)
+
+        {
+            Attack();
+        }
+        else
+        {
+            if (firingCoroutine != null)
+            {
+                StopAttack();
+
+            }
+
+
+        }
+
+    }
+
+
+
+
+    private void StopAttack()
+    {
+        StopCoroutine(firingCoroutine);
+        isFiring = false;
+    }
+    private IEnumerator FireBulletsContinuously()
+    {
+        while (isFiring)
+        {
+            FireBullets(amountOfBullets, transform.position);
+            yield return new WaitForSeconds(fireRate);
+        }
+    }
+    public void FireBullets(int bulletAmount, Vector3 position)
+    {
+
+        nextFireTime = Time.time + fireRate;
+        Vector3 playerPosition = player.transform.position;
+        Vector3 playerDirection = playerPosition - position;
+        float startAngle = -amountOfBullets / 2.0f * shootingAngle;
+
+        for (int i = 0; i < bulletAmount; i++)
+        {
+            GameObject enemyBullet = ObjectPooler.Instance.SpawnFromPool("Bullet", position, Quaternion.identity);
+
+
+            // Calculate the spread angle for each bullet
+            float angle = startAngle + i * shootingAngle;
+            Vector3 bulletDirection = Quaternion.Euler(0, 0, angle) * playerDirection;
+            enemyBullet.GetComponent<Bullet>().Initialize(bulletSpeed, bulletDamage, bulletLifetime, bulletDirection);
+
+            // Set the bullet's rotation
+            enemyBullet.transform.rotation = Quaternion.LookRotation(Vector3.forward, bulletDirection);
+
+            // Set bullet properties
+            enemyBullet.transform.gameObject.tag = "EnemyBullet";
+        }
+
+
+    }
+
+    public override void AdjustStatsBasedOnLevel()
+    {
+        base.AdjustStatsBasedOnLevel();
+        bulletSpeed += GameManager.Instance.level * 0.03f;
+    }
+
+    public override void Attack()
+    {
+
+        isFiring = true;
+        firingCoroutine = StartCoroutine(FireBulletsContinuously());
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("PlayerLaser"))
+        {
+            TakeDamage(LaserDamageByLevel());
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PlayerBullet"))
+        {
+            TakeDamage(other.GetComponent<Bullet>().BulletDamage);
+
+            other.gameObject.SetActive(false);
+        }
+    }
+
+}
