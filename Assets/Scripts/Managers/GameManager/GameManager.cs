@@ -47,8 +47,14 @@ public class GameManager : MonoBehaviour
         EnableSpawning();
     }
 
+    public void IncreaseLevel()
+    {
+        level++;
+    }
+
     void Update()
     {
+        Debug.Log($"Current Level: {level}");
         if (level % 5 == 0 && level != 0)
         {
             OnPowerUpRound?.Invoke();

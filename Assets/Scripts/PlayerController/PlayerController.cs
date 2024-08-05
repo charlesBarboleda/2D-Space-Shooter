@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     {
 
         Movement();
-
         Aim();
         CameraFollow();
     }

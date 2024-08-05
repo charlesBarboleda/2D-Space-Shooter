@@ -20,6 +20,8 @@ public class PowerUpsManager : MonoBehaviour
     private List<(System.Action action, string name)> bulletSpeedFunctions = new List<(System.Action, string)>();
     private List<(System.Action action, string name)> extraBulletFunctions = new List<(System.Action, string)>();
     private List<(System.Action action, string name)> fireRateFunctions = new List<(System.Action, string)>();
+    private List<(System.Action action, string name)> teleportFunctions = new List<(System.Action, string)>();
+
 
     public Button[] buttons;
 
@@ -96,6 +98,10 @@ public class PowerUpsManager : MonoBehaviour
     {
         (ExtraBulletX, nameof(ExtraBulletX)),
     });
+        teleportFunctions.AddRange(new List<(System.Action, string)>
+    {
+        (TeleportX, nameof(TeleportX)),
+    });
     }
 
     private void ClearFunctionLists()
@@ -109,6 +115,7 @@ public class PowerUpsManager : MonoBehaviour
         bulletSpeedFunctions.Clear();
         extraBulletFunctions.Clear();
         fireRateFunctions.Clear();
+        teleportFunctions.Clear();
     }
 
     private void InitializeLevel3Functions()
@@ -166,6 +173,12 @@ public class PowerUpsManager : MonoBehaviour
     {
         (ExtraBullet, nameof(ExtraBullet)),
     });
+        teleportFunctions.AddRange(new List<(System.Action, string)>
+    {
+        (TeleportI, nameof(TeleportI)),
+        (TeleportII, nameof(TeleportII)),
+        (TeleportIII, nameof(TeleportIII)),
+    });
     }
 
     private void InitializeLevel2Functions()
@@ -210,6 +223,11 @@ public class PowerUpsManager : MonoBehaviour
         (FireRateI, nameof(FireRateI)),
         (FireRateII, nameof(FireRateII)),
     });
+        teleportFunctions.AddRange(new List<(System.Action, string)>
+    {
+        (TeleportI, nameof(TeleportI)),
+        (TeleportII, nameof(TeleportII)),
+    });
     }
 
     private void InitializeLevel1Functions()
@@ -245,6 +263,10 @@ public class PowerUpsManager : MonoBehaviour
         fireRateFunctions.AddRange(new List<(System.Action, string)>
     {
         (FireRateI, nameof(FireRateI)),
+    });
+        teleportFunctions.AddRange(new List<(System.Action, string)>
+    {
+        (TeleportI, nameof(TeleportI)),
     });
 
 
@@ -550,9 +572,34 @@ public class PowerUpsManager : MonoBehaviour
         changeState();
     }
 
+    private void TeleportX()
+    {
+        playerManager.playerTeleport.teleportCount += 12;
+        Debug.Log("TeleportX");
+        changeState();
+    }
+    private void TeleportI()
+    {
+        playerManager.playerTeleport.teleportCount += 3;
+        Debug.Log("TeleportX");
+        changeState();
+    }
+    private void TeleportII()
+    {
+        playerManager.playerTeleport.teleportCount += 6;
+        Debug.Log("TeleportX");
+        changeState();
+    }
+    private void TeleportIII()
+    {
+        playerManager.playerTeleport.teleportCount += 8;
+        Debug.Log("TeleportX");
+        changeState();
+    }
+
     private void changeState()
     {
-
+        GameManager.Instance.IncreaseLevel();
         gameObject.SetActive(false);
         Time.timeScale = 1;
     }

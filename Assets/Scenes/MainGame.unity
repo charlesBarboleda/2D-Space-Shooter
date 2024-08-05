@@ -55155,6 +55155,7 @@ MonoBehaviour:
   weapon: {fileID: 1414769140}
   turret: {fileID: 1414769139}
   healthBar: {fileID: 525669685}
+  playerTeleport: {fileID: 1414769142}
   playerHealth: 100
 --- !u!4 &1414769126 stripped
 Transform:
@@ -55372,6 +55373,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield: {fileID: 1773440123}
   shieldTimer: 0
+--- !u!114 &1414769142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414769117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc2402bd54338949a8a06360f8d7b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teleportDistance: 10
 --- !u!1 &1415930081
 GameObject:
   m_ObjectHideFlags: 0
@@ -83943,6 +83957,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5533584001014519575, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1414769141}
+    - targetCorrespondingSourceObject: {fileID: 5533584001014519575, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1414769142}
   m_SourcePrefab: {fileID: 100100000, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
 --- !u!1001 &1918285141243380145
 PrefabInstance:

@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     public Turret turret;
 
     public HealthBar healthBar;
+    public Teleport playerTeleport;
 
 
     public float playerHealth = 100f;
