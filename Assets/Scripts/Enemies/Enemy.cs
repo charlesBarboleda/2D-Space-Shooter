@@ -70,6 +70,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         };
 
         speed += level * 0.001f;
+        transform.localScale += new Vector3(level * 0.01f, level * 0.01f, 0);
 
     }
     public virtual void SpawnAnimation()
