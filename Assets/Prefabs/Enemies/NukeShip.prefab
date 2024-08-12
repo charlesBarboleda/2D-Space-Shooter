@@ -112,6 +112,10 @@ MonoBehaviour:
   earlyGameHealth: 1000
   midGameHealth: 2000
   lateGameHealth: 10000
+  cameraShakeMagnitude: 6
+  cameraShakeRoughness: 6
+  cameraShakeFadeInTime: 0.1
+  cameraShakeFadeOutTime: 0.1
   nukePrefab: {fileID: 3525258117610977703, guid: d1c7174591a3b5e4bbb742578812da5b, type: 3}
   attackRange: 30
   coolDownTime: 3

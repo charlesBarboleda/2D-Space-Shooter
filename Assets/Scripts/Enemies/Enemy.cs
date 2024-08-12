@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
@@ -16,11 +17,16 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public float earlyGameHealth;
     public float midGameHealth;
     public float lateGameHealth;
+    public float cameraShakeMagnitude;
+    public float cameraShakeRoughness;
+    public float cameraShakeFadeInTime;
+    public float cameraShakeFadeOutTime;
     public abstract void Attack();
 
 
     public virtual void OnEnable()
     {
+
         AdjustStatsBasedOnLevel();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -107,11 +113,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     }
 
 
-    public void Destroy()
+    public virtual void Destroy()
     {
         GameObject exp = Instantiate(deathExplosion, transform.position, transform.rotation);
         Destroy(exp, 1f);
         gameObject.SetActive(false);
+        CameraShaker.Instance.ShakeOnce(cameraShakeMagnitude, cameraShakeRoughness, cameraShakeFadeInTime, cameraShakeFadeOutTime);
     }
 
 

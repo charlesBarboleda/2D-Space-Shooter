@@ -153,6 +153,10 @@ MonoBehaviour:
   earlyGameHealth: 20
   midGameHealth: 200
   lateGameHealth: 500
+  cameraShakeMagnitude: 2
+  cameraShakeRoughness: 2
+  cameraShakeFadeInTime: 0.1
+  cameraShakeFadeOutTime: 0.1
   bulletPrefab: {fileID: 6728492749699202131, guid: 0271eb768e721e7469bada9ea73ce922, type: 3}
   fireRate: 0.75
   bulletSpeed: 12

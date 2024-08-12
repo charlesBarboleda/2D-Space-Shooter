@@ -7,8 +7,6 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] private Transform player;
     private string[][] enemyShipNames;
     private float[][] enemyProbabilities;
-    [SerializeField] private int minSpawnRange = -150;
-    [SerializeField] private int maxSpawnRange = 150;
 
     void Awake()
     {
@@ -78,10 +76,8 @@ public class SpawnerManager : MonoBehaviour
     {
         for (int i = 0; i < amountToSpawn; i++)
         {
-            float randomX = Random.Range(-100, 100);
-            float randomY = Random.Range(-100, 100);
-            Vector3 randomPosition = new Vector3(player.position.x + randomX, player.position.y + randomY, 0);
-            GameObject ship = ObjectPooler.Instance.SpawnFromPool(shipName, randomPosition, transform.rotation);
+            Vector3 randomPosition = Random.onUnitSphere * 50;
+            GameObject ship = ObjectPooler.Instance.SpawnFromPool(shipName, player.transform.position + randomPosition, transform.rotation);
             ship.GetComponent<Enemy>().InitializeStats(
                 GameManager.Instance.level * 500, // Health
                 GameManager.Instance.pointsRequired / amountToSpawn, // Points Required
@@ -93,6 +89,7 @@ public class SpawnerManager : MonoBehaviour
             ship.GetComponent<SpriteRenderer>().color = Color.gray;
         }
     }
+
 
     private void SpawnShip(string tag, Vector3 position, Quaternion rotation)
     {
@@ -123,10 +120,8 @@ public class SpawnerManager : MonoBehaviour
 
     public void SpawnShipRandomLocation(string shipName)
     {
-        float randomX = Random.Range(minSpawnRange, maxSpawnRange);
-        float randomY = Random.Range(minSpawnRange, maxSpawnRange);
-        Vector3 randomPosition = new Vector3(player.position.x + randomX, player.position.y + randomY, 0);
-        SpawnShip(shipName, randomPosition, transform.rotation);
+        Vector3 randomPosition = Random.onUnitSphere * 50;
+        SpawnShip(shipName, randomPosition + player.transform.position, transform.rotation);
     }
 
     private void SpawnShipsWrapper()

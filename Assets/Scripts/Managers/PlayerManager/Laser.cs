@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using EZCameraShake;
 using UnityEngine;
 
 public class Laser : MonoBehaviour
@@ -35,6 +36,7 @@ public class Laser : MonoBehaviour
         laser.transform.rotation = transform.rotation;
         laser.transform.SetParent(transform);
         Destroy(laser, 5.0f);
+        CameraShaker.Instance.ShakeOnce(6f, 6f, 0.1f, 15f);
 
     }
 
