@@ -13,10 +13,21 @@ public class PlayerManager : MonoBehaviour
 
     public HealthBar healthBar;
     public Teleport playerTeleport;
-
+    private SpriteRenderer spriteRenderer;
 
     public float playerHealth = 100f;
 
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    IEnumerator FlashRed()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.white;
+    }
     public void TakeDamage(float damage)
     {
         if (playerShield.shield.activeSelf)
@@ -24,6 +35,7 @@ public class PlayerManager : MonoBehaviour
             return;
         }
         playerHealth -= damage;
+        StartCoroutine(FlashRed());
         healthBar.SetHealth();
         if (playerHealth <= 0)
         {

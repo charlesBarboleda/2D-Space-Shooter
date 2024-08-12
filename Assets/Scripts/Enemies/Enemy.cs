@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected PlayerManager player;
     public GameObject spawnAnimation;
     public GameObject deathExplosion;
+    private SpriteRenderer spriteRenderer;
     public bool shouldRotate;
     public float health;
     public float pointsWorth;
@@ -21,6 +22,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual void OnEnable()
     {
         AdjustStatsBasedOnLevel();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     public virtual void Awake()
     {
@@ -73,17 +75,25 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         transform.localScale += new Vector3(level * 0.01f, level * 0.01f, 0);
 
     }
-    public virtual void SpawnAnimation()
+    public void SpawnAnimation()
     {
         GameObject obj = Instantiate(spawnAnimation, transform.position, transform.rotation);
         Destroy(obj, 1f);
     }
 
+    IEnumerator FlashRed()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.white;
+    }
 
 
     public void TakeDamage(float damage)
     {
+
         health -= damage;
+        StartCoroutine(FlashRed());
         if (health <= 0)
         {
             Destroy();
