@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI laserText;
     [SerializeField] private TextMeshProUGUI shieldText;
     [SerializeField] private TextMeshProUGUI turretText;
+    [SerializeField] private TextMeshProUGUI highscore;
     [SerializeField] private GameObject gameOverPanel;
 
     void Start()
