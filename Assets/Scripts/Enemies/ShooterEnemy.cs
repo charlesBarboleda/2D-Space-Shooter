@@ -29,8 +29,8 @@ public class ShooterEnemy : Enemy
     private void FixedUpdate()
     {
         if (player == null) return;
-        Movement();
-        if (shouldRotate) Aim();
+        Movement(player.transform);
+        if (shouldRotate) Aim(player.transform);
 
         if (Vector2.Distance(transform.position, player.transform.position) < aimRange && Time.time >= nextFireTime)
 
@@ -62,16 +62,16 @@ public class ShooterEnemy : Enemy
     {
         while (isFiring)
         {
-            FireBullets(amountOfBullets, transform.position);
+            FireBullets(amountOfBullets, transform.position, player.transform);
             yield return new WaitForSeconds(fireRate);
         }
     }
-    public void FireBullets(int bulletAmount, Vector3 position)
+    public void FireBullets(int bulletAmount, Vector3 position, Transform target)
     {
 
         nextFireTime = Time.time + fireRate;
-        Vector3 playerPosition = player.transform.position;
-        Vector3 playerDirection = playerPosition - position;
+        Vector3 targetPosition = target.transform.position;
+        Vector3 targetDirection = targetPosition - position;
         float startAngle = -amountOfBullets / 2.0f * shootingAngle;
 
         for (int i = 0; i < bulletAmount; i++)
@@ -81,7 +81,7 @@ public class ShooterEnemy : Enemy
 
             // Calculate the spread angle for each bullet
             float angle = startAngle + i * shootingAngle;
-            Vector3 bulletDirection = Quaternion.Euler(0, 0, angle) * playerDirection;
+            Vector3 bulletDirection = Quaternion.Euler(0, 0, angle) * targetDirection;
             enemyBullet.GetComponent<Bullet>().Initialize(bulletSpeed, bulletDamage, bulletLifetime, bulletDirection);
 
             // Set the bullet's rotation

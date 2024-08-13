@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject powerUps;
 
     public float points;
-    public float pointsRequired;
+    public float currency;
     public int level;
     public float spawnRate;
     public float maxSpawnRate;
@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"Current Level: {level}");
         if (level % 5 == 0 && level != 0)
         {
             OnPowerUpRound?.Invoke();
@@ -115,8 +114,6 @@ public class GameManager : MonoBehaviour
         spawnRate -= 0.001f;
         if (spawnRate < maxSpawnRate) spawnRate = maxSpawnRate;
         level++;
-        points = 0;
-        pointsRequired += 5f;
 
     }
 
