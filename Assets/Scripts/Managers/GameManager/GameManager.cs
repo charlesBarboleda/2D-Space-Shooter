@@ -58,10 +58,6 @@ public class GameManager : MonoBehaviour
         {
             OnPowerUpRound?.Invoke();
         }
-        if (points >= pointsRequired)
-        {
-            OnNextRound?.Invoke();
-        }
 
         if ((level - 49) % 50 == 0 && level >= 49)
         {

@@ -11,19 +11,13 @@ public class ProgressBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetMaxProgress();
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetMaxProgress();
-        SetProgress();
-    }
-    public void SetMaxProgress()
-    {
-        slider.maxValue = GameManager.Instance.pointsRequired;
 
+        SetProgress();
     }
     public void SetProgress()
     {

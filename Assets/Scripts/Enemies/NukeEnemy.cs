@@ -9,10 +9,6 @@ public class NukeEnemy : Enemy
     private bool isOnCoolDown;
     [SerializeField] private float attackRange;
     [SerializeField] private float coolDownTime = 1f;
-    void Start()
-    {
-        playerTarget = GameObject.Find("Player").transform;
-    }
 
 
     // Update is called once per frame
@@ -23,15 +19,15 @@ public class NukeEnemy : Enemy
         {
             Attack();
         }
-        if (shouldRotate) Aim();
-        Movement();
+        if (shouldRotate) Aim(player.transform);
+        Movement(player.transform);
     }
 
     private void ShootNuke()
     {
         if (!isOnCoolDown)
         {
-            GameObject nuke = Instantiate(nukePrefab, playerTarget.position, Quaternion.identity);
+            GameObject nuke = Instantiate(nukePrefab, player.transform.position, Quaternion.identity);
             isOnCoolDown = true;
             StartCoroutine(Cooldown());
         }

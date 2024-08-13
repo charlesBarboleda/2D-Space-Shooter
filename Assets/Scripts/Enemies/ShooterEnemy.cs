@@ -24,6 +24,7 @@ public class ShooterEnemy : Enemy
         SpawnAnimation();
         AdjustStatsBasedOnLevel();
         InitializeStats(health, pointsWorth, speed);
+        player = GameManager.Instance.GetPlayer();
     }
 
     private void FixedUpdate()

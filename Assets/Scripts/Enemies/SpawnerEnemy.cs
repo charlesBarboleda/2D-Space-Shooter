@@ -14,13 +14,12 @@ public class SpawnerEnemy : Enemy
 
     void Start()
     {
-
         Attack();
     }
 
     private void FixedUpdate()
     {
-        Movement();
+        Movement(player.transform);
     }
 
     private void SpawnRandomShips()

@@ -34,12 +34,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         player = GameManager.Instance.GetPlayer();
     }
-    public virtual void Movement()
+    public virtual void Movement(Transform target)
     {
-        float distance = Vector3.Distance(player.transform.position, transform.position);
+        float distance = Vector3.Distance(target.transform.position, transform.position);
         if (distance > stopDistance)
         {
-            Vector3 direction = (player.transform.position - transform.position).normalized;
+            Vector3 direction = (target.transform.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
         }
     }
@@ -50,10 +50,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         this.speed += speed;
     }
 
-    public void Aim()
+    public void Aim(Transform target)
     {
-        Vector3 target = player.transform.position;
-        Vector3 direction = target - transform.position;
+        Vector3 targetAim = target.transform.position;
+        Vector3 direction = targetAim - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270f));
     }

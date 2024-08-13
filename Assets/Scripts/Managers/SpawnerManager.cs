@@ -78,11 +78,6 @@ public class SpawnerManager : MonoBehaviour
         {
             Vector3 randomPosition = Random.onUnitSphere * 50;
             GameObject ship = ObjectPooler.Instance.SpawnFromPool(shipName, player.transform.position + randomPosition, transform.rotation);
-            ship.GetComponent<Enemy>().InitializeStats(
-                GameManager.Instance.level * 500, // Health
-                GameManager.Instance.pointsRequired / amountToSpawn, // Points Required
-                GameManager.Instance.level * 0.05f // Speed
-            );
             ship.GetComponent<ShooterEnemy>().amountOfBullets += 5;
             ship.GetComponent<ShooterEnemy>().bulletSpeed += 4f;
             ship.transform.localScale += new Vector3(3f, 3f, 3f);
