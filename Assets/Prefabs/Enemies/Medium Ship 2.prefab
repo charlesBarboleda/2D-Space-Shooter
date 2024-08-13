@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6838959246811978333}
   m_Layer: 0
   m_Name: Medium Ship 2
-  m_TagString: SimpleEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,12 +147,9 @@ MonoBehaviour:
   deathExplosion: {fileID: 162584487599433031, guid: f5d5e961a93b8134fb1a55b03bdc517a, type: 3}
   shouldRotate: 1
   health: 0
-  pointsWorth: 20
+  pointsDrop: 0
   speed: 8
   stopDistance: 8
-  earlyGameHealth: 40
-  midGameHealth: 300
-  lateGameHealth: 700
   cameraShakeMagnitude: 2
   cameraShakeRoughness: 2
   cameraShakeFadeInTime: 0.1

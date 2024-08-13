@@ -6,17 +6,19 @@ using EZCameraShake;
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
     protected PlayerManager player;
+
+    // Animations
     public GameObject spawnAnimation;
     public GameObject deathExplosion;
     private SpriteRenderer spriteRenderer;
+    // Stats
     public bool shouldRotate;
     public float health;
-    public float pointsWorth;
+    public float pointsDrop;
     public float speed;
     public float stopDistance;
-    public float earlyGameHealth;
-    public float midGameHealth;
-    public float lateGameHealth;
+
+    // Camera Shake
     public float cameraShakeMagnitude;
     public float cameraShakeRoughness;
     public float cameraShakeFadeInTime;
@@ -27,7 +29,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual void OnEnable()
     {
 
-        AdjustStatsBasedOnLevel();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     public virtual void Awake()
@@ -43,10 +44,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             transform.position += direction * speed * Time.deltaTime;
         }
     }
-    public void InitializeStats(float health, float pointsWorth, float speed)
+    public void InitializeStats(float health, float pointsDrop, float speed)
     {
         this.health += health;
-        this.pointsWorth = pointsWorth;
+        this.pointsDrop = pointsDrop;
         this.speed += speed;
     }
 
@@ -58,29 +59,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270f));
     }
 
-    public virtual void AdjustStatsBasedOnLevel()
-    {
-        float level = GameManager.Instance.level;
-        if (level <= 50) health = earlyGameHealth;
-        else if (level <= 80) health = midGameHealth;
-        else if (level > 100) health = lateGameHealth;
-
-        health += level switch
-        {
-            >= 200 => level * 500,
-            >= 150 => level * 50,
-            >= 100 => level * 20,
-            >= 80 => level * 5,
-            >= 60 => level * 2,
-            >= 40 => level * 0.75f,
-            >= 20 => level * 0.3f,
-            _ => level * 0.1f
-        };
-
-        speed += level * 0.001f;
-        transform.localScale += new Vector3(level * 0.01f, level * 0.01f, 0);
-
-    }
     public void SpawnAnimation()
     {
         GameObject obj = Instantiate(spawnAnimation, transform.position, transform.rotation);
@@ -103,14 +81,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (health <= 0)
         {
             Destroy();
-            GameManager.Instance.points += pointsWorth;
         }
     }
 
-    public int LaserDamageByLevel()
-    {
-        return GameManager.Instance.level * 2;
-    }
 
 
     public virtual void Destroy()

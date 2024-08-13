@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2428754174689304111}
   m_Layer: 0
   m_Name: Melee Ship
-  m_TagString: SimpleEnemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,12 +102,9 @@ MonoBehaviour:
   deathExplosion: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   shouldRotate: 1
   health: 0
-  pointsWorth: 10
+  pointsDrop: 0
   speed: 8
   stopDistance: 3
-  earlyGameHealth: 10
-  midGameHealth: 40
-  lateGameHealth: 300
   cameraShakeMagnitude: 2
   cameraShakeRoughness: 2
   cameraShakeFadeInTime: 0.1

@@ -22,8 +22,7 @@ public class ShooterEnemy : Enemy
     private void Start()
     {
         SpawnAnimation();
-        AdjustStatsBasedOnLevel();
-        InitializeStats(health, pointsWorth, speed);
+        InitializeStats(health, pointsDrop, speed);
         player = GameManager.Instance.GetPlayer();
     }
 
@@ -95,24 +94,13 @@ public class ShooterEnemy : Enemy
 
     }
 
-    public override void AdjustStatsBasedOnLevel()
-    {
-        base.AdjustStatsBasedOnLevel();
-        bulletSpeed += GameManager.Instance.level * 0.03f;
-    }
+
 
     public override void Attack()
     {
 
         isFiring = true;
         firingCoroutine = StartCoroutine(FireBulletsContinuously());
-    }
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("PlayerLaser"))
-        {
-            TakeDamage(LaserDamageByLevel());
-        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -36,14 +36,6 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (player.laser.laserStock > 0) laserText.text = $": x{player.laser.laserStock}";
-        else laserText.text = ": x0";
-
-        if (player.playerShield.shieldTimer > 0) shieldText.text = $": {player.playerShield.shieldTimer}s";
-        else shieldText.text = ": 0s";
-
-        if (player.turret.turretCountDownTime > 0) turretText.text = $": {player.turret.turretCountDownTime}s";
-        else turretText.text = ": 0s";
 
     }
 

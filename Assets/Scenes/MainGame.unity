@@ -53522,55 +53522,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1984415755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1354733709
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1354733711}
-  - component: {fileID: 1354733710}
-  m_Layer: 6
-  m_Name: Post Processing Volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1354733710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354733709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: eed3bae65fc020f4fad4171bcf0180ef, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
---- !u!4 &1354733711
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354733709}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1356465349
 GameObject:
   m_ObjectHideFlags: 0
@@ -55409,12 +55360,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec0508c36576ab498b8cfecc0bd7a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerShield: {fileID: 1414769141}
-  laser: {fileID: 1414769138}
+  playerShield: {fileID: 0}
+  laser: {fileID: 0}
   weapon: {fileID: 1414769140}
-  turret: {fileID: 1414769139}
+  turret: {fileID: 0}
   healthBar: {fileID: 525669685}
-  playerTeleport: {fileID: 1414769142}
+  playerTeleport: {fileID: 0}
   playerHealth: 100
 --- !u!4 &1414769126 stripped
 Transform:
@@ -55569,36 +55520,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1414769134}
   shootingSound: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
---- !u!114 &1414769138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414769117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b2a2d51ebb6e6d41809c262e110f491, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laserStock: 99
-  laserPrefab: {fileID: 3487352173824420537, guid: 80e0bd9d08cd69c458089c292ac1893c, type: 3}
---- !u!114 &1414769139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414769117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cffa647a0208db947a7d44a5b93d6ee3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 1414769140}
-  turret1: {fileID: 498947314}
-  turret2: {fileID: 96165528}
-  turretCountDownTime: 0
 --- !u!114 &1414769140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55611,7 +55532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5d9fd84d6caaf642bdc8225bd9db3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turret: {fileID: 1414769139}
+  turret: {fileID: 0}
   bulletAudio: {fileID: 1414769135}
   shootingAngle: 5
   amountOfBullets: 1
@@ -55627,25 +55548,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1414769117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 538f454f4e5e6fe47ac0a9e72883861b, type: 3}
+  m_Script: {fileID: 11500000, guid: 472675415ca54e44db35c6088a2c1b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shield: {fileID: 1773440123}
-  shieldTimer: 999
---- !u!114 &1414769142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414769117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adc2402bd54338949a8a06360f8d7b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  teleportDistance: 10
-  teleportCount: 0
+  abilities:
+  - {fileID: 11400000, guid: 05d765e1d12dd6a469c4d15d5f5b5e1e, type: 2}
+  key: 32
+  target: {fileID: 0}
 --- !u!1 &1415930081
 GameObject:
   m_ObjectHideFlags: 0
@@ -84208,16 +84117,7 @@ PrefabInstance:
       addedObject: {fileID: 1414769140}
     - targetCorrespondingSourceObject: {fileID: 5533584001014519575, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1414769139}
-    - targetCorrespondingSourceObject: {fileID: 5533584001014519575, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1414769138}
-    - targetCorrespondingSourceObject: {fileID: 5533584001014519575, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1414769141}
-    - targetCorrespondingSourceObject: {fileID: 5533584001014519575, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1414769142}
   m_SourcePrefab: {fileID: 100100000, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
 --- !u!1001 &1918285141243380145
 PrefabInstance:
@@ -84332,5 +84232,4 @@ SceneRoots:
   - {fileID: 2094415943}
   - {fileID: 1984415755}
   - {fileID: 980643218}
-  - {fileID: 1354733711}
   - {fileID: 1391385267}

@@ -6,7 +6,6 @@ public class PlayerManager : MonoBehaviour
 {
 
     public PlayerShield playerShield;
-    public Laser laser;
 
     public Weapon weapon;
     public Turret turret;

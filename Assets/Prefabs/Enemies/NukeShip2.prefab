@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 704854879415898050}
   m_Layer: 0
   m_Name: NukeShip2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,12 +147,9 @@ MonoBehaviour:
   deathExplosion: {fileID: 162584487599433031, guid: 71c2b036e1a7a84418a17c55376eb376, type: 3}
   shouldRotate: 1
   health: 3000
-  pointsWorth: 60
+  pointsDrop: 0
   speed: 8
   stopDistance: 30
-  earlyGameHealth: 3000
-  midGameHealth: 10000
-  lateGameHealth: 30000
   cameraShakeMagnitude: 8
   cameraShakeRoughness: 8
   cameraShakeFadeInTime: 0.1
