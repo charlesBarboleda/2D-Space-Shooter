@@ -34,12 +34,12 @@ public class SpawnerManager : MonoBehaviour
     }
     void Start()
     {
-        // InvokeRepeating("SpawnShipsWrapper", 0, GameManager.Instance.spawnRate);
+        InvokeRepeating("SpawnShipsWrapper", 0, GameManager.Instance.spawnRate);
 
     }
     void OnEnable()
     {
-        // InvokeRepeating("SpawnShipsWrapper", 0, GameManager.Instance.spawnRate);
+        InvokeRepeating("SpawnShipsWrapper", 0, GameManager.Instance.spawnRate);
     }
 
     void OnDisable()

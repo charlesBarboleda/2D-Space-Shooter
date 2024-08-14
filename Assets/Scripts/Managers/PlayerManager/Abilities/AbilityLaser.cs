@@ -6,22 +6,22 @@ using UnityEngine;
 public class AbilityLaser : Ability
 {
 
-    [SerializeField] private GameObject laserPrefab;
-    [SerializeField] private float duration;
-    [SerializeField] private float dps;
-    [SerializeField] private float cooldown;
+    [SerializeField] private GameObject _laserPrefab;
+    [SerializeField] private float _duration;
+    [SerializeField] private float _dps;
+    [SerializeField] private float _cooldown;
 
     public override void UseAbility(GameObject owner, Transform target)
     {
         //Instantiate the laser prefab
-        GameObject Laser = Instantiate(laserPrefab, owner.transform.position, Quaternion.identity);
+        GameObject Laser = Instantiate(_laserPrefab, owner.transform.position, Quaternion.identity);
         Laser.transform.rotation = owner.transform.rotation;
         Laser.transform.SetParent(owner.transform);
-        Destroy(Laser, duration);
+        Destroy(Laser, _duration);
 
         //Pass the damage value to the laser
-        LaserPrefab laserScript = Laser.GetComponent<LaserPrefab>();
-        laserScript.SetDamage(dps);
+        PlayerLaserPrefab laserScript = Laser.GetComponent<PlayerLaserPrefab>();
+        laserScript.SetDamage(_dps);
 
 
     }
