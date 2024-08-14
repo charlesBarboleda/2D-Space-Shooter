@@ -8,6 +8,7 @@ public class AbilityHolder : MonoBehaviour
 
     [SerializeField] private KeyCode key;
     [SerializeField] private Transform target;
+    public int abilityIndex;
 
 
     // Update is called once per frame
@@ -15,7 +16,7 @@ public class AbilityHolder : MonoBehaviour
     {
         if (Input.GetKeyDown(key))
         {
-            abilities[0].UseAbility(gameObject, target);
+            abilities[abilityIndex].UseAbility(gameObject, target);
         }
     }
 }

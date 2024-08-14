@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Ability/Laser")]
+[CreateAssetMenu(menuName = "Abilities/Laser")]
 public class AbilityLaser : Ability
 {
+
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] private float duration;
     [SerializeField] private float dps;
+    [SerializeField] private float cooldown;
 
     public override void UseAbility(GameObject owner, Transform target)
     {
@@ -19,6 +21,7 @@ public class AbilityLaser : Ability
 
         //Pass the damage value to the laser
         LaserPrefab laserScript = Laser.GetComponent<LaserPrefab>();
+        laserScript.SetDamage(dps);
 
 
     }

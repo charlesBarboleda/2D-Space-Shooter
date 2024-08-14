@@ -16,5 +16,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2a507f339f68c465cb98ed7d10af337c, type: 3}
   cooldown: 10
   laserPrefab: {fileID: 3487352173824420537, guid: 80e0bd9d08cd69c458089c292ac1893c, type: 3}
-  duration: 5
-  dps: 100
+  duration: 10
+  dps: 0
+  cooldown: 10

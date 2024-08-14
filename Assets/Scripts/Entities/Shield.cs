@@ -18,18 +18,8 @@ public class Shield : MonoBehaviour
         {
             shieldHealth -= other.GetComponent<Bullet>().BulletDamage;
             other.gameObject.SetActive(false);
-            if (shieldHealth <= 0)
-            {
-                playerManager.playerShield.shieldTimer = 0;
-                DisableShield();
-                Debug.Log("Shield is down");
-            }
+
         }
     }
 
-    private void DisableShield()
-    {
-        playerManager.playerShield.shieldTimer = 0;
-        gameObject.SetActive(false);
-    }
 }

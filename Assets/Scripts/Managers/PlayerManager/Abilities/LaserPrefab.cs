@@ -5,12 +5,13 @@ using UnityEngine;
 public class LaserPrefab : MonoBehaviour
 {
     private float dps;
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null && other.CompareTag("Enemy"))
         {
             damageable.TakeDamage(dps);
+            Debug.Log("Laser hit enemy for " + dps + " damage");
         }
     }
     public void SetDamage(float damage)

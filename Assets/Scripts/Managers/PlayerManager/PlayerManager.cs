@@ -5,13 +5,8 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
 
-    public PlayerShield playerShield;
-
-    public Weapon weapon;
-    public Turret turret;
 
     public HealthBar healthBar;
-    public Teleport playerTeleport;
     private SpriteRenderer spriteRenderer;
 
     public float playerHealth = 100f;
@@ -29,10 +24,6 @@ public class PlayerManager : MonoBehaviour
     }
     public void TakeDamage(float damage)
     {
-        if (playerShield.shield.activeSelf)
-        {
-            return;
-        }
         playerHealth -= damage;
         StartCoroutine(FlashRed());
         healthBar.SetHealth();

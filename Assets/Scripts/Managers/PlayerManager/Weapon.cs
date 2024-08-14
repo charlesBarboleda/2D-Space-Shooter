@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private Turret turret;
-    [SerializeField] private BulletAudio bulletAudio;
-    [SerializeField] private float shootingAngle = 10f;
-    private bool isFiring;
-    private Coroutine firingCoroutine;
-    private float fireRate = 0.2f;
+    public BulletAudio bulletAudio;
+    public float shootingAngle = 10f;
+
+    public bool isFiring;
+    public Coroutine firingCoroutine;
+    public float fireRate = 0.2f;
     public int amountOfBullets = 1;
     public int bulletDamage = 20;
     public float bulletLifetime = 5f;
@@ -35,7 +35,6 @@ public class Weapon : MonoBehaviour
     {
         while (isFiring)
         {
-            turret.TurretTimer();
             FireBullets(amountOfBullets, transform.position);
             bulletAudio.PlayOneShot(bulletAudio.shootingSound);
             yield return new WaitForSeconds(fireRate);
