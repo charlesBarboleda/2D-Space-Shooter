@@ -15,7 +15,8 @@ MonoBehaviour:
   abilityName: PlayerTeleport
   icon: {fileID: 21300000, guid: 4ffbe445930f3214f86656e87c7a1934, type: 3}
   cooldown: 0
-  _teleportDistance: 5
+  _teleportDistance: 10
   _teleportEffect: {fileID: 9027514048236820045, guid: 6c906060d89785c4791f35aa92c60dbf, type: 3}
-  _teleportSize: 1
+  _teleportSize: 3
   _teleportDamage: 50
+  _teleportDuration: 0
