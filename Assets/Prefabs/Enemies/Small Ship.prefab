@@ -143,11 +143,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2520035b6197c5e42a54ed52ed55c248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currencyPrefab: []
   spawnAnimation: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   deathExplosion: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   shouldRotate: 1
   health: 100
-  pointsDrop: 0
+  currencyDrop: 3
   speed: 8
   stopDistance: 4
   cameraShakeMagnitude: 2

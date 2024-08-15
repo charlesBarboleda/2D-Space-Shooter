@@ -5,16 +5,17 @@ using EZCameraShake;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
+    [SerializeField] List<GameObject> currencyPrefab;
     protected PlayerManager player;
 
     // Animations
     public GameObject spawnAnimation;
     public GameObject deathExplosion;
-    private SpriteRenderer spriteRenderer;
+    SpriteRenderer spriteRenderer;
     // Stats
     public bool shouldRotate;
     public float health;
-    public float pointsDrop;
+    public float currencyDrop;
     public float speed;
     public float stopDistance;
 
@@ -44,12 +45,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             transform.position += direction * speed * Time.deltaTime;
         }
     }
-    public void InitializeStats(float health, float pointsDrop, float speed)
-    {
-        this.health += health;
-        this.pointsDrop = pointsDrop;
-        this.speed += speed;
-    }
 
     public void Aim(Transform target)
     {
@@ -77,14 +72,15 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
 
         health -= damage;
-        StartCoroutine(FlashRed());
+        if (health > 0)
+        {
+            StartCoroutine(FlashRed());
+        }
         if (health <= 0)
         {
             Destroy();
         }
     }
-
-
 
     public virtual void Destroy()
     {
@@ -92,6 +88,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         Destroy(exp, 1f);
         gameObject.SetActive(false);
         CameraShaker.Instance.ShakeOnce(cameraShakeMagnitude, cameraShakeRoughness, cameraShakeFadeInTime, cameraShakeFadeOutTime);
+        GameObject currency = Instantiate(currencyPrefab[Random.Range(0, currencyPrefab.Count)], transform.position, transform.rotation);
+        currency.GetComponent<CurrencyDrop>().SetCurrency(currencyDrop);
     }
 
 

@@ -1,59 +1,46 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    private PlayerManager player;
     [SerializeField] private TextMeshProUGUI roundText;
     [SerializeField] private TextMeshProUGUI laserText;
     [SerializeField] private TextMeshProUGUI shieldText;
     [SerializeField] private TextMeshProUGUI turretText;
-    [SerializeField] private TextMeshProUGUI highscore;
+    [SerializeField] private TextMeshProUGUI highscoreText;
+    [SerializeField] private TextMeshProUGUI currencyText;
+
     [SerializeField] private GameObject gameOverPanel;
 
     void Start()
     {
-        player = GameManager.Instance.GetPlayer();
         GameManager.OnNextRound += UpdateRoundText;
         GameManager.OnGameOver += GameOver;
-        GameManager.OnBossRound += UpdateBossRoundText;
-        GameManager.OnPowerUpRound += UpdatePowerUpRoundText;
-        GameManager.OnPowerUpChosen += UpdateRoundText;
+        PlayerManager.OnCurrencyChange += UpdateCurrencyText;
     }
 
     void OnDestroy()
     {
         GameManager.OnNextRound -= UpdateRoundText;
         GameManager.OnGameOver -= GameOver;
-        GameManager.OnBossRound -= UpdateBossRoundText;
-        GameManager.OnPowerUpRound -= UpdatePowerUpRoundText;
-        GameManager.OnPowerUpChosen -= UpdateRoundText;
-
-
+        PlayerManager.OnCurrencyChange -= UpdateCurrencyText;
 
     }
 
-    void Update()
+
+    private void UpdateCurrencyText()
     {
 
+        currencyText.text = $"{GameManager.Instance.GetPlayer().currency}";
     }
 
     private void UpdateRoundText()
     {
 
-        roundText.text = $"Round: {GameManager.Instance.level}";
+        roundText.text = $"{GameManager.Instance.level}";
     }
-    private void UpdatePowerUpRoundText()
-    {
-        roundText.text = "Power Up Round";
-    }
-
-    private void UpdateBossRoundText()
-    {
-        roundText.text = "Boss Round";
-    }
-
 
     public void GameOver()
     {

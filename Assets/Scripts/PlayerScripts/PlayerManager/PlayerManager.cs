@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,13 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
 
-
+    public static event Action OnCurrencyChange;
     public HealthBar healthBar;
-    private SpriteRenderer spriteRenderer;
+    SpriteRenderer spriteRenderer;
 
     public float playerHealth = 100f;
+
+    public float currency = 0f;
 
     void Start()
     {
@@ -31,6 +34,18 @@ public class PlayerManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void AddCurrency(float currency)
+    {
+        this.currency += currency;
+        OnCurrencyChange?.Invoke();
+    }
+
+    public void RemoveCurrency(float currency)
+    {
+        this.currency -= currency;
+
     }
 
     public void AddHealth(float health)

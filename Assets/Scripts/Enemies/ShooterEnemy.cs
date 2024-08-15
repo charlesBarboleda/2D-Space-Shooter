@@ -22,7 +22,6 @@ public class ShooterEnemy : Enemy
     private void Start()
     {
         SpawnAnimation();
-        InitializeStats(health, pointsDrop, speed);
         player = GameManager.Instance.GetPlayer();
     }
 

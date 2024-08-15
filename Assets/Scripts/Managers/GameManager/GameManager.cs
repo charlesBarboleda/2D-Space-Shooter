@@ -4,24 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
-
     public static event Action OnGameOver;
     public static event Action OnNextRound;
-    public static event Action OnPowerUpRound;
-    public static event Action OnBossRound;
-    public static event Action OnPowerUpChosen;
     [SerializeField] private GameObject spawnerManager;
     [SerializeField] private GameObject powerUps;
 
     public float points;
-    public float currency;
     public int level;
     public float spawnRate;
     public float maxSpawnRate;
     public List<GameObject> enemies = new List<GameObject>();
     public static GameManager Instance { get; private set; }
-    public static GameManager GetInstance() { return Instance; }
     private PlayerManager Player;
 
     void Awake()
@@ -29,17 +22,12 @@ public class GameManager : MonoBehaviour
         Player = GameObject.Find("Player").GetComponent<PlayerManager>();
         SetSingleton();
         OnNextRound += NextRound;
-        OnBossRound += DestroyAllShips;
-        OnBossRound += DisableSpawning;
-        OnPowerUpRound += ChoosePowerUp;
+
     }
 
     void OnDestroy()
     {
         OnNextRound -= NextRound;
-        OnBossRound -= DestroyAllShips;
-        OnBossRound -= DisableSpawning;
-        OnPowerUpRound -= ChoosePowerUp;
     }
 
     void Start()
@@ -54,19 +42,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (level % 5 == 0 && level != 0)
-        {
-            OnPowerUpRound?.Invoke();
-        }
-
-        if ((level - 49) % 50 == 0 && level >= 49)
-        {
-            OnBossRound?.Invoke();
-        }
-        else
-        {
-            EnableSpawning();
-        }
         if (Player.playerHealth <= 0)
         {
             OnGameOver?.Invoke();
@@ -77,6 +52,7 @@ public class GameManager : MonoBehaviour
     {
         return Player;
     }
+
 
     void SetSingleton()
     {
@@ -98,12 +74,6 @@ public class GameManager : MonoBehaviour
     private void EnableSpawning()
     {
         spawnerManager.SetActive(true);
-    }
-
-    private void ChoosePowerUp()
-    {
-        powerUps.SetActive(true);
-        Time.timeScale = 0;
     }
     public void NextRound()
     {
