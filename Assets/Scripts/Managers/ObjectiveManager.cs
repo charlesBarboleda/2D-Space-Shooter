@@ -4,16 +4,45 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
-    public List<Objective> objectives;
+    public static ObjectiveManager Instance;
+    public List<Objective> activeObjectives;
 
-    private void Update()
+    void Awake()
     {
-        foreach (Objective objective in objectives)
+        if (Instance == null)
         {
-            if (!objective.isCompleted)
-            {
-                objective.CheckCompletion();
-            }
+            Instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Update()
+    {
+        UpdateObjectives();
+    }
+
+
+    void Start()
+    {
+        foreach (Objective objective in activeObjectives)
+        {
+            objective.RegisterEventHandlers();
+        }
+    }
+
+    void OnDestroy()
+    {
+        foreach (Objective objective in activeObjectives)
+        {
+            objective.UnregisterEventHandlers();
+        }
+    }
+
+    public void UpdateObjectives()
+    {
+        UIManager.Instance.UpdateObjectivesUI(activeObjectives);
     }
 }

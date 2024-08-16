@@ -7,7 +7,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> currencyPrefab;
     protected PlayerManager player;
-    KillObjective killObjective;
 
     // Animations
     public GameObject spawnAnimation;
@@ -85,7 +84,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void Destroy()
     {
-        killObjective.RegisterKill();
+        EventManager.ShipDestroyed();
         GameObject exp = Instantiate(deathExplosion, transform.position, transform.rotation);
         Destroy(exp, 1f);
         gameObject.SetActive(false);

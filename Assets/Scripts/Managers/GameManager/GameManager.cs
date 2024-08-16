@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static event Action OnGameOver;
-    public static event Action OnNextRound;
+
     [SerializeField] private GameObject spawnerManager;
     [SerializeField] private GameObject powerUps;
 
@@ -20,7 +19,7 @@ public class GameManager : MonoBehaviour
     {
         Player = GameObject.Find("Player").GetComponent<PlayerManager>();
         SetSingleton();
-        OnNextRound += NextRound;
+        EventManager.OnNextRound += NextRound;
 
     }
 
@@ -28,7 +27,7 @@ public class GameManager : MonoBehaviour
     {
         if (Player.playerHealth <= 0)
         {
-            OnGameOver?.Invoke();
+            EventManager.GameOver();
         }
     }
 
@@ -36,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     void OnDestroy()
     {
-        OnNextRound -= NextRound;
+        EventManager.OnNextRound -= NextRound;
     }
 
     void Start()

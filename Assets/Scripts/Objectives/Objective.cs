@@ -3,23 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Objective : ScriptableObject
+public abstract class Objective : ScriptableObject, IObjective
 {
-    public string objectiveName;
-    public string objectiveDescription;
-    public bool isCompleted;
+    [Header("Objective Details")]
+    public string description;
+    public bool isCompleted { get; set; }
     public int objectiveReward;
 
-    public static event Action OnObjectiveCompleted;
-    public abstract void CheckCompletion();
+    [Header("Optional Objective Details")]
+    public int targetAmount;
+    public int currentAmount;
 
-    protected void CompleteObjective()
-    {
-        if (!isCompleted)
-        {
-            isCompleted = true;
-            OnObjectiveCompleted?.Invoke();
-            GameManager.Instance.GetPlayer().AddCurrency(objectiveReward);
-        }
-    }
+
+    public abstract void RegisterEventHandlers();
+    public abstract void UnregisterEventHandlers();
+
 }

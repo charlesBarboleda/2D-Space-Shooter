@@ -6,24 +6,22 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
 
+    public static event System.Action OnShipDestroyed;
+    public static event System.Action OnGameOver;
+    public static event System.Action OnNextRound;
 
-
-    public static EventManager Instance { get; private set; }
-
-    void Awake()
+    public static void ShipDestroyed()
     {
-        SetSingleton();
+        OnShipDestroyed?.Invoke();
     }
-    void SetSingleton()
+
+    public static void GameOver()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        OnGameOver?.Invoke();
+    }
+
+    public static void NextRound()
+    {
+        OnNextRound?.Invoke();
     }
 }
