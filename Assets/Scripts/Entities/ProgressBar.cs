@@ -15,7 +15,6 @@ public class ProgressBar : MonoBehaviour
     }
     public void SetProgress()
     {
-        slider.value = GameManager.Instance.points;
 
 
     }

@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject spawnerManager;
     [SerializeField] private GameObject powerUps;
 
-    public float points;
     public int level;
     public float spawnRate;
     public float maxSpawnRate;
@@ -25,6 +24,16 @@ public class GameManager : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        if (Player.playerHealth <= 0)
+        {
+            OnGameOver?.Invoke();
+        }
+    }
+
+
+
     void OnDestroy()
     {
         OnNextRound -= NextRound;
@@ -38,14 +47,6 @@ public class GameManager : MonoBehaviour
     public void IncreaseLevel()
     {
         level++;
-    }
-
-    void Update()
-    {
-        if (Player.playerHealth <= 0)
-        {
-            OnGameOver?.Invoke();
-        }
     }
 
     public PlayerManager GetPlayer()
@@ -75,9 +76,17 @@ public class GameManager : MonoBehaviour
     {
         spawnerManager.SetActive(true);
     }
+
+    public void RoundStart()
+    {
+
+        EnableSpawning();
+    }
     public void NextRound()
     {
-        spawnRate -= 0.001f;
+
+        DisableSpawning();
+        spawnRate -= 0.01f;
         if (spawnRate < maxSpawnRate) spawnRate = maxSpawnRate;
         level++;
 
