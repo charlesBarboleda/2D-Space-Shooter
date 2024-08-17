@@ -61,33 +61,5 @@ public class UIManager : MonoBehaviour
         gameOverPanel.SetActive(true);
 
     }
-    public void UpdateObjectivesUI(List<Objective> objectives)
-    {
-        foreach (Transform child in objectivesContainer)
-        {
-            Destroy(child.gameObject);
-        }
 
-        foreach (Objective objective in objectives)
-        {
-            GameObject objUI = Instantiate(objectiveTemplate, objectivesContainer);
-            TextMeshProUGUI descriptionText = objUI.GetComponentInChildren<TextMeshProUGUI>();
-            Toggle checkMark = objUI.GetComponentInChildren<Toggle>();
-
-            if (objective is DestroyShipsObjective destroyObjective)
-            {
-                descriptionText.text = $"Destroy {destroyObjective.targetAmount - destroyObjective.currentAmount} ships";
-            }
-            else
-            {
-                descriptionText.text = objective.description; // Or any other fallback description
-            }
-            checkMark.isOn = objective.isCompleted;
-
-            checkMark.onValueChanged.AddListener((isOn) =>
-            {
-                objective.isCompleted = isOn;
-            });
-        }
-    }
 }
