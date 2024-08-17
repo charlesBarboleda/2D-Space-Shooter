@@ -84,7 +84,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void Destroy()
     {
-        EventManager.ShipDestroyed();
+        EventManager.ShipDestroyedEvent();
         GameObject exp = Instantiate(deathExplosion, transform.position, transform.rotation);
         Destroy(exp, 1f);
         gameObject.SetActive(false);

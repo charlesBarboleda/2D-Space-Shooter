@@ -4,45 +4,34 @@ using UnityEngine;
 
 public class ObjectiveManager : MonoBehaviour
 {
-    public static ObjectiveManager Instance;
-    public List<Objective> activeObjectives;
+    private List<Objective> objectives = new List<Objective>();
 
-    void Awake()
+    public void AddObjective(Objective objective)
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        objectives.Add(objective);
+        objective.OnStateChanged += HandleObjectiveStateChange;
     }
 
-    void Update()
+    private void HandleObjectiveStateChange(ObjectiveState state)
     {
-        UpdateObjectives();
+        Debug.Log($"Objective state changed to: {state}");
     }
 
-
-    void Start()
+    public void StartAllObjectives()
     {
-        foreach (Objective objective in activeObjectives)
+        foreach (var objective in objectives)
         {
-            objective.RegisterEventHandlers();
+            objective.StartObjective();
         }
     }
 
-    void OnDestroy()
+    private void ClearObjectives()
     {
-        foreach (Objective objective in activeObjectives)
+        foreach (var objective in objectives)
         {
-            objective.UnregisterEventHandlers();
+            objective.OnStateChanged -= HandleObjectiveStateChange;
         }
+        objectives.Clear();
     }
 
-    public void UpdateObjectives()
-    {
-        UIManager.Instance.UpdateObjectivesUI(activeObjectives);
-    }
 }

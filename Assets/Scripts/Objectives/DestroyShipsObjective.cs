@@ -2,26 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Objectives/DestroyShipsObjective")]
 public class DestroyShipsObjective : Objective
 {
 
-    public override void RegisterEventHandlers()
+    private int enemiesToDestroy;
+    private int enemiesDestroyed;
+
+    public DestroyShipsObjective(int enemiesToDestroy)
     {
-        EventManager.OnShipDestroyed += OnShipDestroyed;
+        this.enemiesToDestroy = enemiesToDestroy;
     }
 
-    public override void UnregisterEventHandlers()
+    protected override void OnStart()
     {
-        EventManager.OnShipDestroyed -= OnShipDestroyed;
+        Debug.Log("Kill Enemies Objective Started");
     }
 
-    private void OnShipDestroyed()
+    protected override void OnComplete()
     {
-        currentAmount++;
-        if (currentAmount >= targetAmount)
+        GameManager.Instance.GetPlayer().AddCurrency(reward);
+        Debug.Log("Kill Enemies Objective Completed");
+    }
+
+    protected override void OnFail()
+    {
+        Debug.Log("Kill Enemies Objective Failed");
+    }
+
+    public void OnEnemyKilled()
+    {
+        if (State == ObjectiveState.Active)
         {
-            isCompleted = true;
+            enemiesDestroyed++;
+            if (enemiesDestroyed >= enemiesToDestroy)
+            {
+                CompleteObjective();
+            }
         }
     }
 }

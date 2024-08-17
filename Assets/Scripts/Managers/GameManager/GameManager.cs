@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject spawnerManager;
     [SerializeField] private GameObject powerUps;
+    public ObjectiveManager objectiveManager;
 
     public int level;
     public float spawnRate;
@@ -20,6 +21,10 @@ public class GameManager : MonoBehaviour
         Player = GameObject.Find("Player").GetComponent<PlayerManager>();
         SetSingleton();
         EventManager.OnNextRound += NextRound;
+        DestroyShipsObjective destroyObjective10 = new DestroyShipsObjective(10);
+        destroyObjective10.SetReward(100);
+        objectiveManager.AddObjective(destroyObjective10);
+        objectiveManager.StartAllObjectives();
 
     }
 
@@ -27,8 +32,10 @@ public class GameManager : MonoBehaviour
     {
         if (Player.playerHealth <= 0)
         {
-            EventManager.GameOver();
+            EventManager.GameOverEvent();
         }
+
+
     }
 
 
