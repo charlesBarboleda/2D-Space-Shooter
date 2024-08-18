@@ -25,7 +25,7 @@ public abstract class Objective : ScriptableObject, IObjective
 
     protected void FailObjective()
     {
-        isCompleted = true;
+        isCompleted = false;
         Debug.LogWarning($"{description} failed.");
     }
 
