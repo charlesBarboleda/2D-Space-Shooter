@@ -6,7 +6,6 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
 
-    public static event System.Action OnShipDestroyed;
     public static event System.Action OnGameOver;
     public static event System.Action OnNextRound;
     public static event System.Action OnRoundStart;
