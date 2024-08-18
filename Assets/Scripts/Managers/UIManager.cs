@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI highscoreText;
     [SerializeField] TextMeshProUGUI currencyText;
+
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject objectiveTemplate;
     [SerializeField] Transform objectivesContainer;
@@ -34,7 +35,6 @@ public class UIManager : MonoBehaviour
         EventManager.OnNextRound += UpdateRoundText;
         EventManager.OnGameOver += GameOver;
         PlayerManager.OnCurrencyChange += UpdateCurrencyText;
-        UpdateRoundText();
 
     }
 
@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-
+        UpdateRoundText();
     }
 
     private void UpdateCurrencyText()
@@ -57,8 +57,12 @@ public class UIManager : MonoBehaviour
 
     private void UpdateRoundText()
     {
-        roundText.text = $"{GameManager.Instance.level}";
+        if (GameManager.Instance.isRound) roundText.text = $"{GameManager.Instance.level}";
+        if (GameManager.Instance.isCountdown) roundText.text = $"{Math.Round(GameManager.Instance.roundCountdown, 0)}";
+
+
     }
+
 
     public void GameOver()
     {

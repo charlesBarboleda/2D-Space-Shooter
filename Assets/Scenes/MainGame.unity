@@ -58781,7 +58781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 6, y: -25}
+  m_AnchoredPosition: {x: 6, y: -26}
   m_SizeDelta: {x: 187.84, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1529310120
@@ -80450,7 +80450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2081907817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80463,7 +80463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0209a09cedf33249a9ea1039b1d6d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1414769126}
+  numberOfSpawnPoints: 360
+  spawnPointRadius: 300
 --- !u!4 &2081907818
 Transform:
   m_ObjectHideFlags: 0
@@ -82591,6 +82592,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1174311441}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: countdownText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: gameOverPanel
       value: 
       objectReference: {fileID: 156757460}
@@ -82892,6 +82897,10 @@ PrefabInstance:
       propertyPath: GameOverPanel
       value: 
       objectReference: {fileID: 156757460}
+    - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
+      propertyPath: enemiesToSpawn
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: pointsRequired
       value: 5

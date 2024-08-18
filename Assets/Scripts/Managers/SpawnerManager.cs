@@ -4,86 +4,30 @@ using UnityEngine;
 
 public class SpawnerManager : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    private string[][] enemyShipNames;
-    private float[][] enemyProbabilities;
+    [SerializeField] int numberOfSpawnPoints = 360;
+    [SerializeField] int spawnPointRadius = 30;
+    List<string> shipNamesEarly = new List<string> { "SmallShip", "MediumShip", "MeleeShip, MediumShip2" };
 
     void Awake()
     {
-        enemyShipNames = new string[][]
-        {
-            new string[] { "SmallShip", "MeleeShip", "MediumShip", "MediumShip2" },
-            new string[] { "NukeShip", "MediumShip", "MediumShip2", "SmallShip" },
-            new string[] { "LargeShip", "Carrier1", "NukeShip", "MediumShip", "MediumShip2" },
-            new string[] { "LargeShip", "Carrier1", "NukeShip", "MediumShip", "MediumShip2" },
-            new string[] { "LargeShip", "Carrier1", "NukeShip", "NukeShip2", "MediumShip", "MediumShip2" },
-            new string[] { "LargeShip", "Carrier1", "NukeShip", "NukeShip2" },
-            new string[] { "LargeShip", "Carrier1", "NukeShip2" }
-        };
 
-        enemyProbabilities = new float[][]
-        {
-            new float[] { 0.2f, 0.2f, 0.3f, 0.3f },
-            new float[] { 0.01f, 0.4f, 0.4f, 0.19f },
-            new float[] { 0.09f, 0.03f, 0.2f, 0.35f, 0.35f },
-            new float[] { 0.05f, 0.001f, 0.2f, 0.2f, 0.4f },
-            new float[] { 0.1f, 0.05f, 0.2f, 0.2f, 0.1f, 0.2f },
-            new float[] { 0.3f, 0.2f, 0.2f, 0.2f },
-            new float[] { 0.2f, 0.2f, 0.2f }
-        };
     }
+
     void Start()
     {
-        InvokeRepeating("SpawnShipsWrapper", 0, GameManager.Instance.spawnRate);
-
+        StartCoroutine(SpawnEnemiesOverTime());
+        SpawnShip("SmallShip", new Vector3(0, 0, 0), Quaternion.identity);
     }
     void OnEnable()
     {
-        InvokeRepeating("SpawnShipsWrapper", 0, GameManager.Instance.spawnRate);
+        StartCoroutine(SpawnEnemiesOverTime());
     }
 
     void OnDisable()
     {
-        CancelInvoke("SpawnShipsWrapper");
-        SpawnBossShips();
+        StopAllCoroutines();
     }
 
-
-    private void SpawnBossShips()
-    {
-        if (player != null)
-        {
-            if (GameManager.Instance.level == 49)
-            {
-                SpawnBossShipRandomPosition("LargeShip", 3);
-            }
-            else if (GameManager.Instance.level == 99)
-            {
-                SpawnBossShipRandomPosition("BossShip", 1);
-            }
-            else if (GameManager.Instance.level == 149)
-            {
-                SpawnBossShipRandomPosition("BossShip", 2);
-            }
-            else
-            {
-                SpawnBossShipRandomPosition("BossShip", 3);
-            }
-        }
-    }
-
-    private void SpawnBossShipRandomPosition(string shipName, int amountToSpawn)
-    {
-        for (int i = 0; i < amountToSpawn; i++)
-        {
-            Vector3 randomPosition = Random.onUnitSphere * 50;
-            GameObject ship = ObjectPooler.Instance.SpawnFromPool(shipName, player.transform.position + randomPosition, transform.rotation);
-            ship.GetComponent<ShooterEnemy>().amountOfBullets += 5;
-            ship.GetComponent<ShooterEnemy>().bulletSpeed += 4f;
-            ship.transform.localScale += new Vector3(3f, 3f, 3f);
-            ship.GetComponent<SpriteRenderer>().color = Color.gray;
-        }
-    }
 
 
     private void SpawnShip(string tag, Vector3 position, Quaternion rotation)
@@ -92,66 +36,23 @@ public class SpawnerManager : MonoBehaviour
         GameManager.Instance.enemies.Add(enemy);
     }
 
-    private string SelectRandomName(string[] names, float[] probabilities)
+    IEnumerator SpawnEnemiesOverTime()
     {
-        float[] cumulativeProbabilities = new float[probabilities.Length];
-        cumulativeProbabilities[0] = probabilities[0];
-        for (int i = 1; i < probabilities.Length; i++)
+        for (int i = 0; i < GameManager.Instance.enemiesToSpawn; i++)
         {
-            cumulativeProbabilities[i] = cumulativeProbabilities[i - 1] + probabilities[i];
-        }
+            // Select a random segment between two consecutive points
+            float segmentIndex = Random.Range(0, numberOfSpawnPoints);
+            float minAngle = segmentIndex * Mathf.PI * 2 / numberOfSpawnPoints;
+            float maxAngle = (segmentIndex + 1) * Mathf.PI * 2 / numberOfSpawnPoints;
+            float randomAngle = Random.Range(minAngle, maxAngle);
 
-        float randomValue = Random.value;
-        for (int i = 0; i < cumulativeProbabilities.Length; i++)
-        {
-            if (randomValue < cumulativeProbabilities[i])
-            {
-                return names[i];
-            }
-        }
+            // Calculate the random position on the circle
+            Vector3 spawnPosition = new Vector3(Mathf.Cos(randomAngle) * spawnPointRadius, Mathf.Sin(randomAngle) * spawnPointRadius, 0);
 
-        return names[names.Length - 1];
-    }
+            SpawnShip(shipNamesEarly[Random.Range(0, shipNamesEarly.Count)], spawnPosition, Quaternion.identity);
 
-    public void SpawnShipRandomLocation(string shipName)
-    {
-        Vector3 randomPosition = Random.onUnitSphere * 50;
-        SpawnShip(shipName, randomPosition + player.transform.position, transform.rotation);
-    }
-
-    private void SpawnShipsWrapper()
-    {
-        int level = GameManager.Instance.level;
-        if (player != null)
-        {
-            if (level <= 19)
-            {
-                SpawnShipRandomLocation(SelectRandomName(enemyShipNames[0], enemyProbabilities[0]));
-            }
-            else if (level < 40)
-            {
-                SpawnShipRandomLocation(SelectRandomName(enemyShipNames[1], enemyProbabilities[1]));
-            }
-            else if (level < 60)
-            {
-                SpawnShipRandomLocation(SelectRandomName(enemyShipNames[2], enemyProbabilities[2]));
-            }
-            else if (level < 80)
-            {
-                SpawnShipRandomLocation(SelectRandomName(enemyShipNames[3], enemyProbabilities[3]));
-            }
-            else if (level < 140)
-            {
-                SpawnShipRandomLocation(SelectRandomName(enemyShipNames[4], enemyProbabilities[4]));
-            }
-            else if (level < 200)
-            {
-                SpawnShipRandomLocation(SelectRandomName(enemyShipNames[5], enemyProbabilities[5]));
-            }
-            else
-            {
-                SpawnShipRandomLocation(SelectRandomName(enemyShipNames[6], enemyProbabilities[6]));
-            }
+            yield return new WaitForSeconds(GameManager.Instance.spawnRate);
         }
     }
+
 }

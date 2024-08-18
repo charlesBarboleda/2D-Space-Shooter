@@ -7,8 +7,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject _spawnerManager;
     [SerializeField] private GameObject _powerUps;
+    public float roundCountdown;
+    public bool isCountdown;
+    public bool isRound;
 
-
+    public int enemiesToSpawn;
     public int level;
     public float spawnRate;
     public float maxSpawnRate;
@@ -30,7 +33,16 @@ public class GameManager : MonoBehaviour
         {
             EventManager.GameOverEvent();
         }
-
+        if (isCountdown)
+        {
+            roundCountdown -= Time.deltaTime;
+            if (roundCountdown <= 0)
+            {
+                isCountdown = false;
+                isRound = true;
+                RoundStart();
+            }
+        }
 
     }
 
@@ -43,7 +55,12 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        EnableSpawning();
+        level = 1;
+        spawnRate = 0.5f;
+        maxSpawnRate = 0.1f;
+        roundCountdown = 5f;
+        isCountdown = true;
+
     }
 
     public void IncreaseLevel()
@@ -81,7 +98,7 @@ public class GameManager : MonoBehaviour
 
     public void RoundStart()
     {
-
+        roundCountdown = 5f;
         EnableSpawning();
     }
     public void NextRound()
