@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject _spawnerManager;
     [SerializeField] private GameObject _powerUps;
-    [SerializeField] private ObjectiveManager _objectiveManager;
 
 
     public int level;
@@ -108,9 +107,6 @@ public class GameManager : MonoBehaviour
         enemies.Clear();
     }
 
-    public List<Objective> GetCurrentObjectives()
-    {
-        return _objectiveManager.activeObjectives;
-    }
+
 
 }

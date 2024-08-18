@@ -11,10 +11,6 @@ public class EventManager : MonoBehaviour
     public static event System.Action OnRoundStart;
 
 
-    public static void ShipDestroyedEvent()
-    {
-        OnShipDestroyed?.Invoke();
-    }
 
     public static void GameOverEvent()
     {

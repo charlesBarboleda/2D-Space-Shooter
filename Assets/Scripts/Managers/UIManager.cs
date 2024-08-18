@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject objectiveTemplate;
     [SerializeField] Transform objectivesContainer;
 
-    private Dictionary<Objective, GameObject> objectiveUIElements = new Dictionary<Objective, GameObject>();
 
     void Awake()
     {
@@ -36,7 +35,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnGameOver += GameOver;
         PlayerManager.OnCurrencyChange += UpdateCurrencyText;
         UpdateRoundText();
-        InitializeObjectiveUI();
+
     }
 
     void OnDestroy()
@@ -48,7 +47,6 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        UpdateObjectiveStatus();
 
     }
 
@@ -67,39 +65,4 @@ public class UIManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
-    private void InitializeObjectiveUI()
-    {
-
-        objectiveUIElements.Clear();
-
-        foreach (Objective objective in GameManager.Instance.GetCurrentObjectives())
-        {
-            GameObject objectiveGO = Instantiate(objectiveTemplate, objectivesContainer);
-            objectiveUIElements[objective] = objectiveGO;
-        }
-    }
-
-    private void UpdateObjectiveStatus()
-    {
-        foreach (var objectivePair in objectiveUIElements)
-        {
-            Objective objective = objectivePair.Key;
-            GameObject objectiveGO = objectivePair.Value;
-            TextMeshProUGUI objectiveText = objectiveGO.GetComponentInChildren<TextMeshProUGUI>();
-            if (objective is DestroyShipsObjective destroyShipsObjective)
-            {
-                objectiveText.text = $"Destroy {destroyShipsObjective.GetRemainingShips()} ships";
-            }
-            else if (objective is DestroyShipsTimerObjective destroyShipsTimerObjective)
-            {
-                objectiveText.text = $"Destroy {destroyShipsTimerObjective.GetRemainingShips()} ships in {Math.Round(destroyShipsTimerObjective.GetRemainingTime(), 0)} s";
-            }
-
-            if (objective.IsCompleted)
-            {
-                objectiveText.color = Color.green;  // Change color to green when completed
-                objectiveText.text = $"✔ {objective.Description}";
-            }
-        }
-    }
 }
