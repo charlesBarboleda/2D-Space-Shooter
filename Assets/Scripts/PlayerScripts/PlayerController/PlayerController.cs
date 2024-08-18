@@ -1,32 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEditor.Callbacks;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float playerSpeed = 1f;
+    public float moveSpeed = 1f;
     [SerializeField] Camera mainCamera;
-    Vector3 movement;
+    Vector2 moveInput;
+    Rigidbody2D rb;
 
+
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void FixedUpdate()
     {
-
-        Movement();
+        rb.velocity = moveInput * moveSpeed; // Movement
         Aim();
         CameraFollow();
     }
 
 
 
-    private void Movement()
+    public void Move(InputAction.CallbackContext context)
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        movement = new Vector3(horizontal, vertical, 0f).normalized;
-
-        transform.position += movement * Time.deltaTime * playerSpeed;
+        moveInput = context.ReadValue<Vector2>(); // Read the value of the input
     }
 
     private void Aim()
