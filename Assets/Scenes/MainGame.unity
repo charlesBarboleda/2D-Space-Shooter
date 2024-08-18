@@ -2661,10 +2661,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeObjectives:
-  - {fileID: 11400000, guid: 51334b5253bfc384cab31ee1e2310005, type: 2}
-  - {fileID: 11400000, guid: 90d06bb9148a9c040965951a550e54a0, type: 2}
-  - {fileID: 11400000, guid: 8b5874733b071da4cb7c13143ed35211, type: 2}
-  - {fileID: 11400000, guid: 6d118a75acd73244992c67a2ba3feb12, type: 2}
+  - {fileID: 11400000, guid: ac7f58bf8959246498f7b17794bafd2e, type: 2}
+  - {fileID: 11400000, guid: db7f69d6b22fbdd44abedb023398dbe9, type: 2}
 --- !u!4 &57840018
 Transform:
   m_ObjectHideFlags: 0
@@ -83489,6 +83487,14 @@ PrefabInstance:
       propertyPath: spawnerManager
       value: 
       objectReference: {fileID: 2081907816}
+    - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
+      propertyPath: _spawnerManager
+      value: 
+      objectReference: {fileID: 2081907816}
+    - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
+      propertyPath: _objectiveManager
+      value: 
+      objectReference: {fileID: 57840017}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: isChoosingPowerUp
       value: 0

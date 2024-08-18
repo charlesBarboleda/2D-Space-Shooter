@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float BulletSpeed { get; private set; }
     public float BulletDamage { get; private set; }
     public float BulletLifetime { get; private set; }
+
     private Rigidbody2D rb;
 
 
@@ -47,6 +48,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null && other.CompareTag("Player"))
         {

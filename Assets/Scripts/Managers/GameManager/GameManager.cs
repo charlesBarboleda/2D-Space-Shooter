@@ -5,9 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] private GameObject spawnerManager;
-    [SerializeField] private GameObject powerUps;
-    public ObjectiveManager objectiveManager;
+    [SerializeField] private GameObject _spawnerManager;
+    [SerializeField] private GameObject _powerUps;
+    [SerializeField] private ObjectiveManager _objectiveManager;
+
 
     public int level;
     public float spawnRate;
@@ -21,10 +22,6 @@ public class GameManager : MonoBehaviour
         Player = GameObject.Find("Player").GetComponent<PlayerManager>();
         SetSingleton();
         EventManager.OnNextRound += NextRound;
-        DestroyShipsObjective destroyObjective10 = new DestroyShipsObjective(10);
-        destroyObjective10.SetReward(100);
-        objectiveManager.AddObjective(destroyObjective10);
-        objectiveManager.StartAllObjectives();
 
     }
 
@@ -75,12 +72,12 @@ public class GameManager : MonoBehaviour
 
     private void DisableSpawning()
     {
-        spawnerManager.SetActive(false);
+        _spawnerManager.SetActive(false);
     }
 
     private void EnableSpawning()
     {
-        spawnerManager.SetActive(true);
+        _spawnerManager.SetActive(true);
     }
 
     public void RoundStart()
@@ -111,5 +108,9 @@ public class GameManager : MonoBehaviour
         enemies.Clear();
     }
 
+    public List<Objective> GetCurrentObjectives()
+    {
+        return _objectiveManager.activeObjectives;
+    }
 
 }

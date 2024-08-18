@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Objectives/DestroyShipsObjective")]
-public class DestroyShipsObjective : Objective
+[CreateAssetMenu(menuName = "Objectives/DestroyShipsTimerObjective")]
+public class DestroyShipsTimerObjective : Objective
 {
     [SerializeField] private int targetDestroyAmount;
+    [SerializeField] private float timeLimit;
     private int shipsToDestroy;
+    private float remainingTime;
 
     public override void Initialize()
     {
         shipsToDestroy = targetDestroyAmount;
+        remainingTime = timeLimit;
         isCompleted = false;
     }
 
@@ -18,7 +21,14 @@ public class DestroyShipsObjective : Objective
     {
         if (isCompleted) return;
 
-        if (shipsToDestroy <= 0 && !isCompleted)
+        remainingTime -= Time.deltaTime;
+
+        if (remainingTime <= 0)
+        {
+            remainingTime = 0;
+            FailObjective();  // Optional: Implement a method to handle failing an objective
+        }
+        else if (shipsToDestroy <= 0 && !isCompleted)
         {
             shipsToDestroy = 0;
             CompleteObjective();
@@ -37,4 +47,10 @@ public class DestroyShipsObjective : Objective
     {
         return shipsToDestroy;
     }
+
+    public float GetRemainingTime()
+    {
+        return remainingTime;
+    }
 }
+

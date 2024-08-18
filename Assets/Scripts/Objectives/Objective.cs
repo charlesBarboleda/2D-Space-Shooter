@@ -1,52 +1,36 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Objective
+public abstract class Objective : ScriptableObject, IObjective
 {
+    [TextArea]
+    [SerializeField] private string description;
+    protected bool isCompleted;
+    [SerializeField] int reward;
 
-    public ObjectiveState State { get; private set; } = ObjectiveState.InActive;
-    public int reward { get; private set; }
+    public string Description => description;
+    public bool IsCompleted => isCompleted;
+    public int Reward => reward;
 
-    public event Action<ObjectiveState> OnStateChanged;
+    public abstract void Initialize();
+    public abstract void UpdateObjective();
 
-    public void StartObjective()
+    protected void CompleteObjective()
     {
-        if (State == ObjectiveState.InActive)
-        {
-            State = ObjectiveState.Active;
-            OnStateChanged?.Invoke(State); // Notify subscribers
-            OnStart();
-        }
+        isCompleted = true;
+        Debug.Log($"{description} completed!");
+        GiveReward(reward);
     }
 
-    public void CompleteObjective()
+    protected void FailObjective()
     {
-        if (State == ObjectiveState.Active)
-        {
-            State = ObjectiveState.Completed;
-            OnStateChanged?.Invoke(State); // Notify subscribers
-            OnComplete();
-        }
+        isCompleted = true;
+        Debug.LogWarning($"{description} failed.");
     }
 
-    public void FailObjective()
+    protected void GiveReward(int reward)
     {
-        if (State == ObjectiveState.Active)
-        {
-            State = ObjectiveState.Failed;
-            OnStateChanged?.Invoke(State); // Notify subscribers
-            OnFail();
-        }
+        GameManager.Instance.GetPlayer().AddCurrency(reward);
     }
-    public void SetReward(int reward)
-    {
-        this.reward = reward;
-    }
-
-    protected abstract void OnStart();
-    protected abstract void OnComplete();
-    protected abstract void OnFail();
 }
-
