@@ -80464,7 +80464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfSpawnPoints: 360
-  spawnPointRadius: 300
+  spawnPointRadius: 10
 --- !u!4 &2081907818
 Transform:
   m_ObjectHideFlags: 0
@@ -82875,7 +82875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: level
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: player
@@ -82899,7 +82899,7 @@ PrefabInstance:
       objectReference: {fileID: 156757460}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: enemiesToSpawn
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: pointsRequired
@@ -82940,10 +82940,10 @@ SceneRoots:
   m_Roots:
   - {fileID: 1918285141243380145}
   - {fileID: 292356843734558813}
+  - {fileID: 2081907818}
   - {fileID: 1136222167}
   - {fileID: 1865317798}
   - {fileID: 1260175705}
-  - {fileID: 2081907818}
   - {fileID: 1707799895}
   - {fileID: 606513201}
   - {fileID: 382851988894892445}

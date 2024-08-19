@@ -6,25 +6,22 @@ public class SpawnerManager : MonoBehaviour
 {
     [SerializeField] int numberOfSpawnPoints = 360;
     [SerializeField] int spawnPointRadius = 30;
-    List<string> shipNamesEarly = new List<string> { "SmallShip", "MediumShip", "MeleeShip, MediumShip2" };
+    List<string> shipNamesEarly = new List<string> { "SmallShip", "MediumShip", "MeleeShip", "MediumShip2" };
 
     void Awake()
     {
 
     }
 
-    void Start()
-    {
-        StartCoroutine(SpawnEnemiesOverTime());
-        SpawnShip("SmallShip", new Vector3(0, 0, 0), Quaternion.identity);
-    }
     void OnEnable()
     {
+        EventManager.OnEnemyDestroyed += RemoveEnemyFromList;
         StartCoroutine(SpawnEnemiesOverTime());
     }
 
     void OnDisable()
     {
+        EventManager.OnEnemyDestroyed -= RemoveEnemyFromList;
         StopAllCoroutines();
     }
 
@@ -52,6 +49,15 @@ public class SpawnerManager : MonoBehaviour
             SpawnShip(shipNamesEarly[Random.Range(0, shipNamesEarly.Count)], spawnPosition, Quaternion.identity);
 
             yield return new WaitForSeconds(GameManager.Instance.spawnRate);
+        }
+    }
+
+    private void RemoveEnemyFromList(GameObject enemy)
+    {
+        if (GameManager.Instance.enemies.Contains(enemy))
+        {
+            GameManager.Instance.enemies.Remove(enemy);
+            Debug.Log("Enemy removed. Total enemies in play: " + GameManager.Instance.enemies.Count);
         }
     }
 

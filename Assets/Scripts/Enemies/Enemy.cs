@@ -86,6 +86,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         GameObject exp = Instantiate(deathExplosion, transform.position, transform.rotation);
         Destroy(exp, 1f);
+        EventManager.EnemyDestroyedEvent(gameObject);
         gameObject.SetActive(false);
         CameraShaker.Instance.ShakeOnce(cameraShakeMagnitude, cameraShakeRoughness, cameraShakeFadeInTime, cameraShakeFadeOutTime);
         GameObject currency = Instantiate(currencyPrefab[Random.Range(0, currencyPrefab.Count)], transform.position, transform.rotation);

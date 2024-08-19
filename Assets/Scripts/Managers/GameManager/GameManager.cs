@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,8 @@ public class GameManager : MonoBehaviour
     public float roundCountdown;
     public bool isCountdown;
     public bool isRound;
-
+    bool isRoundOver;
+    bool canTriggerNextRound = true;
     public int enemiesToSpawn;
     public int level;
     public float spawnRate;
@@ -23,8 +25,15 @@ public class GameManager : MonoBehaviour
     {
         Player = GameObject.Find("Player").GetComponent<PlayerManager>();
         SetSingleton();
-        EventManager.OnNextRound += NextRound;
 
+    }
+
+    IEnumerator NextRoundCooldown()
+    {
+        canTriggerNextRound = false;
+        yield return new WaitForSeconds(0.1f);  // Short delay to prevent double trigger
+        canTriggerNextRound = true;
+        Debug.Log("canTriggerNextRound reset to true");
     }
 
     void Update()
@@ -33,34 +42,54 @@ public class GameManager : MonoBehaviour
         {
             EventManager.GameOverEvent();
         }
+        Debug.Log(canTriggerNextRound);
+
+        if (enemies.Count == 0 && !isRoundOver && canTriggerNextRound)
+        {
+            isRoundOver = true;
+            isCountdown = true;
+            EventManager.NextRoundEvent();
+            StartCoroutine(NextRoundCooldown());  // Start cooldown to prevent double calls
+        }
+
         if (isCountdown)
         {
             roundCountdown -= Time.deltaTime;
             if (roundCountdown <= 0)
             {
                 isCountdown = false;
+                isRoundOver = false;
                 isRound = true;
                 RoundStart();
             }
         }
-
     }
 
 
+    void OnEnable()
+    {
+        EventManager.OnRoundStart += RoundStart;
+        EventManager.OnNextRound += NextRound;
+    }
 
     void OnDestroy()
     {
         EventManager.OnNextRound -= NextRound;
+        EventManager.OnRoundStart -= RoundStart;
+
     }
 
     void Start()
     {
-        level = 1;
+        level = 0;
         spawnRate = 0.5f;
         maxSpawnRate = 0.1f;
+        enemiesToSpawn = 10;
         roundCountdown = 5f;
         isCountdown = true;
-
+        Debug.Log("Initial Level: " + level);
+        Debug.Log("Initial Spawn Rate: " + spawnRate);
+        Debug.Log("Initial Enemies to Spawn: " + enemiesToSpawn);
     }
 
     public void IncreaseLevel()
@@ -98,16 +127,25 @@ public class GameManager : MonoBehaviour
 
     public void RoundStart()
     {
+        isRound = true;
+        isRoundOver = false;
         roundCountdown = 5f;
         EnableSpawning();
     }
     public void NextRound()
     {
 
+        Debug.Log("NextRound called. Current Level: " + level);
+
         DisableSpawning();
         spawnRate -= 0.01f;
+        enemiesToSpawn += 10;
         if (spawnRate < maxSpawnRate) spawnRate = maxSpawnRate;
-        level++;
+        IncreaseLevel();
+
+        Debug.Log("New Level: " + level);
+        Debug.Log("New Spawn Rate: " + spawnRate);
+        Debug.Log("New Enemies to Spawn: " + enemiesToSpawn);
 
     }
 
