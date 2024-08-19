@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI highscoreText;
     [SerializeField] TextMeshProUGUI currencyText;
+    [SerializeField] TextMeshProUGUI healthUpgrade, damageUpgrade, fireRateUpgrade, bulletSpeedUpgrade, extraBulletUpgrade, speedUpgrade, pickUpUpgrade;
+    [SerializeField] TextMeshProUGUI healthCost, damageCost, fireRateCost, bulletSpeedCost, extraBulletCost, speedCost, pickUpCost;
+
 
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject objectiveTemplate;
@@ -36,6 +39,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnNextRound += UpdateRoundText;
         EventManager.OnGameOver += GameOver;
         PlayerManager.OnCurrencyChange += UpdateCurrencyText;
+        SetDescriptionText(healthUpgrade, UpgradeShopManager.healthUpgrade);
 
     }
 
@@ -49,6 +53,8 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         UpdateRoundText();
+        UpdateCurrencyText();
+        SetCostText(healthCost, UpgradeShopManager.healthUpgrade);
     }
 
     private void UpdateCurrencyText()
@@ -62,6 +68,16 @@ public class UIManager : MonoBehaviour
         if (GameManager.Instance.isCountdown) roundText.text = $"{Math.Round(GameManager.Instance.roundCountdown, 0)}";
 
 
+    }
+
+    private void SetDescriptionText(TextMeshProUGUI text, Upgrade upgrade)
+    {
+        text.text = upgrade.upgradeDescription;
+    }
+
+    private void SetCostText(TextMeshProUGUI text, Upgrade upgrade)
+    {
+        text.text = $"{upgrade.upgradeCost}";
     }
 
 
