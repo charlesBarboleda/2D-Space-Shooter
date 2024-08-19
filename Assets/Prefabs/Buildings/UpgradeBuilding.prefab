@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 8812389895229588944}
   - component: {fileID: 5474729043613988384}
   - component: {fileID: 4708863088338731837}
+  - component: {fileID: 88300330660106749}
   m_Layer: 0
-  m_Name: StatsBuilding
+  m_Name: UpgradeBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,3 +159,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &88300330660106749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579486687631811066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e0f4b9fc234c84aa3ca0fb70f1d774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

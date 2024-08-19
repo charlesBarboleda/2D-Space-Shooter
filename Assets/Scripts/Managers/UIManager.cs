@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject objectiveTemplate;
+    [SerializeField] GameObject upgradeShopExitButton;
     [SerializeField] Transform objectivesContainer;
 
 
