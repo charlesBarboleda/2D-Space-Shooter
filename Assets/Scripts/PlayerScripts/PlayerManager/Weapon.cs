@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Weapon : MonoBehaviour
 {
@@ -15,9 +16,11 @@ public class Weapon : MonoBehaviour
     public float bulletLifetime = 5f;
     public float bulletSpeed = 30f;
 
+
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0) && !isFiring)
         {
             isFiring = true;
@@ -43,10 +46,10 @@ public class Weapon : MonoBehaviour
     public void FireBullets(int bulletAmount, Vector3 position)
     {
 
-
-        Vector3 bulletSpawnPoint = position;
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0; // Assuming a 2D game
+        Vector3 bulletSpawnPoint = position;
+
 
         // Calculate the direction from the GameObject to the mouse position
         Vector3 direction = (mousePosition - bulletSpawnPoint).normalized;

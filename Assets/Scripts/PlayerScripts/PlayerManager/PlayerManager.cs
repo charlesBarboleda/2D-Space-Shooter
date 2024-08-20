@@ -25,14 +25,7 @@ public class PlayerManager : MonoBehaviour
     void FixedUpdate()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, pickUpRadius, LayerMask.GetMask("Debris"));
-        if (hits.Length == 0)
-        {
-            Debug.Log("No debris detected within radius.");
-        }
-        else
-        {
-            Debug.Log($"Detected {hits.Length} debris within radius.");
-        }
+
         // Iterate over each collider and trigger attraction
         foreach (Collider2D hit in hits)
         {

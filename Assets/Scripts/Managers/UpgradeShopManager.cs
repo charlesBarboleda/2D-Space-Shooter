@@ -39,11 +39,24 @@ public class UpgradeShopManager : MonoBehaviour
 
     void Start()
     {
+
+        InitializeUpgrades();
+
+    }
+
+    void Update()
+    {
+        UpdateAllUpgradeDescriptionText();
+
+    }
+
+    void InitializeUpgrades()
+    {
         healthUpgrade.Initialize(
-            "Increase Max Health",
-            $"Increase player health by {healthUpgrade.healthUpgradeAmount}",
-            50
-        );
+                   "Increase Max Health",
+                   $"Increase player health by {healthUpgrade.healthUpgradeAmount}",
+                   50
+               );
         bulletDamageUpgrade.Initialize(
             "Increase Damage",
             $"Increase Bullet Damage by {bulletDamageUpgrade.bulletDamageUpgradeAmount}",
@@ -75,11 +88,9 @@ public class UpgradeShopManager : MonoBehaviour
             500
         );
 
-
-
     }
 
-    void Update()
+    void UpdateAllUpgradeDescriptionText()
     {
         UpdateDescriptionText(healthUpgrade, $"Increase player health by {healthUpgrade.healthUpgradeAmount}");
         UpdateDescriptionText(bulletDamageUpgrade, $"Increase Bullet Damage by {bulletDamageUpgrade.bulletDamageUpgradeAmount}");
@@ -88,9 +99,7 @@ public class UpgradeShopManager : MonoBehaviour
         UpdateDescriptionText(extraBulletUpgrade, $"Increase Bullet Count by {extraBulletUpgrade.extraBulletUpgradeAmount}");
         UpdateDescriptionText(shipSpeedUpgrade, $"Increase Ship Speed by {shipSpeedUpgrade.shipSpeedUpgradeAmount} km/h");
         UpdateDescriptionText(pickUpUpgrade, $"Increase Pick Up Radius by {pickUpUpgrade.pickUpUpgradeAmount}");
-
     }
-
     private void UpdateDescriptionText(Upgrade upgrade, string description)
     {
         upgrade.upgradeDescription = description;

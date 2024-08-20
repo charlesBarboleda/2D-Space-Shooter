@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
         canTriggerNextRound = false;
         yield return new WaitForSeconds(0.1f);  // Short delay to prevent double trigger
         canTriggerNextRound = true;
-        Debug.Log("canTriggerNextRound reset to true");
     }
 
     void Update()
@@ -87,9 +86,7 @@ public class GameManager : MonoBehaviour
         enemiesToSpawn = 10;
         roundCountdown = 5f;
         isCountdown = true;
-        Debug.Log("Initial Level: " + level);
-        Debug.Log("Initial Spawn Rate: " + spawnRate);
-        Debug.Log("Initial Enemies to Spawn: " + enemiesToSpawn);
+
     }
 
     public void IncreaseLevel()
