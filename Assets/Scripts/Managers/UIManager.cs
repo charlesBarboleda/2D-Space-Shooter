@@ -8,14 +8,15 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-
+    [SerializeField] SkillTree skillTree;
+    [SerializeField] GameObject skillTreePanel;
+    [SerializeField] GameObject upgradeShopPanel;
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI highscoreText;
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] TextMeshProUGUI healthUpgradeText, damageUpgradeText, fireRateUpgradeText, bulletSpeedUpgradeText, extraBulletUpgradeText, speedUpgradeText, pickUpUpgradeText;
     [SerializeField] TextMeshProUGUI healthCost, damageCost, fireRateCost, bulletSpeedCost, extraBulletCost, speedCost, pickUpCost;
-
-
+    [SerializeField] TextMeshProUGUI newBeginningsLevelText;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject objectiveTemplate;
     [SerializeField] GameObject upgradeShopExitButton;
@@ -55,12 +56,30 @@ public class UIManager : MonoBehaviour
     {
         UpdateRoundText();
         UpdateCurrencyText();
-        UpdateAllUpgradeText();
+        if (upgradeShopPanel.activeSelf)
+        {
+            UpdateAllUpgradeText();
+        }
+        if (skillTreePanel.activeSelf)
+        {
+            UpdateSkillLevelText(newBeginningsLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "New Beginnings")) ? skillTree.skills.Find(skill => skill.skillName == "New Beginnings") : null);
+        }
 
+    }
+
+    void UpdateSkillLevelText(TextMeshProUGUI textCount, Skill skill)
+    {
+        textCount.text = $"{skill.skillLevel}/{skill.maxSkillLevel}";
+        if (skill.skillLevel == skill.maxSkillLevel)
+        {
+            textCount.text = "MAX";
+        }
     }
 
     void UpdateAllUpgradeText()
     {
+        // Updates the description text and cost text for each upgrade
+
         SetDescriptionText(healthUpgradeText, UpgradeShopManager.healthUpgrade);
         SetDescriptionText(damageUpgradeText, UpgradeShopManager.bulletDamageUpgrade);
         SetDescriptionText(fireRateUpgradeText, UpgradeShopManager.fireRateUpgrade);

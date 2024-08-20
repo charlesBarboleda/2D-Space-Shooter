@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour
     public Coroutine firingCoroutine;
     public float fireRate = 0.2f;
     public int amountOfBullets = 1;
-    public int bulletDamage = 20;
+    public float bulletDamage = 20;
     public float bulletLifetime = 5f;
     public float bulletSpeed = 30f;
 
