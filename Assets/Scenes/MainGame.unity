@@ -62158,7 +62158,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1488369308}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 635129788}
+        m_TargetAssemblyTypeName: UpgradeShopManager, Assembly-CSharp
+        m_MethodName: ApplyBulletSpeedUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1488369308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89584,6 +89596,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 339089680071247961, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
+      propertyPath: abilityIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: weapon
       value: 

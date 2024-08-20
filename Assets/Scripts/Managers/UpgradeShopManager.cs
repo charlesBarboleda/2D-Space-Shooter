@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -10,11 +11,13 @@ public class UpgradeShopManager : MonoBehaviour
     public static HealthUpgrade healthUpgrade;
     public static BulletDamageUpgrade bulletDamageUpgrade;
     public static FireRateUpgrade fireRateUpgrade;
+    public static BulletSpeedUpgrade bulletSpeedUpgrade;
     [SerializeField] GameObject upgradeShopPanel;
 
 
     void Awake()
     {
+        bulletSpeedUpgrade = new BulletSpeedUpgrade();
         fireRateUpgrade = new FireRateUpgrade();
         bulletDamageUpgrade = new BulletDamageUpgrade();
         healthUpgrade = new HealthUpgrade();
@@ -45,6 +48,11 @@ public class UpgradeShopManager : MonoBehaviour
             $"Decrease Fire Rate by {fireRateUpgrade.fireRateUpgradeAmount}",
             100
         );
+        bulletSpeedUpgrade.Initialize(
+            "Increase Bullet Speed",
+            $"Increase Bullet Speed by {bulletSpeedUpgrade.bulletSpeedUpgradeAmount}",
+            100
+        );
 
     }
 
@@ -53,6 +61,11 @@ public class UpgradeShopManager : MonoBehaviour
         UpdateDescriptionText(healthUpgrade, $"Increase player health by {healthUpgrade.healthUpgradeAmount}");
         UpdateDescriptionText(bulletDamageUpgrade, $"Increase Bullet Damage by {bulletDamageUpgrade.bulletDamageUpgradeAmount}");
         UpdateDescriptionText(fireRateUpgrade, $"Decrease Fire Rate by {fireRateUpgrade.fireRateUpgradeAmount}");
+        UpdateDescriptionText(bulletSpeedUpgrade, $"Increase Bullet Speed by {bulletSpeedUpgrade.bulletSpeedUpgradeAmount}");
+
+
+
+
     }
 
     private void UpdateDescriptionText(Upgrade upgrade, string description)
@@ -86,6 +99,11 @@ public class UpgradeShopManager : MonoBehaviour
     public void ApplyFireRateUpgrade()
     {
         fireRateUpgrade.ApplyUpgrade();
+    }
+
+    public void ApplyBulletSpeedUpgrade()
+    {
+        bulletSpeedUpgrade.ApplyUpgrade();
     }
 
 
