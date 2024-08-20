@@ -11,12 +11,14 @@ public class UpgradeShopManager : MonoBehaviour
     public static HealthUpgrade healthUpgrade;
     public static BulletDamageUpgrade bulletDamageUpgrade;
     public static FireRateUpgrade fireRateUpgrade;
+    public static ExtraBulletUpgrade extraBulletUpgrade;
     public static BulletSpeedUpgrade bulletSpeedUpgrade;
     [SerializeField] GameObject upgradeShopPanel;
 
 
     void Awake()
     {
+        extraBulletUpgrade = new ExtraBulletUpgrade();
         bulletSpeedUpgrade = new BulletSpeedUpgrade();
         fireRateUpgrade = new FireRateUpgrade();
         bulletDamageUpgrade = new BulletDamageUpgrade();
@@ -36,7 +38,7 @@ public class UpgradeShopManager : MonoBehaviour
         healthUpgrade.Initialize(
             "Increase Max Health",
             $"Increase player health by {healthUpgrade.healthUpgradeAmount}",
-            100
+            50
         );
         bulletDamageUpgrade.Initialize(
             "Increase Damage",
@@ -51,7 +53,12 @@ public class UpgradeShopManager : MonoBehaviour
         bulletSpeedUpgrade.Initialize(
             "Increase Bullet Speed",
             $"Increase Bullet Speed by {bulletSpeedUpgrade.bulletSpeedUpgradeAmount}",
-            100
+            50
+        );
+        extraBulletUpgrade.Initialize(
+            "Extra Bullet",
+            $"Increase Bullet Count by {extraBulletUpgrade.extraBulletUpgradeAmount}",
+            500
         );
 
     }
@@ -62,7 +69,7 @@ public class UpgradeShopManager : MonoBehaviour
         UpdateDescriptionText(bulletDamageUpgrade, $"Increase Bullet Damage by {bulletDamageUpgrade.bulletDamageUpgradeAmount}");
         UpdateDescriptionText(fireRateUpgrade, $"Decrease Fire Rate by {fireRateUpgrade.fireRateUpgradeAmount}");
         UpdateDescriptionText(bulletSpeedUpgrade, $"Increase Bullet Speed by {bulletSpeedUpgrade.bulletSpeedUpgradeAmount}");
-
+        UpdateDescriptionText(extraBulletUpgrade, $"Increase Bullet Count by {extraBulletUpgrade.extraBulletUpgradeAmount}");
 
 
 
@@ -104,6 +111,11 @@ public class UpgradeShopManager : MonoBehaviour
     public void ApplyBulletSpeedUpgrade()
     {
         bulletSpeedUpgrade.ApplyUpgrade();
+    }
+
+    public void ApplyExtraBulletUpgrade()
+    {
+        extraBulletUpgrade.ApplyUpgrade();
     }
 
 

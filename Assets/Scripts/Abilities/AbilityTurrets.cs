@@ -17,8 +17,8 @@ public class AbilityTurrets : Ability
         float offset = (numberOfTurretsPerSide + 1) * turretSpacing;
 
         // Calculate the position relative to the player's rotation
-        Vector3 leftOffset = new Vector3(-offset, -0.5f, 0);
-        Vector3 rightOffset = new Vector3(offset, -0.5f, 0);
+        Vector3 leftOffset = new Vector3(-offset, -0.2f, 0);
+        Vector3 rightOffset = new Vector3(offset, -0.2f, 0);
 
         // Rotate the offset based on the player's rotation
         Vector3 leftPosition = owner.transform.position + owner.transform.rotation * leftOffset;
