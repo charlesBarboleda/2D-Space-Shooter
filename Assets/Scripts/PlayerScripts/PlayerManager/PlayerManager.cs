@@ -10,6 +10,7 @@ public class PlayerManager : MonoBehaviour
     public HealthBar healthBar;
     SpriteRenderer spriteRenderer;
     public Weapon weapon;
+    public PlayerController playerController;
 
     public float playerHealth = 100f;
 

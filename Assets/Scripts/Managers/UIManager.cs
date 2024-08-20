@@ -66,12 +66,16 @@ public class UIManager : MonoBehaviour
         SetDescriptionText(fireRateUpgradeText, UpgradeShopManager.fireRateUpgrade);
         SetDescriptionText(bulletSpeedUpgradeText, UpgradeShopManager.bulletSpeedUpgrade);
         SetDescriptionText(extraBulletUpgradeText, UpgradeShopManager.extraBulletUpgrade);
+        SetDescriptionText(speedUpgradeText, UpgradeShopManager.shipSpeedUpgrade);
+
+
 
         SetCostText(healthCost, UpgradeShopManager.healthUpgrade);
         SetCostText(damageCost, UpgradeShopManager.bulletDamageUpgrade);
         SetCostText(fireRateCost, UpgradeShopManager.fireRateUpgrade);
         SetCostText(bulletSpeedCost, UpgradeShopManager.bulletSpeedUpgrade);
         SetCostText(extraBulletCost, UpgradeShopManager.extraBulletUpgrade);
+        SetCostText(speedCost, UpgradeShopManager.shipSpeedUpgrade);
     }
 
     private void UpdateCurrencyText()

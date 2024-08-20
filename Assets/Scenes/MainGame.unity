@@ -49678,7 +49678,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1168407794}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 635129788}
+        m_TargetAssemblyTypeName: UpgradeShopManager, Assembly-CSharp
+        m_MethodName: ApplyShipSpeedUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1168407794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89628,6 +89640,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 382851988894892454}
     - target: {fileID: 1758714757518994786, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: moveSpeed
       value: 10
