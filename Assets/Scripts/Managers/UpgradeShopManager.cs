@@ -9,11 +9,13 @@ public class UpgradeShopManager : MonoBehaviour
     public static UpgradeShopManager Instance;
     public static HealthUpgrade healthUpgrade;
     public static BulletDamageUpgrade bulletDamageUpgrade;
+    public static FireRateUpgrade fireRateUpgrade;
     [SerializeField] GameObject upgradeShopPanel;
 
 
     void Awake()
     {
+        fireRateUpgrade = new FireRateUpgrade();
         bulletDamageUpgrade = new BulletDamageUpgrade();
         healthUpgrade = new HealthUpgrade();
         if (Instance == null)
@@ -38,6 +40,11 @@ public class UpgradeShopManager : MonoBehaviour
             $"Increase Bullet Damage by {bulletDamageUpgrade.bulletDamageUpgradeAmount}",
             100
         );
+        fireRateUpgrade.Initialize(
+            "Decrease Fire Rate",
+            $"Decrease Fire Rate by {fireRateUpgrade.fireRateUpgradeAmount}",
+            100
+        );
 
     }
 
@@ -45,6 +52,7 @@ public class UpgradeShopManager : MonoBehaviour
     {
         UpdateDescriptionText(healthUpgrade, $"Increase player health by {healthUpgrade.healthUpgradeAmount}");
         UpdateDescriptionText(bulletDamageUpgrade, $"Increase Bullet Damage by {bulletDamageUpgrade.bulletDamageUpgradeAmount}");
+        UpdateDescriptionText(fireRateUpgrade, $"Decrease Fire Rate by {fireRateUpgrade.fireRateUpgradeAmount}");
     }
 
     private void UpdateDescriptionText(Upgrade upgrade, string description)
@@ -73,6 +81,11 @@ public class UpgradeShopManager : MonoBehaviour
     public void ApplyBulletDamageUpgrade()
     {
         bulletDamageUpgrade.ApplyUpgrade();
+    }
+
+    public void ApplyFireRateUpgrade()
+    {
+        fireRateUpgrade.ApplyUpgrade();
     }
 
 

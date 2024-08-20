@@ -57,8 +57,11 @@ public class UIManager : MonoBehaviour
         UpdateCurrencyText();
         SetDescriptionText(healthUpgradeText, UpgradeShopManager.healthUpgrade);
         SetDescriptionText(damageUpgradeText, UpgradeShopManager.bulletDamageUpgrade);
+        SetDescriptionText(fireRateUpgradeText, UpgradeShopManager.fireRateUpgrade);
+
         SetCostText(healthCost, UpgradeShopManager.healthUpgrade);
         SetCostText(damageCost, UpgradeShopManager.bulletDamageUpgrade);
+        SetCostText(fireRateCost, UpgradeShopManager.fireRateUpgrade);
     }
 
     private void UpdateCurrencyText()
