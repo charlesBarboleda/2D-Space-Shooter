@@ -135,17 +135,13 @@ public class GameManager : MonoBehaviour
     public void NextRound()
     {
 
-        Debug.Log("NextRound called. Current Level: " + level);
+
 
         DisableSpawning();
         spawnRate -= 0.01f;
         enemiesToSpawn += 10;
         if (spawnRate < maxSpawnRate) spawnRate = maxSpawnRate;
         IncreaseLevel();
-
-        Debug.Log("New Level: " + level);
-        Debug.Log("New Spawn Rate: " + spawnRate);
-        Debug.Log("New Enemies to Spawn: " + enemiesToSpawn);
 
     }
 

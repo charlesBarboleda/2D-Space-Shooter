@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5031975864141824951}
   - component: {fileID: -2642274180525547248}
   - component: {fileID: 2235416368921122670}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Debris (2)
-  m_TagString: Untagged
+  m_TagString: Debris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50fdb59a0f309ae4cbc6127a52770ff6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttracted: 0
 --- !u!50 &-2642274180525547248
 Rigidbody2D:
   serializedVersion: 4
