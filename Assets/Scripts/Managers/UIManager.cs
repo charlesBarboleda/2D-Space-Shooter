@@ -8,19 +8,21 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+    [Header("Skill Tree")]
     [SerializeField] SkillTree skillTree;
     [SerializeField] GameObject skillTreePanel;
+    [SerializeField] TextMeshProUGUI newBeginningsLevelText, brutalityLevelText;
+
+    [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
+    [SerializeField] TextMeshProUGUI healthUpgradeText, damageUpgradeText, fireRateUpgradeText, bulletSpeedUpgradeText, extraBulletUpgradeText, speedUpgradeText, pickUpUpgradeText;
+    [SerializeField] TextMeshProUGUI healthCost, damageCost, fireRateCost, bulletSpeedCost, extraBulletCost, speedCost, pickUpCost;
+
+    [Header("UI Elements")]
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI highscoreText;
     [SerializeField] TextMeshProUGUI currencyText;
-    [SerializeField] TextMeshProUGUI healthUpgradeText, damageUpgradeText, fireRateUpgradeText, bulletSpeedUpgradeText, extraBulletUpgradeText, speedUpgradeText, pickUpUpgradeText;
-    [SerializeField] TextMeshProUGUI healthCost, damageCost, fireRateCost, bulletSpeedCost, extraBulletCost, speedCost, pickUpCost;
-    [SerializeField] TextMeshProUGUI newBeginningsLevelText;
     [SerializeField] GameObject gameOverPanel;
-    [SerializeField] GameObject objectiveTemplate;
-    [SerializeField] GameObject upgradeShopExitButton;
-    [SerializeField] Transform objectivesContainer;
 
 
     void Awake()
@@ -63,6 +65,7 @@ public class UIManager : MonoBehaviour
         if (skillTreePanel.activeSelf)
         {
             UpdateSkillLevelText(newBeginningsLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "New Beginnings")) ? skillTree.skills.Find(skill => skill.skillName == "New Beginnings") : null);
+            UpdateSkillLevelText(brutalityLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Brutality")) ? skillTree.skills.Find(skill => skill.skillName == "Brutality") : null);
         }
 
     }

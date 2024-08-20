@@ -9,11 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f527fffe615029d41b95b741d298a8cb, type: 3}
-  m_Name: SkillTree
+  m_Script: {fileID: 11500000, guid: e578097537151b644af0120499ab96b6, type: 3}
+  m_Name: Brutality
   m_EditorClassIdentifier: 
-  skills:
+  skillName: Brutality
+  description: DMG 5/5/5
+  cost: 100
+  startingCost: 100
+  prequisites:
   - {fileID: 11400000, guid: 3ccecda4881ab5b47bd8eb249a34b273, type: 2}
-  - {fileID: 11400000, guid: 2106f6f168d056d48b16e5234a6aa10b, type: 2}
-  unlockedSkills: []
-  lockedSkills: []
+  children: []
+  skillLevel: 0
+  maxSkillLevel: 3
+  isUnlocked: 0
