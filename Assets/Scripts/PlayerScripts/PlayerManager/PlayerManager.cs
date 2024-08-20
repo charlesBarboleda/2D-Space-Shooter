@@ -9,6 +9,7 @@ public class PlayerManager : MonoBehaviour
     public static event Action OnCurrencyChange;
     public HealthBar healthBar;
     SpriteRenderer spriteRenderer;
+    public Weapon weapon;
 
     public float playerHealth = 100f;
 

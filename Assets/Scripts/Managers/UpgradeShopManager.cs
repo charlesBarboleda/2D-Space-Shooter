@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class UpgradeShopManager : MonoBehaviour
 {
     public static UpgradeShopManager Instance;
     public static HealthUpgrade healthUpgrade;
+    public static BulletDamageUpgrade bulletDamageUpgrade;
     [SerializeField] GameObject upgradeShopPanel;
 
 
     void Awake()
     {
-
+        bulletDamageUpgrade = new BulletDamageUpgrade();
         healthUpgrade = new HealthUpgrade();
         if (Instance == null)
         {
@@ -31,8 +33,24 @@ public class UpgradeShopManager : MonoBehaviour
             $"Increase player health by {healthUpgrade.healthUpgradeAmount}",
             100
         );
+        bulletDamageUpgrade.Initialize(
+            "Increase Damage",
+            $"Increase Bullet Damage by {bulletDamageUpgrade.bulletDamageUpgradeAmount}",
+            100
+        );
+
     }
 
+    void Update()
+    {
+        UpdateDescriptionText(healthUpgrade, $"Increase player health by {healthUpgrade.healthUpgradeAmount}");
+        UpdateDescriptionText(bulletDamageUpgrade, $"Increase Bullet Damage by {bulletDamageUpgrade.bulletDamageUpgradeAmount}");
+    }
+
+    private void UpdateDescriptionText(Upgrade upgrade, string description)
+    {
+        upgrade.upgradeDescription = description;
+    }
     public void OpenUpgradeShop()
     {
         upgradeShopPanel.SetActive(true);
@@ -51,6 +69,13 @@ public class UpgradeShopManager : MonoBehaviour
     {
         healthUpgrade.ApplyUpgrade();
     }
+
+    public void ApplyBulletDamageUpgrade()
+    {
+        bulletDamageUpgrade.ApplyUpgrade();
+    }
+
+
 
 
 }

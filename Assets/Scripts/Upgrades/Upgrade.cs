@@ -8,6 +8,6 @@ public abstract class Upgrade
     public string upgradeDescription;
     public int upgradeCost;
 
-    public abstract void ApplyUpgrade();
     public abstract void Initialize(string name, string description, int cost);
+    public abstract void ApplyUpgrade();
 }

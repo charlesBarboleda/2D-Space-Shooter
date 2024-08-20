@@ -63359,7 +63359,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1522543064}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 635129788}
+        m_TargetAssemblyTypeName: UpgradeShopManager, Assembly-CSharp
+        m_MethodName: ApplyBulletDamageUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1522543064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89504,9 +89516,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 86559668}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: speedUpgradeText
+      value: 
+      objectReference: {fileID: 1437400438}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: damageUpgradeText
+      value: 
+      objectReference: {fileID: 2042315831}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: healthUpgradeText
+      value: 
+      objectReference: {fileID: 1259344372}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: objectiveTemplate
       value: 
       objectReference: {fileID: 8458535457316937260, guid: 04fb8c8c7d7498842bf3203d0c7ebadf, type: 3}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: pickUpUpgradeText
+      value: 
+      objectReference: {fileID: 949497191}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: bulletSpeedUpgrade
       value: 
@@ -89516,9 +89544,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1620182120}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: fireRateUpgradeText
+      value: 
+      objectReference: {fileID: 86559668}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: objectivesContainer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: bulletSpeedUpgradeText
+      value: 
+      objectReference: {fileID: 3549652}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: extraBulletUpgradeText
+      value: 
+      objectReference: {fileID: 1620182120}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -89532,6 +89572,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 382851988894892456}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: currency
       value: 1000
@@ -89739,6 +89783,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34661453b3f90204fb03075f301ddf7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &382851988894892456 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5296568987947685235, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
+  m_PrefabInstance: {fileID: 382851988894892445}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382851988894892446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d9fd84d6caaf642bdc8225bd9db3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1918285141243380145

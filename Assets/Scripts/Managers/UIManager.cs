@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI highscoreText;
     [SerializeField] TextMeshProUGUI currencyText;
-    [SerializeField] TextMeshProUGUI healthUpgrade, damageUpgrade, fireRateUpgrade, bulletSpeedUpgrade, extraBulletUpgrade, speedUpgrade, pickUpUpgrade;
+    [SerializeField] TextMeshProUGUI healthUpgradeText, damageUpgradeText, fireRateUpgradeText, bulletSpeedUpgradeText, extraBulletUpgradeText, speedUpgradeText, pickUpUpgradeText;
     [SerializeField] TextMeshProUGUI healthCost, damageCost, fireRateCost, bulletSpeedCost, extraBulletCost, speedCost, pickUpCost;
 
 
@@ -39,7 +39,8 @@ public class UIManager : MonoBehaviour
         EventManager.OnNextRound += UpdateRoundText;
         EventManager.OnGameOver += GameOver;
         PlayerManager.OnCurrencyChange += UpdateCurrencyText;
-        SetDescriptionText(healthUpgrade, UpgradeShopManager.healthUpgrade);
+
+
 
     }
 
@@ -54,7 +55,10 @@ public class UIManager : MonoBehaviour
     {
         UpdateRoundText();
         UpdateCurrencyText();
+        SetDescriptionText(healthUpgradeText, UpgradeShopManager.healthUpgrade);
+        SetDescriptionText(damageUpgradeText, UpgradeShopManager.bulletDamageUpgrade);
         SetCostText(healthCost, UpgradeShopManager.healthUpgrade);
+        SetCostText(damageCost, UpgradeShopManager.bulletDamageUpgrade);
     }
 
     private void UpdateCurrencyText()
