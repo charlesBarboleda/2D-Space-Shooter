@@ -114,7 +114,6 @@ public class UpgradeShopManager : MonoBehaviour
     public void ExitUpgradeShop()
     {
         upgradeShopPanel.SetActive(false);
-        Debug.Log("Exit Upgrade Shop");
         Time.timeScale = 1;
     }
 

@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (hit.CompareTag("Debris"))
             {
-                Debug.Log("Debris detected: " + hit.name);
+
                 hit.GetComponent<CurrencyDrop>().isAttracted = true;
             }
         }

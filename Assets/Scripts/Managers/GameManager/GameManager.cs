@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         {
             EventManager.GameOverEvent();
         }
-        Debug.Log(canTriggerNextRound);
+
 
         if (enemies.Count == 0 && !isRoundOver && canTriggerNextRound)
         {

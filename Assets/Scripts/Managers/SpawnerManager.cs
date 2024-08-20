@@ -57,7 +57,7 @@ public class SpawnerManager : MonoBehaviour
         if (GameManager.Instance.enemies.Contains(enemy))
         {
             GameManager.Instance.enemies.Remove(enemy);
-            Debug.Log("Enemy removed. Total enemies in play: " + GameManager.Instance.enemies.Count);
+
         }
     }
 
