@@ -67,6 +67,7 @@ public class UIManager : MonoBehaviour
         SetDescriptionText(bulletSpeedUpgradeText, UpgradeShopManager.bulletSpeedUpgrade);
         SetDescriptionText(extraBulletUpgradeText, UpgradeShopManager.extraBulletUpgrade);
         SetDescriptionText(speedUpgradeText, UpgradeShopManager.shipSpeedUpgrade);
+        SetDescriptionText(pickUpUpgradeText, UpgradeShopManager.pickUpUpgrade);
 
 
 
@@ -76,6 +77,7 @@ public class UIManager : MonoBehaviour
         SetCostText(bulletSpeedCost, UpgradeShopManager.bulletSpeedUpgrade);
         SetCostText(extraBulletCost, UpgradeShopManager.extraBulletUpgrade);
         SetCostText(speedCost, UpgradeShopManager.shipSpeedUpgrade);
+        SetCostText(pickUpCost, UpgradeShopManager.pickUpUpgrade);
     }
 
     private void UpdateCurrencyText()

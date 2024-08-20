@@ -14,11 +14,13 @@ public class UpgradeShopManager : MonoBehaviour
     public static ExtraBulletUpgrade extraBulletUpgrade;
     public static BulletSpeedUpgrade bulletSpeedUpgrade;
     public static ShipSpeedUpgrade shipSpeedUpgrade;
+    public static PickUpUpgrade pickUpUpgrade;
     [SerializeField] GameObject upgradeShopPanel;
 
 
     void Awake()
     {
+        pickUpUpgrade = new PickUpUpgrade();
         shipSpeedUpgrade = new ShipSpeedUpgrade();
         extraBulletUpgrade = new ExtraBulletUpgrade();
         bulletSpeedUpgrade = new BulletSpeedUpgrade();
@@ -67,6 +69,11 @@ public class UpgradeShopManager : MonoBehaviour
             $"Increase Ship Speed by {shipSpeedUpgrade.shipSpeedUpgradeAmount} km/h",
             200
         );
+        pickUpUpgrade.Initialize(
+            "Increase Pick Up Radius",
+            $"Increase Pick Up Radius by {pickUpUpgrade.pickUpUpgradeAmount}",
+            500
+        );
 
 
 
@@ -80,7 +87,7 @@ public class UpgradeShopManager : MonoBehaviour
         UpdateDescriptionText(bulletSpeedUpgrade, $"Increase Bullet Speed by {bulletSpeedUpgrade.bulletSpeedUpgradeAmount}");
         UpdateDescriptionText(extraBulletUpgrade, $"Increase Bullet Count by {extraBulletUpgrade.extraBulletUpgradeAmount}");
         UpdateDescriptionText(shipSpeedUpgrade, $"Increase Ship Speed by {shipSpeedUpgrade.shipSpeedUpgradeAmount} km/h");
-
+        UpdateDescriptionText(pickUpUpgrade, $"Increase Pick Up Radius by {pickUpUpgrade.pickUpUpgradeAmount}");
 
     }
 
@@ -130,6 +137,11 @@ public class UpgradeShopManager : MonoBehaviour
     public void ApplyShipSpeedUpgrade()
     {
         shipSpeedUpgrade.ApplyUpgrade();
+    }
+
+    public void ApplyPickUpUpgrade()
+    {
+        pickUpUpgrade.ApplyUpgrade();
     }
 
 

@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireRateUpgrade : Upgrade
+public class PickUpUpgrade : Upgrade
 {
-    public float fireRateUpgradeAmount = 0.0005f;
+    public float pickUpUpgradeAmount = 0.5f;
     public override void ApplyUpgrade()
     {
         if (GameManager.Instance.GetPlayer().currency >= upgradeCost)
         {
             GameManager.Instance.GetPlayer().currency -= upgradeCost;
-            GameManager.Instance.GetPlayer().weapon.fireRate -= fireRateUpgradeAmount;
-            upgradeCost += 100;
+            GameManager.Instance.GetPlayer().pickUpRadius += pickUpUpgradeAmount;
+            upgradeCost += 250;
 
         }
     }
