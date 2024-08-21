@@ -9,9 +9,8 @@ public class AbilityLaser : Ability
     [SerializeField] private GameObject _laserPrefab;
     [SerializeField] private float _duration;
     [SerializeField] private float _dps;
-    [SerializeField] private float _cooldown;
 
-    public override void UseAbility(GameObject owner, Transform target)
+    public override void AbilityLogic(GameObject owner, Transform target)
     {
         //Instantiate the laser prefab
         GameObject Laser = Instantiate(_laserPrefab, owner.transform.position, Quaternion.identity);

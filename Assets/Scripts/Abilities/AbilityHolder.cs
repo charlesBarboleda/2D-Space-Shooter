@@ -1,22 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class AbilityHolder : MonoBehaviour
 {
-    [SerializeField] private List<Ability> abilities;
+    public int abilityIndex;
+    public List<Ability> abilities;
+    public Transform target;
 
     [SerializeField] private KeyCode key;
-    [SerializeField] private Transform target;
-    public int abilityIndex;
 
 
+    void Start()
+    {
+
+        ResetTurretCount();
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(key))
+        foreach (Ability ability in abilities)
         {
-            abilities[abilityIndex].UseAbility(gameObject, target);
+            ability.UpdateCooldown(Time.deltaTime);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            abilities[abilityIndex].TriggerAbility(gameObject, target);
+        }
+
+
+    }
+    void ResetTurretCount()
+    {
+        foreach (Ability ability in abilities)
+        {
+            if (ability is AbilityTurrets)
+            {
+                // Reset the number of turrets spawned using type casting
+                ((AbilityTurrets)ability).numberOfTurretsPerSide = 0;
+            }
         }
     }
+
+
 }

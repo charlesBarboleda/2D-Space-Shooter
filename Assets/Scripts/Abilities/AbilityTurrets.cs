@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Abilities/Turrets")]
 public class AbilityTurrets : Ability
 {
+    public int numberOfTurretsPerSide;
     [SerializeField] private GameObject turret;
-    [SerializeField] private int numberOfTurretsPerSide;
     [SerializeField] private float turretSpacing = 0.5f;
 
 
 
-    public override void UseAbility(GameObject owner, Transform target)
+    public override void AbilityLogic(GameObject owner, Transform target)
     {
+
         // Calculate the offset for the next turret
         float offset = (numberOfTurretsPerSide + 1) * turretSpacing;
 
@@ -34,5 +36,6 @@ public class AbilityTurrets : Ability
 
         // Increment the number of turrets spawned
         numberOfTurretsPerSide++;
+
     }
 }

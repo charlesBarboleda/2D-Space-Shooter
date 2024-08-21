@@ -11,7 +11,7 @@ public class AbilityTeleport : Ability
     [SerializeField] private float _teleportSize;
     [SerializeField] private float _teleportDamage;
     [SerializeField] private float _teleportDuration;
-    public override void UseAbility(GameObject owner, Transform target)
+    public override void AbilityLogic(GameObject owner, Transform target)
     {
         // Initial teleport effect
         GameObject tpEffect = Instantiate(_teleportEffect, owner.transform.position, Quaternion.identity);

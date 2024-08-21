@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+
     [Header("Skill Tree")]
     [SerializeField] SkillTree skillTree;
     [SerializeField] GameObject skillTreePanel;
@@ -19,12 +20,24 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthCost, damageCost, fireRateCost, bulletSpeedCost, extraBulletCost, speedCost, pickUpCost;
 
     [Header("UI Elements")]
+    AbilityHolder abilityHolder;
+    [SerializeField] Image abilityOne;
+    [SerializeField] Image abilityTwo;
+    [SerializeField] Image abilityThree;
+    [SerializeField] Image abilityFour;
+    [SerializeField] GameObject abilityOneContainer;
+    [SerializeField] GameObject abilityTwoContainer;
+    [SerializeField] GameObject abilityThreeContainer;
+    [SerializeField] GameObject abilityFourContainer;
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI highscoreText;
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] GameObject gameOverPanel;
 
+    void AbilitiesUI()
+    {
 
+    }
     void Awake()
     {
         if (Instance == null)
@@ -35,6 +48,7 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        abilityHolder = GameManager.Instance.GetPlayer().GetComponent<AbilityHolder>();
     }
 
     void Start()
@@ -74,6 +88,7 @@ public class UIManager : MonoBehaviour
 
 
         }
+
 
     }
 
