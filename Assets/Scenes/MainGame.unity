@@ -3076,9 +3076,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 635129788}
-        m_TargetAssemblyTypeName: UpgradeShopManager, Assembly-CSharp
-        m_MethodName: ExitUpgradeShop
+      - m_Target: {fileID: 737226394}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: CloseSkillTree
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32016,6 +32016,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737194548}
   m_CullTransparentMesh: 1
+--- !u!114 &737226394 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+  m_PrefabInstance: {fileID: 292356843734558813}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1026272a275c0047b4105a5cc1c630a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &737840628
 GameObject:
   m_ObjectHideFlags: 0
@@ -51112,7 +51123,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplySkillEffect
+        m_MethodName: ApplyViciousEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -81473,7 +81484,7 @@ GameObject:
   - component: {fileID: 1895086792}
   - component: {fileID: 1895086793}
   m_Layer: 5
-  m_Name: ExtraBulletNode
+  m_Name: SprayAndPrayNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88337,7 +88348,7 @@ GameObject:
   - component: {fileID: 2039700585}
   - component: {fileID: 2039700584}
   m_Layer: 5
-  m_Name: ExtraBulletButton
+  m_Name: SprayAndPrayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88408,7 +88419,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplySkillEffect
+        m_MethodName: ApplySprayAndPrayEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -92830,6 +92841,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 268172930}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: viciousLevelText
+      value: 
+      objectReference: {fileID: 1759527524}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: damageUpgradeText
       value: 
       objectReference: {fileID: 2042315831}
@@ -92874,6 +92889,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: extraBullet1LevelText
+      value: 
+      objectReference: {fileID: 1238079807}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: sprayAndPrayLevelText
+      value: 
+      objectReference: {fileID: 1238079807}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: upgradeShopExitButton
       value: 
       objectReference: {fileID: 1619439136}
@@ -92912,7 +92935,7 @@ PrefabInstance:
       objectReference: {fileID: 382851988894892456}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: currency
-      value: 10000
+      value: 1000000
       objectReference: {fileID: 0}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: healthBar

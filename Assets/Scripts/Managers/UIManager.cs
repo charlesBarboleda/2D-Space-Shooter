@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     [Header("Skill Tree")]
     [SerializeField] SkillTree skillTree;
     [SerializeField] GameObject skillTreePanel;
-    [SerializeField] TextMeshProUGUI newBeginningsLevelText, brutalityLevelText, violenceLevelText, ferocityLevelText;
+    [SerializeField] TextMeshProUGUI newBeginningsLevelText, brutalityLevelText, violenceLevelText, ferocityLevelText, viciousLevelText, sprayAndPrayLevelText;
 
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
@@ -68,6 +68,10 @@ public class UIManager : MonoBehaviour
             UpdateSkillLevelText(brutalityLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Brutality")) ? skillTree.skills.Find(skill => skill.skillName == "Brutality") : null);
             UpdateSkillLevelText(violenceLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Violence")) ? skillTree.skills.Find(skill => skill.skillName == "Violence") : null);
             UpdateSkillLevelText(ferocityLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Ferocity")) ? skillTree.skills.Find(skill => skill.skillName == "Ferocity") : null);
+            UpdateSkillLevelText(viciousLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Vicious")) ? skillTree.skills.Find(skill => skill.skillName == "Vicious") : null);
+            UpdateSkillLevelText(sprayAndPrayLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Spray And Pray")) ? skillTree.skills.Find(skill => skill.skillName == "Spray And Pray") : null);
+
+
 
         }
 
@@ -132,6 +136,16 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+    }
+
+    public void OpenSkillTree()
+    {
+        skillTreePanel.SetActive(true);
+    }
+
+    public void CloseSkillTree()
+    {
+        skillTreePanel.SetActive(false);
     }
 
 }

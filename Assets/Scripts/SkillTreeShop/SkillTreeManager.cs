@@ -54,6 +54,37 @@ public class SkillTreeManager : MonoBehaviour
             }
         }
     }
+    public void ApplyViciousEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Increase the player's bullet damage by 10%
+                float increaseDamage = 1.10f;
+                GameManager.Instance.GetPlayer().weapon.bulletDamage *= increaseDamage;
+                Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
+            },
+        };
+
+        ApplySkillEffect("Vicious", 500, skillEffects);
+    }
+
+    public void ApplySprayAndPrayEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Increase the player's bullet damage by 10%
+                int bulletIncrease = 2;
+                GameManager.Instance.GetPlayer().weapon.amountOfBullets += bulletIncrease;
+                Debug.Log("Bullet Amount Increased by " + bulletIncrease + " bullets");
+            },
+        };
+
+        ApplySkillEffect("Spray And Pray", 500, skillEffects);
+    }
     public void ApplyFerocityEffect()
     {
         skillEffects = new List<System.Action>
