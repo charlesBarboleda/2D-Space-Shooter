@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class AbilityHolder : MonoBehaviour
 {
-    public int abilityIndex;
     public List<Ability> abilities;
     public Transform target;
 
@@ -25,10 +24,6 @@ public class AbilityHolder : MonoBehaviour
         foreach (Ability ability in abilities)
         {
             ability.UpdateCooldown(Time.deltaTime);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            abilities[abilityIndex].TriggerAbility(gameObject, target);
         }
 
 

@@ -38,39 +38,34 @@ public class PlayerController : MonoBehaviour
 
     void Abilities()
     {
-        // Switch between Abilities
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        // Use the Ability Laser
+        if (Input.GetMouseButtonDown(1))
         {
-            abilityHolder.abilityIndex = 0;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            abilityHolder.abilityIndex = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            abilityHolder.abilityIndex = 2;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            abilityHolder.abilityIndex = 3;
+            abilityHolder.abilities[0].TriggerAbility(gameObject, abilityHolder.target);
+
         }
 
-        // Use the Ability
+        // Use the Ability Turrets
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            abilityHolder.abilities[1].TriggerAbility(gameObject, abilityHolder.target);
+
+        }
+
+        // Use the Ability Shield
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            abilityHolder.abilities[2].TriggerAbility(gameObject, abilityHolder.target);
+
+        }
+
+        // Use the Ability Teleport
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            abilityHolder.abilities[abilityHolder.abilityIndex].TriggerAbility(gameObject, abilityHolder.target);
+            abilityHolder.abilities[3].TriggerAbility(gameObject, abilityHolder.target);
+
         }
 
-        //Cycle ability index using scroll wheel
-        if (Input.mouseScrollDelta.y > 0)
-        {
-            abilityHolder.abilityIndex++;
-            if (abilityHolder.abilityIndex > abilityHolder.abilities.Count - 1)
-            {
-                abilityHolder.abilityIndex = 0;
-            }
-        }
     }
 
 

@@ -27,14 +27,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Ability UI")]
     AbilityHolder abilityHolder;
-    [SerializeField] Image laserIconFill;
-    [SerializeField] Image abilityTwo;
-    [SerializeField] Image abilityThree;
-    [SerializeField] Image abilityFour;
-    [SerializeField] GameObject abilityOneContainer;
-    [SerializeField] GameObject abilityTwoContainer;
-    [SerializeField] GameObject abilityThreeContainer;
-    [SerializeField] GameObject abilityFourContainer;
+    [SerializeField] Image laserIconFill, shieldIconFill, teleportIconFill, turretIconFill;
 
     void AbilitiesUI()
     {
@@ -96,6 +89,18 @@ public class UIManager : MonoBehaviour
             if (ability is AbilityLaser)
             {
                 laserIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+            }
+            if (ability is AbilityShield)
+            {
+                shieldIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+            }
+            if (ability is AbilityTeleport)
+            {
+                teleportIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+            }
+            if (ability is AbilityTurrets)
+            {
+                turretIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
             }
 
         }

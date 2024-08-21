@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: PlayerTurrets
   icon: {fileID: 21300000, guid: d99431bdd791f493fb1633a8eb4f9b5a, type: 3}
-  cooldown: 0
+  cooldown: 1
+  currentCooldown: 0
+  numberOfTurretsPerSide: 6
   turret: {fileID: 7223191706573227298, guid: ceeb65ac70e6d764e8a5dffdb575f364, type: 3}
-  numberOfTurretsPerSide: 0
-  turretSpacing: 0.5
+  turretSpacing: 0.4

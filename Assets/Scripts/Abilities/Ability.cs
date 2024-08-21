@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Ability : ScriptableObject
 {
+    public bool isUnlocked;
     public string abilityName;
     public Sprite icon;
     public float cooldown = 1f;

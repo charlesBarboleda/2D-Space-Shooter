@@ -29,9 +29,9 @@ public class AbilityShield : Ability
 
     public void ResetShieldStats()
     {
-        _shieldSize = 1;
+        _shieldSize = 0.3f;
         _shieldDamage = 10;
-        _duration = 5f;
+        _duration = 10f;
     }
 
 
