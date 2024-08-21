@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class SkillTreeManager : MonoBehaviour
 {
     public static SkillTreeManager Instance;
     public SkillTree skillTree;
+    private List<System.Action> skillEffects;
 
     void Awake()
     {
@@ -53,57 +55,73 @@ public class SkillTreeManager : MonoBehaviour
         }
     }
 
+    public void ApplyViolenceEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Increase the player's bullet damage by 10%
+                float increaseDamage = 1.10f;
+                GameManager.Instance.GetPlayer().weapon.bulletDamage *= increaseDamage;
+                Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
+            },
+        };
+
+        ApplySkillEffect("Violence", 500, skillEffects);
+    }
+
     public void ApplyBrutalityEffect()
     {
-        List<System.Action> effects = new List<System.Action>
+        skillEffects = new List<System.Action>
         {
             () =>
             {
                 // Increase the player's bullet damage by 5%
                 float increaseDamage = 1.05f;
                 GameManager.Instance.GetPlayer().weapon.bulletDamage *= increaseDamage;
-                Debug.Log("Bullet Damage Increased");
+                Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
             }
         };
 
-        ApplySkillEffect("Brutality", 100, effects);
+        ApplySkillEffect("Brutality", 250, skillEffects);
     }
 
     public void ApplyNewBeginningsEffect()
     {
-        List<System.Action> effects = new List<System.Action>
+        skillEffects = new List<System.Action>
         {
             () =>
             {
                 // Increase the player's bullet damage by 3%
                 float increaseDamage = 1.03f;
                 GameManager.Instance.GetPlayer().weapon.bulletDamage *= increaseDamage;
-                Debug.Log("Bullet Damage Increased");
+                Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
             },
             () =>
             {
                 // Decrease the player's fire rate by 3%
                 float decreaseFireRate = 0.97f;
                 GameManager.Instance.GetPlayer().weapon.fireRate *= decreaseFireRate;
-                Debug.Log("Fire Rate Decreased");
+                Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
             },
             () =>
             {
                 // Increase the player's max HP by 25
                 float increaseHealth = 25f;
                 GameManager.Instance.GetPlayer().playerHealth += increaseHealth;
-                Debug.Log("Health Increased");
+                Debug.Log("Health Increased by " + increaseHealth);
             },
             () =>
             {
                 // Increase the player's ship speed by 3%
                 float increaseSpeed = 1.03f;
                 GameManager.Instance.GetPlayer().playerController.moveSpeed *= increaseSpeed;
-                Debug.Log("Speed Increased");
+                Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
             }
         };
 
-        ApplySkillEffect("New Beginnings", 100, effects);
+        ApplySkillEffect("New Beginnings", 100, skillEffects);
     }
 
     private bool ArePreqsMet(Skill skill)
