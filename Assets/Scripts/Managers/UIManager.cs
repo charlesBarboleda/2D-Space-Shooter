@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] SkillTree skillTree;
     [SerializeField] GameObject skillTreePanel;
     [SerializeField] TextMeshProUGUI newBeginningsLevelText, brutalityLevelText, violenceLevelText, ferocityLevelText, viciousLevelText, sprayAndPrayLevelText;
+    [SerializeField] TextMeshProUGUI laserLevelText;
 
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
@@ -25,14 +26,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] GameObject gameOverPanel;
 
-    [Header("Ability UI")]
+    [Header("Player Abilities UI")]
+    public GameObject laserPanel, shieldPanel, teleportPanel, turretPanel;
+
     AbilityHolder abilityHolder;
     [SerializeField] Image laserIconFill, shieldIconFill, teleportIconFill, turretIconFill;
 
-    void AbilitiesUI()
-    {
-
-    }
     void Awake()
     {
         if (Instance == null)
@@ -79,7 +78,7 @@ public class UIManager : MonoBehaviour
             UpdateSkillLevelText(ferocityLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Ferocity")) ? skillTree.skills.Find(skill => skill.skillName == "Ferocity") : null);
             UpdateSkillLevelText(viciousLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Vicious")) ? skillTree.skills.Find(skill => skill.skillName == "Vicious") : null);
             UpdateSkillLevelText(sprayAndPrayLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Spray And Pray")) ? skillTree.skills.Find(skill => skill.skillName == "Spray And Pray") : null);
-
+            UpdateSkillLevelText(laserLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Laser")) ? skillTree.skills.Find(skill => skill.skillName == "Laser") : null);
 
 
         }
@@ -178,5 +177,6 @@ public class UIManager : MonoBehaviour
     {
         skillTreePanel.SetActive(false);
     }
+
 
 }

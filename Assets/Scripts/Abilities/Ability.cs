@@ -14,6 +14,11 @@ public abstract class Ability : ScriptableObject
 
     public void TriggerAbility(GameObject owner, Transform target)
     {
+        if (!isUnlocked)
+        {
+            Debug.Log("Ability is locked");
+            return;
+        }
         if (currentCooldown >= cooldown)
         {
             AbilityLogic(owner, target);

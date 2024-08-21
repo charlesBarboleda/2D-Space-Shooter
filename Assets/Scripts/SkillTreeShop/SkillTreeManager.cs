@@ -54,6 +54,20 @@ public class SkillTreeManager : MonoBehaviour
             }
         }
     }
+    public void ApplyLaserEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Unlock the Laser ability
+                AbilityHolderManager.Instance.UnlockSkill(GameManager.Instance.GetPlayer().abilityHolder.abilities.Find(ability => ability is AbilityLaser));
+                UIManager.Instance.laserPanel.SetActive(true);
+            },
+        };
+
+        ApplySkillEffect("Laser", 0, skillEffects);
+    }
     public void ApplyViciousEffect()
     {
         skillEffects = new List<System.Action>

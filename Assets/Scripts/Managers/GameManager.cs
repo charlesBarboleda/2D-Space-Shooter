@@ -5,25 +5,27 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
 
-    [SerializeField] private GameObject _spawnerManager;
-    [SerializeField] private GameObject _powerUps;
+    [Header("Managers")]
+    [SerializeField] GameObject _spawnerManager;
+    PlayerManager player;
+
+    [Header("Round Settings")]
+    bool isRoundOver;
+    bool canTriggerNextRound = true;
+    public float maxSpawnRate;
+    public float spawnRate;
+    public int enemiesToSpawn;
+    public int level;
     public float roundCountdown;
     public bool isCountdown;
     public bool isRound;
-    bool isRoundOver;
-    bool canTriggerNextRound = true;
-    public int enemiesToSpawn;
-    public int level;
-    public float spawnRate;
-    public float maxSpawnRate;
     public List<GameObject> enemies = new List<GameObject>();
-    public static GameManager Instance { get; private set; }
-    private PlayerManager Player;
 
     void Awake()
     {
-        Player = GameObject.Find("Player").GetComponent<PlayerManager>();
+        player = GameObject.Find("Player").GetComponent<PlayerManager>();
         SetSingleton();
 
     }
@@ -37,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Player.playerHealth <= 0)
+        if (player.playerHealth <= 0)
         {
             EventManager.GameOverEvent();
         }
@@ -96,7 +98,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerManager GetPlayer()
     {
-        return Player;
+        return player;
     }
 
 

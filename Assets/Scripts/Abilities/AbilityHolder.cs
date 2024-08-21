@@ -8,12 +8,9 @@ public class AbilityHolder : MonoBehaviour
     public List<Ability> abilities;
     public Transform target;
 
-    [SerializeField] private KeyCode key;
-
 
     void Start()
     {
-
         ResetTurretCount();
         ResetShieldStats();
         ResetTeleportStats();

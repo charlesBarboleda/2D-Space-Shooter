@@ -5098,7 +5098,7 @@ GameObject:
   - component: {fileID: 99351105}
   - component: {fileID: 99351104}
   m_Layer: 5
-  m_Name: 'BulletDamageIcon '
+  m_Name: 'Icon '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9186,7 +9186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &196124685
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9205,10 +9205,10 @@ RectTransform:
   - {fileID: 2019332390}
   m_Father: {fileID: 435433499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 315.125, y: -224.87888}
+  m_SizeDelta: {x: 196.59879, y: 449.75775}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &196124686
 CanvasRenderer:
@@ -17205,7 +17205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &384682034
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17224,10 +17224,10 @@ RectTransform:
   - {fileID: 282576334}
   m_Father: {fileID: 435433499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 145.375, y: -224.87888}
+  m_SizeDelta: {x: 196.59879, y: 449.75775}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &384682036
 CanvasRenderer:
@@ -17413,7 +17413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &397908832
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18704,7 +18704,7 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
-  m_ReverseArrangement: 1
+  m_ReverseArrangement: 0
 --- !u!114 &435433501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22633,7 +22633,7 @@ GameObject:
   - component: {fileID: 512498149}
   - component: {fileID: 512498148}
   m_Layer: 5
-  m_Name: 'BulletDamageIcon '
+  m_Name: 'Icon '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25280,7 +25280,7 @@ GameObject:
   - component: {fileID: 573907998}
   - component: {fileID: 573907997}
   m_Layer: 5
-  m_Name: LaserButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25351,7 +25351,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplyViolenceEffect
+        m_MethodName: ApplyLaserEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25583,7 +25583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &575834772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25602,10 +25602,10 @@ RectTransform:
   - {fileID: 678380323}
   m_Father: {fileID: 435433499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 654.625, y: -224.87888}
+  m_SizeDelta: {x: 196.59879, y: 449.75775}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &575834773
 CanvasRenderer:
@@ -27965,7 +27965,7 @@ GameObject:
   - component: {fileID: 622763849}
   - component: {fileID: 622763848}
   m_Layer: 5
-  m_Name: 'ExtraBulletIcon '
+  m_Name: 'Icon '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33015,7 +33015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49.4, y: 121.8}
+  m_AnchoredPosition: {x: -28.6, y: 148.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &737194550
@@ -36104,7 +36104,7 @@ GameObject:
   - component: {fileID: 794631231}
   - component: {fileID: 794631230}
   m_Layer: 5
-  m_Name: 'BulletDamageIcon '
+  m_Name: 'Icon '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46209,7 +46209,7 @@ GameObject:
   - component: {fileID: 1026382995}
   - component: {fileID: 1026382994}
   m_Layer: 5
-  m_Name: ViolenceButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47162,7 +47162,7 @@ GameObject:
   - component: {fileID: 1057025991}
   - component: {fileID: 1057025990}
   m_Layer: 5
-  m_Name: 'BulletDamageIcon '
+  m_Name: 'Icon '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51412,7 +51412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196, y: 22}
+  m_AnchoredPosition: {x: -224.1, y: 76.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1146547961
@@ -52287,7 +52287,7 @@ GameObject:
   - component: {fileID: 1168275490}
   - component: {fileID: 1168275489}
   m_Layer: 5
-  m_Name: ViciousButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57365,7 +57365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -139.8, y: 108}
+  m_AnchoredPosition: {x: -145.7, y: 155.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1280479111
@@ -58522,7 +58522,7 @@ GameObject:
   - component: {fileID: 1308234645}
   - component: {fileID: 1308234644}
   m_Layer: 5
-  m_Name: 'LaserIcon '
+  m_Name: 'Icon '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59613,7 +59613,7 @@ GameObject:
   - component: {fileID: 1334565730}
   - component: {fileID: 1334565729}
   m_Layer: 5
-  m_Name: BrutalityButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62493,7 +62493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1404989661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -62512,10 +62512,10 @@ RectTransform:
   - {fileID: 1457509378}
   m_Father: {fileID: 435433499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 484.875, y: -224.87888}
+  m_SizeDelta: {x: 196.59879, y: 449.75775}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1404989662
 CanvasRenderer:
@@ -64978,7 +64978,7 @@ GameObject:
   - component: {fileID: 1454187531}
   - component: {fileID: 1454187530}
   m_Layer: 5
-  m_Name: NewBeginningsButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69953,7 +69953,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102, y: 18}
+  m_AnchoredPosition: {x: -90, y: 73.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1570599843
@@ -83437,7 +83437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -243.4, y: 123.3}
+  m_AnchoredPosition: {x: -296.9, y: 155.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1895086793
@@ -89631,7 +89631,7 @@ GameObject:
   - component: {fileID: 2021367822}
   - component: {fileID: 2021367821}
   m_Layer: 5
-  m_Name: FerocityButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90351,7 +90351,7 @@ GameObject:
   - component: {fileID: 2039700585}
   - component: {fileID: 2039700584}
   m_Layer: 5
-  m_Name: SprayAndPrayButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92110,7 +92110,7 @@ GameObject:
   - component: {fileID: 2079854177}
   - component: {fileID: 2079854178}
   m_Layer: 5
-  m_Name: LaserNode
+  m_Name: LaserUnlockNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92135,7 +92135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -169, y: -65}
+  m_AnchoredPosition: {x: -164.2, y: -29.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2079854178
@@ -94734,6 +94734,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2145981194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2145981196}
+  - component: {fileID: 2145981195}
+  m_Layer: 0
+  m_Name: AbilityHolderManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2145981195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145981194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be091aa6c646d8b4f93972e1c4c2fe6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2145981196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145981194}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2147005647
 GameObject:
   m_ObjectHideFlags: 0
@@ -94840,7 +94884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_AnchorMin.x
@@ -94848,15 +94892,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 196.59879
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 449.75775
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -94888,11 +94932,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 145.375
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -224.87888
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -94921,6 +94965,10 @@ PrefabInstance:
     - target: {fileID: 6427880040601867499, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_Name
       value: LaserContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427880040601867499, guid: d50eb935c12d6f643852442232846a65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -95011,6 +95059,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1761608034}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: laserPanel
+      value: 
+      objectReference: {fileID: 384682033}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: pickUpCost
       value: 
       objectReference: {fileID: 292494266}
@@ -95022,6 +95074,14 @@ PrefabInstance:
       propertyPath: turretText
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: shieldPanel
+      value: 
+      objectReference: {fileID: 196124684}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: turretPanel
+      value: 
+      objectReference: {fileID: 575834771}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: currencyText
       value: 
@@ -95066,6 +95126,14 @@ PrefabInstance:
       propertyPath: pickUpUpgrade
       value: 
       objectReference: {fileID: 949497191}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: teleportPanel
+      value: 
+      objectReference: {fileID: 1404989660}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: laserLevelText
+      value: 
+      objectReference: {fileID: 1667465640}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: shieldIconFill
       value: 
@@ -95552,3 +95620,4 @@ SceneRoots:
   - {fileID: 62170634}
   - {fileID: 1984415755}
   - {fileID: 49005853}
+  - {fileID: 2145981196}

@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-
+    public static PlayerManager Instance;
+    public AbilityHolder abilityHolder;
     public float pickUpRadius;
     public static event Action OnCurrencyChange;
     public HealthBar healthBar;
@@ -17,9 +18,21 @@ public class PlayerManager : MonoBehaviour
 
     public float currency = 0f;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        abilityHolder = GetComponent<AbilityHolder>();
     }
 
     void FixedUpdate()
