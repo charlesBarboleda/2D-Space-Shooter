@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     [Header("Skill Tree")]
     [SerializeField] SkillTree skillTree;
     [SerializeField] GameObject skillTreePanel;
-    [SerializeField] TextMeshProUGUI newBeginningsLevelText, brutalityLevelText, violenceLevelText;
+    [SerializeField] TextMeshProUGUI newBeginningsLevelText, brutalityLevelText, violenceLevelText, ferocityLevelText;
 
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
@@ -67,6 +67,7 @@ public class UIManager : MonoBehaviour
             UpdateSkillLevelText(newBeginningsLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "New Beginnings")) ? skillTree.skills.Find(skill => skill.skillName == "New Beginnings") : null);
             UpdateSkillLevelText(brutalityLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Brutality")) ? skillTree.skills.Find(skill => skill.skillName == "Brutality") : null);
             UpdateSkillLevelText(violenceLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Violence")) ? skillTree.skills.Find(skill => skill.skillName == "Violence") : null);
+            UpdateSkillLevelText(ferocityLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Ferocity")) ? skillTree.skills.Find(skill => skill.skillName == "Ferocity") : null);
 
         }
 
