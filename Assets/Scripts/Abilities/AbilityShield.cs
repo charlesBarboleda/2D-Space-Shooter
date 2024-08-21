@@ -27,5 +27,12 @@ public class AbilityShield : Ability
 
     }
 
+    public void ResetShieldStats()
+    {
+        _shieldSize = 1;
+        _shieldDamage = 10;
+        _duration = 5f;
+    }
+
 
 }

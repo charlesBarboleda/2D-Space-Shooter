@@ -16,6 +16,8 @@ public class AbilityHolder : MonoBehaviour
     {
 
         ResetTurretCount();
+        ResetShieldStats();
+        ResetTeleportStats();
     }
     // Update is called once per frame
     void Update()
@@ -38,7 +40,31 @@ public class AbilityHolder : MonoBehaviour
             if (ability is AbilityTurrets)
             {
                 // Reset the number of turrets spawned using type casting
-                ((AbilityTurrets)ability).numberOfTurretsPerSide = 0;
+                ((AbilityTurrets)ability).ResetTurretStats();
+            }
+        }
+    }
+
+    void ResetShieldStats()
+    {
+        foreach (Ability ability in abilities)
+        {
+            if (ability is AbilityShield)
+            {
+                // Reset the shield stats using type casting
+                ((AbilityShield)ability).ResetShieldStats();
+            }
+        }
+    }
+
+    void ResetTeleportStats()
+    {
+        foreach (Ability ability in abilities)
+        {
+            if (ability is AbilityTeleport)
+            {
+                // Reset the teleport stats using type casting
+                ((AbilityTeleport)ability).ResetTeleportStats();
             }
         }
     }

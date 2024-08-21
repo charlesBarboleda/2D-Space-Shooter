@@ -15,7 +15,8 @@ MonoBehaviour:
   abilityName: PlayerShield
   icon: {fileID: 21300000, guid: 0c32b8f3e89178d44a62c5d1d30aeb59, type: 3}
   cooldown: 0
-  _duration: 10
+  currentCooldown: 0
+  _duration: 5
   _shieldprefab: {fileID: 3917723382290660733, guid: 8cbc3f8cb5194714fa62b4a97b3f5fcc, type: 3}
-  _shieldSize: 5
+  _shieldSize: 1
   _shieldDamage: 25

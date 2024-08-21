@@ -20,8 +20,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthCost, damageCost, fireRateCost, bulletSpeedCost, extraBulletCost, speedCost, pickUpCost;
 
     [Header("UI Elements")]
+    [SerializeField] TextMeshProUGUI roundText;
+    [SerializeField] TextMeshProUGUI highscoreText;
+    [SerializeField] TextMeshProUGUI currencyText;
+    [SerializeField] GameObject gameOverPanel;
+
+    [Header("Ability UI")]
     AbilityHolder abilityHolder;
-    [SerializeField] Image abilityOne;
+    [SerializeField] Image laserIconFill;
     [SerializeField] Image abilityTwo;
     [SerializeField] Image abilityThree;
     [SerializeField] Image abilityFour;
@@ -29,10 +35,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject abilityTwoContainer;
     [SerializeField] GameObject abilityThreeContainer;
     [SerializeField] GameObject abilityFourContainer;
-    [SerializeField] TextMeshProUGUI roundText;
-    [SerializeField] TextMeshProUGUI highscoreText;
-    [SerializeField] TextMeshProUGUI currencyText;
-    [SerializeField] GameObject gameOverPanel;
 
     void AbilitiesUI()
     {
@@ -86,6 +88,15 @@ public class UIManager : MonoBehaviour
             UpdateSkillLevelText(sprayAndPrayLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Spray And Pray")) ? skillTree.skills.Find(skill => skill.skillName == "Spray And Pray") : null);
 
 
+
+        }
+
+        foreach (Ability ability in abilityHolder.abilities)
+        {
+            if (ability is AbilityLaser)
+            {
+                laserIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+            }
 
         }
 

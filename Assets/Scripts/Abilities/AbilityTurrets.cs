@@ -6,9 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Abilities/Turrets")]
 public class AbilityTurrets : Ability
 {
-    public int numberOfTurretsPerSide;
-    [SerializeField] private GameObject turret;
-    [SerializeField] private float turretSpacing = 0.5f;
+    [SerializeField] int numberOfTurretsPerSide;
+    [SerializeField] GameObject turret;
+    [SerializeField] float turretSpacing = 0.5f;
 
 
 
@@ -37,5 +37,10 @@ public class AbilityTurrets : Ability
         // Increment the number of turrets spawned
         numberOfTurretsPerSide++;
 
+    }
+
+    public void ResetTurretStats()
+    {
+        numberOfTurretsPerSide = 0;
     }
 }

@@ -33,5 +33,13 @@ public class AbilityTeleport : Ability
         Destroy(postTPEffect, _teleportDuration);
     }
 
+    public void ResetTeleportStats()
+    {
+        _teleportDistance = 1;
+        _teleportDamage = 10;
+        _teleportSize = 1;
+        _teleportDuration = 1f;
+    }
+
 }
 

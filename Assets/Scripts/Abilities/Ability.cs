@@ -6,7 +6,7 @@ public abstract class Ability : ScriptableObject
 {
     public string abilityName;
     public Sprite icon;
-    public float cooldown;
+    public float cooldown = 1f;
     public float currentCooldown;
 
     public abstract void AbilityLogic(GameObject owner, Transform target);
@@ -16,7 +16,7 @@ public abstract class Ability : ScriptableObject
         if (currentCooldown >= cooldown)
         {
             AbilityLogic(owner, target);
-            currentCooldown = 0;
+            currentCooldown = 0f;
 
         }
         else
@@ -30,6 +30,7 @@ public abstract class Ability : ScriptableObject
         if (currentCooldown < cooldown)
         {
             currentCooldown += deltaTime;
+            currentCooldown = Mathf.Clamp(currentCooldown, 0, cooldown);
         }
     }
 }
