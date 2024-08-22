@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Blitz Shot
   description: -FR 10/10/10
-  cost: 0
+  cost: 1250
   startingCost: 500
   prequisites:
   - {fileID: 11400000, guid: e0233f998a53da443be777ec3d5ba460, type: 2}
   children:
-  - {fileID: 11400000}
-  skillLevel: 0
+  - {fileID: 11400000, guid: 33c4fc167e9fc1948b59e19c37571b1f, type: 2}
+  skillLevel: 3
   maxSkillLevel: 3
-  isUnlocked: 0
+  isUnlocked: 1
