@@ -13692,7 +13692,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: M2
+  m_text: Q
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -32643,7 +32643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Q
+  m_text: M2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -100195,7 +100195,7 @@ PrefabInstance:
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: turretWeapon
       value: 
-      objectReference: {fileID: 382851988894892465}
+      objectReference: {fileID: 0}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: abilityHolder
       value: 
@@ -100272,6 +100272,10 @@ PrefabInstance:
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
       value: 0.27229118
       objectReference: {fileID: 0}
+    - target: {fileID: 5296568987947685235, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6209516934632428617, guid: 9de4688955feac3479a36610971dd362, type: 3}
     - target: {fileID: 5533584001014519575, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: m_Name
       value: Player
@@ -100292,7 +100296,7 @@ PrefabInstance:
       addedObject: {fileID: 382851988894892447}
     - targetCorrespondingSourceObject: {fileID: 5533584001014519575, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 382851988894892465}
+      addedObject: {fileID: 382851988894892466}
   m_SourcePrefab: {fileID: 100100000, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
 --- !u!1 &382851988894892446 stripped
 GameObject:
@@ -100426,18 +100430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472675415ca54e44db35c6088a2c1b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &382851988894892460 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1824064262938722817, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
-  m_PrefabInstance: {fileID: 382851988894892445}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382851988894892446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c9a658cac396774792634bb0d4840bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &382851988894892465
+--- !u!114 &382851988894892466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100446,17 +100439,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 382851988894892446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e318c11d6a36b7945a4fdcfc66937f48, type: 3}
+  m_Script: {fileID: 11500000, guid: b9eadc7d46b434a4297f8b594af0e5d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletAudio: {fileID: 382851988894892460}
-  shootingAngle: 0
-  isFiring: 0
-  fireRate: 0.5
-  amountOfBullets: 1
-  bulletDamage: 20
-  bulletLifetime: 5
-  bulletSpeed: 30
+  turretPrefab: {fileID: 7223191706573227298, guid: ceeb65ac70e6d764e8a5dffdb575f364, type: 3}
+  numberOfTurretsPerSide: 0
+  turretSpacing: 0.5
 --- !u!1001 &1918285141243380145
 PrefabInstance:
   m_ObjectHideFlags: 0

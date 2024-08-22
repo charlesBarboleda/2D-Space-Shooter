@@ -39,16 +39,9 @@ public class PlayerController : MonoBehaviour
     void Abilities()
     {
         // Use the Ability Laser
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             abilityHolder.abilities[0].TriggerAbility(gameObject, abilityHolder.target);
-
-        }
-
-        // Use the Ability Turrets
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            abilityHolder.abilities[1].TriggerAbility(gameObject, abilityHolder.target);
 
         }
 

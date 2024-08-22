@@ -39,6 +39,7 @@ public class AbilityTeleport : Ability
         _teleportDamage = 10;
         _teleportSize = 1;
         _teleportDuration = 1f;
+        isUnlocked = false;
     }
 
 }

@@ -28,6 +28,7 @@ public class AbilityLaser : Ability
         duration = 3f;
         dps = 5f;
         cooldown = 45f;
+        isUnlocked = false;
     }
 
 

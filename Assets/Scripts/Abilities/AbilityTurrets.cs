@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Abilities/Turrets")]
@@ -9,12 +8,11 @@ public class AbilityTurrets : Ability
     [SerializeField] int numberOfTurretsPerSide;
     [SerializeField] GameObject turret;
     [SerializeField] float turretSpacing = 0.5f;
-
-
+    public float bulletDamage;
+    public float fireRate;
 
     public override void AbilityLogic(GameObject owner, Transform target)
     {
-
         // Calculate the offset for the next turret
         float offset = (numberOfTurretsPerSide + 1) * turretSpacing;
 
@@ -29,18 +27,28 @@ public class AbilityTurrets : Ability
         // Spawn the turret on the left side
         GameObject leftTurret = Instantiate(turret, leftPosition, owner.transform.rotation);
         leftTurret.transform.SetParent(owner.transform);
+        var leftTurretWeapon = leftTurret.GetComponent<Weapon>();
+        // Initialize turret properties here if needed
+        leftTurretWeapon.bulletDamage = bulletDamage;
+        leftTurretWeapon.fireRate = fireRate;
 
         // Spawn the turret on the right side
         GameObject rightTurret = Instantiate(turret, rightPosition, owner.transform.rotation);
         rightTurret.transform.SetParent(owner.transform);
+        var rightTurretWeapon = rightTurret.GetComponent<Weapon>();
+        // Initialize turret properties here if needed
+        rightTurretWeapon.bulletDamage = bulletDamage;
+        rightTurretWeapon.fireRate = fireRate;
 
         // Increment the number of turrets spawned
         numberOfTurretsPerSide++;
-
     }
 
     public void ResetTurretStats()
     {
+        bulletDamage = 10f;
+        fireRate = 0.5f;
         numberOfTurretsPerSide = 0;
+        isUnlocked = false;
     }
 }
