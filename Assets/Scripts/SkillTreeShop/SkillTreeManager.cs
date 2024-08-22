@@ -71,6 +71,87 @@ public class SkillTreeManager : MonoBehaviour
             }
         }
     }
+    public void ApplyRejuvenationEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Increase the player's regeneration by 1 hp/s
+                float increaseHealthRegen = 1f;
+                GameManager.Instance.GetPlayer().healthRegen += increaseHealthRegen;
+                Debug.Log("Health Regen Increased by " + increaseHealthRegen + "HP/s");
+            }
+        };
+
+        ApplySkillEffect("Rejuvenation", 500, skillEffects);
+    }
+    public void ApplyFortitudeEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Increase the player's max HP by 12%
+                float increaseHealth = 1.12f;
+                GameManager.Instance.GetPlayer().playerHealth *= increaseHealth;
+                GameManager.Instance.GetPlayer().maxHealth *= increaseHealth;
+
+                Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
+            }
+        };
+
+        ApplySkillEffect("Fortitude", 400, skillEffects);
+    }
+    public void ApplyResilienceEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Increase the player's max HP by 10%
+                float increaseHealth = 1.1f;
+                GameManager.Instance.GetPlayer().playerHealth *= increaseHealth;
+                GameManager.Instance.GetPlayer().maxHealth *= increaseHealth;
+
+                Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
+            }
+        };
+
+        ApplySkillEffect("Resilience", 300, skillEffects);
+    }
+    public void ApplyEnduranceEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Increase the player's max HP by 7%
+                float increaseHealth = 1.07f;
+                GameManager.Instance.GetPlayer().playerHealth *= increaseHealth;
+                GameManager.Instance.GetPlayer().maxHealth *= increaseHealth;
+                Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
+            }
+        };
+
+        ApplySkillEffect("Endurance", 200, skillEffects);
+    }
+
+    public void ApplyVitalityEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Increase the player's max HP by 5%
+                float increaseHealth = 1.05f;
+                GameManager.Instance.GetPlayer().playerHealth *= increaseHealth;
+                Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
+            }
+        };
+
+        ApplySkillEffect("Vitality", 100, skillEffects);
+    }
     public void ApplySurplusEffect()
     {
         skillEffects = new List<System.Action>

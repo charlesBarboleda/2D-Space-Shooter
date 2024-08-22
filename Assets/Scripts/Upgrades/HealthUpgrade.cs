@@ -11,6 +11,8 @@ public class HealthUpgrade : Upgrade
         {
             GameManager.Instance.GetPlayer().currency -= upgradeCost;
             GameManager.Instance.GetPlayer().playerHealth += healthUpgradeAmount;
+            GameManager.Instance.GetPlayer().maxHealth += healthUpgradeAmount;
+
             upgradeCost += 50;
             healthUpgradeAmount += 10;
         }

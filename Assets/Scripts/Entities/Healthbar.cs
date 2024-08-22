@@ -10,17 +10,18 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetMaxHealth();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        SetMaxHealth();
         SetHealth();
     }
     public void SetMaxHealth()
     {
-        slider.maxValue = playerManager.playerHealth;
+        slider.maxValue = playerManager.maxHealth;
     }
     public void SetHealth()
     {

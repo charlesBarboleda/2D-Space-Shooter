@@ -13900,7 +13900,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplyBrutalityEffect
+        m_MethodName: ApplyVitalityEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14670,7 +14670,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplyBulletHellEffect
+        m_MethodName: ApplyRejuvenationEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28481,7 +28481,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplyBrutalityEffect
+        m_MethodName: ApplyFortitudeEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32311,7 +32311,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplyBrutalityEffect
+        m_MethodName: ApplyEnduranceEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -61628,7 +61628,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplyBrutalityEffect
+        m_MethodName: ApplyResilienceEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -102231,7 +102231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: playerHealth
-      value: 9999999
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: turretWeapon

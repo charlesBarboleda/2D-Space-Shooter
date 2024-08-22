@@ -13,8 +13,10 @@ public class PlayerManager : MonoBehaviour
     SpriteRenderer spriteRenderer;
     public Weapon weapon;
     public PlayerController playerController;
+    public float healthRegen = 0f;
 
     public float playerHealth = 100f;
+    public float maxHealth = 100f;
 
     public float currency = 0f;
 
@@ -34,10 +36,23 @@ public class PlayerManager : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         abilityHolder = GetComponent<AbilityHolder>();
     }
+    void Update()
+    {
+        RegenHealth();
+    }
 
     void FixedUpdate()
     {
         PickUpLogic();
+    }
+
+    void RegenHealth()
+    {
+        if (playerHealth < maxHealth)
+        {
+            playerHealth += healthRegen * Time.deltaTime;
+            healthBar.SetHealth();
+        }
     }
 
     void PickUpLogic()
@@ -78,16 +93,6 @@ public class PlayerManager : MonoBehaviour
         OnCurrencyChange?.Invoke();
     }
 
-    public void RemoveCurrency(float currency)
-    {
-        this.currency -= currency;
-
-    }
-
-    public void AddHealth(float health)
-    {
-        playerHealth += health;
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
