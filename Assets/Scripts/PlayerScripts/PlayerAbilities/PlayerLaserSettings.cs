@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLaserPrefab : MonoBehaviour
+public class PlayerLaserSettings : MonoBehaviour
 {
-    private float dps;
+
+
+    float dps;
     private void OnTriggerStay2D(Collider2D other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();

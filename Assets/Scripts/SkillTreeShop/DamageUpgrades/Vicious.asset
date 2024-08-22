@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Vicious
   description: DMG 10/10/10
-  cost: 0
+  cost: 500
   startingCost: 500
   prequisites:
   - {fileID: 11400000, guid: b556ec9981f60644c9b8bffda5a93f41, type: 2}
   children:
-  - {fileID: 11400000, guid: b556ec9981f60644c9b8bffda5a93f41, type: 2}
-  skillLevel: 3
+  - {fileID: 11400000, guid: 521ee296f35afe04fbe4827ecb03367d, type: 2}
+  skillLevel: 0
   maxSkillLevel: 3
   isUnlocked: 0

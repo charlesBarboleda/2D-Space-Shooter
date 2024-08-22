@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e578097537151b644af0120499ab96b6, type: 3}
-  m_Name: Ferocity
+  m_Name: Expeditious
   m_EditorClassIdentifier: 
-  skillName: Ferocity
-  description: DMG 10/10/10
-  cost: 2000
+  skillName: Expeditious
+  description: Decrease laser cooldown by
+  cost: 1000
   startingCost: 500
   prequisites:
-  - {fileID: 11400000, guid: de676b40d9fa8ff449bf928632f8a0ba, type: 2}
-  children:
-  - {fileID: 11400000, guid: 33970d90ce7084240adaab82f45f4170, type: 2}
-  skillLevel: 3
-  maxSkillLevel: 3
-  isUnlocked: 1
+  - {fileID: 11400000, guid: 8eff6dda9d5b0b84f8b51747062859aa, type: 2}
+  children: []
+  skillLevel: 0
+  maxSkillLevel: 10
+  isUnlocked: 0

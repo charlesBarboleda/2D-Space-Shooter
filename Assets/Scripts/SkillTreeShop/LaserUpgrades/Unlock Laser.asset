@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e578097537151b644af0120499ab96b6, type: 3}
-  m_Name: Spray And Pray
+  m_Name: Unlock Laser
   m_EditorClassIdentifier: 
-  skillName: Spray And Pray
-  description: 2 extra bullets
-  cost: 1500
+  skillName: Unlock Laser
+  description: Unlocks the Laser skill
+  cost: 1000
   startingCost: 1000
   prequisites:
-  - {fileID: 11400000, guid: 33970d90ce7084240adaab82f45f4170, type: 2}
-  children: []
+  - {fileID: 11400000, guid: de676b40d9fa8ff449bf928632f8a0ba, type: 2}
+  children:
+  - {fileID: 11400000, guid: e57d166808f4a09499b6ab2d7b3833ce, type: 2}
+  - {fileID: 11400000, guid: 53974a202ed98a84fb0dd44bef4a5363, type: 2}
+  - {fileID: 11400000, guid: 7ac150b2150093f45b2ccce0b2119cce, type: 2}
   skillLevel: 0
   maxSkillLevel: 1
   isUnlocked: 0

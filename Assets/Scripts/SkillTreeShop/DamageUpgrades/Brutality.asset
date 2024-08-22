@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Brutality
   description: DMG 5/5/5
-  cost: 400
+  cost: 250
   startingCost: 250
   prequisites:
   - {fileID: 11400000, guid: 3ccecda4881ab5b47bd8eb249a34b273, type: 2}
   children:
   - {fileID: 11400000, guid: de676b40d9fa8ff449bf928632f8a0ba, type: 2}
-  skillLevel: 3
+  skillLevel: 0
   maxSkillLevel: 3
-  isUnlocked: 0
+  isUnlocked: 1

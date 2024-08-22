@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e578097537151b644af0120499ab96b6, type: 3}
-  m_Name: Ferocity
+  m_Name: Spray And Pray
   m_EditorClassIdentifier: 
-  skillName: Ferocity
-  description: DMG 10/10/10
-  cost: 2000
-  startingCost: 500
+  skillName: Spray And Pray
+  description: Add three extra bullets to your weapon
+  cost: 1500
+  startingCost: 1000
   prequisites:
-  - {fileID: 11400000, guid: de676b40d9fa8ff449bf928632f8a0ba, type: 2}
-  children:
   - {fileID: 11400000, guid: 33970d90ce7084240adaab82f45f4170, type: 2}
-  skillLevel: 3
-  maxSkillLevel: 3
-  isUnlocked: 1
+  children: []
+  skillLevel: 1
+  maxSkillLevel: 1
+  isUnlocked: 0
