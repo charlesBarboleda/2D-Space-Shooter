@@ -5,15 +5,14 @@ using UnityEngine;
 
 public class AbilityHolder : MonoBehaviour
 {
+
     public List<Ability> abilities;
     public Transform target;
 
 
     void Start()
     {
-        ResetTurretCount();
-        ResetShieldStats();
-        ResetTeleportStats();
+        ResetAbilityStats();
     }
     // Update is called once per frame
     void Update()
@@ -25,31 +24,8 @@ public class AbilityHolder : MonoBehaviour
 
 
     }
-    void ResetTurretCount()
-    {
-        foreach (Ability ability in abilities)
-        {
-            if (ability is AbilityTurrets)
-            {
-                // Reset the number of turrets spawned using type casting
-                ((AbilityTurrets)ability).ResetTurretStats();
-            }
-        }
-    }
 
-    void ResetShieldStats()
-    {
-        foreach (Ability ability in abilities)
-        {
-            if (ability is AbilityShield)
-            {
-                // Reset the shield stats using type casting
-                ((AbilityShield)ability).ResetShieldStats();
-            }
-        }
-    }
-
-    void ResetTeleportStats()
+    void ResetAbilityStats()
     {
         foreach (Ability ability in abilities)
         {
@@ -58,8 +34,24 @@ public class AbilityHolder : MonoBehaviour
                 // Reset the teleport stats using type casting
                 ((AbilityTeleport)ability).ResetTeleportStats();
             }
+            else if (ability is AbilityShield)
+            {
+                // Reset the shield stats using type casting
+                ((AbilityShield)ability).ResetShieldStats();
+            }
+            else if (ability is AbilityTurrets)
+            {
+                // Reset the turret stats using type casting
+                ((AbilityTurrets)ability).ResetTurretStats();
+            }
+            else if (ability is AbilityLaser)
+            {
+                // Reset the laser stats using type casting
+                ((AbilityLaser)ability).ResetLaserStats();
+            }
         }
     }
+
 
 
 }

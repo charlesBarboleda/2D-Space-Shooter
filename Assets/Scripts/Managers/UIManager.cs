@@ -24,6 +24,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image unlockLaserIcon, destructionIcon, tenaciousIcon, expeditiousIcon;
     [SerializeField] Image unlockLaserButton, destructionButton, tenaciousButton, expeditiousButton;
 
+    [Header("Skill Tree/Fire Rate Pathway")]
+    [SerializeField] TextMeshProUGUI rapidFireLevelText, speedShooterLevelText, triggerFingerLevelText, blitzShotLevelText, bulletHellLevelText;
+    [SerializeField] Image rapidFireIcon, speedShooterIcon, triggerFingerIcon, blitzShotIcon, bulletHellIcon;
+    [SerializeField] Image rapidFireButton, speedShooterButton, triggerFingerButton, blitzShotButton, bulletHellButton;
 
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
@@ -97,6 +101,14 @@ public class UIManager : MonoBehaviour
             UpdateSkillLevelText(tenaciousLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Tenacious")) ? skillTree.skills.Find(skill => skill.skillName == "Tenacious") : null);
             UpdateSkillLevelText(expeditiousLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Expeditious")) ? skillTree.skills.Find(skill => skill.skillName == "Expeditious") : null);
 
+            // Fire Rate Pathway
+            UpdateSkillLevelText(rapidFireLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Rapid Fire")) ? skillTree.skills.Find(skill => skill.skillName == "Rapid Fire") : null);
+            UpdateSkillLevelText(speedShooterLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Speed Shooter")) ? skillTree.skills.Find(skill => skill.skillName == "Speed Shooter") : null);
+            UpdateSkillLevelText(triggerFingerLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Trigger Finger")) ? skillTree.skills.Find(skill => skill.skillName == "Trigger Finger") : null);
+            UpdateSkillLevelText(blitzShotLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Blitz Shot")) ? skillTree.skills.Find(skill => skill.skillName == "Blitz Shot") : null);
+            UpdateSkillLevelText(bulletHellLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Bullet Hell")) ? skillTree.skills.Find(skill => skill.skillName == "Bullet Hell") : null);
+
+
 
 
             UpdateSkillNodeOpacity(brutalityButton, brutalityIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Brutality")) ? skillTree.skills.Find(skill => skill.skillName == "Brutality") : null);
@@ -108,6 +120,12 @@ public class UIManager : MonoBehaviour
             UpdateSkillNodeOpacity(destructionButton, destructionIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Destruction")) ? skillTree.skills.Find(skill => skill.skillName == "Destruction") : null);
             UpdateSkillNodeOpacity(tenaciousButton, tenaciousIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Tenacious")) ? skillTree.skills.Find(skill => skill.skillName == "Tenacious") : null);
             UpdateSkillNodeOpacity(expeditiousButton, expeditiousIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Expeditious")) ? skillTree.skills.Find(skill => skill.skillName == "Expeditious") : null);
+            UpdateSkillNodeOpacity(rapidFireButton, rapidFireIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Rapid Fire")) ? skillTree.skills.Find(skill => skill.skillName == "Rapid Fire") : null);
+            UpdateSkillNodeOpacity(speedShooterButton, speedShooterIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Speed Shooter")) ? skillTree.skills.Find(skill => skill.skillName == "Speed Shooter") : null);
+            UpdateSkillNodeOpacity(triggerFingerButton, triggerFingerIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Trigger Finger")) ? skillTree.skills.Find(skill => skill.skillName == "Trigger Finger") : null);
+            UpdateSkillNodeOpacity(blitzShotButton, blitzShotIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Blitz Shot")) ? skillTree.skills.Find(skill => skill.skillName == "Blitz Shot") : null);
+            UpdateSkillNodeOpacity(bulletHellButton, bulletHellIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Bullet Hell")) ? skillTree.skills.Find(skill => skill.skillName == "Bullet Hell") : null);
+
 
 
         }

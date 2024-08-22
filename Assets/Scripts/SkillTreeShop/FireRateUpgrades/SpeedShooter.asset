@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e578097537151b644af0120499ab96b6, type: 3}
-  m_Name: NewBeginningsNode
+  m_Name: SpeedShooter
   m_EditorClassIdentifier: 
-  skillName: New Beginnings
-  description: +DMG 3/6/9 +FR 3/6/9 +HP 25/50/100 +SPD 3/6/9
-  cost: 400
+  skillName: Speed Shooter
+  description: -FR 5/5/5
+  cost: 0
   startingCost: 100
-  prequisites: []
-  children:
-  - {fileID: 11400000, guid: 2106f6f168d056d48b16e5234a6aa10b, type: 2}
+  prequisites:
   - {fileID: 11400000, guid: 7351f99a54419f84db89b63adeccc79f, type: 2}
-  skillLevel: 3
+  children:
+  - {fileID: 11400000, guid: e0233f998a53da443be777ec3d5ba460, type: 2}
+  skillLevel: 0
   maxSkillLevel: 3
-  isUnlocked: 1
+  isUnlocked: 0

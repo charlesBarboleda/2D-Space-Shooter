@@ -23,6 +23,12 @@ public class AbilityLaser : Ability
         laserScript.SetDamage(dps);
     }
 
+    public void ResetLaserStats()
+    {
+        duration = 3f;
+        dps = 5f;
+        cooldown = 45f;
+    }
 
 
 }

@@ -14,8 +14,6 @@ public class SkillTreeManager : MonoBehaviour
 
     [Header("Skill Settings")]
     AbilityHolder abilityHolder;
-    [SerializeField] AbilityLaser abilityLaser;
-    [SerializeField] AbilityTeleport abilityTeleport;
 
 
     void Awake()
@@ -71,6 +69,81 @@ public class SkillTreeManager : MonoBehaviour
                 }
             }
         }
+    }
+    public void ApplyBulletHellEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Increase the player's bullet count by 3
+                int bulletIncrease = 3;
+                GameManager.Instance.GetPlayer().weapon.amountOfBullets += bulletIncrease;
+                Debug.Log("Bullet Count Increased by " + bulletIncrease + " Bullets");
+            }
+        };
+
+        ApplySkillEffect("Bullet Hell", 0, skillEffects);
+    }
+    public void ApplyBlitzShotEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Decrease the player's fire rate by 10%
+                float decreaseFireRate = 0.90f;
+                GameManager.Instance.GetPlayer().weapon.fireRate *= decreaseFireRate;
+                Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
+            }
+        };
+
+        ApplySkillEffect("Blitz Shot", 250, skillEffects);
+    }
+    public void ApplyTriggerFingerEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Decrease the player's fire rate by 5%
+                float decreaseFireRate = 0.95f;
+                GameManager.Instance.GetPlayer().weapon.fireRate *= decreaseFireRate;
+                Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
+            }
+        };
+
+        ApplySkillEffect("Trigger Finger", 250, skillEffects);
+    }
+    public void ApplySpeedShooterEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Decrease the player's fire rate by 5%
+                float decreaseFireRate = 0.95f;
+                GameManager.Instance.GetPlayer().weapon.fireRate *= decreaseFireRate;
+                Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
+            }
+        };
+
+        ApplySkillEffect("Speed Shooter", 250, skillEffects);
+    }
+    public void ApplyRapidFireEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Decrease the player's fire rate by 3%
+                float decreaseFireRate = 0.97f;
+                GameManager.Instance.GetPlayer().weapon.fireRate *= decreaseFireRate;
+                Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
+            }
+        };
+
+        ApplySkillEffect("Rapid Fire", 250, skillEffects);
     }
     public void ApplyTenaciousEffect()
     {
