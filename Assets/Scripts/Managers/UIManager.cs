@@ -34,6 +34,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image unlockTurretIcon, quickSuccessionIcon, annihilationIcon, surplusIcon;
     [SerializeField] Image unlockTurretButton, quickSuccessionButton, annihilationButton, surplusButton;
 
+    [Header("Skill Tree/Health Pathway")]
+    [SerializeField] TextMeshProUGUI vitalityLevelText, enduranceLevelText, resilienceLevelText, fortitudeLevelText, rejuvenationLevelText;
+    [SerializeField] Image vitalityIcon, enduranceIcon, resilienceIcon, fortitudeIcon, rejuvenationIcon;
+    [SerializeField] Image vitalityButton, enduranceButton, resilienceButton, fortitudeButton, rejuvenationButton;
+
 
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
@@ -120,6 +125,21 @@ public class UIManager : MonoBehaviour
             UpdateSkillLevelText(annihilationLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Annihilation")) ? skillTree.skills.Find(skill => skill.skillName == "Annihilation") : null);
             UpdateSkillLevelText(surplusLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Surplus")) ? skillTree.skills.Find(skill => skill.skillName == "Surplus") : null);
 
+            //Health Pathway
+            UpdateSkillLevelText(vitalityLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Vitality")) ? skillTree.skills.Find(skill => skill.skillName == "Vitality") : null);
+            UpdateSkillLevelText(enduranceLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Endurance")) ? skillTree.skills.Find(skill => skill.skillName == "Endurance") : null);
+            UpdateSkillLevelText(resilienceLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Resilience")) ? skillTree.skills.Find(skill => skill.skillName == "Resilience") : null);
+            UpdateSkillLevelText(fortitudeLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Fortitude")) ? skillTree.skills.Find(skill => skill.skillName == "Fortitude") : null);
+            UpdateSkillLevelText(rejuvenationLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Rejuvenation")) ? skillTree.skills.Find(skill => skill.skillName == "Rejuvenation") : null);
+
+            //Shield Pathway
+
+
+            // Speed Pathway
+
+
+            // Teleport Pathway
+
 
             UpdateSkillNodeOpacity(brutalityButton, brutalityIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Brutality")) ? skillTree.skills.Find(skill => skill.skillName == "Brutality") : null);
             UpdateSkillNodeOpacity(violenceButton, violenceIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Violence")) ? skillTree.skills.Find(skill => skill.skillName == "Violence") : null);
@@ -139,6 +159,11 @@ public class UIManager : MonoBehaviour
             UpdateSkillNodeOpacity(quickSuccessionButton, quickSuccessionIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Quick Succession")) ? skillTree.skills.Find(skill => skill.skillName == "Quick Succession") : null);
             UpdateSkillNodeOpacity(annihilationButton, annihilationIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Annihilation")) ? skillTree.skills.Find(skill => skill.skillName == "Annihilation") : null);
             UpdateSkillNodeOpacity(surplusButton, surplusIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Surplus")) ? skillTree.skills.Find(skill => skill.skillName == "Surplus") : null);
+            UpdateSkillNodeOpacity(vitalityButton, vitalityIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Vitality")) ? skillTree.skills.Find(skill => skill.skillName == "Vitality") : null);
+            UpdateSkillNodeOpacity(enduranceButton, enduranceIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Endurance")) ? skillTree.skills.Find(skill => skill.skillName == "Endurance") : null);
+            UpdateSkillNodeOpacity(resilienceButton, resilienceIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Resilience")) ? skillTree.skills.Find(skill => skill.skillName == "Resilience") : null);
+            UpdateSkillNodeOpacity(fortitudeButton, fortitudeIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Fortitude")) ? skillTree.skills.Find(skill => skill.skillName == "Fortitude") : null);
+            UpdateSkillNodeOpacity(rejuvenationButton, rejuvenationIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Rejuvenation")) ? skillTree.skills.Find(skill => skill.skillName == "Rejuvenation") : null);
 
 
         }
