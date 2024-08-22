@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e578097537151b644af0120499ab96b6, type: 3}
-  m_Name: SpeedShooter
+  m_Name: QuickSuccession
   m_EditorClassIdentifier: 
-  skillName: Speed Shooter
-  description: -FR 5/5/5
-  cost: 850
-  startingCost: 100
+  skillName: Quick Succession
+  description: Decrease turret fire rate by 8%
+  cost: 0
+  startingCost: 500
   prequisites:
-  - {fileID: 11400000, guid: 7351f99a54419f84db89b63adeccc79f, type: 2}
-  children:
-  - {fileID: 11400000, guid: e0233f998a53da443be777ec3d5ba460, type: 2}
   - {fileID: 11400000, guid: 5a131742778ec574ba737836d1deb3a5, type: 2}
-  skillLevel: 3
-  maxSkillLevel: 3
-  isUnlocked: 1
+  children: []
+  skillLevel: 0
+  maxSkillLevel: 12
+  isUnlocked: 0

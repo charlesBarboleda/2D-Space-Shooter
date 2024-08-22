@@ -70,6 +70,59 @@ public class SkillTreeManager : MonoBehaviour
             }
         }
     }
+    public void ApplySurplusEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Increase the player's turret count by 2
+                
+            }
+        };
+
+        ApplySkillEffect("Surplus", 1000, skillEffects);
+    }
+    public void ApplyAnnihilationEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Increase the player's turret damage by 10%
+            
+            }
+        };
+
+        ApplySkillEffect("Annihilation", 100, skillEffects);
+    }
+    public void ApplyQuickSuccessionEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Decrease the player's turret's fire rate by 8%
+                
+            }
+        };
+        ApplySkillEffect("Quick Succession", 500, skillEffects);
+    }
+    public void ApplyUnlockTurretEffect()
+    {
+        skillEffects = new List<System.Action>
+        {
+            () =>
+            {
+                // Unlock the Turret ability
+                AbilityHolderManager.Instance.UnlockSkill(GameManager.Instance.GetPlayer().abilityHolder.abilities.Find(ability => ability is AbilityTurrets));
+                UIManager.Instance.turretPanel.SetActive(true);
+                Debug.Log("Turret Ability Unlocked");
+            },
+        };
+
+        ApplySkillEffect("Unlock Turret", 0, skillEffects);
+    }
     public void ApplyBulletHellEffect()
     {
         skillEffects = new List<System.Action>

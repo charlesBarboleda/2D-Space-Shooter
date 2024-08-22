@@ -29,6 +29,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image rapidFireIcon, speedShooterIcon, triggerFingerIcon, blitzShotIcon, bulletHellIcon;
     [SerializeField] Image rapidFireButton, speedShooterButton, triggerFingerButton, blitzShotButton, bulletHellButton;
 
+    [Header("Skill Tree/Turret Pathway")]
+    [SerializeField] TextMeshProUGUI unlockTurretLevelText, quickSuccessionLevelText, annihilationLevelText, surplusLevelText;
+    [SerializeField] Image unlockTurretIcon, quickSuccessionIcon, annihilationIcon, surplusIcon;
+    [SerializeField] Image unlockTurretButton, quickSuccessionButton, annihilationButton, surplusButton;
+
+
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
     [SerializeField] TextMeshProUGUI healthUpgradeText, damageUpgradeText, fireRateUpgradeText, bulletSpeedUpgradeText, extraBulletUpgradeText, speedUpgradeText, pickUpUpgradeText;
@@ -108,7 +114,11 @@ public class UIManager : MonoBehaviour
             UpdateSkillLevelText(blitzShotLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Blitz Shot")) ? skillTree.skills.Find(skill => skill.skillName == "Blitz Shot") : null);
             UpdateSkillLevelText(bulletHellLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Bullet Hell")) ? skillTree.skills.Find(skill => skill.skillName == "Bullet Hell") : null);
 
-
+            // Turret Pathway
+            UpdateSkillLevelText(unlockTurretLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Unlock Turret")) ? skillTree.skills.Find(skill => skill.skillName == "Unlock Turret") : null);
+            UpdateSkillLevelText(quickSuccessionLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Quick Succession")) ? skillTree.skills.Find(skill => skill.skillName == "Quick Succession") : null);
+            UpdateSkillLevelText(annihilationLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Annihilation")) ? skillTree.skills.Find(skill => skill.skillName == "Annihilation") : null);
+            UpdateSkillLevelText(surplusLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Surplus")) ? skillTree.skills.Find(skill => skill.skillName == "Surplus") : null);
 
 
             UpdateSkillNodeOpacity(brutalityButton, brutalityIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Brutality")) ? skillTree.skills.Find(skill => skill.skillName == "Brutality") : null);
@@ -125,7 +135,10 @@ public class UIManager : MonoBehaviour
             UpdateSkillNodeOpacity(triggerFingerButton, triggerFingerIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Trigger Finger")) ? skillTree.skills.Find(skill => skill.skillName == "Trigger Finger") : null);
             UpdateSkillNodeOpacity(blitzShotButton, blitzShotIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Blitz Shot")) ? skillTree.skills.Find(skill => skill.skillName == "Blitz Shot") : null);
             UpdateSkillNodeOpacity(bulletHellButton, bulletHellIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Bullet Hell")) ? skillTree.skills.Find(skill => skill.skillName == "Bullet Hell") : null);
-
+            UpdateSkillNodeOpacity(unlockTurretButton, unlockTurretIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Unlock Turret")) ? skillTree.skills.Find(skill => skill.skillName == "Unlock Turret") : null);
+            UpdateSkillNodeOpacity(quickSuccessionButton, quickSuccessionIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Quick Succession")) ? skillTree.skills.Find(skill => skill.skillName == "Quick Succession") : null);
+            UpdateSkillNodeOpacity(annihilationButton, annihilationIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Annihilation")) ? skillTree.skills.Find(skill => skill.skillName == "Annihilation") : null);
+            UpdateSkillNodeOpacity(surplusButton, surplusIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Surplus")) ? skillTree.skills.Find(skill => skill.skillName == "Surplus") : null);
 
 
         }
