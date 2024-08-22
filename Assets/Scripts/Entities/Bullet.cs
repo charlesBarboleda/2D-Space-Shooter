@@ -29,16 +29,18 @@ public class Bullet : MonoBehaviour
 
     private void Deactivate()
     {
+
         gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        IDamageable damageable = other.GetComponent<IDamageable>();
-        if (damageable != null)
-        {
-            damageable.TakeDamage(BulletDamage);
-            Deactivate();
-        }
+
+        // IDamageable damageable = other.GetComponent<IDamageable>();
+        // if (damageable != null && gameObject.activeSelf)
+        // {
+        //     damageable.TakeDamage(BulletDamage);
+        //     Deactivate();
+        // }
     }
 }

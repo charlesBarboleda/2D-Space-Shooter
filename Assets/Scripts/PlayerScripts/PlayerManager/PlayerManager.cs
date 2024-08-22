@@ -37,6 +37,11 @@ public class PlayerManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        PickUpLogic();
+    }
+
+    void PickUpLogic()
+    {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, pickUpRadius, LayerMask.GetMask("Debris"));
 
         // Iterate over each collider and trigger attraction
