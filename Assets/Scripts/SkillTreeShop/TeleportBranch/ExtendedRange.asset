@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: ExtendedRange
   m_EditorClassIdentifier: 
   skillName: Extended Range
-  description: Increase teleport distance by 25%
-  cost: 3300
+  description: Increase teleport distance by 5%
+  cost: 10300
   startingCost: 300
   prequisites:
   - {fileID: 11400000, guid: 00b3eca0bef971443bb306257557a132, type: 2}
   children: []
-  skillLevel: 6
-  maxSkillLevel: 10
+  skillLevel: 20
+  maxSkillLevel: 20
   isUnlocked: 1

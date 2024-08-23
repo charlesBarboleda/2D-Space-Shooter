@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Quickened
   m_EditorClassIdentifier: 
   skillName: Quickened
-  description: Decrease teleport cooldown by 8%
-  cost: 5300
+  description: Decrease teleport cooldown by 5%
+  cost: 300
   startingCost: 300
   prequisites:
   - {fileID: 11400000, guid: 00b3eca0bef971443bb306257557a132, type: 2}
   children: []
-  skillLevel: 10
-  maxSkillLevel: 10
-  isUnlocked: 1
+  skillLevel: 0
+  maxSkillLevel: 40
+  isUnlocked: 0
