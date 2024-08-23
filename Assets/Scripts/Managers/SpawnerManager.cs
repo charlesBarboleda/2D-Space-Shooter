@@ -31,11 +31,12 @@ public class SpawnerManager : MonoBehaviour
     {
         GameObject enemy = ObjectPooler.Instance.SpawnFromPool(tag, position, rotation);
         GameManager.Instance.enemies.Add(enemy);
+        GameManager.Instance.enemiesToSpawnLeft--;
     }
 
     IEnumerator SpawnEnemiesOverTime()
     {
-        for (int i = 0; i < GameManager.Instance.enemiesToSpawn; i++)
+        for (int i = 0; i < GameManager.Instance.enemiesToSpawnTotal; i++)
         {
             // Select a random segment between two consecutive points
             float segmentIndex = Random.Range(0, numberOfSpawnPoints);

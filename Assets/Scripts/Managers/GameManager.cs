@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     bool canTriggerNextRound = true;
     public float maxSpawnRate;
     public float spawnRate;
-    public int enemiesToSpawn;
+    public int enemiesToSpawnTotal;
+    public int enemiesToSpawnLeft;
     public int level;
     public float roundCountdown;
     public bool isCountdown;
@@ -44,9 +45,9 @@ public class GameManager : MonoBehaviour
             EventManager.GameOverEvent();
         }
         Debug.Log("Enemies Count: " + enemies.Count);
-        Debug.Log("Enemies to Spawn Count: " + enemiesToSpawn);
+        Debug.Log("Enemies to Spawn Count: " + enemiesToSpawnTotal);
 
-        if (enemies.Count == 0 && !isRoundOver && canTriggerNextRound)
+        if (enemies.Count == 0 && !isRoundOver && canTriggerNextRound && enemiesToSpawnLeft == 0)
         {
             isRoundOver = true;
             isCountdown = true;
@@ -84,9 +85,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         level = 0;
-        spawnRate = 0.5f;
+        spawnRate = 5f;
         maxSpawnRate = 0.1f;
-        enemiesToSpawn = 10;
+        enemiesToSpawnTotal = 0;
         roundCountdown = 5f;
         isCountdown = true;
 
@@ -131,6 +132,7 @@ public class GameManager : MonoBehaviour
         isRoundOver = false;
         roundCountdown = 5f;
         EnableSpawning();
+        enemiesToSpawnLeft = enemiesToSpawnTotal;
     }
     public void NextRound()
     {
@@ -139,7 +141,8 @@ public class GameManager : MonoBehaviour
 
         DisableSpawning();
         spawnRate -= 0.01f;
-        enemiesToSpawn += 10;
+        enemiesToSpawnTotal
+ += 10;
         if (spawnRate < maxSpawnRate) spawnRate = maxSpawnRate;
         IncreaseLevel();
 

@@ -9,8 +9,6 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-
-
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
     [SerializeField] TextMeshProUGUI healthUpgradeText, damageUpgradeText, fireRateUpgradeText, bulletSpeedUpgradeText, extraBulletUpgradeText, speedUpgradeText, pickUpUpgradeText;
@@ -26,6 +24,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image laserIconFill, shieldIconFill, teleportIconFill, turretIconFill;
     public GameObject laserPanel, shieldPanel, teleportPanel, turretPanel;
 
+    [Header("Skill Tree")]
+    [SerializeField] GameObject skillTreePanel;
 
     AbilityHolder abilityHolder;
 
@@ -155,6 +155,13 @@ public class UIManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
+    public void ExitSkillTree()
+    {
+        skillTreePanel.SetActive(false);
+    }
 
-
+    public void OpenSkillTree()
+    {
+        skillTreePanel.SetActive(true);
+    }
 }
