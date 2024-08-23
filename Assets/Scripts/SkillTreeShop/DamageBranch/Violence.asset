@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Violence
   m_EditorClassIdentifier: 
   skillName: Violence
-  description: DMG 10/10/10
-  cost: 2000
+  description: Increase damage by 10%
+  cost: 501
+  skillIcon: {fileID: 362099136, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 500
   prequisites:
   - {fileID: 11400000, guid: 2106f6f168d056d48b16e5234a6aa10b, type: 2}
   children:
   - {fileID: 11400000, guid: b556ec9981f60644c9b8bffda5a93f41, type: 2}
   - {fileID: 11400000, guid: 8eff6dda9d5b0b84f8b51747062859aa, type: 2}
-  skillLevel: 3
+  skillLevel: 0
   maxSkillLevel: 3
   isUnlocked: 0
