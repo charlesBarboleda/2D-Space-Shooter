@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Use the Ability Teleport
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             abilityHolder.abilities[3].TriggerAbility(gameObject, abilityHolder.target);
 

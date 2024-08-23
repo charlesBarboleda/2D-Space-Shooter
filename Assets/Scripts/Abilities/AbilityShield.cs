@@ -6,10 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Abilities/Shield")]
 public class AbilityShield : Ability
 {
-    [SerializeField] private float _duration;
-    [SerializeField] private GameObject _shieldprefab;
-    [SerializeField] private float _shieldSize;
-    [SerializeField] private float _shieldDamage;
+    public float _duration;
+    public float _shieldSize;
+    public float _shieldDamage;
+    [SerializeField] GameObject _shieldprefab;
 
 
     public override void AbilityLogic(GameObject owner, Transform target)
@@ -31,7 +31,8 @@ public class AbilityShield : Ability
     {
         _shieldSize = 0.3f;
         _shieldDamage = 10;
-        _duration = 10f;
+        _duration = 3f;
+        cooldown = 30f;
     }
 
 

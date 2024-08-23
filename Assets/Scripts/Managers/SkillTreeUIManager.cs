@@ -46,6 +46,11 @@ public class SkillTreeUIManager : MonoBehaviour
     [SerializeField] Image unlockTeleportIcon, eradicationIcon, enhancedIcon, quickenedIcon, extendedRangeIcon;
     [SerializeField] Image unlockTeleportButton, eradicationButton, enhancedButton, quickenedButton, extendedRangeButton;
 
+
+    [Header("Skill Tree/Shield Pathway")]
+    [SerializeField] TextMeshProUGUI unlockShieldLevelText, devastationLevelText, expandedLevelText, prolongedLevelText, reducedLevelText;
+    [SerializeField] Image unlockShieldIcon, devastationIcon, expandedIcon, prolongedIcon, reducedIcon;
+    [SerializeField] Image unlockShieldButton, devastationButton, expandedButton, prolongedButton, reducedButton;
     void Update()
     {
         if (skillTreePanel.activeSelf)
@@ -85,7 +90,11 @@ public class SkillTreeUIManager : MonoBehaviour
             UpdateSkillLevelText(rejuvenationLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Rejuvenation")) ? skillTree.skills.Find(skill => skill.skillName == "Rejuvenation") : null);
 
             //Shield Pathway
-
+            UpdateSkillLevelText(unlockShieldLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Unlock Shield")) ? skillTree.skills.Find(skill => skill.skillName == "Unlock Shield") : null);
+            UpdateSkillLevelText(devastationLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Devastation")) ? skillTree.skills.Find(skill => skill.skillName == "Devastation") : null);
+            UpdateSkillLevelText(expandedLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Expanded")) ? skillTree.skills.Find(skill => skill.skillName == "Expanded") : null);
+            UpdateSkillLevelText(prolongedLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Prolonged")) ? skillTree.skills.Find(skill => skill.skillName == "Prolonged") : null);
+            UpdateSkillLevelText(reducedLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Reduced")) ? skillTree.skills.Find(skill => skill.skillName == "Reduced") : null);
 
             // Speed Pathway
             UpdateSkillLevelText(rapidLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Rapid")) ? skillTree.skills.Find(skill => skill.skillName == "Rapid") : null);
@@ -134,6 +143,12 @@ public class SkillTreeUIManager : MonoBehaviour
             UpdateSkillNodeOpacity(enhancedButton, enhancedIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Enhanced")) ? skillTree.skills.Find(skill => skill.skillName == "Enhanced") : null);
             UpdateSkillNodeOpacity(quickenedButton, quickenedIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Quickened")) ? skillTree.skills.Find(skill => skill.skillName == "Quickened") : null);
             UpdateSkillNodeOpacity(extendedRangeButton, extendedRangeIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Extended Range")) ? skillTree.skills.Find(skill => skill.skillName == "Extended Range") : null);
+            UpdateSkillNodeOpacity(unlockShieldButton, unlockShieldIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Unlock Shield")) ? skillTree.skills.Find(skill => skill.skillName == "Unlock Shield") : null);
+            UpdateSkillNodeOpacity(devastationButton, devastationIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Devastation")) ? skillTree.skills.Find(skill => skill.skillName == "Devastation") : null);
+            UpdateSkillNodeOpacity(expandedButton, expandedIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Expanded")) ? skillTree.skills.Find(skill => skill.skillName == "Expanded") : null);
+            UpdateSkillNodeOpacity(prolongedButton, prolongedIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Prolonged")) ? skillTree.skills.Find(skill => skill.skillName == "Prolonged") : null);
+            UpdateSkillNodeOpacity(reducedButton, reducedIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Reduced")) ? skillTree.skills.Find(skill => skill.skillName == "Reduced") : null);
+
 
 
         }
@@ -150,8 +165,8 @@ public class SkillTreeUIManager : MonoBehaviour
         }
         else
         {
-            button.color = new Color(1, 1, 1, 0.1f);
-            icon.color = new Color(1, 1, 1, 0.1f);
+            button.color = new Color(1, 1, 1, 0.05f);
+            icon.color = new Color(1, 1, 1, 0.05f);
         }
     }
 

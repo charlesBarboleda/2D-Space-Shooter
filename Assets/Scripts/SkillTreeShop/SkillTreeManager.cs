@@ -71,6 +71,81 @@ public class SkillTreeManager : MonoBehaviour
             }
         }
     }
+    public void ApplyReducedEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Decrease the player's shield cooldown by 5%
+                float decreaseCooldown = 0.95f;
+                abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault().cooldown *= decreaseCooldown;
+                Debug.Log("Shield Cooldown Decreased by " + (1 - decreaseCooldown) * 100 + "%");
+            }
+        };
+
+        ApplySkillEffect("Reduced", 500, skillEffects);
+    }
+    public void ApplyProlongedEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Increase the player's shield duration by 0.2 seconds
+                float increaseDuration = 0.2f;
+                abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._duration += increaseDuration;
+                Debug.Log("Shield Duration Increased by " + increaseDuration + " seconds");
+            }
+        };
+
+        ApplySkillEffect("Prolonged", 500, skillEffects);
+    }
+    public void ApplyExpandedEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Increase the player's shield size by 10%
+                float increaseSize = 1.1f;
+                abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._shieldSize *= increaseSize;
+                Debug.Log("Shield Size Increased by 10%");
+            }
+        };
+
+        ApplySkillEffect("Expanded", 250, skillEffects);
+    }
+    public void ApplyDevastationEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Increase the player's shield damage by 10%
+                float increaseDamage = 1.10f;
+                abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._shieldDamage *= increaseDamage;
+                Debug.Log("Shield Damage Increased by 10%");
+            },
+        };
+
+        ApplySkillEffect("Devastation", 500, skillEffects);
+    }
+    public void ApplyUnlockShieldEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Unlock the Shield ability
+                AbilityHolderManager.Instance.UnlockSkill(GameManager.Instance.GetPlayer().abilityHolder.abilities.Find(ability => ability is AbilityShield));
+                UIManager.Instance.shieldPanel.SetActive(true);
+                Debug.Log("Shield Ability Unlocked");
+            },
+        };
+
+        ApplySkillEffect("Unlock Shield", 0, skillEffects);
+    }
     public void ApplyExtendedRangeEffect()
     {
         skillEffects = new List<Action>
