@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Accelerated
   m_EditorClassIdentifier: 
   skillName: Accelerated
-  description: Increase ship speed by 5/5/5
-  cost: 0
+  description: Increase ship speed by 5%
+  cost: 400
+  skillIcon: {fileID: 1510120445, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 400
   prequisites:
   - {fileID: 11400000, guid: a1c5d16aa93e5504bab536b9cb265da0, type: 2}

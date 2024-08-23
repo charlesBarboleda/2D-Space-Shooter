@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Rapid
   m_EditorClassIdentifier: 
   skillName: Rapid
-  description: Increase ship speed by 2/2/2
-  cost: 0
+  description: Increase ship speed by 2%
+  cost: 100
+  skillIcon: {fileID: 1510120445, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 100
   prequisites:
   - {fileID: 11400000, guid: 3ccecda4881ab5b47bd8eb249a34b273, type: 2}
@@ -22,4 +23,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a1c5d16aa93e5504bab536b9cb265da0, type: 2}
   skillLevel: 0
   maxSkillLevel: 3
-  isUnlocked: 0
+  isUnlocked: 1

@@ -9783,6 +9783,7 @@ GameObject:
   - component: {fileID: 192523379}
   - component: {fileID: 192523378}
   - component: {fileID: 192523377}
+  - component: {fileID: 192523380}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -9903,6 +9904,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192523375}
   m_CullTransparentMesh: 1
+--- !u!114 &192523380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192523375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1b8a62c5e502147bfee01bbc3d773f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 11400000, guid: b309d427018056c47abd7fba2c7b1e57, type: 2}
+  descriptionPanel: {fileID: 1639569161}
+  skillNameText: {fileID: 1614984489}
+  skillCostText: {fileID: 1302329335}
+  skillDescriptionText: {fileID: 862944617}
+  skillMaxLevelText: {fileID: 194512167}
+  defaultIcon: {fileID: 1559303398}
 --- !u!1 &192610113
 GameObject:
   m_ObjectHideFlags: 0
@@ -43964,6 +43984,7 @@ GameObject:
   - component: {fileID: 847418535}
   - component: {fileID: 847418534}
   - component: {fileID: 847418533}
+  - component: {fileID: 847418536}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -44084,6 +44105,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847418531}
   m_CullTransparentMesh: 1
+--- !u!114 &847418536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847418531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1b8a62c5e502147bfee01bbc3d773f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 11400000, guid: afd5529aca461cf438e042d88806c64e, type: 2}
+  descriptionPanel: {fileID: 1639569161}
+  skillNameText: {fileID: 1614984489}
+  skillCostText: {fileID: 1302329335}
+  skillDescriptionText: {fileID: 862944617}
+  skillMaxLevelText: {fileID: 194512167}
+  defaultIcon: {fileID: 1559303398}
 --- !u!1 &848438357
 GameObject:
   m_ObjectHideFlags: 0
@@ -81064,6 +81104,7 @@ GameObject:
   - component: {fileID: 1600629646}
   - component: {fileID: 1600629645}
   - component: {fileID: 1600629644}
+  - component: {fileID: 1600629647}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -81184,6 +81225,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600629642}
   m_CullTransparentMesh: 1
+--- !u!114 &1600629647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600629642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1b8a62c5e502147bfee01bbc3d773f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 11400000, guid: a1c5d16aa93e5504bab536b9cb265da0, type: 2}
+  descriptionPanel: {fileID: 1639569161}
+  skillNameText: {fileID: 1614984489}
+  skillCostText: {fileID: 1302329335}
+  skillDescriptionText: {fileID: 862944617}
+  skillMaxLevelText: {fileID: 194512167}
+  defaultIcon: {fileID: 1559303398}
 --- !u!1 &1605736356
 GameObject:
   m_ObjectHideFlags: 0
@@ -97321,6 +97381,7 @@ GameObject:
   - component: {fileID: 1940796306}
   - component: {fileID: 1940796305}
   - component: {fileID: 1940796304}
+  - component: {fileID: 1940796307}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -97441,6 +97502,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940796302}
   m_CullTransparentMesh: 1
+--- !u!114 &1940796307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940796302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1b8a62c5e502147bfee01bbc3d773f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 11400000, guid: 2038b9e69c801e646b2d9dc25be03f1a, type: 2}
+  descriptionPanel: {fileID: 1639569161}
+  skillNameText: {fileID: 1614984489}
+  skillCostText: {fileID: 1302329335}
+  skillDescriptionText: {fileID: 862944617}
+  skillMaxLevelText: {fileID: 194512167}
+  defaultIcon: {fileID: 1559303398}
 --- !u!1 &1941844108
 GameObject:
   m_ObjectHideFlags: 0

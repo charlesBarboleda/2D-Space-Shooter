@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Nimble
   m_EditorClassIdentifier: 
   skillName: Nimble
-  description: Increase ship speed by 3/3/3
-  cost: 0
+  description: Increase ship speed by 3%
+  cost: 200
+  skillIcon: {fileID: 1510120445, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 200
   prequisites:
   - {fileID: 11400000, guid: afd5529aca461cf438e042d88806c64e, type: 2}

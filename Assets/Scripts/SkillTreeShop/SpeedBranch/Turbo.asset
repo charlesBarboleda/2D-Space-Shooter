@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Turbo
   m_EditorClassIdentifier: 
   skillName: Turbo
-  description: Increase ship speed by 8/8/8
-  cost: 2000
+  description: Increase ship speed by 8%
+  cost: 500
+  skillIcon: {fileID: 1510120445, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 500
   prequisites:
   - {fileID: 11400000, guid: 2038b9e69c801e646b2d9dc25be03f1a, type: 2}
   children:
   - {fileID: 11400000, guid: 00b3eca0bef971443bb306257557a132, type: 2}
-  skillLevel: 3
+  skillLevel: 0
   maxSkillLevel: 3
-  isUnlocked: 1
+  isUnlocked: 0
