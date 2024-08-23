@@ -6,7 +6,7 @@ public class TurretManager : MonoBehaviour
 {
     [Header("Turret Settings")]
     public GameObject turretPrefab;
-    public int numberOfTurretsPerSide = 0;
+    public int numberOfTurretsPerSide = 1;
     public float turretSpacing = 0.4f;
 
     private List<GameObject> turrets = new List<GameObject>();
@@ -31,6 +31,7 @@ public class TurretManager : MonoBehaviour
             // Left side
             Vector3 leftPosition = transform.position + leftOffset;
             GameObject leftTurret = Instantiate(turretPrefab, leftPosition, Quaternion.identity);
+
             leftTurret.transform.SetParent(transform);
             turrets.Add(leftTurret);
 

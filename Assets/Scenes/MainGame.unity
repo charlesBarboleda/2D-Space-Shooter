@@ -70964,7 +70964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1404989661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -70983,10 +70983,10 @@ RectTransform:
   - {fileID: 1457509378}
   m_Father: {fileID: 435433499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 400.00003, y: -224.83662}
+  m_SizeDelta: {x: 540.9425, y: 449.67328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1404989662
 CanvasRenderer:
@@ -107976,6 +107976,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 525669685}
+    - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
+      propertyPath: healthRegen
+      value: 9999
+      objectReference: {fileID: 0}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: pickUpRadius
       value: 2

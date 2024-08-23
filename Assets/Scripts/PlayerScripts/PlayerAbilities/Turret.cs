@@ -9,8 +9,8 @@ public class Turret : MonoBehaviour
     public float bulletSpeed = 20f;
     public float bulletDamage = 10f;
 
-    private bool isFiring = false;
-    private Coroutine firingCoroutine;
+    bool isFiring = false;
+    Coroutine firingCoroutine;
 
     private void Update()
     {

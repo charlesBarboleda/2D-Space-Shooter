@@ -27,7 +27,7 @@ public class AbilityTurrets : Ability
         // Spawn the turret on the left side
         GameObject leftTurret = Instantiate(turret, leftPosition, owner.transform.rotation);
         leftTurret.transform.SetParent(owner.transform);
-        var leftTurretWeapon = leftTurret.GetComponent<Weapon>();
+        var leftTurretWeapon = leftTurret.GetComponent<Turret>();
         // Initialize turret properties here if needed
         leftTurretWeapon.bulletDamage = bulletDamage;
         leftTurretWeapon.fireRate = fireRate;
@@ -35,7 +35,7 @@ public class AbilityTurrets : Ability
         // Spawn the turret on the right side
         GameObject rightTurret = Instantiate(turret, rightPosition, owner.transform.rotation);
         rightTurret.transform.SetParent(owner.transform);
-        var rightTurretWeapon = rightTurret.GetComponent<Weapon>();
+        var rightTurretWeapon = rightTurret.GetComponent<Turret>();
         // Initialize turret properties here if needed
         rightTurretWeapon.bulletDamage = bulletDamage;
         rightTurretWeapon.fireRate = fireRate;
@@ -47,7 +47,7 @@ public class AbilityTurrets : Ability
     public void ResetTurretStats()
     {
         bulletDamage = 10f;
-        fireRate = 0.5f;
+        fireRate = 0.4f;
         numberOfTurretsPerSide = 0;
         isUnlocked = false;
     }

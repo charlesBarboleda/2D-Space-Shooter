@@ -374,7 +374,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's turret count by 2
                 abilityHolder.abilities.OfType<AbilityTurrets>().FirstOrDefault().AbilityLogic(GameManager.Instance.GetPlayer().gameObject, null);
-                GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SpawnTurrets();
+                // GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SpawnTurrets();
                 Debug.Log("Turret Count Increased by 2");
             }
         };
@@ -387,8 +387,9 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
+                // Increase the player's turret damage by 10%  
                 float increaseDamage = 1.1f;
-            abilityHolder.abilities.OfType<AbilityTurrets>().FirstOrDefault().fireRate *= increaseDamage;
+            abilityHolder.abilities.OfType<AbilityTurrets>().FirstOrDefault().bulletDamage *= increaseDamage;
                 Debug.Log("Turret Damage Increased by 10%");
 
             }
@@ -402,10 +403,10 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Decrease the player's turret's fire rate by 8%
-                float decreaseFireRate = 0.92f;
+                // Decrease the player's turret's fire rate by 10%
+                float decreaseFireRate = 0.9f;
             abilityHolder.abilities.OfType<AbilityTurrets>().FirstOrDefault().fireRate *= decreaseFireRate;
-                Debug.Log("Turret Fire Rate Decreased by 8%");
+                Debug.Log("Turret Fire Rate Decreased by 10%");
             }
         };
         ApplySkillEffect("Quick Succession", 500, skillEffects);
@@ -418,10 +419,12 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Unlock the Turret ability
                 AbilityHolderManager.Instance.UnlockSkill(GameManager.Instance.GetPlayer().abilityHolder.abilities.Find(ability => ability is AbilityTurrets));
-                // Spawn turrets for the player
-                GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SpawnTurrets();
                 UIManager.Instance.turretPanel.SetActive(true);
                 Debug.Log("Turret Ability Unlocked");
+
+                // Increase the player's turret count by 2
+                abilityHolder.abilities.OfType<AbilityTurrets>().FirstOrDefault().AbilityLogic(GameManager.Instance.GetPlayer().gameObject, null);
+                // GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SpawnTurrets();
             },
         };
 

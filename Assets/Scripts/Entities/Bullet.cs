@@ -33,14 +33,6 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
 
-        // IDamageable damageable = other.GetComponent<IDamageable>();
-        // if (damageable != null && gameObject.activeSelf)
-        // {
-        //     damageable.TakeDamage(BulletDamage);
-        //     Deactivate();
-        // }
-    }
 }
+
