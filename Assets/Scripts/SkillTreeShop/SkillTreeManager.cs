@@ -373,43 +373,12 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Increase the player's turret count by 2
-                abilityHolder.abilities.OfType<AbilityTurrets>().FirstOrDefault().AbilityLogic(GameManager.Instance.GetPlayer().gameObject, null);
-                // GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SpawnTurrets();
+                GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SpawnTurrets();
                 Debug.Log("Turret Count Increased by 2");
             }
         };
 
         ApplySkillEffect("Surplus", 1000, skillEffects);
-    }
-    public void ApplyAnnihilationEffect()
-    {
-        skillEffects = new List<Action>
-        {
-            () =>
-            {
-                // Increase the player's turret damage by 10%  
-                float increaseDamage = 1.1f;
-            abilityHolder.abilities.OfType<AbilityTurrets>().FirstOrDefault().bulletDamage *= increaseDamage;
-                Debug.Log("Turret Damage Increased by 10%");
-
-            }
-        };
-
-        ApplySkillEffect("Annihilation", 100, skillEffects);
-    }
-    public void ApplyQuickSuccessionEffect()
-    {
-        skillEffects = new List<Action>
-        {
-            () =>
-            {
-                // Decrease the player's turret's fire rate by 10%
-                float decreaseFireRate = 0.9f;
-            abilityHolder.abilities.OfType<AbilityTurrets>().FirstOrDefault().fireRate *= decreaseFireRate;
-                Debug.Log("Turret Fire Rate Decreased by 10%");
-            }
-        };
-        ApplySkillEffect("Quick Succession", 500, skillEffects);
     }
     public void ApplyUnlockTurretEffect()
     {
@@ -423,12 +392,41 @@ public class SkillTreeManager : MonoBehaviour
                 Debug.Log("Turret Ability Unlocked");
 
                 // Increase the player's turret count by 2
-                abilityHolder.abilities.OfType<AbilityTurrets>().FirstOrDefault().AbilityLogic(GameManager.Instance.GetPlayer().gameObject, null);
-                // GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SpawnTurrets();
+                GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SpawnTurrets();
             },
         };
 
         ApplySkillEffect("Unlock Turret", 0, skillEffects);
+    }
+    public void ApplyQuickSuccessionEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Decrease the player's turret's fire rate by 8%
+                float decreaseFireRate = 0.92f;
+                GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SetTurretFireRate(GameManager.Instance.GetPlayer().GetComponent<TurretManager>().GetTurretFireRate() * decreaseFireRate);
+                Debug.Log("Turret Fire Rate Decreased by 8%");
+            }
+        };
+        ApplySkillEffect("Quick Succession", 500, skillEffects);
+    }
+    public void ApplyAnnihilationEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Increase the player's turret damage by 10%  
+                float increaseDamage = 1.1f;
+                GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SetTurretDamage(GameManager.Instance.GetPlayer().weapon.bulletDamage * increaseDamage);
+                Debug.Log("Turret Damage Increased by 10%");
+
+            }
+        };
+
+        ApplySkillEffect("Annihilation", 100, skillEffects);
     }
     public void ApplyBulletHellEffect()
     {

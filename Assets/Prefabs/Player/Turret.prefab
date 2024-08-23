@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5084971342936752750}
   - component: {fileID: 4002365533071536313}
   - component: {fileID: -9121198082191742999}
-  - component: {fileID: -6879869078047390271}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -102,21 +101,3 @@ MonoBehaviour:
   fireRate: 0.5
   bulletSpeed: 20
   bulletDamage: 10
---- !u!114 &-6879869078047390271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7223191706573227298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5d9fd84d6caaf642bdc8225bd9db3aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 6209516934632428617, guid: 9de4688955feac3479a36610971dd362, type: 3}
-  fireRate: 0.3
-  bulletSpeed: 20
-  bulletDamage: 10
-  amountOfBullets: 1
-  shootingAngle: 0

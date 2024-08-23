@@ -15,11 +15,11 @@ public class Turret : MonoBehaviour
     private void Update()
     {
         // Check if firing input is received (e.g., mouse button 1 held down)
-        if (Input.GetMouseButton(1) && !isFiring)
+        if (Input.GetMouseButton(0) && !isFiring)
         {
             StartFiring();
         }
-        else if (!Input.GetMouseButton(1) && isFiring)
+        else if (!Input.GetMouseButton(0) && isFiring)
         {
             StopFiring();
         }
@@ -65,10 +65,23 @@ public class Turret : MonoBehaviour
         }
     }
 
-    public void SetStats(float newFireRate, float newBulletSpeed, float newBulletDamage)
+    public void SetFireRate(float newFireRate)
     {
         fireRate = newFireRate;
-        bulletSpeed = newBulletSpeed;
-        bulletDamage = newBulletDamage;
     }
+    public void SetDamage(float newDamage)
+    {
+        bulletDamage = newDamage;
+    }
+
+    public float GetFireRate()
+    {
+        return fireRate;
+    }
+
+    public float GetBulletDamage()
+    {
+        return bulletDamage;
+    }
+
 }
