@@ -39,6 +39,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image vitalityIcon, enduranceIcon, resilienceIcon, fortitudeIcon, rejuvenationIcon;
     [SerializeField] Image vitalityButton, enduranceButton, resilienceButton, fortitudeButton, rejuvenationButton;
 
+    [Header("Skill Tree/Speed Pathway")]
+    [SerializeField] TextMeshProUGUI rapidLevelText, nimbleLevelText, acceleratedLevelText, turboLevelText;
+    [SerializeField] Image rapidIcon, nimbleIcon, acceleratedIcon, turboIcon;
+    [SerializeField] Image rapidButton, nimbleButton, acceleratedButton, turboButton;
+    [Header("Skill Tree/Teleport Pathway")]
+
+    [Header("Skill Tree/Shield Pathway")]
 
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
@@ -136,9 +143,14 @@ public class UIManager : MonoBehaviour
 
 
             // Speed Pathway
-
+            UpdateSkillLevelText(rapidLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Rapid")) ? skillTree.skills.Find(skill => skill.skillName == "Rapid") : null);
+            UpdateSkillLevelText(nimbleLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Nimble")) ? skillTree.skills.Find(skill => skill.skillName == "Nimble") : null);
+            UpdateSkillLevelText(acceleratedLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Accelerated")) ? skillTree.skills.Find(skill => skill.skillName == "Accelerated") : null);
+            UpdateSkillLevelText(turboLevelText, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Turbo")) ? skillTree.skills.Find(skill => skill.skillName == "Turbo") : null);
 
             // Teleport Pathway
+
+
 
 
             UpdateSkillNodeOpacity(brutalityButton, brutalityIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Brutality")) ? skillTree.skills.Find(skill => skill.skillName == "Brutality") : null);
@@ -164,6 +176,10 @@ public class UIManager : MonoBehaviour
             UpdateSkillNodeOpacity(resilienceButton, resilienceIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Resilience")) ? skillTree.skills.Find(skill => skill.skillName == "Resilience") : null);
             UpdateSkillNodeOpacity(fortitudeButton, fortitudeIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Fortitude")) ? skillTree.skills.Find(skill => skill.skillName == "Fortitude") : null);
             UpdateSkillNodeOpacity(rejuvenationButton, rejuvenationIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Rejuvenation")) ? skillTree.skills.Find(skill => skill.skillName == "Rejuvenation") : null);
+            UpdateSkillNodeOpacity(rapidButton, rapidIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Rapid")) ? skillTree.skills.Find(skill => skill.skillName == "Rapid") : null);
+            UpdateSkillNodeOpacity(nimbleButton, nimbleIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Nimble")) ? skillTree.skills.Find(skill => skill.skillName == "Nimble") : null);
+            UpdateSkillNodeOpacity(acceleratedButton, acceleratedIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Accelerated")) ? skillTree.skills.Find(skill => skill.skillName == "Accelerated") : null);
+            UpdateSkillNodeOpacity(turboButton, turboIcon, skillTree.skills.Contains(skillTree.skills.Find(skill => skill.skillName == "Turbo")) ? skillTree.skills.Find(skill => skill.skillName == "Turbo") : null);
 
 
         }

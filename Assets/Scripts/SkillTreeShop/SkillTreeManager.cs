@@ -11,7 +11,7 @@ public class SkillTreeManager : MonoBehaviour
 
     public static SkillTreeManager Instance;
     public SkillTree skillTree;
-    private List<System.Action> skillEffects;
+    private List<Action> skillEffects;
 
     [Header("Skill Settings")]
     AbilityHolder abilityHolder;
@@ -49,7 +49,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         }
     }
-    public void ApplySkillEffect(string skillName, int costIncrement, List<System.Action> effects)
+    public void ApplySkillEffect(string skillName, int costIncrement, List<Action> effects)
     {
         foreach (Skill skill in skillTree.skills)
         {
@@ -71,9 +71,68 @@ public class SkillTreeManager : MonoBehaviour
             }
         }
     }
+    public void ApplyTurboEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Increase the player's speed by 10%
+                float increaseSpeed = 1.10f;
+                GameManager.Instance.GetPlayer().playerController.moveSpeed *= increaseSpeed;
+                Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
+            }
+        };
+
+        ApplySkillEffect("Turbo", 500, skillEffects);
+    }
+    public void ApplyAcceleratedEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Increase the player's speed by 8%
+                float increaseSpeed = 1.08f;
+                GameManager.Instance.GetPlayer().playerController.moveSpeed *= increaseSpeed;
+                Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
+            }
+        };
+
+        ApplySkillEffect("Accelerated", 400, skillEffects);
+    }
+    public void ApplyNimbleEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Increase the player's speed by 5%
+                float increaseSpeed = 1.05f;
+                GameManager.Instance.GetPlayer().playerController.moveSpeed *= increaseSpeed;
+                Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
+            }
+        };
+        ApplySkillEffect("Nimble", 200, skillEffects);
+    }
+    public void ApplyRapidEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Increase the player's speed by 3%
+                float increaseSpeed = 1.03f;
+                GameManager.Instance.GetPlayer().playerController.moveSpeed *= increaseSpeed;
+                Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
+            }
+        };
+        ApplySkillEffect("Rapid", 100, skillEffects);
+
+    }
     public void ApplyRejuvenationEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -88,7 +147,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyFortitudeEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -105,7 +164,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyResilienceEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -122,7 +181,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyEnduranceEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -139,7 +198,7 @@ public class SkillTreeManager : MonoBehaviour
 
     public void ApplyVitalityEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -154,7 +213,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplySurplusEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -169,7 +228,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyAnnihilationEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -184,7 +243,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyQuickSuccessionEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -198,7 +257,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyUnlockTurretEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -215,7 +274,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyBulletHellEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -230,7 +289,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyBlitzShotEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -245,7 +304,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyTriggerFingerEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -260,7 +319,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplySpeedShooterEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -275,7 +334,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyRapidFireEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -290,7 +349,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyTenaciousEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -305,7 +364,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyExpeditiousEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -321,7 +380,7 @@ public class SkillTreeManager : MonoBehaviour
 
     public void ApplyDestructionEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -338,7 +397,7 @@ public class SkillTreeManager : MonoBehaviour
 
     public void ApplyLaserEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -353,7 +412,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyViciousEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -369,7 +428,7 @@ public class SkillTreeManager : MonoBehaviour
 
     public void ApplySprayAndPrayEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -384,7 +443,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     public void ApplyFerocityEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -400,7 +459,7 @@ public class SkillTreeManager : MonoBehaviour
 
     public void ApplyViolenceEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -416,7 +475,7 @@ public class SkillTreeManager : MonoBehaviour
 
     public void ApplyBrutalityEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {
@@ -432,7 +491,7 @@ public class SkillTreeManager : MonoBehaviour
 
     public void ApplyNewBeginningsEffect()
     {
-        skillEffects = new List<System.Action>
+        skillEffects = new List<Action>
         {
             () =>
             {

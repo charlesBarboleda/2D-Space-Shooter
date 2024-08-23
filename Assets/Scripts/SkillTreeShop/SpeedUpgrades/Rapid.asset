@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e578097537151b644af0120499ab96b6, type: 3}
-  m_Name: NewBeginningsNode
+  m_Name: Rapid
   m_EditorClassIdentifier: 
-  skillName: New Beginnings
-  description: +DMG 3/6/9 +FR 3/6/9 +HP 25/50/100 +SPD 3/6/9
-  cost: 400
+  skillName: Rapid
+  description: Increase ship speed by 2/2/2
+  cost: 0
   startingCost: 100
-  prequisites: []
+  prequisites:
+  - {fileID: 11400000, guid: 3ccecda4881ab5b47bd8eb249a34b273, type: 2}
   children:
-  - {fileID: 11400000, guid: 2106f6f168d056d48b16e5234a6aa10b, type: 2}
-  - {fileID: 11400000, guid: 7351f99a54419f84db89b63adeccc79f, type: 2}
-  - {fileID: 11400000, guid: 1d837dc157f86fc4daff62f2337f4dba, type: 2}
-  skillLevel: 3
+  - {fileID: 11400000, guid: a1c5d16aa93e5504bab536b9cb265da0, type: 2}
+  skillLevel: 0
   maxSkillLevel: 3
-  isUnlocked: 1
+  isUnlocked: 0

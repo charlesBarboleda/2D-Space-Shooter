@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e578097537151b644af0120499ab96b6, type: 3}
+  m_Name: Accelerated
+  m_EditorClassIdentifier: 
+  skillName: Accelerated
+  description: Increase ship speed by 5/5/5
+  cost: 0
+  startingCost: 400
+  prequisites:
+  - {fileID: 11400000, guid: a1c5d16aa93e5504bab536b9cb265da0, type: 2}
+  children:
+  - {fileID: 11400000, guid: b309d427018056c47abd7fba2c7b1e57, type: 2}
+  skillLevel: 0
+  maxSkillLevel: 3
+  isUnlocked: 0

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e578097537151b644af0120499ab96b6, type: 3}
+  m_Name: Nimble
+  m_EditorClassIdentifier: 
+  skillName: Nimble
+  description: Increase ship speed by 3/3/3
+  cost: 0
+  startingCost: 200
+  prequisites:
+  - {fileID: 11400000, guid: afd5529aca461cf438e042d88806c64e, type: 2}
+  children:
+  - {fileID: 11400000, guid: 2038b9e69c801e646b2d9dc25be03f1a, type: 2}
+  skillLevel: 0
+  maxSkillLevel: 3
+  isUnlocked: 0

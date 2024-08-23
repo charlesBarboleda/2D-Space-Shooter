@@ -7,7 +7,7 @@ public class CurrencyDrop : MonoBehaviour
     float currencyWorth;
 
     public bool isAttracted;
-    public float maxSpeed = 20f;
+    public float maxSpeed = 100f;
 
     void FixedUpdate()
     {
