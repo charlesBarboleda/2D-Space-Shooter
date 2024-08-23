@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Fortitude
   m_EditorClassIdentifier: 
   skillName: Fortitude
-  description: Increase HP by 12%
-  cost: 0
+  description: Increase max HP by 12%
+  cost: 400
+  skillIcon: {fileID: 381300419, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 400
   prequisites:
   - {fileID: 11400000, guid: 7f00be193f226b142b5d2da32350ba3d, type: 2}

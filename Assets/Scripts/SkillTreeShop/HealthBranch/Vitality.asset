@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Vitality
   m_EditorClassIdentifier: 
   skillName: Vitality
-  description: Increase HP by 5%
-  cost: 0
+  description: Increase max HP by 5%
+  cost: 100
+  skillIcon: {fileID: 381300419, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 100
   prequisites:
   - {fileID: 11400000, guid: 3ccecda4881ab5b47bd8eb249a34b273, type: 2}
