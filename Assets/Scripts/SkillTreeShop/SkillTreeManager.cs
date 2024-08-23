@@ -71,6 +71,86 @@ public class SkillTreeManager : MonoBehaviour
             }
         }
     }
+    public void ApplyExtendedRangeEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Increase the player's teleport distance by 25%
+                float increaseDistance = 1.25f;
+                abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportDistance *= increaseDistance;
+                Debug.Log("Teleport Distance Increased by 25%");
+            }
+        };
+
+        ApplySkillEffect("Extended Range", 500, skillEffects);
+    }
+    public void ApplyQuickenedEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Decrease the player's teleport cooldown by 7%
+                float decreaseCooldown = 0.93f;
+                abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault().cooldown *= decreaseCooldown;
+                Debug.Log("Teleport Cooldown Decreased by " + (1 - decreaseCooldown) * 100 + "%");
+            }
+        };
+        ApplySkillEffect("Quickened", 500, skillEffects);
+    }
+    public void ApplyEnhancedEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Increase the player's teleport duration by 0.5 seconds
+                float increaseDuration = 0.5f;
+                abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportDuration += increaseDuration;
+                Debug.Log("Teleport Duration Increased by " + increaseDuration + " seconds");
+
+                // Increase the player's teleport size by 5%
+                float increaseSize = 1.10f;
+                abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportSize *= increaseSize;
+                Debug.Log("Teleport Size Increased by 10%");
+
+            }
+        };
+
+        ApplySkillEffect("Enhanced", 250, skillEffects);
+    }
+    public void ApplyEradicationEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Increase the player's teleport damage by 10%
+               abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportDamage *= 1.10f;
+                Debug.Log("Teleport Damage Increased by 10%");
+            },
+        };
+
+        ApplySkillEffect("Eradication", 100, skillEffects);
+    }
+    public void ApplyUnlockTeleportEffect()
+    {
+        skillEffects = new List<Action>
+        {
+            () =>
+            {
+                // Unlock the Teleport ability
+                AbilityHolderManager.Instance.UnlockSkill(GameManager.Instance.GetPlayer().abilityHolder.abilities.Find(ability => ability is AbilityTeleport));
+                UIManager.Instance.teleportPanel.SetActive(true);
+                Debug.Log("Teleport Ability Unlocked");
+            },
+        };
+
+        ApplySkillEffect("Unlock Teleport", 0, skillEffects);
+    }
+
     public void ApplyTurboEffect()
     {
         skillEffects = new List<Action>

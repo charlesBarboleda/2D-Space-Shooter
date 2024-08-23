@@ -6,11 +6,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Abilities/Teleport")]
 public class AbilityTeleport : Ability
 {
-    [SerializeField] private float _teleportDistance;
-    [SerializeField] private GameObject _teleportEffect;
-    [SerializeField] private float _teleportSize;
-    [SerializeField] private float _teleportDamage;
-    [SerializeField] private float _teleportDuration;
+    [SerializeField] GameObject _teleportEffect;
+    public float _teleportDistance;
+    public float _teleportSize;
+    public float _teleportDamage;
+    public float _teleportDuration;
     public override void AbilityLogic(GameObject owner, Transform target)
     {
         // Initial teleport effect
@@ -35,7 +35,7 @@ public class AbilityTeleport : Ability
 
     public void ResetTeleportStats()
     {
-        _teleportDistance = 1;
+        _teleportDistance = 2;
         _teleportDamage = 10;
         _teleportSize = 1;
         _teleportDuration = 1f;

@@ -3463,9 +3463,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 737226394}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: CloseSkillTree
+      - m_Target: {fileID: 389714012}
+        m_TargetAssemblyTypeName: SkillTreeUIManager, Assembly-CSharp
+        m_MethodName: ExitSkillTree
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9982,8 +9982,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 315.125, y: -224.87888}
-  m_SizeDelta: {x: 196.59879, y: 449.75775}
+  m_AnchoredPosition: {x: 315.125, y: -224.83662}
+  m_SizeDelta: {x: 196.59879, y: 449.67328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &196124686
 CanvasRenderer:
@@ -14541,7 +14541,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplyEnduranceEffect
+        m_MethodName: ApplyEnhancedEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19061,8 +19061,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 145.375, y: -224.87888}
-  m_SizeDelta: {x: 196.59879, y: 449.75775}
+  m_AnchoredPosition: {x: 145.375, y: -224.83662}
+  m_SizeDelta: {x: 196.59879, y: 449.67328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &384682036
 CanvasRenderer:
@@ -19206,6 +19206,153 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388953827}
   m_CullTransparentMesh: 1
+--- !u!1 &389714011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 389714013}
+  - component: {fileID: 389714012}
+  m_Layer: 5
+  m_Name: SkillTreeUIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &389714012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389714011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43c3e10108fe6748a7937f39827566e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillTree: {fileID: 11400000, guid: 6010eef1cdb682c458b20ffde503e24c, type: 2}
+  skillTreePanel: {fileID: 397908831}
+  newBeginningsLevelText: {fileID: 1229369190}
+  brutalityLevelText: {fileID: 1227254394}
+  violenceLevelText: {fileID: 418634879}
+  ferocityLevelText: {fileID: 785340239}
+  viciousLevelText: {fileID: 1759527524}
+  sprayAndPrayLevelText: {fileID: 1238079807}
+  brutalityIcon: {fileID: 512498148}
+  violenceIcon: {fileID: 99351104}
+  ferocityIcon: {fileID: 1057025990}
+  viciousIcon: {fileID: 794631230}
+  sprayAndPrayIcon: {fileID: 622763848}
+  brutalityButton: {fileID: 1334565730}
+  violenceButton: {fileID: 1026382995}
+  ferocityButton: {fileID: 2021367822}
+  viciousButton: {fileID: 1168275490}
+  sprayAndPrayButton: {fileID: 2039700585}
+  unlockLaserLevelText: {fileID: 1667465640}
+  destructionLevelText: {fileID: 1205645563}
+  tenaciousLevelText: {fileID: 2054393115}
+  expeditiousLevelText: {fileID: 824296437}
+  unlockLaserIcon: {fileID: 1308234644}
+  destructionIcon: {fileID: 1281096141}
+  tenaciousIcon: {fileID: 719103778}
+  expeditiousIcon: {fileID: 1284984284}
+  unlockLaserButton: {fileID: 573907998}
+  destructionButton: {fileID: 57785125}
+  tenaciousButton: {fileID: 423340637}
+  expeditiousButton: {fileID: 1762680014}
+  rapidFireLevelText: {fileID: 797665955}
+  speedShooterLevelText: {fileID: 563733581}
+  triggerFingerLevelText: {fileID: 1427094154}
+  blitzShotLevelText: {fileID: 1739473646}
+  bulletHellLevelText: {fileID: 879364868}
+  rapidFireIcon: {fileID: 1732920964}
+  speedShooterIcon: {fileID: 508283094}
+  triggerFingerIcon: {fileID: 1348083318}
+  blitzShotIcon: {fileID: 192610115}
+  bulletHellIcon: {fileID: 176078941}
+  rapidFireButton: {fileID: 654780385}
+  speedShooterButton: {fileID: 509791445}
+  triggerFingerButton: {fileID: 210135125}
+  blitzShotButton: {fileID: 1163104374}
+  bulletHellButton: {fileID: 2066512390}
+  unlockTurretLevelText: {fileID: 279159444}
+  quickSuccessionLevelText: {fileID: 495614120}
+  annihilationLevelText: {fileID: 187672628}
+  surplusLevelText: {fileID: 244655404}
+  unlockTurretIcon: {fileID: 213527026}
+  quickSuccessionIcon: {fileID: 1250737877}
+  annihilationIcon: {fileID: 1678675994}
+  surplusIcon: {fileID: 978641947}
+  unlockTurretButton: {fileID: 967273289}
+  quickSuccessionButton: {fileID: 1519549388}
+  annihilationButton: {fileID: 2036848388}
+  surplusButton: {fileID: 538592261}
+  vitalityLevelText: {fileID: 2047246960}
+  enduranceLevelText: {fileID: 427502181}
+  resilienceLevelText: {fileID: 1960210412}
+  fortitudeLevelText: {fileID: 1667698760}
+  rejuvenationLevelText: {fileID: 1279078235}
+  vitalityIcon: {fileID: 474037563}
+  enduranceIcon: {fileID: 1945424069}
+  resilienceIcon: {fileID: 879494593}
+  fortitudeIcon: {fileID: 1145543595}
+  rejuvenationIcon: {fileID: 489650602}
+  vitalityButton: {fileID: 283904140}
+  enduranceButton: {fileID: 660699248}
+  resilienceButton: {fileID: 1276003655}
+  fortitudeButton: {fileID: 583226467}
+  rejuvenationButton: {fileID: 298452474}
+  rapidLevelText: {fileID: 1348161243}
+  nimbleLevelText: {fileID: 1566032367}
+  acceleratedLevelText: {fileID: 896723869}
+  turboLevelText: {fileID: 1066774622}
+  rapidIcon: {fileID: 442027635}
+  nimbleIcon: {fileID: 302468782}
+  acceleratedIcon: {fileID: 1710562075}
+  turboIcon: {fileID: 1003856651}
+  rapidButton: {fileID: 847418534}
+  nimbleButton: {fileID: 1600629645}
+  acceleratedButton: {fileID: 1940796305}
+  turboButton: {fileID: 192523378}
+  unlockTeleportLevelText: {fileID: 15192800}
+  eradicationLevelText: {fileID: 966250221}
+  enhancedLevelText: {fileID: 1394968041}
+  quickenedLevelText: {fileID: 1852777011}
+  extendedRangeLevelText: {fileID: 388953829}
+  unlockTeleportIcon: {fileID: 2129422608}
+  eradicationIcon: {fileID: 987097352}
+  enhancedIcon: {fileID: 1615269859}
+  quickenedIcon: {fileID: 1067047131}
+  extendedRangeIcon: {fileID: 226565810}
+  unlockTeleportButton: {fileID: 1552990200}
+  eradicationButton: {fileID: 1656081081}
+  enhancedButton: {fileID: 292110856}
+  quickenedButton: {fileID: 1162935256}
+  extendedRangeButton: {fileID: 1911718049}
+--- !u!224 &389714013
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389714011}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.060712226, y: 0.049502347, z: 0.044972014}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 8417.768, y: 2444.4062}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &390575717
 GameObject:
   m_ObjectHideFlags: 0
@@ -28940,8 +29087,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 654.625, y: -224.87888}
-  m_SizeDelta: {x: 196.59879, y: 449.75775}
+  m_AnchoredPosition: {x: 654.625, y: -224.83662}
+  m_SizeDelta: {x: 196.59879, y: 449.67328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &575834773
 CanvasRenderer:
@@ -36919,17 +37066,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737194548}
   m_CullTransparentMesh: 1
---- !u!114 &737226394 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
-  m_PrefabInstance: {fileID: 292356843734558813}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1026272a275c0047b4105a5cc1c630a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &737840628
 GameObject:
   m_ObjectHideFlags: 0
@@ -53175,7 +53311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 14}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1067047131
@@ -58061,7 +58197,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplyEnduranceEffect
+        m_MethodName: ApplyQuickenedEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -69627,8 +69763,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 484.875, y: -224.87888}
-  m_SizeDelta: {x: 196.59879, y: 449.75775}
+  m_AnchoredPosition: {x: 484.875, y: -224.83662}
+  m_SizeDelta: {x: 196.59879, y: 449.67328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1404989662
 CanvasRenderer:
@@ -76879,7 +77015,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplyRejuvenationEffect
+        m_MethodName: ApplyUnlockTeleportEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -79002,7 +79138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -17, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1615269859
@@ -80787,7 +80923,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplyEnduranceEffect
+        m_MethodName: ApplyEradicationEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -93177,7 +93313,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 894135876}
         m_TargetAssemblyTypeName: SkillTreeManager, Assembly-CSharp
-        m_MethodName: ApplyEnduranceEffect
+        m_MethodName: ApplyExtendedRangeEffect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -102780,6 +102916,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 435433499}
   - {fileID: 734836195}
   - {fileID: 525669684}
   - {fileID: 1529310119}
@@ -102787,7 +102924,6 @@ RectTransform:
   - {fileID: 268172931}
   - {fileID: 397908832}
   - {fileID: 1155936974}
-  - {fileID: 435433499}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -105131,7 +105267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 449.75775
+      value: 449.67328
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_LocalPosition.x
@@ -105167,7 +105303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -224.87888
+      value: -224.83662
       objectReference: {fileID: 0}
     - target: {fileID: 921163967781007297, guid: d50eb935c12d6f643852442232846a65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -106222,6 +106358,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1918285141243380145}
   - {fileID: 292356843734558813}
+  - {fileID: 389714013}
   - {fileID: 2081907818}
   - {fileID: 1136222167}
   - {fileID: 894135877}

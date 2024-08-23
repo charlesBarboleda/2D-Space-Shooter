@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: New Beginnings
   description: +DMG 3/6/9 +FR 3/6/9 +HP 25/50/100 +SPD 3/6/9
-  cost: 400
+  cost: 100
   startingCost: 100
   prequisites: []
   children:
   - {fileID: 11400000, guid: 2106f6f168d056d48b16e5234a6aa10b, type: 2}
   - {fileID: 11400000, guid: 7351f99a54419f84db89b63adeccc79f, type: 2}
   - {fileID: 11400000, guid: 1d837dc157f86fc4daff62f2337f4dba, type: 2}
-  skillLevel: 3
+  - {fileID: 11400000, guid: afd5529aca461cf438e042d88806c64e, type: 2}
+  skillLevel: 0
   maxSkillLevel: 3
   isUnlocked: 1

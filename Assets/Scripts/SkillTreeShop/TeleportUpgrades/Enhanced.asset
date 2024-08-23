@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e578097537151b644af0120499ab96b6, type: 3}
-  m_Name: Turbo
+  m_Name: Enhanced
   m_EditorClassIdentifier: 
-  skillName: Turbo
-  description: Increase ship speed by 8/8/8
-  cost: 2000
-  startingCost: 500
+  skillName: Enhanced
+  description: Increase teleport duration by 0.5s. Increase teleport size by 10%
+  cost: 1050
+  startingCost: 300
   prequisites:
-  - {fileID: 11400000, guid: 2038b9e69c801e646b2d9dc25be03f1a, type: 2}
-  children:
   - {fileID: 11400000, guid: 00b3eca0bef971443bb306257557a132, type: 2}
+  children: []
   skillLevel: 3
-  maxSkillLevel: 3
+  maxSkillLevel: 10
   isUnlocked: 1
