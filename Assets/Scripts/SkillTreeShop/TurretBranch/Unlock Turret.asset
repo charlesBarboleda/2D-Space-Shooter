@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Unlock Turret
   description: Unlock the turret skill
-  cost: 0
+  cost: 1000
+  skillIcon: {fileID: 21300000, guid: dba97f043f6e84c4e86ded91cbe59a93, type: 3}
   startingCost: 1000
   prequisites:
   - {fileID: 11400000, guid: bf38b4b7ad57253489f4c8927886a44f, type: 2}
@@ -24,4 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 965b11de774df8a42aa6c2b7f94661e6, type: 2}
   skillLevel: 0
   maxSkillLevel: 1
-  isUnlocked: 0
+  isUnlocked: 1

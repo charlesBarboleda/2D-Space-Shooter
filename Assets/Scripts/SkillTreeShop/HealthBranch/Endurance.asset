@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Endurance
   m_EditorClassIdentifier: 
   skillName: Endurance
-  description: Increase HP by 7%
+  description: Increase max HP by 7%
   cost: 100
+  skillIcon: {fileID: 0}
   startingCost: 100
   prequisites:
   - {fileID: 11400000, guid: 1d837dc157f86fc4daff62f2337f4dba, type: 2}

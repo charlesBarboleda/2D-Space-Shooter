@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Annihilation
   description: Increase turret damage by 10%
-  cost: 0
-  startingCost: 100
+  cost: 100
+  skillIcon: {fileID: 21300000, guid: e0d469acc9d1d144994c42a55a311215, type: 3}
+  startingCost: 200
   prequisites:
   - {fileID: 11400000, guid: 5a131742778ec574ba737836d1deb3a5, type: 2}
   children: []

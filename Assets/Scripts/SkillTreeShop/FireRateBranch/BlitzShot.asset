@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Blitz Shot
   description: Decrease fire rate by 10%
-  cost: 500
+  cost: 1250
   skillIcon: {fileID: 1870898176, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
-  startingCost: 500
+  startingCost: 750
   prequisites:
   - {fileID: 11400000, guid: e0233f998a53da443be777ec3d5ba460, type: 2}
   children:
   - {fileID: 11400000, guid: 33c4fc167e9fc1948b59e19c37571b1f, type: 2}
-  skillLevel: 0
+  skillLevel: 3
   maxSkillLevel: 3
-  isUnlocked: 0
+  isUnlocked: 1

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Surplus
   description: Increase turret count by 2
-  cost: 0
+  cost: 1000
+  skillIcon: {fileID: 21300000, guid: 2de2431419e23b2489ed7ce1d62f022a, type: 3}
   startingCost: 1000
   prequisites:
   - {fileID: 11400000, guid: 5a131742778ec574ba737836d1deb3a5, type: 2}

@@ -27774,6 +27774,7 @@ GameObject:
   - component: {fileID: 538592262}
   - component: {fileID: 538592261}
   - component: {fileID: 538592260}
+  - component: {fileID: 538592263}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -27894,6 +27895,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538592258}
   m_CullTransparentMesh: 1
+--- !u!114 &538592263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538592258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1b8a62c5e502147bfee01bbc3d773f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 11400000, guid: 3292742338c2b4c4ab9327a4cd56fba8, type: 2}
+  descriptionPanel: {fileID: 1639569161}
+  skillNameText: {fileID: 1614984489}
+  skillCostText: {fileID: 1302329335}
+  skillDescriptionText: {fileID: 862944617}
+  skillMaxLevelText: {fileID: 194512167}
+  defaultIcon: {fileID: 1559303398}
 --- !u!1 &539696015
 GameObject:
   m_ObjectHideFlags: 0
@@ -49782,6 +49802,7 @@ GameObject:
   - component: {fileID: 967273290}
   - component: {fileID: 967273289}
   - component: {fileID: 967273288}
+  - component: {fileID: 967273291}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -49902,6 +49923,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967273286}
   m_CullTransparentMesh: 1
+--- !u!114 &967273291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967273286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1b8a62c5e502147bfee01bbc3d773f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 11400000, guid: 5a131742778ec574ba737836d1deb3a5, type: 2}
+  descriptionPanel: {fileID: 1639569161}
+  skillNameText: {fileID: 1614984489}
+  skillCostText: {fileID: 1302329335}
+  skillDescriptionText: {fileID: 862944617}
+  skillMaxLevelText: {fileID: 194512167}
+  defaultIcon: {fileID: 1559303398}
 --- !u!1 &967424208
 GameObject:
   m_ObjectHideFlags: 0
@@ -76700,6 +76740,7 @@ GameObject:
   - component: {fileID: 1519549389}
   - component: {fileID: 1519549388}
   - component: {fileID: 1519549387}
+  - component: {fileID: 1519549390}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -76820,6 +76861,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519549385}
   m_CullTransparentMesh: 1
+--- !u!114 &1519549390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519549385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1b8a62c5e502147bfee01bbc3d773f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 11400000, guid: 965b11de774df8a42aa6c2b7f94661e6, type: 2}
+  descriptionPanel: {fileID: 1639569161}
+  skillNameText: {fileID: 1614984489}
+  skillCostText: {fileID: 1302329335}
+  skillDescriptionText: {fileID: 862944617}
+  skillMaxLevelText: {fileID: 194512167}
+  defaultIcon: {fileID: 1559303398}
 --- !u!1 &1520361293
 GameObject:
   m_ObjectHideFlags: 0
@@ -82519,7 +82579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.5101986, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -102899,6 +102959,7 @@ GameObject:
   - component: {fileID: 2036848389}
   - component: {fileID: 2036848388}
   - component: {fileID: 2036848387}
+  - component: {fileID: 2036848390}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -103019,6 +103080,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036848385}
   m_CullTransparentMesh: 1
+--- !u!114 &2036848390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036848385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1b8a62c5e502147bfee01bbc3d773f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 11400000, guid: ef1920aad926069469b3d01e070377d2, type: 2}
+  descriptionPanel: {fileID: 1639569161}
+  skillNameText: {fileID: 1614984489}
+  skillCostText: {fileID: 1302329335}
+  skillDescriptionText: {fileID: 862944617}
+  skillMaxLevelText: {fileID: 194512167}
+  defaultIcon: {fileID: 1559303398}
 --- !u!1 &2037160297
 GameObject:
   m_ObjectHideFlags: 0
