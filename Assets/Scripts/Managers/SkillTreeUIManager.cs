@@ -10,44 +10,44 @@ public class SkillTreeUIManager : MonoBehaviour
     [SerializeField] SkillTree skillTree;
     [SerializeField] GameObject skillTreePanel;
 
-    [Header("Skill Tree/Bullet Damage Pathway")]
+    [Header("Bullet Damage Pathway")]
     [SerializeField] TextMeshProUGUI newBeginningsLevelText, brutalityLevelText, violenceLevelText, ferocityLevelText, viciousLevelText, sprayAndPrayLevelText;
     [SerializeField] Image brutalityIcon, violenceIcon, ferocityIcon, viciousIcon, sprayAndPrayIcon;
     [SerializeField] Image brutalityButton, violenceButton, ferocityButton, viciousButton, sprayAndPrayButton;
 
 
-    [Header("Skill Tree/Laser Pathway")]
+    [Header("Laser Pathway")]
     [SerializeField] TextMeshProUGUI unlockLaserLevelText, destructionLevelText, tenaciousLevelText, expeditiousLevelText;
     [SerializeField] Image unlockLaserIcon, destructionIcon, tenaciousIcon, expeditiousIcon;
     [SerializeField] Image unlockLaserButton, destructionButton, tenaciousButton, expeditiousButton;
 
-    [Header("Skill Tree/Fire Rate Pathway")]
+    [Header("Fire Rate Pathway")]
     [SerializeField] TextMeshProUGUI rapidFireLevelText, speedShooterLevelText, triggerFingerLevelText, blitzShotLevelText, bulletHellLevelText;
     [SerializeField] Image rapidFireIcon, speedShooterIcon, triggerFingerIcon, blitzShotIcon, bulletHellIcon;
     [SerializeField] Image rapidFireButton, speedShooterButton, triggerFingerButton, blitzShotButton, bulletHellButton;
 
-    [Header("Skill Tree/Turret Pathway")]
+    [Header("Turret Pathway")]
     [SerializeField] TextMeshProUGUI unlockTurretLevelText, quickSuccessionLevelText, annihilationLevelText, surplusLevelText;
     [SerializeField] Image unlockTurretIcon, quickSuccessionIcon, annihilationIcon, surplusIcon;
     [SerializeField] Image unlockTurretButton, quickSuccessionButton, annihilationButton, surplusButton;
 
-    [Header("Skill Tree/Health Pathway")]
+    [Header("Health Pathway")]
     [SerializeField] TextMeshProUGUI vitalityLevelText, enduranceLevelText, resilienceLevelText, fortitudeLevelText, rejuvenationLevelText;
     [SerializeField] Image vitalityIcon, enduranceIcon, resilienceIcon, fortitudeIcon, rejuvenationIcon;
     [SerializeField] Image vitalityButton, enduranceButton, resilienceButton, fortitudeButton, rejuvenationButton;
 
-    [Header("Skill Tree/Speed Pathway")]
+    [Header("Speed Pathway")]
     [SerializeField] TextMeshProUGUI rapidLevelText, nimbleLevelText, acceleratedLevelText, turboLevelText;
     [SerializeField] Image rapidIcon, nimbleIcon, acceleratedIcon, turboIcon;
     [SerializeField] Image rapidButton, nimbleButton, acceleratedButton, turboButton;
 
-    [Header("Skill Tree/Teleport Pathway")]
+    [Header("Teleport Pathway")]
     [SerializeField] TextMeshProUGUI unlockTeleportLevelText, eradicationLevelText, enhancedLevelText, quickenedLevelText, extendedRangeLevelText;
     [SerializeField] Image unlockTeleportIcon, eradicationIcon, enhancedIcon, quickenedIcon, extendedRangeIcon;
     [SerializeField] Image unlockTeleportButton, eradicationButton, enhancedButton, quickenedButton, extendedRangeButton;
 
 
-    [Header("Skill Tree/Shield Pathway")]
+    [Header("Shield Pathway")]
     [SerializeField] TextMeshProUGUI unlockShieldLevelText, devastationLevelText, expandedLevelText, prolongedLevelText, reducedLevelText;
     [SerializeField] Image unlockShieldIcon, devastationIcon, expandedIcon, prolongedIcon, reducedIcon;
     [SerializeField] Image unlockShieldButton, devastationButton, expandedButton, prolongedButton, reducedButton;

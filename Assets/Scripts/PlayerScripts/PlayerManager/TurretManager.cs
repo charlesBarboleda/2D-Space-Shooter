@@ -5,6 +5,8 @@ using UnityEngine;
 public class TurretManager : MonoBehaviour
 {
     [Header("Turret Settings")]
+
+
     public GameObject turretPrefab;
     public int numberOfTurretsPerSide = 0;
     public float turretSpacing = 0.2f;

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c9174cbab810f4aa1442b83e3acb37, type: 3}
   m_Name: PlayerLaser
   m_EditorClassIdentifier: 
-  isUnlocked: 0
+  isUnlocked: 1
   abilityName: PlayerLaser
   icon: {fileID: 21300000, guid: 1e6199c17ad27ca4fa282c8334a302fb, type: 3}
   cooldown: 45
-  currentCooldown: 13.916744
+  currentCooldown: 45
   _laserPrefab: {fileID: 3487352173824420537, guid: 80e0bd9d08cd69c458089c292ac1893c, type: 3}
   duration: 3
   dps: 5

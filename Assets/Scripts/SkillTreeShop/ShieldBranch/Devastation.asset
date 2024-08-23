@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Devastation
   m_EditorClassIdentifier: 
   skillName: Devastation
-  description: Increase
-  cost: 0
+  description: Increase by shield damage 5%
+  cost: 17100
   startingCost: 100
   prequisites:
   - {fileID: 11400000, guid: 6f8d81e5b22383e408b7392bb44867ea, type: 2}
   children: []
-  skillLevel: 0
+  skillLevel: 34
   maxSkillLevel: 9999
-  isUnlocked: 0
+  isUnlocked: 1

@@ -29,10 +29,12 @@ public class AbilityShield : Ability
 
     public void ResetShieldStats()
     {
+        currentCooldown = 30f;
         _shieldSize = 0.3f;
         _shieldDamage = 10;
         _duration = 3f;
         cooldown = 30f;
+        isUnlocked = false;
     }
 
 

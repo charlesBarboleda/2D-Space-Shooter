@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd6a33c3b23a5545af2c9f7940fb743, type: 3}
   m_Name: PlayerTeleport
   m_EditorClassIdentifier: 
-  isUnlocked: 0
+  isUnlocked: 1
   abilityName: PlayerTeleport
   icon: {fileID: 21300000, guid: 4ffbe445930f3214f86656e87c7a1934, type: 3}
-  cooldown: 20
-  currentCooldown: 20
-  _teleportDistance: 2
+  cooldown: 30
+  currentCooldown: 0.0033035735
   _teleportEffect: {fileID: 9027514048236820045, guid: 6c906060d89785c4791f35aa92c60dbf, type: 3}
+  _teleportDistance: 2
   _teleportSize: 1
   _teleportDamage: 10
   _teleportDuration: 1

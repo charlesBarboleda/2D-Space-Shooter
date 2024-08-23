@@ -25,6 +25,7 @@ public class AbilityLaser : Ability
 
     public void ResetLaserStats()
     {
+        currentCooldown = 45f;
         duration = 3f;
         dps = 5f;
         cooldown = 45f;

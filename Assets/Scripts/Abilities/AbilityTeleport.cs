@@ -35,6 +35,8 @@ public class AbilityTeleport : Ability
 
     public void ResetTeleportStats()
     {
+        currentCooldown = 30f;
+        cooldown = 30f;
         _teleportDistance = 2;
         _teleportDamage = 10;
         _teleportSize = 1;

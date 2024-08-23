@@ -15,6 +15,9 @@ MonoBehaviour:
   skillName: Brutality
   description: DMG 5/5/5
   cost: 250
+  levelText: {fileID: 6654079876704667394, guid: ec9af717ccb93ab45b87961048beda54, type: 3}
+  icon: {fileID: 3700678557872743689, guid: c7edcecb7eb5e954b901d4670564c763, type: 3}
+  button: {fileID: 2750249088259916827, guid: e6ec6ee87108e384ba8f158587608b5d, type: 3}
   startingCost: 250
   prequisites:
   - {fileID: 11400000, guid: 3ccecda4881ab5b47bd8eb249a34b273, type: 2}

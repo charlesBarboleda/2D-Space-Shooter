@@ -107,10 +107,10 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's shield size by 10%
-                float increaseSize = 1.1f;
+                // Increase the player's shield size by 5%
+                float increaseSize = 1.05f;
                 abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._shieldSize *= increaseSize;
-                Debug.Log("Shield Size Increased by 10%");
+                Debug.Log("Shield Size Increased by 5%");
             }
         };
 
@@ -122,8 +122,8 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's shield damage by 10%
-                float increaseDamage = 1.10f;
+                // Increase the player's shield damage by 5%
+                float increaseDamage = 1.05f;
                 abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._shieldDamage *= increaseDamage;
                 Debug.Log("Shield Damage Increased by 10%");
             },
@@ -189,7 +189,7 @@ public class SkillTreeManager : MonoBehaviour
                 // Increase the player's teleport size by 5%
                 float increaseSize = 1.05f;
                 abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportSize *= increaseSize;
-                Debug.Log("Teleport Size Increased by 10%");
+                Debug.Log("Teleport Size Increased by 5%");
 
             }
         };

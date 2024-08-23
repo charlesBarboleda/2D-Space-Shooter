@@ -31,22 +31,27 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("UIManager Awake called");
         if (Instance == null)
         {
             Instance = this;
+            Debug.Log("UIManager instance created.");
         }
         else
         {
+            Debug.LogWarning("Another instance of UIManager already exists. Destroying this one.");
             Destroy(gameObject);
         }
-        abilityHolder = GameManager.Instance.GetPlayer().GetComponent<AbilityHolder>();
     }
 
     void Start()
     {
+        Debug.Log("UIManager Start called");
         EventManager.OnNextRound += UpdateRoundText;
         EventManager.OnGameOver += GameOver;
         PlayerManager.OnCurrencyChange += UpdateCurrencyText;
+        abilityHolder = GameManager.Instance.GetPlayer().GetComponent<AbilityHolder>();
+        Debug.Log("AbilityHolder assigned");
 
 
 
@@ -61,6 +66,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Update called");
         UpdateRoundText();
         UpdateCurrencyText();
         if (upgradeShopPanel.activeSelf)
@@ -69,28 +75,32 @@ public class UIManager : MonoBehaviour
         }
 
 
+
         foreach (Ability ability in abilityHolder.abilities)
         {
-            if (ability is AbilityLaser)
+            if (ability.isUnlocked)
             {
-                laserIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+                if (ability is AbilityLaser)
+                {
+                    Debug.Log(ability.currentCooldown);
+                    laserIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+                    Debug.Log("Laser Icon Fill: " + laserIconFill.fillAmount);
+                }
+                if (ability is AbilityShield)
+                {
+                    shieldIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+                }
+                if (ability is AbilityTeleport)
+                {
+                    teleportIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+                }
+                if (ability is AbilityTurrets)
+                {
+                    turretIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+                }
             }
-            if (ability is AbilityShield)
-            {
-                shieldIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
-            }
-            if (ability is AbilityTeleport)
-            {
-                teleportIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
-            }
-            if (ability is AbilityTurrets)
-            {
-                turretIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
-            }
-
+            else Debug.Log("Ability is still locked");
         }
-
-
     }
 
 
