@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: RapidFire
   m_EditorClassIdentifier: 
   skillName: Rapid Fire
-  description: -FR 3/3/3
-  cost: 100
+  description: Decrease fire rate by 3%
+  cost: 350
+  skillIcon: {fileID: 1870898176, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 100
   prequisites:
   - {fileID: 11400000, guid: 3ccecda4881ab5b47bd8eb249a34b273, type: 2}
   children:
   - {fileID: 11400000, guid: bf38b4b7ad57253489f4c8927886a44f, type: 2}
-  skillLevel: 0
+  skillLevel: 1
   maxSkillLevel: 3
-  isUnlocked: 0
+  isUnlocked: 1

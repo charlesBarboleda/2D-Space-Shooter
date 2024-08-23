@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: SpeedShooter
   m_EditorClassIdentifier: 
   skillName: Speed Shooter
-  description: -FR 5/5/5
-  cost: 850
-  startingCost: 100
+  description: Decrease fire rate by 5%
+  cost: 100
+  skillIcon: {fileID: 1870898176, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
+  startingCost: 200
   prequisites:
   - {fileID: 11400000, guid: 7351f99a54419f84db89b63adeccc79f, type: 2}
   children:
   - {fileID: 11400000, guid: e0233f998a53da443be777ec3d5ba460, type: 2}
   - {fileID: 11400000, guid: 5a131742778ec574ba737836d1deb3a5, type: 2}
-  skillLevel: 3
+  skillLevel: 0
   maxSkillLevel: 3
-  isUnlocked: 1
+  isUnlocked: 0
