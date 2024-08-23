@@ -43,7 +43,8 @@ public class GameManager : MonoBehaviour
         {
             EventManager.GameOverEvent();
         }
-
+        Debug.Log("Enemies Count: " + enemies.Count);
+        Debug.Log("Enemies to Spawn Count: " + enemiesToSpawn);
 
         if (enemies.Count == 0 && !isRoundOver && canTriggerNextRound)
         {

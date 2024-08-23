@@ -48,6 +48,7 @@ public class SpawnerManager : MonoBehaviour
 
             SpawnShip(shipNamesEarly[Random.Range(0, shipNamesEarly.Count)], spawnPosition, Quaternion.identity);
 
+
             yield return new WaitForSeconds(GameManager.Instance.spawnRate);
         }
     }

@@ -60,27 +60,27 @@ public class UpgradeShopManager : MonoBehaviour
         bulletDamageUpgrade.Initialize(
             "Increase Damage",
             $"Increase Bullet Damage by {bulletDamageUpgrade.bulletDamageUpgradeAmount}",
-            100
+            50
         );
         fireRateUpgrade.Initialize(
             "Decrease Fire Rate",
             $"Decrease Fire Rate by {fireRateUpgrade.fireRateUpgradeAmount}",
-            100
+            50
         );
         bulletSpeedUpgrade.Initialize(
             "Increase Bullet Speed",
             $"Increase Bullet Speed by {bulletSpeedUpgrade.bulletSpeedUpgradeAmount}",
-            50
+            10
         );
         extraBulletUpgrade.Initialize(
             "Extra Bullet",
             $"Increase Bullet Count by {extraBulletUpgrade.extraBulletUpgradeAmount}",
-            500
+            100
         );
         shipSpeedUpgrade.Initialize(
             "Increase Ship Speed",
             $"Increase Ship Speed by {shipSpeedUpgrade.shipSpeedUpgradeAmount} km/h",
-            200
+            50
         );
         pickUpUpgrade.Initialize(
             "Increase Pick Up Radius",
@@ -107,14 +107,12 @@ public class UpgradeShopManager : MonoBehaviour
     public void OpenUpgradeShop()
     {
         upgradeShopPanel.SetActive(true);
-        Time.timeScale = 0;
     }
 
 
     public void ExitUpgradeShop()
     {
         upgradeShopPanel.SetActive(false);
-        Time.timeScale = 1;
     }
 
     public void ApplyHealthUpgrade()
