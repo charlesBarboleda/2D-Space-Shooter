@@ -524,8 +524,8 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Decrease the player's laser cooldown by 10%
-                float decreaseCooldown = 0.90f;
+                // Decrease the player's laser cooldown by 7%
+                float decreaseCooldown = 0.93f;
                 AbilityLaser laserAbility = abilityHolder.abilities.OfType<AbilityLaser>().FirstOrDefault();
                 laserAbility.cooldown *= decreaseCooldown;
                 Debug.Log("Laser Cooldown Decreased by " + (1 - decreaseCooldown) * 100 + "%");

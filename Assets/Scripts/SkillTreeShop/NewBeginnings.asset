@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: NewBeginnings
   m_EditorClassIdentifier: 
   skillName: New Beginnings
-  description: +DMG 3/6/9 +FR 3/6/9 +HP 25/50/100 +SPD 3/6/9
+  description: 'Increase damage, fire rate, health, speed '
   cost: 100
+  skillIcon: {fileID: -1107025847, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 100
   prequisites: []
   children:

@@ -15,6 +15,7 @@ MonoBehaviour:
   skillName: Unlock Laser
   description: Unlocks the Laser skill
   cost: 1000
+  skillIcon: {fileID: 21300000, guid: 1e6199c17ad27ca4fa282c8334a302fb, type: 3}
   startingCost: 1000
   prequisites:
   - {fileID: 11400000, guid: de676b40d9fa8ff449bf928632f8a0ba, type: 2}
