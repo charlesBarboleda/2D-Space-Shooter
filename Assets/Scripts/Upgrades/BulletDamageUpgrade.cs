@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletDamageUpgrade : Upgrade
 {
-    public int bulletDamageUpgradeAmount = 50;
+    public int bulletDamageUpgradeAmount = 5;
     public override void ApplyUpgrade()
     {
         if (GameManager.Instance.GetPlayer().currency >= upgradeCost)
@@ -12,7 +12,6 @@ public class BulletDamageUpgrade : Upgrade
             GameManager.Instance.GetPlayer().currency -= upgradeCost;
             GameManager.Instance.GetPlayer().weapon.bulletDamage += bulletDamageUpgradeAmount;
             upgradeCost += 50;
-            bulletDamageUpgradeAmount += 10;
 
         }
     }

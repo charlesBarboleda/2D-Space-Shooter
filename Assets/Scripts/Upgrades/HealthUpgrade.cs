@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthUpgrade : Upgrade
 {
-    public int healthUpgradeAmount = 10;
+    public int healthUpgradeAmount = 5;
     public override void ApplyUpgrade()
     {
         if (GameManager.Instance.GetPlayer().currency >= upgradeCost)
@@ -14,7 +14,6 @@ public class HealthUpgrade : Upgrade
             GameManager.Instance.GetPlayer().maxHealth += healthUpgradeAmount;
 
             upgradeCost += 50;
-            healthUpgradeAmount += 10;
         }
         else
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletSpeedUpgrade : Upgrade
 {
-    public float bulletSpeedUpgradeAmount = 0.2f;
+    public float bulletSpeedUpgradeAmount = 0.1f;
     public override void ApplyUpgrade()
     {
         if (GameManager.Instance.GetPlayer().currency >= upgradeCost)
