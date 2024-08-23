@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Quick Succession
   description: Decrease turret fire rate by 8%
-  cost: 0
+  cost: 10500
   startingCost: 500
   prequisites:
   - {fileID: 11400000, guid: 5a131742778ec574ba737836d1deb3a5, type: 2}
   children: []
-  skillLevel: 0
-  maxSkillLevel: 12
-  isUnlocked: 0
+  skillLevel: 20
+  maxSkillLevel: 40
+  isUnlocked: 1

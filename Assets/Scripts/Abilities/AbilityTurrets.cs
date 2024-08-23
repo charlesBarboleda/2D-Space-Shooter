@@ -40,8 +40,7 @@ public class AbilityTurrets : Ability
         rightTurretWeapon.bulletDamage = bulletDamage;
         rightTurretWeapon.fireRate = fireRate;
 
-        // Increment the number of turrets spawned
-        numberOfTurretsPerSide++;
+
     }
 
     public void ResetTurretStats()

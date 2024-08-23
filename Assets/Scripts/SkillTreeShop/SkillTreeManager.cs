@@ -404,10 +404,10 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Decrease the player's turret's fire rate by 8%
-                float decreaseFireRate = 0.92f;
+                // Decrease the player's turret's fire rate by 7%
+                float decreaseFireRate = 0.93f;
                 GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SetTurretFireRate(GameManager.Instance.GetPlayer().GetComponent<TurretManager>().GetTurretFireRate() * decreaseFireRate);
-                Debug.Log("Turret Fire Rate Decreased by 8%");
+                Debug.Log("Turret Fire Rate Decreased by 7%");
             }
         };
         ApplySkillEffect("Quick Succession", 500, skillEffects);
@@ -420,7 +420,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's turret damage by 10%  
                 float increaseDamage = 1.1f;
-                GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SetTurretDamage(GameManager.Instance.GetPlayer().weapon.bulletDamage * increaseDamage);
+                GameManager.Instance.GetPlayer().GetComponent<TurretManager>().SetTurretDamage(GameManager.Instance.GetPlayer().GetComponent<TurretManager>().GetTurretDamage() * increaseDamage);
                 Debug.Log("Turret Damage Increased by 10%");
 
             }

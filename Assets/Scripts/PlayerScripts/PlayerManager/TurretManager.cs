@@ -40,7 +40,7 @@ public class TurretManager : MonoBehaviour
 
     }
 
-    public void UpdateTurretDamage(float bulletDamage)
+    public void SetTurretDamage(float bulletDamage)
     {
         foreach (var turret in turrets)
         {
@@ -51,7 +51,7 @@ public class TurretManager : MonoBehaviour
             }
         }
     }
-    public void UpdateTurretFireRate(float fireRate)
+    public void SetTurretFireRate(float fireRate)
     {
         foreach (var turret in turrets)
         {
