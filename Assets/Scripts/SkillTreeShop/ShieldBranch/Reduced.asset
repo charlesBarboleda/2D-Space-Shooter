@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Reduced
   m_EditorClassIdentifier: 
   skillName: Reduced
-  description: Decrease shield cooldown by 7%
-  cost: 0
+  description: Decrease Shield cooldown by 7%
+  cost: 750
+  skillIcon: {fileID: -897676795, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 750
   prequisites:
   - {fileID: 11400000, guid: 6f8d81e5b22383e408b7392bb44867ea, type: 2}

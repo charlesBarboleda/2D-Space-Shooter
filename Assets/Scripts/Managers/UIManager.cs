@@ -84,7 +84,6 @@ public class UIManager : MonoBehaviour
                 {
                     Debug.Log(ability.currentCooldown);
                     laserIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
-                    Debug.Log("Laser Icon Fill: " + laserIconFill.fillAmount);
                 }
                 if (ability is AbilityShield)
                 {
@@ -99,7 +98,6 @@ public class UIManager : MonoBehaviour
                     turretIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
                 }
             }
-            else Debug.Log("Ability is still locked");
         }
     }
 

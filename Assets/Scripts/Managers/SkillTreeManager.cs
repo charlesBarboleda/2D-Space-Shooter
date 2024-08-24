@@ -152,10 +152,10 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's teleport distance by 5%
-                float increaseDistance = 1.05f;
+                // Increase the player's teleport distance by 7%
+                float increaseDistance = 1.07f;
                 abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportDistance *= increaseDistance;
-                Debug.Log("Teleport Distance Increased by 5%");
+                Debug.Log("Teleport Distance Increased by 7%");
             }
         };
 
@@ -167,8 +167,8 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Decrease the player's teleport cooldown by 7%
-                float decreaseCooldown = 0.93f;
+                // Decrease the player's teleport cooldown by 5%
+                float decreaseCooldown = 0.95f;
                 abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault().cooldown *= decreaseCooldown;
                 Debug.Log("Teleport Cooldown Decreased by " + (1 - decreaseCooldown) * 100 + "%");
             }

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Unlock Teleport
   description: Unlock the teleport skill
-  cost: 0
+  cost: 1000
+  skillIcon: {fileID: 21300000, guid: 62f9cc4f5f01b5e4b849320605574a38, type: 3}
   startingCost: 1000
   prequisites:
   - {fileID: 11400000, guid: b309d427018056c47abd7fba2c7b1e57, type: 2}

@@ -15,10 +15,11 @@ MonoBehaviour:
   skillName: Enhanced
   description: Increase teleport duration by 0.2s. Increase teleport size by 5%
   cost: 300
-  startingCost: 300
+  skillIcon: {fileID: 21300000, guid: 9d8bde699649d0f41be7cbafd92090ee, type: 3}
+  startingCost: 500
   prequisites:
   - {fileID: 11400000, guid: 00b3eca0bef971443bb306257557a132, type: 2}
   children: []
   skillLevel: 0
   maxSkillLevel: 40
-  isUnlocked: 1
+  isUnlocked: 0

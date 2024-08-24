@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Prolonged
   m_EditorClassIdentifier: 
   skillName: Prolonged
-  description: Increase shield duration by 0.2s
-  cost: 0
+  description: Increase Shield duration by 0.2s
+  cost: 200
+  skillIcon: {fileID: -530572372, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 200
   prequisites:
   - {fileID: 11400000, guid: 6f8d81e5b22383e408b7392bb44867ea, type: 2}

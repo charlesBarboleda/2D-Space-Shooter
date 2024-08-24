@@ -15,6 +15,7 @@ MonoBehaviour:
   skillName: Quickened
   description: Decrease teleport cooldown by 5%
   cost: 300
+  skillIcon: {fileID: -1552747657, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 300
   prequisites:
   - {fileID: 11400000, guid: 00b3eca0bef971443bb306257557a132, type: 2}
