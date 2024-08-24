@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 public class SpawnerEnemy : Enemy
 {
-    public float spawnRate = 1f;
+    public float spawnRate = 3f;
     public List<String> ships = new List<string>();
     public float spawnRadius = 10f;
 
@@ -32,6 +32,16 @@ public class SpawnerEnemy : Enemy
         GameObject enemy = ObjectPooler.Instance.SpawnFromPool(ships[randomShipIndex], spawnPosition, transform.rotation);
         GameManager.Instance.enemies.Add(enemy);
 
+
+    }
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        spawnRate -= GameManager.Instance.level * 0.01f;
+        if (spawnRate <= 0.3f)
+        {
+            spawnRate = 0.3f;
+        }
     }
 
     void OnDisable()

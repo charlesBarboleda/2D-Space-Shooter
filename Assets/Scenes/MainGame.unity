@@ -108807,8 +108807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0209a09cedf33249a9ea1039b1d6d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfSpawnPoints: 360
-  spawnPointRadius: 10
+  numberOfSpawnPoints: 2
+  spawnPointRadius: 150
 --- !u!4 &2081907818
 Transform:
   m_ObjectHideFlags: 0
@@ -112388,7 +112388,7 @@ PrefabInstance:
       objectReference: {fileID: 382851988894892456}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: currency
-      value: 999999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: healthBar
@@ -112400,7 +112400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: healthRegen
-      value: 9999
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1382820213951261302, guid: dc88b53b3b6bba241b0494b6233f13bd, type: 3}
       propertyPath: pickUpRadius
@@ -112818,7 +112818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: level
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: player

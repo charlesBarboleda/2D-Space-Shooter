@@ -29,7 +29,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void OnEnable()
     {
-
+        IncreaseStatsPerLevel();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     public virtual void Awake()
@@ -80,6 +80,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         {
             Destroy();
         }
+    }
+
+    public virtual void IncreaseStatsPerLevel()
+    {
+        health += GameManager.Instance.level * 5f;
+        currencyDrop += GameManager.Instance.level * 0.5f;
+        speed += GameManager.Instance.level * 0.04f;
     }
 
     public virtual void Destroy()

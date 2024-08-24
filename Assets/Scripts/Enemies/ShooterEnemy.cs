@@ -25,6 +25,7 @@ public class ShooterEnemy : Enemy
         player = GameManager.Instance.GetPlayer();
     }
 
+
     private void FixedUpdate()
     {
         if (player == null) return;
@@ -46,6 +47,15 @@ public class ShooterEnemy : Enemy
 
 
         }
+
+    }
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        bulletSpeed += GameManager.Instance.level * 0.05f;
+        bulletDamage += GameManager.Instance.level * 0.5f;
+        aimRange += GameManager.Instance.level * 0.05f;
 
     }
 

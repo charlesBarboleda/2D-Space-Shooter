@@ -31,13 +31,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    IEnumerator NextRoundCooldown()
-    {
-        canTriggerNextRound = false;
-        yield return new WaitForSeconds(0.1f);  // Short delay to prevent double trigger
-        canTriggerNextRound = true;
-    }
-
     void Update()
     {
         if (player.playerHealth <= 0)
@@ -45,18 +38,28 @@ public class GameManager : MonoBehaviour
             EventManager.GameOverEvent();
         }
         Debug.Log("Enemies Count: " + enemies.Count);
-        Debug.Log("Enemies to Spawn Count: " + enemiesToSpawnTotal);
+        Debug.Log("Enemies to Spawn Left: " + enemiesToSpawnLeft);
+        Debug.Log("isRoundOver " + isRoundOver);
+        Debug.Log("isCountdown " + isCountdown);
+        Debug.Log("isRound " + isRound);
+        Debug.Log("canTriggerNextRound " + canTriggerNextRound);
 
-        if (enemies.Count == 0 && !isRoundOver && canTriggerNextRound && enemiesToSpawnLeft == 0)
+        if (isRound)
         {
-            isRoundOver = true;
-            isCountdown = true;
-            EventManager.NextRoundEvent();
-            StartCoroutine(NextRoundCooldown());  // Start cooldown to prevent double calls
+            if (enemies.Count == 0 && !isRoundOver && canTriggerNextRound && enemiesToSpawnLeft == 1)
+            {
+                Debug.Log("Round Over");
+                isRoundOver = true;
+                isCountdown = true;
+                Debug.Log("isCountdown set to true");
+                StartCoroutine(NextRoundCooldown());  // Start cooldown to prevent double calls
+                EventManager.NextRoundEvent();
+            }
         }
 
         if (isCountdown)
         {
+            Debug.Log("Countdown Round");
             roundCountdown -= Time.deltaTime;
             if (roundCountdown <= 0)
             {
@@ -67,6 +70,15 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    IEnumerator NextRoundCooldown()
+    {
+        Debug.Log("Starting NextRoundCooldown");
+        canTriggerNextRound = false;
+        yield return new WaitForSeconds(0.1f);  // Short delay to prevent double trigger
+        canTriggerNextRound = true;
+        Debug.Log("Ending NextRoundCooldown");
+    }
+
 
 
     void OnEnable()
@@ -84,11 +96,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        level = 0;
-        spawnRate = 5f;
-        maxSpawnRate = 0.1f;
-        enemiesToSpawnTotal = 0;
-        roundCountdown = 5f;
+        level = 1;
+        spawnRate = 1f;
+        maxSpawnRate = 0.3f;
+        enemiesToSpawnTotal = 5;
+        roundCountdown = 3f;
         isCountdown = true;
 
     }
@@ -136,14 +148,10 @@ public class GameManager : MonoBehaviour
     }
     public void NextRound()
     {
-
-
-
         DisableSpawning();
         spawnRate -= 0.01f;
-        enemiesToSpawnTotal
- += 10;
-        if (spawnRate < maxSpawnRate) spawnRate = maxSpawnRate;
+        enemiesToSpawnTotal += 5;
+        if (spawnRate <= maxSpawnRate) spawnRate = maxSpawnRate;
         IncreaseLevel();
 
     }

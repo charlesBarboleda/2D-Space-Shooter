@@ -10,8 +10,10 @@ public class Weapon : MonoBehaviour
     public int amountOfBullets = 1; // Number of bullets fired in a burst
     public float shootingAngle = 10f; // Angle to spread bullets
 
-    private bool isFiring = false;
-    private Coroutine firingCoroutine;
+    [SerializeField] AudioClip shootSound;
+
+    bool isFiring = false;
+    Coroutine firingCoroutine;
 
     private void Update()
     {
@@ -44,6 +46,7 @@ public class Weapon : MonoBehaviour
     {
         while (isFiring)
         {
+            AudioSource.PlayClipAtPoint(shootSound, transform.position);
             FireBullets(amountOfBullets, transform.position);
             yield return new WaitForSeconds(fireRate);
         }

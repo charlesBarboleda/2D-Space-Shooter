@@ -11,6 +11,11 @@ public class NukeEnemy : Enemy
     [SerializeField] private float coolDownTime = 1f;
 
 
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        coolDownTime -= GameManager.Instance.level * 0.0001f;
+    }
     // Update is called once per frame
     private void FixedUpdate()
     {
