@@ -108367,7 +108367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfSpawnPoints: 2
-  spawnPointRadius: 20
+  spawnPointRadius: 150
 --- !u!4 &2081907818
 Transform:
   m_ObjectHideFlags: 0
@@ -112419,9 +112419,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 2175ac793e235894da12a78ea274cb1f, type: 2}
     - target: {fileID: 558204607337710767, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: currency
+      value: 9999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 558204607337710767, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 525669685}
+    - target: {fileID: 558204607337710767, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: maxHealth
+      value: 9999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 558204607337710767, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: playerHealth
+      value: 9999999
+      objectReference: {fileID: 0}
     - target: {fileID: 2659876416019876770, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
