@@ -75,7 +75,7 @@ public class UpgradeShopManager : MonoBehaviour
         extraBulletUpgrade.Initialize(
             "Extra Bullet",
             $"Increase Bullet Count by {extraBulletUpgrade.extraBulletUpgradeAmount}",
-            100
+            1000
         );
         shipSpeedUpgrade.Initialize(
             "Increase Ship Speed",

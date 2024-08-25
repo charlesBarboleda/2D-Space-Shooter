@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     public float shootingAngle = 10f; // Angle to spread bullets
 
     [SerializeField] AudioClip shootSound;
+    [SerializeField] AudioSource audioSource;
 
     bool isFiring = false;
     Coroutine firingCoroutine;

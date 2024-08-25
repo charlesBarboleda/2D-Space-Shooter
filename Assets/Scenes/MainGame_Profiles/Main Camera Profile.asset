@@ -17,36 +17,36 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   intensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 40.82
   threshold:
-    overrideState: 0
+    overrideState: 1
     value: 1
   softKnee:
-    overrideState: 0
-    value: 0.5
+    overrideState: 1
+    value: 1
   clamp:
-    overrideState: 0
-    value: 65472
+    overrideState: 1
+    value: 65470.85
   diffusion:
-    overrideState: 0
+    overrideState: 1
     value: 7
   anamorphicRatio:
-    overrideState: 0
+    overrideState: 1
     value: 0
   color:
-    overrideState: 0
+    overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
   fastMode:
-    overrideState: 0
+    overrideState: 1
     value: 0
   dirtTexture:
-    overrideState: 0
+    overrideState: 1
     value: {fileID: 0}
     defaultState: 1
   dirtIntensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 24.9
 --- !u!114 &-5164944243129045141
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -108,8 +108,8 @@ MonoBehaviour:
     overrideState: 1
     value: 0
   focusDistance:
-    overrideState: 0
-    value: 10
+    overrideState: 1
+    value: 40.77
   aperture:
     overrideState: 0
     value: 5.6
@@ -139,8 +139,8 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   intensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 4
   color:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -188,8 +188,8 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   shutterAngle:
-    overrideState: 0
+    overrideState: 1
     value: 270
   sampleCount:
-    overrideState: 0
+    overrideState: 1
     value: 10
