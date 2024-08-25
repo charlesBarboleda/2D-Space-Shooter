@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3805123388886989297}
   - component: {fileID: 3539928857232897827}
   - component: {fileID: 7994010987436318769}
+  - component: {fileID: -5579354071697952829}
   m_Layer: 0
   m_Name: Carrier 1
   m_TagString: Enemy
@@ -166,3 +167,30 @@ MonoBehaviour:
   - MeleeShip
   - SmallShip
   spawnRadius: 5
+--- !u!50 &-5579354071697952829
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997652989131009235}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

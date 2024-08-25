@@ -37,21 +37,16 @@ public class GameManager : MonoBehaviour
         {
             EventManager.GameOverEvent();
         }
-        Debug.Log("Enemies Count: " + enemies.Count);
-        Debug.Log("Enemies to Spawn Left: " + enemiesToSpawnLeft);
-        Debug.Log("isRoundOver " + isRoundOver);
-        Debug.Log("isCountdown " + isCountdown);
-        Debug.Log("isRound " + isRound);
-        Debug.Log("canTriggerNextRound " + canTriggerNextRound);
+
 
         if (isRound)
         {
             if (enemies.Count == 0 && !isRoundOver && canTriggerNextRound && enemiesToSpawnLeft == 1)
             {
-                Debug.Log("Round Over");
+
                 isRoundOver = true;
                 isCountdown = true;
-                Debug.Log("isCountdown set to true");
+
                 StartCoroutine(NextRoundCooldown());  // Start cooldown to prevent double calls
                 EventManager.NextRoundEvent();
             }
@@ -59,7 +54,7 @@ public class GameManager : MonoBehaviour
 
         if (isCountdown)
         {
-            Debug.Log("Countdown Round");
+
             roundCountdown -= Time.deltaTime;
             if (roundCountdown <= 0)
             {
@@ -72,11 +67,11 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator NextRoundCooldown()
     {
-        Debug.Log("Starting NextRoundCooldown");
+
         canTriggerNextRound = false;
         yield return new WaitForSeconds(0.1f);  // Short delay to prevent double trigger
         canTriggerNextRound = true;
-        Debug.Log("Ending NextRoundCooldown");
+
     }
 
 

@@ -116,8 +116,6 @@ public class ShooterEnemy : Enemy
         if (other.CompareTag("PlayerBullet"))
         {
             TakeDamage(other.GetComponent<Bullet>().BulletDamage);
-
-            other.gameObject.SetActive(false);
         }
     }
 

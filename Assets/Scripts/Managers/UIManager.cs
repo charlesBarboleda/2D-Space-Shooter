@@ -31,27 +31,27 @@ public class UIManager : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("UIManager Awake called");
+
         if (Instance == null)
         {
             Instance = this;
-            Debug.Log("UIManager instance created.");
+
         }
         else
         {
-            Debug.LogWarning("Another instance of UIManager already exists. Destroying this one.");
+
             Destroy(gameObject);
         }
     }
 
     void Start()
     {
-        Debug.Log("UIManager Start called");
+
         EventManager.OnNextRound += UpdateRoundText;
         EventManager.OnGameOver += GameOver;
         PlayerManager.OnCurrencyChange += UpdateCurrencyText;
         abilityHolder = GameManager.Instance.GetPlayer().GetComponent<AbilityHolder>();
-        Debug.Log("AbilityHolder assigned");
+
 
 
 
@@ -66,7 +66,6 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Update called");
         UpdateRoundText();
         UpdateCurrencyText();
         if (upgradeShopPanel.activeSelf)

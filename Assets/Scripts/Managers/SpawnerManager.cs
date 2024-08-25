@@ -67,7 +67,6 @@ public class SpawnerManager : MonoBehaviour
             Vector3 spawnPosition = new Vector3(Mathf.Cos(randomAngle) * spawnPointRadius, Mathf.Sin(randomAngle) * spawnPointRadius, 0);
 
             GameObject ship = SpawnShip(shipNamesEarly[Random.Range(0, shipNamesEarly.Count)], spawnPosition, Quaternion.identity);
-            Debug.Log($"Spawn {spawnCount}. Enemies left to spawn: {GameManager.Instance.enemiesToSpawnLeft}");
             yield return new WaitForSeconds(GameManager.Instance.spawnRate);
         }
 

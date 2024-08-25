@@ -99,6 +99,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         GameObject currency = Instantiate(currencyPrefab[Random.Range(0, currencyPrefab.Count)], transform.position, transform.rotation);
         currency.GetComponent<CurrencyDrop>().SetCurrency(currencyDrop);
     }
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PlayerBullet"))
+        {
+            TakeDamage(other.GetComponent<Bullet>().BulletDamage);
+            other.gameObject.SetActive(false);
+        }
+    }
 
 }

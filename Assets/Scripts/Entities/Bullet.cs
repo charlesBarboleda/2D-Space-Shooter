@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -31,6 +32,24 @@ public class Bullet : MonoBehaviour
     {
 
         gameObject.SetActive(false);
+    }
+
+    IEnumerator OnHitEffect()
+    {
+
+        GameObject bulletHit = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(1f);
+        bulletHit.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            StartCoroutine(OnHitEffect());
+            gameObject.SetActive(false);
+        }
     }
 
 

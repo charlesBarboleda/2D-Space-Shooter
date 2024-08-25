@@ -58,7 +58,6 @@ public class NukeEnemy : Enemy
         if (other.CompareTag("PlayerBullet"))
         {
             TakeDamage(other.GetComponent<Bullet>().BulletDamage);
-            other.gameObject.SetActive(false);
         }
     }
 }
