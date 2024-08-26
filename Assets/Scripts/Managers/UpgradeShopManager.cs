@@ -85,7 +85,7 @@ public class UpgradeShopManager : MonoBehaviour
         pickUpUpgrade.Initialize(
             "Increase Pick Up Radius",
             $"Increase Pick Up Radius by {pickUpUpgrade.pickUpUpgradeAmount}",
-            500
+            100
         );
 
     }

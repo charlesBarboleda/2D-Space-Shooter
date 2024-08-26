@@ -98,9 +98,9 @@ public class ShooterEnemy : Enemy
     public override void OnEnable()
     {
         base.OnEnable();
-        bulletSpeed += GameManager.Instance.level * 0.05f;
-        bulletDamage += GameManager.Instance.level * 0.5f;
-        aimRange += GameManager.Instance.level * 0.05f;
+        bulletSpeed += GameManager.Instance.level * 0.07f;
+        bulletDamage += GameManager.Instance.level * 1f;
+        aimRange += GameManager.Instance.level * 0.03f;
 
     }
 

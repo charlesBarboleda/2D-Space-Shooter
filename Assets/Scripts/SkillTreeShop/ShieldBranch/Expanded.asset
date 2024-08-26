@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Expanded
   description: Increase Shield size by 5%
-  cost: 500
+  cost: 5500
   skillIcon: {fileID: 298784443, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
   startingCost: 500
   prequisites:
   - {fileID: 11400000, guid: 6f8d81e5b22383e408b7392bb44867ea, type: 2}
   children: []
-  skillLevel: 0
-  maxSkillLevel: 20
-  isUnlocked: 0
+  skillLevel: 20
+  maxSkillLevel: 40
+  isUnlocked: 1

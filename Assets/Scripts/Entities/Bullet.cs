@@ -34,19 +34,13 @@ public class Bullet : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    IEnumerator OnHitEffect()
-    {
-
-        GameObject bulletHit = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(1f);
-        bulletHit.SetActive(false);
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy") || other.CompareTag("Player"))
         {
-            StartCoroutine(OnHitEffect());
+            GameObject bulletHitEffect = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
+
+            Debug.Log("Bullet hit " + other.name);
 
         }
     }

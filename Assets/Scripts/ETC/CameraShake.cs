@@ -40,7 +40,6 @@ public class CameraShake : MonoBehaviour
 
             // Decrease shake duration
             shakeDurationRemaining -= Time.deltaTime * dampingSpeed;
-            Debug.Log(shakeDurationRemaining);
 
             // If shake duration is over, stop shaking
             if (shakeDurationRemaining <= 0)

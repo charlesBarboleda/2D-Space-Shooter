@@ -30,6 +30,16 @@ public class GameManager : MonoBehaviour
         SetSingleton();
 
     }
+    void Start()
+    {
+        level = 1;
+        spawnRate = 0.5f;
+        maxSpawnRate = 0.1f;
+        enemiesToSpawnTotal = 10;
+        roundCountdown = 3f;
+        isCountdown = true;
+
+    }
 
     void Update()
     {
@@ -89,16 +99,6 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void Start()
-    {
-        level = 1;
-        spawnRate = 1f;
-        maxSpawnRate = 0.3f;
-        enemiesToSpawnTotal = 5;
-        roundCountdown = 3f;
-        isCountdown = true;
-
-    }
 
     public void IncreaseLevel()
     {
@@ -144,8 +144,8 @@ public class GameManager : MonoBehaviour
     public void NextRound()
     {
         DisableSpawning();
-        spawnRate -= 0.01f;
-        enemiesToSpawnTotal += 5;
+        spawnRate -= 0.005f;
+        enemiesToSpawnTotal += 10;
         if (spawnRate <= maxSpawnRate) spawnRate = maxSpawnRate;
         IncreaseLevel();
 

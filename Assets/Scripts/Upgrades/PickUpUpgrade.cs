@@ -11,7 +11,7 @@ public class PickUpUpgrade : Upgrade
         {
             GameManager.Instance.GetPlayer().currency -= upgradeCost;
             GameManager.Instance.GetPlayer().pickUpRadius += pickUpUpgradeAmount;
-            upgradeCost += 250;
+            upgradeCost += 100;
 
         }
     }

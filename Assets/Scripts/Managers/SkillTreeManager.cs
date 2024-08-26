@@ -107,10 +107,10 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's shield size by 5%
-                float increaseSize = 1.05f;
+                // Increase the player's shield size by 7%
+                float increaseSize = 1.07f;
                 abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._shieldSize *= increaseSize;
-                Debug.Log("Shield Size Increased by 5%");
+                Debug.Log("Shield Size Increased by 7%");
             }
         };
 

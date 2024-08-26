@@ -81,9 +81,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void IncreaseStatsPerLevel()
     {
-        health += GameManager.Instance.level * 5f;
+        health += GameManager.Instance.level * 10f;
         currencyDrop += GameManager.Instance.level * 0.5f;
-        speed += GameManager.Instance.level * 0.04f;
+        speed += GameManager.Instance.level * 0.05f;
     }
 
     public virtual void Destroy()

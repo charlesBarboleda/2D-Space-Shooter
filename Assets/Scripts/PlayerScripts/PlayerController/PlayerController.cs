@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         // Use the Ability Shield
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            abilityHolder.abilities[2].TriggerAbility(gameObject, abilityHolder.target);
+            abilityHolder.abilities[2].TriggerAbility(gameObject, transform);
 
         }
 
