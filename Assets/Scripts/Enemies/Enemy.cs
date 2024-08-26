@@ -97,6 +97,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         GameObject currency = Instantiate(currencyPrefab[Random.Range(0, currencyPrefab.Count)], transform.position, transform.rotation);
         Debug.Log("Dropped Currency: " + currencyDrop);
         currency.GetComponent<CurrencyDrop>().SetCurrency(currencyDrop);
+        ObjectivesManager.Instance.DestroyShip();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
