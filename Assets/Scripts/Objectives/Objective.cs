@@ -50,4 +50,16 @@ public abstract class Objective : ScriptableObject
     {
         isActive = active;
     }
+
+    public bool GetIsFailed()
+    {
+        return isFailed;
+    }
+
+    public void SetISFailed(bool status)
+    {
+        isFailed = status;
+    }
+
+
 }

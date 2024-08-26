@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa6ee8b7d3ac41428cfe0552e1ded37, type: 3}
   m_Name: DestroyShipsTimed
   m_EditorClassIdentifier: 
-  objectiveDescription: Destroy ships in X amount of time.
-  isCompleted: 1
-  isActive: 0
+  objectiveDescription: Destroy 5 ships in 995 seconds
+  isCompleted: 0
+  isActive: 1
   isFailed: 0
-  timeToDestroy: 1000
-  elapsedTime: 991.9002
+  timeToDestroy: 10
+  elapsedTime: 994.48004
   requiredKills: 5
-  currentKills: 10
+  currentKills: 0
