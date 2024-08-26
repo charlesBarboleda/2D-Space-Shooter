@@ -158,10 +158,8 @@ MonoBehaviour:
   currencyDrop: 50
   speed: 8
   stopDistance: 60
-  cameraShakeMagnitude: 8
-  cameraShakeRoughness: 8
-  cameraShakeFadeInTime: 0.1
-  cameraShakeFadeOutTime: 0.1
+  cameraShakeMagnitude: 3
+  cameraShakeDuration: 0.2
   spawnRate: 1
   ships:
   - MeleeShip

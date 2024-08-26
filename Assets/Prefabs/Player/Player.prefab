@@ -4830,6 +4830,37 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &1738021304247208108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8542309870085703258}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8542309870085703258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738021304247208108}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0000071281142, y: 2.4406106, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2659876416019876770}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4598658374971178669
 GameObject:
   m_ObjectHideFlags: 0
@@ -5018,6 +5049,7 @@ Transform:
   - {fileID: 8177859565021041441}
   - {fileID: 3217770778511462938}
   - {fileID: 6103929549771028942}
+  - {fileID: 8542309870085703258}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &3060595784819155231
@@ -5308,6 +5340,7 @@ MonoBehaviour:
   shootingAngle: 5
   shootSound: {fileID: 8300000, guid: 3a22e16655512ba47a2ab816685f7a30, type: 3}
   audioSource: {fileID: 7424684025907710522}
+  bulletSpawnPoint: {fileID: 8542309870085703258}
 --- !u!114 &8275537178602280240
 MonoBehaviour:
   m_ObjectHideFlags: 0

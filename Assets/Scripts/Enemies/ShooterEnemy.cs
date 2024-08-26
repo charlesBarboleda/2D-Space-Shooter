@@ -4,37 +4,40 @@ using UnityEngine;
 
 public class ShooterEnemy : Enemy
 {
-    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] float aimRange;
 
-    private bool isFiring;
-    public float fireRate;
-    public float bulletSpeed;
-    public float bulletDamage;
-    public int amountOfBullets;
-    public float aimRange;
-    public float shootingAngle;
-    public float bulletLifetime;
-    private Coroutine firingCoroutine;
+    [SerializeField] float fireRate;
+    [SerializeField] float bulletSpeed;
+    [SerializeField] float bulletDamage;
+    [SerializeField] int amountOfBullets;
+    [SerializeField] float shootingAngle;
+    [SerializeField] float bulletLifetime;
+    bool isFiring;
+    Coroutine firingCoroutine;
 
 
-    private float nextFireTime;
+    float nextFireTime;
 
-    private void Start()
+    void Start()
     {
         SpawnAnimation();
         player = GameManager.Instance.GetPlayer();
     }
 
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         if (player == null) return;
         Movement(player.transform);
         if (shouldRotate) Aim(player.transform);
 
-        if (Vector2.Distance(transform.position, player.transform.position) < aimRange && Time.time >= nextFireTime)
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        if (distanceToPlayer < aimRange && Time.time >= nextFireTime)
 
         {
+
             Attack();
         }
         else
@@ -50,28 +53,17 @@ public class ShooterEnemy : Enemy
 
     }
 
-    public override void OnEnable()
-    {
-        base.OnEnable();
-        bulletSpeed += GameManager.Instance.level * 0.05f;
-        bulletDamage += GameManager.Instance.level * 0.5f;
-        aimRange += GameManager.Instance.level * 0.05f;
-
-    }
-
-
-
-
-    private void StopAttack()
+    void StopAttack()
     {
         StopCoroutine(firingCoroutine);
         isFiring = false;
     }
-    private IEnumerator FireBulletsContinuously()
+    IEnumerator FireBulletsContinuously()
     {
         while (isFiring)
         {
-            FireBullets(amountOfBullets, transform.position, player.transform);
+
+            FireBullets(amountOfBullets, bulletSpawnPoint.position, player.transform);
             yield return new WaitForSeconds(fireRate);
         }
     }
@@ -103,6 +95,14 @@ public class ShooterEnemy : Enemy
 
     }
 
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        bulletSpeed += GameManager.Instance.level * 0.05f;
+        bulletDamage += GameManager.Instance.level * 0.5f;
+        aimRange += GameManager.Instance.level * 0.05f;
+
+    }
 
 
     public override void Attack()
@@ -110,13 +110,6 @@ public class ShooterEnemy : Enemy
 
         isFiring = true;
         firingCoroutine = StartCoroutine(FireBulletsContinuously());
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("PlayerBullet"))
-        {
-            TakeDamage(other.GetComponent<Bullet>().BulletDamage);
-        }
     }
 
 }

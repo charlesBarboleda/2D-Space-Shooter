@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using EZCameraShake;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
@@ -21,9 +20,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     // Camera Shake
     public float cameraShakeMagnitude;
-    public float cameraShakeRoughness;
-    public float cameraShakeFadeInTime;
-    public float cameraShakeFadeOutTime;
+    public float cameraShakeDuration;
     public abstract void Attack();
 
 
@@ -95,8 +92,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         Destroy(exp, 1f);
         EventManager.EnemyDestroyedEvent(gameObject);
         gameObject.SetActive(false);
-        CameraShaker.Instance.ShakeOnce(cameraShakeMagnitude, cameraShakeRoughness, cameraShakeFadeInTime, cameraShakeFadeOutTime);
+        CameraShake.Instance.TriggerShake(cameraShakeMagnitude, cameraShakeDuration);
+        Debug.Log("Camera Shake");
         GameObject currency = Instantiate(currencyPrefab[Random.Range(0, currencyPrefab.Count)], transform.position, transform.rotation);
+        Debug.Log("Dropped Currency: " + currencyDrop);
         currency.GetComponent<CurrencyDrop>().SetCurrency(currencyDrop);
     }
     private void OnTriggerEnter2D(Collider2D other)

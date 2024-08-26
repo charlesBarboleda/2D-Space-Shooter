@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1586039792572316177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2066367071350704046}
+  m_Layer: 0
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2066367071350704046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586039792572316177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.22885294, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2879442038188642913}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7097431120715797597
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,7 +63,8 @@ Transform:
   m_LocalPosition: {x: 3.8, y: 0, z: 0}
   m_LocalScale: {x: 4.3696184, y: 4.3696184, z: 4.3696184}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2066367071350704046}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &489743321092253132
@@ -158,18 +190,17 @@ MonoBehaviour:
   currencyDrop: 3
   speed: 8
   stopDistance: 4
-  cameraShakeMagnitude: 2
-  cameraShakeRoughness: 2
-  cameraShakeFadeInTime: 0.1
-  cameraShakeFadeOutTime: 0.1
+  cameraShakeMagnitude: 0.5
+  cameraShakeDuration: 0.2
   bulletPrefab: {fileID: 6728492749699202131, guid: 0271eb768e721e7469bada9ea73ce922, type: 3}
-  fireRate: 0.75
-  bulletSpeed: 12
+  bulletSpawnPoint: {fileID: 2066367071350704046}
+  aimRange: 4
+  fireRate: 0.25
+  bulletSpeed: 6
   bulletDamage: 10
   amountOfBullets: 1
-  aimRange: 10
-  shootingAngle: 0
-  bulletLifetime: 2
+  shootingAngle: 1
+  bulletLifetime: 5
 --- !u!50 &-4233151325062125875
 Rigidbody2D:
   serializedVersion: 4

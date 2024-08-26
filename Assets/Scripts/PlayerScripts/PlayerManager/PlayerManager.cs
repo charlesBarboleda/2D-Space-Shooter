@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    [SerializeField] GameObject deathEffectPrefab;
     public static PlayerManager Instance;
     public AbilityHolder abilityHolder;
     public float pickUpRadius;
@@ -48,7 +49,7 @@ public class PlayerManager : MonoBehaviour
 
     void RegenHealth()
     {
-        if (playerHealth < maxHealth)
+        if (playerHealth < maxHealth && playerHealth > 0)
         {
             playerHealth += healthRegen * Time.deltaTime;
             healthBar.SetHealth();
@@ -81,8 +82,11 @@ public class PlayerManager : MonoBehaviour
         playerHealth -= damage;
         StartCoroutine(FlashRed());
         healthBar.SetHealth();
+
         if (playerHealth <= 0)
         {
+            GameObject deathEffect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+            Destroy(deathEffect, 1f);
             Destroy(gameObject);
         }
     }

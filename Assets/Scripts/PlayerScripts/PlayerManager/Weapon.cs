@@ -12,6 +12,7 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] AudioClip shootSound;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] Transform bulletSpawnPoint;
 
     bool isFiring = false;
     Coroutine firingCoroutine;
@@ -48,7 +49,7 @@ public class Weapon : MonoBehaviour
         while (isFiring)
         {
             AudioSource.PlayClipAtPoint(shootSound, transform.position);
-            FireBullets(amountOfBullets, transform.position);
+            FireBullets(amountOfBullets, bulletSpawnPoint.position);
             yield return new WaitForSeconds(fireRate);
         }
     }

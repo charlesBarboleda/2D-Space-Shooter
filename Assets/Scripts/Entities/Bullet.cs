@@ -38,17 +38,16 @@ public class Bullet : MonoBehaviour
     {
 
         GameObject bulletHit = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
-
         yield return new WaitForSeconds(1f);
         bulletHit.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Player"))
         {
             StartCoroutine(OnHitEffect());
-            gameObject.SetActive(false);
+
         }
     }
 
