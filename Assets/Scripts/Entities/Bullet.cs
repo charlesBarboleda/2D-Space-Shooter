@@ -40,8 +40,6 @@ public class Bullet : MonoBehaviour
         {
             GameObject bulletHitEffect = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
 
-            Debug.Log("Bullet hit " + other.name);
-
         }
     }
 

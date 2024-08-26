@@ -8,12 +8,17 @@ public abstract class Objective : ScriptableObject
     [SerializeField] bool isCompleted;
     [SerializeField] bool isActive;
     [SerializeField] bool isFailed;
+    [SerializeField] float reward;
 
     public abstract void InitObjective();
     public abstract void UpdateObjective();
     public abstract void CompleteObjective();
     public abstract void FailedObjective();
 
+    protected void GiveReward()
+    {
+        GameManager.Instance.GetPlayer().AddCurrency(reward);
+    }
     protected void MarkObjectiveFailed()
     {
         isFailed = true;
@@ -22,6 +27,7 @@ public abstract class Objective : ScriptableObject
     }
     protected void MarkObjectiveCompleted()
     {
+        GiveReward();
         isCompleted = true;
         isActive = false;
         isFailed = false;
@@ -59,6 +65,15 @@ public abstract class Objective : ScriptableObject
     public void SetISFailed(bool status)
     {
         isFailed = status;
+    }
+    public float GetReward()
+    {
+        return reward;
+    }
+
+    public void SetReward(float reward)
+    {
+        this.reward = reward;
     }
 
 

@@ -93,9 +93,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         EventManager.EnemyDestroyedEvent(gameObject);
         gameObject.SetActive(false);
         CameraShake.Instance.TriggerShake(cameraShakeMagnitude, cameraShakeDuration);
-        Debug.Log("Camera Shake");
         GameObject currency = Instantiate(currencyPrefab[Random.Range(0, currencyPrefab.Count)], transform.position, transform.rotation);
-        Debug.Log("Dropped Currency: " + currencyDrop);
         currency.GetComponent<CurrencyDrop>().SetCurrency(currencyDrop);
         ObjectivesManager.Instance.DestroyShip();
     }

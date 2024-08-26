@@ -10,10 +10,11 @@ public class DestroyShipsTimed : Objective
     [SerializeField] int requiredKills;
     [SerializeField] int currentKills;
 
+
     public override void InitObjective()
     {
         elapsedTime = timeToDestroy;
-        currentKills = 0;
+        currentKills = requiredKills;
         SetIsCompleted(false);
         SetIsActive(true);
         SetISFailed(false);
@@ -26,11 +27,13 @@ public class DestroyShipsTimed : Objective
         elapsedTime -= Time.deltaTime;
 
         if (elapsedTime <= 0) MarkObjectiveFailed();
-        if (currentKills >= requiredKills && elapsedTime > 0)
+        if (currentKills == 0 && elapsedTime > 0)
         {
-            currentKills = requiredKills;
+            currentKills = 0;
             CompleteObjective();
         }
+
+        SetObjectiveDescription($"Destroy {currentKills} ships in {elapsedTime:F0} seconds");
 
 
     }
@@ -40,7 +43,7 @@ public class DestroyShipsTimed : Objective
     }
     public override void CompleteObjective()
     {
-        if (currentKills >= requiredKills)
+        if (currentKills == 0)
         {
             MarkObjectiveCompleted();
         }
@@ -54,10 +57,12 @@ public class DestroyShipsTimed : Objective
     {
         requiredKills = kills;
     }
+
     public float GetTimeToDestroy()
     {
         return timeToDestroy;
     }
+
 
     public float GetRequiredKills()
     {
