@@ -103,8 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnAnimation: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
   deathAnimation: {fileID: 162584487599433031, guid: 71c2b036e1a7a84418a17c55376eb376, type: 3}
-  health: 1000
-  shieldHealth: 1000
+  health: 100000
 --- !u!61 &6696673542108561053
 BoxCollider2D:
   m_ObjectHideFlags: 0

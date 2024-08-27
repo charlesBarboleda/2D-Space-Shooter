@@ -7,7 +7,6 @@ public class CargoShip : MonoBehaviour
     [SerializeField] GameObject spawnAnimation;
     [SerializeField] GameObject deathAnimation;
     [SerializeField] float health = 1000;
-    [SerializeField] float shieldHealth = 1000;
 
     void OnEnable()
     {
@@ -15,19 +14,16 @@ public class CargoShip : MonoBehaviour
         Destroy(animation, 1f);
     }
 
-    void OnDisable()
+    public void TeleportAway()
     {
-        GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
+        GameObject animation = Instantiate(spawnAnimation, transform.position, Quaternion.identity);
         Destroy(animation, 1f);
+        gameObject.SetActive(false);
     }
 
     public float GetHealth()
     {
         return health;
-    }
-    public float GetShieldHealth()
-    {
-        return shieldHealth;
     }
 
     public void SetHealth(float health)
@@ -36,10 +32,6 @@ public class CargoShip : MonoBehaviour
 
     }
 
-    public void SetShieldHealth(float shieldHealth)
-    {
-        this.shieldHealth = shieldHealth;
-    }
 
     IEnumerator FlashRed()
     {
@@ -59,6 +51,9 @@ public class CargoShip : MonoBehaviour
                 StartCoroutine(FlashRed());
                 if (health <= 0)
                 {
+                    CameraShake.Instance.TriggerShake(5, 0.3f);
+                    GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
+                    Destroy(animation, 1f);
                     gameObject.SetActive(false);
                 }
             }

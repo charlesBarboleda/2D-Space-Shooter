@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            GameObject CargoShip1 = ObjectPooler.Instance.SpawnFromPool("CargoShip", new Vector3(0, 0, 0), Quaternion.identity);
+            ObjectivesManager.Instance.StartObjectives();
         }
         if (isRound)
         {

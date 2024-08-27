@@ -20,16 +20,6 @@ public class ObjectivesManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        ObjectivesUIManager.Instance.InitializeUI(activeObjectives); // Initialize UI with the objectives
-        foreach (Objective objective in activeObjectives)
-        {
-            objective.InitObjective();
-        }
-        Debug.Log("Objectives Initialized");
-    }
-
     void Update()
     {
         foreach (Objective objective in activeObjectives)
@@ -63,5 +53,15 @@ public class ObjectivesManager : MonoBehaviour
                 destroyShipsTimed.SetCurrentKills(destroyShipsTimed.GetCurrentKills() - 1);
             }
         }
+    }
+
+    public void StartObjectives()
+    {
+        ObjectivesUIManager.Instance.InitializeUI(ObjectivesManager.Instance.activeObjectives); // Initialize UI with the objectives
+        foreach (Objective objective in ObjectivesManager.Instance.activeObjectives)
+        {
+            objective.InitObjective();
+        }
+        Debug.Log("Objectives Initialized");
     }
 }

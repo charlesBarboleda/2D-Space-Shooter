@@ -5026,6 +5026,7 @@ GameObject:
   - component: {fileID: 8275537178602280240}
   - component: {fileID: 7995545527044602029}
   - component: {fileID: 6553829417802430042}
+  - component: {fileID: 3730493204042460171}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5175,6 +5176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec0508c36576ab498b8cfecc0bd7a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffectPrefab: {fileID: 0}
   abilityHolder: {fileID: 8275537178602280240}
   pickUpRadius: 2
   healthBar: {fileID: 0}
@@ -5468,6 +5470,18 @@ MonoBehaviour:
   turretPrefab: {fileID: 7223191706573227298, guid: ceeb65ac70e6d764e8a5dffdb575f364, type: 3}
   numberOfTurretsPerSide: 0
   turretSpacing: 0.5
+--- !u!114 &3730493204042460171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8571724716941118293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1cfa5e2cac64b4abf1ccb4663d4c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9203172327649612466
 GameObject:
   m_ObjectHideFlags: 0
