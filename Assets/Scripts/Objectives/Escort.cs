@@ -8,13 +8,18 @@ public class EscortObjective : Objective
     [SerializeField] int currentCheckpoints;
     [SerializeField] int requiredCheckpoints;
     [SerializeField] float distancePerCheckpoint = 5f;
-    [SerializeField] List<Vector3> escortPathway;
+    [SerializeField] float shipHealth;
+    [SerializeField] List<Vector3> escortPathways;
+
+
     GameObject escortShip;
     public override void InitObjective()
     {
         currentCheckpoints = 0;
-        requiredCheckpoints = escortPathway.Count - 1;
-        escortShip = ObjectPooler.Instance.SpawnFromPool("CargoShip", escortPathway[0], Quaternion.identity);
+        requiredCheckpoints = escortPathways.Count - 1;
+        escortShip = ObjectPooler.Instance.SpawnFromPool("CargoShip", escortPathways[0], Quaternion.identity);
+        CargoShip escortShipScript = escortShip.GetComponent<CargoShip>();
+        escortShipScript.SetHealth(shipHealth);
         SetIsCompleted(false);
         SetIsActive(true);
         SetIsFailed(false);
@@ -30,16 +35,16 @@ public class EscortObjective : Objective
         if (currentCheckpoints >= 0 && currentCheckpoints < requiredCheckpoints)
         {
             int nextCheckpointIndex = currentCheckpoints + 1;
-            Vector3 targetAim = escortPathway[nextCheckpointIndex];
+            Vector3 targetAim = escortPathways[nextCheckpointIndex];
             Vector3 direction = targetAim - escortShip.transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             escortShip.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270f));
             escortShip.transform.position = Vector3.MoveTowards(
                 escortShip.transform.position,
-                escortPathway[nextCheckpointIndex],
+                escortPathways[nextCheckpointIndex],
                 distancePerCheckpoint * Time.deltaTime
             );
-            if (Vector3.Distance(escortShip.transform.position, escortPathway[nextCheckpointIndex]) < 1f)
+            if (Vector3.Distance(escortShip.transform.position, escortPathways[nextCheckpointIndex]) < 1f)
             {
                 currentCheckpoints++;
                 if (currentCheckpoints == requiredCheckpoints)
