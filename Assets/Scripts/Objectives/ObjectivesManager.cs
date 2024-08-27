@@ -4,7 +4,9 @@ using UnityEngine;
 public class ObjectivesManager : MonoBehaviour
 {
     public static ObjectivesManager Instance;
-    public List<Objective> objectives = new List<Objective>();
+
+
+    public List<Objective> activeObjectives = new List<Objective>();
 
     void Awake()
     {
@@ -20,17 +22,17 @@ public class ObjectivesManager : MonoBehaviour
 
     void Start()
     {
-        ObjectivesUIManager.Instance.InitializeUI(objectives); // Initialize UI with the objectives
-        Debug.Log("Objectives Initialized");
-        foreach (Objective objective in objectives)
+        ObjectivesUIManager.Instance.InitializeUI(activeObjectives); // Initialize UI with the objectives
+        foreach (Objective objective in activeObjectives)
         {
             objective.InitObjective();
         }
+        Debug.Log("Objectives Initialized");
     }
 
     void Update()
     {
-        foreach (Objective objective in objectives)
+        foreach (Objective objective in activeObjectives)
         {
             if (objective.GetIsActive())
             {
@@ -42,19 +44,19 @@ public class ObjectivesManager : MonoBehaviour
 
     public void AddObjective(Objective newObjective)
     {
-        objectives.Add(newObjective);
+        activeObjectives.Add(newObjective);
         newObjective.InitObjective(); // Initialize the new objective
         ObjectivesUIManager.Instance.AddObjectiveUI(newObjective); // Update UI with the new objective
     }
     public void RemoveAllObjectives()
     {
-        objectives.Clear();
+        activeObjectives.Clear();
     }
 
 
     public void DestroyShip()
     {
-        foreach (Objective objective in objectives)
+        foreach (Objective objective in activeObjectives)
         {
             if (objective is DestroyShipsTimed destroyShipsTimed)
             {

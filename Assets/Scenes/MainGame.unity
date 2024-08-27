@@ -3782,11 +3782,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5500039735032406330, guid: ced358670826796408eec719b2b4744c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -127
+      value: -37
       objectReference: {fileID: 0}
     - target: {fileID: 5500039735032406330, guid: ced358670826796408eec719b2b4744c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -49
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 5500039735032406330, guid: ced358670826796408eec719b2b4744c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14827,7 +14827,7 @@ MonoBehaviour:
   skillCostText: {fileID: 1302329335}
   skillDescriptionText: {fileID: 862944617}
   skillMaxLevelText: {fileID: 194512167}
-  defaultIcon: {fileID: 0}
+  defaultIcon: {fileID: 474037561}
 --- !u!1 &283908360
 GameObject:
   m_ObjectHideFlags: 0
@@ -15147,7 +15147,7 @@ MonoBehaviour:
   skillCostText: {fileID: 1302329335}
   skillDescriptionText: {fileID: 862944617}
   skillMaxLevelText: {fileID: 194512167}
-  defaultIcon: {fileID: 0}
+  defaultIcon: {fileID: 1615269857}
 --- !u!1 &292494264
 GameObject:
   m_ObjectHideFlags: 0
@@ -15769,7 +15769,7 @@ MonoBehaviour:
   skillCostText: {fileID: 1302329335}
   skillDescriptionText: {fileID: 862944617}
   skillMaxLevelText: {fileID: 194512167}
-  defaultIcon: {fileID: 0}
+  defaultIcon: {fileID: 489650600}
 --- !u!1 &299105450
 GameObject:
   m_ObjectHideFlags: 0
@@ -30602,7 +30602,7 @@ MonoBehaviour:
   skillCostText: {fileID: 1302329335}
   skillDescriptionText: {fileID: 862944617}
   skillMaxLevelText: {fileID: 194512167}
-  defaultIcon: {fileID: 0}
+  defaultIcon: {fileID: 1145543593}
 --- !u!1 &583234223
 GameObject:
   m_ObjectHideFlags: 0
@@ -34489,7 +34489,7 @@ MonoBehaviour:
   skillCostText: {fileID: 1302329335}
   skillDescriptionText: {fileID: 862944617}
   skillMaxLevelText: {fileID: 194512167}
-  defaultIcon: {fileID: 0}
+  defaultIcon: {fileID: 1945424067}
 --- !u!1 &661638305
 GameObject:
   m_ObjectHideFlags: 0
@@ -40071,9 +40071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84252dc19d355f42aacd5f2e55240f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectives:
-  - {fileID: 11400000, guid: 5078b56e1a730d1448df0fe5da6f6488, type: 2}
-  - {fileID: 11400000, guid: df794803bd202044795054eb5c61292f, type: 2}
+  activeObjectives: []
 --- !u!4 &768814653
 Transform:
   m_ObjectHideFlags: 0
@@ -61227,7 +61225,7 @@ MonoBehaviour:
   skillCostText: {fileID: 1302329335}
   skillDescriptionText: {fileID: 862944617}
   skillMaxLevelText: {fileID: 194512167}
-  defaultIcon: {fileID: 0}
+  defaultIcon: {fileID: 1067047129}
 --- !u!1 &1163104371
 GameObject:
   m_ObjectHideFlags: 0
@@ -66825,7 +66823,7 @@ MonoBehaviour:
   skillCostText: {fileID: 1302329335}
   skillDescriptionText: {fileID: 862944617}
   skillMaxLevelText: {fileID: 194512167}
-  defaultIcon: {fileID: 0}
+  defaultIcon: {fileID: 879494591}
 --- !u!1 &1277575122
 GameObject:
   m_ObjectHideFlags: 0
@@ -80729,7 +80727,7 @@ MonoBehaviour:
   skillCostText: {fileID: 1302329335}
   skillDescriptionText: {fileID: 862944617}
   skillMaxLevelText: {fileID: 194512167}
-  defaultIcon: {fileID: 0}
+  defaultIcon: {fileID: 2129422606}
 --- !u!1 &1558274562
 GameObject:
   m_ObjectHideFlags: 0
@@ -85283,7 +85281,7 @@ MonoBehaviour:
   skillCostText: {fileID: 1302329335}
   skillDescriptionText: {fileID: 862944617}
   skillMaxLevelText: {fileID: 194512167}
-  defaultIcon: {fileID: 0}
+  defaultIcon: {fileID: 987097350}
 --- !u!1 &1656339322
 GameObject:
   m_ObjectHideFlags: 0
@@ -98688,7 +98686,7 @@ MonoBehaviour:
   skillCostText: {fileID: 1302329335}
   skillDescriptionText: {fileID: 862944617}
   skillMaxLevelText: {fileID: 194512167}
-  defaultIcon: {fileID: 0}
+  defaultIcon: {fileID: 226565808}
 --- !u!1 &1915626740
 GameObject:
   m_ObjectHideFlags: 0
@@ -111908,11 +111906,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4562029611935103579, guid: 7f3e3ae2361439a429bf596dee3dd711, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 4562029611935103579, guid: 7f3e3ae2361439a429bf596dee3dd711, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 41
+      value: -29
       objectReference: {fileID: 0}
     - target: {fileID: 4562029611935103579, guid: 7f3e3ae2361439a429bf596dee3dd711, type: 3}
       propertyPath: m_LocalPosition.z
@@ -112496,9 +112494,9 @@ SceneRoots:
   - {fileID: 8198966154151402445}
   - {fileID: 2094415943}
   - {fileID: 635129789}
+  - {fileID: 1684401908549936806}
   - {fileID: 62170634}
   - {fileID: 1984415755}
   - {fileID: 49005853}
-  - {fileID: 1684401908549936806}
   - {fileID: 658130088}
   - {fileID: 1522089248}

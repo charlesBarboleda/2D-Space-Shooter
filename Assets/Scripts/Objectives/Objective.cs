@@ -62,7 +62,7 @@ public abstract class Objective : ScriptableObject
         return isFailed;
     }
 
-    public void SetISFailed(bool status)
+    public void SetIsFailed(bool status)
     {
         isFailed = status;
     }
