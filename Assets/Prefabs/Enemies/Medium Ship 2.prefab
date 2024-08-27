@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6876939588079396057}
   - component: {fileID: 6838959246811978333}
   - component: {fileID: 264101809336955241}
+  - component: {fileID: 6451385971407435244}
   m_Layer: 0
   m_Name: Medium Ship 2
   m_TagString: Enemy
@@ -121,7 +122,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0000014305115, y: -0.23618126}
+  m_Offset: {x: 0.015993118, y: -0.9079436}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +133,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.91586876, y: 2.8476374}
+  m_Size: {x: 1.4916658, y: 1.0882595}
   m_EdgeRadius: 0
 --- !u!114 &6838959246811978333
 MonoBehaviour:
@@ -159,9 +160,6 @@ MonoBehaviour:
   health: 100
   currencyDrop: 5
   speed: 8
-  maxSpeed: 10
-  acceleration: 1
-  deceleration: 1
   stopDistance: 30
   target: {fileID: 0}
   cameraShakeMagnitude: 1
@@ -202,6 +200,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!61 &6451385971407435244
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3696291452806612110}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.007997274, y: 0.6477709}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.56, y: 3.32}
+    newSize: {x: 1.56, y: 3.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.52036715, y: 2.0244584}
+  m_EdgeRadius: 0
 --- !u!1 &5590755218874147026
 GameObject:
   m_ObjectHideFlags: 0

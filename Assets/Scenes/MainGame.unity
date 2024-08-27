@@ -112438,6 +112438,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4907032773432341548, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: fireRate
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907032773432341548, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: bulletSpeed
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907032773432341548, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: bulletDamage
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907032773432341548, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: shootingAngle
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5734885599568546328, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4705103710678752909}
   - component: {fileID: 5401732057252154783}
   - component: {fileID: 3396037454895543340}
+  - component: {fileID: 47800847455073714}
   m_Layer: 5
   m_Name: NukeShip
   m_TagString: Enemy
@@ -118,6 +119,7 @@ MonoBehaviour:
   currencyDrop: 10
   speed: 8
   stopDistance: 30
+  target: {fileID: 0}
   cameraShakeMagnitude: 3
   cameraShakeDuration: 0.2
   nukePrefab: {fileID: 3525258117610977703, guid: d1c7174591a3b5e4bbb742578812da5b, type: 3}
@@ -155,7 +157,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005752027, y: -0.11215496}
+  m_Offset: {x: -0.0027210116, y: 0.29098016}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -166,7 +168,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2353061, y: 2.4156904}
+  m_Size: {x: 0.5624037, y: 1.742788}
   m_EdgeRadius: 0
 --- !u!50 &3396037454895543340
 Rigidbody2D:
@@ -195,6 +197,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!61 &47800847455073714
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576126605128404253}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.9457004}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.96, y: 2.64}
+    newSize: {x: 1.96, y: 2.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.96, y: 0.7122259}
+  m_EdgeRadius: 0
 --- !u!1001 &5484781429886236636
 PrefabInstance:
   m_ObjectHideFlags: 0

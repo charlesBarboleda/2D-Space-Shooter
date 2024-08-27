@@ -17,7 +17,7 @@ public class DestroyShipsTimed : Objective
         currentKills = requiredKills;
         SetIsCompleted(false);
         SetIsActive(true);
-        SetISFailed(false);
+        SetIsFailed(false);
 
     }
     public override void UpdateObjective()

@@ -145,9 +145,6 @@ MonoBehaviour:
   health: 100
   currencyDrop: 3
   speed: 8
-  maxSpeed: 10
-  acceleration: 1
-  deceleration: 1
   stopDistance: 20
   target: {fileID: 0}
   cameraShakeMagnitude: 0.5
@@ -193,7 +190,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0069001466, y: 0.008625343}
+  m_Offset: {x: 0.0039601624, y: 0.0027454495}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -204,7 +201,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2964953, y: 0.5999458}
+  m_Size: {x: 0.36117512, y: 0.64698577}
   m_EdgeRadius: 0
 --- !u!50 &8945125126086334501
 Rigidbody2D:

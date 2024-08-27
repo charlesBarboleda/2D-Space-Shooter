@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6156241152731797823}
   - component: {fileID: 6696673542108561053}
   - component: {fileID: 3399931127119764024}
+  - component: {fileID: 1402727321903492440}
   m_Layer: 0
   m_Name: CargoShip
   m_TagString: CargoShip
@@ -100,7 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd2c2e11758a404684e06001419bdd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cargoShield: {fileID: 3917723382290660733, guid: 8cbc3f8cb5194714fa62b4a97b3f5fcc, type: 3}
   spawnAnimation: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
   deathAnimation: {fileID: 162584487599433031, guid: 71c2b036e1a7a84418a17c55376eb376, type: 3}
   health: 1000
@@ -137,7 +137,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004245758, y: -0.040334225}
+  m_Offset: {x: -0.006368488, y: -0.32479596}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -148,7 +148,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8428011, y: 1.7993317}
+  m_Size: {x: 0.8895038, y: 1.145494}
   m_EdgeRadius: 0
 --- !u!50 &3399931127119764024
 Rigidbody2D:
@@ -177,6 +177,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!61 &1402727321903492440
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903720118690535301}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0021225289, y: 0.5986437}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.14, y: 1.88}
+    newSize: {x: 1.14, y: 1.88}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.36303705, y: 0.6827129}
+  m_EdgeRadius: 0
 --- !u!1001 &692942597771909003
 PrefabInstance:
   m_ObjectHideFlags: 0
