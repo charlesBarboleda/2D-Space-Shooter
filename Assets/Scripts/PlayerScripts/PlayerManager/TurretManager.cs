@@ -46,7 +46,7 @@ public class TurretManager : MonoBehaviour
     {
         foreach (var turret in turrets)
         {
-            var turretScript = turret.GetComponent<Turret>();
+            var turretScript = turret.GetComponent<PlayerTurretPrefab>();
             if (turretScript != null)
             {
                 turretScript.bulletDamage = bulletDamage;
@@ -57,7 +57,7 @@ public class TurretManager : MonoBehaviour
     {
         foreach (var turret in turrets)
         {
-            var turretScript = turret.GetComponent<Turret>();
+            var turretScript = turret.GetComponent<PlayerTurretPrefab>();
             if (turretScript != null)
             {
                 turretScript.fireRate = fireRate;
@@ -69,7 +69,7 @@ public class TurretManager : MonoBehaviour
     {
         if (turrets.Count > 0)
         {
-            var turretScript = turrets[0].GetComponent<Turret>();
+            var turretScript = turrets[0].GetComponent<PlayerTurretPrefab>();
             if (turretScript != null)
             {
                 return turretScript.bulletDamage;
@@ -81,7 +81,7 @@ public class TurretManager : MonoBehaviour
     {
         if (turrets.Count > 0)
         {
-            var turretScript = turrets[0].GetComponent<Turret>();
+            var turretScript = turrets[0].GetComponent<PlayerTurretPrefab>();
             if (turretScript != null)
             {
                 return turretScript.fireRate;

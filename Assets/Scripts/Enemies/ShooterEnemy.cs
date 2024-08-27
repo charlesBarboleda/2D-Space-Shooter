@@ -90,7 +90,6 @@ public class ShooterEnemy : Enemy
             // Set bullet properties
             enemyBullet.transform.gameObject.tag = "EnemyBullet";
         }
-        Debug.Log("Firing bullets at target: " + target.name);
 
 
     }

@@ -38,6 +38,17 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             Vector3 direction = (target.transform.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
         }
+        else
+        {
+            OrbitAround(target);
+        }
+    }
+
+    private void OrbitAround(Transform target)
+    {
+        bool rotateClockwise = true;
+        float direction = rotateClockwise ? 1 : -1;
+        transform.RotateAround(target.position, Vector3.forward, direction * speed * Time.deltaTime);
     }
 
     public void Aim(Transform target)

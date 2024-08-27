@@ -190,6 +190,9 @@ MonoBehaviour:
   health: 100
   currencyDrop: 3
   speed: 8
+  maxSpeed: 10
+  acceleration: 1
+  deceleration: 1
   stopDistance: 20
   target: {fileID: 0}
   cameraShakeMagnitude: 0.5

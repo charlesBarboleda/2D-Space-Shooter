@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class PlayerTurretPrefab : MonoBehaviour
 {
     [Header("Turret Settings")]
     public GameObject bulletPrefab;
