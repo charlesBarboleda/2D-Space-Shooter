@@ -17,22 +17,23 @@ public class NukeEnemy : Enemy
         coolDownTime -= GameManager.Instance.level * 0.0001f;
     }
     // Update is called once per frame
-    private void FixedUpdate()
+    public override void Update()
     {
+        base.Update();
         if (playerTarget == null) return;
         if (Vector2.Distance(transform.position, playerTarget.position) < attackRange)
         {
             Attack();
         }
-        if (shouldRotate) Aim(target);
-        Movement(target);
+
     }
 
     private void ShootNuke()
     {
         if (!isOnCoolDown)
         {
-            GameObject nuke = Instantiate(nukePrefab, target.position, Quaternion.identity);
+            GameObject nuke = Instantiate(nukePrefab, CheckForTargets().position, Quaternion.identity);
+            Destroy(nuke, 6f);
             isOnCoolDown = true;
             StartCoroutine(Cooldown());
         }

@@ -17,11 +17,6 @@ public class SpawnerEnemy : Enemy
         Attack();
     }
 
-    private void FixedUpdate()
-    {
-        Movement(target);
-    }
-
     private void SpawnRandomShips()
     {
         int randomShipIndex = Random.Range(0, ships.Count); // Randomly choose between easyShips and midShips

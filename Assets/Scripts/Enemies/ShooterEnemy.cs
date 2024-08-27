@@ -28,11 +28,9 @@ public class ShooterEnemy : Enemy
     }
 
 
-    void FixedUpdate()
+    public override void Update()
     {
-        Movement(CheckForTargets());
-        if (shouldRotate) Aim(CheckForTargets());
-
+        base.Update();
         float distanceToTarget = Vector2.Distance(transform.position, CheckForTargets().position);
         if (distanceToTarget < aimRange && Time.time >= nextFireTime)
 

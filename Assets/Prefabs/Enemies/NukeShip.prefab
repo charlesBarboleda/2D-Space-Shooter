@@ -114,12 +114,11 @@ MonoBehaviour:
   - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
   spawnAnimation: {fileID: 5933602760919840800, guid: 32a431a3eb4a3a74dad883468f8d4f5c, type: 3}
   deathExplosion: {fileID: 162584487599433031, guid: 71c2b036e1a7a84418a17c55376eb376, type: 3}
-  shouldRotate: 1
-  health: 1000
-  currencyDrop: 10
-  speed: 8
-  stopDistance: 30
-  target: {fileID: 0}
+  _shouldRotate: 0
+  _health: 500
+  _currencyDrop: 30
+  _speed: 10
+  _stopDistance: 30
   cameraShakeMagnitude: 3
   cameraShakeDuration: 0.2
   nukePrefab: {fileID: 3525258117610977703, guid: d1c7174591a3b5e4bbb742578812da5b, type: 3}

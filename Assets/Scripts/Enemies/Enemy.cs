@@ -24,6 +24,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public abstract void Attack();
 
 
+    public virtual void Update()
+    {
+        if (_shouldRotate) Aim(CheckForTargets());
+        Movement(CheckForTargets());
+    }
     public virtual void OnEnable()
     {
         IncreaseStatsPerLevel();
