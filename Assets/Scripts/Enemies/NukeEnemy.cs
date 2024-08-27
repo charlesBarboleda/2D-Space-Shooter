@@ -24,15 +24,15 @@ public class NukeEnemy : Enemy
         {
             Attack();
         }
-        if (shouldRotate) Aim(player.transform);
-        Movement(player.transform);
+        if (shouldRotate) Aim(target);
+        Movement(target);
     }
 
     private void ShootNuke()
     {
         if (!isOnCoolDown)
         {
-            GameObject nuke = Instantiate(nukePrefab, player.transform.position, Quaternion.identity);
+            GameObject nuke = Instantiate(nukePrefab, target.position, Quaternion.identity);
             isOnCoolDown = true;
             StartCoroutine(Cooldown());
         }
@@ -53,11 +53,5 @@ public class NukeEnemy : Enemy
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("PlayerBullet"))
-        {
-            TakeDamage(other.GetComponent<Bullet>().BulletDamage);
-        }
-    }
+
 }

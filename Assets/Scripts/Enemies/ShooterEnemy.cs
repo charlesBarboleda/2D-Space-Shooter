@@ -14,6 +14,7 @@ public class ShooterEnemy : Enemy
     [SerializeField] int amountOfBullets;
     [SerializeField] float shootingAngle;
     [SerializeField] float bulletLifetime;
+
     bool isFiring;
     Coroutine firingCoroutine;
 
@@ -23,21 +24,19 @@ public class ShooterEnemy : Enemy
     void Start()
     {
         SpawnAnimation();
-        player = GameManager.Instance.GetPlayer();
+
     }
 
 
     void FixedUpdate()
     {
-        if (player == null) return;
-        Movement(player.transform);
-        if (shouldRotate) Aim(player.transform);
+        Movement(CheckForTargets());
+        if (shouldRotate) Aim(CheckForTargets());
 
-        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
-        if (distanceToPlayer < aimRange && Time.time >= nextFireTime)
+        float distanceToTarget = Vector2.Distance(transform.position, CheckForTargets().position);
+        if (distanceToTarget < aimRange && Time.time >= nextFireTime)
 
         {
-
             Attack();
         }
         else
@@ -63,7 +62,7 @@ public class ShooterEnemy : Enemy
         while (isFiring)
         {
 
-            FireBullets(amountOfBullets, bulletSpawnPoint.position, player.transform);
+            FireBullets(amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
             yield return new WaitForSeconds(fireRate);
         }
     }
@@ -91,6 +90,7 @@ public class ShooterEnemy : Enemy
             // Set bullet properties
             enemyBullet.transform.gameObject.tag = "EnemyBullet";
         }
+        Debug.Log("Firing bullets at target: " + target.name);
 
 
     }

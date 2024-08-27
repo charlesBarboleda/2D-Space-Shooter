@@ -48,9 +48,14 @@ public class GameManager : MonoBehaviour
             EventManager.GameOverEvent();
         }
 
-
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            GameObject CargoShip1 = ObjectPooler.Instance.SpawnFromPool("CargoShip", new Vector3(0, 0, 0), Quaternion.identity);
+        }
         if (isRound)
         {
+
+
             if (enemies.Count == 0 && !isRoundOver && canTriggerNextRound && enemiesToSpawnLeft == 1)
             {
 

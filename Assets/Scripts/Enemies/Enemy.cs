@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> currencyPrefab;
-    protected PlayerManager player;
 
     // Animations
     public GameObject spawnAnimation;
@@ -17,6 +16,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public float currencyDrop;
     public float speed;
     public float stopDistance;
+    public Transform target;
 
     // Camera Shake
     public float cameraShakeMagnitude;
@@ -29,10 +29,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         IncreaseStatsPerLevel();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    public virtual void Awake()
-    {
-        player = GameManager.Instance.GetPlayer();
-    }
+
     public virtual void Movement(Transform target)
     {
         float distance = Vector3.Distance(target.transform.position, transform.position);
@@ -77,6 +74,20 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         {
             Destroy();
         }
+    }
+
+    protected Transform CheckForTargets()
+    {
+        // Check for enemies using circle raycast
+        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 75f);
+        foreach (Collider2D targets in hitTargets)
+        {
+            if (targets.CompareTag("CargoShip"))
+            {
+                return targets.transform;
+            }
+        }
+        return GameManager.Instance.GetPlayer().transform;
     }
 
     public virtual void IncreaseStatsPerLevel()

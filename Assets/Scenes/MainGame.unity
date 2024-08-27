@@ -60871,7 +60871,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: -50.56
+  m_Spacing: 33.89
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -71599,8 +71599,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 141.06
-  m_fontSizeBase: 141.06
+  m_fontSize: 117.54
+  m_fontSizeBase: 117.54
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -71635,7 +71635,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -240.26483, w: -161.15808}
+  m_margin: {x: 29.313644, y: 11.733997, z: -183.8082, w: -120.74036}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -88035,6 +88035,9 @@ MonoBehaviour:
   - tag: BulletHitEffect
     prefab: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
     size: 100
+  - tag: CargoShip
+    prefab: {fileID: 6903720118690535301, guid: 964e555314d05814497ec59bc023a3b1, type: 3}
+    size: 5
 --- !u!4 &1707799895
 Transform:
   m_ObjectHideFlags: 0

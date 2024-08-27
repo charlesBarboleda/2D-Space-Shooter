@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CargoShip : MonoBehaviour
 {
-    [SerializeField] GameObject cargoShield;
     [SerializeField] GameObject spawnAnimation;
     [SerializeField] GameObject deathAnimation;
-    [SerializeField] float health = 100;
-    [SerializeField] float shieldHealth = 100;
+    [SerializeField] float health = 1000;
+    [SerializeField] float shieldHealth = 1000;
 
     void OnEnable()
     {
@@ -42,22 +41,22 @@ public class CargoShip : MonoBehaviour
         this.shieldHealth = shieldHealth;
     }
 
+    IEnumerator FlashRed()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.white;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("EnemyBullet"))
         {
             Bullet bullet = other.GetComponent<Bullet>();
-            if (shieldHealth > 0)
-            {
-                shieldHealth -= bullet.BulletDamage;
-                if (shieldHealth <= 0)
-                {
-                    cargoShield.SetActive(false);
-                }
-            }
-            else
             {
                 health -= bullet.BulletDamage;
+                StartCoroutine(FlashRed());
                 if (health <= 0)
                 {
                     gameObject.SetActive(false);

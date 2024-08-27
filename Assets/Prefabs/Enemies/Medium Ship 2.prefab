@@ -159,14 +159,15 @@ MonoBehaviour:
   health: 100
   currencyDrop: 5
   speed: 8
-  stopDistance: 8
+  stopDistance: 30
+  target: {fileID: 0}
   cameraShakeMagnitude: 1
   cameraShakeDuration: 0.2
   bulletPrefab: {fileID: 6728492749699202131, guid: 0271eb768e721e7469bada9ea73ce922, type: 3}
   bulletSpawnPoint: {fileID: 7534428997147708502}
-  aimRange: 8
-  fireRate: 0.5
-  bulletSpeed: 5
+  aimRange: 30
+  fireRate: 2
+  bulletSpeed: 10
   bulletDamage: 20
   amountOfBullets: 1
   shootingAngle: 1

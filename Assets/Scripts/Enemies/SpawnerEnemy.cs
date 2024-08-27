@@ -19,7 +19,7 @@ public class SpawnerEnemy : Enemy
 
     private void FixedUpdate()
     {
-        Movement(player.transform);
+        Movement(target);
     }
 
     private void SpawnRandomShips()
@@ -54,11 +54,5 @@ public class SpawnerEnemy : Enemy
         InvokeRepeating("SpawnRandomShips", 0, spawnRate);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("PlayerBullet"))
-        {
-            TakeDamage(other.GetComponent<Bullet>().BulletDamage);
-        }
-    }
+
 }
