@@ -49,9 +49,12 @@ public class EscortObjective : Objective
                 }
             }
         }
+        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription($"Escort the ship to the next checkpoint" + $"\nCheckpoints remaining: {requiredCheckpoints - currentCheckpoints}");
 
-        SetObjectiveDescription($"Escort the ship to the next checkpoint" +
-            $"\nCheckpoints remaining: {requiredCheckpoints - currentCheckpoints}");
+        if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
+
+        if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
+
 
     }
     public override void CompleteObjective()

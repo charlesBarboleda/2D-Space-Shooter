@@ -22,14 +22,14 @@ public abstract class Objective : ScriptableObject
     protected void MarkObjectiveFailed()
     {
         isFailed = true;
+        isActive = true;
         isCompleted = false;
-        isActive = false;
     }
     protected void MarkObjectiveCompleted()
     {
         GiveReward();
         isCompleted = true;
-        isActive = false;
+        isActive = true;
         isFailed = false;
     }
     public string GetObjectiveDescription()

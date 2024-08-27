@@ -33,7 +33,11 @@ public class DestroyShipsTimed : Objective
             CompleteObjective();
         }
 
-        SetObjectiveDescription($"Destroy {currentKills} ships in {elapsedTime:F0} seconds");
+        if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
+        if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
+        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription($"Destroy {currentKills} ships in {elapsedTime:F0} seconds");
+
+
 
 
     }
