@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: daa6ee8b7d3ac41428cfe0552e1ded37, type: 3}
-  m_Name: DestroyShipsTimedEarly 2
+  m_Name: DestroyShipsTimedMid 2
   m_EditorClassIdentifier: 
-  objectiveDescription: Objective Failed
+  objectiveDescription: Destroy 30 ships in 52 seconds
   isCompleted: 0
   isActive: 1
-  isFailed: 1
-  reward: 100
-  timeToDestroy: 120
-  elapsedTime: -0.007881348
+  isFailed: 0
+  reward: 500
+  timeToDestroy: 60
+  elapsedTime: 51.619743
   requiredKills: 20
-  currentKills: 5
+  currentKills: 30
