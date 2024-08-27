@@ -22,11 +22,11 @@ public class DestroyShipsTimed : Objective
     }
     public override void UpdateObjective()
     {
-        if (GetIsCompleted()) return;
+        if (GetIsCompleted() || GetIsFailed()) return;
 
         elapsedTime -= Time.deltaTime;
 
-        if (elapsedTime <= 0) MarkObjectiveFailed();
+        if (elapsedTime <= 0) FailedObjective();
         if (currentKills == 0 && elapsedTime > 0)
         {
             currentKills = 0;
