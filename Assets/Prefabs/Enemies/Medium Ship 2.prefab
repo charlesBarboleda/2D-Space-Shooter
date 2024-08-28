@@ -160,12 +160,12 @@ MonoBehaviour:
   _health: 100
   _currencyDrop: 10
   _speed: 8
-  _stopDistance: 30
+  _stopDistance: 25
   cameraShakeMagnitude: 1
   cameraShakeDuration: 0.2
   bulletPrefab: {fileID: 6728492749699202131, guid: 0271eb768e721e7469bada9ea73ce922, type: 3}
   bulletSpawnPoint: {fileID: 7534428997147708502}
-  aimRange: 30
+  aimRange: 25
   fireRate: 2
   bulletSpeed: 10
   bulletDamage: 20

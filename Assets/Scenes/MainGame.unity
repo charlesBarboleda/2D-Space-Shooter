@@ -10819,7 +10819,7 @@ Transform:
   m_GameObject: {fileID: 228175061}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8842988, y: -1.4488331, z: 0}
+  m_LocalPosition: {x: 5.52, y: 17.25, z: 0}
   m_LocalScale: {x: 0.05357948, y: 0.05893743, z: 89.299126}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17503,6 +17503,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370585035}
   m_CullTransparentMesh: 1
+--- !u!198 &378429527 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 529475729368294719, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+  m_PrefabInstance: {fileID: 8198966154151402445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &383079769
 GameObject:
   m_ObjectHideFlags: 0
@@ -27771,7 +27776,7 @@ Transform:
   m_GameObject: {fileID: 601179897}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.939457, y: -5.5014467, z: 0}
+  m_LocalPosition: {x: -0.14, y: -2.11, z: 0}
   m_LocalScale: {x: 0.37610358, y: 0.413714, z: 626.8393}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28098,8 +28103,8 @@ Transform:
   m_GameObject: {fileID: 605516440}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.630196, y: -10.089674, z: 0}
-  m_LocalScale: {x: 0.05946866, y: 0.06541553, z: 99.11443}
+  m_LocalPosition: {x: 12.88, y: -7.56, z: 0}
+  m_LocalScale: {x: 0.27308604, y: 0.30039468, z: 455.1434}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 49005853}
@@ -35903,11 +35908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84252dc19d355f42aacd5f2e55240f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeObjectives:
-  - {fileID: 11400000, guid: 8e5f624dd868a834ebbe32797422ae40, type: 2}
-  - {fileID: 11400000, guid: 269bc7a5aab2e84428caede92b6c6f0b, type: 2}
-  - {fileID: 11400000, guid: 7af17b765d5cfe04f9573b0889b19073, type: 2}
-  - {fileID: 11400000, guid: fb8810829455af043a2f16be62ba0749, type: 2}
+  activeObjectives: []
 --- !u!4 &768814653
 Transform:
   m_ObjectHideFlags: 0
@@ -84549,7 +84550,7 @@ Transform:
   m_GameObject: {fileID: 1836902544}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.55900687, y: -12.566324, z: 0}
+  m_LocalPosition: {x: 1.46, y: -11.45, z: 0}
   m_LocalScale: {x: 0.39183244, y: 0.4310157, z: 653.0541}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100828,7 +100829,7 @@ PrefabInstance:
       objectReference: {fileID: 26455043}
     - target: {fileID: 558204607337710767, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
       propertyPath: maxHealth
-      value: 99999
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 558204607337710767, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
       propertyPath: healthRegen
@@ -100836,8 +100837,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 558204607337710767, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
       propertyPath: playerHealth
-      value: 99999
+      value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 558204607337710767, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: _particleSystem
+      value: 
+      objectReference: {fileID: 378429527}
+    - target: {fileID: 558204607337710767, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: _healingParticles
+      value: 
+      objectReference: {fileID: 378429527}
     - target: {fileID: 558204607337710767, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
       propertyPath: deathEffectPrefab
       value: 
@@ -100881,6 +100890,14 @@ PrefabInstance:
     - target: {fileID: 2659876416019876770, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3060595784819155231, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221684133385905923, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4907032773432341548, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
       propertyPath: fireRate
@@ -100926,6 +100943,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 658130087}
+    - target: {fileID: 7578567683573243050, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8571724716941118293, guid: bce20a75525fc65428ccb4a499f63178, type: 3}
       propertyPath: m_Name
       value: Player

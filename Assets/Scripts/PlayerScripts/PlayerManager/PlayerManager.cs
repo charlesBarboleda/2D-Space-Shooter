@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject deathEffectPrefab;
     public static PlayerManager Instance;
     public AbilityHolder abilityHolder;
+
     public float pickUpRadius;
     public static event Action OnCurrencyChange;
     public HealthBar healthBar;
@@ -20,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     public float maxHealth = 100f;
 
     public float currency = 0f;
+    [SerializeField] ParticleSystem _healingParticles;
 
     void Awake()
     {
@@ -51,9 +53,12 @@ public class PlayerManager : MonoBehaviour
     {
         if (playerHealth < maxHealth && playerHealth > 0)
         {
+            _healingParticles.Play();
+            Debug.Log("Healing Particles Playing");
             playerHealth += healthRegen * Time.deltaTime;
             healthBar.SetHealth();
         }
+        else _healingParticles.Stop();
     }
 
     void PickUpLogic()
