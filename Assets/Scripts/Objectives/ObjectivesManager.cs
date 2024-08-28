@@ -55,6 +55,17 @@ public class ObjectivesManager : MonoBehaviour
         }
     }
 
+    public void DestroyShooterBoss()
+    {
+        foreach (Objective objective in activeObjectives)
+        {
+            if (objective is DestroyShooterBossObjective destroyShooterBossObjective)
+            {
+                destroyShooterBossObjective.SetCurrentKills(destroyShooterBossObjective.GetCurrentKills() + 1);
+            }
+        }
+    }
+
     public void StartObjectives()
     {
         ObjectivesUIManager.Instance.InitializeUI(ObjectivesManager.Instance.activeObjectives); // Initialize UI with the objectives

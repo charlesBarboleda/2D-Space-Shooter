@@ -16,22 +16,29 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _currencyDrop;
     [SerializeField] float _speed;
     [SerializeField] float _stopDistance;
-    Transform target;
 
     // Camera Shake
     public float cameraShakeMagnitude;
     public float cameraShakeDuration;
     public abstract void Attack();
 
+    public virtual void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        SpawnAnimation();
+    }
 
     public virtual void Update()
     {
         if (_shouldRotate) Aim(CheckForTargets());
         Movement(CheckForTargets());
+
     }
     public virtual void OnEnable()
     {
         IncreaseStatsPerLevel();
+        SpawnAnimation();
+
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -64,7 +71,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270f));
     }
 
-    public void SpawnAnimation()
+    void SpawnAnimation()
     {
         GameObject obj = Instantiate(spawnAnimation, transform.position, transform.rotation);
         Destroy(obj, 1f);
@@ -84,6 +91,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _health -= damage;
         if (_health > 0)
         {
+            Debug.Log("Enemy Health: " + _health);
             StartCoroutine(FlashRed());
         }
         if (_health <= 0)
@@ -92,7 +100,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    protected Transform CheckForTargets()
+    public Transform CheckForTargets()
     {
         // Check for enemies using circle raycast
         Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 75f);
@@ -105,6 +113,25 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
         return GameManager.Instance.GetPlayer().transform;
     }
+    public void SetHealth(float health)
+    {
+        _health = health;
+    }
+    public void SetCurrencyDrop(float currency)
+    {
+        _currencyDrop = currency;
+    }
+    public void SetSpeed(float speed)
+    {
+        _speed = speed;
+    }
+    public void SetStopDistance(float distance)
+    {
+        _stopDistance = distance;
+    }
+
+
+
 
     public virtual void IncreaseStatsPerLevel()
     {
@@ -120,9 +147,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         EventManager.EnemyDestroyedEvent(gameObject);
         gameObject.SetActive(false);
         CameraShake.Instance.TriggerShake(cameraShakeMagnitude, cameraShakeDuration);
+        ObjectivesManager.Instance.DestroyShip();
+        if (currencyPrefab.Count == 0) return;
         GameObject currency = Instantiate(currencyPrefab[Random.Range(0, currencyPrefab.Count)], transform.position, transform.rotation);
         currency.GetComponent<CurrencyDrop>().SetCurrency(_currencyDrop);
-        ObjectivesManager.Instance.DestroyShip();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

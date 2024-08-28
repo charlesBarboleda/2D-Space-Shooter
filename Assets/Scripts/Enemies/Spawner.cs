@@ -12,8 +12,9 @@ public class SpawnerEnemy : Enemy
     public List<String> ships = new List<string>();
     public float spawnRadius = 10f;
 
-    void Start()
+    public override void Start()
     {
+        base.Start();
         Attack();
     }
 

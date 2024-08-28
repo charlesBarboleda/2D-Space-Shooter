@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6097976889594631833}
   - component: {fileID: 4269631521700113}
-  - component: {fileID: 4114948446224297558}
+  - component: {fileID: 8304196999121283581}
   m_Layer: 0
   m_Name: EnemyTurret
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4114948446224297558
+--- !u!114 &8304196999121283581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,10 +94,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 7343858230156979994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de58210b3163a974da1ffa7aa87488ae, type: 3}
+  m_Script: {fileID: 11500000, guid: bf25bfc5ef904b04baef50236a5678d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
+  currencyPrefab: []
+  spawnAnimation: {fileID: 0}
+  deathExplosion: {fileID: 5991528187427461120, guid: 18835bde44743ca4b9ee942e11d5e4a7, type: 3}
+  _shouldRotate: 1
+  _health: 1000
+  _currencyDrop: 0
+  _speed: 0
+  _stopDistance: 0
+  cameraShakeMagnitude: 0
+  cameraShakeDuration: 0
+  bulletPrefab: {fileID: 6728492749699202131, guid: 0271eb768e721e7469bada9ea73ce922, type: 3}
+  bulletSpawnPoint: {fileID: 0}
+  aimRange: 40
   fireRate: 0.5
-  bulletSpeed: 20
-  bulletDamage: 10
+  bulletSpeed: 30
+  bulletDamage: 30
+  amountOfBullets: 3
+  shootingAngle: 5
+  bulletLifetime: 5
+  nextFireTime: 0

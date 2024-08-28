@@ -1,61 +1,58 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nuke : MonoBehaviour
+public class NukeEnemy : Enemy
 {
-    [SerializeField] private Transform targetTransform;
-    [SerializeField] private SpriteRenderer nukeSpriteRenderer;
-    [SerializeField] private GameObject explosionPrefab;
-    [SerializeField] private GameObject target;
-    public float nukeGrowthRate = 0.5f;
-    public float maxNukeSize = 4.5f;
+    [SerializeField] private GameObject nukePrefab;
+    private Transform playerTarget;
+    private bool isOnCoolDown;
+    [SerializeField] private float attackRange;
+    [SerializeField] private float coolDownTime = 1f;
 
 
-
-    void Start()
+    public override void OnEnable()
     {
-        target.transform.localScale = new Vector3(0, 0, 0);
-        nukeSpriteRenderer.color = new Color(255, 0, 0, 0.1f);
-        ActivateNukeCountdown();
+        base.OnEnable();
+        coolDownTime -= GameManager.Instance.level * 0.0001f;
     }
-
     // Update is called once per frame
-    void FixedUpdate()
+    public override void Update()
     {
-        if (target.transform.localScale.x < maxNukeScale(maxNukeSize).x)
+        base.Update();
+        if (playerTarget == null) return;
+        if (Vector2.Distance(transform.position, playerTarget.position) < attackRange)
         {
-            target.transform.localScale += new Vector3(nukeGrowthRate, nukeGrowthRate, nukeGrowthRate);
+            Attack();
         }
-        if (target.transform.localScale.x >= maxNukeScale(maxNukeSize).x)
+
+    }
+
+    private void ShootNuke()
+    {
+        if (!isOnCoolDown)
         {
-            Explode();
+            GameObject nuke = Instantiate(nukePrefab, CheckForTargets().position, Quaternion.identity);
+            Destroy(nuke, 6f);
+            isOnCoolDown = true;
+            StartCoroutine(Cooldown());
         }
     }
 
-    private Vector3 maxNukeScale(float maxScale)
+
+    IEnumerator Cooldown()
     {
-        return new Vector3(maxScale, maxScale, maxScale);
+        yield return new WaitForSeconds(coolDownTime);
+        isOnCoolDown = false;
+    }
+
+    public override void Attack()
+    {
+
+        ShootNuke();
+
     }
 
 
-    void OnEnable()
-    {
-        ActivateNukeCountdown();
-    }
 
-    void ActivateNukeCountdown()
-    {
-        targetTransform.localScale = new Vector3(maxNukeSize, maxNukeSize, maxNukeSize);
-        target.transform.localScale = new Vector3(0, 0, 0);
-
-    }
-
-    void Explode()
-    {
-        GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        Destroy(explosion, 0.25f);
-        Destroy(gameObject);
-    }
 }

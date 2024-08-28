@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda3d330675092f4a87f19747aca8096, type: 3}
+  m_Name: DestroyShooterBossEarly 1
+  m_EditorClassIdentifier: 
+  objectiveDescription: 
+  isCompleted: 0
+  isActive: 1
+  isFailed: 0
+  reward: 100
+  _requiredKills: 0
+  _currentKills: 0
+  _bossPrefabs:
+  - {fileID: 5341310885986283218, guid: 9a4999713222f5e44bda96bcd6b96d9a, type: 3}
+  - {fileID: 5341310885986283218, guid: 9a4999713222f5e44bda96bcd6b96d9a, type: 3}
+  - {fileID: 5341310885986283218, guid: 9a4999713222f5e44bda96bcd6b96d9a, type: 3}
+  _spawnPoints: []
+  _health: 500
+  _fireRate: 1
+  _bulletAmount: 1
+  _bulletSpeed: 20
+  _bulletDamage: 20
+  _shootingAngle: 1
+  _currencyDrop: 50
+  _speed: 8
+  _aimRange: 70
+  _stopDistance: 40

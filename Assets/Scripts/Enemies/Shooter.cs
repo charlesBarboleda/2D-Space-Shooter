@@ -6,7 +6,7 @@ public class ShooterEnemy : Enemy
 {
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform bulletSpawnPoint;
-    [SerializeField] float aimRange;
+    [SerializeField] public float aimRange;
 
     [SerializeField] float fireRate;
     [SerializeField] float bulletSpeed;
@@ -16,16 +16,11 @@ public class ShooterEnemy : Enemy
     [SerializeField] float bulletLifetime;
 
     bool isFiring;
-    Coroutine firingCoroutine;
+    public Coroutine firingCoroutine;
 
 
-    float nextFireTime;
+    public float nextFireTime;
 
-    void Start()
-    {
-        SpawnAnimation();
-
-    }
 
 
     public override void Update()
@@ -50,7 +45,7 @@ public class ShooterEnemy : Enemy
 
     }
 
-    void StopAttack()
+    public void StopAttack()
     {
         StopCoroutine(firingCoroutine);
         isFiring = false;
@@ -108,5 +103,64 @@ public class ShooterEnemy : Enemy
         isFiring = true;
         firingCoroutine = StartCoroutine(FireBulletsContinuously());
     }
+
+    public void SetBulletAmount(int amount)
+    {
+        amountOfBullets = amount;
+    }
+    public void SetBulletSpeed(float speed)
+    {
+        bulletSpeed = speed;
+    }
+    public void SetBulletDamage(float damage)
+    {
+        bulletDamage = damage;
+    }
+    public void SetFireRate(float rate)
+    {
+        fireRate = rate;
+    }
+    public void SetShootingAngle(float angle)
+    {
+        shootingAngle = angle;
+    }
+
+    public void SetAimRange(float range)
+    {
+        aimRange = range;
+    }
+
+    public int GetBulletAmount()
+    {
+        return amountOfBullets;
+    }
+    public float GetBulletSpeed()
+    {
+        return bulletSpeed;
+    }
+    public float GetBulletDamage()
+    {
+        return bulletDamage;
+    }
+    public float GetFireRate()
+    {
+        return fireRate;
+    }
+    public float GetAimRange()
+    {
+        return aimRange;
+    }
+    public float GetShootingAngle()
+    {
+        return shootingAngle;
+    }
+    public float GetBulletLifetime()
+    {
+        return bulletLifetime;
+    }
+
+
+
+
 
 }
