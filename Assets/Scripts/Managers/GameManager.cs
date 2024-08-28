@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         level = 100;
         spawnRate = 0.5f;
         maxSpawnRate = 0.1f;
-        enemiesToSpawnTotal = 10;
+        enemiesToSpawnTotal = 1000;
         roundCountdown = 3f;
         isCountdown = true;
 

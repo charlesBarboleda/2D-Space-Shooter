@@ -16,16 +16,16 @@ public class DestroyShooterBossObjective : Objective
 
     [Header("Boss Stats")]
 
-    [SerializeField] int _health;
-    [SerializeField] int _fireRate;
+    [SerializeField] float _health;
+    [SerializeField] float _fireRate;
     [SerializeField] int _bulletAmount;
     [SerializeField] int _bulletSpeed;
     [SerializeField] int _bulletDamage;
-    [SerializeField] int _shootingAngle;
-    [SerializeField] int _currencyDrop;
-    [SerializeField] int _speed;
-    [SerializeField] int _aimRange;
-    [SerializeField] int _stopDistance;
+    [SerializeField] float _shootingAngle;
+    [SerializeField] float _currencyDrop;
+    [SerializeField] float _speed;
+    [SerializeField] float _aimRange;
+    [SerializeField] float _stopDistance;
 
     public override void InitObjective()
     {

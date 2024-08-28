@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda3d330675092f4a87f19747aca8096, type: 3}
+  m_Name: DestroyShooterBossMid 5
+  m_EditorClassIdentifier: 
+  objectiveDescription: 'Destroy the Assault ships: 0/1 in 248 seconds'
+  isCompleted: 0
+  isActive: 1
+  isFailed: 0
+  reward: 100
+  _requiredKills: 1
+  _currentKills: 0
+  _timeToDestroy: 300
+  _elapsedTime: 248.34314
+  _bossNames:
+  - AssaultShip
+  _spawnPoints:
+  - {fileID: 5627481398473205980, guid: 41ff6f9282b4e344a96beda1f84aedc1, type: 3}
+  - {fileID: 8918560581848665983, guid: b72873bf3451be540ad47dff3710e3f5, type: 3}
+  - {fileID: 2145872197777970146, guid: 69818b3a9c7c6d24fa1f7868ed598d56, type: 3}
+  - {fileID: 8700370413358351384, guid: 26e22508648a4fc428892d62194d8c81, type: 3}
+  - {fileID: 3628965923670355231, guid: 8954e145762d65f449ade3f6044cfafb, type: 3}
+  - {fileID: 1420566459537419127, guid: f46bf70aa6daa2446b23b9f8095eb39a, type: 3}
+  - {fileID: 2768177504305424288, guid: 8b7d537e611769b40a29dfaaa998a3dd, type: 3}
+  - {fileID: 5351409571708456396, guid: 5374fa5422de25342a54b77a6269d389, type: 3}
+  - {fileID: 2673420338448501983, guid: 4bd128b7ce43f9145a375be44f00335c, type: 3}
+  - {fileID: 8569367374957087350, guid: c97c12f1b77d0e54e999ef60e4366d10, type: 3}
+  - {fileID: 1088874936796244012, guid: f17454ad53f1b754e9565bf6286d8b74, type: 3}
+  - {fileID: 4936865337258655195, guid: e27a568fcd26ec4489a4b4884d972392, type: 3}
+  - {fileID: 4374070507608136542, guid: 67894c135b4f75d48851dbc34dfa96be, type: 3}
+  _health: 5000
+  _fireRate: 0.5
+  _bulletAmount: 3
+  _bulletSpeed: 40
+  _bulletDamage: 80
+  _shootingAngle: 5
+  _currencyDrop: 500
+  _speed: 10
+  _aimRange: 100
+  _stopDistance: 80

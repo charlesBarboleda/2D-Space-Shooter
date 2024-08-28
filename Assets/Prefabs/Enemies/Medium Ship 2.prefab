@@ -166,12 +166,13 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6728492749699202131, guid: 0271eb768e721e7469bada9ea73ce922, type: 3}
   bulletSpawnPoint: {fileID: 7534428997147708502}
   aimRange: 25
-  fireRate: 2
-  bulletSpeed: 10
-  bulletDamage: 20
-  amountOfBullets: 1
-  shootingAngle: 1
-  bulletLifetime: 5
+  _fireRate: 1
+  _bulletSpeed: 20
+  _bulletDamage: 20
+  _amountOfBullets: 1
+  _shootingAngle: 3
+  _bulletLifetime: 5
+  nextFireTime: 0
 --- !u!50 &264101809336955241
 Rigidbody2D:
   serializedVersion: 4

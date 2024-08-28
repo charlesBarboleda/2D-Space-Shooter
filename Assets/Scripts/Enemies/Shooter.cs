@@ -8,74 +8,48 @@ public class ShooterEnemy : Enemy
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] public float aimRange;
 
-    [SerializeField] float fireRate;
-    [SerializeField] float bulletSpeed;
-    [SerializeField] float bulletDamage;
-    [SerializeField] int amountOfBullets;
-    [SerializeField] float shootingAngle;
-    [SerializeField] float bulletLifetime;
-
-    bool isFiring;
-    public Coroutine firingCoroutine;
-
+    [SerializeField] float _fireRate;
+    [SerializeField] float _bulletSpeed;
+    [SerializeField] float _bulletDamage;
+    [SerializeField] int _amountOfBullets;
+    [SerializeField] float _shootingAngle;
+    [SerializeField] float _bulletLifetime;
 
     public float nextFireTime;
-
-
 
     public override void Update()
     {
         base.Update();
-        float distanceToTarget = Vector2.Distance(transform.position, CheckForTargets().position);
-        if (distanceToTarget < aimRange && Time.time >= nextFireTime)
 
+        Transform target = CheckForTargets();
+        float distanceToTarget = Vector2.Distance(transform.position, target.position);
+
+        if (distanceToTarget < aimRange && Time.time >= nextFireTime)
         {
             Attack();
         }
-        else
-        {
-            if (firingCoroutine != null)
-            {
-                StopAttack();
-
-            }
-
-
-        }
-
     }
 
-    public void StopAttack()
+    public override void Attack()
     {
-        StopCoroutine(firingCoroutine);
-        isFiring = false;
+        FireBullets(_amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
     }
-    IEnumerator FireBulletsContinuously()
-    {
-        while (isFiring)
-        {
 
-            FireBullets(amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
-            yield return new WaitForSeconds(fireRate);
-        }
-    }
     public void FireBullets(int bulletAmount, Vector3 position, Transform target)
     {
-
-        nextFireTime = Time.time + fireRate;
+        nextFireTime = Time.time + _fireRate;
         Vector3 targetPosition = target.transform.position;
         Vector3 targetDirection = targetPosition - position;
-        float startAngle = -amountOfBullets / 2.0f * shootingAngle;
+        float startAngle = -_amountOfBullets / 2.0f * _shootingAngle;
 
         for (int i = 0; i < bulletAmount; i++)
         {
             GameObject enemyBullet = ObjectPooler.Instance.SpawnFromPool("Bullet", position, Quaternion.identity);
 
-
             // Calculate the spread angle for each bullet
-            float angle = startAngle + i * shootingAngle;
+            float angle = startAngle + i * _shootingAngle;
             Vector3 bulletDirection = Quaternion.Euler(0, 0, angle) * targetDirection;
-            enemyBullet.GetComponent<Bullet>().Initialize(bulletSpeed, bulletDamage, bulletLifetime, bulletDirection);
+            enemyBullet.GetComponent<Bullet>().Initialize(_bulletSpeed, _bulletDamage, _bulletLifetime, bulletDirection);
 
             // Set the bullet's rotation
             enemyBullet.transform.rotation = Quaternion.LookRotation(Vector3.forward, bulletDirection);
@@ -83,46 +57,35 @@ public class ShooterEnemy : Enemy
             // Set bullet properties
             enemyBullet.transform.gameObject.tag = "EnemyBullet";
         }
-
-
     }
 
     public override void OnEnable()
     {
         base.OnEnable();
-        bulletSpeed += GameManager.Instance.level * 0.07f;
-        bulletDamage += GameManager.Instance.level * 1f;
+        _bulletSpeed += GameManager.Instance.level * 0.07f;
+        _bulletDamage += GameManager.Instance.level * 1f;
         aimRange += GameManager.Instance.level * 0.03f;
-
-    }
-
-
-    public override void Attack()
-    {
-
-        isFiring = true;
-        firingCoroutine = StartCoroutine(FireBulletsContinuously());
     }
 
     public void SetBulletAmount(int amount)
     {
-        amountOfBullets = amount;
+        _amountOfBullets = amount;
     }
     public void SetBulletSpeed(float speed)
     {
-        bulletSpeed = speed;
+        _bulletSpeed = speed;
     }
     public void SetBulletDamage(float damage)
     {
-        bulletDamage = damage;
+        _bulletDamage = damage;
     }
     public void SetFireRate(float rate)
     {
-        fireRate = rate;
+        _fireRate = rate;
     }
     public void SetShootingAngle(float angle)
     {
-        shootingAngle = angle;
+        _shootingAngle = angle;
     }
 
     public void SetAimRange(float range)
@@ -132,19 +95,19 @@ public class ShooterEnemy : Enemy
 
     public int GetBulletAmount()
     {
-        return amountOfBullets;
+        return _amountOfBullets;
     }
     public float GetBulletSpeed()
     {
-        return bulletSpeed;
+        return _bulletSpeed;
     }
     public float GetBulletDamage()
     {
-        return bulletDamage;
+        return _bulletDamage;
     }
     public float GetFireRate()
     {
-        return fireRate;
+        return _fireRate;
     }
     public float GetAimRange()
     {
@@ -152,11 +115,11 @@ public class ShooterEnemy : Enemy
     }
     public float GetShootingAngle()
     {
-        return shootingAngle;
+        return _shootingAngle;
     }
     public float GetBulletLifetime()
     {
-        return bulletLifetime;
+        return _bulletLifetime;
     }
 
 

@@ -35921,6 +35921,9 @@ MonoBehaviour:
   activeObjectives:
   - {fileID: 11400000, guid: daeb6db55c8cafe4384470f2dd2b4046, type: 2}
   - {fileID: 11400000, guid: 6f8066831bf65f2438df51beab422fb3, type: 2}
+  - {fileID: 11400000, guid: e70a096970a17be4482f18bb975e8649, type: 2}
+  - {fileID: 11400000, guid: 67b2374c0c36e2a42876b4ae78ab7888, type: 2}
+  - {fileID: 11400000, guid: 6a922b59377a7b74aaee177b06ae790e, type: 2}
 --- !u!4 &768814653
 Transform:
   m_ObjectHideFlags: 0
@@ -37884,7 +37887,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 11.299438, y: -12.554932}
-  m_SizeDelta: {x: 1050, y: 449}
+  m_SizeDelta: {x: 999.46, y: 449}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &794986754
 MonoBehaviour:
@@ -37899,7 +37902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.28235295}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.047058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

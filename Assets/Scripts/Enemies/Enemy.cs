@@ -25,7 +25,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        SpawnAnimation();
+        if (spawnAnimation != null) SpawnAnimation();
     }
 
     public virtual void Update()
@@ -37,9 +37,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual void OnEnable()
     {
         IncreaseStatsPerLevel();
-        SpawnAnimation();
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spawnAnimation != null) SpawnAnimation();
     }
 
     public virtual void Movement(Transform target)

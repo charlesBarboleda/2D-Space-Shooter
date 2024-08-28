@@ -13,23 +13,7 @@ public class EnemyTurret : ShooterEnemy
     // Update is called once per frame
     public override void Update()
     {
-        Aim(CheckForTargets());
-        float distanceToTarget = Vector2.Distance(transform.position, CheckForTargets().position);
-        if (distanceToTarget < aimRange && Time.time >= nextFireTime)
-
-        {
-            Attack();
-        }
-        else
-        {
-            if (firingCoroutine != null)
-            {
-                StopAttack();
-
-            }
-
-
-        }
+        base.Update();
     }
 
     public override void IncreaseStatsPerLevel()

@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dda3d330675092f4a87f19747aca8096, type: 3}
-  m_Name: DestroyShooterBossEarly 2
+  m_Name: DestroyShooterBossEarly 1
   m_EditorClassIdentifier: 
-  objectiveDescription: 'Destroy the Assault Ships: 3/3'
-  isCompleted: 1
+  objectiveDescription: 'Destroy the Assault ships: 0/1 in 248 seconds'
+  isCompleted: 0
   isActive: 1
   isFailed: 0
   reward: 100
-  _requiredKills: 3
-  _currentKills: 3
+  _requiredKills: 1
+  _currentKills: 0
   _timeToDestroy: 300
-  _elapsedTime: 0
+  _elapsedTime: 248.34314
   _bossNames:
-  - AssaultShip2
+  - AssaultShip
   _spawnPoints:
   - {fileID: 5627481398473205980, guid: 41ff6f9282b4e344a96beda1f84aedc1, type: 3}
   - {fileID: 8918560581848665983, guid: b72873bf3451be540ad47dff3710e3f5, type: 3}
@@ -42,8 +42,8 @@ MonoBehaviour:
   _bulletAmount: 1
   _bulletSpeed: 20
   _bulletDamage: 20
-  _shootingAngle: 3
-  _currencyDrop: 100
+  _shootingAngle: 1
+  _currencyDrop: 50
   _speed: 8
   _aimRange: 80
   _stopDistance: 60
