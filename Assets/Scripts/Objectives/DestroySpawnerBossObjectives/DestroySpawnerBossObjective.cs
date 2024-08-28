@@ -15,6 +15,7 @@ public class DestroySpawnerBossObjective : Objective
 
     [Header("Boss Stats")]
 
+    [SerializeField] List<string> _spawnerNames;
     [SerializeField] float _health;
     [SerializeField] float _spawnRate;
     [SerializeField] float _currencyDrop;
@@ -39,6 +40,7 @@ public class DestroySpawnerBossObjective : Objective
                 bossScript.SetCurrencyDrop(_currencyDrop);
                 bossScript.SetSpeed(_speed);
                 bossScript.SetStopDistance(_stopDistance);
+                bossScript.SetShips(_spawnerNames);
             }
 
 

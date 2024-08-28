@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 511483700425921793}
   - component: {fileID: 8081548174727007657}
   - component: {fileID: 2242042442152710170}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Carrier 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -120,13 +120,13 @@ MonoBehaviour:
   _stopDistance: 50
   cameraShakeMagnitude: 3
   cameraShakeDuration: 0.2
-  spawnRate: 1
+  _spawnRadius: 10
+  _spawnRate: 3
   ships:
   - MeleeShip
   - SmallShip
   - MediumShip
   - MediumShip2
-  spawnRadius: 10
 --- !u!50 &-5579354071697952829
 Rigidbody2D:
   serializedVersion: 4

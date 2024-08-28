@@ -16,6 +16,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _currencyDrop;
     [SerializeField] float _speed;
     [SerializeField] float _stopDistance;
+    bool rotateClockwise = false;
 
     // Camera Shake
     public float cameraShakeMagnitude;
@@ -39,6 +40,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         IncreaseStatsPerLevel();
 
         if (spawnAnimation != null) SpawnAnimation();
+
+        if (Random.value < 0.5) rotateClockwise = true;
+        else rotateClockwise = false;
+
     }
 
     public virtual void Movement(Transform target)
@@ -57,7 +62,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     private void OrbitAround(Transform target)
     {
-        bool rotateClockwise = true;
         float direction = rotateClockwise ? 1 : -1;
         transform.RotateAround(target.position, Vector3.forward, direction * _speed * Time.deltaTime);
     }

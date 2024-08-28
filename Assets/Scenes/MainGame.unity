@@ -35903,7 +35903,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84252dc19d355f42aacd5f2e55240f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeObjectives: []
+  activeObjectives:
+  - {fileID: 11400000, guid: a7a7edfeb6ed772438e687d6c84e6f2d, type: 2}
+  - {fileID: 11400000, guid: ce087656c9092944fbb709c631cb3ae0, type: 2}
+  - {fileID: 11400000, guid: df524d1b05ad5c842a0edc65030b0444, type: 2}
+  - {fileID: 11400000, guid: eabc9346204b40f48a78e9d596581efd, type: 2}
 --- !u!4 &768814653
 Transform:
   m_ObjectHideFlags: 0

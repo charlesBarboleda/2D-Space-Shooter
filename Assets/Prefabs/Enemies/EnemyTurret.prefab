@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4269631521700113}
   - component: {fileID: 8304196999121283581}
   - component: {fileID: 1863285965622434854}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EnemyTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,12 +111,12 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6728492749699202131, guid: 0271eb768e721e7469bada9ea73ce922, type: 3}
   bulletSpawnPoint: {fileID: 0}
   aimRange: 40
-  fireRate: 0.5
-  bulletSpeed: 30
-  bulletDamage: 30
-  amountOfBullets: 3
-  shootingAngle: 5
-  bulletLifetime: 5
+  _fireRate: 0
+  _bulletSpeed: 0
+  _bulletDamage: 0
+  _amountOfBullets: 0
+  _shootingAngle: 0
+  _bulletLifetime: 0
   nextFireTime: 0
   _bossShooterEnemy: {fileID: 0}
 --- !u!61 &1863285965622434854

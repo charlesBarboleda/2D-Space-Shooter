@@ -67,5 +67,10 @@ public class SpawnerEnemy : Enemy
         return _spawnRadius;
     }
 
+    public void SetShips(List<string> ships)
+    {
+        this.ships = ships;
+    }
+
 
 }

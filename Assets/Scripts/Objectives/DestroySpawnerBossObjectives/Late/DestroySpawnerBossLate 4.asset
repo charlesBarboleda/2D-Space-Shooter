@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8848c9287306e244a6eae73dc9e0374, type: 3}
-  m_Name: DestroySpawnerBossEarly 1
+  m_Name: DestroySpawnerBossLate 4
   m_EditorClassIdentifier: 
   objectiveDescription: 
   isCompleted: 0
   isActive: 0
   isFailed: 0
-  reward: 200
+  reward: 1000
   _requiredKills: 0
   _currentKills: 0
   _timeToDestroy: 300
   _elapsedTime: 0
   _bossNames:
+  - Carrier
+  - Carrier
   - Carrier
   _spawnPoints:
   - {fileID: 3938322381312400411, guid: 41ff6f9282b4e344a96beda1f84aedc1, type: 3}
@@ -38,10 +40,13 @@ MonoBehaviour:
   - {fileID: 7160365529302058729, guid: e27a568fcd26ec4489a4b4884d972392, type: 3}
   - {fileID: 5545295565952249711, guid: 67894c135b4f75d48851dbc34dfa96be, type: 3}
   _spawnerNames:
+  - MeleeShip
   - SmallShip
-  _health: 500
-  _spawnRate: 5
-  _currencyDrop: 100
+  - MediumShip
+  - MediumShip2
+  _health: 2500
+  _spawnRate: 1
+  _currencyDrop: 500
   _speed: 10
   _aimRange: 60
   _stopDistance: 60
