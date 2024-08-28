@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,9 +31,10 @@ public class DestroyShooterBossObjective : Objective
     {
         _elapsedTime = _timeToDestroy;
         _requiredKills = _bossPrefabs.Count;
+        _currentKills = 0;
         foreach (GameObject boss in _bossPrefabs)
         {
-            GameObject bossShip = Instantiate(boss, _spawnPoints[Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
+            GameObject bossShip = Instantiate(boss, _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
             BossShooter bossScript = bossShip.GetComponent<BossShooter>();
             if (bossShip.GetComponent<ShooterEnemy>() != null)
             {
@@ -59,7 +61,7 @@ public class DestroyShooterBossObjective : Objective
     {
         if (GetIsCompleted() || GetIsFailed()) return;
         if (_elapsedTime <= 0) FailedObjective();
-        if (_currentKills == 0 && _elapsedTime > 0)
+        if (_currentKills == _requiredKills && _elapsedTime > 0)
         {
             _currentKills = 0;
             CompleteObjective();
@@ -68,7 +70,7 @@ public class DestroyShooterBossObjective : Objective
 
         if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
         if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
-        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Destroy the Assault Ships: " + _currentKills + "/" + _requiredKills + " in " + _elapsedTime + " seconds");
+        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Destroy the Assault ships: " + _currentKills + "/" + _requiredKills + " in " + Math.Round(_elapsedTime, 0) + " seconds");
 
     }
     public override void CompleteObjective()
