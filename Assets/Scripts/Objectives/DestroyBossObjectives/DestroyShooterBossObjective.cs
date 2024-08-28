@@ -11,7 +11,7 @@ public class DestroyShooterBossObjective : Objective
     [SerializeField] int _currentKills;
     [SerializeField] float _timeToDestroy;
     [SerializeField] float _elapsedTime;
-    [SerializeField] List<GameObject> _bossPrefabs;
+    [SerializeField] List<string> _bossNames;
     [SerializeField] List<Transform> _spawnPoints;
 
     [Header("Boss Stats")]
@@ -30,11 +30,12 @@ public class DestroyShooterBossObjective : Objective
     public override void InitObjective()
     {
         _elapsedTime = _timeToDestroy;
-        _requiredKills = _bossPrefabs.Count;
+        _requiredKills = _bossNames.Count;
         _currentKills = 0;
-        foreach (GameObject boss in _bossPrefabs)
+        foreach (string bossName in _bossNames)
         {
-            GameObject bossShip = Instantiate(boss, _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
+            GameObject bossShip = ObjectPooler.Instance.SpawnFromPool(bossName, _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
+            GameManager.Instance.enemies.Add(bossShip);
             BossShooter bossScript = bossShip.GetComponent<BossShooter>();
             if (bossShip.GetComponent<ShooterEnemy>() != null)
             {

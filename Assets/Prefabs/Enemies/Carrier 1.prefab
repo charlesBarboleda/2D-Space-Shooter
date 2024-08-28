@@ -35,7 +35,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.63, y: 12.05, z: 0}
-  m_LocalScale: {x: 11.501416, y: 11.501416, z: 11.501416}
+  m_LocalScale: {x: 22.562328, y: 22.562328, z: 22.562328}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,7 +124,9 @@ MonoBehaviour:
   ships:
   - MeleeShip
   - SmallShip
-  spawnRadius: 5
+  - MediumShip
+  - MediumShip2
+  spawnRadius: 10
 --- !u!50 &-5579354071697952829
 Rigidbody2D:
   serializedVersion: 4

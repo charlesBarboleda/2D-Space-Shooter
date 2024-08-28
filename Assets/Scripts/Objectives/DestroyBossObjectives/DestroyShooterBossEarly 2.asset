@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dda3d330675092f4a87f19747aca8096, type: 3}
-  m_Name: DestroyShooterBossMid 1
+  m_Name: DestroyShooterBossEarly 2
   m_EditorClassIdentifier: 
   objectiveDescription: 'Destroy the Assault Ships: 3/3'
   isCompleted: 1
@@ -21,8 +21,8 @@ MonoBehaviour:
   _currentKills: 3
   _timeToDestroy: 300
   _elapsedTime: 0
-  _bossPrefabs:
-  - {fileID: 5341310885986283218, guid: 9a4999713222f5e44bda96bcd6b96d9a, type: 3}
+  _bossNames:
+  - AssaultShip2
   _spawnPoints:
   - {fileID: 5627481398473205980, guid: 41ff6f9282b4e344a96beda1f84aedc1, type: 3}
   - {fileID: 8918560581848665983, guid: b72873bf3451be540ad47dff3710e3f5, type: 3}
@@ -37,13 +37,13 @@ MonoBehaviour:
   - {fileID: 1088874936796244012, guid: f17454ad53f1b754e9565bf6286d8b74, type: 3}
   - {fileID: 4936865337258655195, guid: e27a568fcd26ec4489a4b4884d972392, type: 3}
   - {fileID: 4374070507608136542, guid: 67894c135b4f75d48851dbc34dfa96be, type: 3}
-  _health: 100
+  _health: 1000
   _fireRate: 1
   _bulletAmount: 1
   _bulletSpeed: 20
   _bulletDamage: 20
-  _shootingAngle: 1
-  _currencyDrop: 50
+  _shootingAngle: 3
+  _currencyDrop: 100
   _speed: 8
   _aimRange: 80
   _stopDistance: 60

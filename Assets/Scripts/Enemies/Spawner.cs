@@ -34,9 +34,9 @@ public class SpawnerEnemy : Enemy
     {
         base.OnEnable();
         spawnRate -= GameManager.Instance.level * 0.01f;
-        if (spawnRate <= 0.3f)
+        if (spawnRate <= 0.1f)
         {
-            spawnRate = 0.3f;
+            spawnRate = 0.1f;
         }
     }
 

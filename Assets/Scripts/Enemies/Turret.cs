@@ -8,7 +8,7 @@ public class EnemyTurret : ShooterEnemy
 
     public override void Start()
     {
-        InitializeTurrets();
+        if (_bossShooterEnemy != null) InitializeTurrets();
     }
     // Update is called once per frame
     public override void Update()
