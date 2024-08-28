@@ -9,21 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dda3d330675092f4a87f19747aca8096, type: 3}
-  m_Name: DestroyShooterBossEarly 4
+  m_Script: {fileID: 11500000, guid: e8848c9287306e244a6eae73dc9e0374, type: 3}
+  m_Name: DestroySpawnerBossMid 3
   m_EditorClassIdentifier: 
-  objectiveDescription: Objective Failed
+  objectiveDescription: 
   isCompleted: 0
-  isActive: 1
-  isFailed: 1
-  reward: 100
-  _requiredKills: 1
-  _currentKills: 3
+  isActive: 0
+  isFailed: 0
+  reward: 600
+  _requiredKills: 0
+  _currentKills: 0
   _timeToDestroy: 300
-  _elapsedTime: -0.0166017
+  _elapsedTime: 0
   _bossNames:
-  - AssaultShip
-  - AssaultShip2
+  - Carrier
   _spawnPoints:
   - {fileID: 3938322381312400411, guid: 41ff6f9282b4e344a96beda1f84aedc1, type: 3}
   - {fileID: 5966421680059924658, guid: b72873bf3451be540ad47dff3710e3f5, type: 3}
@@ -38,13 +37,14 @@ MonoBehaviour:
   - {fileID: 5262984447255318324, guid: f17454ad53f1b754e9565bf6286d8b74, type: 3}
   - {fileID: 7160365529302058729, guid: e27a568fcd26ec4489a4b4884d972392, type: 3}
   - {fileID: 5545295565952249711, guid: 67894c135b4f75d48851dbc34dfa96be, type: 3}
-  _health: 400
-  _fireRate: 1
-  _bulletAmount: 1
-  _bulletSpeed: 20
-  _bulletDamage: 20
-  _shootingAngle: 1
-  _currencyDrop: 50
-  _speed: 8
+  _spawnerNames:
+  - MeleeShip
+  - SmallShip
+  - MediumShip
+  - MediumShip2
+  _health: 5000
+  _spawnRate: 2.5
+  _currencyDrop: 600
+  _speed: 13
   _aimRange: 80
   _stopDistance: 60
