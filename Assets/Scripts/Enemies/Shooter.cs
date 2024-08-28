@@ -62,6 +62,11 @@ public class ShooterEnemy : Enemy
     public override void OnEnable()
     {
         base.OnEnable();
+    }
+
+    public override void IncreaseStatsPerLevel()
+    {
+        base.IncreaseStatsPerLevel();
         _bulletSpeed += GameManager.Instance.level * 0.07f;
         _bulletDamage += GameManager.Instance.level * 1f;
         aimRange += GameManager.Instance.level * 0.03f;

@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public float roundCountdown;
     public bool isCountdown;
     public bool isRound;
+    public bool isObjectiveRound;
     public List<GameObject> enemies = new List<GameObject>();
 
     void Awake()
@@ -32,10 +33,10 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        level = 1;
+        level = 25;
         spawnRate = 0.5f;
         maxSpawnRate = 0.1f;
-        enemiesToSpawnTotal = 1000;
+        enemiesToSpawnTotal = 5;
         roundCountdown = 3f;
         isCountdown = true;
 
@@ -145,15 +146,40 @@ public class GameManager : MonoBehaviour
         roundCountdown = 5f;
         EnableSpawning();
         enemiesToSpawnLeft = enemiesToSpawnTotal;
+        ObjectivesManager.Instance.StartObjectives();
     }
     public void NextRound()
     {
+        ObjectivesManager.Instance.RemoveAllObjectives();
+
+        if (UnityEngine.Random.value < 0.99f) isObjectiveRound = true;
+        else isObjectiveRound = false;
+        Debug.Log(isObjectiveRound);
+
+        if (isObjectiveRound && level >= 10)
+        {
+            // Set the objectives for the round based on the level of the game
+            if (level >= 10 && level < 40)
+            {
+                Debug.Log("Setting early objectives");
+                ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, 1);
+            }
+            else if (level >= 30 && level < 70)
+            {
+                Debug.Log("Setting mid objectives");
+                ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.midObjectives, UnityEngine.Random.Range(1, 3));
+            }
+            else
+            {
+                Debug.Log("Setting late objectives");
+                ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.lateObjectives, UnityEngine.Random.Range(1, 4));
+            }
+        }
         DisableSpawning();
         spawnRate -= 0.005f;
         enemiesToSpawnTotal += 10;
         if (spawnRate <= maxSpawnRate) spawnRate = maxSpawnRate;
         IncreaseLevel();
-
     }
 
     public void DestroyAllShips()

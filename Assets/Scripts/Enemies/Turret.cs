@@ -18,7 +18,7 @@ public class EnemyTurret : ShooterEnemy
 
     public override void IncreaseStatsPerLevel()
     {
-        _bossShooterEnemy.IncreaseStatsPerLevel();
+        if (_bossShooterEnemy != null) _bossShooterEnemy.IncreaseStatsPerLevel();
     }
 
     void InitializeTurrets()

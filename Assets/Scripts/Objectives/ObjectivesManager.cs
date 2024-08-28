@@ -6,6 +6,9 @@ public class ObjectivesManager : MonoBehaviour
     public static ObjectivesManager Instance;
 
 
+    public List<Objective> earlyObjectives = new List<Objective>();
+    public List<Objective> midObjectives = new List<Objective>();
+    public List<Objective> lateObjectives = new List<Objective>();
     public List<Objective> activeObjectives = new List<Objective>();
 
     void Awake()
@@ -30,7 +33,21 @@ public class ObjectivesManager : MonoBehaviour
                 ObjectivesUIManager.Instance.UpdateObjectiveUI(objective); // Update UI when objectives change
             }
         }
+
     }
+
+    public void SetActiveObjectives(List<Objective> objectives, int amount)
+    {
+        Debug.Log("Setting active objectives");
+        for (int i = 0; i < amount; i++)
+        {
+            int randomIndex = Random.Range(0, objectives.Count);
+            activeObjectives.Add(objectives[randomIndex]);
+        }
+    }
+
+
+
 
     public void AddObjective(Objective newObjective)
     {
@@ -54,6 +71,8 @@ public class ObjectivesManager : MonoBehaviour
             }
         }
     }
+
+
 
     public void DestroySpawnerBoss()
     {
