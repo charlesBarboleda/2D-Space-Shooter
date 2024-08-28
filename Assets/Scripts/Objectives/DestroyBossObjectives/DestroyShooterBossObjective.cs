@@ -8,6 +8,8 @@ public class DestroyShooterBossObjective : Objective
     [Header("Objective Settings")]
     [SerializeField] int _requiredKills;
     [SerializeField] int _currentKills;
+    [SerializeField] float _timeToDestroy;
+    [SerializeField] float _elapsedTime;
     [SerializeField] List<GameObject> _bossPrefabs;
     [SerializeField] List<Transform> _spawnPoints;
 
@@ -26,6 +28,7 @@ public class DestroyShooterBossObjective : Objective
 
     public override void InitObjective()
     {
+        _elapsedTime = _timeToDestroy;
         _requiredKills = _bossPrefabs.Count;
         foreach (GameObject boss in _bossPrefabs)
         {
@@ -54,11 +57,19 @@ public class DestroyShooterBossObjective : Objective
 
     public override void UpdateObjective()
     {
-        if (_currentKills >= _requiredKills)
+        if (GetIsCompleted() || GetIsFailed()) return;
+        if (_elapsedTime <= 0) FailedObjective();
+        if (_currentKills == 0 && _elapsedTime > 0)
         {
+            _currentKills = 0;
             CompleteObjective();
         }
-        SetObjectiveDescription("Destroy the Assault Ships: " + _currentKills + "/" + _requiredKills);
+        _elapsedTime -= Time.deltaTime;
+
+        if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
+        if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
+        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Destroy the Assault Ships: " + _currentKills + "/" + _requiredKills + " in " + _elapsedTime + " seconds");
+
     }
     public override void CompleteObjective()
     {

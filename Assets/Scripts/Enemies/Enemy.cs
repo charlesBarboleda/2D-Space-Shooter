@@ -113,6 +113,22 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
         return GameManager.Instance.GetPlayer().transform;
     }
+    public float GetHealth()
+    {
+        return _health;
+    }
+    public float GetCurrencyDrop()
+    {
+        return _currencyDrop;
+    }
+    public float GetSpeed()
+    {
+        return _speed;
+    }
+    public float GetStopDistance()
+    {
+        return _stopDistance;
+    }
     public void SetHealth(float health)
     {
         _health = health;
@@ -136,8 +152,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual void IncreaseStatsPerLevel()
     {
         _health += GameManager.Instance.level * 10f;
+
         _currencyDrop += GameManager.Instance.level * 0.5f;
+
         _speed += GameManager.Instance.level * 0.05f;
+
+        transform.localScale += new Vector3(GameManager.Instance.level * 0.02f, GameManager.Instance.level * 0.02f, GameManager.Instance.level * 0.02f);
+
     }
 
     public virtual void Destroy()

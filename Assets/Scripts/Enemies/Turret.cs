@@ -32,6 +32,11 @@ public class EnemyTurret : ShooterEnemy
         }
     }
 
+    public override void IncreaseStatsPerLevel()
+    {
+        _bossShooterEnemy.IncreaseStatsPerLevel();
+    }
+
     void InitializeTurrets()
     {
         SetAimRange(_bossShooterEnemy.GetAimRange());

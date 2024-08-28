@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dda3d330675092f4a87f19747aca8096, type: 3}
-  m_Name: DestroyShooterBossEarly 1
+  m_Name: DestroyShooterBossMid 1
   m_EditorClassIdentifier: 
   objectiveDescription: 'Destroy the Assault Ships: 3/3'
   isCompleted: 1
@@ -35,7 +35,7 @@ MonoBehaviour:
   - {fileID: 1088874936796244012, guid: f17454ad53f1b754e9565bf6286d8b74, type: 3}
   - {fileID: 4936865337258655195, guid: e27a568fcd26ec4489a4b4884d972392, type: 3}
   - {fileID: 4374070507608136542, guid: 67894c135b4f75d48851dbc34dfa96be, type: 3}
-  _health: 1000
+  _health: 100
   _fireRate: 1
   _bulletAmount: 1
   _bulletSpeed: 20
