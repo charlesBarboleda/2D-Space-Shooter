@@ -156,7 +156,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         _speed += GameManager.Instance.level * 0.05f;
 
-        transform.localScale += new Vector3(GameManager.Instance.level * 0.02f, GameManager.Instance.level * 0.02f, GameManager.Instance.level * 0.02f);
+        transform.localScale += new Vector3(GameManager.Instance.level * 0.01f, GameManager.Instance.level * 0.01f, GameManager.Instance.level * 0.01f);
 
     }
 

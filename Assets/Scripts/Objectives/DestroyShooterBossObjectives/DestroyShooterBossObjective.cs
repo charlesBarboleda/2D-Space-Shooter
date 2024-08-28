@@ -71,7 +71,7 @@ public class DestroyShooterBossObjective : Objective
 
         if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
         if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
-        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Destroy the Assault ships: " + _currentKills + "/" + _requiredKills + " in " + Math.Round(_elapsedTime, 0) + " seconds");
+        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Destroy the Assault ships: " + _currentKills + "/" + _requiredKills + " in " + Mathf.Round(_elapsedTime) + " seconds");
 
     }
     public override void CompleteObjective()

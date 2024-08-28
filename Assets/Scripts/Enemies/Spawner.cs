@@ -8,9 +8,9 @@ using Random = UnityEngine.Random;
 
 public class SpawnerEnemy : Enemy
 {
-    public float spawnRate = 3f;
+    [SerializeField] float _spawnRadius = 10f;
+    [SerializeField] float _spawnRate = 3f;
     public List<String> ships = new List<string>();
-    public float spawnRadius = 10f;
 
     public override void Start()
     {
@@ -23,7 +23,7 @@ public class SpawnerEnemy : Enemy
         int randomShipIndex = Random.Range(0, ships.Count); // Randomly choose between easyShips and midShips
         // Calculate a random position on the circle
         float angle = Random.Range(0f, Mathf.PI * 2f);
-        Vector3 spawnPosition = transform.position + new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * spawnRadius;
+        Vector3 spawnPosition = transform.position + new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * _spawnRadius;
 
         GameObject enemy = ObjectPooler.Instance.SpawnFromPool(ships[randomShipIndex], spawnPosition, transform.rotation);
         GameManager.Instance.enemies.Add(enemy);
@@ -33,10 +33,10 @@ public class SpawnerEnemy : Enemy
     public override void OnEnable()
     {
         base.OnEnable();
-        spawnRate -= GameManager.Instance.level * 0.01f;
-        if (spawnRate <= 0.1f)
+        _spawnRate -= GameManager.Instance.level * 0.01f;
+        if (_spawnRate <= 0.1f)
         {
-            spawnRate = 0.1f;
+            _spawnRate = 0.1f;
         }
     }
 
@@ -47,7 +47,24 @@ public class SpawnerEnemy : Enemy
 
     public override void Attack()
     {
-        InvokeRepeating("SpawnRandomShips", 0, spawnRate);
+        InvokeRepeating("SpawnRandomShips", 0, _spawnRate);
+    }
+
+    public void SetSpawnRadius(float radius)
+    {
+        _spawnRadius = radius;
+    }
+    public void SetSpawnRate(float rate)
+    {
+        _spawnRate = rate;
+    }
+    public float GetSpawnRate()
+    {
+        return _spawnRate;
+    }
+    public float GetSpawnRadius()
+    {
+        return _spawnRadius;
     }
 
 

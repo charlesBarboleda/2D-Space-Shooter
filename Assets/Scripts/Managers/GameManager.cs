@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        level = 100;
+        level = 1;
         spawnRate = 0.5f;
         maxSpawnRate = 0.1f;
         enemiesToSpawnTotal = 1000;

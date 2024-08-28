@@ -55,6 +55,16 @@ public class ObjectivesManager : MonoBehaviour
         }
     }
 
+    public void DestroySpawnerBoss()
+    {
+        foreach (Objective objective in activeObjectives)
+        {
+            if (objective is DestroySpawnerBossObjective destroySpawnerBossObjective)
+            {
+                destroySpawnerBossObjective.SetCurrentKills(destroySpawnerBossObjective.GetCurrentKills() + 1);
+            }
+        }
+    }
     public void DestroyShooterBoss()
     {
         foreach (Objective objective in activeObjectives)
