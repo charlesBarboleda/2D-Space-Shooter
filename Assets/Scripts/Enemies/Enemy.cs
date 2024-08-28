@@ -106,7 +106,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public Transform CheckForTargets()
     {
         // Check for enemies using circle raycast
-        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 75f);
+        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 75f, 1 << LayerMask.NameToLayer("Player"));
         foreach (Collider2D targets in hitTargets)
         {
             if (targets.CompareTag("CargoShip"))
