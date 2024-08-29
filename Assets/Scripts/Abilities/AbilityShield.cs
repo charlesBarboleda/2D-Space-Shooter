@@ -30,7 +30,7 @@ public class AbilityShield : Ability
     public void ResetShieldStats()
     {
         currentCooldown = 30f;
-        _shieldSize = 1.2f;
+        _shieldSize = 1.5f;
         _shieldDamage = 10;
         _duration = 3f;
         cooldown = 30f;

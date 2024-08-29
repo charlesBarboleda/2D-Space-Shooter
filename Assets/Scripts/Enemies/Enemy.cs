@@ -41,6 +41,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     }
     public virtual void OnEnable()
     {
+        Debug.Log("OnEnable");
         IncreaseStatsPerLevel();
         StartCoroutine(SpawnAnimation());
 
@@ -82,7 +83,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         GameObject obj = ObjectPooler.Instance.SpawnFromPool(_spawnAnimation, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(1f);
-        Destroy(obj, 1f);
+        obj.SetActive(false);
     }
 
     IEnumerator FlashRed()

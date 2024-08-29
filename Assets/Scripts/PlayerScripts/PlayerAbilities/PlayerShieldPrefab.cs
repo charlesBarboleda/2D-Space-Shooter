@@ -5,15 +5,18 @@ using UnityEngine;
 public class PlayerShieldPrefab : MonoBehaviour
 {
     private float _dps;
+
     private void OnTriggerStay2D(Collider2D other)
     {
-        IDamageable damageable = other.GetComponent<IDamageable>();
-        if (damageable != null && other.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            damageable.TakeDamage(_dps);
+            other.gameObject.GetComponent<IDamageable>().TakeDamage(_dps * Time.deltaTime);
+        }
+        if (other.gameObject.CompareTag("EnemyBullet"))
+        {
+            other.gameObject.SetActive(false);
         }
     }
-
     public void SetDamage(float dps)
     {
         this._dps = dps;

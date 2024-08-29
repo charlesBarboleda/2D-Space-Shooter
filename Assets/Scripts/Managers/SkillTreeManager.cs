@@ -82,7 +82,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Reduced", 500, skillEffects);
+        ApplySkillEffect("Reduced", 250, skillEffects);
     }
     public void ApplyProlongedEffect()
     {
@@ -97,7 +97,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Prolonged", 500, skillEffects);
+        ApplySkillEffect("Prolonged", 250, skillEffects);
     }
     public void ApplyExpandedEffect()
     {
@@ -112,7 +112,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Expanded", 250, skillEffects);
+        ApplySkillEffect("Expanded", 125, skillEffects);
     }
     public void ApplyDevastationEffect()
     {
@@ -127,7 +127,7 @@ public class SkillTreeManager : MonoBehaviour
             },
         };
 
-        ApplySkillEffect("Devastation", 500, skillEffects);
+        ApplySkillEffect("Devastation", 250, skillEffects);
     }
     public void ApplyUnlockShieldEffect()
     {
@@ -157,7 +157,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Extended Range", 500, skillEffects);
+        ApplySkillEffect("Extended Range", 250, skillEffects);
     }
     public void ApplyQuickenedEffect()
     {
@@ -171,7 +171,7 @@ public class SkillTreeManager : MonoBehaviour
                 Debug.Log("Teleport Cooldown Decreased by " + (1 - decreaseCooldown) * 100 + "%");
             }
         };
-        ApplySkillEffect("Quickened", 500, skillEffects);
+        ApplySkillEffect("Quickened", 250, skillEffects);
     }
     public void ApplyEnhancedEffect()
     {
@@ -192,7 +192,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Enhanced", 250, skillEffects);
+        ApplySkillEffect("Enhanced", 125, skillEffects);
     }
     public void ApplyEradicationEffect()
     {
@@ -206,7 +206,7 @@ public class SkillTreeManager : MonoBehaviour
             },
         };
 
-        ApplySkillEffect("Eradication", 100, skillEffects);
+        ApplySkillEffect("Eradication", 50, skillEffects);
     }
     public void ApplyUnlockTeleportEffect()
     {
@@ -237,7 +237,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Turbo", 500, skillEffects);
+        ApplySkillEffect("Turbo", 250, skillEffects);
     }
     public void ApplyAcceleratedEffect()
     {
@@ -252,7 +252,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Accelerated", 400, skillEffects);
+        ApplySkillEffect("Accelerated", 200, skillEffects);
     }
     public void ApplyNimbleEffect()
     {
@@ -266,7 +266,7 @@ public class SkillTreeManager : MonoBehaviour
                 Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
             }
         };
-        ApplySkillEffect("Nimble", 200, skillEffects);
+        ApplySkillEffect("Nimble", 100, skillEffects);
     }
     public void ApplyRapidEffect()
     {
@@ -280,7 +280,7 @@ public class SkillTreeManager : MonoBehaviour
                 Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
             }
         };
-        ApplySkillEffect("Rapid", 100, skillEffects);
+        ApplySkillEffect("Rapid", 50, skillEffects);
 
     }
     public void ApplyRejuvenationEffect()
@@ -293,10 +293,11 @@ public class SkillTreeManager : MonoBehaviour
                 float increaseHealthRegen = 1f;
                 PlayerManager.GetPlayer().healthRegen += increaseHealthRegen;
                 Debug.Log("Health Regen Increased by " + increaseHealthRegen + "HP/s");
+                increaseHealthRegen++;
             }
         };
 
-        ApplySkillEffect("Rejuvenation", 500, skillEffects);
+        ApplySkillEffect("Rejuvenation", 250, skillEffects);
     }
     public void ApplyFortitudeEffect()
     {
@@ -313,7 +314,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Fortitude", 400, skillEffects);
+        ApplySkillEffect("Fortitude", 200, skillEffects);
     }
     public void ApplyResilienceEffect()
     {
@@ -330,7 +331,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Resilience", 300, skillEffects);
+        ApplySkillEffect("Resilience", 150, skillEffects);
     }
     public void ApplyEnduranceEffect()
     {
@@ -346,7 +347,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Endurance", 200, skillEffects);
+        ApplySkillEffect("Endurance", 100, skillEffects);
     }
 
     public void ApplyVitalityEffect()
@@ -362,7 +363,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Vitality", 100, skillEffects);
+        ApplySkillEffect("Vitality", 50, skillEffects);
     }
     public void ApplySurplusEffect()
     {
@@ -376,7 +377,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Surplus", 1000, skillEffects);
+        ApplySkillEffect("Surplus", 500, skillEffects);
     }
     public void ApplyUnlockTurretEffect()
     {
@@ -408,7 +409,7 @@ public class SkillTreeManager : MonoBehaviour
                 Debug.Log("Turret Fire Rate Decreased by 7%");
             }
         };
-        ApplySkillEffect("Quick Succession", 500, skillEffects);
+        ApplySkillEffect("Quick Succession", 250, skillEffects);
     }
     public void ApplyAnnihilationEffect()
     {
@@ -424,7 +425,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Annihilation", 100, skillEffects);
+        ApplySkillEffect("Annihilation", 50, skillEffects);
     }
     public void ApplyBulletHellEffect()
     {
@@ -454,7 +455,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Blitz Shot", 250, skillEffects);
+        ApplySkillEffect("Blitz Shot", 125, skillEffects);
     }
     public void ApplyTriggerFingerEffect()
     {
@@ -469,7 +470,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Trigger Finger", 250, skillEffects);
+        ApplySkillEffect("Trigger Finger", 125, skillEffects);
     }
     public void ApplySpeedShooterEffect()
     {
@@ -484,7 +485,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Speed Shooter", 250, skillEffects);
+        ApplySkillEffect("Speed Shooter", 125, skillEffects);
     }
     public void ApplyRapidFireEffect()
     {
@@ -499,7 +500,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Rapid Fire", 250, skillEffects);
+        ApplySkillEffect("Rapid Fire", 125, skillEffects);
     }
     public void ApplyTenaciousEffect()
     {
@@ -514,7 +515,7 @@ public class SkillTreeManager : MonoBehaviour
                 Debug.Log("Laser Duration Increased by " + (increaseDuration - 1) * 100 + "%");
             }
         };
-        ApplySkillEffect("Tenacious", 250, skillEffects);
+        ApplySkillEffect("Tenacious", 125, skillEffects);
     }
     public void ApplyExpeditiousEffect()
     {
@@ -529,7 +530,7 @@ public class SkillTreeManager : MonoBehaviour
                 Debug.Log("Laser Cooldown Decreased by " + (1 - decreaseCooldown) * 100 + "%");
             }
         };
-        ApplySkillEffect("Expeditious", 250, skillEffects);
+        ApplySkillEffect("Expeditious", 125, skillEffects);
     }
 
     public void ApplyDestructionEffect()
@@ -546,7 +547,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Destruction", 250, skillEffects);
+        ApplySkillEffect("Destruction", 125, skillEffects);
     }
 
     public void ApplyLaserEffect()
@@ -577,7 +578,7 @@ public class SkillTreeManager : MonoBehaviour
             },
         };
 
-        ApplySkillEffect("Vicious", 500, skillEffects);
+        ApplySkillEffect("Vicious", 250, skillEffects);
     }
 
     public void ApplySprayAndPrayEffect()
@@ -593,7 +594,7 @@ public class SkillTreeManager : MonoBehaviour
             },
         };
 
-        ApplySkillEffect("Spray And Pray", 500, skillEffects);
+        ApplySkillEffect("Spray And Pray", 250, skillEffects);
     }
     public void ApplyFerocityEffect()
     {
@@ -608,7 +609,7 @@ public class SkillTreeManager : MonoBehaviour
             },
         };
 
-        ApplySkillEffect("Ferocity", 500, skillEffects);
+        ApplySkillEffect("Ferocity", 250, skillEffects);
     }
 
     public void ApplyViolenceEffect()
@@ -624,7 +625,7 @@ public class SkillTreeManager : MonoBehaviour
             },
         };
 
-        ApplySkillEffect("Violence", 500, skillEffects);
+        ApplySkillEffect("Violence", 250, skillEffects);
     }
 
     public void ApplyBrutalityEffect()
@@ -640,7 +641,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Brutality", 250, skillEffects);
+        ApplySkillEffect("Brutality", 125, skillEffects);
     }
 
     public void ApplyNewBeginningsEffect()
@@ -677,7 +678,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("New Beginnings", 100, skillEffects);
+        ApplySkillEffect("New Beginnings", 50, skillEffects);
     }
 
     private bool ArePreqsMet(Skill skill)
