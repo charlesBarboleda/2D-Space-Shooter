@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShooterEnemy : Enemy
 {
-    [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] public float aimRange;
 
@@ -35,7 +34,7 @@ public class ShooterEnemy : Enemy
         FireBullets(_amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
     }
 
-    public void FireBullets(int bulletAmount, Vector3 position, Transform target)
+    public virtual void FireBullets(int bulletAmount, Vector3 position, Transform target)
     {
         nextFireTime = Time.time + _fireRate;
         Vector3 targetPosition = target.transform.position;

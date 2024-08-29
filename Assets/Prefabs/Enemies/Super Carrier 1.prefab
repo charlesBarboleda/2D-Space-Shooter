@@ -562,6 +562,10 @@ PrefabInstance:
       value: EnemyTurret (3)
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _health
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: aimRange
       value: 100
       objectReference: {fileID: 0}
@@ -570,9 +574,45 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletDamage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyDrop
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _shootingAngle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletLifetime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _amountOfBullets
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 8525247465574279012}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: cameraShakeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: cameraShakeMagnitude
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -762,6 +802,10 @@ PrefabInstance:
       value: EnemyTurret
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _health
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: aimRange
       value: 100
       objectReference: {fileID: 0}
@@ -770,9 +814,45 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletDamage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyDrop
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _shootingAngle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletLifetime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _amountOfBullets
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 1274133579637417225}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: cameraShakeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: cameraShakeMagnitude
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -852,6 +932,10 @@ PrefabInstance:
       value: EnemyTurret (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _health
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: aimRange
       value: 100
       objectReference: {fileID: 0}
@@ -860,9 +944,45 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletDamage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyDrop
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _shootingAngle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletLifetime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _amountOfBullets
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 1407039205763094849}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: cameraShakeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: cameraShakeMagnitude
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -942,6 +1062,10 @@ PrefabInstance:
       value: EnemyTurret (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _health
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: aimRange
       value: 100
       objectReference: {fileID: 0}
@@ -950,9 +1074,45 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletDamage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyDrop
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _shootingAngle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _bulletLifetime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _amountOfBullets
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 3486662099251118412}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: cameraShakeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: cameraShakeMagnitude
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -33,13 +33,12 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        level = 25;
+        level = 1;
         spawnRate = 0.5f;
         maxSpawnRate = 0.1f;
         enemiesToSpawnTotal = 5;
         roundCountdown = 3f;
         isCountdown = true;
-
     }
 
     void Update()
@@ -49,10 +48,6 @@ public class GameManager : MonoBehaviour
             EventManager.GameOverEvent();
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            ObjectivesManager.Instance.StartObjectives();
-        }
         if (isRound)
         {
 
@@ -151,29 +146,20 @@ public class GameManager : MonoBehaviour
     public void NextRound()
     {
         ObjectivesManager.Instance.RemoveAllObjectives();
+        ObjectivesUIManager.Instance.ClearObjectivesUI();
 
-        if (UnityEngine.Random.value < 0.99f) isObjectiveRound = true;
+
+        if (UnityEngine.Random.value <= 0.25f) isObjectiveRound = true;
         else isObjectiveRound = false;
         Debug.Log(isObjectiveRound);
 
         if (isObjectiveRound && level >= 10)
         {
             // Set the objectives for the round based on the level of the game
-            if (level >= 10 && level < 40)
-            {
-                Debug.Log("Setting early objectives");
-                ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, 1);
-            }
-            else if (level >= 30 && level < 70)
-            {
-                Debug.Log("Setting mid objectives");
-                ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.midObjectives, UnityEngine.Random.Range(1, 3));
-            }
-            else
-            {
-                Debug.Log("Setting late objectives");
-                ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.lateObjectives, UnityEngine.Random.Range(1, 4));
-            }
+            if (level >= 10 && level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, 1);
+            else if (level >= 30 && level < 70) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.midObjectives, UnityEngine.Random.Range(1, 3));
+            else ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.lateObjectives, UnityEngine.Random.Range(1, 4));
+
         }
         DisableSpawning();
         spawnRate -= 0.005f;

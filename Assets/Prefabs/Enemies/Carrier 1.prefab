@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7597909321899767395}
   - component: {fileID: 3805123388886989297}
-  - component: {fileID: 7994010987436318769}
   - component: {fileID: -5579354071697952829}
   - component: {fileID: 7270436889872924217}
   - component: {fileID: 4173899465280341812}
@@ -18,6 +17,7 @@ GameObject:
   - component: {fileID: 511483700425921793}
   - component: {fileID: 8081548174727007657}
   - component: {fileID: 2242042442152710170}
+  - component: {fileID: 6929178285768769110}
   m_Layer: 11
   m_Name: Carrier 1
   m_TagString: Enemy
@@ -92,41 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7994010987436318769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3997652989131009235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bd3db0889701d24481f1e8f4ac99355, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currencyPrefab:
-  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
-  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
-  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
-  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
-  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
-  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
-  spawnAnimation: {fileID: 5933602760919840800, guid: 32a431a3eb4a3a74dad883468f8d4f5c, type: 3}
-  deathExplosion: {fileID: 162584487599433031, guid: 71c2b036e1a7a84418a17c55376eb376, type: 3}
-  _shouldRotate: 0
-  _health: 2000
-  _currencyDrop: 300
-  _speed: 8
-  _stopDistance: 50
-  cameraShakeMagnitude: 3
-  cameraShakeDuration: 0.2
-  _spawnRadius: 10
-  _spawnRate: 3
-  ships:
-  - MeleeShip
-  - SmallShip
-  - MediumShip
-  - MediumShip2
 --- !u!50 &-5579354071697952829
 Rigidbody2D:
   serializedVersion: 4
@@ -424,3 +389,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.23060948, y: 0.27967715}
   m_EdgeRadius: 0
+--- !u!114 &6929178285768769110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997652989131009235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6888f4ee4b8a7e3469743d54dac9f865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencyPrefab: []
+  spawnAnimation: {fileID: 5933602760919840800, guid: 32a431a3eb4a3a74dad883468f8d4f5c, type: 3}
+  deathExplosion: {fileID: 162584487599433031, guid: 71c2b036e1a7a84418a17c55376eb376, type: 3}
+  _shouldRotate: 0
+  _health: 0
+  _currencyDrop: 0
+  _speed: 0
+  _stopDistance: 0
+  cameraShakeMagnitude: 0
+  cameraShakeDuration: 0
+  _spawnRadius: 10
+  _spawnRate: 3
+  ships: []

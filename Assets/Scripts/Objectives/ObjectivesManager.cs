@@ -38,7 +38,7 @@ public class ObjectivesManager : MonoBehaviour
 
     public void SetActiveObjectives(List<Objective> objectives, int amount)
     {
-        Debug.Log("Setting active objectives");
+
         for (int i = 0; i < amount; i++)
         {
             int randomIndex = Random.Range(0, objectives.Count);

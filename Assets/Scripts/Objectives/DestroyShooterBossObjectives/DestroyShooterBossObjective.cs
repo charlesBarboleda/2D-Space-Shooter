@@ -37,7 +37,7 @@ public class DestroyShooterBossObjective : Objective
             GameObject bossShip = ObjectPooler.Instance.SpawnFromPool(bossName, _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
             GameManager.Instance.enemies.Add(bossShip);
             BossShooter bossScript = bossShip.GetComponent<BossShooter>();
-            if (bossShip.GetComponent<ShooterEnemy>() != null)
+            if (bossShip.GetComponent<BossShooter>() != null)
             {
                 bossScript.SetHealth(_health);
                 bossScript.SetBulletAmount(_bulletAmount);

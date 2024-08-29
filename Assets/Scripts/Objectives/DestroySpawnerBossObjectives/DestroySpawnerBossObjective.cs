@@ -33,7 +33,7 @@ public class DestroySpawnerBossObjective : Objective
             GameObject bossShip = ObjectPooler.Instance.SpawnFromPool(bossName, _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
             GameManager.Instance.enemies.Add(bossShip);
             BossSpawner bossScript = bossShip.GetComponent<BossSpawner>();
-            if (bossShip.GetComponent<ShooterEnemy>() != null)
+            if (bossShip.GetComponent<BossSpawner>() != null)
             {
                 bossScript.SetHealth(_health);
                 bossScript.SetSpawnRate(_spawnRate);
@@ -56,7 +56,7 @@ public class DestroySpawnerBossObjective : Objective
         if (_elapsedTime <= 0) FailedObjective();
         if (_currentKills == _requiredKills && _elapsedTime > 0)
         {
-            _currentKills = 0;
+            _currentKills = _requiredKills;
             CompleteObjective();
         }
         _elapsedTime -= Time.deltaTime;

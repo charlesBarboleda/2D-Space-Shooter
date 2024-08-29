@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CargoShip : MonoBehaviour
+public class CargoShip : MonoBehaviour, IDamageable
 {
     [SerializeField] GameObject spawnAnimation;
     [SerializeField] GameObject deathAnimation;
-    [SerializeField] float health = 1000;
+    [SerializeField] float _health = 1000;
 
     void OnEnable()
     {
@@ -23,12 +23,12 @@ public class CargoShip : MonoBehaviour
 
     public float GetHealth()
     {
-        return health;
+        return _health;
     }
 
-    public void SetHealth(float health)
+    public void SetHealth(float _health)
     {
-        this.health = health;
+        this._health = _health;
 
     }
 
@@ -47,18 +47,33 @@ public class CargoShip : MonoBehaviour
         {
             Bullet bullet = other.GetComponent<Bullet>();
             {
-                health -= bullet.BulletDamage;
+                TakeDamage(bullet.BulletDamage);
                 StartCoroutine(FlashRed());
-                if (health <= 0)
-                {
-                    CameraShake.Instance.TriggerShake(5, 0.3f);
-                    GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
-                    Destroy(animation, 1f);
-                    gameObject.SetActive(false);
-                }
+
             }
             other.gameObject.SetActive(false);
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+
+        _health -= damage;
+        if (_health > 0)
+        {
+            StartCoroutine(FlashRed());
+        }
+        if (_health <= 0)
+        {
+            Destroy();
+        }
+    }
+
+    public void Destroy()
+    {
+        CameraShake.Instance.TriggerShake(5, 0.3f);
+        GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
+        Destroy(animation, 1f);
+        gameObject.SetActive(false);
+    }
 }

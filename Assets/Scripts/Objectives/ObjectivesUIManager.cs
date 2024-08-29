@@ -32,6 +32,14 @@ public class ObjectivesUIManager : MonoBehaviour
             AddObjectiveUI(objective);
         }
     }
+    public void ClearObjectivesUI()
+    {
+        foreach (Transform child in objectivesPanel)
+        {
+            Destroy(child.gameObject);
+        }
+        objectiveUITexts.Clear();
+    }
 
     public void AddObjectiveUI(Objective newObjective)
     {
