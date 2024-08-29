@@ -20,7 +20,7 @@ public class AbilityHolderManager : MonoBehaviour
     }
     void Start()
     {
-        abilityHolder = GameManager.Instance.GetPlayer().GetComponent<AbilityHolder>();
+        abilityHolder = PlayerManager.GetPlayer().GetComponent<AbilityHolder>();
     }
 
     public void UnlockSkill(Ability ability)

@@ -13,9 +13,9 @@ public class BossShooter : ShooterEnemy
     public override void IncreaseStatsPerLevel()
     {
 
-        SetHealth(GetHealth() + GameManager.Instance.level * 10f);
-        SetCurrencyDrop(GetCurrencyDrop() + GameManager.Instance.level * 10f);
-        SetSpeed(GetSpeed() + GameManager.Instance.level * 0.05f);
+        SetHealth(GetHealth() + GameManager.Instance.Level() * 10f);
+        SetCurrencyDrop(GetCurrencyDrop() + GameManager.Instance.Level() * 10f);
+        SetSpeed(GetSpeed() + GameManager.Instance.Level() * 0.05f);
     }
 
 }

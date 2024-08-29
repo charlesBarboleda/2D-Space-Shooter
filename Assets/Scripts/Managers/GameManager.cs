@@ -9,69 +9,69 @@ public class GameManager : MonoBehaviour
 
     [Header("Managers")]
     [SerializeField] GameObject _spawnerManager;
-    PlayerManager player;
+
 
     [Header("Round Settings")]
-    bool isRoundOver;
-    bool canTriggerNextRound = true;
-    public float maxSpawnRate;
-    public float spawnRate;
-    public int enemiesToSpawnTotal;
-    public int enemiesToSpawnLeft;
-    public int level;
-    public float roundCountdown;
-    public bool isCountdown;
-    public bool isRound;
-    public bool isObjectiveRound;
-    public List<GameObject> enemies = new List<GameObject>();
+    float _maxSpawnRate;
+    float _spawnRate;
+    int _enemiesToSpawnTotal;
+    int _enemiesToSpawnLeft;
+    int _level;
+
+    float _roundCountdown;
+    bool _isRoundOver;
+    bool _isCountdown;
+    bool _isRound;
+    bool _isObjectiveRound;
+    bool _canTriggerNextRound = true;
+    List<GameObject> _enemies = new List<GameObject>();
 
     void Awake()
     {
-        player = GameObject.Find("Player").GetComponent<PlayerManager>();
-        SetSingleton();
-
+        // Singleton Pattern
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
     void Start()
     {
-        level = 1;
-        spawnRate = 0.5f;
-        maxSpawnRate = 0.1f;
-        enemiesToSpawnTotal = 20;
-        roundCountdown = 10f;
-        isCountdown = true;
+        _level = 1;
+        _spawnRate = 0.5f;
+        _maxSpawnRate = 0.1f;
+        _enemiesToSpawnTotal = 20;
+        _roundCountdown = 10f;
+        _isCountdown = true;
     }
 
     void Update()
     {
-        if (player.playerHealth <= 0)
+        if (_isRound)
         {
-            EventManager.GameOverEvent();
-        }
-
-        if (isRound)
-        {
-
-
-            if (enemies.Count == 0 && !isRoundOver && canTriggerNextRound && enemiesToSpawnLeft == 1)
+            if (_enemies.Count == 0 && !_isRoundOver && _canTriggerNextRound && _enemiesToSpawnLeft == 1)
             {
 
-                isRoundOver = true;
-                isCountdown = true;
+                _isRoundOver = true;
+                _isCountdown = true;
 
                 StartCoroutine(NextRoundCooldown());  // Start cooldown to prevent double calls
                 EventManager.NextRoundEvent();
             }
         }
 
-        if (isCountdown)
+        if (_isCountdown)
         {
 
-            roundCountdown -= Time.deltaTime;
-            if (roundCountdown <= 0)
+            _roundCountdown -= Time.deltaTime;
+            if (_roundCountdown <= 0)
             {
-                isCountdown = false;
-                isRoundOver = false;
-                isRound = true;
+                _isCountdown = false;
+                _isRoundOver = false;
+                _isRound = true;
                 RoundStart();
             }
         }
@@ -79,9 +79,9 @@ public class GameManager : MonoBehaviour
     IEnumerator NextRoundCooldown()
     {
 
-        canTriggerNextRound = false;
+        _canTriggerNextRound = false;
         yield return new WaitForSeconds(0.1f);  // Short delay to prevent double trigger
-        canTriggerNextRound = true;
+        _canTriggerNextRound = true;
 
     }
 
@@ -103,26 +103,67 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseLevel()
     {
-        level++;
+        _level++;
     }
 
-    public PlayerManager GetPlayer()
+    public float GetSpawnRate()
     {
-        return player;
+        return _spawnRate;
     }
 
-
-    void SetSingleton()
+    public List<GameObject> GetEnemies()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            Instance = this;
-        }
+        return _enemies;
     }
+    public int GetEnemiesToSpawnLeft()
+    {
+        return _enemiesToSpawnLeft;
+    }
+
+    public int GetEnemiesToSpawnTotal()
+    {
+        return _enemiesToSpawnTotal;
+    }
+    public void SetEnemiesToSpawnLeft(int value)
+    {
+        _enemiesToSpawnLeft = value;
+    }
+    public void AddEnemy(GameObject enemy)
+    {
+        _enemies.Add(enemy);
+    }
+    public void RemoveEnemy(GameObject enemy)
+    {
+        _enemies.Remove(enemy);
+        _enemiesToSpawnLeft--;
+    }
+
+    public float GetRoundCountdown()
+    {
+        return _roundCountdown;
+    }
+
+    public int Level()
+    {
+        return _level;
+    }
+
+    public bool IsRound()
+    {
+        return _isRound;
+    }
+
+    public bool IsObjectiveRound()
+    {
+        return _isObjectiveRound;
+    }
+
+    public bool IsCountdown()
+    {
+        return _isCountdown;
+    }
+
+
 
     private void DisableSpawning()
     {
@@ -136,11 +177,11 @@ public class GameManager : MonoBehaviour
 
     public void RoundStart()
     {
-        isRound = true;
-        isRoundOver = false;
-        roundCountdown = 10f;
+        _isRound = true;
+        _isRoundOver = false;
+        _roundCountdown = 10f;
         EnableSpawning();
-        enemiesToSpawnLeft = enemiesToSpawnTotal;
+        _enemiesToSpawnLeft = _enemiesToSpawnTotal;
         ObjectivesManager.Instance.StartObjectives();
     }
     public void NextRound()
@@ -149,28 +190,28 @@ public class GameManager : MonoBehaviour
         ObjectivesUIManager.Instance.ClearObjectivesUI();
 
 
-        if (UnityEngine.Random.value <= 0.33f) isObjectiveRound = true;
-        else isObjectiveRound = false;
-        Debug.Log(isObjectiveRound);
+        if (UnityEngine.Random.value <= 0.33f) _isObjectiveRound = true;
+        else _isObjectiveRound = false;
+        Debug.Log(_isObjectiveRound);
 
-        if (isObjectiveRound && level >= 10)
+        if (_isObjectiveRound && _level >= 10)
         {
-            // Set the objectives for the round based on the level of the game
-            if (level >= 10 && level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, 1);
-            else if (level >= 30 && level < 70) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.midObjectives, UnityEngine.Random.Range(1, 3));
+            // Set the objectives for the round based on the _level of the game
+            if (_level >= 10 && _level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, 1);
+            else if (_level >= 30 && _level < 70) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.midObjectives, UnityEngine.Random.Range(1, 3));
             else ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.lateObjectives, UnityEngine.Random.Range(1, 4));
 
         }
         DisableSpawning();
-        spawnRate -= 0.005f;
-        enemiesToSpawnTotal += 10;
-        if (spawnRate <= maxSpawnRate) spawnRate = maxSpawnRate;
+        _spawnRate -= 0.005f;
+        _enemiesToSpawnTotal += 10;
+        if (_spawnRate <= _maxSpawnRate) _spawnRate = _maxSpawnRate;
         IncreaseLevel();
     }
 
     public void DestroyAllShips()
     {
-        List<GameObject> enemiesCopy = new List<GameObject>(enemies);
+        List<GameObject> enemiesCopy = new List<GameObject>(_enemies);
         foreach (GameObject enemy in enemiesCopy)
         {
             if (enemy != null)
@@ -178,7 +219,7 @@ public class GameManager : MonoBehaviour
                 enemy.GetComponent<Enemy>().Destroy();
             }
         }
-        enemies.Clear();
+        _enemies.Clear();
     }
 
 

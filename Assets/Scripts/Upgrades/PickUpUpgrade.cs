@@ -7,10 +7,10 @@ public class PickUpUpgrade : Upgrade
     public float pickUpUpgradeAmount = 0.5f;
     public override void ApplyUpgrade()
     {
-        if (GameManager.Instance.GetPlayer().currency >= upgradeCost)
+        if (PlayerManager.GetPlayer().currency >= upgradeCost)
         {
-            GameManager.Instance.GetPlayer().currency -= upgradeCost;
-            GameManager.Instance.GetPlayer().pickUpRadius += pickUpUpgradeAmount;
+            PlayerManager.GetPlayer().currency -= upgradeCost;
+            PlayerManager.GetPlayer().pickUpRadius += pickUpUpgradeAmount;
             upgradeCost += 100;
 
         }

@@ -7,11 +7,11 @@ public class HealthUpgrade : Upgrade
     public int healthUpgradeAmount = 5;
     public override void ApplyUpgrade()
     {
-        if (GameManager.Instance.GetPlayer().currency >= upgradeCost)
+        if (PlayerManager.GetPlayer().currency >= upgradeCost)
         {
-            GameManager.Instance.GetPlayer().currency -= upgradeCost;
-            GameManager.Instance.GetPlayer().playerHealth += healthUpgradeAmount;
-            GameManager.Instance.GetPlayer().maxHealth += healthUpgradeAmount;
+            PlayerManager.GetPlayer().currency -= upgradeCost;
+            PlayerManager.GetPlayer().playerHealth += healthUpgradeAmount;
+            PlayerManager.GetPlayer().maxHealth += healthUpgradeAmount;
 
             upgradeCost += 50;
         }

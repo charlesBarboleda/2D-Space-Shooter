@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
         EventManager.OnNextRound += UpdateRoundText;
         EventManager.OnGameOver += GameOver;
         PlayerManager.OnCurrencyChange += UpdateCurrencyText;
-        abilityHolder = GameManager.Instance.GetPlayer().GetComponent<AbilityHolder>();
+        abilityHolder = PlayerManager.GetPlayer().GetComponent<AbilityHolder>();
 
 
 
@@ -127,13 +127,13 @@ public class UIManager : MonoBehaviour
 
     private void UpdateCurrencyText()
     {
-        currencyText.text = $"{GameManager.Instance.GetPlayer().currency}";
+        currencyText.text = $"{PlayerManager.GetPlayer().currency}";
     }
 
     private void UpdateRoundText()
     {
-        if (GameManager.Instance.isRound) roundText.text = $"{GameManager.Instance.level}";
-        if (GameManager.Instance.isCountdown) roundText.text = $"{Math.Round(GameManager.Instance.roundCountdown, 0)}";
+        if (GameManager.Instance.IsRound()) roundText.text = $"{GameManager.Instance.Level()}";
+        if (GameManager.Instance.IsCountdown()) roundText.text = $"{Math.Round(GameManager.Instance.GetRoundCountdown(), 0)}";
     }
 
     private void SetDescriptionText(TextMeshProUGUI text, Upgrade upgrade)

@@ -7,10 +7,10 @@ public class ShipSpeedUpgrade : Upgrade
     public float shipSpeedUpgradeAmount = 0.1f;
     public override void ApplyUpgrade()
     {
-        if (GameManager.Instance.GetPlayer().currency >= upgradeCost)
+        if (PlayerManager.GetPlayer().currency >= upgradeCost)
         {
-            GameManager.Instance.GetPlayer().currency -= upgradeCost;
-            GameManager.Instance.GetPlayer().playerController.moveSpeed += shipSpeedUpgradeAmount;
+            PlayerManager.GetPlayer().currency -= upgradeCost;
+            PlayerManager.GetPlayer().playerController.moveSpeed += shipSpeedUpgradeAmount;
             upgradeCost += 100;
 
         }

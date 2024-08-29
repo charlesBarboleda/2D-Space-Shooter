@@ -35,7 +35,7 @@ public class CurrencyDrop : MonoBehaviour
 
     private void MoveTowardsPlayer()
     {
-        Vector2 playerPosition = GameManager.Instance.GetPlayer().transform.position;
+        Vector2 playerPosition = PlayerManager.GetPlayer().transform.position;
         transform.position = Vector2.MoveTowards(transform.position, playerPosition, maxSpeed * Time.deltaTime);
     }
 }

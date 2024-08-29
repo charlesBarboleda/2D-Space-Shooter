@@ -17,7 +17,7 @@ public abstract class Objective : ScriptableObject
 
     protected void GiveReward()
     {
-        GameManager.Instance.GetPlayer().AddCurrency(reward);
+        PlayerManager.GetPlayer().AddCurrency(reward);
     }
     protected void MarkObjectiveFailed()
     {

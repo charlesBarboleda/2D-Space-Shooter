@@ -43,8 +43,8 @@ public class SpawnerManager : MonoBehaviour
         GameObject enemy = ObjectPooler.Instance.SpawnFromPool(tag, position, rotation);
         if (enemy != null)
         {
-            GameManager.Instance.enemies.Add(enemy);
-            GameManager.Instance.enemiesToSpawnLeft--;
+            GameManager.Instance.AddEnemy(enemy);
+            GameManager.Instance.SetEnemiesToSpawnLeft(GameManager.Instance.GetEnemiesToSpawnLeft() - 1);
         }
 
 
@@ -54,7 +54,7 @@ public class SpawnerManager : MonoBehaviour
     IEnumerator SpawnEnemiesOverTime()
     {
         int spawnCount = 0;
-        for (int i = 0; i < GameManager.Instance.enemiesToSpawnTotal; i++)
+        for (int i = 0; i < GameManager.Instance.GetEnemiesToSpawnTotal(); i++)
         {
             spawnCount++;
             // Select a random segment between two consecutive points
@@ -67,16 +67,16 @@ public class SpawnerManager : MonoBehaviour
             Vector3 spawnPosition = new Vector3(Mathf.Cos(randomAngle) * spawnPointRadius, Mathf.Sin(randomAngle) * spawnPointRadius, 0);
 
             GameObject ship = SpawnShip(shipNamesEarly[Random.Range(0, shipNamesEarly.Count)], spawnPosition, Quaternion.identity);
-            yield return new WaitForSeconds(GameManager.Instance.spawnRate);
+            yield return new WaitForSeconds(GameManager.Instance.GetSpawnRate());
         }
 
     }
 
     private void RemoveEnemyFromList(GameObject enemy)
     {
-        if (GameManager.Instance.enemies.Contains(enemy))
+        if (GameManager.Instance.GetEnemies().Contains(enemy))
         {
-            GameManager.Instance.enemies.Remove(enemy);
+            GameManager.Instance.GetEnemies().Remove(enemy);
 
         }
     }

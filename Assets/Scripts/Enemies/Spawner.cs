@@ -26,14 +26,14 @@ public class SpawnerEnemy : Enemy
         Vector3 spawnPosition = transform.position + new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * _spawnRadius;
 
         GameObject enemy = ObjectPooler.Instance.SpawnFromPool(ships[randomShipIndex], spawnPosition, transform.rotation);
-        GameManager.Instance.enemies.Add(enemy);
+        GameManager.Instance.AddEnemy(enemy);
 
 
     }
     public override void OnEnable()
     {
         base.OnEnable();
-        _spawnRate -= GameManager.Instance.level * 0.01f;
+        _spawnRate -= GameManager.Instance.Level() * 0.01f;
         if (_spawnRate <= 0.1f)
         {
             _spawnRate = 0.1f;

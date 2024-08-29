@@ -26,7 +26,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spawnAnimation != null) SpawnAnimation();
     }
 
     public virtual void Update()
@@ -114,7 +113,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
                 return targets.transform;
             }
         }
-        return GameManager.Instance.GetPlayer().transform;
+        return PlayerManager.GetPlayer().transform;
     }
     public float GetHealth()
     {
@@ -154,13 +153,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void IncreaseStatsPerLevel()
     {
-        _health += GameManager.Instance.level * 10f;
+        _health += GameManager.Instance.Level() * 10f;
 
-        _currencyDrop += GameManager.Instance.level * 0.5f;
+        _currencyDrop += GameManager.Instance.Level() * 0.5f;
 
-        _speed += GameManager.Instance.level * 0.05f;
+        _speed += GameManager.Instance.Level() * 0.05f;
 
-        transform.localScale += new Vector3(GameManager.Instance.level * 0.01f, GameManager.Instance.level * 0.01f, GameManager.Instance.level * 0.01f);
+        transform.localScale += new Vector3(GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f);
 
     }
 

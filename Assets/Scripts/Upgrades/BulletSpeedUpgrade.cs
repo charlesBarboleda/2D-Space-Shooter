@@ -7,10 +7,10 @@ public class BulletSpeedUpgrade : Upgrade
     public float bulletSpeedUpgradeAmount = 0.1f;
     public override void ApplyUpgrade()
     {
-        if (GameManager.Instance.GetPlayer().currency >= upgradeCost)
+        if (PlayerManager.GetPlayer().currency >= upgradeCost)
         {
-            GameManager.Instance.GetPlayer().currency -= upgradeCost;
-            GameManager.Instance.GetPlayer().weapon.bulletSpeed += bulletSpeedUpgradeAmount;
+            PlayerManager.GetPlayer().currency -= upgradeCost;
+            PlayerManager.GetPlayer().weapon.bulletSpeed += bulletSpeedUpgradeAmount;
             upgradeCost += 50;
             bulletSpeedUpgradeAmount += 0.1f;
 

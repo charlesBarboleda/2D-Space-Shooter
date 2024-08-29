@@ -14,7 +14,7 @@ public class NukeEnemy : Enemy
     public override void OnEnable()
     {
         base.OnEnable();
-        coolDownTime -= GameManager.Instance.level * 0.0001f;
+        coolDownTime -= GameManager.Instance.Level() * 0.0001f;
     }
     // Update is called once per frame
     public override void Update()

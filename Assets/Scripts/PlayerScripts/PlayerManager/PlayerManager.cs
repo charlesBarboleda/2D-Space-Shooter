@@ -41,6 +41,11 @@ public class PlayerManager : MonoBehaviour
     }
     void Update()
     {
+        if (playerHealth <= 0)
+        {
+            EventManager.GameOverEvent();
+        }
+
         RegenHealth();
     }
 
@@ -48,6 +53,7 @@ public class PlayerManager : MonoBehaviour
     {
         PickUpLogic();
     }
+
 
     void RegenHealth()
     {
@@ -99,6 +105,16 @@ public class PlayerManager : MonoBehaviour
     {
         this.currency += currency;
         OnCurrencyChange?.Invoke();
+    }
+    public void RemoveCurrency(float currency)
+    {
+        this.currency -= currency;
+        OnCurrencyChange?.Invoke();
+    }
+
+    public static PlayerManager GetPlayer()
+    {
+        return Instance;
     }
 
 

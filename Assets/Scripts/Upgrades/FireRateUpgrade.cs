@@ -7,10 +7,10 @@ public class FireRateUpgrade : Upgrade
     public float fireRateUpgradeAmount = 0.001f;
     public override void ApplyUpgrade()
     {
-        if (GameManager.Instance.GetPlayer().currency >= upgradeCost)
+        if (PlayerManager.GetPlayer().currency >= upgradeCost)
         {
-            GameManager.Instance.GetPlayer().currency -= upgradeCost;
-            GameManager.Instance.GetPlayer().weapon.fireRate -= fireRateUpgradeAmount;
+            PlayerManager.GetPlayer().currency -= upgradeCost;
+            PlayerManager.GetPlayer().weapon.fireRate -= fireRateUpgradeAmount;
             upgradeCost += 100;
 
         }
