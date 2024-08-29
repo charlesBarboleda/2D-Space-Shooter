@@ -8,6 +8,7 @@ public class BossSpawner : SpawnerEnemy
     {
         base.Destroy();
         ObjectivesManager.Instance.DestroySpawnerBoss();
+
     }
 
     public override void IncreaseStatsPerLevel()

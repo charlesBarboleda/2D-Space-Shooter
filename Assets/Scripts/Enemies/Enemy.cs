@@ -4,32 +4,37 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
-    [SerializeField] List<GameObject> currencyPrefab;
+    [SerializeField] List<GameObject> _currencyPrefab;
 
     // Animations
-    public GameObject spawnAnimation;
-    public GameObject deathExplosion;
-    SpriteRenderer spriteRenderer;
+
+    [SerializeField] string _spawnAnimation;
+    [SerializeField] string _deathExplosion;
+    SpriteRenderer _spriteRenderer;
     // Stats
     [SerializeField] bool _shouldRotate;
     [SerializeField] float _health;
     [SerializeField] float _currencyDrop;
     [SerializeField] float _speed;
     [SerializeField] float _stopDistance;
-    bool rotateClockwise = false;
+    bool _rotateClockwise = false;
 
     // Camera Shake
-    public float cameraShakeMagnitude;
-    public float cameraShakeDuration;
+    [SerializeField] float _cameraShakeMagnitude;
+    [SerializeField] float _cameraShakeDuration;
     public abstract void Attack();
 
     public virtual void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public virtual void Update()
     {
+        if (PlayerManager.GetPlayer().playerHealth <= 0)
+        {
+            EventManager.GameOverEvent();
+        }
         if (_shouldRotate) Aim(CheckForTargets());
         Movement(CheckForTargets());
 
@@ -37,11 +42,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual void OnEnable()
     {
         IncreaseStatsPerLevel();
+        StartCoroutine(SpawnAnimation());
 
-        if (spawnAnimation != null) SpawnAnimation();
-
-        if (Random.value < 0.5) rotateClockwise = true;
-        else rotateClockwise = false;
+        // Randomly choose rotation direction
+        if (Random.value < 0.5) _rotateClockwise = true;
+        else _rotateClockwise = false;
 
     }
 
@@ -61,7 +66,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     private void OrbitAround(Transform target)
     {
-        float direction = rotateClockwise ? 1 : -1;
+        float direction = _rotateClockwise ? 1 : -1;
         transform.RotateAround(target.position, Vector3.forward, direction * _speed * Time.deltaTime);
     }
 
@@ -73,17 +78,18 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270f));
     }
 
-    void SpawnAnimation()
+    IEnumerator SpawnAnimation()
     {
-        GameObject obj = Instantiate(spawnAnimation, transform.position, transform.rotation);
+        GameObject obj = ObjectPooler.Instance.SpawnFromPool(_spawnAnimation, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(1f);
         Destroy(obj, 1f);
     }
 
     IEnumerator FlashRed()
     {
-        spriteRenderer.color = Color.red;
+        _spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = Color.white;
+        _spriteRenderer.color = Color.white;
     }
 
 
@@ -115,6 +121,53 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
         return PlayerManager.GetPlayer().transform;
     }
+
+
+
+
+    public virtual void IncreaseStatsPerLevel()
+    {
+        _health += GameManager.Instance.Level() * 10f;
+
+        _currencyDrop += GameManager.Instance.Level() * 0.5f;
+
+        _speed += GameManager.Instance.Level() * 0.05f;
+
+        transform.localScale += new Vector3(GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f);
+
+    }
+
+    public virtual void Destroy()
+    {
+
+        StartCoroutine(DeathAnimation());
+        EventManager.EnemyDestroyedEvent(gameObject);
+        gameObject.SetActive(false);
+        CameraShake.Instance.TriggerShake(_cameraShakeMagnitude, _cameraShakeDuration);
+        ObjectivesManager.Instance.DestroyShip();
+        GameObject currency = Instantiate(_currencyPrefab[Random.Range(0, _currencyPrefab.Count)], transform.position, transform.rotation);
+        currency.GetComponent<CurrencyDrop>().SetCurrency(_currencyDrop);
+
+    }
+
+    IEnumerator DeathAnimation()
+    {
+        GameObject exp = ObjectPooler.Instance.SpawnFromPool(_deathExplosion, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(1f);
+        exp.SetActive(false);
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PlayerBullet"))
+        {
+            TakeDamage(other.GetComponent<Bullet>().BulletDamage);
+            other.gameObject.SetActive(false);
+        }
+    }
+
+    /// <summary>
+    /// Getters and Setters
+    /// </summary>
     public float GetHealth()
     {
         return _health;
@@ -147,41 +200,4 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         _stopDistance = distance;
     }
-
-
-
-
-    public virtual void IncreaseStatsPerLevel()
-    {
-        _health += GameManager.Instance.Level() * 10f;
-
-        _currencyDrop += GameManager.Instance.Level() * 0.5f;
-
-        _speed += GameManager.Instance.Level() * 0.05f;
-
-        transform.localScale += new Vector3(GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f);
-
-    }
-
-    public virtual void Destroy()
-    {
-        GameObject exp = Instantiate(deathExplosion, transform.position, transform.rotation);
-        Destroy(exp, 1f);
-        EventManager.EnemyDestroyedEvent(gameObject);
-        gameObject.SetActive(false);
-        CameraShake.Instance.TriggerShake(cameraShakeMagnitude, cameraShakeDuration);
-        ObjectivesManager.Instance.DestroyShip();
-        if (currencyPrefab.Count == 0) return;
-        GameObject currency = Instantiate(currencyPrefab[Random.Range(0, currencyPrefab.Count)], transform.position, transform.rotation);
-        currency.GetComponent<CurrencyDrop>().SetCurrency(_currencyDrop);
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("PlayerBullet"))
-        {
-            TakeDamage(other.GetComponent<Bullet>().BulletDamage);
-            other.gameObject.SetActive(false);
-        }
-    }
-
 }

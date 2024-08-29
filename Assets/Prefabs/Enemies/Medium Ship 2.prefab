@@ -147,22 +147,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2520035b6197c5e42a54ed52ed55c248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currencyPrefab:
+  _currencyPrefab:
   - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
   - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
   - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
   - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
   - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
   - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
-  spawnAnimation: {fileID: 5933602760919840800, guid: 80bb03f02b7c0d74bb06a0112b10458c, type: 3}
-  deathExplosion: {fileID: 162584487599433031, guid: f5d5e961a93b8134fb1a55b03bdc517a, type: 3}
+  _spawnAnimation: MidSpawn
+  _deathExplosion: MidExp
   _shouldRotate: 1
   _health: 40
   _currencyDrop: 10
   _speed: 8
   _stopDistance: 25
-  cameraShakeMagnitude: 1
-  cameraShakeDuration: 0.2
+  _cameraShakeMagnitude: 0
+  _cameraShakeDuration: 0
   bulletSpawnPoint: {fileID: 7534428997147708502}
   aimRange: 25
   _fireRate: 1

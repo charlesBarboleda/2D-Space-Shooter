@@ -12,8 +12,8 @@ public class AbilityLaser : Ability
 
     public override void AbilityLogic(GameObject owner, Transform target)
     {
-        //Instantiate the laser prefab
-        GameObject Laser = Instantiate(_laserPrefab, owner.transform.position, Quaternion.identity);
+        //Object Pool the laser prefab
+        GameObject Laser = ObjectPooler.Instance.SpawnFromPool("PlayerLaser", owner.transform.position, Quaternion.identity);
         Laser.transform.rotation = owner.transform.rotation;
         Laser.transform.SetParent(owner.transform);
         Destroy(Laser, duration);
