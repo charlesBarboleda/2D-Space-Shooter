@@ -33,7 +33,7 @@ public class SkillHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         descriptionPanel.SetActive(true);
         UpdateSkillInfo();
 
-        Vector3 offset = new Vector3(0, 120f, 0f); // Offset to position the box
+        Vector3 offset = new Vector3(0, 180f, 0f); // Offset to position the box
         descriptionPanel.transform.position = Input.mousePosition + offset;
     }
 

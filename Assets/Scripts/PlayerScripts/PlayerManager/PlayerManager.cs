@@ -54,7 +54,6 @@ public class PlayerManager : MonoBehaviour
         if (playerHealth < maxHealth && playerHealth > 0)
         {
             _healingParticles.Play();
-            Debug.Log("Healing Particles Playing");
             playerHealth += healthRegen * Time.deltaTime;
             healthBar.SetHealth();
         }

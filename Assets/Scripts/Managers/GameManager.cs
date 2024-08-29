@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
         level = 1;
         spawnRate = 0.5f;
         maxSpawnRate = 0.1f;
-        enemiesToSpawnTotal = 5;
-        roundCountdown = 3f;
+        enemiesToSpawnTotal = 20;
+        roundCountdown = 10f;
         isCountdown = true;
     }
 
@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
     {
         isRound = true;
         isRoundOver = false;
-        roundCountdown = 5f;
+        roundCountdown = 10f;
         EnableSpawning();
         enemiesToSpawnLeft = enemiesToSpawnTotal;
         ObjectivesManager.Instance.StartObjectives();
