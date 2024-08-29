@@ -157,13 +157,12 @@ MonoBehaviour:
   spawnAnimation: {fileID: 5933602760919840800, guid: 80bb03f02b7c0d74bb06a0112b10458c, type: 3}
   deathExplosion: {fileID: 162584487599433031, guid: f5d5e961a93b8134fb1a55b03bdc517a, type: 3}
   _shouldRotate: 1
-  _health: 100
+  _health: 40
   _currencyDrop: 10
   _speed: 8
   _stopDistance: 25
   cameraShakeMagnitude: 1
   cameraShakeDuration: 0.2
-  bulletPrefab: {fileID: 6728492749699202131, guid: 0271eb768e721e7469bada9ea73ce922, type: 3}
   bulletSpawnPoint: {fileID: 7534428997147708502}
   aimRange: 25
   _fireRate: 1

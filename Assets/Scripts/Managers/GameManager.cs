@@ -149,7 +149,7 @@ public class GameManager : MonoBehaviour
         ObjectivesUIManager.Instance.ClearObjectivesUI();
 
 
-        if (UnityEngine.Random.value <= 0.25f) isObjectiveRound = true;
+        if (UnityEngine.Random.value <= 0.33f) isObjectiveRound = true;
         else isObjectiveRound = false;
         Debug.Log(isObjectiveRound);
 
