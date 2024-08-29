@@ -140,15 +140,28 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void Destroy()
     {
+        StartCoroutine(DestroySequence());
+    }
 
+    private IEnumerator DestroySequence()
+    {
+        // Trigger death animation and camera shake
         StartCoroutine(DeathAnimation());
-        EventManager.EnemyDestroyedEvent(gameObject);
-        gameObject.SetActive(false);
         CameraShake.Instance.TriggerShake(_cameraShakeMagnitude, _cameraShakeDuration);
+
+        // Notify managers about enemy destruction
+        EventManager.EnemyDestroyedEvent(gameObject);
         ObjectivesManager.Instance.DestroyShip();
+
+        // Spawn currency drop
         GameObject currency = Instantiate(_currencyPrefab[Random.Range(0, _currencyPrefab.Count)], transform.position, transform.rotation);
         currency.GetComponent<CurrencyDrop>().SetCurrency(_currencyDrop);
 
+        // Wait for death animation to finish
+        yield return new WaitForSeconds(1.0f);
+
+        // Deactivate the enemy object
+        gameObject.SetActive(false);
     }
 
     IEnumerator DeathAnimation()
