@@ -21,6 +21,7 @@ public class Building : MonoBehaviour, IDamageable
         gameObject.SetActive(false);
     }
 
+
     public float GetHealth()
     {
         return health;
@@ -70,6 +71,7 @@ public class Building : MonoBehaviour, IDamageable
     public void Destroy()
     {
         CameraShake.Instance.TriggerShake(5, 0.3f);
+        GameManager.Instance.enemies.Remove(gameObject);
         GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
         Destroy(animation, 1f);
         gameObject.SetActive(false);
