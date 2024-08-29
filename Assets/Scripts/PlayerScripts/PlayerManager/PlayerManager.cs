@@ -41,10 +41,7 @@ public class PlayerManager : MonoBehaviour
     }
     void Update()
     {
-        if (playerHealth <= 0)
-        {
-            EventManager.GameOverEvent();
-        }
+
 
         RegenHealth();
     }
@@ -97,6 +94,7 @@ public class PlayerManager : MonoBehaviour
         {
             GameObject deathEffect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
             Destroy(deathEffect, 1f);
+            EventManager.GameOverEvent();
             Destroy(gameObject);
         }
     }

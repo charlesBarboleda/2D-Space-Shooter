@@ -50,6 +50,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // if (PlayerManager.GetPlayer().playerHealth <= 0)
+        // {
+        //     EventManager.GameOverEvent();
+        // }
         if (_isRound)
         {
             if (_enemies.Count == 0 && !_isRoundOver && _canTriggerNextRound && _enemiesToSpawnLeft == 1)
