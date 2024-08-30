@@ -415,8 +415,8 @@ MonoBehaviour:
   _currencyDrop: 0
   _speed: 0
   _stopDistance: 0
-  _cameraShakeMagnitude: 0
-  _cameraShakeDuration: 0
+  _cameraShakeMagnitude: 5
+  _cameraShakeDuration: 0.2
   _spawnRadius: 10
   _spawnRate: 3
   ships: []

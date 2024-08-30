@@ -146,8 +146,8 @@ MonoBehaviour:
   _currencyDrop: 5
   _speed: 8
   _stopDistance: 20
-  _cameraShakeMagnitude: 0
-  _cameraShakeDuration: 0
+  _cameraShakeMagnitude: 0.5
+  _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 8628277228142460474}
   aimRange: 20
   _fireRate: 0.5

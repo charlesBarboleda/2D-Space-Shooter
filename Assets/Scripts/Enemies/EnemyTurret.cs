@@ -6,7 +6,7 @@ public class EnemyTurret : ShooterEnemy
 {
     [SerializeField] BossShooter _bossShooterEnemy;
 
-    public override void Start()
+    public void Start()
     {
         if (_bossShooterEnemy != null) InitializeTurrets();
     }

@@ -102972,34 +102972,34 @@ MonoBehaviour:
     size: 10000
   - tag: SmallShip
     prefab: {fileID: 7097431120715797597, guid: 82b6cde468d559744ae31829d2994c4b, type: 3}
-    size: 300
+    size: 10
   - tag: MediumShip
     prefab: {fileID: 3361903693891464177, guid: 8b56c86159cf25f45800d4d4337a5fd8, type: 3}
-    size: 200
+    size: 10
   - tag: MeleeShip
     prefab: {fileID: 8612933214198579488, guid: 30d41e7a8216f684faf09c435c36b99c, type: 3}
-    size: 200
+    size: 10
   - tag: MediumShip2
     prefab: {fileID: 3696291452806612110, guid: cd57375f295450c4c84a3bee7abae471, type: 3}
-    size: 200
+    size: 10
   - tag: LargeShip
     prefab: {fileID: 8135661152765345053, guid: 47c77b1b459367343a54b5a7f5f7e636, type: 3}
-    size: 100
+    size: 10
   - tag: Carrier
     prefab: {fileID: 3997652989131009235, guid: 768effd1979748d49a3ad4f61e9bc46c, type: 3}
-    size: 100
+    size: 10
   - tag: PlayerBullet
     prefab: {fileID: 6209516934632428617, guid: 9de4688955feac3479a36610971dd362, type: 3}
     size: 2000
   - tag: NukeShip
     prefab: {fileID: 7576126605128404253, guid: 6ffc9df6239db824fbdcd492893e1295, type: 3}
-    size: 100
+    size: 10
   - tag: NukeShip2
     prefab: {fileID: 2956205569114167426, guid: 708c44691ab2c4b4f96957c8e944bf24, type: 3}
-    size: 100
+    size: 10
   - tag: BulletHitEffect
     prefab: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7, type: 3}
-    size: 100
+    size: 10
   - tag: CargoShip
     prefab: {fileID: 6903720118690535301, guid: 964e555314d05814497ec59bc023a3b1, type: 3}
     size: 5
@@ -103023,16 +103023,16 @@ MonoBehaviour:
     size: 5
   - tag: LargeExp
     prefab: {fileID: 162584487599433031, guid: 71c2b036e1a7a84418a17c55376eb376, type: 3}
-    size: 50
+    size: 5
   - tag: PlayerLaser
     prefab: {fileID: 292056099085261284, guid: 69c1ee0af6cd0ee458649703faa9c34b, type: 3}
     size: 5
   - tag: MidExp
     prefab: {fileID: 162584487599433031, guid: f5d5e961a93b8134fb1a55b03bdc517a, type: 3}
-    size: 50
+    size: 5
   - tag: SmallExp
     prefab: {fileID: 162584487599433031, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
-    size: 50
+    size: 5
   - tag: SmallSpawn
     prefab: {fileID: 5933602760919840800, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
     size: 50

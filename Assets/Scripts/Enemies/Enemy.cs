@@ -6,11 +6,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
 
-    // Animations
+    // Animations & References
 
     [SerializeField] string _spawnAnimation;
     [SerializeField] string _deathExplosion;
     SpriteRenderer _spriteRenderer;
+    List<BoxCollider2D> _colliders = new List<BoxCollider2D>();
     // Stats
     [SerializeField] bool _shouldRotate;
     [SerializeField] float _health;
@@ -24,9 +25,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _cameraShakeDuration;
     public abstract void Attack();
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _colliders.AddRange(GetComponents<BoxCollider2D>());
     }
 
     public virtual void Update()
@@ -41,7 +43,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     }
     public virtual void OnEnable()
     {
-        Debug.Log("OnEnable");
+        _colliders.ForEach(collider => collider.enabled = true);
+        _spriteRenderer.enabled = true;
         IncreaseStatsPerLevel();
         StartCoroutine(SpawnAnimation());
 
@@ -92,6 +95,15 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(0.1f);
         _spriteRenderer.color = Color.white;
     }
+    private void StopAllParticleSystems()
+    {
+        // Stop particle systems on the enemy and its children
+        ParticleSystem[] particleSystems = GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem ps in particleSystems)
+        {
+            ps.Stop();
+        }
+    }
 
 
     public void TakeDamage(float damage)
@@ -140,36 +152,34 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void Destroy()
     {
-        StartCoroutine(DestroySequence());
+        // Hide the ship visually and start the death animation coroutine
+        StartCoroutine(HandleDeath());
     }
 
-    private IEnumerator DestroySequence()
+    private IEnumerator HandleDeath()
     {
-        // Trigger death animation and camera shake
-        StartCoroutine(DeathAnimation());
+        StopAllParticleSystems();
+        _colliders.ForEach(collider => collider.enabled = false); // Disable all colliders
+        _spriteRenderer.enabled = false; // Hide the ship's sprite immediately
         CameraShake.Instance.TriggerShake(_cameraShakeMagnitude, _cameraShakeDuration);
-
-        // Notify managers about enemy destruction
-        EventManager.EnemyDestroyedEvent(gameObject);
         ObjectivesManager.Instance.DestroyShip();
-
-        // Spawn currency drop
+        EventManager.EnemyDestroyedEvent(gameObject);
         GameObject currency = Instantiate(_currencyPrefab[Random.Range(0, _currencyPrefab.Count)], transform.position, transform.rotation);
         currency.GetComponent<CurrencyDrop>().SetCurrency(_currencyDrop);
+        yield return StartCoroutine(DeathAnimation()); // Wait for the death animation to complete
 
-        // Wait for death animation to finish
-        yield return new WaitForSeconds(1.0f);
-
-        // Deactivate the enemy object
+        // After the animation is done, deactivate the entire GameObject
         gameObject.SetActive(false);
+
     }
 
     IEnumerator DeathAnimation()
     {
         GameObject exp = ObjectPooler.Instance.SpawnFromPool(_deathExplosion, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1f); // Wait for the animation to finish
         exp.SetActive(false);
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("PlayerBullet"))
@@ -182,36 +192,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     /// <summary>
     /// Getters and Setters
     /// </summary>
-    public float GetHealth()
-    {
-        return _health;
-    }
-    public float GetCurrencyDrop()
-    {
-        return _currencyDrop;
-    }
-    public float GetSpeed()
-    {
-        return _speed;
-    }
-    public float GetStopDistance()
-    {
-        return _stopDistance;
-    }
-    public void SetHealth(float health)
-    {
-        _health = health;
-    }
-    public void SetCurrencyDrop(float currency)
-    {
-        _currencyDrop = currency;
-    }
-    public void SetSpeed(float speed)
-    {
-        _speed = speed;
-    }
-    public void SetStopDistance(float distance)
-    {
-        _stopDistance = distance;
-    }
+    /// 
+    public float GetHealth() => _health;
+    public float GetCurrencyDrop() => _currencyDrop;
+    public float GetSpeed() => _speed;
+    public float GetStopDistance() => _stopDistance;
+    public void SetHealth(float health) => _health = health;
+    public void SetCurrencyDrop(float currency) => _currencyDrop = currency;
+    public void SetSpeed(float speed) => _speed = speed;
+    public void SetStopDistance(float distance) => _stopDistance = distance;
 }

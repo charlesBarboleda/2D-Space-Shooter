@@ -119,8 +119,8 @@ MonoBehaviour:
   _currencyDrop: 30
   _speed: 10
   _stopDistance: 30
-  _cameraShakeMagnitude: 0
-  _cameraShakeDuration: 0
+  _cameraShakeMagnitude: 5
+  _cameraShakeDuration: 0.2
   nukePrefab: {fileID: 3525258117610977703, guid: d1c7174591a3b5e4bbb742578812da5b, type: 3}
   attackRange: 30
   coolDownTime: 3
