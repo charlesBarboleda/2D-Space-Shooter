@@ -43,7 +43,7 @@ public class AbilityTurrets : Ability
 
     }
 
-    public void ResetTurretStats()
+    public override void ResetStats()
     {
         bulletDamage = 10f;
         fireRate = 0.4f;

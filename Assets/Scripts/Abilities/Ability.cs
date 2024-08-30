@@ -10,6 +10,7 @@ public abstract class Ability : ScriptableObject
     public float cooldown = 1f;
     public float currentCooldown;
 
+    public abstract void ResetStats();
     public abstract void AbilityLogic(GameObject owner, Transform target);
 
     public void TriggerAbility(GameObject owner, Transform target)

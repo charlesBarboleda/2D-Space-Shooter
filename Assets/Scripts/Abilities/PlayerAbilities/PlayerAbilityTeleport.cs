@@ -33,7 +33,7 @@ public class AbilityTeleport : Ability
         Destroy(postTPEffect, _teleportDuration);
     }
 
-    public void ResetTeleportStats()
+    public override void ResetStats()
     {
         currentCooldown = 30f;
         cooldown = 30f;

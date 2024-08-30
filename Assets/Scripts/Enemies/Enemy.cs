@@ -10,6 +10,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     [SerializeField] string _spawnAnimation;
     [SerializeField] string _deathExplosion;
+    [SerializeField]
+    AbilityHolder _abilityHolder;
     SpriteRenderer _spriteRenderer;
     List<BoxCollider2D> _colliders = new List<BoxCollider2D>();
     // Stats
@@ -36,12 +38,16 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void Update()
     {
-        if (PlayerManager.GetPlayer().playerHealth <= 0)
-        {
-            EventManager.GameOverEvent();
-        }
         if (_shouldRotate) Aim(CheckForTargets());
         Movement(CheckForTargets());
+
+
+
+        if (_abilityHolder != null)
+        {
+            UseAbility(CheckForTargets());
+            Debug.Log("Used Ability");
+        }
 
     }
     public virtual void OnEnable()
@@ -98,6 +104,14 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         _spriteRenderer.color = Color.white;
+    }
+
+    void UseAbility(Transform target)
+    {
+        foreach (Ability ability in _abilityHolder.abilities)
+        {
+            if (ability.cooldown > 0) ability.TriggerAbility(gameObject, target);
+        }
     }
 
 

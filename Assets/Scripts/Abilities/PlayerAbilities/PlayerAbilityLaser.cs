@@ -23,7 +23,7 @@ public class AbilityLaser : Ability
         laserScript.SetDamage(dps);
     }
 
-    public void ResetLaserStats()
+    public override void ResetStats()
     {
         currentCooldown = 45f;
         duration = 3f;

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7923201507555237605}
   - component: {fileID: 487570422562602341}
   - component: {fileID: 6660755644767795739}
+  - component: {fileID: -4620840067420257415}
   m_Layer: 0
   m_Name: AlienShip
   m_TagString: Enemy
@@ -460,6 +461,7 @@ MonoBehaviour:
   _currencyPrefab: []
   _spawnAnimation: LargeSpawn
   _deathExplosion: LargeExp
+  _abilityHolder: {fileID: -4620840067420257415}
   _shouldRotate: 1
   _health: 10000
   _currencyDrop: 1000
@@ -476,6 +478,21 @@ MonoBehaviour:
   _shootingAngle: 5
   _bulletLifetime: 5
   nextFireTime: 0
+--- !u!114 &-4620840067420257415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109660312004975652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472675415ca54e44db35c6088a2c1b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities:
+  - {fileID: 11400000, guid: c0a1c8b75daa63544aa7d4b54f1b721c, type: 2}
+  target: {fileID: 0}
 --- !u!1 &8701623304474090577
 GameObject:
   m_ObjectHideFlags: 0

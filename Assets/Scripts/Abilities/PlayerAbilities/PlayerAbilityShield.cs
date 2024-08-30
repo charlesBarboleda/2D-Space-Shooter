@@ -27,7 +27,7 @@ public class AbilityShield : Ability
 
     }
 
-    public void ResetShieldStats()
+    public override void ResetStats()
     {
         currentCooldown = 30f;
         _shieldSize = 1.5f;

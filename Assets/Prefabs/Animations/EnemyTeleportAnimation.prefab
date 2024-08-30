@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &496487244642044111
 Transform:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.03482156, b: 0, a: 0.2}
+      maxColor: {r: 1, g: 0.07439016, b: 0, a: 0.5019608}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5123,7 +5123,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.17578784, b: 0, a: 1}
+      maxColor: {r: 0.3686667, g: 0.6350982, b: 0.79, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9761,7 +9761,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6106239336652604396}
   - component: {fileID: 309908454665629572}
-  - component: {fileID: 8046494458099325881}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -9846,29 +9845,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &8046494458099325881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6566140890059193891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!1 &9027514048236820045
 GameObject:
   m_ObjectHideFlags: 0
@@ -9885,7 +9861,7 @@ GameObject:
   - component: {fileID: 5439319608139103219}
   - component: {fileID: -5347313912937845682}
   m_Layer: 0
-  m_Name: TeleportAnimationPrefab
+  m_Name: EnemyTeleportAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9901,7 +9877,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 8.885417, y: 8.885417, z: 8.885417}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 496487245117367873}
@@ -10098,8 +10074,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 1, g: 0.009663359, b: 0, a: 0.6}
-      maxColor: {r: 1, g: 0.1325237, b: 0, a: 1}
+      minColor: {r: 1, g: 0.17436117, b: 0, a: 0.6}
+      maxColor: {r: 1, g: 0.17307776, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

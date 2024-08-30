@@ -29,26 +29,7 @@ public class AbilityHolder : MonoBehaviour
     {
         foreach (Ability ability in abilities)
         {
-            if (ability is AbilityTeleport)
-            {
-                // Reset the teleport stats using type casting
-                ((AbilityTeleport)ability).ResetTeleportStats();
-            }
-            else if (ability is AbilityShield)
-            {
-                // Reset the shield stats using type casting
-                ((AbilityShield)ability).ResetShieldStats();
-            }
-            else if (ability is AbilityTurrets)
-            {
-                // Reset the turret stats using type casting
-                ((AbilityTurrets)ability).ResetTurretStats();
-            }
-            else if (ability is AbilityLaser)
-            {
-                // Reset the laser stats using type casting
-                ((AbilityLaser)ability).ResetLaserStats();
-            }
+            ability.ResetStats();
         }
     }
 
