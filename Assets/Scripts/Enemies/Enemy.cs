@@ -19,6 +19,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _speed;
     [SerializeField] float _stopDistance;
     bool _rotateClockwise = false;
+    List<GameObject> exhaustChildren = new List<GameObject>();
+
 
     // Camera Shake
     [SerializeField] float _cameraShakeMagnitude;
@@ -29,6 +31,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<BoxCollider2D>());
+        exhaustChildren.AddRange(GameObject.FindGameObjectsWithTag("Exhaust"));
     }
 
     public virtual void Update()
@@ -43,6 +46,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     }
     public virtual void OnEnable()
     {
+        exhaustChildren.ForEach(child => child.SetActive(true));
         _colliders.ForEach(collider => collider.enabled = true);
         _spriteRenderer.enabled = true;
         IncreaseStatsPerLevel();
@@ -94,15 +98,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         _spriteRenderer.color = Color.white;
-    }
-    private void StopAllParticleSystems()
-    {
-        // Stop particle systems on the enemy and its children
-        ParticleSystem[] particleSystems = GetComponentsInChildren<ParticleSystem>();
-        foreach (ParticleSystem ps in particleSystems)
-        {
-            ps.Stop();
-        }
     }
 
 
@@ -158,15 +153,30 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     private IEnumerator HandleDeath()
     {
-        StopAllParticleSystems();
-        _colliders.ForEach(collider => collider.enabled = false); // Disable all colliders
-        _spriteRenderer.enabled = false; // Hide the ship's sprite immediately
+        // Stops the exhaust particles
+        exhaustChildren.ForEach(child => child.SetActive(false));
+
+        // Disable all colliders
+        _colliders.ForEach(collider => collider.enabled = false);
+
+        // Hide the ship's sprite
+        _spriteRenderer.enabled = false;
+
+        // Shake the camera
         CameraShake.Instance.TriggerShake(_cameraShakeMagnitude, _cameraShakeDuration);
+
+        // Notify Objectives Manager
         ObjectivesManager.Instance.DestroyShip();
+
+        // Notify Event Manager
         EventManager.EnemyDestroyedEvent(gameObject);
+
+        // Create the debris
         GameObject currency = Instantiate(_currencyPrefab[Random.Range(0, _currencyPrefab.Count)], transform.position, transform.rotation);
         currency.GetComponent<CurrencyDrop>().SetCurrency(_currencyDrop);
-        yield return StartCoroutine(DeathAnimation()); // Wait for the death animation to complete
+
+        // Wait for the death animation to complete
+        yield return StartCoroutine(DeathAnimation());
 
         // After the animation is done, deactivate the entire GameObject
         gameObject.SetActive(false);
