@@ -38,9 +38,16 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy") || other.CompareTag("Player") || other.CompareTag("CargoShip"))
         {
-            GameObject bulletHitEffect = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
-
+            StartCoroutine(BulletHitEffect());
         }
+    }
+
+    IEnumerator BulletHitEffect()
+    {
+        GameObject bulletHitEffect = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(1f);
+        bulletHitEffect.SetActive(false);
     }
 
 

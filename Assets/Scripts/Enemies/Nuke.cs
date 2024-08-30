@@ -5,7 +5,6 @@ using UnityEngine;
 public class NukeEnemy : Enemy
 {
     [SerializeField] private GameObject nukePrefab;
-    private Transform playerTarget;
     private bool isOnCoolDown;
     [SerializeField] private float attackRange;
     [SerializeField] private float coolDownTime = 1f;
@@ -20,9 +19,9 @@ public class NukeEnemy : Enemy
     public override void Update()
     {
         base.Update();
-        if (playerTarget == null) return;
-        if (Vector2.Distance(transform.position, playerTarget.position) < attackRange)
+        if (Vector2.Distance(transform.position, CheckForTargets().position) < attackRange)
         {
+            Debug.Log("In range to attack");
             Attack();
         }
 
@@ -30,8 +29,10 @@ public class NukeEnemy : Enemy
 
     private void ShootNuke()
     {
+        Debug.Log("Checking if on cooldown");
         if (!isOnCoolDown)
         {
+            Debug.Log("Shooting Nuke");
             GameObject nuke = Instantiate(nukePrefab, CheckForTargets().position, Quaternion.identity);
             Destroy(nuke, 6f);
             isOnCoolDown = true;
@@ -48,7 +49,7 @@ public class NukeEnemy : Enemy
 
     public override void Attack()
     {
-
+        Debug.Log("Attacking");
         ShootNuke();
 
     }
