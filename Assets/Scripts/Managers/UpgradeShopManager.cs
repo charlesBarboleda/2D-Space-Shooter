@@ -16,6 +16,8 @@ public class UpgradeShopManager : MonoBehaviour
     public static ShipSpeedUpgrade shipSpeedUpgrade;
     public static PickUpUpgrade pickUpUpgrade;
     [SerializeField] GameObject upgradeShopPanel;
+    [SerializeField] AudioClip upgradeSound;
+    AudioSource _audioSource;
 
 
     void Awake()
@@ -39,7 +41,7 @@ public class UpgradeShopManager : MonoBehaviour
 
     void Start()
     {
-
+        _audioSource = GetComponent<AudioSource>();
         InitializeUpgrades();
 
     }
@@ -118,36 +120,49 @@ public class UpgradeShopManager : MonoBehaviour
     public void ApplyHealthUpgrade()
     {
         healthUpgrade.ApplyUpgrade();
+        _audioSource.PlayOneShot(upgradeSound);
     }
 
     public void ApplyBulletDamageUpgrade()
     {
         bulletDamageUpgrade.ApplyUpgrade();
+        _audioSource.PlayOneShot(upgradeSound);
+
     }
 
     public void ApplyFireRateUpgrade()
     {
         fireRateUpgrade.ApplyUpgrade();
+        _audioSource.PlayOneShot(upgradeSound);
+
     }
 
     public void ApplyBulletSpeedUpgrade()
     {
         bulletSpeedUpgrade.ApplyUpgrade();
+        _audioSource.PlayOneShot(upgradeSound);
+
     }
 
     public void ApplyExtraBulletUpgrade()
     {
         extraBulletUpgrade.ApplyUpgrade();
+        _audioSource.PlayOneShot(upgradeSound);
+
     }
 
     public void ApplyShipSpeedUpgrade()
     {
         shipSpeedUpgrade.ApplyUpgrade();
+        _audioSource.PlayOneShot(upgradeSound);
+
     }
 
     public void ApplyPickUpUpgrade()
     {
         pickUpUpgrade.ApplyUpgrade();
+        _audioSource.PlayOneShot(upgradeSound);
+
     }
 
 
