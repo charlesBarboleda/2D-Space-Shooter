@@ -23,6 +23,7 @@ public class AbilityLaser : Ability
         }
         ownerAudioSource.clip = _audioClip;
         ownerAudioSource.loop = true;
+        ownerAudioSource.volume = 1f;
         ownerAudioSource.Play();
         Laser.transform.rotation = owner.transform.rotation;
         Laser.transform.SetParent(owner.transform);

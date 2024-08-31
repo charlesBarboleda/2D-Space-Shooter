@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class SkillTreeManager : MonoBehaviour
 {
-
+    AudioSource _audioSource;
+    [SerializeField] AudioClip _buttonPressedAudioClip;
     public static SkillTreeManager Instance;
     public SkillTree skillTree;
     private List<Action> skillEffects;
@@ -31,6 +32,7 @@ public class SkillTreeManager : MonoBehaviour
     void Start()
     {
         abilityHolder = PlayerManager.GetPlayer().GetComponent<AbilityHolder>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void ResetSkillTree()
@@ -68,6 +70,8 @@ public class SkillTreeManager : MonoBehaviour
                 }
             }
         }
+        _audioSource.PlayOneShot(_buttonPressedAudioClip);
+
     }
     public void ApplyReducedEffect()
     {
