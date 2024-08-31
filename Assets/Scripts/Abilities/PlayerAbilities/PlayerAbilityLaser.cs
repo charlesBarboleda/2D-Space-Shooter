@@ -31,6 +31,4 @@ public class AbilityLaser : Ability
         cooldown = 45f;
         isUnlocked = false;
     }
-
-
 }

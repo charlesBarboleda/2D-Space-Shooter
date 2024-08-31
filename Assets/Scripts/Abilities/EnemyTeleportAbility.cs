@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -15,18 +16,27 @@ public class EnemyTeleport : Ability
 
     public async Task Teleport(GameObject owner, Transform target)
     {
+        SetStatsBasedOnLevel();
         GameObject tpEffect = ObjectPooler.Instance.SpawnFromPool("EnemyTeleport", owner.transform.position, Quaternion.identity);
-        owner.transform.position = target.position + new Vector3(Random.Range(-teleportDistance, teleportDistance), Random.Range(-teleportDistance, teleportDistance), 0);
-        Debug.Log("Teleported to " + target.position + new Vector3(Random.Range(-teleportDistance, teleportDistance), Random.Range(-teleportDistance, teleportDistance), 0));
+        owner.transform.position = target.position + new Vector3(UnityEngine.Random.Range(-teleportDistance, teleportDistance), UnityEngine.Random.Range(-teleportDistance, teleportDistance), 0);
         GameObject tpEffectPost = ObjectPooler.Instance.SpawnFromPool("EnemyTeleport", owner.transform.position, Quaternion.identity);
-        await Task.Delay(1000);
+        await Task.Delay(2000);
         tpEffect.SetActive(false);
         tpEffectPost.SetActive(false);
     }
 
+    public void SetStatsBasedOnLevel()
+    {
+        teleportDistance += GameManager.Instance.Level() * 0.5f;
+        teleportDistance = Mathf.Min(teleportDistance, 100f);
+        Debug.Log("Teleport distance: " + teleportDistance);
+        cooldown -= GameManager.Instance.Level() * 0.1f;
+        cooldown = Mathf.Max(cooldown, 3f);
+    }
+
     public override void ResetStats()
     {
-        teleportDistance = 65f;
+        teleportDistance = 50f;
         cooldown = 10f;
     }
 }

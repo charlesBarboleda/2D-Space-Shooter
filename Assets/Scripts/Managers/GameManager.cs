@@ -50,10 +50,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // if (PlayerManager.GetPlayer().playerHealth <= 0)
-        // {
-        //     EventManager.GameOverEvent();
-        // }
+        // On-going round
         if (_isRound)
         {
             if (_enemies.Count == 0 && !_isRoundOver && _canTriggerNextRound && _enemiesToSpawnLeft == 1)
@@ -67,6 +64,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        // Preperation stage before next round
         if (_isCountdown)
         {
 
@@ -196,7 +194,6 @@ public class GameManager : MonoBehaviour
 
         if (UnityEngine.Random.value <= 0.33f) _isObjectiveRound = true;
         else _isObjectiveRound = false;
-        Debug.Log(_isObjectiveRound);
 
         if (_isObjectiveRound && _level >= 10)
         {

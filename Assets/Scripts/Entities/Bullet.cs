@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") || other.CompareTag("Player") || other.CompareTag("CargoShip"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Player") || other.CompareTag("CargoShip") || other.CompareTag("VIPBuilding"))
         {
             StartCoroutine(BulletHitEffect());
         }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class ShooterEnemy : Enemy
 {
     [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] AudioClip _shootSound;
+    [SerializeField] AudioSource _audioSource;
     [SerializeField] public float aimRange;
 
     [SerializeField] float _fireRate;
@@ -44,6 +46,9 @@ public class ShooterEnemy : Enemy
         for (int i = 0; i < bulletAmount; i++)
         {
             GameObject enemyBullet = ObjectPooler.Instance.SpawnFromPool("Bullet", position, Quaternion.identity);
+
+            // Play the shoot sound
+            _audioSource.PlayOneShot(_shootSound);
 
             // Calculate the spread angle for each bullet
             float angle = startAngle + i * _shootingAngle;
