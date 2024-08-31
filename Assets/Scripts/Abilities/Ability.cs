@@ -9,7 +9,8 @@ public abstract class Ability : ScriptableObject
     public Sprite icon;
     public float cooldown = 1f;
     public float currentCooldown;
-
+    [SerializeField] protected AudioSource _audioSource;
+    [SerializeField] protected AudioClip _audioClip;
     public abstract void ResetStats();
     public abstract void AbilityLogic(GameObject owner, Transform target);
 

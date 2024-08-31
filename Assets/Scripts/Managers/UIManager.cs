@@ -81,7 +81,6 @@ public class UIManager : MonoBehaviour
             {
                 if (ability is AbilityLaser)
                 {
-                    Debug.Log(ability.currentCooldown);
                     laserIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
                 }
                 if (ability is AbilityShield)
