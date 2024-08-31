@@ -151,8 +151,7 @@ MonoBehaviour:
   _cameraShakeMagnitude: 0.5
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 8628277228142460474}
-  _shootSound: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   aimRange: 20
   _fireRate: 0.5
   _bulletSpeed: 10
@@ -243,9 +242,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 60a0682fbc82bd244bdae3f3445cfd17, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0

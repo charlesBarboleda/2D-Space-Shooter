@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ShooterEnemy : Enemy
 {
+    AudioSource _audioSource;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] AudioClip _shootSound;
-    [SerializeField] AudioSource _audioSource;
     [SerializeField] public float aimRange;
 
     [SerializeField] float _fireRate;
@@ -18,6 +18,10 @@ public class ShooterEnemy : Enemy
 
     public float nextFireTime;
 
+    public virtual void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
     public override void Update()
     {
         base.Update();
@@ -28,6 +32,15 @@ public class ShooterEnemy : Enemy
         if (distanceToTarget < aimRange && Time.time >= nextFireTime)
         {
             Attack();
+            // Play the shoot sound
+            if (_shootSound != null)
+            {
+                _audioSource.PlayOneShot(_shootSound);
+            }
+            else
+            {
+                Debug.LogWarning("Attempted to play a shooting sound, but no AudioClip is assigned to _shootSound.");
+            }
         }
     }
 
@@ -46,10 +59,6 @@ public class ShooterEnemy : Enemy
         for (int i = 0; i < bulletAmount; i++)
         {
             GameObject enemyBullet = ObjectPooler.Instance.SpawnFromPool("Bullet", position, Quaternion.identity);
-
-            // Play the shoot sound
-            _audioSource.PlayOneShot(_shootSound);
-
             // Calculate the spread angle for each bullet
             float angle = startAngle + i * _shootingAngle;
             Vector3 bulletDirection = Quaternion.Euler(0, 0, angle) * targetDirection;
