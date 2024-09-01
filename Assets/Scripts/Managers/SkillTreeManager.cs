@@ -672,7 +672,7 @@ public class SkillTreeManager : MonoBehaviour
                 // Increase the player's max HP by 25
                 float increaseHealth = 25f;
                 PlayerManager.GetPlayer().playerHealth += increaseHealth;
-                PlayerManager.GetPlayer().maxHealth *= increaseHealth;
+                PlayerManager.GetPlayer().maxHealth += increaseHealth;
                 Debug.Log("Health Increased by " + increaseHealth);
             },
             () =>
