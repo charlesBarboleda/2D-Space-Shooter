@@ -20,6 +20,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _currencyDrop;
     [SerializeField] float _speed;
     [SerializeField] float _stopDistance;
+    public bool isDead;
     bool _rotateClockwise = false;
     List<GameObject> exhaustChildren = new List<GameObject>();
 
@@ -167,6 +168,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     private IEnumerator HandleDeath()
     {
+        isDead = true;
         // Stops the exhaust particles
         exhaustChildren.ForEach(child => child.SetActive(false));
 

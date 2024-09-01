@@ -42,7 +42,6 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
 
-
         RegenHealth();
     }
 
@@ -58,6 +57,7 @@ public class PlayerManager : MonoBehaviour
         {
             _healingParticles.Play();
             playerHealth += healthRegen * Time.deltaTime;
+            Debug.Log("Regening health to " + playerHealth + " / " + maxHealth);
             healthBar.SetHealth();
         }
         else _healingParticles.Stop();

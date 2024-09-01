@@ -29,17 +29,20 @@ public class ShooterEnemy : Enemy
         Transform target = CheckForTargets();
         float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
-        if (distanceToTarget < aimRange && Time.time >= nextFireTime)
+        if (!isDead)
         {
-            Attack();
-            // Play the shoot sound
-            if (_shootSound != null)
+            if (distanceToTarget < aimRange && Time.time >= nextFireTime)
             {
-                _audioSource.PlayOneShot(_shootSound);
-            }
-            else
-            {
-                Debug.LogWarning("Attempted to play a shooting sound, but no AudioClip is assigned to _shootSound.");
+                Attack();
+                // Play the shoot sound
+                if (_shootSound != null)
+                {
+                    _audioSource.PlayOneShot(_shootSound);
+                }
+                else
+                {
+                    Debug.LogWarning("Attempted to play a shooting sound, but no AudioClip is assigned to _shootSound.");
+                }
             }
         }
     }

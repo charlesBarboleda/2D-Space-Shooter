@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     int _enemiesToSpawnLeft;
     int _level;
 
+    [Header("Round States")]
     float _roundCountdown;
     bool _isRoundOver;
     bool _isCountdown;
@@ -198,8 +199,8 @@ public class GameManager : MonoBehaviour
         if (_isObjectiveRound && _level >= 10)
         {
             // Set the objectives for the round based on the _level of the game
-            if (_level >= 10 && _level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, 1);
-            else if (_level >= 30 && _level < 70) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.midObjectives, UnityEngine.Random.Range(1, 3));
+            if (_level >= 5 && _level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, 1);
+            else if (_level >= 40 && _level < 70) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.midObjectives, UnityEngine.Random.Range(1, 3));
             else ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.lateObjectives, UnityEngine.Random.Range(1, 4));
 
         }

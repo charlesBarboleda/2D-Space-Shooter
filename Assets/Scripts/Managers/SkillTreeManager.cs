@@ -293,8 +293,8 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's regeneration by 1 hp/s
-                float increaseHealthRegen = 1f;
+                // Increase the player's regeneration by 5 hp/s
+                float increaseHealthRegen = 5f;
                 PlayerManager.GetPlayer().healthRegen += increaseHealthRegen;
                 Debug.Log("Health Regen Increased by " + increaseHealthRegen + "HP/s");
                 increaseHealthRegen++;
@@ -363,6 +363,7 @@ public class SkillTreeManager : MonoBehaviour
                 // Increase the player's max HP by 5%
                 float increaseHealth = 1.05f;
                 PlayerManager.GetPlayer().playerHealth *= increaseHealth;
+                PlayerManager.GetPlayer().maxHealth *= increaseHealth;
                 Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
             }
         };
@@ -671,6 +672,7 @@ public class SkillTreeManager : MonoBehaviour
                 // Increase the player's max HP by 25
                 float increaseHealth = 25f;
                 PlayerManager.GetPlayer().playerHealth += increaseHealth;
+                PlayerManager.GetPlayer().maxHealth *= increaseHealth;
                 Debug.Log("Health Increased by " + increaseHealth);
             },
             () =>
