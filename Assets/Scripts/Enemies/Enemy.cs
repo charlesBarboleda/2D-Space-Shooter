@@ -56,6 +56,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         exhaustChildren.ForEach(child => child.SetActive(true));
         _colliders.ForEach(collider => collider.enabled = true);
         _spriteRenderer.enabled = true;
+        isDead = false;
         IncreaseStatsPerLevel();
         StartCoroutine(StartSpawnAnimationWithDelay());
 
@@ -140,7 +141,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual Transform CheckForTargets()
     {
         // Check for enemies using circle raycast
-        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 75f, 1 << LayerMask.NameToLayer("Player"));
+        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 100f, LayerMask.GetMask("Player"));
         foreach (Collider2D targets in hitTargets)
         {
             if (targets.CompareTag("CargoShip") || targets.CompareTag("VIPBuilding"))

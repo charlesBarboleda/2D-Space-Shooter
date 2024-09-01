@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8848c9287306e244a6eae73dc9e0374, type: 3}
   m_Name: DestroySpawnerBossEarly 3
   m_EditorClassIdentifier: 
-  objectiveDescription: 
-  isCompleted: 0
-  isActive: 0
+  objectiveDescription: Objective Completed
+  isCompleted: 1
+  isActive: 1
   isFailed: 0
   reward: 200
-  _requiredKills: 0
-  _currentKills: 0
+  _requiredKills: 2
+  _currentKills: 2
   _timeToDestroy: 300
-  _elapsedTime: 0
+  _elapsedTime: 284.5745
   _bossNames:
   - Carrier
   - Carrier
@@ -41,7 +41,7 @@ MonoBehaviour:
   _spawnerNames:
   - SmallShip
   - MeleeShip
-  _health: 250
+  _health: 500
   _spawnRate: 5
   _currencyDrop: 100
   _speed: 10

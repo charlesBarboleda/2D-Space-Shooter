@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7546859524840370713}
   - component: {fileID: 7493312091775896553}
   - component: {fileID: 6918635866412690468}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VIPBuilding 3
   m_TagString: VIPBuilding
   m_Icon: {fileID: 0}
@@ -244,6 +244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FriendlyTurret (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8431713627137354366, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -329,6 +333,10 @@ PrefabInstance:
     - target: {fileID: 8431713627137354366, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
       propertyPath: m_Name
       value: FriendlyTurret (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431713627137354366, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -416,6 +424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FriendlyTurret
       objectReference: {fileID: 0}
+    - target: {fileID: 8431713627137354366, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -501,6 +513,10 @@ PrefabInstance:
     - target: {fileID: 8431713627137354366, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
       propertyPath: m_Name
       value: FriendlyTurret (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8431713627137354366, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
