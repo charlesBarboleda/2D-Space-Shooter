@@ -193,13 +193,13 @@ public class GameManager : MonoBehaviour
         ObjectivesUIManager.Instance.ClearObjectivesUI();
 
 
-        if (UnityEngine.Random.value <= 0.33f) _isObjectiveRound = true;
+        if (UnityEngine.Random.value <= 0.5f) _isObjectiveRound = true;
         else _isObjectiveRound = false;
 
-        if (_isObjectiveRound && _level >= 10)
+        if (_isObjectiveRound && _level >= 5)
         {
             // Set the objectives for the round based on the _level of the game
-            if (_level >= 5 && _level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, 1);
+            if (_level >= 5 && _level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, UnityEngine.Random.Range(1, 3));
             else if (_level >= 40 && _level < 70) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.midObjectives, UnityEngine.Random.Range(1, 3));
             else ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.lateObjectives, UnityEngine.Random.Range(1, 4));
 

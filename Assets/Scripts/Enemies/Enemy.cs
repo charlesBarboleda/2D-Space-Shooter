@@ -57,7 +57,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _colliders.ForEach(collider => collider.enabled = true);
         _spriteRenderer.enabled = true;
         IncreaseStatsPerLevel();
-        StartCoroutine(SpawnAnimation());
+        StartCoroutine(StartSpawnAnimationWithDelay());
+
 
         // Randomly choose rotation direction
         if (Random.value < 0.5) _rotateClockwise = true;
@@ -98,6 +99,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         GameObject obj = ObjectPooler.Instance.SpawnFromPool(_spawnAnimation, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(1f);
         obj.SetActive(false);
+    }
+    IEnumerator StartSpawnAnimationWithDelay()
+    {
+        yield return new WaitForEndOfFrame();
+        StartCoroutine(SpawnAnimation());
     }
 
     IEnumerator FlashRed()

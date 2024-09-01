@@ -6,8 +6,9 @@ public class EnemyTurret : ShooterEnemy
 {
     [SerializeField] BossShooter _bossShooterEnemy;
 
-    public void Start()
+    public override void Start()
     {
+        base.Start();
         if (_bossShooterEnemy != null) InitializeTurrets();
     }
     // Update is called once per frame

@@ -49,6 +49,7 @@ public class ShooterEnemy : Enemy
 
     public override void Attack()
     {
+        Debug.Log($"nextFireTime: {nextFireTime}, Time.time: {Time.time}, _fireRate: {_fireRate}");
         FireBullets(_amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
     }
 
@@ -58,6 +59,7 @@ public class ShooterEnemy : Enemy
         Vector3 targetPosition = target.transform.position;
         Vector3 targetDirection = targetPosition - position;
         float startAngle = -_amountOfBullets / 2.0f * _shootingAngle;
+
 
         for (int i = 0; i < bulletAmount; i++)
         {

@@ -57,7 +57,6 @@ public class PlayerManager : MonoBehaviour
         {
             _healingParticles.Play();
             playerHealth += healthRegen * Time.deltaTime;
-            Debug.Log("Regening health to " + playerHealth + " / " + maxHealth);
             healthBar.SetHealth();
         }
         else _healingParticles.Stop();
@@ -72,7 +71,6 @@ public class PlayerManager : MonoBehaviour
         {
             if (hit.CompareTag("Debris"))
             {
-
                 hit.GetComponent<CurrencyDrop>().isAttracted = true;
             }
         }

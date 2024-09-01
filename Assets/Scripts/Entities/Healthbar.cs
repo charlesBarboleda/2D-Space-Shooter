@@ -18,7 +18,5 @@ public class HealthBar : MonoBehaviour
     public void SetHealth()
     {
         image.fillAmount = PlayerManager.GetPlayer().playerHealth / PlayerManager.GetPlayer().maxHealth;
-
-
     }
 }

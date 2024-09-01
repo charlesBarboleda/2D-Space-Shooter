@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 27.69526, y: 27.69526, z: 27.69526}
+  m_LocalScale: {x: 18.295212, y: 18.295212, z: 18.295212}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4619307667702722166}
@@ -176,6 +176,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6127135564744558911}
     m_Modifications:
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: aimRange
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _bulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _bulletDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _amountOfBullets
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7742219350932295475, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.8790268
@@ -238,6 +262,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6127135564744558911}
     m_Modifications:
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: aimRange
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _bulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _bulletDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _amountOfBullets
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7742219350932295475, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -300,6 +348,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6127135564744558911}
     m_Modifications:
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: aimRange
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _bulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _bulletDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _amountOfBullets
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7742219350932295475, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -362,6 +434,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6127135564744558911}
     m_Modifications:
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: aimRange
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _bulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _bulletDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _amountOfBullets
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7742219350932295475, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.89392555
