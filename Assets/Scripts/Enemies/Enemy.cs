@@ -7,7 +7,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] List<GameObject> _currencyPrefab;
 
     // Animations & References
-
+    public AudioSource audioSource;
+    [SerializeField] AudioClip _abilitySound;
+    [SerializeField] AudioClip _spawnSound;
     [SerializeField] string _spawnAnimation;
     [SerializeField] string _deathExplosion;
     [SerializeField]
@@ -30,8 +32,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _cameraShakeDuration;
     public abstract void Attack();
 
-    public virtual void Awake()
+    public virtual void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<BoxCollider2D>());
         exhaustChildren.AddRange(GameObject.FindGameObjectsWithTag("Exhaust"));
@@ -42,21 +45,20 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (_shouldRotate) Aim(CheckForTargets());
         Movement(CheckForTargets());
 
-
-
         if (_abilityHolder != null)
         {
-            UseAbility(CheckForTargets());
-            Debug.Log("Used Ability");
+            UseAbility(CheckForTargets()); // Uses the ability if the cooldown is 0
+            audioSource.PlayOneShot(_abilitySound);
         }
 
     }
     public virtual void OnEnable()
     {
-        exhaustChildren.ForEach(child => child.SetActive(true));
-        _colliders.ForEach(collider => collider.enabled = true);
-        _spriteRenderer.enabled = true;
-        isDead = false;
+        if (exhaustChildren.Count > 0) exhaustChildren.ForEach(child => child.SetActive(true));
+        if (_colliders.Count > 0) _colliders.ForEach(collider => collider.enabled = true);
+        if (_spriteRenderer != null) _spriteRenderer.enabled = true;
+        if (isDead) isDead = false;
+
         IncreaseStatsPerLevel();
         StartCoroutine(StartSpawnAnimationWithDelay());
 
@@ -97,6 +99,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     IEnumerator SpawnAnimation()
     {
+        audioSource.PlayOneShot(_spawnSound);
         GameObject obj = ObjectPooler.Instance.SpawnFromPool(_spawnAnimation, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(1f);
         obj.SetActive(false);

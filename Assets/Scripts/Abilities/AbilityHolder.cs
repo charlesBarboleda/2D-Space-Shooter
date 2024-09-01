@@ -13,6 +13,7 @@ public class AbilityHolder : MonoBehaviour
     void Start()
     {
         ResetAbilityStats();
+
     }
     // Update is called once per frame
     void Update()

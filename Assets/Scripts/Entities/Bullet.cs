@@ -6,12 +6,19 @@ public class Bullet : MonoBehaviour
     public float BulletSpeed { get; private set; }
     public float BulletDamage { get; private set; }
     public float BulletLifetime { get; set; } = 5f;
+    GameObject _bulletHitEffect;
 
     private Rigidbody2D rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    void OnEnable()
+    {
+        if (_bulletHitEffect != null) _bulletHitEffect.SetActive(false);
+
     }
 
     public void Initialize(float speed, float damage, float lifetime, Vector3 direction)
@@ -38,16 +45,14 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Enemy") || other.CompareTag("Player") || other.CompareTag("CargoShip") || other.CompareTag("VIPBuilding"))
         {
-            StartCoroutine(BulletHitEffect());
+
+            BulletHitEffect();
         }
     }
 
-    IEnumerator BulletHitEffect()
+    void BulletHitEffect()
     {
-        GameObject bulletHitEffect = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
-
-        yield return new WaitForSeconds(1f);
-        bulletHitEffect.SetActive(false);
+        _bulletHitEffect = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
     }
 
 

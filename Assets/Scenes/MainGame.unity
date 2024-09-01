@@ -61012,7 +61012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfSpawnPoints: 360
-  spawnPointRadius: 200
+  spawnPointRadius: 20
 --- !u!4 &2081907818
 Transform:
   m_ObjectHideFlags: 0
@@ -64812,11 +64812,11 @@ PrefabInstance:
       objectReference: {fileID: 26455043}
     - target: {fileID: 8292041261341139144, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: maxHealth
-      value: 100000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8292041261341139144, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: playerHealth
-      value: 100000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8408294533076223621, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_LocalPosition.x

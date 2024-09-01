@@ -12,8 +12,9 @@ public class SpawnerEnemy : Enemy
     [SerializeField] float _spawnRate = 3f;
     public List<String> ships = new List<string>();
 
-    public void Start()
+    public override void Start()
     {
+        base.Start();
         Attack();
     }
 

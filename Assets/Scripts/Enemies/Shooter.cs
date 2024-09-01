@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShooterEnemy : Enemy
 {
-    AudioSource _audioSource;
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] AudioClip _shootSound;
     [SerializeField] public float aimRange;
@@ -18,10 +17,6 @@ public class ShooterEnemy : Enemy
 
     public float nextFireTime;
 
-    public virtual void Start()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }
     public override void Update()
     {
         base.Update();
@@ -37,7 +32,7 @@ public class ShooterEnemy : Enemy
                 // Play the shoot sound
                 if (_shootSound != null)
                 {
-                    _audioSource.PlayOneShot(_shootSound);
+                    audioSource.PlayOneShot(_shootSound);
                 }
                 else
                 {
@@ -49,7 +44,6 @@ public class ShooterEnemy : Enemy
 
     public override void Attack()
     {
-        Debug.Log($"nextFireTime: {nextFireTime}, Time.time: {Time.time}, _fireRate: {_fireRate}");
         FireBullets(_amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
     }
 
