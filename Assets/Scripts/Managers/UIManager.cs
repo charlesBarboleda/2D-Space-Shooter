@@ -115,16 +115,19 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
+
         // Calculate the width of the currency text
         float textWidth = currencyText.preferredWidth;
 
-        // Calculate additional padding based on the number of characters in the text
-        float additionalPadding = currencyText.text.Length * additionalPaddingPerCharacter;
+        // Clamp the text width to a minimum value
+        textWidth = Mathf.Max(textWidth, 335f);
 
-        // Update the position of the currency icon with extra padding
+        // Apply a small buffer
+        float buffer = 5f; // Adjust this value as needed
+
+        // Update the position of the currency icon
         RectTransform iconRectTransform = currencyIcon.GetComponent<RectTransform>();
-        iconRectTransform.anchoredPosition = new Vector2(textWidth + iconOffset + additionalPadding, iconRectTransform.anchoredPosition.y);
-
+        iconRectTransform.anchoredPosition = new Vector2(textWidth + iconOffset + buffer, iconRectTransform.anchoredPosition.y);
     }
 
 
