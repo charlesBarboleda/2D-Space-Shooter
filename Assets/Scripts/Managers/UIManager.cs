@@ -17,9 +17,6 @@ public class UIManager : MonoBehaviour
     [Header("Game UI Elements")]
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI highscoreText;
-    [SerializeField] Image currencyIcon;
-    public float iconOffset = 10f; // Base offset between text and icon
-    public float additionalPaddingPerCharacter = 1f; // Extra padding per character
 
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] GameObject gameOverPanel;
@@ -50,9 +47,6 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-
-        iconOffset = -280f;
-        additionalPaddingPerCharacter = 1f;
 
         abilityHolder = PlayerManager.GetPlayer().GetComponent<AbilityHolder>();
 
@@ -116,18 +110,6 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        // Calculate the width of the currency text
-        float textWidth = currencyText.preferredWidth;
-
-        // Clamp the text width to a minimum value
-        textWidth = Mathf.Max(textWidth, 335f);
-
-        // Apply a small buffer
-        float buffer = 5f; // Adjust this value as needed
-
-        // Update the position of the currency icon
-        RectTransform iconRectTransform = currencyIcon.GetComponent<RectTransform>();
-        iconRectTransform.anchoredPosition = new Vector2(textWidth + iconOffset + buffer, iconRectTransform.anchoredPosition.y);
     }
 
 
