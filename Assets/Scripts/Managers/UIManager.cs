@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI highscoreText;
 
+    [SerializeField] Image currencyIcon;
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] GameObject gameOverPanel;
 
@@ -110,6 +111,8 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        // Set the currency icon position based on the currency text width
+        currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
     }
 
 

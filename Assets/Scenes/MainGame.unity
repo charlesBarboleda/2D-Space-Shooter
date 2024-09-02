@@ -3211,7 +3211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -398.75543, y: -198.35002}
+  m_AnchoredPosition: {x: -430.4539, y: -198.35}
   m_SizeDelta: {x: -606.9444, y: -396.69998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &72360804
@@ -18728,7 +18728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 83.38521, y: 5.44396}
+  m_AnchoredPosition: {x: 218.9604, y: 0.39975786}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &552793842
@@ -70823,7 +70823,7 @@ PrefabInstance:
       objectReference: {fileID: 2135412027}
     - target: {fileID: 8292041261341139144, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: currency
-      value: 10000
+      value: 99999
       objectReference: {fileID: 0}
     - target: {fileID: 8292041261341139144, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: healthBar
