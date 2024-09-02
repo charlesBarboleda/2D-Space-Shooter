@@ -62,6 +62,8 @@ public class GameManager : MonoBehaviour
         // On-going round
         if (_isRound)
         {
+            Debug.Log("Enemies Count: " + _enemies.Count);
+            Debug.Log("Enemies To Spawn Left: " + _enemiesToSpawnLeft);
             if (_enemies.Count == 0 && !_isRoundOver && _canTriggerNextRound && _enemiesToSpawnLeft == 1)
             {
 
@@ -86,6 +88,11 @@ public class GameManager : MonoBehaviour
                 RoundStart();
             }
         }
+
+        if (_enemies.Count == 1)
+        {
+            Debug.Log(_enemies);
+        }
     }
     IEnumerator NextRoundCooldown()
     {
@@ -100,14 +107,16 @@ public class GameManager : MonoBehaviour
 
     void OnEnable()
     {
+        EventManager.OnEnemyDestroyed += RemoveEnemy;
         EventManager.OnRoundStart += RoundStart;
         EventManager.OnNextRound += NextRound;
         EventManager.OnGameOver += UpdateHighScore;
 
     }
 
-    void OnDestroy()
+    void OnDisable()
     {
+        EventManager.OnEnemyDestroyed -= RemoveEnemy;
         EventManager.OnNextRound -= NextRound;
         EventManager.OnRoundStart -= RoundStart;
         EventManager.OnGameOver -= UpdateHighScore;
@@ -149,7 +158,6 @@ public class GameManager : MonoBehaviour
     public void RemoveEnemy(GameObject enemy)
     {
         _enemies.Remove(enemy);
-        _enemiesToSpawnLeft--;
     }
 
     public float GetRoundCountdown()
@@ -204,13 +212,13 @@ public class GameManager : MonoBehaviour
         ObjectivesUIManager.Instance.ClearObjectivesUI();
 
 
-        if (UnityEngine.Random.value <= 0.5f) _isObjectiveRound = true;
+        if (UnityEngine.Random.value <= 0.99f) _isObjectiveRound = true;
         else _isObjectiveRound = false;
 
-        if (_isObjectiveRound && _level >= 5)
+        if (_isObjectiveRound)
         {
             // Set the objectives for the round based on the _level of the game
-            if (_level >= 5 && _level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, UnityEngine.Random.Range(1, 3));
+            if (_level >= 1 && _level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, UnityEngine.Random.Range(1, 3));
             else if (_level >= 40 && _level < 70) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.midObjectives, UnityEngine.Random.Range(1, 3));
             else ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.lateObjectives, UnityEngine.Random.Range(1, 4));
 
