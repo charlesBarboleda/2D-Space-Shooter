@@ -48,7 +48,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (_abilityHolder != null)
         {
             UseAbility(CheckForTargets()); // Uses the ability if the cooldown is 0
-            audioSource.PlayOneShot(_abilitySound);
+            if (_abilitySound != null) audioSource.PlayOneShot(_abilitySound);
         }
 
     }
