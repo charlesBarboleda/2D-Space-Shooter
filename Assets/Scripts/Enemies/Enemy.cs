@@ -38,10 +38,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<BoxCollider2D>());
         exhaustChildren.AddRange(GameObject.FindGameObjectsWithTag("Exhaust"));
+
+
     }
 
     public virtual void Update()
     {
+
         if (_shouldRotate) Aim(CheckForTargets());
         Movement(CheckForTargets());
 
@@ -52,6 +55,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
 
     }
+
     public virtual void OnEnable()
     {
         if (exhaustChildren.Count > 0) exhaustChildren.ForEach(child => child.SetActive(true));

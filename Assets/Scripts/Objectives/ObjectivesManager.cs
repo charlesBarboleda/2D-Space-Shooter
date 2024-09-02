@@ -102,6 +102,5 @@ public class ObjectivesManager : MonoBehaviour
         {
             objective.InitObjective();
         }
-        Debug.Log("Objectives Initialized");
     }
 }

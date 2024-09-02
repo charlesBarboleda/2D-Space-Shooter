@@ -49,6 +49,14 @@ public class GameManager : MonoBehaviour
         _isCountdown = true;
     }
 
+    void UpdateHighScore()
+    {
+        if (_level > PlayerPrefs.GetFloat("HighScore"))
+        {
+            PlayerPrefs.SetFloat("HighScore", _level);
+        }
+    }
+
     void Update()
     {
         // On-going round
@@ -94,12 +102,15 @@ public class GameManager : MonoBehaviour
     {
         EventManager.OnRoundStart += RoundStart;
         EventManager.OnNextRound += NextRound;
+        EventManager.OnGameOver += UpdateHighScore;
+
     }
 
     void OnDestroy()
     {
         EventManager.OnNextRound -= NextRound;
         EventManager.OnRoundStart -= RoundStart;
+        EventManager.OnGameOver -= UpdateHighScore;
 
     }
 

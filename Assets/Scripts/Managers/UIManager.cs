@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthUpgradeText, damageUpgradeText, fireRateUpgradeText, bulletSpeedUpgradeText, extraBulletUpgradeText, speedUpgradeText, pickUpUpgradeText;
     [SerializeField] TextMeshProUGUI healthCost, damageCost, fireRateCost, bulletSpeedCost, extraBulletCost, speedCost, pickUpCost;
 
-    [Header("UI Elements")]
+    [Header("Game UI Elements")]
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI highscoreText;
     [SerializeField] TextMeshProUGUI currencyText;
@@ -47,22 +47,35 @@ public class UIManager : MonoBehaviour
     void Start()
     {
 
-        EventManager.OnNextRound += UpdateRoundText;
-        EventManager.OnGameOver += GameOver;
-        PlayerManager.OnCurrencyChange += UpdateCurrencyText;
+
+
         abilityHolder = PlayerManager.GetPlayer().GetComponent<AbilityHolder>();
 
+    }
+    void OnEnable()
 
-
+    {
+        PlayerManager.OnCurrencyChange += UpdateCurrencyText;
+        EventManager.OnNextRound += UpdateRoundText;
+        EventManager.OnGameOver += GameOver;
+        EventManager.OnGameOver += UpdateHighScoreUI;
 
     }
 
-    void OnDestroy()
+    void OnDisable()
     {
+        PlayerManager.OnCurrencyChange -= UpdateCurrencyText;
         EventManager.OnNextRound -= UpdateRoundText;
         EventManager.OnGameOver -= GameOver;
-        PlayerManager.OnCurrencyChange -= UpdateCurrencyText;
+        EventManager.OnGameOver -= UpdateHighScoreUI;
     }
+
+    void UpdateHighScoreUI()
+    {
+        highscoreText.text = $"Highscore: Level {PlayerPrefs.GetFloat("HighScore") + 1}";
+    }
+
+
 
     void Update()
     {
