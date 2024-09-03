@@ -9,7 +9,8 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] int numberOfSpawnPoints = 360;
     [SerializeField] int spawnPointRadius = 30;
     List<string> shipNamesEarly = new List<string> { "SmallShip", "MediumShip", "MeleeShip", "MediumShip2" };
-
+    List<string> shipNamesMid = new List<string> { "SmallShip", "MediumShip", "MediumShip2", "MeleeShip", "LargeShip", "NukeShip" };
+    List<string> shipNamesLate = new List<string> { "MediumShip", "MediumShip2", "LargeShip", "NukeShip", "NukeShip2" };
     void Awake()
     {
         if (Instance == null)
@@ -66,7 +67,18 @@ public class SpawnerManager : MonoBehaviour
             // Calculate the random position on the circle
             Vector3 spawnPosition = new Vector3(Mathf.Cos(randomAngle) * spawnPointRadius, Mathf.Sin(randomAngle) * spawnPointRadius, 0);
 
-            GameObject ship = SpawnShip(shipNamesEarly[Random.Range(0, shipNamesEarly.Count)], spawnPosition, Quaternion.identity);
+            if (GameManager.Instance.Level() <= 20)
+            {
+                GameObject ship = SpawnShip(shipNamesEarly[Random.Range(0, shipNamesEarly.Count)], spawnPosition, Quaternion.identity);
+            }
+            else if (GameManager.Instance.Level() > 20 && GameManager.Instance.Level() <= 60)
+            {
+                GameObject ship = SpawnShip(shipNamesMid[Random.Range(0, shipNamesMid.Count)], spawnPosition, Quaternion.identity);
+            }
+            else
+            {
+                GameObject ship = SpawnShip(shipNamesLate[Random.Range(0, shipNamesLate.Count)], spawnPosition, Quaternion.identity);
+            }
             yield return new WaitForSeconds(GameManager.Instance.GetSpawnRate());
         }
 

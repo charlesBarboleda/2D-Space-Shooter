@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] List<GameObject> _currencyPrefab;
 
     // Animations & References
+    Animator _anim;
     public AudioSource audioSource;
     [SerializeField] AudioClip _abilitySound;
     [SerializeField] AudioClip _spawnSound;
@@ -34,6 +35,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void Start()
     {
+        _anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<BoxCollider2D>());
@@ -53,6 +55,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             UseAbility(CheckForTargets()); // Uses the ability if the cooldown is 0
             if (_abilitySound != null) audioSource.PlayOneShot(_abilitySound);
         }
+
 
     }
 
@@ -182,6 +185,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     private IEnumerator HandleDeath()
     {
+
         isDead = true;
         // Stops the exhaust particles
         exhaustChildren.ForEach(child => child.SetActive(false));
