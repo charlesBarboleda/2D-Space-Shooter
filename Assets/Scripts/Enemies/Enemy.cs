@@ -7,7 +7,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] List<GameObject> _currencyPrefab;
 
     // Animations & References
-    Animator _anim;
     public AudioSource audioSource;
     [SerializeField] AudioClip _abilitySound;
     [SerializeField] AudioClip _spawnSound;
@@ -35,7 +34,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void Start()
     {
-        _anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<BoxCollider2D>());

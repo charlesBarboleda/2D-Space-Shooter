@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currencyPrefab: []
+  audioSource: {fileID: 0}
+  _abilitySound: {fileID: 0}
+  _spawnSound: {fileID: 0}
   _spawnAnimation: 
   _deathExplosion: 
   _abilityHolder: {fileID: 0}
@@ -108,11 +111,11 @@ MonoBehaviour:
   _currencyDrop: 0
   _speed: 0
   _stopDistance: 0
+  isDead: 0
   _cameraShakeMagnitude: 0
   _cameraShakeDuration: 0
   bulletSpawnPoint: {fileID: 0}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
-  _audioSource: {fileID: -1632575951528345661}
   aimRange: 40
   _fireRate: 0
   _bulletSpeed: 0
@@ -223,7 +226,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
