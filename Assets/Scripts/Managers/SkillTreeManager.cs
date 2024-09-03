@@ -8,7 +8,6 @@ public class SkillTreeManager : MonoBehaviour
 {
     AudioSource _audioSource;
     [SerializeField] AudioClip _buttonPressedAudioClip;
-    [SerializeField] AudioClip _skillLockedPressedAudioClip;
     public static SkillTreeManager Instance;
     public SkillTree skillTree;
     private List<Action> skillEffects;
@@ -71,11 +70,7 @@ public class SkillTreeManager : MonoBehaviour
                 }
             }
         }
-        // Play the sound if the player has the skill unlocked
-        if (skillTree.skills.Find(skill => skill.skillName == skillName).isUnlocked) _audioSource.PlayOneShot(_buttonPressedAudioClip);
-
-        // Play the sound if the player has the skill locked
-        if (!skillTree.skills.Find(skill => skill.skillName == skillName).isUnlocked) _audioSource.PlayOneShot(_skillLockedPressedAudioClip);
+        _audioSource.PlayOneShot(_buttonPressedAudioClip);
 
     }
     public void ApplyReducedEffect()

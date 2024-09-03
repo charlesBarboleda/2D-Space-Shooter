@@ -19,14 +19,7 @@ public class ObjectPooler : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
     }
 
     void Start()
@@ -65,6 +58,5 @@ public class ObjectPooler : MonoBehaviour
 
         return objectToSpawn;
     }
-
 }
 

@@ -73,14 +73,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     }
 
-    public virtual void OnDisable()
-    {
-        if (!isDead)
-        {
-            GameManager.Instance.RemoveEnemy(gameObject);
-        }
-    }
-
     public virtual void Movement(Transform target)
     {
         float distance = Vector3.Distance(target.transform.position, transform.position);
@@ -156,7 +148,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public virtual Transform CheckForTargets()
     {
         // Check for enemies using circle raycast
-        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 200f, LayerMask.GetMask("Player"));
+        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 100f, LayerMask.GetMask("Player"));
         foreach (Collider2D targets in hitTargets)
         {
             if (targets.CompareTag("CargoShip") || targets.CompareTag("VIPBuilding"))
@@ -191,9 +183,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     private IEnumerator HandleDeath()
     {
         isDead = true;
-
-        EventManager.EnemyDestroyedEvent(gameObject);
-
         // Stops the exhaust particles
         exhaustChildren.ForEach(child => child.SetActive(false));
 
@@ -210,6 +199,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         ObjectivesManager.Instance.DestroyShip();
 
         // Notify Event Manager
+        EventManager.EnemyDestroyedEvent(gameObject);
 
         // Create the debris
         GameObject currency = Instantiate(_currencyPrefab[Random.Range(0, _currencyPrefab.Count)], transform.position, transform.rotation);
@@ -234,11 +224,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         if (other.CompareTag("PlayerBullet"))
         {
-            if (!isDead)
-            {
-                TakeDamage(other.GetComponent<Bullet>().BulletDamage);
-                other.gameObject.SetActive(false);
-            }
+            TakeDamage(other.GetComponent<Bullet>().BulletDamage);
+            other.gameObject.SetActive(false);
         }
     }
 
