@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         abilityHolder = GetComponent<AbilityHolder>();
     }
-    void FixedUpdate()
+    void Update()
     {
         Movement();
         Aim();
@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
             abilityHolder.abilities[3].TriggerAbility(gameObject, abilityHolder.target);
 
         }
+
 
     }
 

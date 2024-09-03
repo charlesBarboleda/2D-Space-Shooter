@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image currencyIcon;
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject _pauseMenu;
 
     [Header("Player Abilities UI")]
     [SerializeField] Image laserIconFill, shieldIconFill, teleportIconFill, turretIconFill;
@@ -81,6 +82,7 @@ public class UIManager : MonoBehaviour
     {
         UpdateRoundText();
         UpdateCurrencyText();
+        PauseMenu();
         if (upgradeShopPanel.activeSelf)
         {
             UpdateAllUpgradeText();
@@ -88,6 +90,7 @@ public class UIManager : MonoBehaviour
 
 
 
+        // Update the ability icons fill amount based on the cooldown
         foreach (Ability ability in abilityHolder.abilities)
         {
             if (ability.isUnlocked)
@@ -115,6 +118,30 @@ public class UIManager : MonoBehaviour
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
     }
 
+    void PauseMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_pauseMenu.activeSelf)
+            {
+                _pauseMenu.SetActive(false);
+                Time.timeScale = 1;
+            }
+
+            else
+            {
+                Time.timeScale = 0;
+                _pauseMenu.SetActive(true);
+            }
+
+        }
+    }
+
+    public void UnPauseButton()
+    {
+        Time.timeScale = 1;
+        _pauseMenu.SetActive(false);
+    }
 
     // Methods for the Upgrade
     void UpdateAllUpgradeText()
