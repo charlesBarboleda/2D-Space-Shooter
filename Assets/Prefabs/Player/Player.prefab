@@ -186,7 +186,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8408294533076223621}
   - component: {fileID: 6345799238015220175}
-  - component: {fileID: 7172882641291307544}
   - component: {fileID: 7422791318041266510}
   - component: {fileID: 8292041261341139144}
   - component: {fileID: 7676815499729968480}
@@ -275,20 +274,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7172882641291307544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5239728600239547954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34661453b3f90204fb03075f301ddf7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 15
-  mainCamera: {fileID: 0}
 --- !u!61 &7422791318041266510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -351,7 +336,7 @@ MonoBehaviour:
   pickUpRadius: 2
   healthBar: {fileID: 0}
   weapon: {fileID: 8048218574253681071}
-  playerController: {fileID: 7172882641291307544}
+  playerController: {fileID: 0}
   healthRegen: 1
   playerHealth: 100
   maxHealth: 100
@@ -559,7 +544,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7172882641291307544}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
