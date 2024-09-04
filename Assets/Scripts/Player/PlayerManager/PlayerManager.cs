@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject deathEffectPrefab;
     public static PlayerManager Instance;
     public AbilityHolder abilityHolder;
+    public PlayerMovementBehaviour playerMovementBehaviour;
 
     public float pickUpRadius;
     public static event Action OnCurrencyChange;
@@ -36,6 +37,7 @@ public class PlayerManager : MonoBehaviour
     }
     void Start()
     {
+        playerMovementBehaviour = GetComponent<PlayerMovementBehaviour>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         abilityHolder = GetComponent<AbilityHolder>();
     }

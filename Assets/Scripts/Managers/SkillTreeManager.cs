@@ -235,9 +235,9 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Increase the player's speed by 10%
-                float increaseSpeed = 1.10f;
-                PlayerManager.GetPlayer().playerController.moveSpeed *= increaseSpeed;
-                Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
+                float _increaseSpeed = 1.10f;
+                PlayerManager.GetPlayer().playerMovementBehaviour.SetMoveSpeed(PlayerManager.GetPlayer().playerMovementBehaviour.GetMoveSpeed() *  _increaseSpeed);
+                Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };
 
@@ -250,9 +250,9 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Increase the player's speed by 8%
-                float increaseSpeed = 1.08f;
-                PlayerManager.GetPlayer().playerController.moveSpeed *= increaseSpeed;
-                Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
+                float _increaseSpeed = 1.08f;
+                PlayerManager.GetPlayer().playerMovementBehaviour.SetMoveSpeed(PlayerManager.GetPlayer().playerMovementBehaviour.GetMoveSpeed() *  _increaseSpeed);
+                Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };
 
@@ -265,9 +265,9 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Increase the player's speed by 5%
-                float increaseSpeed = 1.05f;
-                PlayerManager.GetPlayer().playerController.moveSpeed *= increaseSpeed;
-                Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
+                float _increaseSpeed = 1.05f;
+                PlayerManager.GetPlayer().playerMovementBehaviour.SetMoveSpeed(PlayerManager.GetPlayer().playerMovementBehaviour.GetMoveSpeed() *  _increaseSpeed);
+                Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };
         ApplySkillEffect("Nimble", 100, skillEffects);
@@ -279,9 +279,9 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Increase the player's speed by 3%
-                float increaseSpeed = 1.03f;
-                PlayerManager.GetPlayer().playerController.moveSpeed *= increaseSpeed;
-                Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
+                float _increaseSpeed = 1.03f;
+                PlayerManager.GetPlayer().playerMovementBehaviour.SetMoveSpeed(PlayerManager.GetPlayer().playerMovementBehaviour.GetMoveSpeed() *  _increaseSpeed);
+                Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };
         ApplySkillEffect("Rapid", 50, skillEffects);
@@ -678,9 +678,9 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Increase the player's ship speed by 3%
-                float increaseSpeed = 1.03f;
-                PlayerManager.GetPlayer().playerController.moveSpeed *= increaseSpeed;
-                Debug.Log("Speed Increased by " + (increaseSpeed - 1) * 100 + "%");
+                float _increaseSpeed = 1.03f;
+                PlayerManager.GetPlayer().playerMovementBehaviour.SetMoveSpeed(PlayerManager.GetPlayer().playerMovementBehaviour.GetMoveSpeed() * _increaseSpeed);
+                Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };
 

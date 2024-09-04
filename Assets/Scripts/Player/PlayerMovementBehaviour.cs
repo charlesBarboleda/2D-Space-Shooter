@@ -33,4 +33,8 @@ public class PlayerMovementBehaviour : MonoBehaviour
         _rb.velocity = _moveInput.normalized * moveSpeed;
 
     }
+
+    public void SetMoveSpeed(float speed) => moveSpeed = speed;
+    public float GetMoveSpeed() => moveSpeed;
+
 }

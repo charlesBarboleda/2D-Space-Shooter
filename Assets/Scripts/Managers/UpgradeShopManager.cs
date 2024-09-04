@@ -81,7 +81,7 @@ public class UpgradeShopManager : MonoBehaviour
         );
         shipSpeedUpgrade.Initialize(
             "Increase Ship Speed",
-            $"Increase Ship Speed by {shipSpeedUpgrade.shipSpeedUpgradeAmount} km/h",
+            $"Increase Ship Speed by {shipSpeedUpgrade.GetShipSpeedUpgradeAmount()} km/h",
             50
         );
         pickUpUpgrade.Initialize(
@@ -99,7 +99,7 @@ public class UpgradeShopManager : MonoBehaviour
         UpdateDescriptionText(fireRateUpgrade, $"Decrease Fire Rate by {fireRateUpgrade.fireRateUpgradeAmount}");
         UpdateDescriptionText(bulletSpeedUpgrade, $"Increase Bullet Speed by {bulletSpeedUpgrade.bulletSpeedUpgradeAmount}");
         UpdateDescriptionText(extraBulletUpgrade, $"Increase Bullet Count by {extraBulletUpgrade.extraBulletUpgradeAmount}");
-        UpdateDescriptionText(shipSpeedUpgrade, $"Increase Ship Speed by {shipSpeedUpgrade.shipSpeedUpgradeAmount} km/h");
+        UpdateDescriptionText(shipSpeedUpgrade, $"Increase Ship Speed by {shipSpeedUpgrade.GetShipSpeedUpgradeAmount()} km/h");
         UpdateDescriptionText(pickUpUpgrade, $"Increase Pick Up Radius by {pickUpUpgrade.pickUpUpgradeAmount}");
     }
     private void UpdateDescriptionText(Upgrade upgrade, string description)

@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class ShipSpeedUpgrade : Upgrade
 {
-    public float shipSpeedUpgradeAmount = 0.1f;
+    float _shipSpeedUpgradeAmount = 0.5f;
     public override void ApplyUpgrade()
     {
         if (PlayerManager.GetPlayer().currency >= upgradeCost)
         {
             PlayerManager.GetPlayer().currency -= upgradeCost;
-            PlayerManager.GetPlayer().playerController.moveSpeed += shipSpeedUpgradeAmount;
+            PlayerManager.GetPlayer().playerMovementBehaviour.SetMoveSpeed(
+                PlayerManager.GetPlayer().playerMovementBehaviour.GetMoveSpeed() +
+                _shipSpeedUpgradeAmount
+                );
             upgradeCost += 100;
 
         }
@@ -22,5 +25,8 @@ public class ShipSpeedUpgrade : Upgrade
         this.upgradeDescription = description;
         this.upgradeCost = cost;
     }
+
+    public float GetShipSpeedUpgradeAmount() => _shipSpeedUpgradeAmount;
+
 
 }
