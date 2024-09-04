@@ -10,9 +10,14 @@ public class EventManager : MonoBehaviour
     public static event System.Action OnGameOver;
     public static event System.Action OnNextRound;
     public static event System.Action OnRoundStart;
+    public static event System.Action<float> OnCurrencyChange;
 
 
 
+    public static void CurrencyChangeEvent(float currency)
+    {
+        OnCurrencyChange?.Invoke(currency);
+    }
     public static void EnemyDestroyedEvent(GameObject enemy)
     {
         OnEnemyDestroyed?.Invoke(enemy);

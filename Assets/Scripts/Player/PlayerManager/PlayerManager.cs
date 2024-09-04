@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, IDamageable
 {
     [SerializeField] GameObject deathEffectPrefab;
     public static PlayerManager Instance;
@@ -12,10 +12,9 @@ public class PlayerManager : MonoBehaviour
 
     public float pickUpRadius;
     public static event Action OnCurrencyChange;
-    public HealthBar healthBar;
     SpriteRenderer spriteRenderer;
     public Weapon weapon;
-    public PlayerController playerController;
+    public HealthBar healthBar;
     public float healthRegen = 0f;
 
     public float playerHealth = 100f;
@@ -92,11 +91,15 @@ public class PlayerManager : MonoBehaviour
 
         if (playerHealth <= 0)
         {
-            GameObject deathEffect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
-            Destroy(deathEffect, 1f);
-            EventManager.GameOverEvent();
-            Destroy(gameObject);
+            Die();
         }
+    }
+    public void Die()
+    {
+        GameObject deathEffect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
+        Destroy(deathEffect, 1f);
+        EventManager.GameOverEvent();
+        Destroy(gameObject);
     }
 
     public void AddCurrency(float currency)
@@ -110,7 +113,7 @@ public class PlayerManager : MonoBehaviour
         OnCurrencyChange?.Invoke();
     }
 
-    public static PlayerManager GetPlayer()
+    public static PlayerManager Player()
     {
         return Instance;
     }

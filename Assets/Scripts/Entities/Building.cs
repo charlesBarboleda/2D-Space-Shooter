@@ -64,11 +64,11 @@ public class Building : MonoBehaviour, IDamageable
         }
         if (health <= 0)
         {
-            Destroy();
+            Die();
         }
     }
 
-    public void Destroy()
+    public void Die()
     {
         CameraShake.Instance.TriggerShake(5, 0.3f);
         GameManager.Instance.RemoveEnemy(gameObject);

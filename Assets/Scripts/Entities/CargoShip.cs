@@ -65,11 +65,11 @@ public class CargoShip : MonoBehaviour, IDamageable
         }
         if (_health <= 0)
         {
-            Destroy();
+            Die();
         }
     }
 
-    public void Destroy()
+    public void Die()
     {
         CameraShake.Instance.TriggerShake(5, 0.3f);
         GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);

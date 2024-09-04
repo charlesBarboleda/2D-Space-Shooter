@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
 
-        abilityHolder = PlayerManager.GetPlayer().GetComponent<AbilityHolder>();
+        abilityHolder = PlayerManager.Player().GetComponent<AbilityHolder>();
 
     }
     void OnEnable()
@@ -169,7 +169,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateCurrencyText()
     {
-        currencyText.text = $"{PlayerManager.GetPlayer().currency}";
+        currencyText.text = $"{PlayerManager.Player().currency}";
     }
 
     private void UpdateRoundText()

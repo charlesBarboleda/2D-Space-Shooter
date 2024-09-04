@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BossShooter : ShooterEnemy
 {
-    public override void Destroy()
+    public override void Die()
     {
-        base.Destroy();
+        base.Die();
         ObjectivesManager.Instance.DestroyShooterBoss();
     }
 

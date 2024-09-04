@@ -7,10 +7,10 @@ public class ExtraBulletUpgrade : Upgrade
     public int extraBulletUpgradeAmount = 1;
     public override void ApplyUpgrade()
     {
-        if (PlayerManager.GetPlayer().currency >= upgradeCost)
+        if (PlayerManager.Player().currency >= upgradeCost)
         {
-            PlayerManager.GetPlayer().currency -= upgradeCost;
-            PlayerManager.GetPlayer().weapon.amountOfBullets += extraBulletUpgradeAmount;
+            PlayerManager.Player().currency -= upgradeCost;
+            PlayerManager.Player().weapon.amountOfBullets += extraBulletUpgradeAmount;
             upgradeCost += 1000;
 
         }

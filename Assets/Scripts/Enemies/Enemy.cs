@@ -142,7 +142,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
         if (_health <= 0)
         {
-            Destroy();
+            Die();
         }
     }
 
@@ -157,7 +157,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
                 return targets.transform;
             }
         }
-        return PlayerManager.GetPlayer().transform;
+        return PlayerManager.Player().transform;
     }
 
 
@@ -175,7 +175,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     }
 
-    public virtual void Destroy()
+    public virtual void Die()
     {
         // Hide the ship visually and start the death animation coroutine
         StartCoroutine(HandleDeath());
