@@ -21,7 +21,7 @@ public class CameraShake : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject);  // Destroy this duplicate instance
         }
     }
 
