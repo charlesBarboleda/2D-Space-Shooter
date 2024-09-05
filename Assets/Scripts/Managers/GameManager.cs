@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Enemies Count: " + _enemies.Count);
             Debug.Log("Enemies To Spawn Left: " + _enemiesToSpawnLeft);
-            if (_enemies.Count == 0 && !_isRoundOver && _canTriggerNextRound && _enemiesToSpawnLeft == 1)
+            if (_enemies.Count == 0 && !_isRoundOver && _canTriggerNextRound && _enemiesToSpawnLeft == 0)
             {
 
                 _isRoundOver = true;

@@ -55,7 +55,7 @@ public class SpawnerManager : MonoBehaviour
     IEnumerator SpawnEnemiesOverTime()
     {
         int spawnCount = 0;
-        for (int i = 0; i < GameManager.Instance.GetEnemiesToSpawnTotal(); i++)
+        for (int i = 0; i <= GameManager.Instance.GetEnemiesToSpawnTotal(); i++)
         {
             spawnCount++;
             // Select a random segment between two consecutive points
