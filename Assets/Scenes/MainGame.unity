@@ -53639,7 +53639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 9999
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62bd85e3b1306ca49940fe4ce3fdec06, type: 2}
   m_sharedMaterial: {fileID: -2180101583366831769, guid: 62bd85e3b1306ca49940fe4ce3fdec06, type: 2}
@@ -70495,9 +70495,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 2135412028}
-  shakeDuration: 0
-  shakeMagnitude: 0
+  shakeDuration: 0.3
+  shakeMagnitude: 1
   dampingSpeed: 2
+  shakeDurationRemaining: 0
 --- !u!114 &2135412025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70522,7 +70523,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -73695,7 +73696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickUpType: Pickable
-  pickUpRadius: 5
+  pickUpRadius: 3
 --- !u!114 &8536485566340718441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73708,6 +73709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5236ecb7a4a5dd9499f0c7317fdfd916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currency: 0
 --- !u!114 &8536485566340718451
 MonoBehaviour:
   m_ObjectHideFlags: 0

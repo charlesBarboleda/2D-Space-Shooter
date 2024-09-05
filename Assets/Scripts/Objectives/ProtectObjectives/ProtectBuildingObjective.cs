@@ -45,7 +45,7 @@ public class ProtectBuildingObjective : Objective
 
         if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
         if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
-        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Protect the building for " + Mathf.Round(_elapsedTime) + " seconds");
+        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Protect the VIP building for " + Mathf.Round(_elapsedTime) + " seconds");
     }
     public override void CompleteObjective()
     {

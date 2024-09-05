@@ -126,7 +126,7 @@ MonoBehaviour:
   _stopDistance: 25
   isDead: 0
   _cameraShakeMagnitude: 1
-  _cameraShakeDuration: 0.3
+  _cameraShakeDuration: 0.1
   bulletSpawnPoint: {fileID: 3128259729751783214}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   aimRange: 25
@@ -401,7 +401,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 60a0682fbc82bd244bdae3f3445cfd17, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

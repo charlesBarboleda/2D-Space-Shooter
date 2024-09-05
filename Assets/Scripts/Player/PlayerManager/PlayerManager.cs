@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(-99)]
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance { get; private set; }

@@ -6,15 +6,25 @@ public class CameraFollowBehaviour : MonoBehaviour
 {
 
     [SerializeField] Camera _mainCamera;
+    Vector3 _cameraOffset = new Vector3(0, 0, -30f);
 
-    // Update is called once per frame
-    void Update()
+    // Late Update is called after Update each frame
+    void LateUpdate()
     {
         CameraFollow();
     }
 
     void CameraFollow()
     {
-        _mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, -30f);
+        Vector3 followPosition = transform.position + _cameraOffset;
+
+        // If the camera shake is active, add the shake offset
+        if (CameraShake.Instance != null && CameraShake.Instance.shakeDurationRemaining > 0)
+        {
+            followPosition += CameraShake.Instance.GetShakeOffset();
+        }
+
+        // Apply the final position to the camera
+        _mainCamera.transform.position = followPosition;
     }
 }

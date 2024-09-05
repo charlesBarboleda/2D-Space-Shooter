@@ -54,7 +54,7 @@ public class DestroySpawnerBossObjective : Objective
     {
         if (GetIsCompleted() || GetIsFailed()) return;
         if (_elapsedTime <= 0) FailedObjective();
-        if (_currentKills == _requiredKills && _elapsedTime > 0)
+        if (_currentKills <= _requiredKills && _elapsedTime > 0)
         {
             _currentKills = _requiredKills;
             CompleteObjective();

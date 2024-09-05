@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     [Header("Skill Tree")]
     [SerializeField] GameObject skillTreePanel;
 
-    AbilityHolder abilityHolder;
+    AbilityHolder _abilityHolder;
 
     void Awake()
     {
@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
 
-        abilityHolder = PlayerManager.GetInstance().AbilityHolder();
+        _abilityHolder = PlayerManager.GetInstance().AbilityHolder();
 
     }
     void OnEnable()
@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour
 
 
         // Update the ability icons fill amount based on the cooldown
-        foreach (Ability ability in abilityHolder.abilities)
+        foreach (Ability ability in _abilityHolder.abilities)
         {
             if (ability.isUnlocked)
             {
