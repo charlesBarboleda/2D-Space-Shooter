@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerAimBehaviour : MonoBehaviour
 {
+    Camera _mainCamera;
     Vector3 _mousePosition;
     Vector3 _direction;
     float _angle;
+
+    void Start()
+    {
+        _mainCamera = Camera.main;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -15,8 +22,9 @@ public class PlayerAimBehaviour : MonoBehaviour
 
     void Aim()
     {
-        // Get the world position of the mouse cursor
-        _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        // Get the world position of the mouse cursor through the main camera
+        _mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        _mousePosition.z = 0;  // Ensure the z-axis doesn't cause issues in 2D
 
         // Calculate the direction from the GameObject to the mouse position
         _direction = _mousePosition - transform.position;
