@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCurrencyBehaviour : MonoBehaviour
 {
-    [SerializeField] public float currency { get; private set; } = 0f;
+    [SerializeField] public float currency;
 
     public void SetCurrency(float amount)
     {

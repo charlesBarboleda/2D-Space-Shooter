@@ -16,6 +16,7 @@ public class CameraShake : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -35,23 +36,30 @@ public class CameraShake : MonoBehaviour
     {
         if (shakeDurationRemaining > 0)
         {
-            // Shake the camera
-            cameraTransform.localPosition = transform.position + Random.insideUnitSphere * shakeMagnitude;
+            // Generate shake offset
+            Vector3 shakeOffset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0) * shakeMagnitude;
+
+            // Apply the shake to the camera
+            cameraTransform.localPosition = initialPosition + shakeOffset;
 
             // Decrease shake duration
             shakeDurationRemaining -= Time.deltaTime * dampingSpeed;
 
-            // If shake duration is over, stop shaking
+            // If shake duration is over, reset position
             if (shakeDurationRemaining <= 0)
             {
-                shakeDurationRemaining = 0;
+                cameraTransform.localPosition = initialPosition;  // Reset camera to initial position
+                shakeDurationRemaining = 0;  // Ensure no negative value
             }
         }
     }
 
     public void TriggerShake(float magnitude, float duration)
     {
+        Debug.Log("Camera shake triggered!");
         shakeMagnitude = magnitude;
         shakeDurationRemaining = duration;
+        Debug.Log("Shake duration: " + shakeDurationRemaining);
+        Debug.Log("Shake magnitude: " + shakeMagnitude);
     }
 }

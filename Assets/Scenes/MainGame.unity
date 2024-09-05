@@ -73627,7 +73627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8502a453410a5b442ae6387601301330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 60
+  moveSpeed: 20
 --- !u!114 &8536485566340718436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73677,8 +73677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91daebed910d3664fa29aa9d4fa39e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
-  currentHealth: 1000
+  maxHealth: 100
+  currentHealth: 100
   healthRegenRate: 1
   _healingParticles: {fileID: 462833273931406142}
   _deathExplosionPrefab: {fileID: 162584487599433031, guid: f5d5e961a93b8134fb1a55b03bdc517a, type: 3}
@@ -73695,7 +73695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pickUpType: Pickable
-  pickUpRadius: 30
+  pickUpRadius: 5
 --- !u!114 &8536485566340718441
 MonoBehaviour:
   m_ObjectHideFlags: 0

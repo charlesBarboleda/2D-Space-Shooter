@@ -26,7 +26,6 @@ public class PlayerManager : MonoBehaviour
         _movement = GetComponent<PlayerMovementBehaviour>();
         _health = GetComponent<PlayerHealthBehaviour>();
         _currency = GetComponent<PlayerCurrencyBehaviour>();
-        SetCurrency(999999f);
     }
 
     void SetSingleton()
