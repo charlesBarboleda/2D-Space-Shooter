@@ -1364,8 +1364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Material: {fileID: 2100000, guid: 68c9648bd3a60e84aa02e78ffc729dff, type: 2}
+  m_Color: {r: 1, g: 0, b: 0.028076172, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -73677,8 +73677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91daebed910d3664fa29aa9d4fa39e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 99999
-  currentHealth: 99999
+  maxHealth: 1000
+  currentHealth: 1000
   healthRegenRate: 1
   _healingParticles: {fileID: 462833273931406142}
   _deathExplosionPrefab: {fileID: 162584487599433031, guid: f5d5e961a93b8134fb1a55b03bdc517a, type: 3}

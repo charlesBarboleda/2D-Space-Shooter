@@ -13,6 +13,7 @@ public class HealthBar : MonoBehaviour
     }
     public void UpdateHealth()
     {
-        image.fillAmount = PlayerManager.GetInstance().CurrentHealth() / PlayerManager.GetInstance().MaxHealth();
+        image.fillAmount = Mathf.Lerp(image.fillAmount, PlayerManager.GetInstance().CurrentHealth() / PlayerManager.GetInstance().MaxHealth(), 0.1f);
+
     }
 }
