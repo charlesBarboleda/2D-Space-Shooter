@@ -35,6 +35,6 @@ public class PlayerMovementBehaviour : MonoBehaviour
     }
 
     public void SetMoveSpeed(float speed) => moveSpeed = speed;
-    public float GetMoveSpeed() => moveSpeed;
+    public float MoveSpeed() => moveSpeed;
 
 }

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityHolderManager : MonoBehaviour
+public class PlayerAbilityHolderManager : MonoBehaviour
 {
-    public static AbilityHolderManager Instance;
-    AbilityHolder abilityHolder;
+    public static PlayerAbilityHolderManager Instance;
+    AbilityHolder _abilityHolder;
     void Awake()
     {
         if (Instance == null)
@@ -20,7 +20,7 @@ public class AbilityHolderManager : MonoBehaviour
     }
     void Start()
     {
-        abilityHolder = PlayerManager.Player().GetComponent<AbilityHolder>();
+        _abilityHolder = PlayerManager.GetInstance().AbilityHolder();
     }
 
     public void UnlockSkill(Ability ability)

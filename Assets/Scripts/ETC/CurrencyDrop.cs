@@ -22,7 +22,7 @@ public class CurrencyDrop : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             PlayerManager player = other.GetComponent<PlayerManager>();
-            player.AddCurrency(currencyWorth);
+            player.SetCurrency(player.Currency() + currencyWorth);
             Destroy(gameObject);
 
         }
@@ -35,7 +35,7 @@ public class CurrencyDrop : MonoBehaviour
 
     private void MoveTowardsPlayer()
     {
-        Vector2 playerPosition = PlayerManager.Player().transform.position;
+        Vector2 playerPosition = PlayerManager.GetInstance().transform.position;
         transform.position = Vector2.MoveTowards(transform.position, playerPosition, maxSpeed * Time.deltaTime);
     }
 }

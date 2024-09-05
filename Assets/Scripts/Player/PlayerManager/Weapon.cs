@@ -17,6 +17,15 @@ public class Weapon : MonoBehaviour
     bool isFiring = false;
     Coroutine firingCoroutine;
 
+    public Weapon(float fireRate, float bulletSpeed, float bulletDamage, int amountOfBullets, float shootingAngle)
+    {
+        this.fireRate = fireRate;
+        this.bulletSpeed = bulletSpeed;
+        this.bulletDamage = bulletDamage;
+        this.amountOfBullets = amountOfBullets;
+        this.shootingAngle = shootingAngle;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButton(0) && !isFiring)

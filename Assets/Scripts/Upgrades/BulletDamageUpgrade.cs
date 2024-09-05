@@ -7,10 +7,10 @@ public class BulletDamageUpgrade : Upgrade
     public int bulletDamageUpgradeAmount = 5;
     public override void ApplyUpgrade()
     {
-        if (PlayerManager.Player().currency >= upgradeCost)
+        if (PlayerManager.GetInstance().Currency() >= upgradeCost)
         {
-            PlayerManager.Player().currency -= upgradeCost;
-            PlayerManager.Player().weapon.bulletDamage += bulletDamageUpgradeAmount;
+            PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() - upgradeCost);
+            PlayerManager.GetInstance().Weapon().bulletDamage += bulletDamageUpgradeAmount;
             upgradeCost += 50;
 
         }

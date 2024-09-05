@@ -31,7 +31,7 @@ public class SkillTreeManager : MonoBehaviour
     }
     void Start()
     {
-        abilityHolder = PlayerManager.Player().GetComponent<AbilityHolder>();
+        abilityHolder = PlayerManager.GetInstance().AbilityHolder();
         _audioSource = GetComponent<AudioSource>();
     }
 
@@ -53,9 +53,9 @@ public class SkillTreeManager : MonoBehaviour
     {
         foreach (Skill skill in skillTree.skills)
         {
-            if (skill.skillName == skillName && PlayerManager.Player().currency >= skill.cost && skill.skillLevel < skill.maxSkillLevel && ArePreqsMet(skill))
+            if (skill.skillName == skillName && PlayerManager.GetInstance().Currency() >= skill.cost && skill.skillLevel < skill.maxSkillLevel && ArePreqsMet(skill))
             {
-                PlayerManager.Player().currency -= skill.cost;
+                PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() - skill.cost);
                 skill.skillLevel++;
                 skill.cost += costIncrement;
 
@@ -140,7 +140,7 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Unlock the Shield ability
-                AbilityHolderManager.Instance.UnlockSkill(PlayerManager.Player().abilityHolder.abilities.Find(ability => ability is AbilityShield));
+                PlayerAbilityHolderManager.Instance.UnlockSkill(PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityShield));
                 UIManager.Instance.shieldPanel.SetActive(true);
                 Debug.Log("Shield Ability Unlocked");
             },
@@ -219,7 +219,7 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Unlock the Teleport ability
-                AbilityHolderManager.Instance.UnlockSkill(PlayerManager.Player().abilityHolder.abilities.Find(ability => ability is AbilityTeleport));
+                PlayerAbilityHolderManager.Instance.UnlockSkill(PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityTeleport));
                 UIManager.Instance.teleportPanel.SetActive(true);
                 Debug.Log("Teleport Ability Unlocked");
             },
@@ -236,7 +236,8 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's speed by 10%
                 float _increaseSpeed = 1.10f;
-                PlayerManager.Player().playerMovementBehaviour.SetMoveSpeed(PlayerManager.Player().playerMovementBehaviour.GetMoveSpeed() *  _increaseSpeed);
+                                PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
+
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };
@@ -251,7 +252,8 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's speed by 8%
                 float _increaseSpeed = 1.08f;
-                PlayerManager.Player().playerMovementBehaviour.SetMoveSpeed(PlayerManager.Player().playerMovementBehaviour.GetMoveSpeed() *  _increaseSpeed);
+                                PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
+
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };
@@ -266,7 +268,8 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's speed by 5%
                 float _increaseSpeed = 1.05f;
-                PlayerManager.Player().playerMovementBehaviour.SetMoveSpeed(PlayerManager.Player().playerMovementBehaviour.GetMoveSpeed() *  _increaseSpeed);
+                PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
+
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };
@@ -280,7 +283,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's speed by 3%
                 float _increaseSpeed = 1.03f;
-                PlayerManager.Player().playerMovementBehaviour.SetMoveSpeed(PlayerManager.Player().playerMovementBehaviour.GetMoveSpeed() *  _increaseSpeed);
+                PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };
@@ -295,7 +298,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's regeneration by 5 hp/s
                 float increaseHealthRegen = 5f;
-                PlayerManager.Player().healthRegen += increaseHealthRegen;
+                PlayerManager.GetInstance().SetHealthRegenRate(PlayerManager.GetInstance().HealthRegenRate() + increaseHealthRegen);
                 Debug.Log("Health Regen Increased by " + increaseHealthRegen + "HP/s");
                 increaseHealthRegen++;
             }
@@ -311,8 +314,8 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's max HP by 12%
                 float increaseHealth = 1.12f;
-                PlayerManager.Player().playerHealth *= increaseHealth;
-              PlayerManager.Player().maxHealth *= increaseHealth;
+               PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().CurrentHealth() * increaseHealth);
+                PlayerManager.GetInstance().SetMaxHealth(PlayerManager.GetInstance().MaxHealth() * increaseHealth);
 
                 Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
             }
@@ -328,8 +331,8 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's max HP by 10%
                 float increaseHealth = 1.1f;
-                PlayerManager.Player().playerHealth *= increaseHealth;
-                PlayerManager.Player().maxHealth *= increaseHealth;
+PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().CurrentHealth() * increaseHealth);
+                PlayerManager.GetInstance().SetMaxHealth(PlayerManager.GetInstance().MaxHealth() * increaseHealth);
 
                 Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
             }
@@ -345,8 +348,8 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's max HP by 7%
                 float increaseHealth = 1.07f;
-                PlayerManager.Player().playerHealth *= increaseHealth;
-                PlayerManager.Player().maxHealth *= increaseHealth;
+PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().CurrentHealth() * increaseHealth);
+                PlayerManager.GetInstance().SetMaxHealth(PlayerManager.GetInstance().MaxHealth() * increaseHealth);
                 Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
             }
         };
@@ -362,8 +365,8 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's max HP by 5%
                 float increaseHealth = 1.05f;
-                PlayerManager.Player().playerHealth *= increaseHealth;
-                PlayerManager.Player().maxHealth *= increaseHealth;
+                PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().CurrentHealth() * increaseHealth);
+                PlayerManager.GetInstance().SetMaxHealth(PlayerManager.GetInstance().MaxHealth() * increaseHealth);
                 Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
             }
         };
@@ -377,7 +380,7 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Increase the player's turret count by 2
-                PlayerManager.Player().GetComponent<TurretManager>().SpawnTurrets();
+                PlayerManager.GetInstance().GetComponent<TurretManager>().SpawnTurrets();
                 Debug.Log("Turret Count Increased by 2");
             }
         };
@@ -391,12 +394,12 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Unlock the Turret ability
-                AbilityHolderManager.Instance.UnlockSkill(PlayerManager.Player().abilityHolder.abilities.Find(ability => ability is AbilityTurrets));
+                PlayerAbilityHolderManager.Instance.UnlockSkill(PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityTurrets));
                 UIManager.Instance.turretPanel.SetActive(true);
                 Debug.Log("Turret Ability Unlocked");
 
                 // Increase the player's turret count by 2
-                PlayerManager.Player().GetComponent<TurretManager>().SpawnTurrets();
+                PlayerManager.GetInstance().GetComponent<TurretManager>().SpawnTurrets();
             },
         };
 
@@ -410,7 +413,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Decrease the player's turret's fire rate by 7%
                 float decreaseFireRate = 0.93f;
-                PlayerManager.Player().GetComponent<TurretManager>().SetTurretFireRate(PlayerManager.Player().GetComponent<TurretManager>().GetTurretFireRate() * decreaseFireRate);
+                PlayerManager.GetInstance().GetComponent<TurretManager>().SetTurretFireRate(PlayerManager.GetInstance().GetComponent<TurretManager>().GetTurretFireRate() * decreaseFireRate);
                 Debug.Log("Turret Fire Rate Decreased by 7%");
             }
         };
@@ -424,7 +427,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's turret damage by 10%  
                 float increaseDamage = 1.1f;
-                PlayerManager.Player().GetComponent<TurretManager>().SetTurretDamage(PlayerManager.Player().GetComponent<TurretManager>().GetTurretDamage() * increaseDamage);
+                PlayerManager.GetInstance().GetComponent<TurretManager>().SetTurretDamage(PlayerManager.GetInstance().GetComponent<TurretManager>().GetTurretDamage() * increaseDamage);
                 Debug.Log("Turret Damage Increased by 10%");
 
             }
@@ -440,7 +443,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's bullet count by 3
                 int bulletIncrease = 3;
-                PlayerManager.Player().weapon.amountOfBullets += bulletIncrease;
+                PlayerManager.GetInstance().Weapon().amountOfBullets += bulletIncrease;
                 Debug.Log("Bullet Count Increased by " + bulletIncrease + " Bullets");
             }
         };
@@ -455,7 +458,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Decrease the player's fire rate by 10%
                 float decreaseFireRate = 0.90f;
-                PlayerManager.Player().weapon.fireRate *= decreaseFireRate;
+                PlayerManager.GetInstance().Weapon().fireRate *= decreaseFireRate;
                 Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
             }
         };
@@ -470,7 +473,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Decrease the player's fire rate by 5%
                 float decreaseFireRate = 0.95f;
-                PlayerManager.Player().weapon.fireRate *= decreaseFireRate;
+                PlayerManager.GetInstance().Weapon().fireRate *= decreaseFireRate;
                 Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
             }
         };
@@ -485,7 +488,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Decrease the player's fire rate by 5%
                 float decreaseFireRate = 0.95f;
-                PlayerManager.Player().weapon.fireRate *= decreaseFireRate;
+                PlayerManager.GetInstance().Weapon().fireRate *= decreaseFireRate;
                 Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
             }
         };
@@ -500,7 +503,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Decrease the player's fire rate by 3%
                 float decreaseFireRate = 0.97f;
-                PlayerManager.Player().weapon.fireRate *= decreaseFireRate;
+                PlayerManager.GetInstance().Weapon().fireRate *= decreaseFireRate;
                 Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
             }
         };
@@ -562,7 +565,7 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Unlock the Laser ability
-                AbilityHolderManager.Instance.UnlockSkill(PlayerManager.Player().abilityHolder.abilities.Find(ability => ability is AbilityLaser));
+                PlayerAbilityHolderManager.Instance.UnlockSkill(PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityLaser));
                 UIManager.Instance.laserPanel.SetActive(true);
                 Debug.Log("Laser Ability Unlocked");
             },
@@ -578,7 +581,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's bullet damage by 10%
                 float increaseDamage = 1.10f;
-                PlayerManager.Player().weapon.bulletDamage *= increaseDamage;
+                PlayerManager.GetInstance().Weapon().bulletDamage *= increaseDamage;
                 Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
             },
         };
@@ -594,7 +597,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's bullet count by 3
                 int bulletIncrease = 3;
-                PlayerManager.Player().weapon.amountOfBullets += bulletIncrease;
+                PlayerManager.GetInstance().Weapon().amountOfBullets += bulletIncrease;
                 Debug.Log("Bullet Count Increased by " + bulletIncrease + " Bullets");
             },
         };
@@ -609,7 +612,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's bullet damage by 10%
                 float increaseDamage = 1.10f;
-                PlayerManager.Player().weapon.bulletDamage *= increaseDamage;
+                PlayerManager.GetInstance().Weapon().bulletDamage *= increaseDamage;
                 Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
             },
         };
@@ -625,7 +628,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's bullet damage by 10%
                 float increaseDamage = 1.10f;
-                PlayerManager.Player().weapon.bulletDamage *= increaseDamage;
+                PlayerManager.GetInstance().Weapon().bulletDamage *= increaseDamage;
                 Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
             },
         };
@@ -641,7 +644,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's bullet damage by 5%
                 float increaseDamage = 1.05f;
-                PlayerManager.Player().weapon.bulletDamage *= increaseDamage;
+                PlayerManager.GetInstance().Weapon().bulletDamage *= increaseDamage;
                 Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
             }
         };
@@ -657,29 +660,30 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's bullet damage by 3%
                 float increaseDamage = 1.03f;
-                PlayerManager.Player().weapon.bulletDamage *= increaseDamage;
+                PlayerManager.GetInstance().Weapon().bulletDamage *= increaseDamage;
                 Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
             },
             () =>
             {
                 // Decrease the player's fire rate by 3%
                 float decreaseFireRate = 0.97f;
-                PlayerManager.Player().weapon.fireRate *= decreaseFireRate;
+                PlayerManager.GetInstance().Weapon().fireRate *= decreaseFireRate;
                 Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
             },
             () =>
             {
                 // Increase the player's max HP by 25
                 float increaseHealth = 25f;
-                PlayerManager.Player().playerHealth += increaseHealth;
-                PlayerManager.Player().maxHealth += increaseHealth;
+                PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().CurrentHealth() + increaseHealth);
+                PlayerManager.GetInstance().SetMaxHealth(PlayerManager.GetInstance().MaxHealth() + increaseHealth);
+
                 Debug.Log("Health Increased by " + increaseHealth);
             },
             () =>
             {
                 // Increase the player's ship speed by 3%
                 float _increaseSpeed = 1.03f;
-                PlayerManager.Player().playerMovementBehaviour.SetMoveSpeed(PlayerManager.Player().playerMovementBehaviour.GetMoveSpeed() * _increaseSpeed);
+                PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() * _increaseSpeed);
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };

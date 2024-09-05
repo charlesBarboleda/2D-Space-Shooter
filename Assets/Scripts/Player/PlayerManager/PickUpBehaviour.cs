@@ -2,31 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpBehaviour
+public class PickUpBehaviour : MonoBehaviour
 {
-    public float pickUpRadius { get; private set; }
+    [SerializeField] string _pickUpType;
+    [SerializeField] public float pickUpRadius = 2f;
+    float _attractionSpeed { get; set; } = 50f;
 
-    public PickUpBehaviour(float pickUpRadius)
+    // Update is called once per frame
+    void Update()
     {
-        this.pickUpRadius = pickUpRadius;
+        PickUpLogic();
     }
 
-    void PickUpItems(Vector2 position)
+    void PickUpLogic()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(position, pickUpRadius, LayerMask.GetMask("Pickable"));
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, pickUpRadius, LayerMask.GetMask("Pickable"));
 
         // Iterate over each collider and trigger attraction
         foreach (Collider2D hit in hits)
         {
-            if (hit.CompareTag("Pickable"))
-                if (hit.GetComponent<CurrencyDrop>() != null)
-                    hit.GetComponent<CurrencyDrop>().isAttracted = true;
-
+            if (hit.CompareTag(_pickUpType))
+            {
+                hit.GetComponent<CurrencyDrop>().maxSpeed = _attractionSpeed;
+                hit.GetComponent<CurrencyDrop>().isAttracted = true;
+            }
         }
     }
 
-    public void SetPickUpRadius(float radius)
-    {
-        pickUpRadius = radius;
-    }
+    public float PickUpRadius() => pickUpRadius;
+    public float SetPickUpRadius(float newRadius) => pickUpRadius = newRadius;
+
 }

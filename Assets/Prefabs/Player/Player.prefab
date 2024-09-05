@@ -187,7 +187,6 @@ GameObject:
   - component: {fileID: 8408294533076223621}
   - component: {fileID: 6345799238015220175}
   - component: {fileID: 7422791318041266510}
-  - component: {fileID: 8292041261341139144}
   - component: {fileID: 7676815499729968480}
   - component: {fileID: 7573661992567814207}
   - component: {fileID: 3312028033626456625}
@@ -319,29 +318,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.6716805, y: 2.7452579}
   m_EdgeRadius: 0
---- !u!114 &8292041261341139144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5239728600239547954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec0508c36576ab498b8cfecc0bd7a66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathEffectPrefab: {fileID: 2433282508537954060, guid: 2f587ee9264b993408e470cf0e6079d5, type: 3}
-  abilityHolder: {fileID: 8144410556971869979}
-  pickUpRadius: 2
-  healthBar: {fileID: 0}
-  weapon: {fileID: 8048218574253681071}
-  playerController: {fileID: 0}
-  healthRegen: 1
-  playerHealth: 100
-  maxHealth: 100
-  currency: 0
-  _healingParticles: {fileID: 8961970791081992322}
 --- !u!50 &7676815499729968480
 Rigidbody2D:
   serializedVersion: 4
@@ -5693,10 +5669,5 @@ PrefabInstance:
 --- !u!4 &5598477354208181611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8144037599045065202, guid: 1245b8d2997d5b34fb1637be70a7eb05, type: 3}
-  m_PrefabInstance: {fileID: 4374304146575336601}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8961970791081992322 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4678103677468820507, guid: 1245b8d2997d5b34fb1637be70a7eb05, type: 3}
   m_PrefabInstance: {fileID: 4374304146575336601}
   m_PrefabAsset: {fileID: 0}

@@ -1,136 +1,94 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour, IDamageable
+public class PlayerManager : MonoBehaviour
 {
-    [SerializeField] GameObject deathEffectPrefab;
-    public static PlayerManager Instance;
-    public AbilityHolder abilityHolder;
-    public PlayerMovementBehaviour playerMovementBehaviour;
+    public static PlayerManager Instance { get; private set; }
 
-    public float pickUpRadius;
-    public static event Action OnCurrencyChange;
-    SpriteRenderer spriteRenderer;
-    public Weapon weapon;
-    public HealthBar healthBar;
-    public float healthRegen = 0f;
+    PlayerHealthBehaviour _health;
+    PlayerCurrencyBehaviour _currency;
+    PlayerMovementBehaviour _movement;
+    AbilityHolder _abilityHolder;
+    PickUpBehaviour _pickUpBehaviour;
+    Weapon _weapon;
 
-    public float playerHealth = 100f;
-    public float maxHealth = 100f;
+    private void Awake()
+    {
+        SetSingleton();
+    }
 
-    public float currency = 0f;
-    [SerializeField] ParticleSystem _healingParticles;
+    void Start()
+    {
+        _pickUpBehaviour = GetComponent<PickUpBehaviour>();
+        _abilityHolder = GetComponent<AbilityHolder>();
+        _weapon = GetComponent<Weapon>();
+        _movement = GetComponent<PlayerMovementBehaviour>();
+        _health = GetComponent<PlayerHealthBehaviour>();
+        _currency = GetComponent<PlayerCurrencyBehaviour>();
+        SetCurrency(999999f);
+    }
 
-    void Awake()
+    void SetSingleton()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(this);
-        }
-    }
-    void Start()
-    {
-        playerMovementBehaviour = GetComponent<PlayerMovementBehaviour>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        abilityHolder = GetComponent<AbilityHolder>();
-    }
-    void Update()
-    {
-
-        RegenHealth();
-    }
-
-    void FixedUpdate()
-    {
-        PickUpLogic();
-    }
-
-
-    void RegenHealth()
-    {
-        if (playerHealth < maxHealth && playerHealth > 0)
-        {
-            _healingParticles.Play();
-            playerHealth += healthRegen * Time.deltaTime;
-            healthBar.SetHealth();
-        }
-        else _healingParticles.Stop();
-    }
-
-    void PickUpLogic()
-    {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, pickUpRadius, LayerMask.GetMask("Debris"));
-
-        // Iterate over each collider and trigger attraction
-        foreach (Collider2D hit in hits)
-        {
-            if (hit.CompareTag("Debris"))
-            {
-                hit.GetComponent<CurrencyDrop>().isAttracted = true;
-            }
+            Destroy(gameObject);
         }
     }
 
-    IEnumerator FlashRed()
-    {
-        spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        spriteRenderer.color = Color.white;
-    }
-    public void TakeDamage(float damage)
-    {
-        playerHealth -= damage;
-        StartCoroutine(FlashRed());
-        healthBar.SetHealth();
 
-        if (playerHealth <= 0)
-        {
-            Die();
-        }
-    }
-    public void Die()
-    {
-        GameObject deathEffect = Instantiate(deathEffectPrefab, transform.position, Quaternion.identity);
-        Destroy(deathEffect, 1f);
-        EventManager.GameOverEvent();
-        Destroy(gameObject);
-    }
+    /// <summary>
+    /// Getters and Setters
+    /// </summary>
+    public static PlayerManager GetInstance() => Instance;
+    public AbilityHolder AbilityHolder() => _abilityHolder;
+    public Weapon Weapon() => _weapon;
+    public PickUpBehaviour PickUpBehaviour() => _pickUpBehaviour;
 
-    public void AddCurrency(float currency)
-    {
-        this.currency += currency;
-        OnCurrencyChange?.Invoke();
-    }
-    public void RemoveCurrency(float currency)
-    {
-        this.currency -= currency;
-        OnCurrencyChange?.Invoke();
-    }
+    #region Movement Management
+    public void SetMoveSpeed(float newMoveSpeed) => _movement.SetMoveSpeed(newMoveSpeed);
+    public float MoveSpeed() => _movement.MoveSpeed();
+    #endregion 
 
-    public static PlayerManager Player()
-    {
-        return Instance;
-    }
+    #region Health Management
+    public void SetMaxHealth(float newMaxHealth) => _health.SetMaxHealth(newMaxHealth);
+    public float MaxHealth() => _health.maxHealth;
 
+    public void SetCurrentHealth(float newCurrentHealth) => _health.SetCurrentHealth(newCurrentHealth);
+    public float CurrentHealth() => _health.currentHealth;
+    public void SetHealthRegenRate(float newHealthRegenRate) => _health.SetHealthRegenRate(newHealthRegenRate);
+    public float HealthRegenRate() => _health.healthRegenRate;
+    #endregion
+
+    #region Currency Management
+    public float Currency() => _currency.currency;
+    public void SetCurrency(float amount) => _currency.SetCurrency(amount);
+    #endregion
+
+    #region PickUp Management
+    public float PickUpRadius() => _pickUpBehaviour.PickUpRadius();
+    public void SetPickUpRadius(float newPickUpRadius) => _pickUpBehaviour.SetPickUpRadius(newPickUpRadius);
+    #endregion
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
-            TakeDamage(other.gameObject.GetComponent<Bullet>().BulletDamage);
+            _health.TakeDamage(other.gameObject.GetComponent<Bullet>().BulletDamage);
             other.gameObject.SetActive(false);
         }
 
         if (other.gameObject.CompareTag("Nuke"))
         {
-            TakeDamage(1000);
+            _health.TakeDamage(1000);
         }
 
     }
 }
+

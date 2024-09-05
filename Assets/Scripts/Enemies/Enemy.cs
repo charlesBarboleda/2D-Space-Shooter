@@ -157,7 +157,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
                 return targets.transform;
             }
         }
-        return PlayerManager.Player().transform;
+        return PlayerManager.GetInstance().transform;
     }
 
 

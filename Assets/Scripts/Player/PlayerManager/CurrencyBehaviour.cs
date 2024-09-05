@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurrencyBehaviour
+public class PlayerCurrencyBehaviour : MonoBehaviour
 {
-    public float currency { get; private set; }
+    [SerializeField] public float currency { get; private set; } = 0f;
 
-    public CurrencyBehaviour(float startingCurrency)
-    {
-        currency = startingCurrency;
-    }
-    void SetCurrency(float amount)
+    public void SetCurrency(float amount)
     {
         currency = amount;
+        EventManager.CurrencyChangeEvent(currency);
     }
-
 
 }

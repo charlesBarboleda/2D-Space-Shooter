@@ -50,13 +50,13 @@ public class UIManager : MonoBehaviour
     void Start()
     {
 
-        abilityHolder = PlayerManager.Player().GetComponent<AbilityHolder>();
+        abilityHolder = PlayerManager.GetInstance().AbilityHolder();
 
     }
     void OnEnable()
 
     {
-        PlayerManager.OnCurrencyChange += UpdateCurrencyText;
+        EventManager.OnCurrencyChange += UpdateCurrencyText;
         EventManager.OnNextRound += UpdateRoundText;
         EventManager.OnGameOver += GameOver;
         EventManager.OnGameOver += UpdateHighScoreUI;
@@ -65,7 +65,7 @@ public class UIManager : MonoBehaviour
 
     void OnDisable()
     {
-        PlayerManager.OnCurrencyChange -= UpdateCurrencyText;
+        EventManager.OnCurrencyChange -= UpdateCurrencyText;
         EventManager.OnNextRound -= UpdateRoundText;
         EventManager.OnGameOver -= GameOver;
         EventManager.OnGameOver -= UpdateHighScoreUI;
@@ -81,7 +81,6 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         UpdateRoundText();
-        UpdateCurrencyText();
         PauseMenu();
         if (upgradeShopPanel.activeSelf)
         {
@@ -167,9 +166,9 @@ public class UIManager : MonoBehaviour
         SetCostText(pickUpCost, UpgradeShopManager.pickUpUpgrade);
     }
 
-    private void UpdateCurrencyText()
+    private void UpdateCurrencyText(float newCurrency)
     {
-        currencyText.text = $"{PlayerManager.Player().currency}";
+        currencyText.text = $"{newCurrency}";
     }
 
     private void UpdateRoundText()
