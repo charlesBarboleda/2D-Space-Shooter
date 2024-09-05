@@ -125,8 +125,8 @@ MonoBehaviour:
   _speed: 10
   _stopDistance: 30
   isDead: 0
-  _cameraShakeMagnitude: 5
-  _cameraShakeDuration: 0.2
+  _cameraShakeMagnitude: 25
+  _cameraShakeDuration: 0.3
   nukePrefab: {fileID: 3525258117610977703, guid: d1c7174591a3b5e4bbb742578812da5b, type: 3}
   attackRange: 30
   coolDownTime: 3

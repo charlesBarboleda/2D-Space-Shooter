@@ -39,8 +39,11 @@ public class CameraShake : MonoBehaviour
     {
         if (shakeDurationRemaining > 0)
         {
+
             // Adjust the noise amplitude for shake effect
             _perlinNoise.m_AmplitudeGain = shakeMagnitude;
+            Debug.Log("Perlin Noise: " + _perlinNoise.m_AmplitudeGain);
+            Debug.Log("Shake Magnitude" + shakeMagnitude);
 
             // Decrease shake duration
             shakeDurationRemaining -= Time.deltaTime * dampingSpeed;
@@ -56,11 +59,18 @@ public class CameraShake : MonoBehaviour
 
     public void TriggerShake(float magnitude, float duration)
     {
+        Debug.Log("TriggerShake Called");
         shakeMagnitude = magnitude;
         shakeDurationRemaining = duration;
+        Debug.Log("Shake Duration Remaining: " + shakeDurationRemaining);
+        Debug.Log("Shake Magnitude: " + shakeMagnitude);
 
         // Start shaking the camera with the new magnitude and duration
+        Debug.Log("Shake Triggered");
         _perlinNoise.m_AmplitudeGain = shakeMagnitude;
+        Debug.Log("Perlin Noise: " + _perlinNoise.m_AmplitudeGain);
+        Debug.Log("Shake Magnitude" + shakeMagnitude);
+
     }
 
     public Vector3 GetShakeOffset()

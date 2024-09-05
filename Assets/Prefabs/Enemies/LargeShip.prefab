@@ -155,8 +155,8 @@ MonoBehaviour:
   _speed: 8
   _stopDistance: 40
   isDead: 0
-  _cameraShakeMagnitude: 0
-  _cameraShakeDuration: 0
+  _cameraShakeMagnitude: 25
+  _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 2193635423315327897}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   aimRange: 40
