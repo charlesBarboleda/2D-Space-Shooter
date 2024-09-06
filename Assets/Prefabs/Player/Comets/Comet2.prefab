@@ -113,6 +113,10 @@ MonoBehaviour:
   - {fileID: 7411908729138634599, guid: b0a018e5ed264184c8edb8caef712158, type: 3}
   - {fileID: 6778880691077765859, guid: 4ce26518ead46664488e3a4959d2cec2, type: 3}
   _speed: 5
+  _deathEffect:
+  - DeathEffectLarge
+  - DeathEffectLarge2
+  _deathExplosion: LargeExp
 --- !u!58 &-3406511024573725090
 CircleCollider2D:
   m_ObjectHideFlags: 0

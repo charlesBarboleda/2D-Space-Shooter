@@ -110,6 +110,10 @@ MonoBehaviour:
   - {fileID: 5172845629160361528, guid: 48c7642e781578b46a413210c932ab18, type: 3}
   - {fileID: 3774966079057905200, guid: c214c562f80ad5147b8621c93eb7fdf4, type: 3}
   _speed: 5
+  _deathEffect:
+  - DeathEffectLarge
+  - DeathEffectLarge2
+  _deathExplosion: LargeExp
 --- !u!50 &8202637850851169969
 Rigidbody2D:
   serializedVersion: 4

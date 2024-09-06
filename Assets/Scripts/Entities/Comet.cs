@@ -100,6 +100,8 @@ public class Comet : MonoBehaviour, IDamageable
     public int HitsToBreak { get => hitsToBreak; set => hitsToBreak = value; }
 
     public bool isDead { get => _isDead; set => _isDead = value; }
-    public List<string> deathEffect { get => deathEffect; set => deathEffect = value; }
-    public string deathExplosion { get => deathExplosion; set => deathExplosion = value; }
+    [SerializeField] List<string> _deathEffect;
+    public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
+    [SerializeField] string _deathExplosion;
+    public string deathExplosion { get => _deathExplosion; set => _deathExplosion = value; }
 }
