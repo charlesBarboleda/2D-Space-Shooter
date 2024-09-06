@@ -9,14 +9,17 @@ public class PowerUpBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (PowerUp powerUp in _powerUps)
+        if (_powerUps.Count > 0)
         {
-            powerUp.duration -= Time.deltaTime;
-            if (powerUp.duration <= 0)
+            foreach (PowerUp powerUp in _powerUps)
             {
-                powerUp.duration = 0;
-                powerUp.DeactivateEffect();
-                _powerUps.Remove(powerUp);
+                powerUp.duration -= Time.deltaTime;
+                if (powerUp.duration <= 0)
+                {
+                    powerUp.duration = 0;
+                    powerUp.DeactivateEffect();
+                    _powerUps.Remove(powerUp);
+                }
             }
         }
     }

@@ -38,13 +38,17 @@ public class DamagePowerUp : PowerUp, IPickable
 
     protected override void Effect()
     {
+        Debug.Log("Damage PowerUp Activated");
         _initDamage = _weapon.bulletDamage;
         _weapon.bulletDamage *= 2;
+        Debug.Log("Damage: " + _weapon.bulletDamage);
     }
 
     public override void DeactivateEffect()
     {
+        Debug.Log("Damage PowerUp Deactivated");
         _weapon.bulletDamage = _initDamage;
+        Debug.Log("Damage: " + _weapon.bulletDamage);
     }
 
 
