@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, IDamageable
@@ -12,7 +13,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] AudioClip _spawnSound;
     [SerializeField] string _spawnAnimation;
     [SerializeField] string _deathExplosion;
-    [SerializeField]
+    [SerializeField] List<string> _deathEffect2;
     AbilityHolder _abilityHolder;
     SpriteRenderer _spriteRenderer;
     List<BoxCollider2D> _colliders = new List<BoxCollider2D>();
@@ -24,7 +25,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _stopDistance;
     public bool isDead;
     bool _rotateClockwise = false;
-    List<GameObject> exhaustChildren = new List<GameObject>();
+    public List<GameObject> exhaustChildren = new List<GameObject>();
+    public List<GameObject> turretChildren = new List<GameObject>();
+
 
 
     // Camera Shake
@@ -37,7 +40,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<BoxCollider2D>());
-        exhaustChildren.AddRange(GameObject.FindGameObjectsWithTag("Exhaust"));
 
 
     }
@@ -59,6 +61,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void OnEnable()
     {
+        if (turretChildren.Count > 0) turretChildren.ForEach(child => child.SetActive(true));
         if (exhaustChildren.Count > 0) exhaustChildren.ForEach(child => child.SetActive(true));
         if (_colliders.Count > 0) _colliders.ForEach(collider => collider.enabled = true);
         if (_spriteRenderer != null) _spriteRenderer.enabled = true;
@@ -137,7 +140,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _health -= damage;
         if (_health > 0)
         {
-            Debug.Log("Enemy Health: " + _health);
             StartCoroutine(FlashRed());
         }
         if (_health <= 0)
@@ -185,6 +187,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
 
         isDead = true;
+
+        // Disable the turrets if there are any
+        if (turretChildren.Count > 0) turretChildren.ForEach(child => child.SetActive(false));
+
         // Stops the exhaust particles
         exhaustChildren.ForEach(child => child.SetActive(false));
 
@@ -217,9 +223,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     IEnumerator DeathAnimation()
     {
+        GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(_deathEffect2[Random.Range(0, _deathEffect2.Count)], transform.position, Quaternion.identity);
         GameObject exp = ObjectPooler.Instance.SpawnFromPool(_deathExplosion, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(1f); // Wait for the animation to finish
+        yield return new WaitForSeconds(2f); // Wait for the animation to finish
         exp.SetActive(false);
+        exp2.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other)

@@ -27,7 +27,7 @@ public class DestroyShipsTimed : Objective
         elapsedTime -= Time.deltaTime;
 
         if (elapsedTime <= 0) FailedObjective();
-        if (currentKills == 0 && elapsedTime > 0)
+        if (currentKills <= 0 && elapsedTime > 0)
         {
             currentKills = 0;
             CompleteObjective();

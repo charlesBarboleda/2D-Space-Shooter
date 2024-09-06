@@ -82,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 9731eae082186de439e5f70163f17d35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -118,13 +118,18 @@ MonoBehaviour:
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: MidSpawn
   _deathExplosion: MidExp
-  _abilityHolder: {fileID: 0}
+  _deathEffect2:
+  - DeathEffectMid
+  - DeathEffectMid2
   _shouldRotate: 1
   _health: 500
   _currencyDrop: 30
   _speed: 10
   _stopDistance: 30
   isDead: 0
+  exhaustChildren:
+  - {fileID: 7033326722294087313}
+  turretChildren: []
   _cameraShakeMagnitude: 25
   _cameraShakeDuration: 0.3
   nukePrefab: {fileID: 3525258117610977703, guid: d1c7174591a3b5e4bbb742578812da5b, type: 3}
@@ -444,6 +449,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+--- !u!1 &7033326722294087313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3280519133390621005, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+  m_PrefabInstance: {fileID: 5484781429886236636}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7033326722294087342 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}

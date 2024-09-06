@@ -200,10 +200,12 @@ public class GameManager : MonoBehaviour
         _roundCountdown = 10f;
         EnableSpawning();
         _enemiesToSpawnLeft = _enemiesToSpawnTotal;
+        ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, UnityEngine.Random.Range(1, 3));
         ObjectivesManager.Instance.StartObjectives();
     }
     public void NextRound()
     {
+        _isObjectiveRound = false;
         ObjectivesManager.Instance.RemoveAllObjectives();
         ObjectivesUIManager.Instance.ClearObjectivesUI();
 
@@ -222,7 +224,7 @@ public class GameManager : MonoBehaviour
         DisableSpawning();
         _spawnRate -= 0.005f;
         _enemiesToSpawnTotal += 10;
-        if (_spawnRate <= _maxSpawnRate) _spawnRate = _maxSpawnRate;
+        _spawnRate = Mathf.Max(_spawnRate, _maxSpawnRate);
         IncreaseLevel();
     }
 

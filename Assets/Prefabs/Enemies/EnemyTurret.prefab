@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: c2fcd762a8bd6cf4dbd18ba12ddc1525, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,13 +105,17 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
   _deathExplosion: 
-  _abilityHolder: {fileID: 0}
+  _deathEffect2:
+  - DeathEffect
+  - DeathEffect2
   _shouldRotate: 1
   _health: 1000
   _currencyDrop: 0
   _speed: 0
   _stopDistance: 0
   isDead: 0
+  exhaustChildren: []
+  turretChildren: []
   _cameraShakeMagnitude: 20
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 0}
