@@ -12,8 +12,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] AudioClip _abilitySound;
     [SerializeField] AudioClip _spawnSound;
     [SerializeField] string _spawnAnimation;
-    public string deathExplosion { get; set; }
-    public List<string> deathEffect { get; set; }
+    [SerializeField] string _deathExplosion;
+    public string deathExplosion { get => _deathExplosion; set => _deathExplosion = value; }
+    [SerializeField] List<string> _deathEffect;
+    public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
     AbilityHolder _abilityHolder;
     SpriteRenderer _spriteRenderer;
     List<BoxCollider2D> _colliders = new List<BoxCollider2D>();

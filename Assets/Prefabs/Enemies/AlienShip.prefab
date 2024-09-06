@@ -471,7 +471,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: LargeSpawn
   _deathExplosion: LargeExp
-  _deathEffect2:
+  _deathEffect:
   - DeathEffectLarge
   - DeathEffectLarge2
   _shouldRotate: 1
@@ -479,7 +479,6 @@ MonoBehaviour:
   _currencyDrop: 1000
   _speed: 10
   _stopDistance: 60
-  isDead: 0
   exhaustChildren:
   - {fileID: 518717024595724747}
   - {fileID: 5506370780088542991}

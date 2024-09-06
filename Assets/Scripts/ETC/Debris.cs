@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Debris : MonoBehaviour, IPickable
 {
-    public bool isAttracted { get => isAttracted; set => isAttracted = value; }
-    public float maxSpeed { get => maxSpeed; set => maxSpeed = value; }
-    public float currencyWorth;
+    bool _isAttracted;
+    public bool isAttracted { get => _isAttracted; set => _isAttracted = value; }
+    float _maxSpeed;
+    public float maxSpeed { get => _maxSpeed; set => _maxSpeed = value; }
+    float currencyWorth;
 
     void FixedUpdate()
     {
@@ -35,11 +37,7 @@ public class Debris : MonoBehaviour, IPickable
     public void MoveTowardsPlayer()
     {
         Vector2 playerPosition = PlayerManager.GetInstance().transform.position;
-        transform.position = Vector2.MoveTowards(transform.position, playerPosition, maxSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, playerPosition, _maxSpeed * Time.deltaTime);
     }
 
-    public void Effect()
-    {
-
-    }
 }

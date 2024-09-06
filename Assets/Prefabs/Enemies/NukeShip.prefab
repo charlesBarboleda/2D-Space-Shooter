@@ -118,7 +118,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: MidSpawn
   _deathExplosion: MidExp
-  _deathEffect2:
+  _deathEffect:
   - DeathEffectMid
   - DeathEffectMid2
   _shouldRotate: 1
@@ -126,7 +126,6 @@ MonoBehaviour:
   _currencyDrop: 30
   _speed: 10
   _stopDistance: 30
-  isDead: 0
   exhaustChildren:
   - {fileID: 7033326722294087313}
   turretChildren: []

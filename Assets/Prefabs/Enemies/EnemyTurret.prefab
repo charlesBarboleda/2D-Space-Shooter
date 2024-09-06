@@ -104,8 +104,8 @@ MonoBehaviour:
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
-  _deathExplosion: 
-  _deathEffect2:
+  _deathExplosion: SmallExp
+  _deathEffect:
   - DeathEffect
   - DeathEffect2
   _shouldRotate: 1
@@ -113,7 +113,6 @@ MonoBehaviour:
   _currencyDrop: 0
   _speed: 0
   _stopDistance: 0
-  isDead: 0
   exhaustChildren: []
   turretChildren: []
   _cameraShakeMagnitude: 20

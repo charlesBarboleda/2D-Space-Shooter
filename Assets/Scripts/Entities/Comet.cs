@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Comet : MonoBehaviour, IDamageable
 {
-    int hitsToBreak = 3;
+    int hitsToBreak = 5;
     [SerializeField] List<Transform> _targets;
     [SerializeField] float _speed = 5f;
     SpriteRenderer _spriteRenderer;
     List<CircleCollider2D> _colliders = new List<CircleCollider2D>();
+    bool _isDead;
 
 
     void Start()
@@ -19,6 +20,13 @@ public class Comet : MonoBehaviour, IDamageable
     void OnEnable()
     {
         isDead = false;
+        hitsToBreak = 5;
+        _spriteRenderer.enabled = true;
+        _colliders.ForEach(collider => collider.enabled = true);
+    }
+    void OnDisable()
+    {
+        isDead = true;
     }
     void Update()
     {
@@ -33,11 +41,20 @@ public class Comet : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
+        if (isDead) return;
         CameraShake.Instance.TriggerShake(5f, 0.2f);
         hitsToBreak--;
         if (hitsToBreak <= 0)
         {
             Die();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("PlayerBullet"))
+        {
+            TakeDamage(0);
         }
     }
 
@@ -81,7 +98,8 @@ public class Comet : MonoBehaviour, IDamageable
     }
     public float Speed { get => _speed; set => _speed = value; }
     public int HitsToBreak { get => hitsToBreak; set => hitsToBreak = value; }
-    public bool isDead { get => isDead; set => isDead = value; }
+
+    public bool isDead { get => _isDead; set => _isDead = value; }
     public List<string> deathEffect { get => deathEffect; set => deathEffect = value; }
     public string deathExplosion { get => deathExplosion; set => deathExplosion = value; }
 }

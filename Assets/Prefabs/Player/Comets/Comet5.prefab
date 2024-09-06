@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 6944810426269432826}
   - component: {fileID: 919881273515850950}
   - component: {fileID: 2127104386702460606}
-  m_Layer: 0
-  m_Name: Comet4
-  m_TagString: Untagged
+  - component: {fileID: 8655004894935406045}
+  - component: {fileID: 5486552185317917078}
+  m_Layer: 11
+  m_Name: Comet5
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,15 +101,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targets:
-  - {fileID: 5614922944148870469, guid: d0954ccb9a9499e439effc0b2268af8d, type: 3}
-  - {fileID: 1125089375236692185, guid: 2540325b26e856d4eb40034d5ae6e574, type: 3}
-  - {fileID: 4360812422947943040, guid: c276d7e96b384a947bfca19bd6a703af, type: 3}
-  - {fileID: 3119685334487548442, guid: 93cd0f70701bf4e47ab298ad434b00d5, type: 3}
-  - {fileID: 7938906268793424318, guid: 6d306cf654fe68c40b30fefc58dc3424, type: 3}
-  - {fileID: 1345876805128910042, guid: f8adf2f379d503b44a6075a3d250a90e, type: 3}
-  - {fileID: 5172845629160361528, guid: 48c7642e781578b46a413210c932ab18, type: 3}
-  - {fileID: 3774966079057905200, guid: c214c562f80ad5147b8621c93eb7fdf4, type: 3}
+  - {fileID: 988962496387351142, guid: 2df9ab244ceed67438e6a641bdd8c673, type: 3}
+  - {fileID: 2870141466137754122, guid: b3fa70e16fe269f4292240f5d6f64589, type: 3}
+  - {fileID: 2372868267056539380, guid: 1370e9fb29c32ec4e9a329a3c3b044ba, type: 3}
+  - {fileID: 1916973014591258711, guid: c42e4849ff31c414a84d56588c2f706f, type: 3}
+  - {fileID: 1165078043229661137, guid: 391bf2d81a6ad804b8ea12b36f2a49b2, type: 3}
+  - {fileID: 1518600218761028011, guid: 648bb214ccc569240b93ab07d9e70c07, type: 3}
+  - {fileID: 1878024900558244063, guid: f4ff547f382bcc24b9f0735df9ff52b0, type: 3}
+  - {fileID: 1218850815143880591, guid: d5eb32205b28a7b4d9a35f7f08c3bbbf, type: 3}
+  - {fileID: 4282910790407873736, guid: 6415743c979eae740a0de3390b81b5ce, type: 3}
   _speed: 5
+--- !u!58 &8655004894935406045
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5728700404608352223}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5.12
+--- !u!50 &5486552185317917078
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5728700404608352223}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1001 &6236961192387629537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,6 +264,10 @@ PrefabInstance:
     - target: {fileID: 5749892945899594870, guid: 797ee248261f4504f9071cdf2c4300d4, type: 3}
       propertyPath: m_Name
       value: EtherialStreaksTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749892945899594870, guid: 797ee248261f4504f9071cdf2c4300d4, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

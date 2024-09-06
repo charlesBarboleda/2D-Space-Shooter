@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6944810426269432826}
   - component: {fileID: 919881273515850950}
   - component: {fileID: 2127104386702460606}
-  - component: {fileID: 3864086741446538157}
-  - component: {fileID: 4353569558443627674}
-  m_Layer: 0
-  m_Name: Comet1
-  m_TagString: Untagged
+  - component: {fileID: 4403099557319887880}
+  - component: {fileID: 7992940381553429631}
+  m_Layer: 11
+  m_Name: Comet6
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,16 +101,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targets:
-  - {fileID: 8403691937919895386, guid: 4ec3f9763a7b50b46a2aab3301158e24, type: 3}
-  - {fileID: 8315676388239318388, guid: e1cb7670b0958c34e93718ec23fc426f, type: 3}
-  - {fileID: 7881837378076192223, guid: 1a47e5f0070d85d4cb3fce4a0b16b9e3, type: 3}
-  - {fileID: 5095581390786727498, guid: 995746d1f9da29b4b8be15b7bee6a4a3, type: 3}
-  - {fileID: 8294279835759758773, guid: ae678a66acf315742b2b1de5f4419659, type: 3}
-  - {fileID: 8285083023167144628, guid: e38c61f608afd0247bbc2deece5135ef, type: 3}
-  - {fileID: 6902888731202994389, guid: 5f8cc8731ee3bcc4ebe984163a14f382, type: 3}
-  - {fileID: 2290175712940554198, guid: ac615db7644eae74d80668ac9a23afa3, type: 3}
+  - {fileID: 8474085107727009919, guid: 250062454d12d0b48b2e6c61f7f91fce, type: 3}
+  - {fileID: 8654895972829358600, guid: 74bacec1e52587f4787a8e628179bb3f, type: 3}
+  - {fileID: 8222660922138327486, guid: 3b5caec39a6e4e94898d55c369568dbc, type: 3}
+  - {fileID: 5227451204996954183, guid: 67be7c91e4adbb64fb4bc2194b4ce95e, type: 3}
+  - {fileID: 5509750370225356802, guid: c731078dcb9f9de429e5a81291d927c0, type: 3}
+  - {fileID: 501030453658545827, guid: 0e980dfd327a21e4b90c7128b15ae3d8, type: 3}
+  - {fileID: 4209552376734668483, guid: dbd2ff47613847546b0d31543d638577, type: 3}
+  - {fileID: 8043579642517579574, guid: 77a51342f8b8a42478cdd0848bd2a91c, type: 3}
+  - {fileID: 3213130130826878918, guid: 60132d4f84ca0ae40b9e95cd749ecc75, type: 3}
+  - {fileID: 2252406204358324037, guid: d584dcc0667617f45965d811d0cd6d88, type: 3}
+  - {fileID: 7259712322704502483, guid: 39629fbbc2749c547a71dbb655aa29f5, type: 3}
+  - {fileID: 8396139745123713722, guid: 50c4de049672e3341bdca12f53c6b17c, type: 3}
   _speed: 5
---- !u!50 &3864086741446538157
+--- !u!50 &4403099557319887880
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -137,7 +141,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &4353569558443627674
+--- !u!58 &7992940381553429631
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,6 +267,10 @@ PrefabInstance:
     - target: {fileID: 5749892945899594870, guid: 797ee248261f4504f9071cdf2c4300d4, type: 3}
       propertyPath: m_Name
       value: EtherialStreaksTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749892945899594870, guid: 797ee248261f4504f9071cdf2c4300d4, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
