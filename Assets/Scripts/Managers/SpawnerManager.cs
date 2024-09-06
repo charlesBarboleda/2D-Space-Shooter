@@ -8,7 +8,8 @@ public class SpawnerManager : MonoBehaviour
     public static SpawnerManager Instance { get; private set; }
     [SerializeField] int numberOfCometsPerRound = 1;
     [SerializeField] float cometSpawnRate = 30f;
-    [SerializeField] List<Transform> cometSpawnPoints = new List<Transform>();
+    [SerializeField] List<Transform> cometSpawnPoint = new List<Transform>();
+    [SerializeField] List<string> cometsList = new List<string>();
     [SerializeField] int numberOfSpawnPoints = 360;
     [SerializeField] int spawnPointRadius = 30;
     List<string> shipNamesEarly = new List<string> { "SmallShip", "MediumShip", "MeleeShip", "MediumShip2" };
@@ -38,11 +39,12 @@ public class SpawnerManager : MonoBehaviour
     {
         EventManager.OnEnemyDestroyed -= RemoveEnemyFromList;
         StopCoroutine(SpawnEnemiesOverTime());
+        StopCoroutine(SpawnCometsOverTime());
     }
 
     private GameObject SpawnComet(Vector3 position, Quaternion rotation)
     {
-        GameObject comet = ObjectPooler.Instance.SpawnFromPool("Comet", position, rotation);
+        GameObject comet = ObjectPooler.Instance.SpawnFromPool(cometsList[Random.Range(0, cometsList.Count)], position, rotation);
         if (comet != null)
         {
             GameManager.Instance.AddEnemy(comet);
@@ -70,6 +72,10 @@ public class SpawnerManager : MonoBehaviour
     {
         for (int i = 0; i <= numberOfCometsPerRound; i++)
         {
+            GameObject comet = SpawnComet(cometSpawnPoint[Random.Range(0, cometSpawnPoint.Count)].position, Quaternion.identity);
+            cometSpawnRate = Random.Range(20, 60);
+            Comet cometSettings = comet.GetComponent<Comet>();
+            cometSettings.Speed = Random.Range(20, 50);
             yield return new WaitForSeconds(cometSpawnRate);
         }
     }

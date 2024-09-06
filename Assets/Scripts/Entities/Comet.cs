@@ -4,27 +4,22 @@ using UnityEngine;
 
 public class Comet : MonoBehaviour
 {
-    Transform _target;
+    [SerializeField] List<Transform> _targets;
     [SerializeField] float _speed = 5f;
-    [SerializeField] float _curveAngle = 10f;
 
-    int _currentWaypointIndex = 0;
 
     void Update()
     {
-        Vector3 targetPosition = _target.position;
-        Vector3 rotatedDirection = Quaternion.Euler(0, _curveAngle, 0) * transform.forward;
+        int RandomTarget = Random.Range(0, _targets.Count);
+        transform.position = Vector3.MoveTowards(transform.position, _targets[RandomTarget].position, _speed * Time.deltaTime);
 
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + rotatedDirection * _speed * Time.deltaTime, _speed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        if (Vector2.Distance(transform.position, _targets[RandomTarget].position) < 1f)
         {
-
             gameObject.SetActive(false);
         }
     }
+
     public float Speed { get => _speed; set => _speed = value; }
-    public float CurveAngle { get => _curveAngle; set => _curveAngle = value; }
-    public Transform Target { get => _target; set => _target = value; }
+
 
 }

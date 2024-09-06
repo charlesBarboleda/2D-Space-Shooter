@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 919881273515850950}
   - component: {fileID: 2127104386702460606}
   m_Layer: 0
-  m_Name: Comet
+  m_Name: Comet2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8779c962636b1694280e3c19e3d9b000, type: 2}
+  - {fileID: 2100000, guid: 32fac6e45890e9d48961b3db7c93c0be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168ab720ab59f5244978da8a707d0155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wayPoints: []
+  _targets:
+  - {fileID: 8403691937919895386, guid: 4ec3f9763a7b50b46a2aab3301158e24, type: 3}
+  - {fileID: 8315676388239318388, guid: e1cb7670b0958c34e93718ec23fc426f, type: 3}
+  - {fileID: 7881837378076192223, guid: 1a47e5f0070d85d4cb3fce4a0b16b9e3, type: 3}
+  - {fileID: 5095581390786727498, guid: 995746d1f9da29b4b8be15b7bee6a4a3, type: 3}
+  - {fileID: 8294279835759758773, guid: ae678a66acf315742b2b1de5f4419659, type: 3}
+  - {fileID: 8285083023167144628, guid: e38c61f608afd0247bbc2deece5135ef, type: 3}
+  - {fileID: 6902888731202994389, guid: 5f8cc8731ee3bcc4ebe984163a14f382, type: 3}
+  - {fileID: 2290175712940554198, guid: ac615db7644eae74d80668ac9a23afa3, type: 3}
+  _speed: 5
 --- !u!1001 &6236961192387629537
 PrefabInstance:
   m_ObjectHideFlags: 0
