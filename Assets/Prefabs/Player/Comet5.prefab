@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 919881273515850950}
   - component: {fileID: 2127104386702460606}
   m_Layer: 0
-  m_Name: Comet2
+  m_Name: Comet5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,17 +99,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targets:
-  - {fileID: 8015169757757472011, guid: 3c14aa94752523d429aa108343349967, type: 3}
-  - {fileID: 2042500584709442606, guid: cbf3c127fc93b494eaec0374210d3f6b, type: 3}
-  - {fileID: 309014964403789166, guid: 8fec1c1c5245c4f4bb3e1956ec0c2a12, type: 3}
-  - {fileID: 3957372354048729717, guid: 4c3ee37aebbba334bac6929f93b3af6a, type: 3}
-  - {fileID: 6507439358799131263, guid: 049e857c4f5987446a4cb2de995f8ea4, type: 3}
-  - {fileID: 4709635069385207777, guid: 2d2ebd5c1b5a9a6448b1940cd3795853, type: 3}
-  - {fileID: 5166809949660305761, guid: c6c5ed10886308440be732b8badaf78e, type: 3}
-  - {fileID: 1161017820980865094, guid: 7e7d3a14d4884334a842bebafc67b172, type: 3}
-  - {fileID: 671843338534705358, guid: 73bb3d877b4fad64d9934437c22e4c9f, type: 3}
-  - {fileID: 7411908729138634599, guid: b0a018e5ed264184c8edb8caef712158, type: 3}
-  - {fileID: 6778880691077765859, guid: 4ce26518ead46664488e3a4959d2cec2, type: 3}
+  - {fileID: 988962496387351142, guid: 2df9ab244ceed67438e6a641bdd8c673, type: 3}
+  - {fileID: 2870141466137754122, guid: b3fa70e16fe269f4292240f5d6f64589, type: 3}
+  - {fileID: 2372868267056539380, guid: 1370e9fb29c32ec4e9a329a3c3b044ba, type: 3}
+  - {fileID: 1916973014591258711, guid: c42e4849ff31c414a84d56588c2f706f, type: 3}
+  - {fileID: 1165078043229661137, guid: 391bf2d81a6ad804b8ea12b36f2a49b2, type: 3}
+  - {fileID: 1518600218761028011, guid: 648bb214ccc569240b93ab07d9e70c07, type: 3}
+  - {fileID: 1878024900558244063, guid: f4ff547f382bcc24b9f0735df9ff52b0, type: 3}
+  - {fileID: 1218850815143880591, guid: d5eb32205b28a7b4d9a35f7f08c3bbbf, type: 3}
+  - {fileID: 4282910790407873736, guid: 6415743c979eae740a0de3390b81b5ce, type: 3}
   _speed: 5
 --- !u!1001 &6236961192387629537
 PrefabInstance:
