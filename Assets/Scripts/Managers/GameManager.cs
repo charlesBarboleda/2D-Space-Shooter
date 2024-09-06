@@ -237,9 +237,10 @@ public class GameManager : MonoBehaviour
         {
             if (enemy != null)
             {
-                enemy.GetComponent<Enemy>().Die();
+                enemy.GetComponent<IDamageable>().Die();
             }
         }
+        Debug.Log("Nuked the map");
         _enemies.Clear();
     }
 
