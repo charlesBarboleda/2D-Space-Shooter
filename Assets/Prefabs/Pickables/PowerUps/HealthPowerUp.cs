@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamagePowerUp : PowerUp, IPickable
+public class HealthPowerUp : PowerUp, IPickable
 {
     bool _isAttracted;
     public bool isAttracted { get => _isAttracted; set => _isAttracted = value; }
     float _maxSpeed;
     public float maxSpeed { get => _maxSpeed; set => _maxSpeed = value; }
-    float _initDamage;
-    Weapon _weapon;
-    void Start()
-    {
-        _weapon = PlayerManager.Instance.Weapon();
-    }
+    float _initHealth;
+    float _initMaxHealth;
     void FixedUpdate()
     {
 
@@ -38,17 +34,22 @@ public class DamagePowerUp : PowerUp, IPickable
 
     protected override void Effect()
     {
-        Debug.Log("Damage PowerUp Activated");
-        _weapon.bulletDamage *= 2;
-        Debug.Log("Damage: " + _weapon.bulletDamage);
+        Debug.Log("Health PowerUp Activated");
+
+        PlayerManager.Instance.SetCurrentHealth(PlayerManager.Instance.CurrentHealth() * 2);
+        PlayerManager.Instance.SetMaxHealth(PlayerManager.Instance.MaxHealth() * 2);
+
+        Debug.Log("Health: " + PlayerManager.Instance.CurrentHealth());
     }
 
     public override void DeactivateEffect()
     {
-        Debug.Log("Damage PowerUp Deactivated");
-        _initDamage = _weapon.bulletDamage / 2;
-        _weapon.bulletDamage = _initDamage;
-        Debug.Log("Damage: " + _weapon.bulletDamage);
+        Debug.Log("Health PowerUp Deactivated");
+        _initHealth = PlayerManager.Instance.CurrentHealth() / 2;
+        _initMaxHealth = PlayerManager.Instance.MaxHealth() / 2;
+        PlayerManager.Instance.SetCurrentHealth(_initHealth);
+        PlayerManager.Instance.SetMaxHealth(_initMaxHealth);
+        Debug.Log("Health: " + PlayerManager.Instance.CurrentHealth());
     }
 
 

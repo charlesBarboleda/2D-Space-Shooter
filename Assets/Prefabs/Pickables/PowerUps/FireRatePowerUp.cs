@@ -39,7 +39,7 @@ public class FireRatePowerUp : PowerUp, IPickable
     protected override void Effect()
     {
         Debug.Log("FireRate PowerUp Activated");
-        _initFireRate = _weapon.fireRate;
+
         _weapon.fireRate /= 2;
         Debug.Log("FireRate: " + _weapon.fireRate);
     }
@@ -47,6 +47,7 @@ public class FireRatePowerUp : PowerUp, IPickable
     public override void DeactivateEffect()
     {
         Debug.Log("FireRate PowerUp Deactivated");
+        _initFireRate = _weapon.fireRate * 2;
         _weapon.fireRate = _initFireRate;
         Debug.Log("FireRate: " + _weapon.fireRate);
     }
