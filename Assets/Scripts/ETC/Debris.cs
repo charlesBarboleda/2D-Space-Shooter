@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurrencyDrop : MonoBehaviour
+public class Debris : MonoBehaviour, IPickable
 {
-    float currencyWorth;
-
-    public bool isAttracted;
-    public float maxSpeed = 100f;
+    public bool isAttracted { get => isAttracted; set => isAttracted = value; }
+    public float maxSpeed { get => maxSpeed; set => maxSpeed = value; }
+    public float currencyWorth;
 
     void FixedUpdate()
     {
@@ -17,7 +16,7 @@ public class CurrencyDrop : MonoBehaviour
             MoveTowardsPlayer();
         }
     }
-    void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -33,9 +32,14 @@ public class CurrencyDrop : MonoBehaviour
         this.currencyWorth = currency;
     }
 
-    private void MoveTowardsPlayer()
+    public void MoveTowardsPlayer()
     {
         Vector2 playerPosition = PlayerManager.GetInstance().transform.position;
         transform.position = Vector2.MoveTowards(transform.position, playerPosition, maxSpeed * Time.deltaTime);
+    }
+
+    public void Effect()
+    {
+        throw new System.NotImplementedException();
     }
 }

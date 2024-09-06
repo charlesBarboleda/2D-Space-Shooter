@@ -12,11 +12,13 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Round Settings")]
-    float _maxSpawnRate;
-    float _spawnRate;
-    int _enemiesToSpawnTotal;
-    int _enemiesToSpawnLeft;
-    int _level;
+    [SerializeField] int _cometsPerRound = 1;
+    [SerializeField] float _cometSpawnRate = 30f;
+    [SerializeField] float _maxSpawnRate;
+    [SerializeField] float _spawnRate;
+    [SerializeField] int _enemiesToSpawnTotal;
+    [SerializeField] int _enemiesToSpawnLeft;
+    [SerializeField] int _level;
 
     [Header("Round States")]
     float _roundCountdown;
@@ -241,6 +243,7 @@ public class GameManager : MonoBehaviour
         _enemies.Clear();
     }
 
-
+    public int CometsPerRound { get => _cometsPerRound; set => _cometsPerRound = value; }
+    public float CometSpawnRate { get => _cometSpawnRate; set => _cometSpawnRate = value; }
 
 }

@@ -183,7 +183,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         StartCoroutine(HandleDeath());
     }
 
-    private IEnumerator HandleDeath()
+    public IEnumerator HandleDeath()
     {
 
         isDead = true;
@@ -211,7 +211,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         // Create the debris
         GameObject currency = Instantiate(_currencyPrefab[Random.Range(0, _currencyPrefab.Count)], transform.position, transform.rotation);
-        currency.GetComponent<CurrencyDrop>().SetCurrency(_currencyDrop);
+        currency.GetComponent<Debris>().SetCurrency(_currencyDrop);
 
         // Wait for the death animation to complete
         yield return StartCoroutine(DeathAnimation());
@@ -221,7 +221,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     }
 
-    IEnumerator DeathAnimation()
+    public IEnumerator DeathAnimation()
     {
         GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(_deathEffect2[Random.Range(0, _deathEffect2.Count)], transform.position, Quaternion.identity);
         GameObject exp = ObjectPooler.Instance.SpawnFromPool(_deathExplosion, transform.position, Quaternion.identity);

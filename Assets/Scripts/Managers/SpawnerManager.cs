@@ -6,8 +6,7 @@ using UnityEngine;
 public class SpawnerManager : MonoBehaviour
 {
     public static SpawnerManager Instance { get; private set; }
-    [SerializeField] int numberOfCometsPerRound = 1;
-    [SerializeField] float cometSpawnRate = 30f;
+
     [SerializeField] List<Transform> cometSpawnPoint = new List<Transform>();
     [SerializeField] List<string> cometsList = new List<string>();
     [SerializeField] int numberOfSpawnPoints = 360;
@@ -70,13 +69,13 @@ public class SpawnerManager : MonoBehaviour
     }
     IEnumerator SpawnCometsOverTime()
     {
-        for (int i = 0; i <= numberOfCometsPerRound; i++)
+        for (int i = 0; i <= GameManager.Instance.CometsPerRound; i++)
         {
             GameObject comet = SpawnComet(cometSpawnPoint[Random.Range(0, cometSpawnPoint.Count)].position, Quaternion.identity);
-            cometSpawnRate = Random.Range(20, 60);
+            GameManager.Instance.CometSpawnRate = Random.Range(20, 60);
             Comet cometSettings = comet.GetComponent<Comet>();
             cometSettings.Speed = Random.Range(20, 50);
-            yield return new WaitForSeconds(cometSpawnRate);
+            yield return new WaitForSeconds(GameManager.Instance.CometSpawnRate);
         }
     }
 
