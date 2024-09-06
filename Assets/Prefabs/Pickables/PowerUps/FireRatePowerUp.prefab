@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7557275932499016500}
   - component: {fileID: 5335036975134291167}
   - component: {fileID: 711523865301365864}
-  - component: {fileID: 4571882304455346630}
+  - component: {fileID: 422094768521691759}
   m_Layer: 0
-  m_Name: DamagePowerUp
+  m_Name: FireRatePowerUp
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9, y: 10.24}
   m_EdgeRadius: 0
---- !u!114 &4571882304455346630
+--- !u!114 &422094768521691759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3095709734623123258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07696c10db4c8ea4c8eb933ea4ea1bfe, type: 3}
+  m_Script: {fileID: 11500000, guid: 55f38338936b1664d8cdc4601673d8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 30
