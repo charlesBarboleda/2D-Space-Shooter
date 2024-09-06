@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6944810426269432826}
   - component: {fileID: 919881273515850950}
   - component: {fileID: 2127104386702460606}
-  - component: {fileID: 455329091316678245}
-  - component: {fileID: 5183599183104196986}
+  - component: {fileID: -3406511024573725090}
+  - component: {fileID: 3236464546191779026}
   m_Layer: 0
   m_Name: Comet2
   m_TagString: Untagged
@@ -113,7 +113,7 @@ MonoBehaviour:
   - {fileID: 7411908729138634599, guid: b0a018e5ed264184c8edb8caef712158, type: 3}
   - {fileID: 6778880691077765859, guid: 4ce26518ead46664488e3a4959d2cec2, type: 3}
   _speed: 5
---- !u!58 &455329091316678245
+--- !u!58 &-3406511024573725090
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,7 +148,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5.12
---- !u!50 &5183599183104196986
+--- !u!50 &3236464546191779026
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

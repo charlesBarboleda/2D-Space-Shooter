@@ -23,8 +23,8 @@ public class PickUpBehaviour : MonoBehaviour
         {
             if (hit.CompareTag(_pickUpType))
             {
-                hit.GetComponent<CurrencyDrop>().maxSpeed = _attractionSpeed;
-                hit.GetComponent<CurrencyDrop>().isAttracted = true;
+                hit.GetComponent<Debris>().maxSpeed = _attractionSpeed;
+                hit.GetComponent<Debris>().isAttracted = true;
             }
         }
     }

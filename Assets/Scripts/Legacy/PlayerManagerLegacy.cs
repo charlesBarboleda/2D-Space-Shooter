@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -22,6 +23,10 @@ public class PlayerManagerLegacy : MonoBehaviour, IDamageable
 
     public float currency = 0f;
     [SerializeField] ParticleSystem _healingParticles;
+
+    public bool isDead { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public List<string> deathEffect { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public string deathExplosion { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     void Awake()
     {
@@ -72,7 +77,7 @@ public class PlayerManagerLegacy : MonoBehaviour, IDamageable
         {
             if (hit.CompareTag("Debris"))
             {
-                hit.GetComponent<CurrencyDrop>().isAttracted = true;
+                hit.GetComponent<Debris>().isAttracted = true;
             }
         }
     }
@@ -131,5 +136,15 @@ public class PlayerManagerLegacy : MonoBehaviour, IDamageable
             TakeDamage(1000);
         }
 
+    }
+
+    public IEnumerator HandleDeath()
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerator DeathAnimation()
+    {
+        throw new NotImplementedException();
     }
 }

@@ -12,8 +12,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] AudioClip _abilitySound;
     [SerializeField] AudioClip _spawnSound;
     [SerializeField] string _spawnAnimation;
-    [SerializeField] string _deathExplosion;
-    [SerializeField] List<string> _deathEffect2;
+    public string deathExplosion { get; set; }
+    public List<string> deathEffect { get; set; }
     AbilityHolder _abilityHolder;
     SpriteRenderer _spriteRenderer;
     List<BoxCollider2D> _colliders = new List<BoxCollider2D>();
@@ -23,7 +23,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _currencyDrop;
     [SerializeField] float _speed;
     [SerializeField] float _stopDistance;
-    public bool isDead;
+    public bool isDead { get; set; }
     bool _rotateClockwise = false;
     public List<GameObject> exhaustChildren = new List<GameObject>();
     public List<GameObject> turretChildren = new List<GameObject>();
@@ -136,7 +136,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-
+        if (isDead) return;
         _health -= damage;
         if (_health > 0)
         {
@@ -223,8 +223,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public IEnumerator DeathAnimation()
     {
-        GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(_deathEffect2[Random.Range(0, _deathEffect2.Count)], transform.position, Quaternion.identity);
-        GameObject exp = ObjectPooler.Instance.SpawnFromPool(_deathExplosion, transform.position, Quaternion.identity);
+        GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(deathEffect[Random.Range(0, deathEffect.Count)], transform.position, Quaternion.identity);
+        GameObject exp = ObjectPooler.Instance.SpawnFromPool(deathExplosion, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(2f); // Wait for the animation to finish
         exp.SetActive(false);
         exp2.SetActive(false);

@@ -10,6 +10,11 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
     [SerializeField] ParticleSystem _healingParticles;
     [SerializeField] GameObject _deathExplosionPrefab;
     SpriteRenderer _spriteRenderer;
+
+    public bool isDead { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public List<string> deathEffect { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public string deathExplosion { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,10 +40,7 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
 
     public void Die()
     {
-        GameObject deathEffect = Instantiate(_deathExplosionPrefab, transform.position, Quaternion.identity);
-        Destroy(deathEffect, 1f);
-        EventManager.GameOverEvent();
-        Destroy(gameObject);
+        StartCoroutine(HandleDeath());
     }
     IEnumerator FlashRed()
     {
@@ -61,7 +63,17 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
     public void SetCurrentHealth(float newCurrentHealth) => currentHealth = newCurrentHealth;
     public void SetHealthRegenRate(float newHealthRegenRate) => healthRegenRate = newHealthRegenRate;
 
+    public IEnumerator HandleDeath()
+    {
+        EventManager.GameOverEvent();
+        yield return StartCoroutine(DeathAnimation());
+    }
 
-
-
+    public IEnumerator DeathAnimation()
+    {
+        GameObject deathEffect = Instantiate(_deathExplosionPrefab, transform.position, Quaternion.identity);
+        Destroy(deathEffect, 1f);
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
 }

@@ -7,7 +7,18 @@ public class CargoShip : MonoBehaviour, IDamageable
     [SerializeField] GameObject spawnAnimation;
     [SerializeField] GameObject deathAnimation;
     [SerializeField] float _health = 1000;
+    public bool isDead { get; set; }
+    public List<string> deathEffect { get; set; }
+    public string deathExplosion { get; set; }
+    SpriteRenderer _spriteRenderer;
+    List<BoxCollider2D> _colliders = new List<BoxCollider2D>();
 
+
+    void Start()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _colliders.AddRange(GetComponents<BoxCollider2D>());
+    }
     void OnEnable()
     {
         GameObject animation = Instantiate(spawnAnimation, transform.position, Quaternion.identity);
@@ -57,6 +68,7 @@ public class CargoShip : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
+        if (isDead) return;
 
         _health -= damage;
         if (_health > 0)
@@ -71,9 +83,29 @@ public class CargoShip : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        StartCoroutine(HandleDeath());
+    }
+
+    public IEnumerator HandleDeath()
+    {
+        isDead = true;
+        _spriteRenderer.enabled = false;
+        _colliders.ForEach(collider => collider.enabled = false);
         CameraShake.Instance.TriggerShake(5, 0.3f);
-        GameObject animation = Instantiate(deathAnimation, transform.position, Quaternion.identity);
-        Destroy(animation, 1f);
+
+        yield return StartCoroutine(DeathAnimation());
+
         gameObject.SetActive(false);
+    }
+
+    public IEnumerator DeathAnimation()
+    {
+        GameObject exp = ObjectPooler.Instance.SpawnFromPool(deathExplosion, transform.position, Quaternion.identity);
+        GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(deathEffect[Random.Range(0, deathEffect.Count)], transform.position, Quaternion.identity);
+
+        yield return new WaitForSeconds(2f);
+
+        exp.SetActive(false);
+        exp2.SetActive(false);
     }
 }

@@ -7,11 +7,18 @@ public class Comet : MonoBehaviour, IDamageable
     int hitsToBreak = 3;
     [SerializeField] List<Transform> _targets;
     [SerializeField] float _speed = 5f;
+    SpriteRenderer _spriteRenderer;
+    List<CircleCollider2D> _colliders = new List<CircleCollider2D>();
 
 
+    void Start()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _colliders.AddRange(GetComponents<CircleCollider2D>());
+    }
     void OnEnable()
     {
-
+        isDead = false;
     }
     void Update()
     {
@@ -26,7 +33,7 @@ public class Comet : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        CameraShake.Instance.TriggerShake(_cameraShakeMagnitude, _cameraShakeDuration);
+        CameraShake.Instance.TriggerShake(5f, 0.2f);
         hitsToBreak--;
         if (hitsToBreak <= 0)
         {
@@ -44,12 +51,6 @@ public class Comet : MonoBehaviour, IDamageable
     {
 
         isDead = true;
-
-        // Disable the turrets if there are any
-        if (turretChildren.Count > 0) turretChildren.ForEach(child => child.SetActive(false));
-
-        // Stops the exhaust particles
-        exhaustChildren.ForEach(child => child.SetActive(false));
 
         // Disable all colliders
         _colliders.ForEach(collider => collider.enabled = false);
@@ -71,13 +72,16 @@ public class Comet : MonoBehaviour, IDamageable
 
     public IEnumerator DeathAnimation()
     {
-        GameObject exp = ObjectPooler.Instance.SpawnFromPool(_deathExplosion, transform.position, Quaternion.identity);
+        GameObject exp = ObjectPooler.Instance.SpawnFromPool(deathExplosion, transform.position, Quaternion.identity);
+        GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(deathEffect[Random.Range(0, deathEffect.Count)], transform.position, Quaternion.identity);
         yield return new WaitForSeconds(2f); // Wait for the animation to finish
         exp.SetActive(false);
+        exp2.SetActive(false);
 
     }
     public float Speed { get => _speed; set => _speed = value; }
     public int HitsToBreak { get => hitsToBreak; set => hitsToBreak = value; }
-
-
+    public bool isDead { get => isDead; set => isDead = value; }
+    public List<string> deathEffect { get => deathEffect; set => deathEffect = value; }
+    public string deathExplosion { get => deathExplosion; set => deathExplosion = value; }
 }

@@ -40,6 +40,6 @@ public class Debris : MonoBehaviour, IPickable
 
     public void Effect()
     {
-        throw new System.NotImplementedException();
+
     }
 }
