@@ -5,7 +5,7 @@ using UnityEngine;
 public class FriendlyTurret : ShooterEnemy
 {
 
-    public override void Update()
+    protected override void Update()
     {
         Aim(CheckForTargets());
         Transform target = CheckForTargets();

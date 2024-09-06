@@ -37,7 +37,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _cameraShakeDuration;
     public abstract void Attack();
 
-    public virtual void Start()
+    protected virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -46,7 +46,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     }
 
-    public virtual void Update()
+    protected virtual void Update()
     {
 
         if (_shouldRotate) Aim(CheckForTargets());
@@ -61,7 +61,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     }
 
-    public virtual void OnEnable()
+    protected virtual void OnEnable()
     {
         if (turretChildren.Count > 0) turretChildren.ForEach(child => child.SetActive(true));
         if (exhaustChildren.Count > 0) exhaustChildren.ForEach(child => child.SetActive(true));
@@ -79,7 +79,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     }
 
-    public virtual void Movement(Transform target)
+    protected virtual void Movement(Transform target)
     {
         float distance = Vector3.Distance(target.transform.position, transform.position);
         if (distance > _stopDistance)
@@ -93,7 +93,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    private void OrbitAround(Transform target)
+    void OrbitAround(Transform target)
     {
         float direction = _rotateClockwise ? 1 : -1;
         transform.RotateAround(target.position, Vector3.forward, direction * _speed * Time.deltaTime);
@@ -109,7 +109,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     IEnumerator SpawnAnimation()
     {
-        audioSource.PlayOneShot(_spawnSound);
+        if (_spawnSound != null) audioSource.PlayOneShot(_spawnSound);
         GameObject obj = ObjectPooler.Instance.SpawnFromPool(_spawnAnimation, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(1f);
         obj.SetActive(false);

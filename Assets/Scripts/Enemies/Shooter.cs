@@ -17,7 +17,7 @@ public class ShooterEnemy : Enemy
 
     public float nextFireTime;
 
-    public override void Update()
+    protected override void Update()
     {
         base.Update();
 
@@ -71,7 +71,7 @@ public class ShooterEnemy : Enemy
         }
     }
 
-    public override void OnEnable()
+    protected override void OnEnable()
     {
         base.OnEnable();
     }

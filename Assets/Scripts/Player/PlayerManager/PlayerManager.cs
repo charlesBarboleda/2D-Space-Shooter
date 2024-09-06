@@ -12,7 +12,9 @@ public class PlayerManager : MonoBehaviour
     PlayerMovementBehaviour _movement;
     AbilityHolder _abilityHolder;
     PickUpBehaviour _pickUpBehaviour;
+    PowerUpBehaviour _powerUpBehaviour;
     Weapon _weapon;
+
 
     private void Awake()
     {
@@ -21,6 +23,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
+        _powerUpBehaviour = GetComponent<PowerUpBehaviour>();
         _pickUpBehaviour = GetComponent<PickUpBehaviour>();
         _abilityHolder = GetComponent<AbilityHolder>();
         _weapon = GetComponent<Weapon>();
@@ -42,6 +45,29 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("EnemyBullet"))
+        {
+            _health.TakeDamage(other.gameObject.GetComponent<Bullet>().BulletDamage);
+            other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Nuke"))
+        {
+            _health.TakeDamage(1000);
+        }
+
+        if (other.gameObject.CompareTag("Debris"))
+        {
+            other.gameObject.GetComponent<IPickable>().OnPickUp();
+        }
+        if (other.gameObject.CompareTag("PowerUp"))
+        {
+            other.gameObject.GetComponent<IPickable>().OnPickUp();
+            _powerUpBehaviour.AddPowerUp(other.gameObject.GetComponent<PowerUp>());
+        }
+    }
 
     /// <summary>
     /// Getters and Setters
@@ -50,11 +76,12 @@ public class PlayerManager : MonoBehaviour
     public AbilityHolder AbilityHolder() => _abilityHolder;
     public Weapon Weapon() => _weapon;
     public PickUpBehaviour PickUpBehaviour() => _pickUpBehaviour;
+    public PowerUpBehaviour PowerUpBehaviour() => _powerUpBehaviour;
 
     #region Movement Management
     public void SetMoveSpeed(float newMoveSpeed) => _movement.SetMoveSpeed(newMoveSpeed);
     public float MoveSpeed() => _movement.MoveSpeed();
-    #endregion 
+    #endregion
 
     #region Health Management
     public void SetMaxHealth(float newMaxHealth) => _health.SetMaxHealth(newMaxHealth);
@@ -76,19 +103,6 @@ public class PlayerManager : MonoBehaviour
     public void SetPickUpRadius(float newPickUpRadius) => _pickUpBehaviour.SetPickUpRadius(newPickUpRadius);
     #endregion
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("EnemyBullet"))
-        {
-            _health.TakeDamage(other.gameObject.GetComponent<Bullet>().BulletDamage);
-            other.gameObject.SetActive(false);
-        }
-
-        if (other.gameObject.CompareTag("Nuke"))
-        {
-            _health.TakeDamage(1000);
-        }
-
-    }
 }
+
 

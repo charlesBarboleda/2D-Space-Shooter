@@ -65,6 +65,8 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
 
     public IEnumerator HandleDeath()
     {
+        isDead = true;
+
         EventManager.GameOverEvent();
         yield return StartCoroutine(DeathAnimation());
     }

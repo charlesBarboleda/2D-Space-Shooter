@@ -23,8 +23,8 @@ public class PickUpBehaviour : MonoBehaviour
         {
             if (hit.CompareTag(_pickUpType))
             {
-                hit.GetComponent<Debris>().maxSpeed = _attractionSpeed;
-                hit.GetComponent<Debris>().isAttracted = true;
+                hit.GetComponent<IPickable>().maxSpeed = _attractionSpeed;
+                hit.GetComponent<IPickable>().isAttracted = true;
             }
         }
     }

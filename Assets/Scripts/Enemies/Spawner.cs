@@ -12,7 +12,7 @@ public class SpawnerEnemy : Enemy
     [SerializeField] float _spawnRate = 3f;
     public List<String> ships = new List<string>();
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
         Attack();
@@ -30,7 +30,7 @@ public class SpawnerEnemy : Enemy
 
 
     }
-    public override void OnEnable()
+    protected override void OnEnable()
     {
         base.OnEnable();
         _spawnRate -= GameManager.Instance.Level() * 0.01f;
