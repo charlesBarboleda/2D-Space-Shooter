@@ -40,7 +40,7 @@ public class SpeedPowerUp : PowerUp, IPickable
     {
         Debug.Log("Speed PowerUp Activated");
 
-        _player.SetMoveSpeed(_initSpeed * 2);
+        _player.SetMoveSpeed(_player.MoveSpeed() * 2);
         Debug.Log("Speed: " + _player.MoveSpeed());
     }
 

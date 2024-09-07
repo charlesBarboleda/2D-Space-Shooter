@@ -57305,6 +57305,24 @@ MonoBehaviour:
   - tag: Comet8
     prefab: {fileID: 5728700404608352223, guid: cea9d78af30016f489c4f1875882d2e3, type: 3}
     size: 5
+  - tag: DamagePowerUp
+    prefab: {fileID: 3095709734623123258, guid: baa91cfe5fb3af749af0e4d2da0d5376, type: 3}
+    size: 5
+  - tag: FireRatePowerUp
+    prefab: {fileID: 3095709734623123258, guid: f3d3beac41a6a63488d85b03c1ca6ead, type: 3}
+    size: 5
+  - tag: NukePowerUp
+    prefab: {fileID: 3095709734623123258, guid: a250a9759dd631844a5948e5eaa86c67, type: 3}
+    size: 5
+  - tag: HealthPowerUp
+    prefab: {fileID: 3095709734623123258, guid: 1983bed50f814df4082418bbf7bfdd71, type: 3}
+    size: 5
+  - tag: SpeedPowerUp
+    prefab: {fileID: 3095709734623123258, guid: a0c2d098090ad0e4bae17c03af216d6c, type: 3}
+    size: 5
+  - tag: PickUpRadiusPowerUp
+    prefab: {fileID: 3095709734623123258, guid: 6508534778c9acf4fb4c21a085714103, type: 3}
+    size: 5
 --- !u!4 &1707799895
 Transform:
   m_ObjectHideFlags: 0

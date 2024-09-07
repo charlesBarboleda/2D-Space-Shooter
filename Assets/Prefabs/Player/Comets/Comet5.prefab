@@ -111,6 +111,13 @@ MonoBehaviour:
   - {fileID: 1218850815143880591, guid: d5eb32205b28a7b4d9a35f7f08c3bbbf, type: 3}
   - {fileID: 4282910790407873736, guid: 6415743c979eae740a0de3390b81b5ce, type: 3}
   _speed: 5
+  _powerUps:
+  - DamagePowerUp
+  - FireRatePowerUp
+  - SpeedPowerUp
+  - HealthPowerUp
+  - NukePowerUp
+  - PickUpRadiusPowerUp
   _deathEffect:
   - DeathEffectLarge
   - DeathEffectLarge2

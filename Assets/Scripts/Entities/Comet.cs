@@ -7,6 +7,7 @@ public class Comet : MonoBehaviour, IDamageable
     int hitsToBreak = 5;
     [SerializeField] List<Transform> _targets;
     [SerializeField] float _speed = 5f;
+    [SerializeField] List<string> _powerUps;
     SpriteRenderer _spriteRenderer;
     List<CircleCollider2D> _colliders = new List<CircleCollider2D>();
     bool _isDead;
@@ -76,8 +77,11 @@ public class Comet : MonoBehaviour, IDamageable
         _spriteRenderer.enabled = false;
 
 
-        // Drop the power up
-
+        // Drop a random power up
+        if (_powerUps.Count > 0)
+        {
+            GameObject powerUp = ObjectPooler.Instance.SpawnFromPool(_powerUps[Random.Range(0, _powerUps.Count)], transform.position, Quaternion.identity);
+        }
 
         // Wait for the death animation to complete
         yield return StartCoroutine(DeathAnimation());
