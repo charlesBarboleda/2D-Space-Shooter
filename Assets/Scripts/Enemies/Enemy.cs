@@ -162,7 +162,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
 
         float detectionRadius = 50f; // Increased radius for testing
-        LayerMask enemyLayerMask = LayerMask.GetMask("Enemy");
+        LayerMask enemyLayerMask = LayerMask.GetMask("Enemy") | LayerMask.GetMask("Player");
 
         // Get all potential targets within the detection radius
         Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayerMask);
