@@ -11,8 +11,8 @@ public class Building : MonoBehaviour, IDamageable
     List<CircleCollider2D> _colliders = new List<CircleCollider2D>();
     SpriteRenderer _spriteRenderer;
 
-
-    public bool isDead { get => isDead; set => isDead = value; }
+    bool _isDead;
+    public bool isDead { get => _isDead; set => _isDead = value; }
     public List<string> deathEffect { get; set; }
     public string deathExplosion { get; set; }
 
