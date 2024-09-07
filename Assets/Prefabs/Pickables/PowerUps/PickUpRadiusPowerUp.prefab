@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7557275932499016500}
   - component: {fileID: 5335036975134291167}
   - component: {fileID: 711523865301365864}
-  - component: {fileID: -2226255293552883825}
+  - component: {fileID: 2621066942848988400}
   m_Layer: 0
-  m_Name: HealthPowerUp
+  m_Name: PickUpRadiusPowerUp
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9, y: 10.24}
   m_EdgeRadius: 0
---- !u!114 &-2226255293552883825
+--- !u!114 &2621066942848988400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3095709734623123258}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 194552952d1766d409adc6bfc765afd4, type: 3}
+  m_Script: {fileID: 11500000, guid: b6b36ed8f799a7645a10a3dcee1672c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _duration: 30

@@ -21,7 +21,7 @@ public class PickUpBehaviour : MonoBehaviour
         // Iterate over each collider and trigger attraction
         foreach (Collider2D hit in hits)
         {
-            if (hit.CompareTag(_pickUpType))
+            if (hit.CompareTag("Debris") || hit.CompareTag("PowerUp"))
             {
                 hit.GetComponent<IPickable>().maxSpeed = _attractionSpeed;
                 hit.GetComponent<IPickable>().isAttracted = true;
