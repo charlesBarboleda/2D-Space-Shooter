@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Building : MonoBehaviour, IDamageable
 {
-    [SerializeField] GameObject spawnAnimation;
-    [SerializeField] GameObject deathAnimation;
+
     [SerializeField] float health = 1000f;
     [SerializeField] List<GameObject> _turretChildren = new List<GameObject>();
     List<CircleCollider2D> _colliders = new List<CircleCollider2D>();
@@ -13,8 +12,10 @@ public class Building : MonoBehaviour, IDamageable
 
     bool _isDead;
     public bool isDead { get => _isDead; set => _isDead = value; }
-    public List<string> deathEffect { get; set; }
-    public string deathExplosion { get; set; }
+    [SerializeField] List<string> _deathEffect = new List<string>();
+    public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
+    [SerializeField] string _deathExplosion;
+    public string deathExplosion { get => _deathExplosion; set => _deathExplosion = value; }
 
     void Start()
     {
@@ -23,15 +24,29 @@ public class Building : MonoBehaviour, IDamageable
     }
     void OnEnable()
     {
-        GameObject animation = Instantiate(spawnAnimation, transform.position, Quaternion.identity);
-        Destroy(animation, 1f);
+        StartCoroutine(SpawnAnimation());
     }
+
+    IEnumerator SpawnAnimation()
+    {
+        GameObject animation = ObjectPooler.Instance.SpawnFromPool("BuildingSpawn", transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(1f);
+        animation.SetActive(false);
+    }
+
+
 
     public void TeleportAway()
     {
-        GameObject animation = Instantiate(spawnAnimation, transform.position, Quaternion.identity);
-        Destroy(animation, 1f);
         GameManager.Instance.RemoveEnemy(gameObject);
+        StartCoroutine(TeleportEffect());
+
+    }
+
+    IEnumerator TeleportEffect()
+    {
+
+        yield return StartCoroutine(SpawnAnimation());
         gameObject.SetActive(false);
     }
 

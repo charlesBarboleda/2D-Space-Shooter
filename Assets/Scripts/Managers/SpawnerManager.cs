@@ -44,11 +44,6 @@ public class SpawnerManager : MonoBehaviour
     private GameObject SpawnComet(Vector3 position, Quaternion rotation)
     {
         GameObject comet = ObjectPooler.Instance.SpawnFromPool(cometsList[Random.Range(0, cometsList.Count)], position, rotation);
-        if (comet != null)
-        {
-            GameManager.Instance.AddEnemy(comet);
-            GameManager.Instance.SetEnemiesToSpawnLeft(GameManager.Instance.GetEnemiesToSpawnLeft() - 1);
-        }
         return comet;
     }
 
@@ -71,11 +66,11 @@ public class SpawnerManager : MonoBehaviour
     {
         for (int i = 0; i <= GameManager.Instance.CometsPerRound; i++)
         {
+            yield return new WaitForSeconds(GameManager.Instance.CometSpawnRate);
             GameObject comet = SpawnComet(cometSpawnPoint[Random.Range(0, cometSpawnPoint.Count)].position, Quaternion.identity);
             GameManager.Instance.CometSpawnRate = Random.Range(20, 60);
             Comet cometSettings = comet.GetComponent<Comet>();
             cometSettings.Speed = Random.Range(20, 50);
-            yield return new WaitForSeconds(GameManager.Instance.CometSpawnRate);
         }
     }
 

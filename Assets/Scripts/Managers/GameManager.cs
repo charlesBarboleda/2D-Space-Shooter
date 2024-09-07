@@ -59,6 +59,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void LateUpdate()
+    {
+        _enemies.RemoveAll(enemy => enemy == null || !enemy.activeInHierarchy);
+    }
+
     void Update()
     {
         // On-going round
@@ -66,7 +71,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Enemies Count: " + _enemies.Count);
             Debug.Log("Enemies To Spawn Left: " + _enemiesToSpawnLeft);
-            if (_enemies.Count == 0 && !_isRoundOver && _canTriggerNextRound && _enemiesToSpawnLeft == 0)
+            if (_enemies.Count <= 0 && !_isRoundOver && _canTriggerNextRound && _enemiesToSpawnLeft <= 0)
             {
 
                 _isRoundOver = true;

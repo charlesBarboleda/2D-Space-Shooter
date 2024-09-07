@@ -165,14 +165,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f9ab783fce74e4abbfdfa38afe6cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnAnimation: {fileID: 5933602760919840800, guid: 32a431a3eb4a3a74dad883468f8d4f5c, type: 3}
-  deathAnimation: {fileID: 162584487599433031, guid: 71c2b036e1a7a84418a17c55376eb376, type: 3}
   health: 10000
   _turretChildren:
   - {fileID: 8887028268032327989}
   - {fileID: 2897168576173800750}
   - {fileID: 8953913221213024146}
   - {fileID: 8673314636649855417}
+  _deathEffect:
+  - DeathEffectMid
+  - DeathEffectMid2
+  _deathExplosion: LargeExp
 --- !u!1001 &667032457539012076
 PrefabInstance:
   m_ObjectHideFlags: 0

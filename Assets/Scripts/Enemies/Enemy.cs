@@ -185,7 +185,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         StartCoroutine(HandleDeath());
     }
 
-    public IEnumerator HandleDeath()
+    public virtual IEnumerator HandleDeath()
     {
 
         isDead = true;

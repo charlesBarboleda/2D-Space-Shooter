@@ -22,7 +22,7 @@ public class Comet : MonoBehaviour, IDamageable
     {
         isDead = false;
         hitsToBreak = 5;
-        _spriteRenderer.enabled = true;
+        if (_spriteRenderer != null) _spriteRenderer.enabled = true;
         _colliders.ForEach(collider => collider.enabled = true);
     }
     void OnDisable()
@@ -43,7 +43,7 @@ public class Comet : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         if (isDead) return;
-        CameraShake.Instance.TriggerShake(5f, 0.2f);
+        CameraShake.Instance.TriggerShake(30f, 0.3f);
         hitsToBreak--;
         if (hitsToBreak <= 0)
         {
