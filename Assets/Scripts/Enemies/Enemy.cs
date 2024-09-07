@@ -81,15 +81,21 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Movement(Transform target)
     {
-        float distance = Vector3.Distance(target.transform.position, transform.position);
-        if (distance > _stopDistance)
+        Collider2D[] targetColliders = target.GetComponents<Collider2D>();
+        if (targetColliders.Length > 0)
         {
-            Vector3 direction = (target.transform.position - transform.position).normalized;
-            transform.position += direction * _speed * Time.deltaTime;
-        }
-        else
-        {
-            OrbitAround(target);
+            Vector3 closestPoint = GetClosestPoint(targetColliders, transform.position);
+            float distance = Vector3.Distance(closestPoint, transform.position);
+
+            if (distance > _stopDistance)
+            {
+                Vector3 direction = (closestPoint - transform.position).normalized;
+                transform.position += direction * _speed * Time.deltaTime;
+            }
+            else
+            {
+                OrbitAround(target);
+            }
         }
     }
 
@@ -101,10 +107,33 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public void Aim(Transform target)
     {
-        Vector3 targetAim = target.transform.position;
-        Vector3 direction = targetAim - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270f));
+        Collider2D[] targetColliders = target.GetComponents<Collider2D>();
+        if (targetColliders.Length > 0)
+        {
+            Vector3 closestPoint = GetClosestPoint(targetColliders, transform.position);
+            Vector3 direction = closestPoint - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270f));
+        }
+    }
+    private Vector3 GetClosestPoint(Collider2D[] colliders, Vector3 fromPosition)
+    {
+        Vector3 closestPoint = Vector3.zero;
+        float minDistance = Mathf.Infinity;
+
+        foreach (var collider in colliders)
+        {
+            Vector3 point = collider.ClosestPoint(fromPosition);
+            float distance = Vector3.Distance(fromPosition, point);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestPoint = point;
+            }
+        }
+
+        return closestPoint;
     }
 
     IEnumerator SpawnAnimation()

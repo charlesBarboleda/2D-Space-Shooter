@@ -112,7 +112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: 9323a6c37ab7cee46aff0f07c38607a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -148,15 +148,12 @@ MonoBehaviour:
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: MidSpawn
   _deathExplosion: MidExp
-  _deathEffect2:
-  - DeathEffectMid
-  - DeathEffectMid2
+  _deathEffect: []
   _shouldRotate: 1
   _health: 500
   _currencyDrop: 100
   _speed: 8
   _stopDistance: 40
-  isDead: 0
   exhaustChildren:
   - {fileID: 6343222560916837270}
   - {fileID: 717027674478955928}
