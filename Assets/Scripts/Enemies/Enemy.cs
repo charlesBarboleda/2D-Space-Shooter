@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(Faction))]
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
+    // ETC
+    float _targetSwitchCooldown = 1f;
+    Transform _currentTarget;
+    float _lastTargetSwitchTime = 0f;
+    float _targetCheckInterval = 0.5f;
+    float _lastTargetCheckTime;
 
     // Animations & References
+
     public AudioSource audioSource;
     [SerializeField] AudioClip _abilitySound;
     [SerializeField] AudioClip _spawnSound;
+    [SerializeField] FactionType _factionType;
     [SerializeField] string _spawnAnimation;
     [SerializeField] string _deathExplosion;
     public string deathExplosion { get => _deathExplosion; set => _deathExplosion = value; }
@@ -50,9 +59,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Update()
     {
-
-        if (_shouldRotate) Aim(CheckForTargets());
-        Movement(CheckForTargets());
+        if (Time.time > _lastTargetCheckTime + _targetCheckInterval)
+        {
+            _currentTarget = CheckForTargets();
+            _lastTargetCheckTime = Time.time;
+        }
+        if (_shouldRotate) Aim(_currentTarget);
+        Movement(_currentTarget);
 
         if (_abilityHolder != null)
         {
@@ -119,7 +132,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270f));
         }
     }
-    public Vector3 GetClosestPoint(Collider2D[] colliders, Vector3 fromPosition)
+    public Vector2 GetClosestPoint(Collider2D[] colliders, Vector3 fromPosition)
     {
         Vector3 closestPoint = Vector3.zero;
         float minDistance = Mathf.Infinity;
@@ -138,6 +151,66 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         return closestPoint;
     }
+
+    public virtual Transform CheckForTargets()
+    {
+        // Return current target if it is valid and within the cooldown period
+        if (_currentTarget != null && Time.time < _lastTargetSwitchTime + _targetSwitchCooldown)
+        {
+
+            return _currentTarget;
+        }
+
+        float detectionRadius = 50f; // Increased radius for testing
+        LayerMask enemyLayerMask = LayerMask.GetMask("Enemy");
+
+        // Get all potential targets within the detection radius
+        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayerMask);
+
+        Transform bestTarget = null;
+
+        // Iterate through detected targets to find a valid one
+        foreach (Collider2D targetCollider in hitTargets)
+        {
+            Faction targetFaction = targetCollider.GetComponent<Faction>();
+
+            if (targetFaction != null)
+            {
+
+
+                // Check if the target's faction is different from the enemy's faction
+                if (targetFaction.factionType != _factionType)
+                {
+                    Debug.Log("Target Faction:" + targetFaction.factionType);
+                    // Check if the target has a valid tag
+                    if (targetCollider.CompareTag("EnemyDestroyable") ||
+                        targetCollider.CompareTag("ThraxArmada") ||
+                        targetCollider.CompareTag("CrimsonFleet") ||
+                        targetCollider.CompareTag("Syndicates"))
+                    {
+                        bestTarget = targetCollider.transform;
+                        Debug.Log("Best Target:" + bestTarget.name);
+                        break; // Found a valid target, no need to continue checking
+                    }
+
+                }
+
+            }
+        }
+        if (bestTarget != null)
+        {
+            _currentTarget = bestTarget;
+            _lastTargetSwitchTime = Time.time;
+        }
+        else
+        {
+            _currentTarget = PlayerManager.Instance.transform;
+        }
+
+        return _currentTarget;
+
+    }
+
 
     IEnumerator SpawnAnimation()
     {
@@ -182,19 +255,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
     }
 
-    public virtual Transform CheckForTargets()
-    {
-        // Check for enemies using circle raycast
-        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 100f, LayerMask.GetMask("Player"));
-        foreach (Collider2D targets in hitTargets)
-        {
-            if (targets.CompareTag("CargoShip") || targets.CompareTag("VIPBuilding"))
-            {
-                return targets.transform;
-            }
-        }
-        return PlayerManager.GetInstance().transform;
-    }
 
 
     public virtual void IncreaseStatsPerLevel()
@@ -262,19 +322,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         exp2.SetActive(false);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("PlayerBullet"))
-        {
-            TakeDamage(other.GetComponent<Bullet>().BulletDamage);
-            other.gameObject.SetActive(false);
-        }
-    }
 
     /// <summary>
     /// Getters and Setters
     /// </summary>
     /// 
+    public FactionType Faction { get => _factionType; set => _factionType = value; }
     public float GetHealth() => _health;
     public float GetCurrencyDrop() => _currencyDrop;
     public float GetSpeed() => _speed;

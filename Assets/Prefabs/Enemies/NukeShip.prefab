@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 3396037454895543340}
   - component: {fileID: 47800847455073714}
   - component: {fileID: 7271820081797284438}
+  - component: {fileID: 4102544935453037624}
   m_Layer: 11
   m_Name: NukeShip
-  m_TagString: Enemy
+  m_TagString: Syndicates
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +117,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
+  _factionType: 3
   _spawnAnimation: MidSpawn
   _deathExplosion: MidExp
   _deathEffect:
@@ -126,6 +128,7 @@ MonoBehaviour:
   _currencyDrop: 30
   _speed: 10
   _stopDistance: 30
+  _isDead: 0
   exhaustChildren:
   - {fileID: 7033326722294087313}
   turretChildren: []
@@ -347,6 +350,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4102544935453037624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576126605128404253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9253b8d24bd643b7ae47cb753d981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factionType: 3
 --- !u!1001 &5484781429886236636
 PrefabInstance:
   m_ObjectHideFlags: 0

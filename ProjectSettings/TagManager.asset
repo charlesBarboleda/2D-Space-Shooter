@@ -22,6 +22,10 @@ TagManager:
   - Exhaust
   - Pickable
   - PowerUp
+  - EnemyDestroyable
+  - ThraxArmada
+  - Syndicates
+  - CrimsonFleet
   layers:
   - Default
   - TransparentFX
@@ -37,9 +41,9 @@ TagManager:
   - Enemy
   - Obstacles
   - Pickable
-  - 
-  - 
-  - 
+  - ThraxBullet
+  - SyndicateBullet
+  - CrimsonBullet
   - 
   - 
   - 

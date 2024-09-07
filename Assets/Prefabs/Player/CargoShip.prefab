@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 6696673542108561053}
   - component: {fileID: 3399931127119764024}
   - component: {fileID: 1402727321903492440}
+  - component: {fileID: 6812261617971387421}
   m_Layer: 10
   m_Name: CargoShip
-  m_TagString: CargoShip
+  m_TagString: EnemyDestroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnAnimation: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
   deathAnimation: {fileID: 162584487599433031, guid: 71c2b036e1a7a84418a17c55376eb376, type: 3}
-  health: 20000
+  _health: 1000
 --- !u!61 &6696673542108561053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -221,6 +222,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.36303705, y: 0.6827129}
   m_EdgeRadius: 0
+--- !u!114 &6812261617971387421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903720118690535301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9253b8d24bd643b7ae47cb753d981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factionType: 0
 --- !u!1001 &692942597771909003
 PrefabInstance:
   m_ObjectHideFlags: 0

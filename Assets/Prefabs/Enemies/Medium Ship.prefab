@@ -18,9 +18,10 @@ GameObject:
   - component: {fileID: 643915885126473281}
   - component: {fileID: 7240479954852729936}
   - component: {fileID: -3703435463698122229}
+  - component: {fileID: 1158324316765619355}
   m_Layer: 11
   m_Name: Medium Ship
-  m_TagString: Enemy
+  m_TagString: Syndicates
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +117,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
+  _factionType: 3
   _spawnAnimation: MidSpawn
   _deathExplosion: MidExp
   _deathEffect:
@@ -490,6 +492,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1158324316765619355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3361903693891464177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9253b8d24bd643b7ae47cb753d981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factionType: 3
 --- !u!1 &8490170889205339643
 GameObject:
   m_ObjectHideFlags: 0

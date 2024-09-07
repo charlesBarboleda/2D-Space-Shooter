@@ -45,9 +45,10 @@ GameObject:
   - component: {fileID: 2428754174689304111}
   - component: {fileID: 8945125126086334501}
   - component: {fileID: -5326431304616269860}
+  - component: {fileID: 6441057755641050390}
   m_Layer: 11
   m_Name: Melee Ship
-  m_TagString: Enemy
+  m_TagString: Syndicates
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,6 +144,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
+  _factionType: 3
   _spawnAnimation: SmallSpawn
   _deathExplosion: SmallExp
   _deathEffect:
@@ -337,6 +339,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6441057755641050390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8612933214198579488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9253b8d24bd643b7ae47cb753d981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factionType: 3
 --- !u!1001 &5935627673772647545
 PrefabInstance:
   m_ObjectHideFlags: 0

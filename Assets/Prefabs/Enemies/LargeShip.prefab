@@ -47,9 +47,10 @@ GameObject:
   - component: {fileID: 7269771317246057452}
   - component: {fileID: 7096312941657266070}
   - component: {fileID: -2235782203139852506}
+  - component: {fileID: 339124365759366021}
   m_Layer: 11
   m_Name: LargeShip
-  m_TagString: Enemy
+  m_TagString: Syndicates
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,6 +147,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
+  _factionType: 3
   _spawnAnimation: MidSpawn
   _deathExplosion: MidExp
   _deathEffect: []
@@ -154,6 +156,7 @@ MonoBehaviour:
   _currencyDrop: 100
   _speed: 8
   _stopDistance: 40
+  _isDead: 0
   exhaustChildren:
   - {fileID: 6343222560916837270}
   - {fileID: 717027674478955928}
@@ -428,6 +431,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &339124365759366021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8135661152765345053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9253b8d24bd643b7ae47cb753d981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factionType: 3
 --- !u!1001 &2627245770091234517
 PrefabInstance:
   m_ObjectHideFlags: 0

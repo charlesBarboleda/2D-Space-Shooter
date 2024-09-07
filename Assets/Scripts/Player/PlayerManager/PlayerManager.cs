@@ -50,7 +50,6 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
             _health.TakeDamage(other.gameObject.GetComponent<Bullet>().BulletDamage);
-            other.gameObject.SetActive(false);
         }
 
         if (other.gameObject.CompareTag("Nuke"))

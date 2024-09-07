@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8304196999121283581}
   - component: {fileID: 1863285965622434854}
   - component: {fileID: -1632575951528345661}
+  - component: {fileID: 4238250742732926151}
   m_Layer: 11
   m_Name: EnemyTurret
-  m_TagString: Untagged
+  m_TagString: Syndicates
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,6 +104,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 0}
+  _factionType: 3
   _spawnAnimation: 
   _deathExplosion: SmallExp
   _deathEffect:
@@ -113,6 +115,7 @@ MonoBehaviour:
   _currencyDrop: 0
   _speed: 0
   _stopDistance: 0
+  _isDead: 0
   exhaustChildren: []
   turretChildren: []
   _cameraShakeMagnitude: 20
@@ -269,3 +272,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4238250742732926151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343858230156979994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9253b8d24bd643b7ae47cb753d981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factionType: 3

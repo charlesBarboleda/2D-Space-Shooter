@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 7546859524840370713}
   - component: {fileID: 7493312091775896553}
   - component: {fileID: 6918635866412690468}
+  - component: {fileID: 1029730294450205119}
   m_Layer: 10
   m_Name: VIPBuilding 2
-  m_TagString: VIPBuilding
+  m_TagString: EnemyDestroyable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -175,6 +176,19 @@ MonoBehaviour:
   - DeathEffectMid
   - DeathEffectMid2
   _deathExplosion: LargeExp
+--- !u!114 &1029730294450205119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432928836449591779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9253b8d24bd643b7ae47cb753d981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factionType: 0
 --- !u!1001 &1935112455569326023
 PrefabInstance:
   m_ObjectHideFlags: 0
