@@ -22,12 +22,13 @@ public class ShooterEnemy : Enemy
         base.Update();
 
         Transform target = CheckForTargets();
-        float distanceToTarget = Vector2.Distance(transform.position, target.position);
+        float distanceToTarget = Vector2.Distance(transform.position, GetClosestPoint(target.GetComponents<Collider2D>(), transform.position));
 
         if (!isDead)
         {
             if (distanceToTarget < aimRange && Time.time >= nextFireTime)
             {
+                Debug.Log("In range to Attack");
                 Attack();
                 // Play the shoot sound
                 if (_shootSound != null)
@@ -44,14 +45,16 @@ public class ShooterEnemy : Enemy
 
     public override void Attack()
     {
+        Debug.Log("Attacking");
         FireBullets(_amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
+        Debug.Log("Firing Bullets");
     }
 
     public virtual void FireBullets(int bulletAmount, Vector3 position, Transform target)
     {
         nextFireTime = Time.time + _fireRate;
         Vector3 targetPosition = target.transform.position;
-        Vector3 targetDirection = targetPosition - position;
+        Vector3 targetDirection = (targetPosition - position).normalized;
         float startAngle = -_amountOfBullets / 2.0f * _shootingAngle;
 
 
@@ -71,17 +74,12 @@ public class ShooterEnemy : Enemy
         }
     }
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-    }
-
     public override void IncreaseStatsPerLevel()
     {
         base.IncreaseStatsPerLevel();
-        _bulletSpeed += GameManager.Instance.Level() * 0.1f;
+        _bulletSpeed += GameManager.Instance.Level() * 0.2f;
         _bulletDamage += GameManager.Instance.Level() * 1f;
-        aimRange += GameManager.Instance.Level() * 0.1f;
+        aimRange += GameManager.Instance.Level() * 0.2f;
     }
 
     public void SetBulletAmount(int amount)

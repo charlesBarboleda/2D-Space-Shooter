@@ -129,7 +129,8 @@ MonoBehaviour:
   _health: 1000
   _currencyDrop: 500
   _speed: 8
-  _stopDistance: 40
+  _stopDistance: 50
+  _isDead: 0
   exhaustChildren:
   - {fileID: 3479768752845724578}
   - {fileID: 2540986983523315337}
@@ -142,7 +143,7 @@ MonoBehaviour:
   _cameraShakeDuration: 0.3
   bulletSpawnPoint: {fileID: 2507140303280400851}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
-  aimRange: 40
+  aimRange: 60
   _fireRate: 0
   _bulletSpeed: 0
   _bulletDamage: 0

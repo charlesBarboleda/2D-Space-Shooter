@@ -25,7 +25,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _currencyDrop;
     [SerializeField] float _speed;
     [SerializeField] float _stopDistance;
-    public bool isDead { get; set; }
+    [SerializeField] bool _isDead;
+    public bool isDead { get => _isDead; set => _isDead = value; }
     bool _rotateClockwise = false;
     public List<GameObject> exhaustChildren = new List<GameObject>();
     public List<GameObject> turretChildren = new List<GameObject>();
@@ -42,6 +43,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<BoxCollider2D>());
+        isDead = false;
 
 
     }
@@ -63,6 +65,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void OnEnable()
     {
+
         if (turretChildren.Count > 0) turretChildren.ForEach(child => child.SetActive(true));
         if (exhaustChildren.Count > 0) exhaustChildren.ForEach(child => child.SetActive(true));
         if (_colliders.Count > 0) _colliders.ForEach(collider => collider.enabled = true);
@@ -116,7 +119,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270f));
         }
     }
-    private Vector3 GetClosestPoint(Collider2D[] colliders, Vector3 fromPosition)
+    public Vector3 GetClosestPoint(Collider2D[] colliders, Vector3 fromPosition)
     {
         Vector3 closestPoint = Vector3.zero;
         float minDistance = Mathf.Infinity;
@@ -194,8 +197,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     }
 
 
-
-
     public virtual void IncreaseStatsPerLevel()
     {
         _health += GameManager.Instance.Level() * 10f;
@@ -204,7 +205,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         _speed += GameManager.Instance.Level() * 0.05f;
 
-        transform.localScale += new Vector3(GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f);
+        transform.localScale += new Vector3(GameManager.Instance.Level() * 0.02f, GameManager.Instance.Level() * 0.02f, GameManager.Instance.Level() * 0.02f);
 
     }
 

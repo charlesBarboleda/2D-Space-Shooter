@@ -198,7 +198,8 @@ MonoBehaviour:
   _health: 20
   _currencyDrop: 5
   _speed: 8
-  _stopDistance: 20
+  _stopDistance: 15
+  _isDead: 0
   exhaustChildren:
   - {fileID: 7780315729898650275}
   turretChildren: []
@@ -206,7 +207,7 @@ MonoBehaviour:
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 2066367071350704046}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
-  aimRange: 20
+  aimRange: 25
   _fireRate: 3
   _bulletSpeed: 10
   _bulletDamage: 10
