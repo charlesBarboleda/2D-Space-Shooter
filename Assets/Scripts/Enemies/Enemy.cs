@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Faction))]
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
