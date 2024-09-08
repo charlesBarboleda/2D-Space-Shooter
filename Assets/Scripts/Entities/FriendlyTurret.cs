@@ -22,7 +22,7 @@ public class FriendlyTurret : ShooterEnemy
 
     }
 
-    public override Transform CheckForTargets()
+    protected override Transform CheckForTargets()
     {
         Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 100f);
         foreach (Collider2D targets in hitTargets)

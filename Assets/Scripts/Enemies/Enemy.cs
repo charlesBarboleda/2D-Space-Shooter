@@ -10,11 +10,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
     // ETC
-    float _targetSwitchCooldown = 60f;
+    float _targetSwitchCooldown = 30f;
     Transform _currentTarget;
     float _lastTargetSwitchTime = 0f;
-    float _targetCheckInterval = 1f;
-    float _lastTargetCheckTime;
 
     // Animations & References
 
@@ -38,7 +36,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _speed;
     [SerializeField] float _stopDistance;
     [SerializeField] bool _isDead;
-    public bool isDead { get => _isDead; set => _isDead = value; }
+
     bool _rotateClockwise = false;
     public List<GameObject> exhaustChildren = new List<GameObject>();
     public List<GameObject> turretChildren = new List<GameObject>();
@@ -64,10 +62,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected virtual void Update()
     {
         if (isDead) return;
-        if (Time.time > _lastTargetCheckTime + _targetCheckInterval || _currentTarget == null || !_currentTarget.gameObject.activeInHierarchy)
+        if (_currentTarget == null || !_currentTarget.gameObject.activeInHierarchy)
         {
             _currentTarget = CheckForTargets();
-            _lastTargetCheckTime = Time.time;
         }
         if (_shouldRotate) Aim(_currentTarget);
         Movement(_currentTarget);
@@ -137,7 +134,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + _aimOffset));
         }
     }
-    public Vector2 GetClosestPoint(Collider2D[] colliders, Vector3 fromPosition)
+    protected Vector2 GetClosestPoint(Collider2D[] colliders, Vector3 fromPosition)
     {
         Vector3 closestPoint = Vector3.zero;
         float minDistance = Mathf.Infinity;
@@ -157,7 +154,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         return closestPoint;
     }
 
-    public virtual Transform CheckForTargets()
+    protected virtual Transform CheckForTargets()
     {
         // Return current target if it is valid and within the cooldown period
         if (_currentTarget != null && Time.time < _lastTargetSwitchTime + _targetSwitchCooldown)
@@ -334,12 +331,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     /// 
     public AudioSource AudioSource { get => _audioSource; set => _audioSource = value; }
     public Faction Faction { get => _faction; set => _faction = value; }
-    public float GetHealth() => _health;
-    public float GetCurrencyDrop() => _currencyDrop;
-    public float GetSpeed() => _speed;
-    public float GetStopDistance() => _stopDistance;
-    public void SetHealth(float health) => _health = health;
-    public void SetCurrencyDrop(float currency) => _currencyDrop = currency;
-    public void SetSpeed(float speed) => _speed = speed;
-    public void SetStopDistance(float distance) => _stopDistance = distance;
+    public bool isDead { get => _isDead; set => _isDead = value; }
+    public float CurrencyDrop { get => _currencyDrop; set => _currencyDrop = value; }
+    public float Health { get => _health; set => _health = value; }
+    public float Speed { get => _speed; set => _speed = value; }
+    public float StopDistance { get => _stopDistance; set => _stopDistance = value; }
+
+
 }

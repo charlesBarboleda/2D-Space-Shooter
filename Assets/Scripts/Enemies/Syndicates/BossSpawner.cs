@@ -13,9 +13,9 @@ public class BossSpawner : SpawnerEnemy
     public override void IncreaseStatsPerLevel()
     {
 
-        SetHealth(GetHealth() + GameManager.Instance.Level() * 10f);
-        SetCurrencyDrop(GetCurrencyDrop() + GameManager.Instance.Level() * 10f);
-        SetSpeed(GetSpeed() + GameManager.Instance.Level() * 0.05f);
+        Health += GameManager.Instance.Level() * 10f;
+        CurrencyDrop += GameManager.Instance.Level() * 1f;
+        Speed += GameManager.Instance.Level() * 0.1f;
     }
 
 }
