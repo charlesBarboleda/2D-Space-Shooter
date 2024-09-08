@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2127104386702460606}
   - component: {fileID: 8202637850851169969}
   - component: {fileID: 43842060758814976}
-  m_Layer: 11
+  m_Layer: 15
   m_Name: Comet4
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5749892945899594870, guid: 797ee248261f4504f9071cdf2c4300d4, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

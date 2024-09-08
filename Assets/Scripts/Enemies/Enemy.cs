@@ -10,10 +10,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
     // ETC
-    float _targetSwitchCooldown = 10f;
+    float _targetSwitchCooldown = 60f;
     Transform _currentTarget;
     float _lastTargetSwitchTime = 0f;
-    float _targetCheckInterval = 9f;
+    float _targetCheckInterval = 1f;
     float _lastTargetCheckTime;
 
     // Animations & References
@@ -64,8 +64,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected virtual void Update()
     {
         if (isDead) return;
-        if (_currentTarget == null) _currentTarget = CheckForTargets();
-        if (Time.time > _lastTargetCheckTime + _targetCheckInterval)
+        if (Time.time > _lastTargetCheckTime + _targetCheckInterval || _currentTarget == null || !_currentTarget.gameObject.activeInHierarchy)
         {
             _currentTarget = CheckForTargets();
             _lastTargetCheckTime = Time.time;
@@ -168,7 +167,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
 
         float detectionRadius = 50f; // Increased radius for testing
-        LayerMask enemyLayerMask = LayerMask.GetMask("Enemy") | LayerMask.GetMask("Player");
+        LayerMask enemyLayerMask = LayerMask.GetMask("Syndicates") | LayerMask.GetMask("ThraxArmada") | LayerMask.GetMask("CrimsonFleet") | LayerMask.GetMask("Player");
 
         // Get all potential targets within the detection radius
         Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayerMask);

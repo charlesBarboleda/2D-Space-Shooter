@@ -29,7 +29,6 @@ public class ShooterEnemy : Enemy
         {
             if (distanceToTarget < aimRange && Time.time >= nextFireTime)
             {
-                Debug.Log("In range to Attack");
                 Attack();
                 // Play the shoot sound
                 if (_shootSound != null)
@@ -46,9 +45,9 @@ public class ShooterEnemy : Enemy
 
     public override void Attack()
     {
-        Debug.Log("Attacking");
+
+        Aim(CheckForTargets());
         FireBullets(_amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
-        Debug.Log("Firing Bullets");
     }
 
     public virtual void FireBullets(int bulletAmount, Vector3 position, Transform target)
@@ -137,9 +136,4 @@ public class ShooterEnemy : Enemy
     {
         return _bulletLifetime;
     }
-
-
-
-
-
 }
