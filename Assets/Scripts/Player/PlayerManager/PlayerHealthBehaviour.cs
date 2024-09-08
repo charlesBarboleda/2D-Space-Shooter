@@ -10,10 +10,12 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
     [SerializeField] ParticleSystem _healingParticles;
     [SerializeField] GameObject _deathExplosionPrefab;
     SpriteRenderer _spriteRenderer;
-
-    public bool isDead { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    public List<string> deathEffect { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-    public string deathExplosion { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    [SerializeField] bool _isDead;
+    public bool isDead { get => _isDead; set => _isDead = value; }
+    [SerializeField] List<string> _deathEffect;
+    [SerializeField] string _deathExplosion;
+    public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
+    public string deathExplosion { get => _deathExplosion; set => _deathExplosion = value; }
 
     // Start is called before the first frame update
     void Start()
