@@ -29,6 +29,7 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
+        if (isDead) return;
         currentHealth -= damage;
         StartCoroutine(FlashRed());
 

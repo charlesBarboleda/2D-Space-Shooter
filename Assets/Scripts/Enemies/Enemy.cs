@@ -10,7 +10,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
     // ETC
-    float _targetSwitchCooldown = 30f;
+    float _targetSwitchCooldown = 10f;
     Transform _currentTarget;
     float _lastTargetSwitchTime = 0f;
 
