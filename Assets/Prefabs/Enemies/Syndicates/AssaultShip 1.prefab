@@ -449,15 +449,14 @@ MonoBehaviour:
   - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
   - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
   - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
-  audioSource: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
-  _factionType: 3
   _spawnAnimation: LargeSpawn
   _deathExplosion: LargeExp
   _deathEffect:
   - DeathEffectLarge
   - DeathEffectLarge2
+  _aimOffset: -90
   _shouldRotate: 1
   _health: 5000
   _currencyDrop: 500
@@ -478,6 +477,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 282736137304477761}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   aimRange: 80
+  _bulletType: SyndicatesBullet
   _fireRate: 0
   _bulletSpeed: 0
   _bulletDamage: 0

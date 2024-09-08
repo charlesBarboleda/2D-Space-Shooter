@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9144009670669768331}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,11 +45,11 @@ GameObject:
   - component: {fileID: 8786660656623488859}
   - component: {fileID: 4589581424285497255}
   - component: {fileID: 4214577351792891450}
-  - component: {fileID: 5347533388416486084}
   - component: {fileID: 5923325575617448525}
-  m_Layer: 0
+  - component: {fileID: 5517677311685375105}
+  m_Layer: 11
   m_Name: CrimsonSmall1
-  m_TagString: Untagged
+  m_TagString: CrimsonFleet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,15 +62,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6126911676597071214}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0.0000029504295}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.2872314, y: 3.2872314, z: 3.2872314}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9144009670669768331}
   - {fileID: 8039788867163802214}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 --- !u!212 &756019975012833125
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -253,49 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 1
---- !u!114 &5347533388416486084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6126911676597071214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2520035b6197c5e42a54ed52ed55c248, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currencyPrefab: []
-  audioSource: {fileID: 5923325575617448525}
-  _abilitySound: {fileID: 0}
-  _spawnSound: {fileID: 8300000, guid: 1e42f48b83f9dd8bcad25ccf64c238c3, type: 3}
-  _factionType: 0
-  _spawnAnimation: 
-  _deathExplosion: SmallExp
-  _deathEffect:
-  - DeathEffect
-  - DeathEffect2
-  _shouldRotate: 1
-  _health: 200
-  _currencyDrop: 50
-  _speed: 10
-  _stopDistance: 40
-  _isDead: 0
-  exhaustChildren:
-  - {fileID: 8039788867163802201}
-  turretChildren: []
-  _cameraShakeMagnitude: 5
-  _cameraShakeDuration: 0.2
-  bulletSpawnPoint: {fileID: 9144009670669768331}
-  _shootSound: {fileID: 0}
-  aimRange: 60
-  _fireRate: 5
-  _bulletSpeed: 15
-  _bulletDamage: 30
-  _amountOfBullets: 5
-  _shootingAngle: 10
-  _bulletLifetime: 5
-  nextFireTime: 0
 --- !u!82 &5923325575617448525
 AudioSource:
   m_ObjectHideFlags: 0
@@ -308,7 +265,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.173
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -352,7 +309,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -392,6 +349,55 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5517677311685375105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126911676597071214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2520035b6197c5e42a54ed52ed55c248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currencyPrefab:
+  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
+  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
+  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
+  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
+  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
+  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
+  _abilitySound: {fileID: 0}
+  _spawnSound: {fileID: 8300000, guid: 1e42f48b83f9dd8bcad25ccf64c238c3, type: 3}
+  _spawnAnimation: 
+  _deathExplosion: MidExp
+  _deathEffect:
+  - DeathEffectMid
+  - DeathEffectMid2
+  _aimOffset: 90
+  _shouldRotate: 1
+  _health: 300
+  _currencyDrop: 25
+  _speed: 10
+  _stopDistance: 40
+  _isDead: 0
+  exhaustChildren:
+  - {fileID: 8039788867163802201}
+  turretChildren: []
+  _cameraShakeMagnitude: 5
+  _cameraShakeDuration: 0.2
+  bulletSpawnPoint: {fileID: 9144009670669768331}
+  _shootSound: {fileID: 8300000, guid: 380a61624a607f042ab5e96218f37633, type: 3}
+  aimRange: 60
+  _bulletType: CrimsonBullet
+  _fireRate: 5
+  _bulletSpeed: 15
+  _bulletDamage: 30
+  _amountOfBullets: 5
+  _shootingAngle: 10
+  _bulletLifetime: 5
+  nextFireTime: 0
 --- !u!1001 &4761905306650182420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -400,17 +406,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2586068709570470215}
     m_Modifications:
+    - target: {fileID: 1318935079978438865, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 1318935079978438871, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319904205370560433, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133223516629, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3280519133223516631, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3280519133390621005, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_Name
       value: Exhaust
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280519133390621005, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_LocalScale.x
@@ -422,11 +444,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0000023106893
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.60841477
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_LocalPosition.z
@@ -466,7 +488,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133430969737, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_Intensity
-      value: 0
+      value: 2.9305463
+      objectReference: {fileID: 0}
+    - target: {fileID: 3280519133430969738, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7893921968227561089, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
       propertyPath: m_Materials.Array.size

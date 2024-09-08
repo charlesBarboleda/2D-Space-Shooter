@@ -10,18 +10,18 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
     // ETC
-    float _targetSwitchCooldown = 1f;
+    float _targetSwitchCooldown = 10f;
     Transform _currentTarget;
     float _lastTargetSwitchTime = 0f;
-    float _targetCheckInterval = 0.5f;
+    float _targetCheckInterval = 9f;
     float _lastTargetCheckTime;
 
     // Animations & References
 
-    public AudioSource audioSource;
+    Faction _faction;
+    AudioSource _audioSource;
     [SerializeField] AudioClip _abilitySound;
     [SerializeField] AudioClip _spawnSound;
-    [SerializeField] FactionType _factionType;
     [SerializeField] string _spawnAnimation;
     [SerializeField] string _deathExplosion;
     public string deathExplosion { get => _deathExplosion; set => _deathExplosion = value; }
@@ -31,6 +31,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     SpriteRenderer _spriteRenderer;
     List<BoxCollider2D> _colliders = new List<BoxCollider2D>();
     // Stats
+    [SerializeField] float _aimOffset;
     [SerializeField] bool _shouldRotate;
     [SerializeField] float _health;
     [SerializeField] float _currencyDrop;
@@ -51,7 +52,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        _faction = GetComponent<Faction>();
+        _audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<BoxCollider2D>());
         isDead = false;
@@ -61,6 +63,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Update()
     {
+        if (isDead) return;
+        if (_currentTarget == null) _currentTarget = CheckForTargets();
         if (Time.time > _lastTargetCheckTime + _targetCheckInterval)
         {
             _currentTarget = CheckForTargets();
@@ -72,7 +76,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (_abilityHolder != null)
         {
             UseAbility(CheckForTargets()); // Uses the ability if the cooldown is 0
-            if (_abilitySound != null) audioSource.PlayOneShot(_abilitySound);
+            if (_abilitySound != null) _audioSource.PlayOneShot(_abilitySound);
         }
 
 
@@ -123,7 +127,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         transform.RotateAround(target.position, Vector3.forward, direction * _speed * Time.deltaTime);
     }
 
-    public void Aim(Transform target)
+    protected virtual void Aim(Transform target)
     {
         Collider2D[] targetColliders = target.GetComponents<Collider2D>();
         if (targetColliders.Length > 0)
@@ -131,7 +135,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             Vector3 closestPoint = GetClosestPoint(targetColliders, transform.position);
             Vector3 direction = closestPoint - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270f));
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + _aimOffset));
         }
     }
     public Vector2 GetClosestPoint(Collider2D[] colliders, Vector3 fromPosition)
@@ -181,7 +185,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
 
                 // Check if the target's faction is different from the enemy's faction
-                if (targetFaction.factionType != _factionType)
+                if (targetFaction.factionType != _faction.factionType)
                 {
                     Debug.Log("Target Faction:" + targetFaction.factionType);
                     // Check if the target has a valid tag
@@ -216,7 +220,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     IEnumerator SpawnAnimation()
     {
-        if (_spawnSound != null) audioSource.PlayOneShot(_spawnSound);
+        if (_spawnSound != null) _audioSource.PlayOneShot(_spawnSound);
         GameObject obj = ObjectPooler.Instance.SpawnFromPool(_spawnAnimation, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(1f);
         obj.SetActive(false);
@@ -329,7 +333,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     /// Getters and Setters
     /// </summary>
     /// 
-    public FactionType Faction { get => _factionType; set => _factionType = value; }
+    public AudioSource AudioSource { get => _audioSource; set => _audioSource = value; }
+    public Faction Faction { get => _faction; set => _faction = value; }
     public float GetHealth() => _health;
     public float GetCurrencyDrop() => _currencyDrop;
     public float GetSpeed() => _speed;

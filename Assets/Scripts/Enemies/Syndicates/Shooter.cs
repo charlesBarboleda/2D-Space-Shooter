@@ -7,6 +7,7 @@ public class ShooterEnemy : Enemy
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] AudioClip _shootSound;
     [SerializeField] public float aimRange;
+    [SerializeField] string _bulletType;
 
     [SerializeField] float _fireRate;
     [SerializeField] float _bulletSpeed;
@@ -33,7 +34,7 @@ public class ShooterEnemy : Enemy
                 // Play the shoot sound
                 if (_shootSound != null)
                 {
-                    audioSource.PlayOneShot(_shootSound);
+                    AudioSource.PlayOneShot(_shootSound);
                 }
                 else
                 {
@@ -60,7 +61,7 @@ public class ShooterEnemy : Enemy
 
         for (int i = 0; i < bulletAmount; i++)
         {
-            GameObject enemyBullet = ObjectPooler.Instance.SpawnFromPool("Bullet", position, Quaternion.identity);
+            GameObject enemyBullet = ObjectPooler.Instance.SpawnFromPool(_bulletType, position, Quaternion.identity);
             // Calculate the spread angle for each bullet
             float angle = startAngle + i * _shootingAngle;
             Vector3 bulletDirection = Quaternion.Euler(0, 0, angle) * targetDirection;
