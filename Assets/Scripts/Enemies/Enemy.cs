@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Faction))]
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
@@ -18,6 +19,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     Faction _faction;
     AudioSource _audioSource;
+    [SerializeField] AudioClip _deathSound;
     [SerializeField] AudioClip _abilitySound;
     [SerializeField] AudioClip _spawnSound;
     [SerializeField] string _spawnAnimation;
@@ -163,7 +165,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             return _currentTarget;
         }
 
-        float detectionRadius = 50f; // Increased radius for testing
+        float detectionRadius = 25f; // Increased radius for testing
         LayerMask enemyLayerMask = LayerMask.GetMask("Syndicates") | LayerMask.GetMask("ThraxArmada") | LayerMask.GetMask("CrimsonFleet") | LayerMask.GetMask("Player");
 
         // Get all potential targets within the detection radius
@@ -261,13 +263,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void IncreaseStatsPerLevel()
     {
-        _health += GameManager.Instance.Level() * 10f;
+        Health += GameManager.Instance.Level() * 10f;
 
-        _currencyDrop += GameManager.Instance.Level() * 0.5f;
+        CurrencyDrop += GameManager.Instance.Level() * 0.5f;
 
-        _speed += GameManager.Instance.Level() * 0.05f;
+        Speed += GameManager.Instance.Level() * 0.05f;
 
-        transform.localScale += new Vector3(GameManager.Instance.Level() * 0.02f, GameManager.Instance.Level() * 0.02f, GameManager.Instance.Level() * 0.02f);
+        transform.localScale += new Vector3(GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f);
 
     }
 
@@ -281,6 +283,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
 
         isDead = true;
+        // Play the death sound
+        if (_audioSource != null) _audioSource.PlayOneShot(_deathSound);
 
         // Disable the turrets if there are any
         if (turretChildren.Count > 0) turretChildren.ForEach(child => child.SetActive(false));
@@ -329,8 +333,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     /// Getters and Setters
     /// </summary>
     /// 
+    public List<BoxCollider2D> Colliders { get => _colliders; set => _colliders = value; }
+    public SpriteRenderer SpriteRenderer { get => _spriteRenderer; set => _spriteRenderer = value; }
     public AudioSource AudioSource { get => _audioSource; set => _audioSource = value; }
     public Faction Faction { get => _faction; set => _faction = value; }
+    public List<GameObject> CurrencyPrefab { get => _currencyPrefab; set => _currencyPrefab = value; }
+    public float CameraShakeMagnitude { get => _cameraShakeMagnitude; set => _cameraShakeMagnitude = value; }
+    public float CameraShakeDuration { get => _cameraShakeDuration; set => _cameraShakeDuration = value; }
     public bool isDead { get => _isDead; set => _isDead = value; }
     public float CurrencyDrop { get => _currencyDrop; set => _currencyDrop = value; }
     public float Health { get => _health; set => _health = value; }

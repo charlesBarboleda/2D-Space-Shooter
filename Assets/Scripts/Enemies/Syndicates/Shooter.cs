@@ -46,7 +46,6 @@ public class ShooterEnemy : Enemy
     public override void Attack()
     {
 
-        Aim(CheckForTargets());
         FireBullets(_amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
     }
 
