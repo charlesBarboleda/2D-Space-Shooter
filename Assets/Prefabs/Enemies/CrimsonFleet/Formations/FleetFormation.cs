@@ -16,6 +16,11 @@ public class FleetFormation : MonoBehaviour
         }
     }
 
+    public int TotalPositions => _formationPositions.Count + _bossPositions.Count;
+
+
+
+
 
 
     public List<Transform> FormationPositions { get => _formationPositions; set => _formationPositions = value; }

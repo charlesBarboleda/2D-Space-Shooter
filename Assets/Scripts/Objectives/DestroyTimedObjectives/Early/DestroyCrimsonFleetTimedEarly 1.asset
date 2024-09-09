@@ -10,27 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 522e3a8429ede644897c8b624e18f414, type: 3}
-  m_Name: DestroyCrimsonFleetTimed 1
+  m_Name: DestroyCrimsonFleetTimedEarly 1
   m_EditorClassIdentifier: 
-  objectiveDescription: 'Eliminate the Crimson Fleet: 22 ships in 280 seconds'
-  isCompleted: 0
+  objectiveDescription: Objective Completed
+  isCompleted: 1
   isActive: 1
   isFailed: 0
   reward: 1000
   _timeToDestroy: 300
-  _elapsedTime: 279.5057
-  _requiredKills: 36
-  _currentKills: 22
+  _elapsedTime: 280.25284
+  _requiredKills: 15
+  _currentKills: -6
   _shipNames:
-  - CrimsonSmall1
-  - CrimsonSmall2
-  - CrimsonSmall3
   - CrimsonSmall4
-  _bossNames:
-  - CrimsonBuffer
-  - CrimsonBomberSpawner
+  - CrimsonSmall3
+  _bossNames: []
   _formationNames:
-  - CrimsonFormationLate4
+  - CrimsonFormationEarly1
+  - CrimsonFormationEarly2
+  - CrimsonFormationEarly3
   _formationSpawnPoints:
   - {fileID: 3938322381312400411, guid: 41ff6f9282b4e344a96beda1f84aedc1, type: 3}
   - {fileID: 5966421680059924658, guid: b72873bf3451be540ad47dff3710e3f5, type: 3}

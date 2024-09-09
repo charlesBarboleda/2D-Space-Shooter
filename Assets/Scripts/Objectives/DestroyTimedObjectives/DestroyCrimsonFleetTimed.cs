@@ -21,46 +21,34 @@ public class DestroyCrimsonFleetTimed : Objective
 
         foreach (string formationName in _formationNames)
         {
-            int randomIndex = Random.Range(0, _formationSpawnPoints.Count);
-            Vector3 targetDirection = (PlayerManager.Instance.transform.position - _formationSpawnPoints[randomIndex].position).normalized;
-            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+            int _randomIndex = Random.Range(0, _formationSpawnPoints.Count);
+            Vector2 targetDirection = PlayerManager.Instance.transform.position - _formationSpawnPoints[_randomIndex].position;
+            Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, targetDirection);
 
-            // Spawn the formation at a random spawn point
-            GameObject formation = ObjectPooler.Instance.SpawnFromPool(formationName, _formationSpawnPoints[randomIndex].position, targetRotation);
-            if (formation == null) continue;
+            // Spawn the formation positions
+            GameObject formation = ObjectPooler.Instance.SpawnFromPool(formationName, _formationSpawnPoints[_randomIndex].position, targetRotation);
 
-            FleetFormation fleetFormation = formation.GetComponent<FleetFormation>();
-            if (fleetFormation == null) continue;
-
-            // Ensure all spawn points are used
-            List<Transform> usedShipSpawnPoints = new List<Transform>(fleetFormation.FormationPositions);
-            List<Transform> usedBossSpawnPoints = new List<Transform>(fleetFormation.BossPositions);
-
-            // Spawn ships
-            for (int i = 0; i < fleetFormation.FormationPositions.Count; i++)
+            // Get the total positions of the formation
+            FleetFormation formationScript = formation.GetComponent<FleetFormation>();
+            if (formationScript != null)
             {
-                if (i >= _shipNames.Count) break;
+                _requiredKills = formationScript.TotalPositions;
+            }
 
-                Transform shipSpawnPoint = fleetFormation.FormationPositions[i];
-                GameObject ship = ObjectPooler.Instance.SpawnFromPool(_shipNames[i % _shipNames.Count], shipSpawnPoint.position, Quaternion.identity);
-                if (ship == null) continue;
-
+            // Spawn the ships in the formation
+            foreach (Transform shipSpawn in formationScript.FormationPositions)
+            {
+                // Spawn the ships in the formation
+                GameObject ship = ObjectPooler.Instance.SpawnFromPool(_shipNames[Random.Range(0, _shipNames.Count)], shipSpawn.position, Quaternion.identity);
                 GameManager.Instance.AddEnemy(ship);
-                _requiredKills++;
             }
-
-            // Spawn bosses
-            for (int i = 0; i < fleetFormation.BossPositions.Count; i++)
+            foreach (Transform bossSpawn in formationScript.BossPositions)
             {
-                if (i >= _bossNames.Count) break;
-
-                Transform bossSpawnPoint = fleetFormation.BossPositions[i];
-                GameObject boss = ObjectPooler.Instance.SpawnFromPool(_bossNames[i % _bossNames.Count], bossSpawnPoint.position, Quaternion.identity);
-                if (boss == null) continue;
-
+                // Spawn the bosses in the formation
+                GameObject boss = ObjectPooler.Instance.SpawnFromPool(_bossNames[Random.Range(0, _bossNames.Count)], bossSpawn.position, Quaternion.identity);
                 GameManager.Instance.AddEnemy(boss);
-                _requiredKills++;
             }
+            formation.SetActive(false);
         }
 
         _currentKills = _requiredKills; // Initialize current kills

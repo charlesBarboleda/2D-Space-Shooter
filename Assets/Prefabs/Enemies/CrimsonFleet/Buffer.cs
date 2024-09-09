@@ -9,8 +9,8 @@ public class Buffer : Enemy
 
     protected override void Update()
     {
-        BuffAllies();
-        if (isDead) UnBuffAllies();
+        Attack();
+        UnBuffAllies();
         base.Update();
     }
 
