@@ -40,12 +40,22 @@ public class SpawnerEnemy : Enemy
         }
     }
 
+    public override void BuffedState()
+    {
+        _spawnRate = _spawnRate / 1.5f;
+    }
+    public override void UnBuffedState()
+    {
+        base.UnBuffedState();
+        _spawnRate = _spawnRate * 1.5f;
+    }
+
     void OnDisable()
     {
         CancelInvoke("SpawnRandomShips");
     }
 
-    public override void Attack()
+    protected override void Attack()
     {
         InvokeRepeating("SpawnRandomShips", 0, _spawnRate);
     }

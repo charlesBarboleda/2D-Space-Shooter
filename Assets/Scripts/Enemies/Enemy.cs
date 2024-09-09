@@ -19,6 +19,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     Faction _faction;
     AudioSource _audioSource;
+    [SerializeField] GameObject _buffedParticles;
     [SerializeField] AudioClip _deathSound;
     [SerializeField] AudioClip _abilitySound;
     [SerializeField] AudioClip _spawnSound;
@@ -48,7 +49,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     // Camera Shake
     [SerializeField] float _cameraShakeMagnitude;
     [SerializeField] float _cameraShakeDuration;
-    public abstract void Attack();
+    protected abstract void Attack();
 
     protected virtual void Start()
     {
@@ -77,6 +78,19 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             if (_abilitySound != null) _audioSource.PlayOneShot(_abilitySound);
         }
 
+
+    }
+    public virtual void UnBuffedState()
+    {
+        _buffedParticles.SetActive(false);
+        Health = Health / 1.5f;
+        Speed = Speed / 1.5f;
+    }
+    public virtual void BuffedState()
+    {
+        _buffedParticles.SetActive(true);
+        Health = Health * 1.5f;
+        Speed = Speed * 1.5f;
 
     }
 

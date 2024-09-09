@@ -42,8 +42,22 @@ public class SuicideBomber : Enemy
         }
     }
 
+    public override void BuffedState()
+    {
+        base.BuffedState();
+        _explosionRadius = _explosionRadius * 1.5f;
+        _explosionDamage = _explosionDamage * 1.5f;
+    }
 
-    public override void Attack()
+    public override void UnBuffedState()
+    {
+        base.UnBuffedState();
+        _explosionRadius = _explosionRadius / 1.5f;
+        _explosionDamage = _explosionDamage / 1.5f;
+    }
+
+
+    protected override void Attack()
     {
         StartCoroutine(Explode());
     }

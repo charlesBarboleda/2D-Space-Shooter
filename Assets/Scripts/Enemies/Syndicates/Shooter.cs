@@ -43,7 +43,7 @@ public class ShooterEnemy : Enemy
         }
     }
 
-    public override void Attack()
+    protected override void Attack()
     {
 
         FireBullets(_amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
@@ -79,6 +79,25 @@ public class ShooterEnemy : Enemy
         _bulletSpeed += GameManager.Instance.Level() * 0.2f;
         _bulletDamage += GameManager.Instance.Level() * 1f;
         aimRange += GameManager.Instance.Level() * 0.2f;
+    }
+
+    public override void BuffedState()
+    {
+        base.BuffedState();
+        _bulletDamage = _bulletDamage * 1.5f;
+        _bulletSpeed = _bulletSpeed * 1.5f;
+        _fireRate = _fireRate / 1.5f;
+        _amountOfBullets += 2;
+
+    }
+
+    public override void UnBuffedState()
+    {
+        base.UnBuffedState();
+        _bulletDamage = _bulletDamage / 1.5f;
+        _bulletSpeed = _bulletSpeed / 1.5f;
+        _fireRate = _fireRate * 1.5f;
+        _amountOfBullets -= 2;
     }
 
     public void SetBulletAmount(int amount)

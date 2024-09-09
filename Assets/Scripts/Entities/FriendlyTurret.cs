@@ -16,7 +16,7 @@ public class FriendlyTurret : ShooterEnemy
         }
     }
 
-    public override void Attack()
+    protected override void Attack()
     {
         FireBullets(GetBulletAmount(), transform.position, CheckForTargets());
 

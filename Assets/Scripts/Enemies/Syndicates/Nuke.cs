@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class NukeEnemy : Enemy
 {
-    [SerializeField] private GameObject nukePrefab;
+    [SerializeField] GameObject _nukePrefab;
     private bool isOnCoolDown;
-    [SerializeField] private float attackRange;
-    [SerializeField] private float coolDownTime = 1f;
+    [SerializeField] float _attackRange;
+    [SerializeField] float _coolDownTime = 1f;
 
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        coolDownTime -= GameManager.Instance.Level() * 0.0001f;
+        _coolDownTime -= GameManager.Instance.Level() * 0.0001f;
     }
     // Update is called once per frame
     protected override void Update()
     {
         base.Update();
-        if (Vector2.Distance(transform.position, CheckForTargets().position) < attackRange)
+        if (Vector2.Distance(transform.position, CheckForTargets().position) < _attackRange)
         {
             Debug.Log("In range to attack");
             Attack();
@@ -33,7 +33,7 @@ public class NukeEnemy : Enemy
         if (!isOnCoolDown)
         {
             Debug.Log("Shooting Nuke");
-            GameObject nuke = Instantiate(nukePrefab, CheckForTargets().position, Quaternion.identity);
+            GameObject nuke = Instantiate(_nukePrefab, CheckForTargets().position, Quaternion.identity);
             Destroy(nuke, 6f);
             isOnCoolDown = true;
             StartCoroutine(Cooldown());
@@ -43,15 +43,27 @@ public class NukeEnemy : Enemy
 
     IEnumerator Cooldown()
     {
-        yield return new WaitForSeconds(coolDownTime);
+        yield return new WaitForSeconds(_coolDownTime);
         isOnCoolDown = false;
     }
 
-    public override void Attack()
+    protected override void Attack()
     {
         Debug.Log("Attacking");
         ShootNuke();
 
+    }
+
+    public override void BuffedState()
+    {
+        _attackRange = _attackRange * 1.5f;
+        _coolDownTime = _coolDownTime / 1.5f;
+    }
+
+    public override void UnBuffedState()
+    {
+        _attackRange = _attackRange / 1.5f;
+        _coolDownTime = _coolDownTime * 1.5f;
     }
 
 
