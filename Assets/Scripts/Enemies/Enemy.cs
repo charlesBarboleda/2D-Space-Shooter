@@ -11,7 +11,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
     // ETC
-    float _targetSwitchCooldown = 10f;
+    float _targetSwitchCooldown = 3f;
     Transform _currentTarget;
     float _lastTargetSwitchTime = 0f;
 
@@ -220,7 +220,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         if (_spawnSound != null) _audioSource.PlayOneShot(_spawnSound);
         GameObject obj = ObjectPooler.Instance.SpawnFromPool(_spawnAnimation, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         obj.SetActive(false);
     }
     IEnumerator StartSpawnAnimationWithDelay()
@@ -302,7 +302,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         CameraShake.Instance.TriggerShake(_cameraShakeMagnitude, _cameraShakeDuration);
 
         // Notify Objectives Manager
-        ObjectivesManager.Instance.DestroyShip();
+        ObjectivesManager.Instance.SyndicatesDestroyShipTimed();
 
         // Notify Event Manager
         EventManager.EnemyDestroyedEvent(gameObject);

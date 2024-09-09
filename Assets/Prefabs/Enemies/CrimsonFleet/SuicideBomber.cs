@@ -73,12 +73,12 @@ public class SuicideBomber : Enemy
 
     IEnumerator Explode()
     {
-        LayerMask layerMasks = LayerMask.GetMask("Player", "EnemyDestroyable");
+        LayerMask layerMasks = LayerMask.GetMask("Player", "EnemyDestroyable", "Syndicates", "ThraxArmada");
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _explosionRadius, layerMasks);
 
         foreach (Collider2D hit in colliders)
         {
-            if (hit.CompareTag("Player") || hit.CompareTag("EnemyDestroyable"))
+            if (hit.CompareTag("Player") || hit.CompareTag("EnemyDestroyable") || hit.CompareTag("Syndicates") || hit.CompareTag("ThraxArmada"))
             {
                 IDamageable damageable = hit.GetComponent<IDamageable>();
                 if (damageable != null)
@@ -102,7 +102,7 @@ public class SuicideBomber : Enemy
         CameraShake.Instance.TriggerShake(CameraShakeMagnitude, CameraShakeDuration);
 
         // Notify Objectives Manager
-        ObjectivesManager.Instance.DestroyShip();
+        // ObjectivesManager.Instance.DestroyCrimsonShipsTimed();
 
         // Notify Event Manager
         EventManager.EnemyDestroyedEvent(gameObject);

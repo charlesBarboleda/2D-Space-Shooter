@@ -61,7 +61,7 @@ public class ObjectivesManager : MonoBehaviour
     }
 
 
-    public void DestroyShip()
+    public void SyndicatesDestroyShipTimed()
     {
         foreach (Objective objective in activeObjectives)
         {

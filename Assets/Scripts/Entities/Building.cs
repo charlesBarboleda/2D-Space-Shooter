@@ -119,9 +119,6 @@ public class Building : MonoBehaviour, IDamageable
         // Shake the camera
         CameraShake.Instance.TriggerShake(3f, 0.3f);
 
-        // Notify Objectives Manager
-        ObjectivesManager.Instance.DestroyShip();
-
         // Notify Event Manager
         EventManager.EnemyDestroyedEvent(gameObject);
 

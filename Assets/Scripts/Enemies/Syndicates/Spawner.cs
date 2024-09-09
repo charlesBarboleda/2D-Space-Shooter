@@ -17,8 +17,7 @@ public class SpawnerEnemy : Enemy
         base.Start();
         Attack();
     }
-
-    private void SpawnRandomShips()
+    void SpawnRandomShips()
     {
         int randomShipIndex = Random.Range(0, ships.Count); // Randomly choose between easyShips and midShips
         // Calculate a random position on the circle
@@ -33,6 +32,7 @@ public class SpawnerEnemy : Enemy
     protected override void OnEnable()
     {
         base.OnEnable();
+        Attack();
         _spawnRate -= GameManager.Instance.Level() * 0.01f;
         if (_spawnRate <= 0.1f)
         {
@@ -42,7 +42,7 @@ public class SpawnerEnemy : Enemy
 
     void OnDisable()
     {
-        CancelInvoke();
+        CancelInvoke("SpawnRandomShips");
     }
 
     public override void Attack()
