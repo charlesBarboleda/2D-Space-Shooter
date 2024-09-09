@@ -7,7 +7,7 @@ public class BossShooter : ShooterEnemy
     public override void Die()
     {
         base.Die();
-        ObjectivesManager.Instance.DestroyShooterBoss();
+        ObjectivesManager.Instance.DestroyBoss();
     }
 
     public override void IncreaseStatsPerLevel()

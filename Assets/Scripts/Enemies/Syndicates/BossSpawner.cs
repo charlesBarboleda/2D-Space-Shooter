@@ -7,7 +7,7 @@ public class BossSpawner : SpawnerEnemy
     public override void Die()
     {
         base.Die();
-        ObjectivesManager.Instance.DestroySpawnerBoss();
+        ObjectivesManager.Instance.DestroyBoss();
     }
 
     public override void IncreaseStatsPerLevel()

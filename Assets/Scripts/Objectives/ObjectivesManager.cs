@@ -61,7 +61,7 @@ public class ObjectivesManager : MonoBehaviour
     }
 
 
-    public void SyndicatesDestroyShipTimed()
+    public void DestroyShipTimed()
     {
         foreach (Objective objective in activeObjectives)
         {
@@ -69,12 +69,16 @@ public class ObjectivesManager : MonoBehaviour
             {
                 destroyShipsTimed.SetCurrentKills(destroyShipsTimed.GetCurrentKills() - 1);
             }
+            else
+            if (objective is DestroyCrimsonFleetTimed destroyCrimsonFleetTimed)
+            {
+                destroyCrimsonFleetTimed.CurrentKills -= 1;
+            }
         }
     }
 
 
-
-    public void DestroySpawnerBoss()
+    public void DestroyBoss()
     {
         foreach (Objective objective in activeObjectives)
         {
@@ -83,9 +87,6 @@ public class ObjectivesManager : MonoBehaviour
                 destroySpawnerBossObjective.SetCurrentKills(destroySpawnerBossObjective.GetCurrentKills() + 1);
             }
         }
-    }
-    public void DestroyShooterBoss()
-    {
         foreach (Objective objective in activeObjectives)
         {
             if (objective is DestroyShooterBossObjective destroyShooterBossObjective)

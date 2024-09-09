@@ -316,7 +316,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         CameraShake.Instance.TriggerShake(_cameraShakeMagnitude, _cameraShakeDuration);
 
         // Notify Objectives Manager
-        ObjectivesManager.Instance.SyndicatesDestroyShipTimed();
+        ObjectivesManager.Instance.DestroyShipTimed();
 
         // Notify Event Manager
         EventManager.EnemyDestroyedEvent(gameObject);
