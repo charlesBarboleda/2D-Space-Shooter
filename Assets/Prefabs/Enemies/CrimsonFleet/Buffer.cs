@@ -9,9 +9,9 @@ public class Buffer : Enemy
 
     protected override void Update()
     {
-        base.Update();
         BuffAllies();
-        UnBuffAllies();
+        if (isDead) UnBuffAllies();
+        base.Update();
     }
 
     protected override void Attack()
@@ -37,13 +37,13 @@ public class Buffer : Enemy
 
     void UnBuffAllies()
     {
-        for (int i = 0; i < _buffedAllies.Count; i++)
+        List<Enemy> _buffedAlliesCopy = new List<Enemy>(_buffedAllies);
+        foreach (Enemy ally in _buffedAlliesCopy)
         {
-            Enemy _enemy = _buffedAllies[i];
-            if (Vector2.Distance(transform.position, _enemy.transform.position) > _buffRadius)
+            if (Vector2.Distance(transform.position, ally.transform.position) > _buffRadius || isDead)
             {
-                _buffedAllies[i].UnBuffedState();
-                _buffedAllies.RemoveAt(i);
+                ally.UnBuffedState();
+                _buffedAllies.Remove(ally);
             }
         }
     }
@@ -59,4 +59,5 @@ public class Buffer : Enemy
         base.UnBuffedState();
         _buffRadius = _buffRadius / 1.5f;
     }
+
 }

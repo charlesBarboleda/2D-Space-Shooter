@@ -304,13 +304,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (turretChildren.Count > 0) turretChildren.ForEach(child => child.SetActive(false));
 
         // Stops the exhaust particles
-        exhaustChildren.ForEach(child => child.SetActive(false));
+        if (exhaustChildren.Count > 0) exhaustChildren.ForEach(child => child.SetActive(false));
 
         // Disable all colliders
-        _colliders.ForEach(collider => collider.enabled = false);
+        if (_colliders.Count > 0) _colliders.ForEach(collider => collider.enabled = false);
 
         // Hide the ship's sprite
-        _spriteRenderer.enabled = false;
+        if (_spriteRenderer != null) _spriteRenderer.enabled = false;
 
         // Shake the camera
         CameraShake.Instance.TriggerShake(_cameraShakeMagnitude, _cameraShakeDuration);
