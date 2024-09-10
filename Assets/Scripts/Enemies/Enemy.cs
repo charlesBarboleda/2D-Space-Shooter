@@ -200,7 +200,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
                 // Check if the target's faction is different from the enemy's faction
                 if (targetFaction.factionType != _faction.factionType)
                 {
-                    Debug.Log("Target Faction:" + targetFaction.factionType);
+
                     // Check if the target has a valid tag
                     if (targetCollider.CompareTag("EnemyDestroyable") ||
                         targetCollider.CompareTag("ThraxArmada") ||
@@ -208,7 +208,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
                         targetCollider.CompareTag("Syndicates"))
                     {
                         bestTarget = targetCollider.transform;
-                        Debug.Log("Best Target:" + bestTarget.name);
+
                         break; // Found a valid target, no need to continue checking
                     }
 

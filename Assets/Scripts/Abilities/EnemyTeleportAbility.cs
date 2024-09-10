@@ -7,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyTeleport", menuName = "EnemyAbilities/EnemyTeleport")]
 public class EnemyTeleport : Ability
 {
-    [SerializeField] float teleportDistance = 5f;
+    [SerializeField] float teleportDistance = 50f;
 
     public override async void AbilityLogic(GameObject owner, Transform target)
     {
@@ -29,14 +29,12 @@ public class EnemyTeleport : Ability
     {
         teleportDistance += GameManager.Instance.Level() * 0.5f;
         teleportDistance = Mathf.Min(teleportDistance, 100f);
-        Debug.Log("Teleport distance: " + teleportDistance);
         cooldown -= GameManager.Instance.Level() * 0.1f;
-        cooldown = Mathf.Max(cooldown, 3f);
+        cooldown = Mathf.Max(cooldown, 1f);
     }
 
     public override void ResetStats()
     {
         teleportDistance = 50f;
-        cooldown = 10f;
     }
 }
