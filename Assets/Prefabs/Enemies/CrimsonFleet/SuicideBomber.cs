@@ -119,7 +119,7 @@ public class SuicideBomber : Enemy
         // ObjectivesManager.Instance.DestroyCrimsonShipsTimed();
 
         // Notify Event Manager
-        EventManager.EnemyDestroyedEvent(gameObject);
+        EventManager.EnemyDestroyedEvent(gameObject, Faction);
 
         // Create the debris
         GameObject currency = Instantiate(CurrencyPrefab[Random.Range(0, CurrencyPrefab.Count)], transform.position, transform.rotation);

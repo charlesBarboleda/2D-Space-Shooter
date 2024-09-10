@@ -16,7 +16,7 @@ MonoBehaviour:
   isCompleted: 1
   isActive: 1
   isFailed: 0
-  reward: 1000
+  reward: 300
   _timeToDestroy: 300
   _elapsedTime: 279.37766
   _requiredKills: 16
@@ -26,10 +26,10 @@ MonoBehaviour:
   - CrimsonSmall2
   - CrimsonSmall3
   - CrimsonSmall4
-  - CrimsonBomber
-  _bossNames: []
+  _bossNames:
+  - CrimsonBuffer
   _formationNames:
-  - CrimsonFormationEarly1
+  - CrimsonFormationEarly4
   _formationSpawnPoints:
   - {fileID: 3938322381312400411, guid: 41ff6f9282b4e344a96beda1f84aedc1, type: 3}
   - {fileID: 5966421680059924658, guid: b72873bf3451be540ad47dff3710e3f5, type: 3}

@@ -26004,8 +26004,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   earlyObjectives:
-  - {fileID: 11400000, guid: 7e9564f609b92bb4c95ce54b4022ca5e, type: 2}
-  - {fileID: 11400000, guid: 5edc57000501ba647bad1b27a943670c, type: 2}
+  - {fileID: 11400000, guid: 01488bc4a4025ef479f48330d1d96231, type: 2}
+  - {fileID: 11400000, guid: 6aa12a23e3db6cb40ab5fe4651e000f6, type: 2}
+  - {fileID: 11400000, guid: af41a0aca402fb448830b0769aafa5a3, type: 2}
+  - {fileID: 11400000, guid: 4e676d16a01688d48a2f97bbe2aee49c, type: 2}
+  - {fileID: 11400000, guid: 794315068b50d364aa363038a138bbd0, type: 2}
+  - {fileID: 11400000, guid: d490b60eb4105e141a7194711968c63c, type: 2}
+  - {fileID: 11400000, guid: 47297acf0527a9f42b085092d4bd3d43, type: 2}
+  - {fileID: 11400000, guid: c4d973c71cff8204e8ce0df30176defe, type: 2}
+  - {fileID: 11400000, guid: c405cd1c6740c824cbc9c1749b4acb4d, type: 2}
+  - {fileID: 11400000, guid: 900cdb6756fe36b41be26fe7f1cf04f3, type: 2}
+  - {fileID: 11400000, guid: 338e871f93adaee448a836967fa2a800, type: 2}
+  - {fileID: 11400000, guid: 9a1cb778a4c8c5449948c8f1a45a5a3f, type: 2}
   midObjectives: []
   lateObjectives: []
   activeObjectives: []
@@ -57304,7 +57314,7 @@ MonoBehaviour:
   - tag: CrimsonFormationMid1
     prefab: {fileID: 8733804734065331193, guid: 15d167663de73ff44980d47126172400, type: 3}
     size: 5
-  - tag: CrimsonFormationMid2
+  - tag: CrimsonFormationEarly4
     prefab: {fileID: 8733804734065331193, guid: cb81c8820566fb64ba7739c1ece22e7d, type: 3}
     size: 5
   - tag: CrimsonFormationMid3

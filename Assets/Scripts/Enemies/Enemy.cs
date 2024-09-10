@@ -30,7 +30,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
     AbilityHolder _abilityHolder;
     SpriteRenderer _spriteRenderer;
-    List<BoxCollider2D> _colliders = new List<BoxCollider2D>();
+    List<Collider2D> _colliders = new List<Collider2D>();
     // Stats
     [SerializeField] float _aimOffset;
     [SerializeField] bool _shouldRotate;
@@ -315,11 +315,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         // Shake the camera
         CameraShake.Instance.TriggerShake(_cameraShakeMagnitude, _cameraShakeDuration);
 
-        // Notify Objectives Manager
-        ObjectivesManager.Instance.DestroyShipTimed();
-
         // Notify Event Manager
-        EventManager.EnemyDestroyedEvent(gameObject);
+        EventManager.EnemyDestroyedEvent(gameObject, _faction);
 
         // Create the debris
         GameObject currency = Instantiate(_currencyPrefab[Random.Range(0, _currencyPrefab.Count)], transform.position, transform.rotation);
@@ -347,7 +344,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     /// Getters and Setters
     /// </summary>
     /// 
-    public List<BoxCollider2D> Colliders { get => _colliders; set => _colliders = value; }
+    public List<Collider2D> Colliders { get => _colliders; set => _colliders = value; }
     public SpriteRenderer SpriteRenderer { get => _spriteRenderer; set => _spriteRenderer = value; }
     public AudioSource AudioSource { get => _audioSource; set => _audioSource = value; }
     public Faction Faction { get => _faction; set => _faction = value; }

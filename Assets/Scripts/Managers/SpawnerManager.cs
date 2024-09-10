@@ -106,7 +106,7 @@ public class SpawnerManager : MonoBehaviour
 
     }
 
-    private void RemoveEnemyFromList(GameObject enemy)
+    private void RemoveEnemyFromList(GameObject enemy, Faction faction)
     {
         if (GameManager.Instance.GetEnemies().Contains(enemy))
         {

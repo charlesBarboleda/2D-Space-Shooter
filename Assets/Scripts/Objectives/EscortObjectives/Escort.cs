@@ -51,7 +51,7 @@ public class EscortObjective : Objective
                 if (currentCheckpoints == requiredCheckpoints)
                 {
                     CompleteObjective();
-                    GameManager.Instance.RemoveEnemy(escortShip);
+                    GameManager.Instance.RemoveEnemy(escortShip, escortShip.GetComponent<Faction>());
                     escortShip.GetComponent<CargoShip>().TeleportAway();
                 }
             }

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522e3a8429ede644897c8b624e18f414, type: 3}
+  m_Name: DestroyCrimsonFleetTimedLate 10
+  m_EditorClassIdentifier: 
+  objectiveDescription: Objective Completed
+  isCompleted: 1
+  isActive: 1
+  isFailed: 0
+  reward: 1000
+  _timeToDestroy: 300
+  _elapsedTime: 279.37766
+  _requiredKills: 16
+  _currentKills: -5
+  _shipNames:
+  - CrimsonSmall1
+  - CrimsonSmall2
+  - CrimsonSmall3
+  - CrimsonSmall4
+  _bossNames: []
+  _formationNames:
+  - CrimsonFormationLate4
+  - CrimsonFormationLate4
+  - CrimsonFormationLate4
+  - CrimsonFormationLate4
+  _formationSpawnPoints:
+  - {fileID: 3938322381312400411, guid: 41ff6f9282b4e344a96beda1f84aedc1, type: 3}
+  - {fileID: 5966421680059924658, guid: b72873bf3451be540ad47dff3710e3f5, type: 3}
+  - {fileID: 8419513446495212111, guid: 69818b3a9c7c6d24fa1f7868ed598d56, type: 3}
+  - {fileID: 3460347236499531302, guid: 26e22508648a4fc428892d62194d8c81, type: 3}
+  - {fileID: 863829018028810749, guid: 8954e145762d65f449ade3f6044cfafb, type: 3}
+  - {fileID: 3782210491170453926, guid: f46bf70aa6daa2446b23b9f8095eb39a, type: 3}
+  - {fileID: 2316374032154369784, guid: 8b7d537e611769b40a29dfaaa998a3dd, type: 3}
+  - {fileID: 206704121399473922, guid: 5374fa5422de25342a54b77a6269d389, type: 3}
+  - {fileID: 621505261419950660, guid: 4bd128b7ce43f9145a375be44f00335c, type: 3}
+  - {fileID: 3347622495669533944, guid: c97c12f1b77d0e54e999ef60e4366d10, type: 3}
+  - {fileID: 5262984447255318324, guid: f17454ad53f1b754e9565bf6286d8b74, type: 3}
+  - {fileID: 7160365529302058729, guid: e27a568fcd26ec4489a4b4884d972392, type: 3}
+  - {fileID: 5545295565952249711, guid: 67894c135b4f75d48851dbc34dfa96be, type: 3}

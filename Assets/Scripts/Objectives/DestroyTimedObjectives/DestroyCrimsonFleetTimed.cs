@@ -30,22 +30,20 @@ public class DestroyCrimsonFleetTimed : Objective
 
             // Get the total positions of the formation
             FleetFormation formationScript = formation.GetComponent<FleetFormation>();
-            if (formationScript != null)
-            {
-                _requiredKills = formationScript.TotalPositions;
-            }
 
             // Spawn the ships in the formation
             foreach (Transform shipSpawn in formationScript.FormationPositions)
             {
                 // Spawn the ships in the formation
                 GameObject ship = ObjectPooler.Instance.SpawnFromPool(_shipNames[Random.Range(0, _shipNames.Count)], shipSpawn.position, Quaternion.identity);
+                _requiredKills++;
                 GameManager.Instance.AddEnemy(ship);
             }
             foreach (Transform bossSpawn in formationScript.BossPositions)
             {
                 // Spawn the bosses in the formation
                 GameObject boss = ObjectPooler.Instance.SpawnFromPool(_bossNames[Random.Range(0, _bossNames.Count)], bossSpawn.position, Quaternion.identity);
+                _requiredKills++;
                 GameManager.Instance.AddEnemy(boss);
             }
             formation.SetActive(false);

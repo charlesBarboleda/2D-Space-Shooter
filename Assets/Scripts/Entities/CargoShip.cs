@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Faction))]
 public class CargoShip : MonoBehaviour, IDamageable
 {
     [SerializeField] GameObject spawnAnimation;
     [SerializeField] GameObject deathAnimation;
     [SerializeField] float _health = 1000;
     public bool isDead { get; set; }
+    Faction _faction;
     public List<string> deathEffect { get; set; }
     public string deathExplosion { get; set; }
     SpriteRenderer _spriteRenderer;
@@ -16,6 +18,7 @@ public class CargoShip : MonoBehaviour, IDamageable
 
     void Start()
     {
+        _faction = GetComponent<Faction>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<BoxCollider2D>());
     }

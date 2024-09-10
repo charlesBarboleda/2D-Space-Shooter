@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Faction))]
 public class Building : MonoBehaviour, IDamageable
 {
 
@@ -9,6 +10,7 @@ public class Building : MonoBehaviour, IDamageable
     [SerializeField] List<GameObject> _turretChildren = new List<GameObject>();
     List<CircleCollider2D> _colliders = new List<CircleCollider2D>();
     SpriteRenderer _spriteRenderer;
+    Faction _faction;
 
     bool _isDead;
     public bool isDead { get => _isDead; set => _isDead = value; }
@@ -17,8 +19,9 @@ public class Building : MonoBehaviour, IDamageable
     [SerializeField] string _deathExplosion;
     public string deathExplosion { get => _deathExplosion; set => _deathExplosion = value; }
 
-    void Start()
+    void Awake()
     {
+        _faction = GetComponent<Faction>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<CircleCollider2D>());
     }
@@ -38,7 +41,7 @@ public class Building : MonoBehaviour, IDamageable
 
     public void TeleportAway()
     {
-        GameManager.Instance.RemoveEnemy(gameObject);
+        GameManager.Instance.RemoveEnemy(gameObject, _faction);
         StartCoroutine(TeleportEffect());
 
     }
@@ -120,7 +123,7 @@ public class Building : MonoBehaviour, IDamageable
         CameraShake.Instance.TriggerShake(3f, 0.3f);
 
         // Notify Event Manager
-        EventManager.EnemyDestroyedEvent(gameObject);
+        EventManager.EnemyDestroyedEvent(gameObject, _faction);
 
         // Wait for the death animation to complete
         yield return StartCoroutine(DeathAnimation());

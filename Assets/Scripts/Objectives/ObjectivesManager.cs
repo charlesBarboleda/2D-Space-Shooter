@@ -23,6 +23,17 @@ public class ObjectivesManager : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        EventManager.OnEnemyDestroyed += OnEnemyDestroyed;
+    }
+
+    void OnDisable()
+    {
+        EventManager.OnEnemyDestroyed -= OnEnemyDestroyed;
+
+    }
+
     void Update()
     {
         foreach (Objective objective in activeObjectives)
@@ -51,6 +62,7 @@ public class ObjectivesManager : MonoBehaviour
 
     public void AddObjective(Objective newObjective)
     {
+        if (activeObjectives.Contains(newObjective)) return;
         activeObjectives.Add(newObjective);
         newObjective.InitObjective(); // Initialize the new objective
         ObjectivesUIManager.Instance.AddObjectiveUI(newObjective); // Update UI with the new objective
@@ -61,18 +73,20 @@ public class ObjectivesManager : MonoBehaviour
     }
 
 
-    public void DestroyShipTimed()
+    void OnEnemyDestroyed(GameObject enemy, Faction faction)
     {
         foreach (Objective objective in activeObjectives)
         {
-            if (objective is DestroyShipsTimed destroyShipsTimed)
+            // Handle DestroyCrimsonFleetTimed objectives
+            if (objective is DestroyCrimsonFleetTimed destroyCrimsonFleetTimed && faction.factionType == FactionType.CrimsonFleet)
+            {
+                destroyCrimsonFleetTimed.CurrentKills--;
+            }
+
+            // Handle other objectives (e.g., DestroyShipsTimed)
+            else if (objective is DestroyShipsTimed destroyShipsTimed)
             {
                 destroyShipsTimed.SetCurrentKills(destroyShipsTimed.GetCurrentKills() - 1);
-            }
-            else
-            if (objective is DestroyCrimsonFleetTimed destroyCrimsonFleetTimed)
-            {
-                destroyCrimsonFleetTimed.CurrentKills -= 1;
             }
         }
     }
@@ -84,14 +98,14 @@ public class ObjectivesManager : MonoBehaviour
         {
             if (objective is DestroySpawnerBossObjective destroySpawnerBossObjective)
             {
-                destroySpawnerBossObjective.SetCurrentKills(destroySpawnerBossObjective.GetCurrentKills() + 1);
+                destroySpawnerBossObjective.SetCurrentKills(destroySpawnerBossObjective.GetCurrentKills() - 1);
             }
         }
         foreach (Objective objective in activeObjectives)
         {
             if (objective is DestroyShooterBossObjective destroyShooterBossObjective)
             {
-                destroyShooterBossObjective.SetCurrentKills(destroyShooterBossObjective.GetCurrentKills() + 1);
+                destroyShooterBossObjective.SetCurrentKills(destroyShooterBossObjective.GetCurrentKills() - 1);
             }
         }
     }

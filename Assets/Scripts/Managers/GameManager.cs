@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour
     {
         _enemies.Add(enemy);
     }
-    public void RemoveEnemy(GameObject enemy)
+    public void RemoveEnemy(GameObject enemy, Faction faction)
     {
         _enemies.Remove(enemy);
     }
