@@ -77,10 +77,10 @@ public class ObjectivesManager : MonoBehaviour
     {
         foreach (Objective objective in activeObjectives)
         {
-            // Handle DestroyCrimsonFleetTimed objectives
-            if (objective is DestroyCrimsonFleetTimed destroyCrimsonFleetTimed && faction.factionType == FactionType.CrimsonFleet)
+            // Handle destroyFormationTimed objectives
+            if (objective is DestroyFormationTimed destroyFormationTimed && faction.factionType == FactionType.CrimsonFleet)
             {
-                destroyCrimsonFleetTimed.CurrentKills--;
+                destroyFormationTimed.CurrentKills--;
             }
 
             // Handle other objectives (e.g., DestroyShipsTimed)

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DestroyCrimsonFleetTimed", menuName = "Objectives/DestroyCrimsonFleetTimed", order = 1)]
-public class DestroyCrimsonFleetTimed : Objective
+public class DestroyFormationTimed : Objective
 {
     [SerializeField] float _timeToDestroy;
     [SerializeField] float _elapsedTime;
@@ -70,7 +70,7 @@ public class DestroyCrimsonFleetTimed : Objective
 
         if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
         else if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
-        else if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription($"Eliminate the Crimson Fleet: {_currentKills} ships in {_elapsedTime:F0} seconds");
+        else if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription($"Eliminate the invading Crimson Fleet: {_currentKills} ships in {_elapsedTime:F0} seconds");
 
 
 
