@@ -53,6 +53,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Start()
     {
+        _abilityHolder = GetComponent<AbilityHolder>();
         _faction = GetComponent<Faction>();
         _audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -254,7 +255,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         foreach (Ability ability in _abilityHolder.abilities)
         {
-            if (ability.cooldown > 0) ability.TriggerAbility(gameObject, target);
+            Debug.Log("Using Teleport Ability");
+            if (ability.currentCooldown >= ability.cooldown) ability.TriggerAbility(gameObject, target);
+            Debug.Log("Ability triggered");
         }
     }
 
