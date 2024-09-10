@@ -30,7 +30,7 @@ public class AbilityLaser : Ability
 
         //Pass the damage value to the laser
         PlayerLaserSettings laserScript = Laser.GetComponent<PlayerLaserSettings>();
-        laserScript.SetDamage(dps);
+        laserScript.Dps = dps;
         owner.GetComponent<MonoBehaviour>().StartCoroutine(DeactivateLaserAfterDuration(Laser, ownerAudioSource));
 
     }

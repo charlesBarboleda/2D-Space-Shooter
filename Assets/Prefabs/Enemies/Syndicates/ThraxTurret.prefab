@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6097976889594631833}
   - component: {fileID: 4269631521700113}
   - component: {fileID: 8304196999121283581}
-  - component: {fileID: 1863285965622434854}
   - component: {fileID: -1632575951528345661}
   - component: {fileID: 4238250742732926151}
   - component: {fileID: 7374238319847458687}
+  - component: {fileID: 64053772256382585}
   m_Layer: 14
   m_Name: ThraxTurret
   m_TagString: ThraxArmada
@@ -101,7 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf25bfc5ef904b04baef50236a5678d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currencyPrefab: []
+  _currencyPrefab:
+  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
+  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
+  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
+  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
+  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
+  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
   _buffedParticles: {fileID: 0}
   _deathSound: {fileID: 8300000, guid: 961afbe1db60718438c30788c5f60cf9, type: 3}
   _abilitySound: {fileID: 0}
@@ -134,51 +140,6 @@ MonoBehaviour:
   _bulletLifetime: 0
   nextFireTime: 0
   _bossShooterEnemy: {fileID: 0}
---- !u!61 &1863285965622434854
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7343858230156979994}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0032006092, y: 0.029720023}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.24, y: 10.24}
-    newSize: {x: 0.26, y: 0.41}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.15436408, y: 0.30935004}
-  m_EdgeRadius: 0
 --- !u!82 &-1632575951528345661
 AudioSource:
   m_ObjectHideFlags: 0
@@ -315,3 +276,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!58 &64053772256382585
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343858230156979994}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.036521148, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.353069

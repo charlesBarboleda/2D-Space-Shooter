@@ -57,7 +57,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _faction = GetComponent<Faction>();
         _audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _colliders.AddRange(GetComponents<BoxCollider2D>());
+        _colliders.AddRange(GetComponents<Collider2D>());
         isDead = false;
 
 
@@ -75,7 +75,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         if (_abilityHolder != null)
         {
-            UseAbility(CheckForTargets()); // Uses the ability if the cooldown is 0
+            UseAbilities(CheckForTargets()); // Uses the ability if the cooldown is 0
             if (_abilitySound != null) _audioSource.PlayOneShot(_abilitySound);
         }
 
@@ -251,13 +251,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _spriteRenderer.color = Color.white;
     }
 
-    void UseAbility(Transform target)
+    void UseAbilities(Transform target)
     {
         foreach (Ability ability in _abilityHolder.abilities)
         {
-            Debug.Log("Using Teleport Ability");
             if (ability.currentCooldown >= ability.cooldown) ability.TriggerAbility(gameObject, target);
-            Debug.Log("Ability triggered");
         }
     }
 

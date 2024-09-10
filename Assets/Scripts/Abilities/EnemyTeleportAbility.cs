@@ -14,7 +14,7 @@ public class EnemyTeleport : Ability
         await Teleport(owner, target);
     }
 
-    public async Task Teleport(GameObject owner, Transform target)
+    async Task Teleport(GameObject owner, Transform target)
     {
         SetStatsBasedOnLevel();
         GameObject tpEffect = ObjectPooler.Instance.SpawnFromPool("EnemyTeleport", owner.transform.position, Quaternion.identity);
@@ -25,7 +25,7 @@ public class EnemyTeleport : Ability
         tpEffectPost.SetActive(false);
     }
 
-    public void SetStatsBasedOnLevel()
+    void SetStatsBasedOnLevel()
     {
         teleportDistance += GameManager.Instance.Level() * 0.5f;
         teleportDistance = Mathf.Min(teleportDistance, 100f);
