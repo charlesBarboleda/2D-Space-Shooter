@@ -26,11 +26,17 @@ public class ObjectivesManager : MonoBehaviour
     void OnEnable()
     {
         EventManager.OnEnemyDestroyed += OnEnemyDestroyed;
+        EventManager.OnRoundStart += StartObjectives;
+        EventManager.OnNextRound += RemoveAllObjectives;
+        EventManager.OnNextRound += () => SetActiveObjectives(earlyObjectives, 2);
     }
 
     void OnDisable()
     {
         EventManager.OnEnemyDestroyed -= OnEnemyDestroyed;
+        EventManager.OnRoundStart -= StartObjectives;
+        EventManager.OnNextRound -= RemoveAllObjectives;
+        EventManager.OnNextRound -= () => SetActiveObjectives(earlyObjectives, 2);
 
     }
 
@@ -45,6 +51,29 @@ public class ObjectivesManager : MonoBehaviour
             }
         }
 
+    }
+    void SetEarlyObjectives()
+    {
+        SetActiveObjectives(earlyObjectives, Random.Range(1, 3));
+    }
+
+    void SetMidObjectives()
+    {
+        SetActiveObjectives(midObjectives, Random.Range(1, 3));
+    }
+
+    void SetLateObjectives()
+    {
+        SetActiveObjectives(lateObjectives, Random.Range(1, 4));
+    }
+
+    void StartObjectives()
+    {
+        ObjectivesUIManager.Instance.InitializeUI(activeObjectives); // Initialize UI with the objectives
+        foreach (Objective objective in activeObjectives)
+        {
+            objective.InitObjective();
+        }
     }
 
     public void SetActiveObjectives(List<Objective> objectives, int amount)
@@ -109,12 +138,4 @@ public class ObjectivesManager : MonoBehaviour
         }
     }
 
-    public void StartObjectives()
-    {
-        ObjectivesUIManager.Instance.InitializeUI(ObjectivesManager.Instance.activeObjectives); // Initialize UI with the objectives
-        foreach (Objective objective in ObjectivesManager.Instance.activeObjectives)
-        {
-            objective.InitObjective();
-        }
-    }
 }
