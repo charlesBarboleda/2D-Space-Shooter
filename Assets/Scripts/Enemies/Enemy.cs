@@ -11,7 +11,16 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
     // ETC
+    float _checkForTargetsInterval = 0.5f;
+    float _movementInterval = 0.1f;
+    float _abilityInterval = 1f;
+    Coroutine _checkForTargetsCoroutine;
+    Coroutine _movementCoroutine;
+    Coroutine _abilityCoroutine;
     Transform _currentTarget;
+    Vector3 _cachedDirection;
+    float _cachedDistance;
+
 
     // Animations & References
 
@@ -57,6 +66,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<Collider2D>());
         isDead = false;
+
+
 
 
     }
@@ -116,12 +127,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         if (target == null) return;
 
-        Vector3 direction = (target.position - transform.position).normalized;
-        float distance = Vector3.Distance(transform.position, target.position);
+        _cachedDirection = (target.position - transform.position).normalized;
+        _cachedDistance = Vector3.Distance(transform.position, target.position);
 
-        if (distance > _stopDistance)
+        if (_cachedDistance > _stopDistance)
         {
-            transform.position += direction * _speed * Time.deltaTime;
+            transform.position += _cachedDirection * _speed * Time.deltaTime;
         }
         else
         {
