@@ -18,7 +18,7 @@ public class NukeEnemy : Enemy
 
 
 
-    protected void OnDisable()
+    protected override void OnDisable()
     {
         StopAllCoroutines();
     }
