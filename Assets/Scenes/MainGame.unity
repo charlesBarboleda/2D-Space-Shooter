@@ -14751,7 +14751,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 245e011274e4e304ebefefd6d5cdacf9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -57459,22 +57459,22 @@ MonoBehaviour:
     size: 5
   - tag: DamagePowerUp
     prefab: {fileID: 3095709734623123258, guid: baa91cfe5fb3af749af0e4d2da0d5376, type: 3}
-    size: 5
+    size: 20
   - tag: FireRatePowerUp
     prefab: {fileID: 3095709734623123258, guid: f3d3beac41a6a63488d85b03c1ca6ead, type: 3}
-    size: 5
+    size: 20
   - tag: NukePowerUp
     prefab: {fileID: 3095709734623123258, guid: a250a9759dd631844a5948e5eaa86c67, type: 3}
-    size: 5
+    size: 20
   - tag: HealthPowerUp
     prefab: {fileID: 3095709734623123258, guid: 1983bed50f814df4082418bbf7bfdd71, type: 3}
-    size: 5
+    size: 20
   - tag: SpeedPowerUp
     prefab: {fileID: 3095709734623123258, guid: a0c2d098090ad0e4bae17c03af216d6c, type: 3}
-    size: 5
+    size: 20
   - tag: PickUpRadiusPowerUp
     prefab: {fileID: 3095709734623123258, guid: 6508534778c9acf4fb4c21a085714103, type: 3}
-    size: 5
+    size: 20
   - tag: BuildingSpawn
     prefab: {fileID: 5112403345868107898, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
     size: 5
@@ -57583,6 +57583,9 @@ MonoBehaviour:
   - tag: SmallNukeTarget
     prefab: {fileID: 3525258117610977703, guid: d7cab535ee0f71c4c8dc10fc68e30f2f, type: 3}
     size: 30
+  - tag: CurrencyPowerUp
+    prefab: {fileID: 3095709734623123258, guid: eb94d0709932bc746b9c13790604e4a9, type: 3}
+    size: 20
 --- !u!4 &1707799895
 Transform:
   m_ObjectHideFlags: 0

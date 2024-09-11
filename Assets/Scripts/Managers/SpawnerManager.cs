@@ -68,9 +68,10 @@ public class SpawnerManager : MonoBehaviour
         {
             yield return new WaitForSeconds(GameManager.Instance.CometSpawnRate);
             GameObject comet = SpawnComet(cometSpawnPoint[Random.Range(0, cometSpawnPoint.Count)].position, Quaternion.identity);
-            GameManager.Instance.CometSpawnRate = Random.Range(20, 60);
             Comet cometSettings = comet.GetComponent<Comet>();
             cometSettings.Speed = Random.Range(20, 50);
+            Debug.Log("Comets Per Round: " + GameManager.Instance.CometsPerRound);
+            Debug.Log("Comet Spawn Rate: " + GameManager.Instance.CometSpawnRate);
         }
     }
 

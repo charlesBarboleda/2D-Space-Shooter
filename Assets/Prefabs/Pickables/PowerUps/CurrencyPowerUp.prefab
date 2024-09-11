@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 7542239893003758091}
   - component: {fileID: 7557275932499016500}
   - component: {fileID: 5335036975134291167}
-  - component: {fileID: 8405692426984219836}
-  - component: {fileID: -1990277414304609707}
+  - component: {fileID: 3291081956169695781}
+  - component: {fileID: 6026263448323816817}
   m_Layer: 9
-  m_Name: NukePowerUp
+  m_Name: CurrencyPowerUp
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7089208, y: 0.7089208, z: 0.7089208}
+  m_LocalScale: {x: 0.42390192, y: 0.42390192, z: 0.42390192}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6164671406164116869}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b1caabd1f4f8eb545874a9967c8a1f72, type: 3}
-  m_Color: {r: 1, g: 0.97440314, b: 0.5113207, a: 1}
+  m_Color: {r: 0.49047324, g: 1, b: 0.390566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -115,20 +115,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &8405692426984219836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3095709734623123258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9bba774dd9f19240bbfe839ca54fb66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _duration: 1
---- !u!61 &-1990277414304609707
+--- !u!61 &3291081956169695781
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,6 +160,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9, y: 10.24}
   m_EdgeRadius: 0
+--- !u!114 &6026263448323816817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095709734623123258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3b84da55294e540a84634bcf937af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _duration: 0
+  _currencyAmount: 2000
 --- !u!1001 &8824142947235739889
 PrefabInstance:
   m_ObjectHideFlags: 0

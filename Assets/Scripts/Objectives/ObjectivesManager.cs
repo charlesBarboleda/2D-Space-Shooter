@@ -27,16 +27,12 @@ public class ObjectivesManager : MonoBehaviour
     {
         EventManager.OnEnemyDestroyed += OnEnemyDestroyed;
         EventManager.OnRoundStart += StartObjectives;
-        EventManager.OnNextRound += RemoveAllObjectives;
-        EventManager.OnNextRound += () => SetActiveObjectives(earlyObjectives, 2);
     }
 
     void OnDisable()
     {
         EventManager.OnEnemyDestroyed -= OnEnemyDestroyed;
         EventManager.OnRoundStart -= StartObjectives;
-        EventManager.OnNextRound -= RemoveAllObjectives;
-        EventManager.OnNextRound -= () => SetActiveObjectives(earlyObjectives, 2);
 
     }
 
@@ -52,17 +48,19 @@ public class ObjectivesManager : MonoBehaviour
         }
 
     }
-    void SetEarlyObjectives()
+
+    public void SetEarlyObjectives()
     {
         SetActiveObjectives(earlyObjectives, Random.Range(1, 3));
+        Debug.Log("Early Objectives: " + activeObjectives.Count);
     }
 
-    void SetMidObjectives()
+    public void SetMidObjectives()
     {
         SetActiveObjectives(midObjectives, Random.Range(1, 3));
     }
 
-    void SetLateObjectives()
+    public void SetLateObjectives()
     {
         SetActiveObjectives(lateObjectives, Random.Range(1, 4));
     }
@@ -73,6 +71,7 @@ public class ObjectivesManager : MonoBehaviour
         foreach (Objective objective in activeObjectives)
         {
             objective.InitObjective();
+            Debug.Log("Started objective: " + objective.name);
         }
     }
 
@@ -98,6 +97,7 @@ public class ObjectivesManager : MonoBehaviour
     public void RemoveAllObjectives()
     {
         activeObjectives.Clear();
+        ObjectivesUIManager.Instance.ClearObjectivesUI();
     }
 
 

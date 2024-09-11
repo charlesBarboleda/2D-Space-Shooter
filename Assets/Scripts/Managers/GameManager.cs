@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
                 _isCountdown = false;
                 _isRoundOver = false;
                 _isRound = true;
-                RoundStart();
+                EventManager.RoundStartEvent();
             }
         }
 
@@ -184,32 +184,45 @@ public class GameManager : MonoBehaviour
         _spawnerManager.SetActive(true);
     }
 
-    public void RoundStart()
+    private void RoundStart()
     {
         _isRound = true;
         _isRoundOver = false;
         _roundCountdown = 10f;
         EnableSpawning();
         _enemiesToSpawnLeft = _enemiesToSpawnTotal;
+
     }
-    public void NextRound()
+    private void NextRound()
     {
-        _isObjectiveRound = false;
         ObjectivesManager.Instance.RemoveAllObjectives();
-        ObjectivesUIManager.Instance.ClearObjectivesUI();
+        _isObjectiveRound = false;
+
         _audioSource.PlayOneShot(_nextRoundAudio);
 
-        if (UnityEngine.Random.value <= 0.99f) _isObjectiveRound = true;
+        if (UnityEngine.Random.value <= 0.5f) _isObjectiveRound = true;
         else _isObjectiveRound = false;
-
+        Debug.Log("Objective Round: " + _isObjectiveRound);
         if (_isObjectiveRound)
         {
-            // Set the objectives for the round based on the _level of the game
-            if (_level >= 10 && _level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, UnityEngine.Random.Range(1, 3));
-            else if (_level >= 40 && _level < 70) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.midObjectives, UnityEngine.Random.Range(1, 3));
-            else ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.lateObjectives, UnityEngine.Random.Range(1, 4));
+
+            if (_level >= 10 && _level < 40) ObjectivesManager.Instance.SetEarlyObjectives();
+            else if (_level >= 40 && _level < 70) ObjectivesManager.Instance.SetMidObjectives();
+            else if (_level >= 70) ObjectivesManager.Instance.SetLateObjectives();
+
 
         }
+        if (_level % UnityEngine.Random.Range(20, 50) == 0)
+        {
+            _cometsPerRound = 1000;
+            _cometSpawnRate = 1f;
+        }
+        else
+        {
+            _cometsPerRound = 3;
+            _cometSpawnRate = UnityEngine.Random.Range(10f, 60f);
+        }
+
         DisableSpawning();
         _spawnRate -= 0.005f;
         _enemiesToSpawnTotal += 10;

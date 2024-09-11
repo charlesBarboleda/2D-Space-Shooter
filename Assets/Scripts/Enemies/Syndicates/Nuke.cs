@@ -18,9 +18,8 @@ public class NukeEnemy : Enemy
 
 
 
-    protected override void OnDisable()
+    protected void OnDisable()
     {
-        base.OnDisable();
         StopAllCoroutines();
     }
     // Update is called once per frame
