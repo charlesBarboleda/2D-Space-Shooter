@@ -27,9 +27,9 @@ public class EnemyTeleport : Ability
 
     void SetStatsBasedOnLevel()
     {
-        teleportDistance += GameManager.Instance.Level() * 0.5f;
+        teleportDistance += GameManager.Instance.Level * 0.5f;
         teleportDistance = Mathf.Min(teleportDistance, 100f);
-        cooldown -= GameManager.Instance.Level() * 0.1f;
+        cooldown -= GameManager.Instance.Level * 0.1f;
         cooldown = Mathf.Max(cooldown, 1f);
     }
 

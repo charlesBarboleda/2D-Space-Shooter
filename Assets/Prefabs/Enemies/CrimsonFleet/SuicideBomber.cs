@@ -131,8 +131,8 @@ public class SuicideBomber : Enemy
     public override void IncreaseStatsPerLevel()
     {
         base.IncreaseStatsPerLevel();
-        _explosionDamage += GameManager.Instance.Level() * 1f;
-        _explosionRadius += GameManager.Instance.Level() * 0.1f;
+        _explosionDamage += GameManager.Instance.Level * 1f;
+        _explosionRadius += GameManager.Instance.Level * 0.1f;
     }
 
     /// <summary>

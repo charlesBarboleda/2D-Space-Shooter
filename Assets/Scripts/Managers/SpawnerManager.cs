@@ -89,11 +89,11 @@ public class SpawnerManager : MonoBehaviour
             // Calculate the random position on the circle
             Vector3 spawnPosition = new Vector3(Mathf.Cos(randomAngle) * spawnPointRadius, Mathf.Sin(randomAngle) * spawnPointRadius, 0);
 
-            if (GameManager.Instance.Level() <= 20)
+            if (GameManager.Instance.Level <= 20)
             {
                 GameObject ship = SpawnShip(shipNamesEarly[Random.Range(0, shipNamesEarly.Count)], spawnPosition, Quaternion.identity);
             }
-            else if (GameManager.Instance.Level() > 20 && GameManager.Instance.Level() <= 60)
+            else if (GameManager.Instance.Level > 20 && GameManager.Instance.Level <= 60)
             {
                 GameObject ship = SpawnShip(shipNamesMid[Random.Range(0, shipNamesMid.Count)], spawnPosition, Quaternion.identity);
             }

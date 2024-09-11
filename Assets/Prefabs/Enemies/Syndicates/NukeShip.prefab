@@ -134,9 +134,9 @@ MonoBehaviour:
   - {fileID: 7033326722294087313}
   turretChildren: []
   _cameraShakeMagnitude: 25
-  _cameraShakeDuration: 0.3
-  _nukePrefab: {fileID: 0}
-  _attackRange: 0
+  _cameraShakeDuration: 0.1
+  _nukePrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
+  _attackRange: 40
   _coolDownTime: 1
 --- !u!61 &5401732057252154783
 BoxCollider2D:

@@ -10,10 +10,12 @@ public class PlayerManager : MonoBehaviour
     PlayerHealthBehaviour _health;
     PlayerCurrencyBehaviour _currency;
     PlayerMovementBehaviour _movement;
+    AudioSource _audioSource;
     AbilityHolder _abilityHolder;
     PickUpBehaviour _pickUpBehaviour;
     PowerUpBehaviour _powerUpBehaviour;
     Weapon _weapon;
+    [SerializeField] AudioClip _onPickUpAudio;
 
 
     private void Awake()
@@ -23,6 +25,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _powerUpBehaviour = GetComponent<PowerUpBehaviour>();
         _pickUpBehaviour = GetComponent<PickUpBehaviour>();
         _abilityHolder = GetComponent<AbilityHolder>();
@@ -47,7 +50,7 @@ public class PlayerManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("EnemyBullet"))
+        if (other.gameObject.CompareTag("Syndicates") || other.gameObject.CompareTag("ThraxArmada") || other.gameObject.CompareTag("CrimsonFleet"))
         {
             _health.TakeDamage(other.gameObject.GetComponent<Bullet>().BulletDamage);
         }
@@ -64,6 +67,7 @@ public class PlayerManager : MonoBehaviour
         if (other.gameObject.CompareTag("PowerUp"))
         {
             other.gameObject.GetComponent<IPickable>().OnPickUp();
+            _audioSource.PlayOneShot(_onPickUpAudio);
             _powerUpBehaviour.AddPowerUp(other.gameObject.GetComponent<PowerUp>());
         }
     }

@@ -6,6 +6,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    AudioSource _audioSource;
+    [SerializeField] AudioClip _nextRoundAudio;
+    [SerializeField] AudioClip _gameOverAudio;
 
     [Header("Managers")]
     [SerializeField] GameObject _spawnerManager;
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(this);
+            DontDestroyOnLoad(this);
         }
         else
         {
@@ -43,6 +47,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         _level = 1;
         _spawnRate = 0.5f;
         _maxSpawnRate = 0.1f;
@@ -113,6 +118,7 @@ public class GameManager : MonoBehaviour
         EventManager.OnEnemyDestroyed += RemoveEnemy;
         EventManager.OnRoundStart += RoundStart;
         EventManager.OnNextRound += NextRound;
+        EventManager.OnGameOver += GameOverSound;
         EventManager.OnGameOver += UpdateHighScore;
 
     }
@@ -123,6 +129,8 @@ public class GameManager : MonoBehaviour
         EventManager.OnNextRound -= NextRound;
         EventManager.OnRoundStart -= RoundStart;
         EventManager.OnGameOver -= UpdateHighScore;
+        EventManager.OnGameOver -= GameOverSound;
+
 
     }
 
@@ -163,30 +171,6 @@ public class GameManager : MonoBehaviour
         _enemies.Remove(enemy);
     }
 
-    public float GetRoundCountdown()
-    {
-        return _roundCountdown;
-    }
-
-    public int Level()
-    {
-        return _level;
-    }
-
-    public bool IsRound()
-    {
-        return _isRound;
-    }
-
-    public bool IsObjectiveRound()
-    {
-        return _isObjectiveRound;
-    }
-
-    public bool IsCountdown()
-    {
-        return _isCountdown;
-    }
 
 
 
@@ -207,15 +191,13 @@ public class GameManager : MonoBehaviour
         _roundCountdown = 10f;
         EnableSpawning();
         _enemiesToSpawnLeft = _enemiesToSpawnTotal;
-        ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, UnityEngine.Random.Range(1, 3));
-        ObjectivesManager.Instance.StartObjectives();
     }
     public void NextRound()
     {
         _isObjectiveRound = false;
         ObjectivesManager.Instance.RemoveAllObjectives();
         ObjectivesUIManager.Instance.ClearObjectivesUI();
-
+        _audioSource.PlayOneShot(_nextRoundAudio);
 
         if (UnityEngine.Random.value <= 0.99f) _isObjectiveRound = true;
         else _isObjectiveRound = false;
@@ -223,7 +205,7 @@ public class GameManager : MonoBehaviour
         if (_isObjectiveRound)
         {
             // Set the objectives for the round based on the _level of the game
-            if (_level >= 1 && _level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, UnityEngine.Random.Range(1, 3));
+            if (_level >= 10 && _level < 40) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.earlyObjectives, UnityEngine.Random.Range(1, 3));
             else if (_level >= 40 && _level < 70) ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.midObjectives, UnityEngine.Random.Range(1, 3));
             else ObjectivesManager.Instance.SetActiveObjectives(ObjectivesManager.Instance.lateObjectives, UnityEngine.Random.Range(1, 4));
 
@@ -233,6 +215,10 @@ public class GameManager : MonoBehaviour
         _enemiesToSpawnTotal += 10;
         _spawnRate = Mathf.Max(_spawnRate, _maxSpawnRate);
         IncreaseLevel();
+    }
+    private void GameOverSound()
+    {
+        _audioSource.PlayOneShot(_gameOverAudio);
     }
 
     public void DestroyAllShips()
@@ -251,5 +237,12 @@ public class GameManager : MonoBehaviour
 
     public int CometsPerRound { get => _cometsPerRound; set => _cometsPerRound = value; }
     public float CometSpawnRate { get => _cometSpawnRate; set => _cometSpawnRate = value; }
+    public float RoundCountdown { get => _roundCountdown; set => _roundCountdown = value; }
+    public int Level { get => _level; set => _level = value; }
+
+    public bool IsRound { get => _isRound; set => _isRound = value; }
+
+    public bool IsObjectiveRound { get => _isObjectiveRound; set => _isObjectiveRound = value; }
+    public bool IsCountdown { get => _isCountdown; set => _isCountdown = value; }
 
 }

@@ -11,9 +11,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
     // ETC
-    float _targetSwitchCooldown = 3f;
     Transform _currentTarget;
-    float _lastTargetSwitchTime = 0f;
 
     // Animations & References
 
@@ -116,40 +114,60 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Movement(Transform target)
     {
-        Collider2D[] targetColliders = target.GetComponents<Collider2D>();
-        if (targetColliders.Length > 0)
-        {
-            Vector3 closestPoint = GetClosestPoint(targetColliders, transform.position);
-            float distance = Vector3.Distance(closestPoint, transform.position);
+        if (target == null) return;
 
-            if (distance > _stopDistance)
-            {
-                Vector3 direction = (closestPoint - transform.position).normalized;
-                transform.position += direction * _speed * Time.deltaTime;
-            }
-            else
-            {
-                OrbitAround(target);
-            }
+        Vector3 direction = (target.position - transform.position).normalized;
+        float distance = Vector3.Distance(transform.position, target.position);
+
+        if (distance > _stopDistance)
+        {
+            transform.position += direction * _speed * Time.deltaTime;
+        }
+        else
+        {
+            Orbit(target);
         }
     }
 
-    void OrbitAround(Transform target)
+    private void Orbit(Transform target)
     {
-        float direction = _rotateClockwise ? 1 : -1;
-        transform.RotateAround(target.position, Vector3.forward, direction * _speed * Time.deltaTime);
+        float rotationDirection = _rotateClockwise ? 1 : -1;
+        transform.RotateAround(target.position, Vector3.forward, rotationDirection * _speed * Time.deltaTime);
     }
 
     protected virtual void Aim(Transform target)
     {
-        Collider2D[] targetColliders = target.GetComponents<Collider2D>();
-        if (targetColliders.Length > 0)
+        if (target == null) return;
+
+        Vector3 direction = target.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + _aimOffset));
+    }
+
+    protected virtual Transform CheckForTargets()
+    {
+        float detectionRadius = 50f;
+        LayerMask targetLayerMask = LayerMask.GetMask("Syndicates", "ThraxArmada", "CrimsonFleet", "Player");
+        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, detectionRadius, targetLayerMask);
+
+        Transform bestTarget = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (Collider2D targetCollider in hitTargets)
         {
-            Vector3 closestPoint = GetClosestPoint(targetColliders, transform.position);
-            Vector3 direction = closestPoint - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + _aimOffset));
+            Faction targetFaction = targetCollider.GetComponent<Faction>();
+            if (targetFaction != null && targetFaction.factionType != _faction.factionType)
+            {
+                float distance = Vector3.Distance(transform.position, targetCollider.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    bestTarget = targetCollider.transform;
+                }
+            }
         }
+
+        return bestTarget ?? PlayerManager.Instance.transform;  // Fallback to player if no other targets
     }
     protected Vector2 GetClosestPoint(Collider2D[] colliders, Vector3 fromPosition)
     {
@@ -170,66 +188,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         return closestPoint;
     }
-
-    protected virtual Transform CheckForTargets()
-    {
-        // Return current target if it is valid and within the cooldown period
-        if (_currentTarget != null && Time.time < _lastTargetSwitchTime + _targetSwitchCooldown)
-        {
-
-            return _currentTarget;
-        }
-
-        float detectionRadius = 25f; // Increased radius for testing
-        LayerMask enemyLayerMask = LayerMask.GetMask("Syndicates") | LayerMask.GetMask("ThraxArmada") | LayerMask.GetMask("CrimsonFleet") | LayerMask.GetMask("Player");
-
-        // Get all potential targets within the detection radius
-        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayerMask);
-
-        Transform bestTarget = null;
-
-        // Iterate through detected targets to find a valid one
-        foreach (Collider2D targetCollider in hitTargets)
-        {
-            Faction targetFaction = targetCollider.GetComponent<Faction>();
-
-            if (targetFaction != null)
-            {
-
-
-                // Check if the target's faction is different from the enemy's faction
-                if (targetFaction.factionType != _faction.factionType)
-                {
-
-                    // Check if the target has a valid tag
-                    if (targetCollider.CompareTag("EnemyDestroyable") ||
-                        targetCollider.CompareTag("ThraxArmada") ||
-                        targetCollider.CompareTag("CrimsonFleet") ||
-                        targetCollider.CompareTag("Syndicates"))
-                    {
-                        bestTarget = targetCollider.transform;
-
-                        break; // Found a valid target, no need to continue checking
-                    }
-
-                }
-
-            }
-        }
-        if (bestTarget != null)
-        {
-            _currentTarget = bestTarget;
-            _lastTargetSwitchTime = Time.time;
-        }
-        else
-        {
-            _currentTarget = PlayerManager.Instance.transform;
-        }
-
-        return _currentTarget;
-
-    }
-
 
     IEnumerator SpawnAnimation()
     {
@@ -278,13 +236,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     public virtual void IncreaseStatsPerLevel()
     {
-        Health += GameManager.Instance.Level() * 10f;
+        Health += GameManager.Instance.Level * 5f;
 
-        CurrencyDrop += GameManager.Instance.Level() * 0.5f;
+        CurrencyDrop += GameManager.Instance.Level * 0.5f;
 
-        Speed += GameManager.Instance.Level() * 0.05f;
+        Speed += GameManager.Instance.Level * 0.05f;
 
-        transform.localScale += new Vector3(GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f, GameManager.Instance.Level() * 0.01f);
+        transform.localScale += new Vector3(GameManager.Instance.Level * 0.01f, GameManager.Instance.Level * 0.01f, GameManager.Instance.Level * 0.01f);
 
     }
 

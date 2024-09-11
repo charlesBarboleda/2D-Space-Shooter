@@ -22,136 +22,94 @@ public class ShooterEnemy : Enemy
     {
         base.Update();
 
-        Transform target = CheckForTargets();
-        float distanceToTarget = Vector2.Distance(transform.position, GetClosestPoint(target.GetComponents<Collider2D>(), transform.position));
+        if (isDead) return;
 
-        if (!isDead)
+        Transform target = CheckForTargets();
+        if (target == null) return;
+
+        float distanceToTarget = Vector2.Distance(transform.position, GetClosestPoint(target.GetComponents<Collider2D>(), transform.position));
+        if (distanceToTarget < aimRange && Time.time >= nextFireTime)
         {
-            if (distanceToTarget < aimRange && Time.time >= nextFireTime)
-            {
-                Attack();
-                // Play the shoot sound
-                if (_shootSound != null)
-                {
-                    AudioSource.PlayOneShot(_shootSound);
-                }
-                else
-                {
-                    Debug.LogWarning("Attempted to play a shooting sound, but no AudioClip is assigned to _shootSound.");
-                }
-            }
+            Attack();
+            PlayShootSound();
+        }
+    }
+
+    private void PlayShootSound()
+    {
+        if (_shootSound != null)
+        {
+            AudioSource.PlayOneShot(_shootSound);
+        }
+        else
+        {
+            Debug.LogWarning("Attempted to play a shooting sound, but no AudioClip is assigned to _shootSound.");
         }
     }
 
     protected override void Attack()
     {
-
         FireBullets(_amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
     }
 
     public virtual void FireBullets(int bulletAmount, Vector3 position, Transform target)
     {
         nextFireTime = Time.time + _fireRate;
-        Vector3 targetPosition = target.transform.position;
+        Vector3 targetPosition = target.position;
         Vector3 targetDirection = (targetPosition - position).normalized;
         float startAngle = -_amountOfBullets / 2.0f * _shootingAngle;
-
 
         for (int i = 0; i < bulletAmount; i++)
         {
             GameObject enemyBullet = ObjectPooler.Instance.SpawnFromPool(_bulletType, position, Quaternion.identity);
-            // Calculate the spread angle for each bullet
             float angle = startAngle + i * _shootingAngle;
             Vector3 bulletDirection = Quaternion.Euler(0, 0, angle) * targetDirection;
-            enemyBullet.GetComponent<Bullet>().Initialize(_bulletSpeed, _bulletDamage, _bulletLifetime, bulletDirection);
-
-            // Set the bullet's rotation
+            Bullet bullet = enemyBullet.GetComponent<Bullet>();
+            bullet.Initialize(_bulletSpeed, _bulletDamage, _bulletLifetime, bulletDirection);
             enemyBullet.transform.rotation = Quaternion.LookRotation(Vector3.forward, bulletDirection);
-
-            // Set bullet properties
-            enemyBullet.transform.gameObject.tag = "EnemyBullet";
+            enemyBullet.tag = "EnemyBullet";
         }
     }
 
     public override void IncreaseStatsPerLevel()
     {
         base.IncreaseStatsPerLevel();
-        _bulletSpeed += GameManager.Instance.Level() * 0.2f;
-        _bulletDamage += GameManager.Instance.Level() * 1f;
-        aimRange += GameManager.Instance.Level() * 0.2f;
+        _bulletSpeed += GameManager.Instance.Level * 0.01f;
+        _bulletDamage += GameManager.Instance.Level * 0.5f;
+        aimRange += GameManager.Instance.Level * 0.1f;
     }
 
     public override void BuffedState()
     {
         base.BuffedState();
-        _bulletDamage = _bulletDamage * 1.5f;
-        _bulletSpeed = _bulletSpeed * 1.5f;
-        _fireRate = _fireRate / 1.5f;
+        _bulletDamage *= 1.5f;
+        _bulletSpeed *= 1.5f;
+        _fireRate /= 1.5f;
         _amountOfBullets += 2;
-
     }
 
     public override void UnBuffedState()
     {
         base.UnBuffedState();
-        _bulletDamage = _bulletDamage / 1.5f;
-        _bulletSpeed = _bulletSpeed / 1.5f;
-        _fireRate = _fireRate * 1.5f;
+        _bulletDamage /= 1.5f;
+        _bulletSpeed /= 1.5f;
+        _fireRate *= 1.5f;
         _amountOfBullets -= 2;
     }
 
-    public void SetBulletAmount(int amount)
-    {
-        _amountOfBullets = amount;
-    }
-    public void SetBulletSpeed(float speed)
-    {
-        _bulletSpeed = speed;
-    }
-    public void SetBulletDamage(float damage)
-    {
-        _bulletDamage = damage;
-    }
-    public void SetFireRate(float rate)
-    {
-        _fireRate = rate;
-    }
-    public void SetShootingAngle(float angle)
-    {
-        _shootingAngle = angle;
-    }
+    // Properties for bullet settings
+    public void SetBulletAmount(int amount) => _amountOfBullets = amount;
+    public void SetBulletSpeed(float speed) => _bulletSpeed = speed;
+    public void SetBulletDamage(float damage) => _bulletDamage = damage;
+    public void SetFireRate(float rate) => _fireRate = rate;
+    public void SetShootingAngle(float angle) => _shootingAngle = angle;
+    public void SetAimRange(float range) => aimRange = range;
 
-    public void SetAimRange(float range)
-    {
-        aimRange = range;
-    }
-
-    public int GetBulletAmount()
-    {
-        return _amountOfBullets;
-    }
-    public float GetBulletSpeed()
-    {
-        return _bulletSpeed;
-    }
-    public float GetBulletDamage()
-    {
-        return _bulletDamage;
-    }
-    public float GetFireRate()
-    {
-        return _fireRate;
-    }
-    public float GetAimRange()
-    {
-        return aimRange;
-    }
-    public float GetShootingAngle()
-    {
-        return _shootingAngle;
-    }
-    public float GetBulletLifetime()
-    {
-        return _bulletLifetime;
-    }
+    public int GetBulletAmount() => _amountOfBullets;
+    public float GetBulletSpeed() => _bulletSpeed;
+    public float GetBulletDamage() => _bulletDamage;
+    public float GetFireRate() => _fireRate;
+    public float GetAimRange() => aimRange;
+    public float GetShootingAngle() => _shootingAngle;
+    public float GetBulletLifetime() => _bulletLifetime;
 }

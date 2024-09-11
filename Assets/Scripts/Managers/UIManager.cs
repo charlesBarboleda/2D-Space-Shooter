@@ -173,8 +173,8 @@ public class UIManager : MonoBehaviour
 
     private void UpdateRoundText()
     {
-        if (GameManager.Instance.IsRound()) roundText.text = $"{GameManager.Instance.Level()}";
-        if (GameManager.Instance.IsCountdown()) roundText.text = $"{Math.Round(GameManager.Instance.GetRoundCountdown(), 0)}";
+        if (GameManager.Instance.IsRound) roundText.text = $"{GameManager.Instance.Level}";
+        if (GameManager.Instance.IsCountdown) roundText.text = $"{Math.Round(GameManager.Instance.RoundCountdown, 0)}";
     }
 
     private void SetDescriptionText(TextMeshProUGUI text, Upgrade upgrade)

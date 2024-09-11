@@ -41,7 +41,7 @@ public class AbilityLaser : Ability
 
         // Stop the audio and destroy the laser
         ownerAudioSource.Stop();
-        Destroy(laser);
+        laser.SetActive(false);
     }
 
     public override void ResetStats()

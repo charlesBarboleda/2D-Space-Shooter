@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8322189629801477694}
   - component: {fileID: 8511844197158580915}
   - component: {fileID: 3911439125997600446}
-  m_Layer: 0
+  - component: {fileID: 8018542081710433545}
+  m_Layer: 16
   m_Name: 'PlayerLaser '
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,6 +85,33 @@ CapsuleCollider2D:
   m_Offset: {x: 0.07355026, y: 112.534676}
   m_Size: {x: 35.52775, y: 232.32541}
   m_Direction: 0
+--- !u!50 &8018542081710433545
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292056099085261284}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &675410281065289436
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,7 +123,7 @@ GameObject:
   - component: {fileID: 1763360205855658782}
   - component: {fileID: 5542824158249997187}
   - component: {fileID: 3594644843934369201}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4925,7 +4953,7 @@ GameObject:
   - component: {fileID: 36714185103880354}
   - component: {fileID: 7468049407587673608}
   - component: {fileID: 8880857595072170891}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9756,6 +9784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainLaser
       objectReference: {fileID: 0}
+    - target: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 436056, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7808
@@ -9850,6 +9882,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleLine-LightSaber (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 436056, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
       propertyPath: m_LocalScale.y
       value: 2.2477
@@ -9938,6 +9974,10 @@ PrefabInstance:
     - target: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
       propertyPath: m_Name
       value: SingleLine-LightSaber
+      objectReference: {fileID: 0}
+    - target: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 436056, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
       propertyPath: m_LocalScale.x

@@ -52,21 +52,20 @@ public class ObjectivesManager : MonoBehaviour
 
         for (int i = 0; i < amount; i++)
         {
-            int randomIndex = Random.Range(0, objectives.Count);
-            activeObjectives.Add(objectives[randomIndex]);
+            int randomIndex;
+            Objective selectedObjective;
+
+            // Ensure no duplicates by repeatedly selecting a random objective if it's already active
+            do
+            {
+                randomIndex = Random.Range(0, objectives.Count);
+                selectedObjective = objectives[randomIndex];
+            } while (activeObjectives.Contains(selectedObjective));
+
+            activeObjectives.Add(selectedObjective);
         }
     }
 
-
-
-
-    public void AddObjective(Objective newObjective)
-    {
-        if (activeObjectives.Contains(newObjective)) return;
-        activeObjectives.Add(newObjective);
-        newObjective.InitObjective(); // Initialize the new objective
-        ObjectivesUIManager.Instance.AddObjectiveUI(newObjective); // Update UI with the new objective
-    }
     public void RemoveAllObjectives()
     {
         activeObjectives.Clear();

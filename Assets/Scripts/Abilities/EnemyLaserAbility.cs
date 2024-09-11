@@ -38,11 +38,8 @@ public class EnemyLaserAbility : Ability
 
     private async Task SpawnLaser(Transform target, Transform spawnPoint)
     {
-        // Define the offset vector (change these values to match your observed offset)
-        Vector3 offset = new Vector3(50f, 50f, 0f); // Example offset; adjust as needed
 
-        // Calculate the world position of the spawn point, including offset
-        Vector3 worldPosition = spawnPoint.TransformPoint(offset);
+        Vector3 worldPosition = spawnPoint.TransformPoint(Vector3.zero);
 
         // Calculate the direction from the spawn point to the target
         Vector3 laserDirection = -(target.position - worldPosition).normalized;
@@ -103,7 +100,7 @@ public class EnemyLaserAbility : Ability
 
     void SetStatsBasedOnLevel()
     {
-        damagePerSecond += GameManager.Instance.Level() * 0.5f;
-        duration += GameManager.Instance.Level() * 0.1f;
+        damagePerSecond += GameManager.Instance.Level * 0.5f;
+        duration += GameManager.Instance.Level * 0.1f;
     }
 }

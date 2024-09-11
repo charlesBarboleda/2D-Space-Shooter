@@ -31,7 +31,7 @@ public class DestroyShooterBossObjective : Objective
     {
         _elapsedTime = _timeToDestroy;
         _requiredKills = _bossNames.Count;
-        _currentKills = 0;
+        _currentKills = _requiredKills;
         foreach (string bossName in _bossNames)
         {
             GameObject bossShip = ObjectPooler.Instance.SpawnFromPool(bossName, _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
@@ -62,7 +62,7 @@ public class DestroyShooterBossObjective : Objective
     {
         if (GetIsCompleted() || GetIsFailed()) return;
         if (_elapsedTime <= 0) FailedObjective();
-        if (_currentKills >= _requiredKills && _elapsedTime > 0)
+        if (_currentKills <= 0 && _elapsedTime > 0)
         {
             _currentKills = 0;
             CompleteObjective();
@@ -71,7 +71,7 @@ public class DestroyShooterBossObjective : Objective
 
         if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
         if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
-        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Destroy the Assault ships: " + _currentKills + "/" + _requiredKills + " in " + Mathf.Round(_elapsedTime) + " seconds");
+        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Destroy the Syndicate Assault ships: " + _currentKills + " ships left in " + Mathf.Round(_elapsedTime) + " seconds");
 
     }
     public override void CompleteObjective()
