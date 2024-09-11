@@ -68,8 +68,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         isDead = false;
 
 
-
-
     }
 
     protected virtual void Update()
@@ -121,6 +119,46 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (Random.value < 0.5) _rotateClockwise = true;
         else _rotateClockwise = false;
 
+        _checkForTargetsCoroutine = StartCoroutine(CheckForTargetsRoutine());
+        _movementCoroutine = StartCoroutine(MovementRoutine());
+        _abilityCoroutine = StartCoroutine(AbilityRoutine());
+
+    }
+
+    protected virtual void OnDisable()
+    {
+        if (_checkForTargetsCoroutine != null) StopCoroutine(_checkForTargetsCoroutine);
+        if (_movementCoroutine != null) StopCoroutine(_movementCoroutine);
+        if (_abilityCoroutine != null) StopCoroutine(_abilityCoroutine);
+    }
+
+    IEnumerator CheckForTargetsRoutine()
+    {
+        while (!isDead)
+        {
+            if (_currentTarget == null || !_currentTarget.gameObject.activeInHierarchy)
+                _currentTarget = CheckForTargets();
+
+            yield return new WaitForSeconds(_checkForTargetsInterval);
+        }
+    }
+
+    IEnumerator MovementRoutine()
+    {
+        while (!isDead)
+        {
+            Movement(_currentTarget);
+            yield return new WaitForSeconds(_movementInterval);
+        }
+    }
+
+    IEnumerator AbilityRoutine()
+    {
+        while (!isDead && _abilityHolder != null)
+        {
+            UseAbilities(_currentTarget);
+            yield return new WaitForSeconds(_abilityInterval);
+        }
     }
 
     protected virtual void Movement(Transform target)

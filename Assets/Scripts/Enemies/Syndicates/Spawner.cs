@@ -50,8 +50,9 @@ public class SpawnerEnemy : Enemy
         _spawnRate = _spawnRate * 1.5f;
     }
 
-    void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         CancelInvoke("SpawnRandomShips");
     }
 
