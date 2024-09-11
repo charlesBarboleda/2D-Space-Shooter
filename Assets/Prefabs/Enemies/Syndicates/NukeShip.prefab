@@ -32,7 +32,7 @@ RectTransform:
   m_GameObject: {fileID: 7576126605128404253}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.460039, y: 4.460039, z: 4.460039}
+  m_LocalScale: {x: 17.797516, y: 17.797516, z: 17.797516}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7033326722294087342}
@@ -126,18 +126,22 @@ MonoBehaviour:
   _aimOffset: -90
   _shouldRotate: 1
   _health: 500
-  _currencyDrop: 30
-  _speed: 10
-  _stopDistance: 30
+  _currencyDrop: 50
+  _speed: 8
+  _stopDistance: 60
   _isDead: 0
   exhaustChildren:
   - {fileID: 7033326722294087313}
   turretChildren: []
   _cameraShakeMagnitude: 25
-  _cameraShakeDuration: 0.1
-  _nukePrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
-  _attackRange: 40
-  _coolDownTime: 1
+  _cameraShakeDuration: 0.3
+  _nukeRadius: 15
+  _nukeDamage: 1000
+  _nukeChargeTime: 2
+  _nukeExplosion: MidExp
+  _nukeTarget: SmallNukeTarget
+  _attackRange: 80
+  _coolDownTime: 5
 --- !u!61 &5401732057252154783
 BoxCollider2D:
   m_ObjectHideFlags: 0

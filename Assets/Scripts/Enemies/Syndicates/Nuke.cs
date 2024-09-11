@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class NukeEnemy : Enemy
 {
-    [SerializeField] GameObject _nukePrefab;
     private bool isOnCoolDown;
+    [SerializeField] float _nukeRadius;
+    [SerializeField] float _nukeDamage;
+    [SerializeField] float _nukeChargeTime;
+    [SerializeField] string _nukeExplosion;
+    [SerializeField] string _nukeTarget;
+
+
     [SerializeField] float _attackRange;
-    [SerializeField] float _coolDownTime = 1f;
+    [SerializeField] float _coolDownTime = 3f;
+    Vector3 _initTargetPos;
 
 
-    protected override void OnEnable()
+
+    private void OnDisable()
     {
-        base.OnEnable();
-        _coolDownTime -= GameManager.Instance.Level * 0.0001f;
+        StopAllCoroutines();
     }
     // Update is called once per frame
     protected override void Update()
@@ -22,35 +29,47 @@ public class NukeEnemy : Enemy
         if (Vector2.Distance(transform.position, CheckForTargets().position) < _attackRange)
         {
             Debug.Log("In range to attack");
-            Attack();
+            if (_coolDownTime <= 0)
+            {
+                Attack();
+                _coolDownTime = 5f;
+            }
+            else _coolDownTime -= Time.deltaTime;
+
         }
 
     }
 
-    private void ShootNuke()
+    IEnumerator ShootNuke()
     {
-        Debug.Log("Checking if on cooldown");
-        if (!isOnCoolDown)
+        Debug.Log("Target Nuke Position: " + _initTargetPos);
+        LayerMask _targetLayer = LayerMask.GetMask("Player") | LayerMask.GetMask("CrimsonFleet") | LayerMask.GetMask("ThraxArmada");
+        Collider2D[] _hitColliders = Physics2D.OverlapCircleAll(_initTargetPos, _nukeRadius, _targetLayer);
+        foreach (Collider2D hit in _hitColliders)
         {
-            Debug.Log("Shooting Nuke");
-            GameObject nuke = Instantiate(_nukePrefab, CheckForTargets().position, Quaternion.identity);
-            Destroy(nuke, 6f);
-            isOnCoolDown = true;
-            StartCoroutine(Cooldown());
+            if (hit.CompareTag("Player") || hit.CompareTag("CrimsonFleet") || hit.CompareTag("ThraxArmada") || hit.CompareTag("EnemyDestroyable"))
+            {
+                hit.GetComponent<IDamageable>().TakeDamage(_nukeDamage);
+            }
         }
+        GameObject exp = ObjectPooler.Instance.SpawnFromPool(_nukeExplosion, _initTargetPos, Quaternion.identity);
+        yield return new WaitForSeconds(2f);
+        exp.SetActive(false);
     }
 
-
-    IEnumerator Cooldown()
+    IEnumerator ChargeNuke()
     {
-        yield return new WaitForSeconds(_coolDownTime);
-        isOnCoolDown = false;
+        _initTargetPos = CheckForTargets().position;
+        GameObject nukeTarget = ObjectPooler.Instance.SpawnFromPool(_nukeTarget, _initTargetPos, Quaternion.identity);
+        Debug.Log("Target Aim Position: " + _initTargetPos);
+        yield return new WaitForSeconds(_nukeChargeTime);
+        nukeTarget.SetActive(false);
+        StartCoroutine(ShootNuke());
     }
 
     protected override void Attack()
     {
-        Debug.Log("Attacking");
-        ShootNuke();
+        StartCoroutine(ChargeNuke());
 
     }
 
@@ -66,6 +85,10 @@ public class NukeEnemy : Enemy
         _coolDownTime = _coolDownTime * 1.5f;
     }
 
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(CheckForTargets().position, _nukeRadius);
+    }
 
 }
