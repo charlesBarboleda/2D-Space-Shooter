@@ -60,7 +60,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected virtual void Awake()
     {
 
-        _abilityHolder = GetComponent<AbilityHolder>();
+        TryGetComponent<AbilityHolder>(out AbilityHolder abilityHolder);
+        _abilityHolder = abilityHolder;
         _faction = GetComponent<Faction>();
         _audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -83,13 +84,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             UseAbilities(_currentTarget); // Uses the ability if the cooldown is 0
             if (_abilitySound != null) _audioSource.PlayOneShot(_abilitySound);
         }
-        if (CurrentTarget != null)
+        if (_currentTarget != null)
         {
-            float distanceToTarget = Vector2.Distance(transform.position, CurrentTarget.position);
+            float distanceToTarget = Vector2.Distance(transform.position, _currentTarget.position);
             if (distanceToTarget < AimRange)
             {
                 // Check if the target is the one we should shoot at
-                if (IsTargetInRange(CurrentTarget))
+                if (IsTargetInRange(_currentTarget))
                 {
                     Attack();
                 }
@@ -261,17 +262,17 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         foreach (Collider2D targetCollider in hitTargets)
         {
-            Debug.Log("Target: " + targetCollider.name);
+
             Faction targetFaction = targetCollider.GetComponent<Faction>();
             if (targetFaction != null && _faction.IsHostileTo(targetFaction.factionType))
             {
-                Debug.Log("Target Faction: " + targetFaction.factionType);
+
                 float distance = Vector3.Distance(transform.position, targetCollider.transform.position);
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
                     bestTarget = targetCollider.transform;
-                    Debug.Log("Best Target: " + targetCollider.name);
+
 
                 }
             }
@@ -301,11 +302,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _spriteRenderer.color = Color.white;
     }
 
-    void UseAbilities(Transform target)
+    protected void UseAbilities(Transform target)
     {
         foreach (Ability ability in _abilityHolder.abilities)
         {
             if (ability.currentCooldown >= ability.cooldown) ability.TriggerAbility(gameObject, target);
+            Debug.Log("Using Ability");
         }
     }
 
@@ -393,6 +395,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     /// Getters and Setters
     /// </summary>
     /// 
+    public AbilityHolder AbilityHolder { get => _abilityHolder; set => _abilityHolder = value; }
     public Transform CurrentTarget { get => _currentTarget; set => _currentTarget = value; }
     public BoxCollider2D[] BoxColliders { get => _boxColliders; set => _boxColliders = value; }
     public SpriteRenderer SpriteRenderer { get => _spriteRenderer; set => _spriteRenderer = value; }
@@ -408,5 +411,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public float StopDistance { get => _stopDistance; set => _stopDistance = value; }
     public float AimRange { get => _aimRange; set => _aimRange = value; }
 
+    public bool ShouldRotate { get => _shouldRotate; set => _shouldRotate = value; }
 
 }

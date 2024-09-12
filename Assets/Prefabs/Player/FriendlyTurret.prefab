@@ -110,13 +110,14 @@ MonoBehaviour:
   _spawnAnimation: 
   _deathExplosion: 
   _deathEffect: []
-  _aimOffset: 0
+  _aimOffset: -90
   _shouldRotate: 1
   _health: 1000
   _currencyDrop: 0
   _speed: 0
   _stopDistance: 0
   _isDead: 0
+  _aimRange: 70
   exhaustChildren: []
   turretChildren: []
   separationRadius: 2
@@ -125,8 +126,7 @@ MonoBehaviour:
   _cameraShakeDuration: 0
   bulletSpawnPoint: {fileID: 7742219350932295475}
   _shootSound: {fileID: 0}
-  aimRange: 100
-  _bulletType: 
+  _bulletType: PlayerBullet
   _fireRate: 0.5
   _bulletSpeed: 30
   _bulletDamage: 10

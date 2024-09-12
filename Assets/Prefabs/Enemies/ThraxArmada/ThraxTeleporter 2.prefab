@@ -206,7 +206,7 @@ MonoBehaviour:
   _speed: 25
   _stopDistance: 60
   _isDead: 0
-  _aimRange: 0
+  _aimRange: 80
   exhaustChildren:
   - {fileID: 266865092843442929}
   turretChildren:
@@ -218,7 +218,6 @@ MonoBehaviour:
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 9218803691252720160}
   _shootSound: {fileID: 8300000, guid: 3f2ea133f3a172d47be752f14c01259e, type: 3}
-  AimRange: 80
   _bulletType: ThraxBullet
   _fireRate: 3
   _bulletSpeed: 20

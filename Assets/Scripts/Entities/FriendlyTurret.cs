@@ -5,6 +5,26 @@ using UnityEngine;
 public class FriendlyTurret : ShooterEnemy
 {
 
+    protected override void Update()
+    {
+        if (isDead) return;
+        if (CurrentTarget == null || !CurrentTarget.gameObject.activeInHierarchy) CurrentTarget = CheckForTargets();
+        if (ShouldRotate) Aim(CurrentTarget);
+
+        // Check distance to target and whether it's the right one
+        if (CurrentTarget != null)
+        {
+            float distanceToTarget = Vector2.Distance(transform.position, CurrentTarget.position);
+            if (distanceToTarget < AimRange && Time.time >= nextFireTime)
+            {
+                // Check if the target is the one we should shoot at
+                if (IsTargetInRange(CurrentTarget))
+                {
+                    Attack();
+                }
+            }
+        }
+    }
     protected override void Attack()
     {
         FireBullets(GetBulletAmount(), transform.position, CurrentTarget);
@@ -13,10 +33,11 @@ public class FriendlyTurret : ShooterEnemy
 
     protected override Transform CheckForTargets()
     {
-        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 100f);
+        LayerMask _layerMasks = LayerMask.GetMask("ThraxArmada", "CrimsonFleet", "Syndicates");
+        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 50f, _layerMasks);
         foreach (Collider2D targets in hitTargets)
         {
-            if (targets.CompareTag("Enemy"))
+            if (targets.CompareTag("ThraxArmada") || targets.CompareTag("CrimsonFleet") || targets.CompareTag("Syndicates"))
             {
                 return targets.transform;
             }

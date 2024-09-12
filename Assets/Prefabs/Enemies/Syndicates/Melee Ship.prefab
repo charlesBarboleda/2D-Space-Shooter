@@ -156,9 +156,9 @@ MonoBehaviour:
   _health: 20
   _currencyDrop: 5
   _speed: 8
-  _stopDistance: 15
+  _stopDistance: 10
   _isDead: 0
-  _aimRange: 0
+  _aimRange: 20
   exhaustChildren:
   - {fileID: 9212441991993666868}
   turretChildren: []
@@ -168,7 +168,6 @@ MonoBehaviour:
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 8628277228142460474}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
-  AimRange: 25
   _bulletType: SyndicatesBullet
   _fireRate: 1
   _bulletSpeed: 10

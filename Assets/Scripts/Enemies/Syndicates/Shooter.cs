@@ -20,27 +20,26 @@ public class ShooterEnemy : Enemy
 
     protected override void Update()
     {
-        base.Update();
 
         if (isDead) return;
-
-        if (_target == null || !_target.gameObject.activeInHierarchy)
+        if (CurrentTarget == null || !CurrentTarget.gameObject.activeInHierarchy) CurrentTarget = CheckForTargets();
+        if (ShouldRotate) Aim(CurrentTarget);
+        Movement(CurrentTarget);
+        if (AbilityHolder != null)
         {
-            _target = CurrentTarget;
+            UseAbilities(CurrentTarget); // Uses the ability if the cooldown is 0
         }
 
-        // Debug: Check target details
-        Debug.Log($"Current Target: {_target}");
-
         // Check distance to target and whether it's the right one
-        if (_target != null)
+        if (CurrentTarget != null)
         {
-            float distanceToTarget = Vector2.Distance(transform.position, _target.position);
+            float distanceToTarget = Vector2.Distance(transform.position, CurrentTarget.position);
             if (distanceToTarget < AimRange && Time.time >= nextFireTime)
             {
                 // Check if the target is the one we should shoot at
-                if (IsTargetInRange(_target))
+                if (IsTargetInRange(CurrentTarget))
                 {
+                    Debug.Log("Current Target in Range to Attack: " + CurrentTarget.name);
                     Attack();
                     PlayShootSound();
                 }
@@ -64,7 +63,7 @@ public class ShooterEnemy : Enemy
 
     protected override void Attack()
     {
-        FireBullets(_amountOfBullets, bulletSpawnPoint.position, _target);
+        FireBullets(_amountOfBullets, bulletSpawnPoint.position, CurrentTarget);
     }
 
     public virtual void FireBullets(int bulletAmount, Vector3 position, Transform target)
@@ -112,11 +111,6 @@ public class ShooterEnemy : Enemy
         _amountOfBullets -= 2;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, AimRange);
-    }
 
     // Properties for bullet settings
     public void SetBulletAmount(int amount) => _amountOfBullets = amount;

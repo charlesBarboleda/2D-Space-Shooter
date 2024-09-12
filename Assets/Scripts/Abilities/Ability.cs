@@ -23,8 +23,10 @@ public abstract class Ability : ScriptableObject
         }
         if (currentCooldown >= cooldown)
         {
+
             AbilityLogic(owner, target);
             currentCooldown = 0f;
+            Debug.Log("Ability Triggered");
 
         }
         else

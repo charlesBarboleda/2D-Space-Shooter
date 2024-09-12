@@ -387,7 +387,7 @@ MonoBehaviour:
   _speed: 10
   _stopDistance: 40
   _isDead: 0
-  _aimRange: 0
+  _aimRange: 60
   exhaustChildren:
   - {fileID: 8039788867163802201}
   turretChildren: []
@@ -397,7 +397,6 @@ MonoBehaviour:
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 9144009670669768331}
   _shootSound: {fileID: 8300000, guid: 380a61624a607f042ab5e96218f37633, type: 3}
-  AimRange: 60
   _bulletType: CrimsonBullet
   _fireRate: 5
   _bulletSpeed: 15
@@ -442,9 +441,41 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 3283671024421742604}
+    m_ColliderPaths:
+    - - X: 27331872
+        Y: 58770852
+      - X: -24478678
+        Y: 58770852
+      - X: -24478674
+        Y: -66760060
+      - X: 27331876
+        Y: -66760060
+  - m_Collider: {fileID: 8786660656623488859}
+    m_ColliderPaths:
+    - - X: 54152816
+        Y: -10835642
+      - X: 54152816
+        Y: 31379302
+      - X: -53011500
+        Y: 31379296
+      - X: -53011500
+        Y: -10835644
   m_CompositePaths:
-    m_Paths: []
+    m_Paths:
+    - - {x: 2.7331583, y: -6.676006}
+      - {x: 2.7332168, y: -1.0835643}
+      - {x: 5.415282, y: -1.083535}
+      - {x: 5.4152527, y: 3.1379302}
+      - {x: 2.7331872, y: 3.1379595}
+      - {x: 2.733158, y: 5.877085}
+      - {x: -2.4478679, y: 5.877056}
+      - {x: -2.4478972, y: 3.13793}
+      - {x: -5.30115, y: 3.1379004}
+      - {x: -5.3011208, y: -1.0835644}
+      - {x: -2.4478676, y: -1.0835937}
+      - {x: -2.447838, y: -6.676006}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
