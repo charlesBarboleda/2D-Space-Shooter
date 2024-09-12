@@ -22,7 +22,7 @@ public class NukeEnemy : Enemy
     protected override void OnDisable()
     {
         StopAllCoroutines();
-        _nukeTargetPool.SetActive(false);
+        if (_nukeTargetPool != null) _nukeTargetPool.SetActive(false);
 
     }
     // Update is called once per frame

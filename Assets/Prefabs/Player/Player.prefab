@@ -9882,6 +9882,7 @@ GameObject:
   - component: {fileID: 4392182452498158989}
   - component: {fileID: 1119447363669336013}
   - component: {fileID: 9112436052457565423}
+  - component: {fileID: 781917507504223342}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -10371,6 +10372,9 @@ MonoBehaviour:
   healthRegenRate: 1
   _healingParticles: {fileID: 8961970791081992322}
   _deathExplosionPrefab: {fileID: 162584487599433031, guid: f5d5e961a93b8134fb1a55b03bdc517a, type: 3}
+  _isDead: 0
+  _deathEffect: []
+  _deathExplosion: 
 --- !u!114 &1119447363669336013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10383,6 +10387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec086c6afe84af449f63316f01096f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onPickUpAudio: {fileID: 0}
 --- !u!114 &9112436052457565423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10395,6 +10400,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e80ee1c0d15e1e04faa15ab33b23d55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &781917507504223342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239728600239547954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed9253b8d24bd643b7ae47cb753d981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _factionType: 0
+  _allyFactions: 00000000
 --- !u!1 &6253943412290227433
 GameObject:
   m_ObjectHideFlags: 0

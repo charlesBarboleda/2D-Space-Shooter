@@ -11,12 +11,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
     // ETC
-    float _checkForTargetsInterval = 0.5f;
-    float _movementInterval = 0.1f;
-    float _abilityInterval = 1f;
+    float _checkForTargetsInterval = 5f;
     Coroutine _checkForTargetsCoroutine;
-    Coroutine _movementCoroutine;
-    Coroutine _abilityCoroutine;
     Transform _currentTarget;
     Vector3 _cachedDirection;
     float _cachedDistance;
@@ -37,7 +33,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
     AbilityHolder _abilityHolder;
     SpriteRenderer _spriteRenderer;
-    List<Collider2D> _colliders = new List<Collider2D>();
+    List<BoxCollider2D> _colliders = new List<BoxCollider2D>();
     // Stats
     [SerializeField] float _aimOffset;
     [SerializeField] bool _shouldRotate;
@@ -68,12 +64,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _faction = GetComponent<Faction>();
         _audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _colliders.AddRange(GetComponents<Collider2D>());
+        _colliders.AddRange(GetComponents<BoxCollider2D>());
         isDead = false;
         _faction.AddAllyFaction(_faction.factionType);
 
 
-        foreach (Collider2D collider in _colliders)
+        foreach (BoxCollider2D collider in _colliders)
         {
             collider.usedByComposite = true;
         }
@@ -84,16 +80,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected virtual void Update()
     {
         if (isDead) return;
-        if (_currentTarget == null || !_currentTarget.gameObject.activeInHierarchy)
-        {
-            _currentTarget = CheckForTargets();
-        }
+        if (_currentTarget == null || !_currentTarget.gameObject.activeInHierarchy) _currentTarget = CheckForTargets();
         if (_shouldRotate) Aim(_currentTarget);
         Movement(_currentTarget);
 
         if (_abilityHolder != null)
         {
-            UseAbilities(CheckForTargets()); // Uses the ability if the cooldown is 0
+            UseAbilities(_currentTarget); // Uses the ability if the cooldown is 0
             if (_abilitySound != null) _audioSource.PlayOneShot(_abilitySound);
         }
 
@@ -157,56 +150,46 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         else _rotateClockwise = false;
 
         _checkForTargetsCoroutine = StartCoroutine(CheckForTargetsRoutine());
-        _movementCoroutine = StartCoroutine(MovementRoutine());
-        _abilityCoroutine = StartCoroutine(AbilityRoutine());
 
     }
 
     protected virtual void OnDisable()
     {
         if (_checkForTargetsCoroutine != null) StopCoroutine(_checkForTargetsCoroutine);
-        if (_movementCoroutine != null) StopCoroutine(_movementCoroutine);
-        if (_abilityCoroutine != null) StopCoroutine(_abilityCoroutine);
     }
 
     IEnumerator CheckForTargetsRoutine()
     {
         while (!isDead)
         {
-            if (_currentTarget == null || !_currentTarget.gameObject.activeInHierarchy)
-                _currentTarget = CheckForTargets();
-
+            _currentTarget = CheckForTargets();
             yield return new WaitForSeconds(_checkForTargetsInterval);
         }
     }
 
-    IEnumerator MovementRoutine()
-    {
-        while (!isDead)
-        {
-            Movement(_currentTarget);
-            yield return new WaitForSeconds(_movementInterval);
-        }
-    }
 
-    IEnumerator AbilityRoutine()
-    {
-        while (!isDead && _abilityHolder != null)
-        {
-            UseAbilities(_currentTarget);
-            yield return new WaitForSeconds(_abilityInterval);
-        }
-    }
 
 
     protected virtual void Movement(Transform target)
     {
         if (target == null) return;
 
-        _cachedDirection = (target.position - transform.position).normalized;
-        _cachedDistance = Vector3.Distance(transform.position, target.position);
+        // Get the target's closest point using colliders
+        Collider2D targetCollider = target.GetComponent<Collider2D>();
+        if (targetCollider != null)
+        {
+            Vector3 closestPoint = targetCollider.ClosestPoint(transform.position);
+            _cachedDirection = (closestPoint - transform.position).normalized;
+            _cachedDistance = Vector3.Distance(transform.position, closestPoint);
+        }
+        else
+        {
+            // Fallback if no collider is found
+            _cachedDirection = (target.position - transform.position).normalized;
+            _cachedDistance = Vector3.Distance(transform.position, target.position);
+        }
 
-        // Get separation force
+        // Get separation force to avoid collisions with other enemies
         Vector3 separationForce = CalculateSeparation();
 
         if (_cachedDistance > _stopDistance)
@@ -216,7 +199,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
         else
         {
-            Orbit(target);
+            Orbit(target);  // Orbit when close enough
         }
     }
     private void Orbit(Transform target)
@@ -229,9 +212,22 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         if (target == null) return;
 
-        Vector3 direction = target.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + _aimOffset));
+        // Get the target's closest point using colliders
+        Collider2D targetCollider = target.GetComponent<Collider2D>();
+        if (targetCollider != null)
+        {
+            Vector3 closestPoint = targetCollider.ClosestPoint(transform.position);
+            Vector3 direction = closestPoint - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + _aimOffset));
+        }
+        else
+        {
+            // Fallback if no collider is found
+            Vector3 direction = target.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + _aimOffset));
+        }
     }
 
     protected virtual Transform CheckForTargets()
@@ -245,39 +241,24 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         foreach (Collider2D targetCollider in hitTargets)
         {
+            Debug.Log("Target: " + targetCollider.name);
             Faction targetFaction = targetCollider.GetComponent<Faction>();
             if (targetFaction != null && _faction.IsHostileTo(targetFaction.factionType))
             {
+                Debug.Log("Target Faction: " + targetFaction.factionType);
                 float distance = Vector3.Distance(transform.position, targetCollider.transform.position);
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
                     bestTarget = targetCollider.transform;
-                    Debug.Log("Best Target:" + bestTarget.name + "Faction: " + targetFaction.factionType);
+                    Debug.Log("Best Target: " + targetCollider.name);
+
                 }
             }
         }
 
+
         return bestTarget ?? PlayerManager.Instance.transform;  // Fallback to player if no other targets
-    }
-    protected Vector2 GetClosestPoint(Collider2D[] colliders, Vector3 fromPosition)
-    {
-        Vector3 closestPoint = Vector3.zero;
-        float minDistance = Mathf.Infinity;
-
-        foreach (var collider in colliders)
-        {
-            Vector3 point = collider.ClosestPoint(fromPosition);
-            float distance = Vector3.Distance(fromPosition, point);
-
-            if (distance < minDistance)
-            {
-                minDistance = distance;
-                closestPoint = point;
-            }
-        }
-
-        return closestPoint;
     }
 
     IEnumerator SpawnAnimation()
@@ -392,7 +373,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     /// Getters and Setters
     /// </summary>
     /// 
-    public List<Collider2D> Colliders { get => _colliders; set => _colliders = value; }
+    public Transform CurrentTarget { get => _currentTarget; set => _currentTarget = value; }
+    public List<BoxCollider2D> Colliders { get => _colliders; set => _colliders = value; }
     public SpriteRenderer SpriteRenderer { get => _spriteRenderer; set => _spriteRenderer = value; }
     public AudioSource AudioSource { get => _audioSource; set => _audioSource = value; }
     public Faction Faction { get => _faction; set => _faction = value; }

@@ -27,10 +27,11 @@ public class ShooterEnemy : Enemy
 
         if (_target == null || !_target.gameObject.activeInHierarchy)
         {
-            _target = CheckForTargets();
+            _target = CurrentTarget;
         }
 
-        float distanceToTarget = Vector2.Distance(transform.position, GetClosestPoint(_target.GetComponents<Collider2D>(), transform.position));
+
+        float distanceToTarget = Vector2.Distance(transform.position, _target.position);
         if (distanceToTarget < aimRange && Time.time >= nextFireTime)
         {
             Attack();
@@ -52,7 +53,7 @@ public class ShooterEnemy : Enemy
 
     protected override void Attack()
     {
-        FireBullets(_amountOfBullets, bulletSpawnPoint.position, CheckForTargets());
+        FireBullets(_amountOfBullets, bulletSpawnPoint.position, _target);
     }
 
     public virtual void FireBullets(int bulletAmount, Vector3 position, Transform target)

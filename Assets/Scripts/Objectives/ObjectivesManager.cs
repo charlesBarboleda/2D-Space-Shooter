@@ -126,7 +126,7 @@ public class ObjectivesManager : MonoBehaviour
         {
             if (objective is DestroySpawnerBossObjective destroySpawnerBossObjective)
             {
-                destroySpawnerBossObjective.SetCurrentKills(destroySpawnerBossObjective.GetCurrentKills() - 1);
+                destroySpawnerBossObjective.SetCurrentKills(destroySpawnerBossObjective.GetCurrentKills() + 1);
             }
         }
         foreach (Objective objective in activeObjectives)

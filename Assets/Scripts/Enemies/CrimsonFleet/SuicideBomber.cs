@@ -27,7 +27,7 @@ public class SuicideBomber : Enemy
         }
 
         Transform target = CheckForTargets();
-        float distanceToTarget = Vector2.Distance(transform.position, GetClosestPoint(target.GetComponents<Collider2D>(), transform.position));
+        float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
         if (!isDead)
         {
