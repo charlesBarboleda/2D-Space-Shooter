@@ -15,6 +15,7 @@ public class ShooterEnemy : Enemy
     [SerializeField] int _amountOfBullets;
     [SerializeField] float _shootingAngle;
     [SerializeField] float _bulletLifetime;
+    Transform _target;
 
     public float nextFireTime;
 
@@ -24,10 +25,12 @@ public class ShooterEnemy : Enemy
 
         if (isDead) return;
 
-        Transform target = CheckForTargets();
-        if (target == null) return;
+        if (_target == null || !_target.gameObject.activeInHierarchy)
+        {
+            _target = CheckForTargets();
+        }
 
-        float distanceToTarget = Vector2.Distance(transform.position, GetClosestPoint(target.GetComponents<Collider2D>(), transform.position));
+        float distanceToTarget = Vector2.Distance(transform.position, GetClosestPoint(_target.GetComponents<Collider2D>(), transform.position));
         if (distanceToTarget < aimRange && Time.time >= nextFireTime)
         {
             Attack();

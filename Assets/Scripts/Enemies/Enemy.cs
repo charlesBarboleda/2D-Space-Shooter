@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Faction))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CompositeCollider2D))]
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
@@ -37,6 +38,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
     AbilityHolder _abilityHolder;
     SpriteRenderer _spriteRenderer;
+    Rigidbody2D _rigidbody2D;
     List<Collider2D> _colliders = new List<Collider2D>();
     // Stats
     [SerializeField] float _aimOffset;
@@ -46,6 +48,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _speed;
     [SerializeField] float _stopDistance;
     [SerializeField] bool _isDead;
+
 
     bool _rotateClockwise = false;
     public List<GameObject> exhaustChildren = new List<GameObject>();
@@ -60,6 +63,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Awake()
     {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
         _abilityHolder = GetComponent<AbilityHolder>();
         _faction = GetComponent<Faction>();
         _audioSource = GetComponent<AudioSource>();
@@ -67,6 +71,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _colliders.AddRange(GetComponents<Collider2D>());
         isDead = false;
         _faction.AddAllyFaction(_faction.factionType);
+        _rigidbody2D.simulated = true;
+
+        foreach (Collider2D collider in _colliders)
+        {
+            collider.usedByComposite = true;
+        }
 
 
     }
