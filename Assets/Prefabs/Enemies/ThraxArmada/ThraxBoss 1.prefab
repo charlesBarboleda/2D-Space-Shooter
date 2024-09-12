@@ -960,18 +960,21 @@ MonoBehaviour:
   _health: 10000
   _currencyDrop: 1000
   _speed: 12
-  _stopDistance: 80
+  _stopDistance: 100
   _isDead: 0
+  _aimRange: 0
   exhaustChildren:
   - {fileID: 261621228065520090}
   turretChildren:
   - {fileID: 2239644857670299567}
   - {fileID: 5577716240121289670}
+  separationRadius: 2
+  separationWeight: 1.5
   _cameraShakeMagnitude: 50
   _cameraShakeDuration: 0.3
   bulletSpawnPoint: {fileID: 8069788359676706865}
   _shootSound: {fileID: 8300000, guid: 3f2ea133f3a172d47be752f14c01259e, type: 3}
-  aimRange: 100
+  AimRange: 120
   _bulletType: ThraxBullet
   _fireRate: 1
   _bulletSpeed: 20

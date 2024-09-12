@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityUtils;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Faction))]
-[RequireComponent(typeof(CompositeCollider2D))]
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
     [SerializeField] List<GameObject> _currencyPrefab;
@@ -33,7 +33,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
     AbilityHolder _abilityHolder;
     SpriteRenderer _spriteRenderer;
-    List<BoxCollider2D> _colliders = new List<BoxCollider2D>();
+    BoxCollider2D[] _boxColliders;
     // Stats
     [SerializeField] float _aimOffset;
     [SerializeField] bool _shouldRotate;
@@ -42,7 +42,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _speed;
     [SerializeField] float _stopDistance;
     [SerializeField] bool _isDead;
-
+    [SerializeField] float _aimRange;
 
     bool _rotateClockwise = false;
     public List<GameObject> exhaustChildren = new List<GameObject>();
@@ -64,15 +64,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _faction = GetComponent<Faction>();
         _audioSource = GetComponent<AudioSource>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _colliders.AddRange(GetComponents<BoxCollider2D>());
         isDead = false;
+        _boxColliders = GetComponents<BoxCollider2D>();
         _faction.AddAllyFaction(_faction.factionType);
-
-
-        foreach (BoxCollider2D collider in _colliders)
-        {
-            collider.usedByComposite = true;
-        }
 
 
     }
@@ -88,6 +82,18 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         {
             UseAbilities(_currentTarget); // Uses the ability if the cooldown is 0
             if (_abilitySound != null) _audioSource.PlayOneShot(_abilitySound);
+        }
+        if (CurrentTarget != null)
+        {
+            float distanceToTarget = Vector2.Distance(transform.position, CurrentTarget.position);
+            if (distanceToTarget < AimRange)
+            {
+                // Check if the target is the one we should shoot at
+                if (IsTargetInRange(CurrentTarget))
+                {
+                    Attack();
+                }
+            }
         }
 
 
@@ -132,12 +138,25 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     }
 
+    public bool IsTargetInRange(Transform target)
+    {
+        // Calculate edge distance
+        if (target.TryGetComponent<Collider2D>(out Collider2D targetCollider))
+        {
+            Vector2 closestPointToTarget = targetCollider.ClosestPoint(transform.position);
+            float distanceToTargetEdge = Vector2.Distance(transform.position, closestPointToTarget);
+            return distanceToTargetEdge < _aimRange;
+        }
+        return false;
+    }
+
+
     protected virtual void OnEnable()
     {
 
         if (turretChildren.Count > 0) turretChildren.ForEach(child => child.SetActive(true));
         if (exhaustChildren.Count > 0) exhaustChildren.ForEach(child => child.SetActive(true));
-        if (_colliders.Count > 0) _colliders.ForEach(collider => collider.enabled = true);
+        if (_boxColliders != null) _boxColliders.ForEach(collider => collider.enabled = true);
         if (_spriteRenderer != null) _spriteRenderer.enabled = true;
         if (isDead) isDead = false;
 
@@ -229,6 +248,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + _aimOffset));
         }
     }
+
 
     protected virtual Transform CheckForTargets()
     {
@@ -336,7 +356,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (exhaustChildren.Count > 0) exhaustChildren.ForEach(child => child.SetActive(false));
 
         // Disable all colliders
-        if (_colliders.Count > 0) _colliders.ForEach(collider => collider.enabled = false);
+        if (_boxColliders != null) _boxColliders.ForEach(collider => collider.enabled = false);
 
         // Hide the ship's sprite
         if (_spriteRenderer != null) _spriteRenderer.enabled = false;
@@ -374,7 +394,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     /// </summary>
     /// 
     public Transform CurrentTarget { get => _currentTarget; set => _currentTarget = value; }
-    public List<BoxCollider2D> Colliders { get => _colliders; set => _colliders = value; }
+    public BoxCollider2D[] BoxColliders { get => _boxColliders; set => _boxColliders = value; }
     public SpriteRenderer SpriteRenderer { get => _spriteRenderer; set => _spriteRenderer = value; }
     public AudioSource AudioSource { get => _audioSource; set => _audioSource = value; }
     public Faction Faction { get => _faction; set => _faction = value; }
@@ -386,6 +406,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public float Health { get => _health; set => _health = value; }
     public float Speed { get => _speed; set => _speed = value; }
     public float StopDistance { get => _stopDistance; set => _stopDistance = value; }
+    public float AimRange { get => _aimRange; set => _aimRange = value; }
 
 
 }

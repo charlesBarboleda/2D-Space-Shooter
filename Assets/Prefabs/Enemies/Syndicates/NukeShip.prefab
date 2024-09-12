@@ -131,6 +131,7 @@ MonoBehaviour:
   _speed: 8
   _stopDistance: 60
   _isDead: 0
+  _aimRange: 80
   exhaustChildren:
   - {fileID: 7033326722294087313}
   turretChildren: []
@@ -249,7 +250,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 0, y: -0.9457004}
+  m_Offset: {x: 0, y: -0.9343616}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -260,7 +261,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.96, y: 0.7122259}
+  m_Size: {x: 1.96, y: 0.7349036}
   m_EdgeRadius: 0
 --- !u!82 &7271820081797284438
 AudioSource:
@@ -422,22 +423,22 @@ CompositeCollider2D:
   - m_Collider: {fileID: 47800847455073714}
     m_ColliderPaths:
     - - X: 174415664
-        Y: -104931920
+        Y: -100895864
       - X: -174415664
-        Y: -104931920
+        Y: -100895864
       - X: -174415664
         Y: -231690448
       - X: 174415664
         Y: -231690448
   m_CompositePaths:
     m_Paths:
-    - - {x: 4.956238, y: -10.329925}
+    - - {x: 17.441538, y: -23.169044}
+      - {x: 17.441538, y: -10.089586}
+      - {x: 4.956267, y: -10.089557}
       - {x: 4.956238, y: 20.687372}
       - {x: -5.0531216, y: 20.687344}
-      - {x: -5.0530925, y: -10.329925}
-    - - {x: 17.441538, y: -23.169044}
-      - {x: 17.441538, y: -10.493192}
-      - {x: -17.441566, y: -10.493221}
+      - {x: -5.053151, y: -10.089586}
+      - {x: -17.441566, y: -10.089616}
       - {x: -17.441538, y: -23.169044}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005

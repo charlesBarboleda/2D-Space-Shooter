@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 2590703969319302135}
   - component: {fileID: 901545699697644207}
   - component: {fileID: 615247163074163173}
+  - component: {fileID: 183938654205125660}
   m_Layer: 14
   m_Name: ThraxSmall 1
   m_TagString: ThraxArmada
@@ -140,16 +141,19 @@ MonoBehaviour:
   _speed: 15
   _stopDistance: 40
   _isDead: 0
+  _aimRange: 0
   exhaustChildren:
   - {fileID: 266865092843442929}
   turretChildren:
   - {fileID: 661678873444319919}
   - {fileID: 1222011274993391}
+  separationRadius: 2
+  separationWeight: 1.5
   _cameraShakeMagnitude: 25
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 9218803691252720160}
   _shootSound: {fileID: 8300000, guid: 3f2ea133f3a172d47be752f14c01259e, type: 3}
-  aimRange: 60
+  AimRange: 60
   _bulletType: ThraxBullet
   _fireRate: 2
   _bulletSpeed: 20
@@ -241,7 +245,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.08793551, y: -0.67950535}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,7 +290,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -2.0305223, y: 2.4382253}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,7 +335,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 1.8146791, y: 2.3183122}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,6 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 2
+  _allyFactions: 
 --- !u!50 &615247163074163173
 Rigidbody2D:
   serializedVersion: 4
@@ -481,6 +486,91 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!66 &183938654205125660
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143085703906712905}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 2649624871140571710}
+    m_ColliderPaths:
+    - - X: 24413702
+        Y: 29238830
+      - X: -26792840
+        Y: 29238830
+      - X: -26792840
+        Y: -47623192
+      - X: 24413702
+        Y: -47623192
+  - m_Collider: {fileID: 915145199239905891}
+    m_ColliderPaths:
+    - - X: -16031908
+        Y: 46325484
+      - X: -38904908
+        Y: 46325484
+      - X: -38904908
+        Y: 19641940
+      - X: -16031908
+        Y: 19641940
+  - m_Collider: {fileID: 4212801210852746880}
+    m_ColliderPaths:
+    - - X: 35660600
+        Y: 46758052
+      - X: 13436469
+        Y: 46758052
+      - X: 13436469
+        Y: 15965064
+      - X: 35660600
+        Y: 15965064
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 2.441341, y: -4.762319}
+      - {x: 2.4413996, y: 1.5965065}
+      - {x: 3.56606, y: 1.5965357}
+      - {x: 3.5660307, y: 4.675805}
+      - {x: 1.3436469, y: 4.675776}
+      - {x: 1.3436176, y: 2.923883}
+      - {x: -1.6031908, y: 2.9239125}
+      - {x: -1.6032201, y: 4.6325483}
+      - {x: -3.8904908, y: 4.6325192}
+      - {x: -3.8904617, y: 1.964194}
+      - {x: -2.679284, y: 1.9641646}
+      - {x: -2.6792548, y: -4.762319}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 7143085703906712905}
 --- !u!1 &8227692411707881614
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Callbacks;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityUtils;
 
 public class SuicideBomber : Enemy
 {
@@ -26,16 +28,6 @@ public class SuicideBomber : Enemy
             StartCoroutine(Glow());
         }
 
-        Transform target = CheckForTargets();
-        float distanceToTarget = Vector2.Distance(transform.position, target.position);
-
-        if (!isDead)
-        {
-            if (distanceToTarget < _attackRange)
-            {
-                Attack();
-            }
-        }
     }
 
     public override void BuffedState()
@@ -56,6 +48,7 @@ public class SuicideBomber : Enemy
     protected override void Attack()
     {
         StartCoroutine(Explode());
+        Debug.Log("Exploding");
     }
     IEnumerator Glow()
     {
@@ -103,7 +96,7 @@ public class SuicideBomber : Enemy
         exhaustChildren.ForEach(child => child.SetActive(false));
 
         // Disable all colliders
-        Colliders.ForEach(collider => collider.enabled = false);
+        BoxColliders.ForEach(collider => collider.enabled = false);
 
         // Hide the ship's sprite
         SpriteRenderer.enabled = false;

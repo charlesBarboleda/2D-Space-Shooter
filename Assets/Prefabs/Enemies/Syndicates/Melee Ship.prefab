@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 8945125126086334501}
   - component: {fileID: -5326431304616269860}
   - component: {fileID: 6441057755641050390}
+  - component: {fileID: 7123841400310907473}
   m_Layer: 13
   m_Name: Melee Ship
   m_TagString: Syndicates
@@ -157,14 +158,17 @@ MonoBehaviour:
   _speed: 8
   _stopDistance: 15
   _isDead: 0
+  _aimRange: 0
   exhaustChildren:
   - {fileID: 9212441991993666868}
   turretChildren: []
+  separationRadius: 2
+  separationWeight: 1.5
   _cameraShakeMagnitude: 20
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 8628277228142460474}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
-  aimRange: 20
+  AimRange: 25
   _bulletType: SyndicatesBullet
   _fireRate: 1
   _bulletSpeed: 10
@@ -354,6 +358,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 3
+  _allyFactions: 
+--- !u!66 &7123841400310907473
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8612933214198579488}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 8612933214198579488}
 --- !u!1001 &5935627673772647545
 PrefabInstance:
   m_ObjectHideFlags: 0

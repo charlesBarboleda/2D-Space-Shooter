@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6451385971407435244}
   - component: {fileID: 6150527515164616302}
   - component: {fileID: 1966421223894906406}
+  - component: {fileID: 3192808488285317714}
   m_Layer: 13
   m_Name: Medium Ship 2
   m_TagString: Syndicates
@@ -123,8 +124,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.015993118, y: -0.9079436}
+  m_UsedByComposite: 1
+  m_Offset: {x: 0.015993118, y: -0.89202297}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,7 +136,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4916658, y: 1.0882595}
+  m_Size: {x: 1.4916658, y: 1.1201007}
   m_EdgeRadius: 0
 --- !u!114 &6838959246811978333
 MonoBehaviour:
@@ -170,16 +171,19 @@ MonoBehaviour:
   _health: 40
   _currencyDrop: 10
   _speed: 8
-  _stopDistance: 20
+  _stopDistance: 25
   _isDead: 0
+  _aimRange: 0
   exhaustChildren:
   - {fileID: 313659647457745478}
   turretChildren: []
+  separationRadius: 2
+  separationWeight: 1.5
   _cameraShakeMagnitude: 20
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 7534428997147708502}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
-  aimRange: 30
+  AimRange: 45
   _bulletType: SyndicatesBullet
   _fireRate: 1
   _bulletSpeed: 10
@@ -246,7 +250,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.007997274, y: 0.6477709}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -369,6 +373,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 3
+  _allyFactions: 
+--- !u!66 &3192808488285317714
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3696291452806612110}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 6451385971407435244}
+    m_ColliderPaths:
+    - - X: 2521863
+        Y: 16600001
+      - X: -2681808
+        Y: 16600001
+      - X: -2681808
+        Y: -3644583
+      - X: 2521863
+        Y: -3644583
+  - m_Collider: {fileID: 6876939588079396057}
+    m_ColliderPaths:
+    - - X: 7618260
+        Y: -3319726
+      - X: -7298398
+        Y: -3319726
+      - X: -7298398
+        Y: -14520733
+      - X: 7618260
+        Y: -14520733
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.7617967, y: -1.4520733}
+      - {x: 0.7617967, y: -0.3319726}
+      - {x: 0.2521863, y: -0.3319432}
+      - {x: 0.252157, y: 1.6600001}
+      - {x: -0.26818082, y: 1.6599708}
+      - {x: -0.2682102, y: -0.3319726}
+      - {x: -0.7298398, y: -0.3320019}
+      - {x: -0.72981054, y: -1.4520733}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 3696291452806612110}
 --- !u!1 &5590755218874147026
 GameObject:
   m_ObjectHideFlags: 0

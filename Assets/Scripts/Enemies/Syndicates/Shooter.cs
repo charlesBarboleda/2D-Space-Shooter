@@ -6,7 +6,6 @@ public class ShooterEnemy : Enemy
 {
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] AudioClip _shootSound;
-    [SerializeField] public float aimRange;
     [SerializeField] string _bulletType;
 
     [SerializeField] float _fireRate;
@@ -30,14 +29,26 @@ public class ShooterEnemy : Enemy
             _target = CurrentTarget;
         }
 
+        // Debug: Check target details
+        Debug.Log($"Current Target: {_target}");
 
-        float distanceToTarget = Vector2.Distance(transform.position, _target.position);
-        if (distanceToTarget < aimRange && Time.time >= nextFireTime)
+        // Check distance to target and whether it's the right one
+        if (_target != null)
         {
-            Attack();
-            PlayShootSound();
+            float distanceToTarget = Vector2.Distance(transform.position, _target.position);
+            if (distanceToTarget < AimRange && Time.time >= nextFireTime)
+            {
+                // Check if the target is the one we should shoot at
+                if (IsTargetInRange(_target))
+                {
+                    Attack();
+                    PlayShootSound();
+                }
+            }
         }
     }
+
+
 
     private void PlayShootSound()
     {
@@ -80,7 +91,7 @@ public class ShooterEnemy : Enemy
         base.IncreaseStatsPerLevel();
         _bulletSpeed += GameManager.Instance.Level * 0.01f;
         _bulletDamage += GameManager.Instance.Level * 0.5f;
-        aimRange += GameManager.Instance.Level * 0.1f;
+        AimRange += GameManager.Instance.Level * 0.1f;
     }
 
     public override void BuffedState()
@@ -101,19 +112,25 @@ public class ShooterEnemy : Enemy
         _amountOfBullets -= 2;
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, AimRange);
+    }
+
     // Properties for bullet settings
     public void SetBulletAmount(int amount) => _amountOfBullets = amount;
     public void SetBulletSpeed(float speed) => _bulletSpeed = speed;
     public void SetBulletDamage(float damage) => _bulletDamage = damage;
     public void SetFireRate(float rate) => _fireRate = rate;
     public void SetShootingAngle(float angle) => _shootingAngle = angle;
-    public void SetAimRange(float range) => aimRange = range;
+    public void SetAimRange(float range) => AimRange = range;
 
     public int GetBulletAmount() => _amountOfBullets;
     public float GetBulletSpeed() => _bulletSpeed;
     public float GetBulletDamage() => _bulletDamage;
     public float GetFireRate() => _fireRate;
-    public float GetAimRange() => aimRange;
+    public float GetAimRange() => AimRange;
     public float GetShootingAngle() => _shootingAngle;
     public float GetBulletLifetime() => _bulletLifetime;
 }

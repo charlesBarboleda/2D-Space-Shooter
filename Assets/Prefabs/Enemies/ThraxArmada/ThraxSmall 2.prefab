@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 2590703969319302135}
   - component: {fileID: 901545699697644207}
   - component: {fileID: 615247163074163173}
+  - component: {fileID: 183938654205125660}
   m_Layer: 14
   m_Name: ThraxSmall 2
   m_TagString: ThraxArmada
@@ -138,18 +139,21 @@ MonoBehaviour:
   _health: 500
   _currencyDrop: 50
   _speed: 15
-  _stopDistance: 60
+  _stopDistance: 50
   _isDead: 0
+  _aimRange: 0
   exhaustChildren:
   - {fileID: 266865092843442929}
   turretChildren:
   - {fileID: 661678873444319919}
   - {fileID: 1222011274993391}
+  separationRadius: 2
+  separationWeight: 1.5
   _cameraShakeMagnitude: 25
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 9218803691252720160}
   _shootSound: {fileID: 8300000, guid: 3f2ea133f3a172d47be752f14c01259e, type: 3}
-  aimRange: 80
+  AimRange: 70
   _bulletType: ThraxBullet
   _fireRate: 4
   _bulletSpeed: 15
@@ -241,7 +245,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.031502485, y: -0.4086337}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,8 +290,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -2.504547, y: 0.64370275}
+  m_UsedByComposite: 1
+  m_Offset: {x: -2.3108683, y: 0.64370275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -298,7 +302,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.6388702, y: 3.1237073}
+  m_Size: {x: 3.0262282, y: 3.1237073}
   m_EdgeRadius: 0
 --- !u!61 &4212801210852746880
 BoxCollider2D:
@@ -331,7 +335,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 2.4015672, y: 0.45607078}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,6 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 2
+  _allyFactions: 
 --- !u!50 &615247163074163173
 Rigidbody2D:
   serializedVersion: 4
@@ -481,6 +486,91 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!66 &183938654205125660
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143085703906712905}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 2649624871140571710}
+    m_ColliderPaths:
+    - - X: 17851800
+        Y: 58079472
+      - X: -18913070
+        Y: 58079472
+      - X: -18913070
+        Y: -71845712
+      - X: 17851800
+        Y: -71845712
+  - m_Collider: {fileID: 915145199239905891}
+    m_ColliderPaths:
+    - - X: -13437552
+        Y: 37150892
+      - X: -64412028
+        Y: 37150892
+      - X: -64412028
+        Y: -15465542
+      - X: -13437552
+        Y: -15465542
+  - m_Collider: {fileID: 4212801210852746880}
+    m_ColliderPaths:
+    - - X: 64174524
+        Y: 35788392
+      - X: 16730564
+        Y: 35788392
+      - X: 16730564
+        Y: -20424072
+      - X: 64174524
+        Y: -20424072
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 1.7851508, y: -7.1845713}
+      - {x: 1.7852094, y: -2.0424073}
+      - {x: 6.4174523, y: -2.042378}
+      - {x: 6.4174232, y: 3.5788393}
+      - {x: 1.78518, y: 3.5788689}
+      - {x: 1.7851508, y: 5.807947}
+      - {x: -1.891307, y: 5.807918}
+      - {x: -1.8913364, y: 3.7150893}
+      - {x: -6.4412026, y: 3.71506}
+      - {x: -6.4411736, y: -1.5465542}
+      - {x: -1.891307, y: -1.5465837}
+      - {x: -1.8912777, y: -7.1845713}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 7143085703906712905}
 --- !u!1 &8227692411707881614
 GameObject:
   m_ObjectHideFlags: 0

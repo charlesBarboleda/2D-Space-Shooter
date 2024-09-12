@@ -159,6 +159,7 @@ MonoBehaviour:
   _speed: 8
   _stopDistance: 40
   _isDead: 0
+  _aimRange: 0
   exhaustChildren:
   - {fileID: 6343222560916837270}
   - {fileID: 717027674478955928}
@@ -169,7 +170,7 @@ MonoBehaviour:
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 2193635423315327897}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
-  aimRange: 40
+  AimRange: 60
   _bulletType: SyndicatesBullet
   _fireRate: 3
   _bulletSpeed: 10
@@ -209,7 +210,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.016363263, y: -0.0072444677}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,8 +282,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.7797471, y: -0.86429805}
+  m_UsedByComposite: 1
+  m_Offset: {x: -0.7325251, y: -0.86429805}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -293,7 +294,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5305054, y: 0.82550204}
+  m_Size: {x: 0.62494946, y: 0.82550204}
   m_EdgeRadius: 0
 --- !u!61 &7096312941657266070
 BoxCollider2D:
@@ -326,8 +327,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.76095814, y: -0.8783901}
+  m_UsedByComposite: 1
+  m_Offset: {x: 0.72463346, y: -0.8783901}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -338,7 +339,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5680834, y: 0.8536861}
+  m_Size: {x: 0.6407328, y: 0.8536861}
   m_EdgeRadius: 0
 --- !u!82 &-2235782203139852506
 AudioSource:
@@ -486,9 +487,51 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 7269771317246057452}
+    m_ColliderPaths:
+    - - X: -39931016
+        Y: -42925168
+      - X: -99340240
+        Y: -42925168
+      - X: -99340240
+        Y: -121399416
+      - X: -39931016
+        Y: -121399416
+  - m_Collider: {fileID: 7096312941657266070}
+    m_ColliderPaths:
+    - - X: 99340240
+        Y: -42925168
+      - X: 38430616
+        Y: -42925168
+      - X: 38430616
+        Y: -124078656
+      - X: 99340240
+        Y: -124078656
+  - m_Collider: {fileID: 1183282191928038283}
+    m_ColliderPaths:
+    - - X: 45415832
+        Y: 226297184
+      - X: -48526892
+        Y: 226297184
+      - X: -48526892
+        Y: -227674560
+      - X: 45415832
+        Y: -227674560
   m_CompositePaths:
-    m_Paths: []
+    m_Paths:
+    - - {x: 4.541554, y: -22.767456}
+      - {x: 4.5416126, y: -12.407866}
+      - {x: 9.934024, y: -12.407836}
+      - {x: 9.933994, y: -4.2925167}
+      - {x: 4.541583, y: -4.292487}
+      - {x: 4.541554, y: 22.629719}
+      - {x: -4.8526893, y: 22.62969}
+      - {x: -4.8527184, y: -4.2925167}
+      - {x: -9.934024, y: -4.2925463}
+      - {x: -9.933994, y: -12.139942}
+      - {x: -4.8526893, y: -12.139972}
+      - {x: -4.85266, y: -22.767456}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0

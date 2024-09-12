@@ -5,20 +5,9 @@ using UnityEngine;
 public class FriendlyTurret : ShooterEnemy
 {
 
-    protected override void Update()
-    {
-        Aim(CheckForTargets());
-        Transform target = CheckForTargets();
-        float distanceToTarget = Vector2.Distance(transform.position, target.position);
-        if (distanceToTarget < GetAimRange() && Time.time >= nextFireTime)
-        {
-            Attack();
-        }
-    }
-
     protected override void Attack()
     {
-        FireBullets(GetBulletAmount(), transform.position, CheckForTargets());
+        FireBullets(GetBulletAmount(), transform.position, CurrentTarget);
 
     }
 

@@ -125,15 +125,16 @@ MonoBehaviour:
   _speed: 0
   _stopDistance: 0
   _isDead: 0
+  _aimRange: 0
   exhaustChildren: []
   turretChildren: []
   separationRadius: 1.5
-  separationForce: 0.5
+  separationWeight: 1.5
   _cameraShakeMagnitude: 20
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 0}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
-  aimRange: 40
+  AimRange: 100
   _bulletType: ThraxBullet
   _fireRate: 0
   _bulletSpeed: 0

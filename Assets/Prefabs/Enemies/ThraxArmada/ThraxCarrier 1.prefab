@@ -314,9 +314,12 @@ MonoBehaviour:
   _speed: 20
   _stopDistance: 100
   _isDead: 0
+  _aimRange: 120
   exhaustChildren:
   - {fileID: 266865092843442929}
   turretChildren: []
+  separationRadius: 2
+  separationWeight: 1.5
   _cameraShakeMagnitude: 30
   _cameraShakeDuration: 0.4
   _spawnRadius: 0

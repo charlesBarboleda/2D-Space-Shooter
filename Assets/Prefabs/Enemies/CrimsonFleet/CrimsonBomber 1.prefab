@@ -44,8 +44,9 @@ GameObject:
   - component: {fileID: 4589581424285497255}
   - component: {fileID: 4214577351792891450}
   - component: {fileID: 5923325575617448525}
-  - component: {fileID: 2420693666336434088}
   - component: {fileID: 5989369306536515133}
+  - component: {fileID: 3750255413437554291}
+  - component: {fileID: 5211793116211363704}
   m_Layer: 15
   m_Name: CrimsonBomber 1
   m_TagString: CrimsonFleet
@@ -166,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 1
+  _allyFactions: 
 --- !u!82 &5923325575617448525
 AudioSource:
   m_ObjectHideFlags: 0
@@ -262,8 +264,63 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!58 &2420693666336434088
-CircleCollider2D:
+--- !u!114 &5989369306536515133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126911676597071214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3f0bc7b5b8f0a4bac2099f9f19803b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currencyPrefab:
+  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
+  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
+  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
+  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
+  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
+  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
+  _buffedParticles: {fileID: 1928497025524093786}
+  _deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
+  _abilitySound: {fileID: 0}
+  _spawnSound: {fileID: 8300000, guid: debaac2e3180a1043b7fc951f54cccd1, type: 3}
+  _spawnAnimation: MidSpawn
+  _deathExplosion: MidExp
+  _deathEffect:
+  - DeathEffect
+  - DeathEffect2
+  _aimOffset: 90
+  _shouldRotate: 1
+  _health: 100
+  _currencyDrop: 20
+  _speed: 8
+  _stopDistance: 2
+  _isDead: 0
+  _aimRange: 5
+  exhaustChildren:
+  - {fileID: 8039788867163802201}
+  - {fileID: 1399427480707756279}
+  - {fileID: 5348473444050113928}
+  - {fileID: 3134119465470754184}
+  turretChildren: []
+  separationRadius: 2
+  separationWeight: 1.5
+  _cameraShakeMagnitude: 20
+  _cameraShakeDuration: 0.1
+  _explosionRadius: 20
+  _explosionDamage: 100
+  _glowLengthRate: 0.5
+  _glowTickRate: 3
+  _regularMaterial: {fileID: 2100000, guid: f73327638a0af40479db89a0cc40e047, type: 2}
+  _glowMaterial: {fileID: 2100000, guid: 32fac6e45890e9d48961b3db7c93c0be, type: 2}
+  _attackRange: 5
+  _explosionEffect: BomberExplosion
+  _explosionSound: {fileID: 8300000, guid: 40e683621ecb59d41924cc643af81bf8, type: 3}
+--- !u!66 &3750255413437554291
+CompositeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -294,61 +351,76 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01782752, y: 0.2018341}
-  serializedVersion: 2
-  m_Radius: 4.6271167
---- !u!114 &5989369306536515133
-MonoBehaviour:
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 5211793116211363704}
+    m_ColliderPaths:
+    - - X: 29556826
+        Y: 29630634
+      - X: -30248046
+        Y: 29630634
+      - X: -30248046
+        Y: -28017790
+      - X: 29556826
+        Y: -28017790
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 2.9556532, y: -2.801779}
+      - {x: 2.9556532, y: 2.9630635}
+      - {x: -3.0248046, y: 2.9630342}
+      - {x: -3.0247753, y: -2.801779}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 6126911676597071214}
+--- !u!61 &5211793116211363704
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6126911676597071214}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff3f0bc7b5b8f0a4bac2099f9f19803b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currencyPrefab:
-  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
-  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
-  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
-  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
-  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
-  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
-  _buffedParticles: {fileID: 0}
-  _deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
-  _abilitySound: {fileID: 0}
-  _spawnSound: {fileID: 8300000, guid: debaac2e3180a1043b7fc951f54cccd1, type: 3}
-  _spawnAnimation: MidSpawn
-  _deathExplosion: MidExp
-  _deathEffect:
-  - DeathEffect
-  - DeathEffect2
-  _aimOffset: 90
-  _shouldRotate: 1
-  _health: 100
-  _currencyDrop: 20
-  _speed: 8
-  _stopDistance: 5
-  _isDead: 0
-  exhaustChildren:
-  - {fileID: 8039788867163802201}
-  - {fileID: 1399427480707756279}
-  - {fileID: 5348473444050113928}
-  - {fileID: 3134119465470754184}
-  turretChildren: []
-  _cameraShakeMagnitude: 20
-  _cameraShakeDuration: 0.1
-  _explosionRadius: 20
-  _explosionDamage: 100
-  _glowLengthRate: 0.5
-  _glowTickRate: 3
-  _regularMaterial: {fileID: 2100000, guid: f73327638a0af40479db89a0cc40e047, type: 2}
-  _glowMaterial: {fileID: 2100000, guid: 32fac6e45890e9d48961b3db7c93c0be, type: 2}
-  _attackRange: 5
-  _explosionEffect: BomberExplosion
-  _explosionSound: {fileID: 8300000, guid: 40e683621ecb59d41924cc643af81bf8, type: 3}
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: -0.042916775, y: 0.10013902}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 11.06, y: 8.16}
+    newSize: {x: 11.06, y: 8.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.4263935, y: 7.1586123}
+  m_EdgeRadius: 0
 --- !u!1001 &502186307533649093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1175,6 +1247,11 @@ PrefabInstance:
 --- !u!4 &1649021533778578575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6423666203348373026, guid: a58aa9a78f2b45b45bb0f3e2e1e3ad3c, type: 3}
+  m_PrefabInstance: {fileID: 5748829778766758573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1928497025524093786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6126188424833946103, guid: a58aa9a78f2b45b45bb0f3e2e1e3ad3c, type: 3}
   m_PrefabInstance: {fileID: 5748829778766758573}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7475736271271845061

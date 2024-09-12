@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 901545699697644207}
   - component: {fileID: 615247163074163173}
   - component: {fileID: 1283393048660867575}
+  - component: {fileID: 183938654205125660}
   m_Layer: 14
   m_Name: ThraxTeleporter 1
   m_TagString: ThraxArmada
@@ -141,16 +142,19 @@ MonoBehaviour:
   _speed: 25
   _stopDistance: 60
   _isDead: 0
+  _aimRange: 0
   exhaustChildren:
   - {fileID: 266865092843442929}
   turretChildren:
   - {fileID: 661678873444319919}
   - {fileID: 1222011274993391}
+  separationRadius: 2
+  separationWeight: 1.5
   _cameraShakeMagnitude: 25
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 9218803691252720160}
   _shootSound: {fileID: 8300000, guid: 3f2ea133f3a172d47be752f14c01259e, type: 3}
-  aimRange: 80
+  AimRange: 80
   _bulletType: ThraxBullet
   _fireRate: 5
   _bulletSpeed: 30
@@ -242,8 +246,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.23073721, y: -0.6565894}
+  m_UsedByComposite: 1
+  m_Offset: {x: -0.24894625, y: -0.6565895}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -254,7 +258,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.1042118, y: 6.083913}
+  m_Size: {x: 3.57765, y: 6.083913}
   m_EdgeRadius: 0
 --- !u!61 &915145199239905891
 BoxCollider2D:
@@ -287,7 +291,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -2.4347785, y: 0.2863176}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,7 +336,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 2.0026808, y: 0.21962476}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,6 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 2
+  _allyFactions: 
 --- !u!50 &615247163074163173
 Rigidbody2D:
   serializedVersion: 4
@@ -497,6 +502,91 @@ MonoBehaviour:
   abilities:
   - {fileID: 11400000, guid: c0a1c8b75daa63544aa7d4b54f1b721c, type: 2}
   target: {fileID: 0}
+--- !u!66 &183938654205125660
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143085703906712905}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 915145199239905891}
+    m_ColliderPaths:
+    - - X: -97262848
+        Y: 203226304
+      - X: -165995312
+        Y: 203226304
+      - X: -165995312
+        Y: -172268480
+      - X: -97262848
+        Y: -172268480
+  - m_Collider: {fileID: 4212801210852746880}
+    m_ColliderPaths:
+    - - X: 143690800
+        Y: 202232032
+      - X: 72847208
+        Y: 202232032
+      - X: 72847208
+        Y: -178485312
+      - X: 143690800
+        Y: -178485312
+  - m_Collider: {fileID: 2649624871140571710}
+    m_ColliderPaths:
+    - - X: 83248984
+        Y: 128957800
+      - X: -110166064
+        Y: 128957800
+      - X: -110166064
+        Y: -199950928
+      - X: 83248984
+        Y: -199950928
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 8.324869, y: -19.995092}
+      - {x: 8.324928, y: -17.848532}
+      - {x: 14.369081, y: -17.848503}
+      - {x: 14.369051, y: 20.223204}
+      - {x: 7.284721, y: 20.223175}
+      - {x: 7.2846913, y: 12.895781}
+      - {x: -9.726285, y: 12.89581}
+      - {x: -9.726315, y: 20.32263}
+      - {x: -16.599531, y: 20.322601}
+      - {x: -16.599503, y: -17.226849}
+      - {x: -11.016606, y: -17.226877}
+      - {x: -11.016577, y: -19.995092}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 7143085703906712905}
 --- !u!1 &8227692411707881614
 GameObject:
   m_ObjectHideFlags: 0

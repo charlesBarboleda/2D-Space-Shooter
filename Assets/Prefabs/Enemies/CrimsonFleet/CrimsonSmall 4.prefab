@@ -45,7 +45,8 @@ GameObject:
   - component: {fileID: 4214577351792891450}
   - component: {fileID: 5923325575617448525}
   - component: {fileID: 5517677311685375105}
-  - component: {fileID: 2420693666336434088}
+  - component: {fileID: 3750255413437554291}
+  - component: {fileID: 1109750670020638525}
   m_Layer: 15
   m_Name: CrimsonSmall 4
   m_TagString: CrimsonFleet
@@ -163,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 1
+  _allyFactions: 
 --- !u!82 &5923325575617448525
 AudioSource:
   m_ObjectHideFlags: 0
@@ -294,14 +296,17 @@ MonoBehaviour:
   _speed: 10
   _stopDistance: 40
   _isDead: 0
+  _aimRange: 0
   exhaustChildren:
   - {fileID: 8039788867163802201}
   turretChildren: []
+  separationRadius: 2
+  separationWeight: 1.5
   _cameraShakeMagnitude: 15
   _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 9144009670669768331}
   _shootSound: {fileID: 8300000, guid: 380a61624a607f042ab5e96218f37633, type: 3}
-  aimRange: 60
+  AimRange: 60
   _bulletType: CrimsonBullet
   _fireRate: 2
   _bulletSpeed: 20
@@ -310,8 +315,8 @@ MonoBehaviour:
   _shootingAngle: 5
   _bulletLifetime: 5
   nextFireTime: 0
---- !u!58 &2420693666336434088
-CircleCollider2D:
+--- !u!66 &3750255413437554291
+CompositeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -342,9 +347,76 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0849827, y: 0.20183448}
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1109750670020638525}
+    m_ColliderPaths:
+    - - X: 51286100
+        Y: 64449768
+      - X: -49823324
+        Y: 64449768
+      - X: -49823324
+        Y: -84195448
+      - X: 51286100
+        Y: -84195448
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 5.128581, y: -8.419545}
+      - {x: 5.128581, y: 6.444977}
+      - {x: -4.982332, y: 6.4449477}
+      - {x: -4.982303, y: -8.419545}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 6126911676597071214}
+--- !u!61 &1109750670020638525
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126911676597071214}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0.03817618, y: -0.51532936}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.24, y: 10.24}
+    newSize: {x: 11.06, y: 8.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 3.3735645
+  m_Size: {x: 5.2775745, y: 7.7587843}
+  m_EdgeRadius: 0
 --- !u!1001 &3680703030532245186
 PrefabInstance:
   m_ObjectHideFlags: 0
