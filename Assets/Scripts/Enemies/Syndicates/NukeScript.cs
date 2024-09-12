@@ -12,7 +12,7 @@ public class Nuke : MonoBehaviour
     public float nukeGrowthRate = 0.5f;
     public float maxNukeSize = 4.5f;
 
-    public float ratio = 4.5f / 0.5f;
+
 
 
 
