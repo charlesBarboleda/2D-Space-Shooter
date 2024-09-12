@@ -73434,6 +73434,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6345799238015220175, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8048218574253681071, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: fireRate
       value: 0.4

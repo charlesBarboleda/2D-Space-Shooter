@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Faction))]
-[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CompositeCollider2D))]
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
@@ -38,7 +37,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
     AbilityHolder _abilityHolder;
     SpriteRenderer _spriteRenderer;
-    Rigidbody2D _rigidbody2D;
     List<Collider2D> _colliders = new List<Collider2D>();
     // Stats
     [SerializeField] float _aimOffset;
@@ -53,6 +51,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     bool _rotateClockwise = false;
     public List<GameObject> exhaustChildren = new List<GameObject>();
     public List<GameObject> turretChildren = new List<GameObject>();
+    [SerializeField] float separationRadius = 2f;  // Radius for separation behavior
+    [SerializeField] float separationWeight = 1.5f;   // Strength of the repulsion force
 
 
 
@@ -63,7 +63,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void Awake()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+
         _abilityHolder = GetComponent<AbilityHolder>();
         _faction = GetComponent<Faction>();
         _audioSource = GetComponent<AudioSource>();
@@ -71,7 +71,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _colliders.AddRange(GetComponents<Collider2D>());
         isDead = false;
         _faction.AddAllyFaction(_faction.factionType);
-        _rigidbody2D.simulated = true;
+
 
         foreach (Collider2D collider in _colliders)
         {
@@ -98,6 +98,32 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
 
 
+    }
+
+    protected virtual Vector3 CalculateSeparation()
+    {
+        LayerMask enemyLayer = LayerMask.GetMask("Syndicates", "ThraxArmada", "CrimsonFleet");
+        Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, separationRadius, enemyLayer);
+        Vector3 separationForce = Vector3.zero;
+        int count = 0;
+
+        foreach (Collider2D enemy in nearbyEnemies)
+        {
+            if (enemy != null && enemy.transform != transform)
+            {
+                Vector3 directionToEnemy = transform.position - enemy.transform.position;
+                separationForce += directionToEnemy.normalized / directionToEnemy.magnitude; // Inverse weighted by distance
+                count++;
+            }
+        }
+
+        if (count > 0)
+        {
+            separationForce /= count; // Average the forces from nearby enemies
+            separationForce = separationForce.normalized * separationWeight; // Normalize and apply weight
+        }
+
+        return separationForce;
     }
     public virtual void UnBuffedState()
     {
@@ -172,6 +198,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         }
     }
 
+
     protected virtual void Movement(Transform target)
     {
         if (target == null) return;
@@ -179,16 +206,19 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _cachedDirection = (target.position - transform.position).normalized;
         _cachedDistance = Vector3.Distance(transform.position, target.position);
 
+        // Get separation force
+        Vector3 separationForce = CalculateSeparation();
+
         if (_cachedDistance > _stopDistance)
         {
-            transform.position += _cachedDirection * _speed * Time.deltaTime;
+            Vector3 finalDirection = (_cachedDirection + separationForce).normalized;
+            transform.position += finalDirection * _speed * Time.deltaTime;
         }
         else
         {
             Orbit(target);
         }
     }
-
     private void Orbit(Transform target)
     {
         float rotationDirection = _rotateClockwise ? 1 : -1;
@@ -302,8 +332,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         CurrencyDrop += GameManager.Instance.Level * 0.5f;
 
         Speed += GameManager.Instance.Level * 0.05f;
-
-        transform.localScale += new Vector3(GameManager.Instance.Level * 0.01f, GameManager.Instance.Level * 0.01f, GameManager.Instance.Level * 0.01f);
 
     }
 
