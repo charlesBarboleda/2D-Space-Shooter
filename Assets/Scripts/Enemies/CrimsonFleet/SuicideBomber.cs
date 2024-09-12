@@ -17,10 +17,6 @@ public class SuicideBomber : Enemy
     [SerializeField] string _explosionEffect;
     [SerializeField] AudioClip _explosionSound;
 
-    protected override void Start()
-    {
-        base.Start();
-    }
 
     protected override void Update()
     {

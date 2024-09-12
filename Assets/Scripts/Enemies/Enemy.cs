@@ -58,7 +58,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _cameraShakeDuration;
     protected abstract void Attack();
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         _abilityHolder = GetComponent<AbilityHolder>();
         _faction = GetComponent<Faction>();
@@ -66,6 +66,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _colliders.AddRange(GetComponents<Collider2D>());
         isDead = false;
+        _faction.AddAllyFaction(_faction.factionType);
 
 
     }
@@ -205,13 +206,14 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         foreach (Collider2D targetCollider in hitTargets)
         {
             Faction targetFaction = targetCollider.GetComponent<Faction>();
-            if (targetFaction != null && targetFaction.factionType != _faction.factionType)
+            if (targetFaction != null && _faction.IsHostileTo(targetFaction.factionType))
             {
                 float distance = Vector3.Distance(transform.position, targetCollider.transform.position);
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
                     bestTarget = targetCollider.transform;
+                    Debug.Log("Best Target:" + bestTarget.name + "Faction: " + targetFaction.factionType);
                 }
             }
         }

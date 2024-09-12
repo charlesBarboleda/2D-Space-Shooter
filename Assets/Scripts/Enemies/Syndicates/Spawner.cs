@@ -12,9 +12,9 @@ public class SpawnerEnemy : Enemy
     [SerializeField] float _spawnRate = 3f;
     public List<String> ships = new List<string>();
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
+
         Attack();
     }
     void SpawnRandomShips()
