@@ -15,12 +15,15 @@ public class NukeEnemy : Enemy
     [SerializeField] float _attackRange;
     [SerializeField] float _coolDownTime = 3f;
     Vector3 _initTargetPos;
+    GameObject _nukeTargetPool;
 
 
 
     protected override void OnDisable()
     {
         StopAllCoroutines();
+        _nukeTargetPool.SetActive(false);
+
     }
     // Update is called once per frame
     protected override void Update()
@@ -42,7 +45,6 @@ public class NukeEnemy : Enemy
 
     IEnumerator ShootNuke()
     {
-        Debug.Log("Target Nuke Position: " + _initTargetPos);
         LayerMask _targetLayer = LayerMask.GetMask("Player") | LayerMask.GetMask("CrimsonFleet") | LayerMask.GetMask("ThraxArmada");
         Collider2D[] _hitColliders = Physics2D.OverlapCircleAll(_initTargetPos, _nukeRadius, _targetLayer);
         foreach (Collider2D hit in _hitColliders)
@@ -60,10 +62,10 @@ public class NukeEnemy : Enemy
     IEnumerator ChargeNuke()
     {
         _initTargetPos = CheckForTargets().position;
-        GameObject nukeTarget = ObjectPooler.Instance.SpawnFromPool(_nukeTarget, _initTargetPos, Quaternion.identity);
+        _nukeTargetPool = ObjectPooler.Instance.SpawnFromPool(_nukeTarget, _initTargetPos, Quaternion.identity);
         Debug.Log("Target Aim Position: " + _initTargetPos);
         yield return new WaitForSeconds(_nukeChargeTime);
-        nukeTarget.SetActive(false);
+        _nukeTargetPool.SetActive(false);
         StartCoroutine(ShootNuke());
     }
 
