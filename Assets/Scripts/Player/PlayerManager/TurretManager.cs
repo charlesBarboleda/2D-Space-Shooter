@@ -19,8 +19,8 @@ public class TurretManager : MonoBehaviour
         float offset = (numberOfTurretsPerSide + 1) * turretSpacing;
 
         // Calculate the position relative to the player's rotation
-        Vector3 leftOffset = new Vector3(-offset, -0.3f, 0);
-        Vector3 rightOffset = new Vector3(offset, -0.3f, 0);
+        Vector3 leftOffset = new Vector3(-offset, -0.7f, 0);
+        Vector3 rightOffset = new Vector3(offset, -0.7f, 0);
 
         // Rotate the offset based on the player's rotation
         Vector3 leftPosition = transform.position + transform.rotation * leftOffset;

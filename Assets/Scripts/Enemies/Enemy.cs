@@ -84,7 +84,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (_currentTarget == null || !_currentTarget.gameObject.activeInHierarchy) _currentTarget = CheckForTargets();
         if (_shouldRotate) Aim(_currentTarget);
         Movement(_currentTarget);
-        Debug.DrawLine(transform.position, _currentTarget.position, Color.red);
+
 
 
         if (_abilityHolder != null)

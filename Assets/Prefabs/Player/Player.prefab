@@ -9823,7 +9823,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 101
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -10293,7 +10293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turretPrefab: {fileID: 7223191706573227298, guid: ceeb65ac70e6d764e8a5dffdb575f364, type: 3}
   numberOfTurretsPerSide: 0
-  turretSpacing: 0.5
+  turretSpacing: 1
 --- !u!114 &559975883005154389
 MonoBehaviour:
   m_ObjectHideFlags: 0
