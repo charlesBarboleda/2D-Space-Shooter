@@ -1,16 +1,15 @@
-using Cinemachine;
 using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
     public static CameraShake Instance { get; private set; }
-    [SerializeField] CinemachineVirtualCamera _virtualCamera;
+    [SerializeField] private Camera _mainCamera; // Reference to the main camera
     public float shakeDuration = 0f; // Duration of the shake
     public float shakeMagnitude = 0.1f; // Magnitude of the shake
     public float dampingSpeed = 1.0f; // How fast the shake effect fades
 
-    private CinemachineBasicMultiChannelPerlin _perlinNoise;
-    public float shakeDurationRemaining;
+    private Vector3 _originalCameraPosition;
+    private float _shakeDurationRemaining;
 
     private void Awake()
     {
@@ -27,49 +26,47 @@ public class CameraShake : MonoBehaviour
 
     void Start()
     {
-        if (_virtualCamera == null)
+        if (_mainCamera == null)
         {
-            _virtualCamera = FindObjectOfType<CinemachineVirtualCamera>(); // Find the virtual camera if not assigned
+            _mainCamera = Camera.main; // Find the main camera if not assigned
         }
-
-        _perlinNoise = _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 
     void Update()
     {
-        if (shakeDurationRemaining > 0)
+        if (_shakeDurationRemaining > 0)
         {
+            // Calculate shake offset
+            Vector3 shakeOffset = Random.insideUnitSphere * shakeMagnitude;
+            shakeOffset.z = 0; // Ensure shake is only on the X and Y axes
 
-            // Adjust the noise amplitude for shake effect
-            _perlinNoise.m_AmplitudeGain = shakeMagnitude;
+            // Apply the shake offset to the camera
+            _mainCamera.transform.localPosition = _originalCameraPosition + shakeOffset;
 
             // Decrease shake duration
-            shakeDurationRemaining -= Time.deltaTime * dampingSpeed;
+            _shakeDurationRemaining -= Time.deltaTime * dampingSpeed;
 
-            // If shake duration is over, reset the noise
-            if (shakeDurationRemaining <= 0)
+            // If shake duration is over, reset the camera position
+            if (_shakeDurationRemaining <= 0)
             {
-                _perlinNoise.m_AmplitudeGain = 0;  // Reset shake
-                shakeDurationRemaining = 0;  // Ensure no negative value
+                _mainCamera.transform.localPosition = _originalCameraPosition;
+                _shakeDurationRemaining = 0; // Ensure no negative value
             }
         }
     }
 
     public void TriggerShake(float magnitude, float duration)
     {
-
         shakeMagnitude = magnitude;
-        shakeDurationRemaining = duration;
+        _shakeDurationRemaining = duration;
 
-        // Start shaking the camera with the new magnitude and duration
-
-        _perlinNoise.m_AmplitudeGain = shakeMagnitude;
-
+        // Save the original camera position
+        _originalCameraPosition = _mainCamera.transform.localPosition;
     }
 
     public Vector3 GetShakeOffset()
     {
-        // Cinemachine handles shake internally via noise, no need to calculate manually
-        return Vector3.zero; // No shake offset needed here
+        // Return the current shake offset
+        return _mainCamera.transform.localPosition - _originalCameraPosition;
     }
 }

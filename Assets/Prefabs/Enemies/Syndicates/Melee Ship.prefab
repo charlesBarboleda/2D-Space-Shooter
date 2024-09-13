@@ -164,8 +164,8 @@ MonoBehaviour:
   turretChildren: []
   separationRadius: 2
   separationWeight: 1.5
-  _cameraShakeMagnitude: 20
-  _cameraShakeDuration: 0.2
+  _cameraShakeMagnitude: 1
+  _cameraShakeDuration: 0.1
   bulletSpawnPoint: {fileID: 8628277228142460474}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   _bulletType: SyndicatesBullet
