@@ -132,6 +132,7 @@ MonoBehaviour:
   _stopDistance: 60
   _isDead: 0
   _aimRange: 80
+  _attackCooldown: 3
   exhaustChildren:
   - {fileID: 7033326722294087313}
   turretChildren: []
@@ -145,7 +146,6 @@ MonoBehaviour:
   _nukeExplosion: MidExp
   _nukeTarget: SmallNukeTarget
   _attackRange: 80
-  _coolDownTime: 5
 --- !u!61 &5401732057252154783
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.239
+  m_Volume: 0.126
   m_Pitch: 1
   Loop: 0
   Mute: 0

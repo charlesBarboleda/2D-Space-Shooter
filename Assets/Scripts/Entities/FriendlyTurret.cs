@@ -46,7 +46,6 @@ public class FriendlyTurret : ShooterEnemy
     }
     public override void FireBullets(int bulletAmount, Vector3 position, Transform target)
     {
-        nextFireTime = Time.time + GetFireRate();
         Vector3 targetPosition = target.transform.position;
         Vector3 targetDirection = targetPosition - position;
         float startAngle = -GetBulletAmount() / 2.0f * GetShootingAngle();

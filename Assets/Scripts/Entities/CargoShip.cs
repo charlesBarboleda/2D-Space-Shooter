@@ -24,6 +24,12 @@ public class CargoShip : MonoBehaviour, IDamageable
     }
     void OnEnable()
     {
+        StartCoroutine(StartSpawnAnimationWithDelay());
+    }
+
+    IEnumerator StartSpawnAnimationWithDelay()
+    {
+        yield return new WaitForSeconds(0.1f);
         GameObject animation = Instantiate(spawnAnimation, transform.position, Quaternion.identity);
         Destroy(animation, 1f);
     }

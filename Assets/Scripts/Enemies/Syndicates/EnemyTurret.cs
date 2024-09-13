@@ -27,7 +27,7 @@ public class EnemyTurret : ShooterEnemy
         SetBulletAmount(_bossShooterEnemy.GetBulletAmount());
         SetBulletDamage(_bossShooterEnemy.GetBulletDamage());
         SetBulletSpeed(_bossShooterEnemy.GetBulletSpeed());
-        SetFireRate(_bossShooterEnemy.GetFireRate());
+        AttackCooldown = _bossShooterEnemy.AttackCooldown;
         SetShootingAngle(_bossShooterEnemy.GetShootingAngle());
 
 

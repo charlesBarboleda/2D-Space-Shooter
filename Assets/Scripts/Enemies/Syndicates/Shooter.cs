@@ -7,8 +7,6 @@ public class ShooterEnemy : Enemy
     [SerializeField] Transform bulletSpawnPoint;
     [SerializeField] AudioClip _shootSound;
     [SerializeField] string _bulletType;
-
-    [SerializeField] float _fireRate;
     [SerializeField] float _bulletSpeed;
     [SerializeField] float _bulletDamage;
     [SerializeField] int _amountOfBullets;
@@ -17,37 +15,6 @@ public class ShooterEnemy : Enemy
     Transform _target;
 
     public float nextFireTime;
-
-    protected override void Update()
-    {
-
-        if (isDead) return;
-        if (CurrentTarget == null || !CurrentTarget.gameObject.activeInHierarchy) CurrentTarget = CheckForTargets();
-        if (ShouldRotate) Aim(CurrentTarget);
-        Movement(CurrentTarget);
-        if (AbilityHolder != null)
-        {
-            UseAbilities(CurrentTarget); // Uses the ability if the cooldown is 0
-        }
-
-        // Check distance to target and whether it's the right one
-        if (CurrentTarget != null)
-        {
-            float distanceToTarget = Vector2.Distance(transform.position, CurrentTarget.position);
-            if (distanceToTarget < AimRange && Time.time >= nextFireTime)
-            {
-                // Check if the target is the one we should shoot at
-                if (IsTargetInRange(CurrentTarget))
-                {
-                    Debug.Log("Current Target in Range to Attack: " + CurrentTarget.name);
-                    Attack();
-                    PlayShootSound();
-                }
-            }
-        }
-    }
-
-
 
     private void PlayShootSound()
     {
@@ -64,11 +31,11 @@ public class ShooterEnemy : Enemy
     protected override void Attack()
     {
         FireBullets(_amountOfBullets, bulletSpawnPoint.position, CurrentTarget);
+        PlayShootSound();
     }
 
     public virtual void FireBullets(int bulletAmount, Vector3 position, Transform target)
     {
-        nextFireTime = Time.time + _fireRate;
         Vector3 targetPosition = target.position;
         Vector3 targetDirection = (targetPosition - position).normalized;
         float startAngle = -_amountOfBullets / 2.0f * _shootingAngle;
@@ -98,7 +65,7 @@ public class ShooterEnemy : Enemy
         base.BuffedState();
         _bulletDamage *= 1.5f;
         _bulletSpeed *= 1.5f;
-        _fireRate /= 1.5f;
+        AttackCooldown /= 1.5f;
         _amountOfBullets += 2;
     }
 
@@ -107,7 +74,7 @@ public class ShooterEnemy : Enemy
         base.UnBuffedState();
         _bulletDamage /= 1.5f;
         _bulletSpeed /= 1.5f;
-        _fireRate *= 1.5f;
+        AttackCooldown *= 1.5f;
         _amountOfBullets -= 2;
     }
 
@@ -116,14 +83,11 @@ public class ShooterEnemy : Enemy
     public void SetBulletAmount(int amount) => _amountOfBullets = amount;
     public void SetBulletSpeed(float speed) => _bulletSpeed = speed;
     public void SetBulletDamage(float damage) => _bulletDamage = damage;
-    public void SetFireRate(float rate) => _fireRate = rate;
     public void SetShootingAngle(float angle) => _shootingAngle = angle;
     public void SetAimRange(float range) => AimRange = range;
-
     public int GetBulletAmount() => _amountOfBullets;
     public float GetBulletSpeed() => _bulletSpeed;
     public float GetBulletDamage() => _bulletDamage;
-    public float GetFireRate() => _fireRate;
     public float GetAimRange() => AimRange;
     public float GetShootingAngle() => _shootingAngle;
     public float GetBulletLifetime() => _bulletLifetime;

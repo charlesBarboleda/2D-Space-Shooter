@@ -159,6 +159,7 @@ MonoBehaviour:
   _stopDistance: 10
   _isDead: 0
   _aimRange: 20
+  _attackCooldown: 3
   exhaustChildren:
   - {fileID: 9212441991993666868}
   turretChildren: []
@@ -169,7 +170,6 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 8628277228142460474}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   _bulletType: SyndicatesBullet
-  _fireRate: 1
   _bulletSpeed: 10
   _bulletDamage: 10
   _amountOfBullets: 1
@@ -260,7 +260,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 60a0682fbc82bd244bdae3f3445cfd17, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.126
   m_Pitch: 1
   Loop: 0
   Mute: 0

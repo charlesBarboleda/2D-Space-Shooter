@@ -389,6 +389,7 @@ MonoBehaviour:
   _stopDistance: 100
   _isDead: 0
   _aimRange: 120
+  _attackCooldown: 1
   exhaustChildren:
   - {fileID: 6432700121195202666}
   - {fileID: 985293516068723794}
@@ -403,10 +404,9 @@ MonoBehaviour:
   _cameraShakeMagnitude: 40
   _cameraShakeDuration: 0.4
   _spawnRadius: 10
-  _spawnRate: 3
   ships:
-  - SmallShip
-  - MeleeShip
+  - MediumShip
+  - MediumShip2
 --- !u!82 &-2496380593560324419
 AudioSource:
   m_ObjectHideFlags: 0
@@ -419,7 +419,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.499
+  m_Volume: 0.126
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -753,6 +753,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4875630681910950146}
     m_Modifications:
+    - target: {fileID: -1632575951528345661, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Volume
+      value: 0.479
+      objectReference: {fileID: 0}
     - target: {fileID: 4269631521700113, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_SortingOrder
       value: 13
@@ -1011,6 +1015,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4875630681910950146}
     m_Modifications:
+    - target: {fileID: -1632575951528345661, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Volume
+      value: 0.479
+      objectReference: {fileID: 0}
     - target: {fileID: 4269631521700113, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_SortingOrder
       value: 13
@@ -1154,6 +1162,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4875630681910950146}
     m_Modifications:
+    - target: {fileID: -1632575951528345661, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Volume
+      value: 0.479
+      objectReference: {fileID: 0}
     - target: {fileID: 4269631521700113, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_SortingOrder
       value: 13
@@ -1297,6 +1309,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4875630681910950146}
     m_Modifications:
+    - target: {fileID: -1632575951528345661, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Volume
+      value: 0.479
+      objectReference: {fileID: 0}
     - target: {fileID: 4269631521700113, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_SortingOrder
       value: 13

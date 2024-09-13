@@ -429,6 +429,7 @@ MonoBehaviour:
   _stopDistance: 40
   _isDead: 0
   _aimRange: 100
+  _attackCooldown: 3
   exhaustChildren:
   - {fileID: 256518171283367892}
   turretChildren: []
@@ -436,9 +437,10 @@ MonoBehaviour:
   separationWeight: 1.5
   _cameraShakeMagnitude: 30
   _cameraShakeDuration: 0.3
-  _spawnRadius: 10
-  _spawnRate: 3
-  ships: []
+  _spawnRadius: 50
+  ships:
+  - SmallShip
+  - MeleeShip
 --- !u!82 &7426779590907582378
 AudioSource:
   m_ObjectHideFlags: 0
@@ -451,7 +453,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.126
   m_Pitch: 1
   Loop: 0
   Mute: 0

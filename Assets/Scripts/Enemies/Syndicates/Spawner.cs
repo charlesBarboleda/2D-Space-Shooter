@@ -9,14 +9,8 @@ using Random = UnityEngine.Random;
 public class SpawnerEnemy : Enemy
 {
     [SerializeField] float _spawnRadius = 10f;
-    [SerializeField] float _spawnRate = 3f;
     public List<String> ships = new List<string>();
 
-    protected void Start()
-    {
-
-        Attack();
-    }
     void SpawnRandomShips()
     {
         int randomShipIndex = Random.Range(0, ships.Count); // Randomly choose between easyShips and midShips
@@ -33,21 +27,21 @@ public class SpawnerEnemy : Enemy
     {
         base.OnEnable();
         Attack();
-        _spawnRate -= GameManager.Instance.Level * 0.01f;
-        if (_spawnRate <= 0.1f)
+        AttackCooldown -= GameManager.Instance.Level * 0.01f;
+        if (AttackCooldown <= 0.1f)
         {
-            _spawnRate = 0.1f;
+            AttackCooldown = 0.1f;
         }
     }
 
     public override void BuffedState()
     {
-        _spawnRate = _spawnRate / 1.5f;
+        AttackCooldown = AttackCooldown / 1.5f;
     }
     public override void UnBuffedState()
     {
         base.UnBuffedState();
-        _spawnRate = _spawnRate * 1.5f;
+        AttackCooldown = AttackCooldown * 1.5f;
     }
 
     protected override void OnDisable()
@@ -58,20 +52,12 @@ public class SpawnerEnemy : Enemy
 
     protected override void Attack()
     {
-        InvokeRepeating("SpawnRandomShips", 0, _spawnRate);
+        InvokeRepeating("SpawnRandomShips", 0, AttackCooldown);
     }
 
     public void SetSpawnRadius(float radius)
     {
         _spawnRadius = radius;
-    }
-    public void SetSpawnRate(float rate)
-    {
-        _spawnRate = rate;
-    }
-    public float GetSpawnRate()
-    {
-        return _spawnRate;
     }
     public float GetSpawnRadius()
     {

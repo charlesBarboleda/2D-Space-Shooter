@@ -33,6 +33,6 @@ public class PlayerAimBehaviour : MonoBehaviour
         _angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
 
         // Apply the rotation to the GameObject
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, _angle + 270f));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, _angle + 90f));
     }
 }

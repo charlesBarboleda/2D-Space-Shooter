@@ -172,6 +172,7 @@ MonoBehaviour:
   _stopDistance: 80
   _isDead: 0
   _aimRange: 100
+  _attackCooldown: 5
   exhaustChildren:
   - {fileID: 2080566130103249833}
   turretChildren: []
@@ -225,7 +226,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.126
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -269,7 +270,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

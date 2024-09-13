@@ -43,6 +43,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     [SerializeField] float _stopDistance;
     [SerializeField] bool _isDead;
     [SerializeField] float _aimRange;
+    [SerializeField] float _attackCooldown;
+    float elapsedCooldown;
 
     bool _rotateClockwise = false;
     public List<GameObject> exhaustChildren = new List<GameObject>();
@@ -75,9 +77,15 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected virtual void Update()
     {
         if (isDead) return;
+        if (elapsedCooldown > 0)
+        {
+            elapsedCooldown -= Time.deltaTime;
+        }
         if (_currentTarget == null || !_currentTarget.gameObject.activeInHierarchy) _currentTarget = CheckForTargets();
         if (_shouldRotate) Aim(_currentTarget);
         Movement(_currentTarget);
+        Debug.DrawLine(transform.position, _currentTarget.position, Color.red);
+
 
         if (_abilityHolder != null)
         {
@@ -90,14 +98,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             if (distanceToTarget < AimRange)
             {
                 // Check if the target is the one we should shoot at
-                if (IsTargetInRange(_currentTarget))
+                if (IsTargetInRange(_currentTarget) && elapsedCooldown <= 0)
                 {
                     Attack();
+                    elapsedCooldown = _attackCooldown;
                 }
             }
         }
-
-
     }
 
     protected virtual Vector3 CalculateSeparation()
@@ -195,7 +202,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (target == null) return;
 
         // Get the target's closest point using colliders
-        Collider2D targetCollider = target.GetComponent<Collider2D>();
+        Collider2D targetCollider = target.GetComponent<CompositeCollider2D>();
         if (targetCollider != null)
         {
             Vector3 closestPoint = targetCollider.ClosestPoint(transform.position);
@@ -233,7 +240,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (target == null) return;
 
         // Get the target's closest point using colliders
-        Collider2D targetCollider = target.GetComponent<Collider2D>();
+        Collider2D targetCollider = target.GetComponent<CompositeCollider2D>();
         if (targetCollider != null)
         {
             Vector3 closestPoint = targetCollider.ClosestPoint(transform.position);
@@ -307,7 +314,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         foreach (Ability ability in _abilityHolder.abilities)
         {
             if (ability.currentCooldown >= ability.cooldown) ability.TriggerAbility(gameObject, target);
-            Debug.Log("Using Ability");
+
         }
     }
 
@@ -412,5 +419,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public float AimRange { get => _aimRange; set => _aimRange = value; }
 
     public bool ShouldRotate { get => _shouldRotate; set => _shouldRotate = value; }
+    public float AttackCooldown { get => _attackCooldown; set => _attackCooldown = value; }
 
 }

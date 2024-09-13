@@ -787,7 +787,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.38
+  m_Volume: 0.251
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -963,6 +963,7 @@ MonoBehaviour:
   _stopDistance: 100
   _isDead: 0
   _aimRange: 120
+  _attackCooldown: 3
   exhaustChildren:
   - {fileID: 261621228065520090}
   turretChildren:
@@ -975,7 +976,6 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 8069788359676706865}
   _shootSound: {fileID: 8300000, guid: 3f2ea133f3a172d47be752f14c01259e, type: 3}
   _bulletType: ThraxBullet
-  _fireRate: 1
   _bulletSpeed: 20
   _bulletDamage: 50
   _amountOfBullets: 6
@@ -1123,6 +1123,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2650564346229206355}
     m_Modifications:
+    - target: {fileID: -1632575951528345661, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: m_Volume
+      value: 0.479
+      objectReference: {fileID: 0}
+    - target: {fileID: -1632575951528345661, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6097976889594631833, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13919781
@@ -1293,6 +1301,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2650564346229206355}
     m_Modifications:
+    - target: {fileID: -1632575951528345661, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: m_Volume
+      value: 0.479
+      objectReference: {fileID: 0}
+    - target: {fileID: -1632575951528345661, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6097976889594631833, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13919781

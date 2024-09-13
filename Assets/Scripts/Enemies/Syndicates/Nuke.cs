@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NukeEnemy : Enemy
 {
-    private bool isOnCoolDown;
     [SerializeField] float _nukeRadius;
     [SerializeField] float _nukeDamage;
     [SerializeField] float _nukeChargeTime;
@@ -13,7 +12,6 @@ public class NukeEnemy : Enemy
 
 
     [SerializeField] float _attackRange;
-    [SerializeField] float _coolDownTime = 3f;
     Vector3 _initTargetPos;
     GameObject _nukeTargetPool;
 
@@ -26,22 +24,6 @@ public class NukeEnemy : Enemy
 
     }
     // Update is called once per frame
-    protected override void Update()
-    {
-        base.Update();
-        if (Vector2.Distance(transform.position, CheckForTargets().position) < _attackRange)
-        {
-            Debug.Log("In range to attack");
-            if (_coolDownTime <= 0)
-            {
-                Attack();
-                _coolDownTime = 5f;
-            }
-            else _coolDownTime -= Time.deltaTime;
-
-        }
-
-    }
 
     IEnumerator ShootNuke()
     {
@@ -78,13 +60,13 @@ public class NukeEnemy : Enemy
     public override void BuffedState()
     {
         _attackRange = _attackRange * 1.5f;
-        _coolDownTime = _coolDownTime / 1.5f;
+        AttackCooldown = AttackCooldown / 1.5f;
     }
 
     public override void UnBuffedState()
     {
         _attackRange = _attackRange / 1.5f;
-        _coolDownTime = _coolDownTime * 1.5f;
+        AttackCooldown = AttackCooldown * 1.5f;
     }
 
     private void OnDrawGizmos()

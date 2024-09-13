@@ -43,7 +43,7 @@ public class DestroyShooterBossObjective : Objective
                 bossScript.SetBulletAmount(_bulletAmount);
                 bossScript.SetBulletSpeed(_bulletSpeed);
                 bossScript.SetBulletDamage(_bulletDamage);
-                bossScript.SetFireRate(_fireRate);
+                bossScript.AttackCooldown = _fireRate;
                 bossScript.SetShootingAngle(_shootingAngle);
                 bossScript.CurrencyDrop = _currencyDrop;
                 bossScript.Speed = _speed;
