@@ -11,7 +11,6 @@ public class EnemyLaserAbility : Ability
     [SerializeField] float damagePerSecond = 10f;
     [SerializeField] float duration = 5f;
     List<Transform> _laserSpawnPoints;
-    GameObject _laser;
 
     public override async void AbilityLogic(GameObject owner, Transform target)
     {
@@ -49,7 +48,7 @@ public class EnemyLaserAbility : Ability
         Quaternion laserRotation = Quaternion.LookRotation(laserDirection);
 
         // Spawn laser from the pool at the correct world position
-        _laser = ObjectPooler.Instance.SpawnFromPool("ThraxLaser", worldPosition, laserRotation);
+        GameObject _laser = ObjectPooler.Instance.SpawnFromPool("ThraxLaser", worldPosition, laserRotation);
 
         // Assign laser settings
         EnemyLaserSettings laserScript = _laser.GetComponent<EnemyLaserSettings>();
@@ -76,7 +75,6 @@ public class EnemyLaserAbility : Ability
             await Task.Yield();
             timeElapsed += Time.deltaTime;
         }
-        _laser.SetActive(false);
     }
 
     // Helper method to get all the laser spawn points from the enemy ship

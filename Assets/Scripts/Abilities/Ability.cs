@@ -26,8 +26,6 @@ public abstract class Ability : ScriptableObject
 
             AbilityLogic(owner, target);
             currentCooldown = 0f;
-            Debug.Log("Ability Triggered");
-
         }
         else
         {
