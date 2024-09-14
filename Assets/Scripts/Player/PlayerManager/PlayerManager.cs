@@ -101,8 +101,7 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     #region PickUp Management
-    public float PickUpRadius() => _pickUpBehaviour.PickUpRadius();
-    public void SetPickUpRadius(float newPickUpRadius) => _pickUpBehaviour.SetPickUpRadius(newPickUpRadius);
+    public float PickUpRadius { get => _pickUpBehaviour.PickUpRadius; set => _pickUpBehaviour.PickUpRadius = value; }
     #endregion
 
 }

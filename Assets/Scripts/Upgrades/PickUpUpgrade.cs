@@ -10,7 +10,7 @@ public class PickUpUpgrade : Upgrade
         if (PlayerManager.GetInstance().Currency() >= upgradeCost)
         {
             PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() - upgradeCost);
-            PlayerManager.GetInstance().SetPickUpRadius(PlayerManager.GetInstance().PickUpRadius() + pickUpUpgradeAmount);
+            PlayerManager.GetInstance().PickUpRadius += pickUpUpgradeAmount;
             upgradeCost += 100;
 
         }

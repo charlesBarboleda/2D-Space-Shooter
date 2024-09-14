@@ -5,7 +5,7 @@ using UnityEngine;
 public class PickUpBehaviour : MonoBehaviour
 {
     [SerializeField] string _pickUpType;
-    [SerializeField] public float pickUpRadius = 2f;
+    [SerializeField] float _pickUpRadius = 2f;
     float _attractionSpeed { get; set; } = 50f;
 
     // Update is called once per frame
@@ -16,7 +16,7 @@ public class PickUpBehaviour : MonoBehaviour
 
     void PickUpLogic()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, pickUpRadius, LayerMask.GetMask("Pickable"));
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, _pickUpRadius, LayerMask.GetMask("Pickable"));
 
         // Iterate over each collider and trigger attraction
         foreach (Collider2D hit in hits)
@@ -29,7 +29,7 @@ public class PickUpBehaviour : MonoBehaviour
         }
     }
 
-    public float PickUpRadius() => pickUpRadius;
-    public float SetPickUpRadius(float newRadius) => pickUpRadius = newRadius;
+    public float PickUpRadius { get => _pickUpRadius; set => _pickUpRadius = value; }
+
 
 }

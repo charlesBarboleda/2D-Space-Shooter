@@ -39,18 +39,17 @@ public class PickUpRadiusPowerUp : PowerUp, IPickable
 
     protected override void Effect()
     {
-        Debug.Log("PickUpRadius PowerUp Activated");
 
-        _player.SetPickUpRadius(_player.PickUpRadius() * 10);
-        Debug.Log("PickUpRadius: " + _player.PickUpRadius());
+
+        _player.PickUpRadius *= 10;
+
     }
 
     public override void DeactivateEffect()
     {
-        Debug.Log("PickUpRadius PowerUp Deactivated");
-        _initPickUpRadius = _player.PickUpRadius() / 10;
-        _player.SetPickUpRadius(_initPickUpRadius);
-        Debug.Log("PickUpRadius: " + _player.PickUpRadius());
+
+        _initPickUpRadius = _player.PickUpRadius / 10;
+        _player.PickUpRadius = _initPickUpRadius;
     }
 
 
