@@ -10,6 +10,7 @@ public class Kinematics : MonoBehaviour
     [SerializeField] float _stopDistance;
     [SerializeField] float separationRadius = 2f;  // Radius for separation behavior
     [SerializeField] float separationWeight = 1.5f;   // Strength of the repulsion force
+    [SerializeField] float maxSeparationForce = 0.5f;
     bool _rotateClockwise = false;
     float _cachedDistance;
     TargetManager _targetManager;
@@ -92,15 +93,19 @@ public class Kinematics : MonoBehaviour
 
         // Get separation force to avoid collisions with other enemies
         Vector3 separationForce = CalculateSeparation();
+        Debug.Log(gameObject.name + " has separation force of " + separationForce);
 
         if (_cachedDistance > _stopDistance)
         {
             Vector3 finalDirection = (_cachedDirection + separationForce).normalized;
             transform.position += finalDirection * _speed * Time.deltaTime;
+            Debug.Log(gameObject.name + " is moving towards target" + target.name);
         }
         else
         {
-            Orbit(target);  // Orbit when close enough
+
+            Orbit(target);
+            Debug.Log(gameObject.name + " is orbiting target" + target.name);
         }
 
 
@@ -108,8 +113,24 @@ public class Kinematics : MonoBehaviour
     void Orbit(Transform target)
     {
         float rotationDirection = _rotateClockwise ? 1 : -1;
+
+        // Maintain a consistent orbit distance to avoid drifting away
+        float orbitRadius = Vector3.Distance(transform.position, target.position);
+        float targetOrbitDistance = _stopDistance * 1.2f; // Keep a consistent orbit slightly larger than stop distance
+
+        if (orbitRadius > targetOrbitDistance)
+        {
+            // Move towards the target to maintain orbit radius
+            transform.position = Vector3.MoveTowards(transform.position, target.position, (_speed * Time.deltaTime));
+        }
+
+        // Apply rotational orbit around the target
         transform.RotateAround(target.position, Vector3.forward, rotationDirection * _speed * Time.deltaTime);
+
+        // Update _cachedDirection for gizmos
+        _cachedDirection = (target.position - transform.position).normalized;
     }
+
 
     Vector3 CalculateSeparation()
     {
@@ -123,7 +144,8 @@ public class Kinematics : MonoBehaviour
             if (enemy != null && enemy.transform != transform)
             {
                 Vector3 directionToEnemy = transform.position - enemy.transform.position;
-                separationForce += directionToEnemy.normalized / directionToEnemy.magnitude; // Inverse weighted by distance
+                float distance = directionToEnemy.magnitude;
+                separationForce += directionToEnemy.normalized / Mathf.Max(distance, 0.1f);  // Avoid division by zero
                 count++;
             }
         }
@@ -131,7 +153,7 @@ public class Kinematics : MonoBehaviour
         if (count > 0)
         {
             separationForce /= count; // Average the forces from nearby enemies
-            separationForce = separationForce.normalized * separationWeight; // Normalize and apply weight
+            separationForce = Vector3.ClampMagnitude(separationForce * separationWeight, maxSeparationForce);  // Clamp the force
         }
 
         return separationForce;

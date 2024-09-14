@@ -15,7 +15,10 @@ GameObject:
   - component: {fileID: 2132454583810687215}
   - component: {fileID: 108836328034682920}
   - component: {fileID: 9175048172773483353}
-  - component: {fileID: 1628774259249492778}
+  - component: {fileID: 8005087408680891846}
+  - component: {fileID: 4678993248782841675}
+  - component: {fileID: 1786240908306883250}
+  - component: {fileID: 2740604804376442547}
   m_Layer: 8
   m_Name: FriendlyTurret
   m_TagString: Player
@@ -111,7 +114,7 @@ MonoBehaviour:
   _bulletType: PlayerBullet
   _bulletSpeed: 30
   _bulletDamage: 10
-  _amountOfBullets: 5
+  _amountOfBullets: 3
   _shootingAngle: 5
   _bulletLifetime: 5
   nextFireTime: 0
@@ -295,7 +298,7 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 8431713627137354366}
---- !u!114 &1628774259249492778
+--- !u!114 &8005087408680891846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -304,8 +307,64 @@ MonoBehaviour:
   m_GameObject: {fileID: 8431713627137354366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed9253b8d24bd643b7ae47cb753d981, type: 3}
+  m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _factionType: 0
-  _allyFactions: 00000000
+  _currentHealth: 500
+  _maxHealth: 500
+  _currencyDrop: 0
+  _currencyPrefab: []
+  exhaustChildren: []
+  turretChildren: []
+  _deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
+  _deathExplosion: SmallExp
+  _deathEffect:
+  - DeathEffect
+  - DeathEffect2
+  shakeType: 0
+--- !u!114 &4678993248782841675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431713627137354366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checkForTargetsInterval: 3
+  _checkForTargetsRadius: 50
+--- !u!114 &1786240908306883250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431713627137354366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9216c03e867f274db5aaf93c01462f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aimRange: 100
+  _attackCooldown: 2
+--- !u!114 &2740604804376442547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8431713627137354366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd460e7f24ce9d34493bb0571c6c9720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aimOffset: -90
+  _shouldRotate: 1
+  _speed: 0
+  _stopDistance: 0
+  separationRadius: 2
+  separationWeight: 1.5

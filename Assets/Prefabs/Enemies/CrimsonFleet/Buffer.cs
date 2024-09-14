@@ -25,11 +25,11 @@ public class Buffer : Enemy
         Collider2D[] allies = Physics2D.OverlapCircleAll(transform.position, _buffRadius, layerMasks);
         foreach (Collider2D ally in allies)
         {
-            Enemy _enemy = ally.GetComponent<Enemy>();
-            if (!_buffedAllies.Contains(_enemy))
+            Enemy _ally = ally.GetComponent<Enemy>();
+            if (!_buffedAllies.Contains(_ally))
             {
-                _enemy.BuffedState();
-                _buffedAllies.Add(_enemy);
+                _ally.BuffedState();
+                _buffedAllies.Add(_ally);
             }
         }
 
