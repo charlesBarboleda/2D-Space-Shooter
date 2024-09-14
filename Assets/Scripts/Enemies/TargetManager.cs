@@ -54,7 +54,10 @@ public class TargetManager : MonoBehaviour
             Faction targetFaction = targetCollider.GetComponent<Faction>();
             if (targetFaction != null && _faction.IsHostileTo(targetFaction.factionType))
             {
-
+                Debug.Log("Target faction: " + targetFaction.factionType);
+                Debug.Log("Target:" + targetCollider.name);
+                Debug.Log("Self Faction: " + _faction.factionType);
+                Debug.Log("Self:" + gameObject.name);
                 float distance = Vector3.Distance(transform.position, targetCollider.transform.position);
                 if (distance < closestDistance)
                 {

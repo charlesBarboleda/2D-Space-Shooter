@@ -19,6 +19,10 @@ GameObject:
   - component: {fileID: -8228507882097533039}
   - component: {fileID: 4155069921446595600}
   - component: {fileID: 5313038996525249293}
+  - component: {fileID: 7082850705467848050}
+  - component: {fileID: -4165466705935490925}
+  - component: {fileID: -5872829319275535106}
+  - component: {fileID: 7559088924168760026}
   m_Layer: 13
   m_Name: AssaultShip2
   m_TagString: Syndicates
@@ -112,46 +116,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8c47f4654f9d4a8448fb6a63d19cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currencyPrefab:
-  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
-  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
-  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
-  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
-  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
-  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
   _buffedParticles: {fileID: 0}
-  _deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: LargeSpawn
-  _deathExplosion: LargeExp
-  _deathEffect:
-  - DeathEffectLarge
-  - DeathEffectLarge2
-  _aimOffset: -90
-  _shouldRotate: 1
-  _health: 1000
-  _currencyDrop: 500
-  _speed: 8
-  _stopDistance: 50
-  _isDead: 0
-  _aimRange: 70
-  exhaustChildren:
-  - {fileID: 3479768752845724578}
-  - {fileID: 2540986983523315337}
-  turretChildren:
-  - {fileID: 2451975295549407630}
-  - {fileID: 2008761345934159927}
-  - {fileID: 3041879174142950745}
-  - {fileID: 2885978235552265520}
-  separationRadius: 2
-  separationWeight: 1.5
-  _cameraShakeMagnitude: 30
-  _cameraShakeDuration: 0.3
   bulletSpawnPoint: {fileID: 2507140303280400851}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   _bulletType: SyndicatesBullet
-  _fireRate: 0
   _bulletSpeed: 0
   _bulletDamage: 0
   _amountOfBullets: 0
@@ -574,6 +545,84 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 6354811038995012457}
+--- !u!114 &7082850705467848050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354811038995012457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 5000
+  _maxHealth: 5000
+  _currencyDrop: 500
+  _currencyPrefab:
+  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
+  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
+  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
+  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
+  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
+  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
+  exhaustChildren:
+  - {fileID: 3479768752845724578}
+  - {fileID: 2540986983523315337}
+  turretChildren: []
+  _deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
+  _deathExplosion: LargeExp
+  _deathEffect:
+  - DeathEffectLarge
+  - DeathEffectLarge2
+  shakeType: 0
+--- !u!114 &-4165466705935490925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354811038995012457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd460e7f24ce9d34493bb0571c6c9720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aimOffset: -90
+  _shouldRotate: 1
+  _speed: 18
+  _stopDistance: 50
+  separationRadius: 40
+  separationWeight: 1.5
+--- !u!114 &-5872829319275535106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354811038995012457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checkForTargetsInterval: 3
+  _checkForTargetsRadius: 50
+--- !u!114 &7559088924168760026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354811038995012457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9216c03e867f274db5aaf93c01462f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aimRange: 80
+  _attackCooldown: 3
 --- !u!1 &8858676872308680497
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +904,34 @@ PrefabInstance:
       propertyPath: _factionType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyDrop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currentHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathExplosion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathEffect.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: exhaustChildren.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6097976889594631833, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.48264337
@@ -933,11 +1010,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6097976889594631833, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
   m_PrefabInstance: {fileID: 5182951221405970068}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2451975295549407630 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7343858230156979994, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-  m_PrefabInstance: {fileID: 5182951221405970068}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5613646554487069226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -957,6 +1029,34 @@ PrefabInstance:
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyDrop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currentHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathExplosion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathEffect.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: exhaustChildren.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6097976889594631833, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1036,11 +1136,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6097976889594631833, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
   m_PrefabInstance: {fileID: 5613646554487069226}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2885978235552265520 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7343858230156979994, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-  m_PrefabInstance: {fileID: 5613646554487069226}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5754558917307208259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1060,6 +1155,34 @@ PrefabInstance:
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyDrop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currentHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathExplosion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathEffect.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: exhaustChildren.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6097976889594631833, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1139,11 +1262,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6097976889594631833, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
   m_PrefabInstance: {fileID: 5754558917307208259}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3041879174142950745 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7343858230156979994, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-  m_PrefabInstance: {fileID: 5754558917307208259}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9082122089101860653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1163,6 +1281,34 @@ PrefabInstance:
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyDrop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currentHealth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathExplosion
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _deathEffect.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5954320714588030335, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: exhaustChildren.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6097976889594631833, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_LocalScale.x
@@ -1237,11 +1383,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
---- !u!1 &2008761345934159927 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7343858230156979994, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-  m_PrefabInstance: {fileID: 9082122089101860653}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3074393148285340084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6097976889594631833, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}

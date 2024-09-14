@@ -143,10 +143,6 @@ MonoBehaviour:
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: SmallSpawn
-  _attackCooldown: 3
-  _aimRange: 20
-  _cameraShakeMagnitude: 1
-  _cameraShakeDuration: 0.1
   bulletSpawnPoint: {fileID: 8628277228142460474}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   _bulletType: SyndicatesBullet
@@ -393,8 +389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 80
-  _maxHealth: 80
+  _currentHealth: 60
+  _maxHealth: 60
   _currencyDrop: 8
   _currencyPrefab:
   - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}

@@ -48,6 +48,10 @@ GameObject:
   - component: {fileID: 5923325575617448525}
   - component: {fileID: 5517677311685375105}
   - component: {fileID: 3750255413437554291}
+  - component: {fileID: 3955482067354066234}
+  - component: {fileID: -6746136382201098801}
+  - component: {fileID: -8685784215459564580}
+  - component: {fileID: 3038458476815981962}
   m_Layer: 15
   m_Name: CrimsonSmall 2
   m_TagString: CrimsonFleet
@@ -65,7 +69,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0.0000029504295}
   m_LocalPosition: {x: 7e-14, y: -0.17616, z: 0}
-  m_LocalScale: {x: 1.7531134, y: 1.7531134, z: 1.7531134}
+  m_LocalScale: {x: 2.7618866, y: 2.7618866, z: 2.7618866}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9144009670669768331}
@@ -364,38 +368,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2520035b6197c5e42a54ed52ed55c248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currencyPrefab:
-  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
-  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
-  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
-  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
-  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
-  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
   _buffedParticles: {fileID: 4409310233076043341}
-  _deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 1e42f48b83f9dd8bcad25ccf64c238c3, type: 3}
   _spawnAnimation: MidSpawn
-  _deathExplosion: MidExp
-  _deathEffect:
-  - DeathEffectMid
-  - DeathEffectMid2
-  _aimOffset: 90
-  _shouldRotate: 1
-  _health: 300
-  _currencyDrop: 25
-  _speed: 10
-  _stopDistance: 40
-  _isDead: 0
-  _aimRange: 70
-  _attackCooldown: 1
-  exhaustChildren:
-  - {fileID: 8039788867163802201}
-  turretChildren: []
-  separationRadius: 2
-  separationWeight: 1.5
-  _cameraShakeMagnitude: 15
-  _cameraShakeDuration: 0.2
   bulletSpawnPoint: {fileID: 9144009670669768331}
   _shootSound: {fileID: 8300000, guid: 380a61624a607f042ab5e96218f37633, type: 3}
   _bulletType: CrimsonBullet
@@ -444,42 +420,119 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 8786660656623488859}
     m_ColliderPaths:
-    - - X: 51425840
-        Y: 44697576
-      - X: -29484052
-        Y: 44697576
-      - X: -29484050
-        Y: -34499940
-      - X: 51425840
-        Y: -34499940
+    - - X: 81017200
+        Y: 70417368
+      - X: -46449708
+        Y: 70417368
+      - X: -46449708
+        Y: -54351832
+      - X: 81017200
+        Y: -54351832
   - m_Collider: {fileID: 3283671024421742604}
     m_ColliderPaths:
-    - - X: 25955518
-        Y: 55811324
-      - X: -4250498
-        Y: 55811324
-      - X: -4250495
-        Y: -57811324
-      - X: 25955522
-        Y: -57811324
+    - - X: 40890792
+        Y: 87926168
+      - X: -6696312
+        Y: 87926168
+      - X: -6696307
+        Y: -91077000
+      - X: 40890804
+        Y: -91077000
   m_CompositePaths:
     m_Paths:
-    - - {x: 2.5955229, y: -5.7811327}
-      - {x: 2.5955815, y: -3.449994}
-      - {x: 5.142584, y: -3.4499648}
-      - {x: 5.1425548, y: 4.4697576}
-      - {x: 2.5955517, y: 4.469787}
-      - {x: 2.5955224, y: 5.5811324}
-      - {x: -0.4250498, y: 5.5811033}
-      - {x: -0.4250792, y: 4.4697576}
-      - {x: -2.9484053, y: 4.4697285}
-      - {x: -2.9483757, y: -3.449994}
-      - {x: -0.4250496, y: -3.4500232}
-      - {x: -0.42502022, y: -5.7811327}
+    - - {x: 4.0890512, y: -9.1077}
+      - {x: 4.0891094, y: -5.435183}
+      - {x: 8.10172, y: -5.435154}
+      - {x: 8.10169, y: 7.041737}
+      - {x: 4.0890794, y: 7.0417666}
+      - {x: 4.08905, y: 8.792617}
+      - {x: -0.6696312, y: 8.792587}
+      - {x: -0.6696606, y: 7.041737}
+      - {x: -4.644971, y: 7.0417075}
+      - {x: -4.644942, y: -5.435183}
+      - {x: -0.6696308, y: -5.435213}
+      - {x: -0.6696014, y: -9.1077}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 6126911676597071214}
+--- !u!114 &3955482067354066234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126911676597071214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 500
+  _maxHealth: 500
+  _currencyDrop: 50
+  _currencyPrefab:
+  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
+  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
+  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
+  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
+  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
+  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
+  exhaustChildren:
+  - {fileID: 8039788867163802201}
+  turretChildren: []
+  _deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
+  _deathExplosion: SmallExp
+  _deathEffect:
+  - DeathEffect
+  - DeathEffect2
+  shakeType: 0
+--- !u!114 &-6746136382201098801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126911676597071214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd460e7f24ce9d34493bb0571c6c9720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aimOffset: 90
+  _shouldRotate: 1
+  _speed: 15
+  _stopDistance: 30
+  separationRadius: 5
+  separationWeight: 1.5
+--- !u!114 &-8685784215459564580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126911676597071214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checkForTargetsInterval: 3
+  _checkForTargetsRadius: 50
+--- !u!114 &3038458476815981962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126911676597071214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9216c03e867f274db5aaf93c01462f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aimRange: 50
+  _attackCooldown: 1
 --- !u!1001 &4761905306650182420
 PrefabInstance:
   m_ObjectHideFlags: 0
