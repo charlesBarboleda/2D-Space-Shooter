@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
         _roundCountdown = 10f;
         EnableSpawning();
         _enemiesToSpawnLeft = _enemiesToSpawnTotal;
-        ObjectivesManager.Instance.SetObjectives("Early", 4);
+        ObjectivesManager.Instance.SetObjectives("Early", 7);
 
     }
     private void NextRound()

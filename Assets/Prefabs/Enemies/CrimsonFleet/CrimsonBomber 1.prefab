@@ -447,6 +447,7 @@ MonoBehaviour:
   _stopDistance: 2
   separationRadius: 3
   separationWeight: 1.5
+  maxSeparationForce: 0.5
 --- !u!114 &-2844665691190379168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,7 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _aimRange: 5
-  _attackCooldown: 0
+  _attackCooldown: 5
 --- !u!1001 &502186307533649093
 PrefabInstance:
   m_ObjectHideFlags: 0

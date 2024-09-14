@@ -46,7 +46,6 @@ public class SuicideBomber : Enemy
     protected override void Attack()
     {
         StartCoroutine(Explode());
-        Debug.Log("Exploding");
     }
     IEnumerator Glow()
     {
@@ -111,6 +110,7 @@ public class SuicideBomber : Enemy
         // Create the debris
         GameObject currency = Instantiate(Health.CurrencyPrefab[Random.Range(0, Health.CurrencyPrefab.Count)], transform.position, transform.rotation);
         currency.GetComponent<Debris>().SetCurrency(Health.CurrencyDrop);
+        Debug.Log("Starting Explosion Animation");
         yield return StartCoroutine(ExplosionAnimation());
         gameObject.SetActive(false);
     }
