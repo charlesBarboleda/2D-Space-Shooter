@@ -68,7 +68,6 @@ public abstract class Enemy : MonoBehaviour
                 }
             }
         }
-        Debug.DrawLine(transform.position, TargetManager.CurrentTarget.position, Color.red);
     }
 
     protected virtual void OnEnable()

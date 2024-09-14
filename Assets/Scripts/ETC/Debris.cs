@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Debris : MonoBehaviour, IPickable
 {
+    [SerializeField] AudioClip _onPickUpAudio;
+    AudioSource _audioSource;
     bool _isAttracted;
     public bool isAttracted { get => _isAttracted; set => _isAttracted = value; }
     float _maxSpeed;
     public float maxSpeed { get => _maxSpeed; set => _maxSpeed = value; }
     float currencyWorth;
 
+    void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
     void FixedUpdate()
     {
 
@@ -22,6 +28,7 @@ public class Debris : MonoBehaviour, IPickable
     public void OnPickUp()
     {
         PlayerManager.Instance.SetCurrency(PlayerManager.Instance.Currency() + currencyWorth);
+        _audioSource.PlayOneShot(_onPickUpAudio);
         gameObject.SetActive(false);
     }
 
