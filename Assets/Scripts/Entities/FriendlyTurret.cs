@@ -4,26 +4,11 @@ using UnityEngine;
 
 public class FriendlyTurret : ShooterEnemy
 {
-
     protected override void Attack()
     {
-        FireBullets(GetBulletAmount(), transform.position, CurrentTarget);
-
+        FireBullets(GetBulletAmount(), transform.position, TargetManager.CurrentTarget);
     }
 
-    protected override Transform CheckForTargets()
-    {
-        LayerMask _layerMasks = LayerMask.GetMask("ThraxArmada", "CrimsonFleet", "Syndicates");
-        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, 50f, _layerMasks);
-        foreach (Collider2D targets in hitTargets)
-        {
-            if (targets.CompareTag("ThraxArmada") || targets.CompareTag("CrimsonFleet") || targets.CompareTag("Syndicates"))
-            {
-                return targets.transform;
-            }
-        }
-        return null;
-    }
     public override void FireBullets(int bulletAmount, Vector3 position, Transform target)
     {
         Vector3 targetPosition = target.transform.position;

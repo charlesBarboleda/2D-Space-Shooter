@@ -35,11 +35,13 @@ public class DestroySpawnerBossObjective : Objective
             BossSpawner bossScript = bossShip.GetComponent<BossSpawner>();
             if (bossShip.GetComponent<BossSpawner>() != null)
             {
-                bossScript.Health = _health;
-                bossScript.AttackCooldown = _spawnRate;
-                bossScript.CurrencyDrop = _currencyDrop;
-                bossScript.Speed = _speed;
-                bossScript.StopDistance = _stopDistance;
+                bossScript.Health.CurrentHealth = _health;
+                bossScript.Health.MaxHealth = _health;
+
+                bossScript.AttackManager.AttackCooldown = _spawnRate;
+                bossScript.Health.CurrencyDrop = _currencyDrop;
+                bossScript.Kinematics.Speed = _speed;
+                bossScript.Kinematics.StopDistance = _stopDistance;
                 bossScript.SetShips(_spawnerNames);
             }
 

@@ -23,11 +23,11 @@ public class EnemyTurret : ShooterEnemy
 
     void InitializeTurrets()
     {
-        SetAimRange(_bossShooterEnemy.GetAimRange());
+        AttackManager.AimRange = _bossShooterEnemy.AttackManager.AimRange;
         SetBulletAmount(_bossShooterEnemy.GetBulletAmount());
         SetBulletDamage(_bossShooterEnemy.GetBulletDamage());
         SetBulletSpeed(_bossShooterEnemy.GetBulletSpeed());
-        AttackCooldown = _bossShooterEnemy.AttackCooldown;
+        AttackManager.AttackCooldown = _bossShooterEnemy.AttackManager.AttackCooldown;
         SetShootingAngle(_bossShooterEnemy.GetShootingAngle());
 
 

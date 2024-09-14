@@ -27,24 +27,24 @@ public class SpawnerEnemy : Enemy
     {
         base.OnEnable();
         Attack();
-        AttackCooldown -= GameManager.Instance.Level * 0.01f;
-        if (AttackCooldown <= 0.1f)
+        AttackManager.AttackCooldown -= GameManager.Instance.Level * 0.01f;
+        if (AttackManager.AttackCooldown <= 0.1f)
         {
-            AttackCooldown = 0.1f;
+            AttackManager.AttackCooldown = 0.1f;
         }
     }
 
     public override void BuffedState()
     {
-        AttackCooldown = AttackCooldown / 1.5f;
+        AttackManager.AttackCooldown = AttackManager.AttackCooldown / 1.5f;
     }
     public override void UnBuffedState()
     {
         base.UnBuffedState();
-        AttackCooldown = AttackCooldown * 1.5f;
+        AttackManager.AttackCooldown = AttackManager.AttackCooldown * 1.5f;
     }
 
-    protected override void OnDisable()
+    protected void OnDisable()
     {
 
         CancelInvoke("SpawnRandomShips");
@@ -52,7 +52,7 @@ public class SpawnerEnemy : Enemy
 
     protected override void Attack()
     {
-        InvokeRepeating("SpawnRandomShips", 0, AttackCooldown);
+        InvokeRepeating("SpawnRandomShips", 0, AttackManager.AttackCooldown);
     }
 
     public void SetSpawnRadius(float radius)

@@ -30,7 +30,8 @@ public class ShooterEnemy : Enemy
 
     protected override void Attack()
     {
-        FireBullets(_amountOfBullets, bulletSpawnPoint.position, CurrentTarget);
+        FireBullets(_amountOfBullets, bulletSpawnPoint.position, TargetManager.CurrentTarget);
+        Debug.Log("Firing Bullets");
         PlayShootSound();
     }
 
@@ -57,7 +58,7 @@ public class ShooterEnemy : Enemy
         base.IncreaseStatsPerLevel();
         _bulletSpeed += GameManager.Instance.Level * 0.01f;
         _bulletDamage += GameManager.Instance.Level * 0.5f;
-        AimRange += GameManager.Instance.Level * 0.1f;
+        AttackManager.AimRange += GameManager.Instance.Level * 0.1f;
     }
 
     public override void BuffedState()
@@ -65,7 +66,7 @@ public class ShooterEnemy : Enemy
         base.BuffedState();
         _bulletDamage *= 1.5f;
         _bulletSpeed *= 1.5f;
-        AttackCooldown /= 1.5f;
+        AttackManager.AttackCooldown /= 1.5f;
         _amountOfBullets += 2;
     }
 
@@ -74,7 +75,7 @@ public class ShooterEnemy : Enemy
         base.UnBuffedState();
         _bulletDamage /= 1.5f;
         _bulletSpeed /= 1.5f;
-        AttackCooldown *= 1.5f;
+        AttackManager.AttackCooldown *= 1.5f;
         _amountOfBullets -= 2;
     }
 
@@ -84,11 +85,11 @@ public class ShooterEnemy : Enemy
     public void SetBulletSpeed(float speed) => _bulletSpeed = speed;
     public void SetBulletDamage(float damage) => _bulletDamage = damage;
     public void SetShootingAngle(float angle) => _shootingAngle = angle;
-    public void SetAimRange(float range) => AimRange = range;
+
     public int GetBulletAmount() => _amountOfBullets;
     public float GetBulletSpeed() => _bulletSpeed;
     public float GetBulletDamage() => _bulletDamage;
-    public float GetAimRange() => AimRange;
+
     public float GetShootingAngle() => _shootingAngle;
     public float GetBulletLifetime() => _bulletLifetime;
 }

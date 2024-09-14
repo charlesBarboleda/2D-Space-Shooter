@@ -18,7 +18,6 @@ public class SuicideBomber : Enemy
     [SerializeField] string _explosionEffect;
     [SerializeField] AudioClip _explosionSound;
 
-
     protected override void Update()
     {
         base.Update();
@@ -51,9 +50,9 @@ public class SuicideBomber : Enemy
     }
     IEnumerator Glow()
     {
-        SpriteRenderer.material = _glowMaterial;
+        Health.SpriteRenderer.material = _glowMaterial;
         yield return new WaitForSeconds(_glowLengthRate);
-        SpriteRenderer.material = _regularMaterial;
+        Health.SpriteRenderer.material = _regularMaterial;
     }
 
     IEnumerator ExplosionAnimation()
@@ -89,29 +88,29 @@ public class SuicideBomber : Enemy
                 }
             }
         }
-        isDead = true;
+        Health.isDead = true;
 
         // Stops the exhaust particles
-        exhaustChildren.ForEach(child => child.SetActive(false));
+        Health.ExhaustChildren.ForEach(child => child.SetActive(false));
 
         // Disable all colliders
-        BoxColliders.ForEach(collider => collider.enabled = false);
+        Health.Colliders.ForEach(collider => collider.enabled = false);
 
         // Hide the ship's sprite
-        SpriteRenderer.enabled = false;
+        Health.SpriteRenderer.enabled = false;
 
         // Shake the camera
-        CameraShake.Instance.TriggerShake(CameraShakeMagnitude, CameraShakeDuration);
+        CameraShake.Instance.TriggerShakeMid();
 
-        // Notify Objectives Manager
+        //Notify Objectives Manager
         // ObjectivesManager.Instance.DestroyCrimsonShipsTimed();
 
         // Notify Event Manager
         EventManager.EnemyDestroyedEvent(gameObject, Faction);
 
         // Create the debris
-        GameObject currency = Instantiate(CurrencyPrefab[Random.Range(0, CurrencyPrefab.Count)], transform.position, transform.rotation);
-        currency.GetComponent<Debris>().SetCurrency(CurrencyDrop);
+        GameObject currency = Instantiate(Health.CurrencyPrefab[Random.Range(0, Health.CurrencyPrefab.Count)], transform.position, transform.rotation);
+        currency.GetComponent<Debris>().SetCurrency(Health.CurrencyDrop);
         yield return StartCoroutine(ExplosionAnimation());
         gameObject.SetActive(false);
     }
@@ -120,13 +119,11 @@ public class SuicideBomber : Enemy
     {
         base.IncreaseStatsPerLevel();
         _explosionDamage += GameManager.Instance.Level * 1f;
-        _explosionRadius += GameManager.Instance.Level * 0.1f;
     }
 
     /// <summary>
     /// Getters and Setters
     /// </summary>
-    public float ExplosionRadius { get => _explosionRadius; set => _explosionRadius = value; }
     public float ExplosionDamage { get => _explosionDamage; set => _explosionDamage = value; }
     public float AttackRange { get => _attackRange; set => _attackRange = value; }
 

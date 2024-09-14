@@ -39,16 +39,17 @@ public class DestroyShooterBossObjective : Objective
             BossShooter bossScript = bossShip.GetComponent<BossShooter>();
             if (bossShip.GetComponent<BossShooter>() != null)
             {
-                bossScript.Health = _health;
+                bossScript.Health.CurrentHealth = _health;
+                bossScript.Health.MaxHealth = _health;
                 bossScript.SetBulletAmount(_bulletAmount);
                 bossScript.SetBulletSpeed(_bulletSpeed);
                 bossScript.SetBulletDamage(_bulletDamage);
-                bossScript.AttackCooldown = _fireRate;
+                bossScript.AttackManager.AttackCooldown = _fireRate;
                 bossScript.SetShootingAngle(_shootingAngle);
-                bossScript.CurrencyDrop = _currencyDrop;
-                bossScript.Speed = _speed;
-                bossScript.SetAimRange(_aimRange);
-                bossScript.StopDistance = _stopDistance;
+                bossScript.Health.CurrencyDrop = _currencyDrop;
+                bossScript.Kinematics.Speed = _speed;
+                bossScript.AttackManager.AimRange = _aimRange;
+                bossScript.Kinematics.StopDistance = _stopDistance;
             }
 
 

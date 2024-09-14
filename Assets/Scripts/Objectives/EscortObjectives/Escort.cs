@@ -20,7 +20,8 @@ public class EscortObjective : Objective
         escortShip = ObjectPooler.Instance.SpawnFromPool("CargoShip", escortPathways[0], Quaternion.identity);
         GameManager.Instance.AddEnemy(escortShip);
         CargoShip escortShipScript = escortShip.GetComponent<CargoShip>();
-        escortShipScript.SetHealth(shipHealth);
+        escortShipScript.Health.CurrentHealth = shipHealth;
+        escortShipScript.Health.MaxHealth = shipHealth;
         SetIsCompleted(false);
         SetIsActive(true);
         SetIsFailed(false);

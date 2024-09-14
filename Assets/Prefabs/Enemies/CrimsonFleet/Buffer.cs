@@ -40,7 +40,7 @@ public class Buffer : Enemy
         List<Enemy> _buffedAlliesCopy = new List<Enemy>(_buffedAllies);
         foreach (Enemy ally in _buffedAlliesCopy)
         {
-            if (Vector2.Distance(transform.position, ally.transform.position) > _buffRadius || isDead)
+            if (Vector2.Distance(transform.position, ally.transform.position) > _buffRadius || Health.isDead)
             {
                 ally.UnBuffedState();
                 _buffedAllies.Remove(ally);

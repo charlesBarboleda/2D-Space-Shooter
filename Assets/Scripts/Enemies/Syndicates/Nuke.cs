@@ -17,7 +17,7 @@ public class NukeEnemy : Enemy
 
 
 
-    protected override void OnDisable()
+    void OnDisable()
     {
         StopAllCoroutines();
         if (_nukeTargetPool != null) _nukeTargetPool.SetActive(false);
@@ -43,7 +43,7 @@ public class NukeEnemy : Enemy
 
     IEnumerator ChargeNuke()
     {
-        _initTargetPos = CheckForTargets().position;
+        _initTargetPos = TargetManager.CurrentTarget.position;
         _nukeTargetPool = ObjectPooler.Instance.SpawnFromPool(_nukeTarget, _initTargetPos, Quaternion.identity);
         Debug.Log("Target Aim Position: " + _initTargetPos);
         yield return new WaitForSeconds(_nukeChargeTime);
@@ -60,19 +60,19 @@ public class NukeEnemy : Enemy
     public override void BuffedState()
     {
         _attackRange = _attackRange * 1.5f;
-        AttackCooldown = AttackCooldown / 1.5f;
+        AttackManager.AttackCooldown = AttackManager.AttackCooldown / 1.5f;
     }
 
     public override void UnBuffedState()
     {
         _attackRange = _attackRange / 1.5f;
-        AttackCooldown = AttackCooldown * 1.5f;
+        AttackManager.AttackCooldown = AttackManager.AttackCooldown * 1.5f;
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(CheckForTargets().position, _nukeRadius);
+        Gizmos.DrawWireSphere(TargetManager.CurrentTarget.position, _nukeRadius);
     }
 
 }

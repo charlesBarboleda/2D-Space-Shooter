@@ -73417,7 +73417,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 304d546b80cae47fb872be812b98b2c8, type: 3}
     - target: {fileID: 1500528328037580342, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: currency
-      value: 9999999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3470375514444728767, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: pickUpRadius
@@ -73429,11 +73429,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392182452498158989, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: maxHealth
-      value: 999999
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4392182452498158989, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: currentHealth
-      value: 999999
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4392182452498158989, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: _deathExplosion
