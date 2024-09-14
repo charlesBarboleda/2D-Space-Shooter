@@ -7,7 +7,7 @@ public abstract class Ability : ScriptableObject
     public bool isUnlocked;
     public string abilityName;
     public Sprite icon;
-    public float cooldown = 1f;
+    public float cooldown = 10f;
     public float currentCooldown;
     [SerializeField] protected AudioSource _audioSource;
     [SerializeField] protected AudioClip _audioClip;

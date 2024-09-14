@@ -102,32 +102,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e141fe11180f9c14d94651455e62c8bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currencyPrefab: []
   _buffedParticles: {fileID: 0}
-  _deathSound: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
-  _deathExplosion: 
-  _deathEffect: []
-  _aimOffset: -90
-  _shouldRotate: 1
-  _health: 1000
-  _currencyDrop: 0
-  _speed: 0
-  _stopDistance: 0
-  _isDead: 0
-  _aimRange: 70
-  exhaustChildren: []
-  turretChildren: []
-  separationRadius: 2
-  separationWeight: 1.5
-  _cameraShakeMagnitude: 0
-  _cameraShakeDuration: 0
   bulletSpawnPoint: {fileID: 7742219350932295475}
   _shootSound: {fileID: 0}
   _bulletType: PlayerBullet
-  _fireRate: 0.5
   _bulletSpeed: 30
   _bulletDamage: 10
   _amountOfBullets: 5
@@ -243,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 0
-  _allyFactions: 
+  _allyFactions: 00000000
 --- !u!50 &108836328034682920
 Rigidbody2D:
   serializedVersion: 4

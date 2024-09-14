@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 1
-  _allyFactions: 
+  _allyFactions: 01000000
 --- !u!50 &1540242141757698476
 Rigidbody2D:
   serializedVersion: 4
@@ -383,7 +383,7 @@ MonoBehaviour:
   _deathEffect:
   - DeathEffectMid
   - DeathEffectMid2
-  shakeType: 0
+  shakeType: 2
 --- !u!114 &-4946648656079321404
 MonoBehaviour:
   m_ObjectHideFlags: 0

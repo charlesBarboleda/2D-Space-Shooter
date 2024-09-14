@@ -65,7 +65,7 @@ public class CameraShake : MonoBehaviour
 
     public void TriggerShakeMid()
     {
-        shakeMagnitude = 3f;
+        shakeMagnitude = 2f;
         _shakeDurationRemaining = 0.2f;
 
         // Save the original camera position
@@ -73,7 +73,7 @@ public class CameraShake : MonoBehaviour
     }
     public void TriggerShakeLarge()
     {
-        shakeMagnitude = 5f;
+        shakeMagnitude = 3f;
         _shakeDurationRemaining = 0.3f;
 
         // Save the original camera position

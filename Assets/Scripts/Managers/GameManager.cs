@@ -191,6 +191,7 @@ public class GameManager : MonoBehaviour
         _roundCountdown = 10f;
         EnableSpawning();
         _enemiesToSpawnLeft = _enemiesToSpawnTotal;
+        ObjectivesManager.Instance.SetObjectives("Early", 4);
 
     }
     private void NextRound()
@@ -200,14 +201,18 @@ public class GameManager : MonoBehaviour
 
         _audioSource.PlayOneShot(_nextRoundAudio);
 
-        if (UnityEngine.Random.value <= 0.5f) _isObjectiveRound = true;
+        if (UnityEngine.Random.value <= 0.99f) _isObjectiveRound = true;
         else _isObjectiveRound = false;
         Debug.Log("Objective Round: " + _isObjectiveRound);
         if (_isObjectiveRound)
         {
 
-            if (_level >= 10 && _level < 40) ObjectivesManager.Instance.SetEarlyObjectives();
-            else if (_level >= 40 && _level < 70) ObjectivesManager.Instance.SetMidObjectives();
+            if (_level >= 1 && _level < 20) ObjectivesManager.Instance.SetObjectives("Early", 1);
+            else if (_level >= 20 && _level < 30) ObjectivesManager.Instance.SetObjectives("Early", 2);
+            else if (_level >= 30 && _level < 40) ObjectivesManager.Instance.SetObjectives("Mid", 1);
+            else if (_level >= 40 && _level < 50) ObjectivesManager.Instance.SetObjectives("Mid", 2);
+            else if (_level >= 50 && _level < 60) ObjectivesManager.Instance.SetObjectives("Late", 2);
+            else if (_level >= 60 && _level < 70) ObjectivesManager.Instance.SetObjectives("Late", 3);
             else if (_level >= 70) ObjectivesManager.Instance.SetLateObjectives();
 
 

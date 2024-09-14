@@ -107,8 +107,11 @@ public class Health : MonoBehaviour, IDamageable
         EventManager.EnemyDestroyedEvent(gameObject, _faction);
 
         // Create the debris
-        GameObject currency = Instantiate(_currencyPrefab[Random.Range(0, _currencyPrefab.Count)], transform.position, transform.rotation);
-        currency.GetComponent<Debris>().SetCurrency(_currencyDrop);
+        if (_currencyPrefab.Count > 0)
+        {
+            GameObject currency = Instantiate(_currencyPrefab[Random.Range(0, _currencyPrefab.Count)], transform.position, transform.rotation);
+            currency.GetComponent<Debris>().SetCurrency(_currencyDrop);
+        }
 
         // Wait for the death animation to complete
         yield return StartCoroutine(DeathAnimation());

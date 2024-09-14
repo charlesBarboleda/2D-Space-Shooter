@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 1
-  _allyFactions: 
+  _allyFactions: 01000000
 --- !u!82 &5923325575617448525
 AudioSource:
   m_ObjectHideFlags: 0
@@ -418,10 +418,10 @@ MonoBehaviour:
   - {fileID: 8039788867163802201}
   turretChildren: []
   _deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
-  _deathExplosion: SmallExp
+  _deathExplosion: MidExp
   _deathEffect:
-  - DeathEffect
-  - DeathEffect2
+  - DeathEffectMid
+  - DeathEffectMid2
   shakeType: 0
 --- !u!114 &2848676224377202418
 MonoBehaviour:

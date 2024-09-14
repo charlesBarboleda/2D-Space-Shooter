@@ -26,7 +26,6 @@ public class SpawnerEnemy : Enemy
     protected override void OnEnable()
     {
         base.OnEnable();
-        Attack();
         AttackManager.AttackCooldown -= GameManager.Instance.Level * 0.01f;
         if (AttackManager.AttackCooldown <= 0.1f)
         {
@@ -55,14 +54,7 @@ public class SpawnerEnemy : Enemy
         InvokeRepeating("SpawnRandomShips", 0, AttackManager.AttackCooldown);
     }
 
-    public void SetSpawnRadius(float radius)
-    {
-        _spawnRadius = radius;
-    }
-    public float GetSpawnRadius()
-    {
-        return _spawnRadius;
-    }
+    public float SpawnRadius { get => _spawnRadius; set => _spawnRadius = value; }
 
     public void SetShips(List<string> ships)
     {

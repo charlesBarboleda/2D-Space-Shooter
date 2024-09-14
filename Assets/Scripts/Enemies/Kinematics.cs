@@ -85,8 +85,9 @@ public class Kinematics : MonoBehaviour
         else
         {
             // Fallback if no collider is found
-            _cachedDirection = (target.position - transform.position).normalized;
+            _cachedDirection = (transform.position - target.position).normalized;
             _cachedDistance = Vector3.Distance(transform.position, target.position);
+
         }
 
         // Get separation force to avoid collisions with other enemies
@@ -101,6 +102,8 @@ public class Kinematics : MonoBehaviour
         {
             Orbit(target);  // Orbit when close enough
         }
+
+
     }
     void Orbit(Transform target)
     {
@@ -132,6 +135,16 @@ public class Kinematics : MonoBehaviour
         }
 
         return separationForce;
+    }
+    void OnDrawGizmos()
+    {
+        if (Application.isPlaying)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, transform.position + _cachedDirection * 5);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(transform.position, transform.position + (_cachedDirection + CalculateSeparation()).normalized * 20);
+        }
     }
     public float Speed { get => _speed; set => _speed = value; }
     public float StopDistance { get => _stopDistance; set => _stopDistance = value; }

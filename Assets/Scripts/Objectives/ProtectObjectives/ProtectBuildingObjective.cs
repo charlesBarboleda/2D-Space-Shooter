@@ -19,10 +19,12 @@ public class ProtectBuildingObjective : Objective
         {
             _building = ObjectPooler.Instance.SpawnFromPool(buildingName, _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
             GameManager.Instance.AddEnemy(_building);
-            Building buildingScript = _building.GetComponent<Building>();
-            if (_building.GetComponent<Building>() != null)
+            Health buildingHealth = _building.GetComponent<Health>();
+            if (_building.GetComponent<Health>() != null)
             {
-                buildingScript.SetHealth(_health);
+                buildingHealth.CurrentHealth = _health;
+                buildingHealth.MaxHealth = _health;
+
             }
         }
         _elapsedTime = _requiredTime;

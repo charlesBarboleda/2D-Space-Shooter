@@ -51,6 +51,10 @@ GameObject:
   - component: {fileID: 2618834500722108259}
   - component: {fileID: 538204543827607069}
   - component: {fileID: 8392156127010290708}
+  - component: {fileID: 5256734101997850122}
+  - component: {fileID: -2626199526483480895}
+  - component: {fileID: 3522848249774356961}
+  - component: {fileID: 1167934655318232050}
   m_Layer: 14
   m_Name: ThraxCarrier 1
   m_TagString: ThraxArmada
@@ -68,7 +72,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.37393272, w: 0.9274558}
   m_LocalPosition: {x: -0.18670255, y: -3.7084005, z: 0}
-  m_LocalScale: {x: 12.367261, y: 12.367261, z: 12.367261}
+  m_LocalScale: {x: 15.165972, y: 15.165972, z: 15.165972}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 266865092843442894}
@@ -236,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 2
-  _allyFactions: 
+  _allyFactions: 02000000
 --- !u!50 &615247163074163173
 Rigidbody2D:
   serializedVersion: 4
@@ -291,38 +295,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6888f4ee4b8a7e3469743d54dac9f865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currencyPrefab:
-  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
-  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
-  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
-  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
-  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
-  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
   _buffedParticles: {fileID: 0}
-  _deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
   _abilitySound: {fileID: 8300000, guid: 113a0f1929ad74dcba20169a2eaa5e57, type: 3}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: LargeSpawn
-  _deathExplosion: LargeExp
-  _deathEffect:
-  - DeathEffectLarge
-  - DeathEffectLarge2
-  _aimOffset: 0
-  _shouldRotate: 0
-  _health: 1000
-  _currencyDrop: 200
-  _speed: 20
-  _stopDistance: 100
-  _isDead: 0
-  _aimRange: 120
-  _attackCooldown: 3
-  exhaustChildren:
-  - {fileID: 266865092843442929}
-  turretChildren: []
-  separationRadius: 2
-  separationWeight: 1.5
-  _cameraShakeMagnitude: 30
-  _cameraShakeDuration: 0.4
   _spawnRadius: 60
   ships:
   - ThraxSmall1
@@ -369,62 +345,62 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 8103577753947644490}
     m_ColliderPaths:
-    - - X: -44634356
-        Y: 32337830
-      - X: -44634424
-        Y: 448734528
-      - X: -435215456
-        Y: 448734432
-      - X: -435215392
-        Y: 32337770
+    - - X: -54735108
+        Y: 39655880
+      - X: -54735176
+        Y: 550283136
+      - X: -533704672
+        Y: 550283072
+      - X: -533704608
+        Y: 39655820
   - m_Collider: {fileID: 2618834500722108259}
     m_ColliderPaths:
-    - - X: 101558168
-        Y: -89967848
-      - X: 101558120
-        Y: 257604720
-      - X: -236062624
-        Y: 257604656
-      - X: -236062560
-        Y: -89967912
+    - - X: 124540784
+        Y: -110327576
+      - X: 124540736
+        Y: 315900640
+      - X: -289483552
+        Y: 315900608
+      - X: -289483520
+        Y: -110327632
   - m_Collider: {fileID: 538204543827607069}
     m_ColliderPaths:
-    - - X: 223254336
-        Y: -213240416
-      - X: 223254288
-        Y: 113026456
-      - X: -63349620
-        Y: 113026408
-      - X: -63349568
-        Y: -213240464
+    - - X: 273776800
+        Y: -261496720
+      - X: 273776736
+        Y: 138604336
+      - X: -77685632
+        Y: 138604288
+      - X: -77685584
+        Y: -261496768
   - m_Collider: {fileID: 8392156127010290708}
     m_ColliderPaths:
-    - - X: 450684800
-        Y: -436634112
-      - X: 450684736
-        Y: -22258560
-      - X: 63344628
-        Y: -22258620
-      - X: 63344688
-        Y: -436634176
+    - - X: 552674816
+        Y: -535444416
+      - X: 552674688
+        Y: -27295690
+      - X: 77679512
+        Y: -27295750
+      - X: 77679576
+        Y: -535444480
   m_CompositePaths:
     m_Paths:
-    - - {x: 6.334469, y: -43.66339}
-      - {x: 45.06848, y: -43.663383}
-      - {x: 45.068447, y: -2.225856}
-      - {x: 22.32543, y: -2.22583}
-      - {x: 22.3254, y: 11.302646}
-      - {x: 10.155814, y: 11.302673}
-      - {x: 10.155783, y: 25.760473}
-      - {x: -4.4634395, y: 25.7605}
-      - {x: -4.463472, y: 44.873455}
-      - {x: -43.521545, y: 44.873413}
-      - {x: -43.52151, y: 3.233777}
-      - {x: -23.606258, y: 3.2337508}
-      - {x: -23.606228, y: -8.996791}
-      - {x: -6.334959, y: -8.996818}
-      - {x: -6.3349276, y: -21.324047}
-      - {x: 6.3344655, y: -21.324074}
+    - - {x: 7.7679577, y: -53.54442}
+      - {x: 55.267483, y: -53.544415}
+      - {x: 55.267437, y: -2.729569}
+      - {x: 27.377678, y: -2.7295432}
+      - {x: 27.377645, y: 13.860434}
+      - {x: 12.454076, y: 13.860461}
+      - {x: 12.454044, y: 31.590065}
+      - {x: -5.4735146, y: 31.590094}
+      - {x: -5.473547, y: 55.028313}
+      - {x: -53.37047, y: 55.028275}
+      - {x: -53.370434, y: 3.9655821}
+      - {x: -28.948353, y: 3.9655557}
+      - {x: -28.948324, y: -11.0327635}
+      - {x: -7.76856, y: -11.03279}
+      - {x: -7.768529, y: -26.149677}
+      - {x: 7.7679543, y: -26.149704}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -609,6 +585,83 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.13198, y: 3.3505847}
   m_EdgeRadius: 0
+--- !u!114 &5256734101997850122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143085703906712905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 10000
+  _maxHealth: 10000
+  _currencyDrop: 1000
+  _currencyPrefab:
+  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
+  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
+  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
+  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
+  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
+  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
+  exhaustChildren:
+  - {fileID: 266865092843442929}
+  turretChildren: []
+  _deathSound: {fileID: 8300000, guid: ba594aad031975b45a5acdbd5fa34f5c, type: 3}
+  _deathExplosion: LargeExp
+  _deathEffect:
+  - DeathEffectLarge2
+  - DeathEffectLarge
+  shakeType: 2
+--- !u!114 &-2626199526483480895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143085703906712905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checkForTargetsInterval: 3
+  _checkForTargetsRadius: 50
+--- !u!114 &3522848249774356961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143085703906712905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9216c03e867f274db5aaf93c01462f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aimRange: 20
+  _attackCooldown: 1
+--- !u!114 &1167934655318232050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143085703906712905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd460e7f24ce9d34493bb0571c6c9720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _aimOffset: 0
+  _shouldRotate: 0
+  _speed: 0
+  _stopDistance: 0
+  separationRadius: 2
+  separationWeight: 1.5
 --- !u!1001 &3328906306701253564
 PrefabInstance:
   m_ObjectHideFlags: 0

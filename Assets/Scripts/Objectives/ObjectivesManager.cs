@@ -49,20 +49,31 @@ public class ObjectivesManager : MonoBehaviour
 
     }
 
-    public void SetEarlyObjectives()
+    public void SetObjectives(string level, int amount)
     {
-        SetActiveObjectives(earlyObjectives, Random.Range(1, 3));
-        Debug.Log("Early Objectives: " + activeObjectives.Count);
+        switch (level)
+        {
+            case "Early":
+                SetActiveObjectives(earlyObjectives, Random.Range(1, amount + 1));
+                break;
+            case "Mid":
+                SetActiveObjectives(midObjectives, Random.Range(1, amount + 1));
+                break;
+            case "Late":
+                SetActiveObjectives(lateObjectives, Random.Range(1, amount + 1));
+                break;
+        }
+
     }
 
     public void SetMidObjectives()
     {
-        SetActiveObjectives(midObjectives, Random.Range(1, 3));
+
     }
 
     public void SetLateObjectives()
     {
-        SetActiveObjectives(lateObjectives, Random.Range(1, 4));
+
     }
 
     void StartObjectives()

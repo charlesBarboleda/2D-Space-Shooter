@@ -729,7 +729,7 @@ MonoBehaviour:
   _deathEffect:
   - DeathEffectLarge
   - DeathEffectLarge2
-  shakeType: 0
+  shakeType: 1
 --- !u!114 &4322789316144294938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,7 +746,7 @@ MonoBehaviour:
   _shouldRotate: 1
   _speed: 14
   _stopDistance: 40
-  separationRadius: 40
+  separationRadius: 20
   separationWeight: 1.5
 --- !u!114 &-8485945176352853180
 MonoBehaviour:

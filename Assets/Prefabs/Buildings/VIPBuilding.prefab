@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6127135564744558911}
   - component: {fileID: 1490855353325991047}
-  - component: {fileID: 7546859524840370713}
   - component: {fileID: 7493312091775896553}
   - component: {fileID: 6918635866412690468}
   - component: {fileID: 1695761903461445573}
+  - component: {fileID: -3641866976863019800}
+  - component: {fileID: 2728691784352082811}
   m_Layer: 8
   m_Name: VIPBuilding
   m_TagString: EnemyDestroyable
@@ -92,41 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7546859524840370713
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7432928836449591779}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.4149998
 --- !u!50 &7493312091775896553
 Rigidbody2D:
   serializedVersion: 4
@@ -166,16 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f9ab783fce74e4abbfdfa38afe6cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10000
-  _turretChildren:
-  - {fileID: 6803116586258828091}
-  - {fileID: 862887470855212041}
-  - {fileID: 6751473525283624604}
-  - {fileID: 3887045166085932524}
-  _deathEffect:
-  - DeathEffectMid
-  - DeathEffectMid2
-  _deathExplosion: LargeExp
 --- !u!114 &1695761903461445573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +146,79 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _factionType: 0
   _allyFactions: 00000000
+--- !u!114 &-3641866976863019800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432928836449591779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 5000
+  _maxHealth: 5000
+  _currencyDrop: 0
+  _currencyPrefab: []
+  exhaustChildren: []
+  turretChildren:
+  - {fileID: 6803116586258828091}
+  - {fileID: 862887470855212041}
+  - {fileID: 6751473525283624604}
+  - {fileID: 3887045166085932524}
+  _deathSound: {fileID: 8300000, guid: 961afbe1db60718438c30788c5f60cf9, type: 3}
+  _deathExplosion: MidExp
+  _deathEffect:
+  - DeathEffectMid
+  - DeathEffectMid2
+  shakeType: 1
+--- !u!61 &2728691784352082811
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432928836449591779}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.82, y: 2.83}
+    newSize: {x: 8.14, y: 8.14}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.82, y: 2.83}
+  m_EdgeRadius: 0
 --- !u!1001 &2932260864371965154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -198,6 +227,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6127135564744558911}
     m_Modifications:
+    - target: {fileID: 2132454583810687215, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _allyFactions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
       propertyPath: aimRange
       value: 60
@@ -293,6 +326,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6127135564744558911}
     m_Modifications:
+    - target: {fileID: 2132454583810687215, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _allyFactions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
       propertyPath: aimRange
       value: 60
@@ -388,6 +425,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6127135564744558911}
     m_Modifications:
+    - target: {fileID: 2132454583810687215, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _allyFactions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
       propertyPath: aimRange
       value: 60
@@ -483,6 +524,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6127135564744558911}
     m_Modifications:
+    - target: {fileID: 2132454583810687215, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
+      propertyPath: _allyFactions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2268223402877380891, guid: 2d6666322dfcd484bacbd9813b8e8be2, type: 3}
       propertyPath: aimRange
       value: 60

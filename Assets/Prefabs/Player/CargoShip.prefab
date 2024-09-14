@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3399931127119764024}
   - component: {fileID: 1402727321903492440}
   - component: {fileID: 6812261617971387421}
+  - component: {fileID: 7631515146434399605}
   m_Layer: 8
   m_Name: CargoShip
   m_TagString: EnemyDestroyable
@@ -103,8 +104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnAnimation: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
-  deathAnimation: {fileID: 162584487599433031, guid: 71c2b036e1a7a84418a17c55376eb376, type: 3}
-  _health: 1000
 --- !u!61 &6696673542108561053
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -236,6 +235,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _factionType: 0
   _allyFactions: 00000000
+--- !u!114 &7631515146434399605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903720118690535301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentHealth: 5000
+  _maxHealth: 5000
+  _currencyDrop: 0
+  _currencyPrefab: []
+  exhaustChildren:
+  - {fileID: 2601793444484521670}
+  turretChildren: []
+  _deathSound: {fileID: 0}
+  _deathExplosion: LargeExp
+  _deathEffect:
+  - DeathEffectLarge
+  - DeathEffectLarge2
+  shakeType: 2
 --- !u!1001 &692942597771909003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -405,6 +429,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+--- !u!1 &2601793444484521670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3280519133390621005, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+  m_PrefabInstance: {fileID: 692942597771909003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2601793444484521721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
