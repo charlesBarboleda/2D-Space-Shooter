@@ -18,7 +18,7 @@ public class ShooterEnemy : Enemy
 
     private void PlayShootSound()
     {
-        if (_shootSound != null)
+        if (_shootSound != null && !AudioSource.isPlaying)
         {
             AudioSource.PlayOneShot(_shootSound);
         }
