@@ -32,6 +32,13 @@ public class UIManager : MonoBehaviour
 
     AbilityHolder _abilityHolder;
 
+    [Header("PowerUps Panel")]
+    public GameObject DamagePowerUp;
+    public GameObject FireRatePowerUp;
+    public GameObject SpeedPowerUp;
+    public GameObject HealthPowerUp;
+    public GameObject PickUpRadiusPowerUp;
+
     void Awake()
     {
 

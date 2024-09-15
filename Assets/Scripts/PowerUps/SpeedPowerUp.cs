@@ -41,6 +41,8 @@ public class SpeedPowerUp : PowerUp, IPickable
         Debug.Log("Speed PowerUp Activated");
 
         _player.SetMoveSpeed(_player.MoveSpeed() * 2);
+        UIManager.Instance.SpeedPowerUp.SetActive(true);
+
         Debug.Log("Speed: " + _player.MoveSpeed());
     }
 
@@ -49,6 +51,8 @@ public class SpeedPowerUp : PowerUp, IPickable
         Debug.Log("Speed PowerUp Deactivated");
         _initSpeed = _player.MoveSpeed() / 2;
         _player.SetMoveSpeed(_initSpeed);
+        UIManager.Instance.SpeedPowerUp.SetActive(true);
+
         Debug.Log("Speed: " + _player.MoveSpeed());
     }
 

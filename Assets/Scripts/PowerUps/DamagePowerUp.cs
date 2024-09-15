@@ -40,6 +40,7 @@ public class DamagePowerUp : PowerUp, IPickable
     {
         Debug.Log("Damage PowerUp Activated");
         _weapon.bulletDamage *= 2;
+        UIManager.Instance.DamagePowerUp.SetActive(true);
         Debug.Log("Damage: " + _weapon.bulletDamage);
     }
 
@@ -48,6 +49,8 @@ public class DamagePowerUp : PowerUp, IPickable
         Debug.Log("Damage PowerUp Deactivated");
         _initDamage = _weapon.bulletDamage / 2;
         _weapon.bulletDamage = _initDamage;
+        UIManager.Instance.DamagePowerUp.SetActive(false);
+
         Debug.Log("Damage: " + _weapon.bulletDamage);
     }
 

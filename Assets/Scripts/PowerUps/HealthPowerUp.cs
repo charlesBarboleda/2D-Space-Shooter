@@ -38,6 +38,8 @@ public class HealthPowerUp : PowerUp, IPickable
 
         PlayerManager.Instance.SetCurrentHealth(PlayerManager.Instance.CurrentHealth() * 2);
         PlayerManager.Instance.SetMaxHealth(PlayerManager.Instance.MaxHealth() * 2);
+        UIManager.Instance.HealthPowerUp.SetActive(true);
+
 
         Debug.Log("Health: " + PlayerManager.Instance.CurrentHealth());
     }
@@ -49,6 +51,8 @@ public class HealthPowerUp : PowerUp, IPickable
         _initMaxHealth = PlayerManager.Instance.MaxHealth() / 2;
         PlayerManager.Instance.SetCurrentHealth(_initHealth);
         PlayerManager.Instance.SetMaxHealth(_initMaxHealth);
+        UIManager.Instance.HealthPowerUp.SetActive(false);
+
         Debug.Log("Health: " + PlayerManager.Instance.CurrentHealth());
     }
 
