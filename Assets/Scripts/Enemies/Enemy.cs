@@ -25,6 +25,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] AudioClip _spawnSound;
     [SerializeField] string _spawnAnimation;
 
+    string _enemyID;
+
 
     protected abstract void Attack();
 
@@ -40,6 +42,7 @@ public abstract class Enemy : MonoBehaviour
         _targetManager = GetComponent<TargetManager>();
         _kinematics = GetComponent<Kinematics>();
         _faction.AddAllyFaction(_faction.factionType);
+        _enemyID = "1";
 
 
     }
@@ -141,6 +144,7 @@ public abstract class Enemy : MonoBehaviour
     public AttackManager AttackManager { get => _attackManager; }
     public TargetManager TargetManager { get => _targetManager; }
     public AudioSource AudioSource { get => _audioSource; }
+    public string EnemyID { get => _enemyID; set => _enemyID = value; }
 
 
 }

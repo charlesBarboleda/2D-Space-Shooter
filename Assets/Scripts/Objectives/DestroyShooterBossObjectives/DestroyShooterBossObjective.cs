@@ -32,11 +32,16 @@ public class DestroyShooterBossObjective : Objective
         _elapsedTime = _timeToDestroy;
         _requiredKills = _bossNames.Count;
         _currentKills = 0;
+        IsCompleted = false;
+        IsActive = true;
+        IsFailed = false;
+        ObjectiveID = Guid.NewGuid().ToString();
         foreach (string bossName in _bossNames)
         {
             GameObject bossShip = ObjectPooler.Instance.SpawnFromPool(bossName, _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
             GameManager.Instance.AddEnemy(bossShip);
             BossShooter bossScript = bossShip.GetComponent<BossShooter>();
+            bossScript.EnemyID = ObjectiveID;
             if (bossShip.GetComponent<BossShooter>() != null)
             {
                 bossScript.Health.CurrentHealth = _health;
@@ -54,10 +59,6 @@ public class DestroyShooterBossObjective : Objective
 
 
         }
-        IsCompleted = false;
-        IsActive = true;
-        IsFailed = false;
-        ObjectiveID = Guid.NewGuid().ToString();
     }
 
     public override void UpdateObjective()

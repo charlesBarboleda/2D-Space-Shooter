@@ -27,12 +27,12 @@ public class DestroyShipsTimed : Objective
         if (IsCompleted || IsFailed) return;
 
         _elapsedTime -= Time.deltaTime;
-
+        Debug.Log("Elapsed Time: " + _elapsedTime);
         if (_elapsedTime <= 0) FailedObjective();
         if (_currentKills >= _requiredKills && _elapsedTime > 0)
         {
-            _currentKills = _requiredKills;
             CompleteObjective();
+            _currentKills = _requiredKills;
         }
 
         if (IsCompleted) ObjectiveDescription = "Objective Completed";
@@ -49,10 +49,9 @@ public class DestroyShipsTimed : Objective
     }
     public override void CompleteObjective()
     {
-        if (_currentKills == 0)
-        {
-            MarkObjectiveCompleted();
-        }
+
+        MarkObjectiveCompleted();
+
     }
     public void RegisterKill()
     {

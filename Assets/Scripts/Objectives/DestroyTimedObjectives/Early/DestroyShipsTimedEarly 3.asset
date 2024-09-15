@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa6ee8b7d3ac41428cfe0552e1ded37, type: 3}
   m_Name: DestroyShipsTimedEarly 3
   m_EditorClassIdentifier: 
-  objectiveDescription: 
-  isCompleted: 0
-  isActive: 0
-  isFailed: 0
-  reward: 100
-  timeToDestroy: 120
-  elapsedTime: 0
-  requiredKills: 20
-  currentKills: 0
+  _objectiveDescription: Objective Failed
+  _isCompleted: 0
+  _isActive: 1
+  _isFailed: 1
+  _reward: 500
+  _objectiveID: f87c0ff6-f792-49d0-8aa2-c6029aac3454
+  _timeToDestroy: 300
+  _elapsedTime: -0.0075538
+  _requiredKills: 50
+  _currentKills: 0

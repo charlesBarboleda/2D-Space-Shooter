@@ -23,7 +23,7 @@ public class AbilityShield : Ability
 
         //Pass the damage value to the shield
         PlayerShieldPrefab shieldScript = shield.GetComponent<PlayerShieldPrefab>();
-        shieldScript.SetDamage(_shieldDamage);
+        shieldScript.Dps = _shieldDamage;
 
     }
 

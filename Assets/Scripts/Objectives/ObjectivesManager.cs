@@ -90,20 +90,22 @@ public class ObjectivesManager : MonoBehaviour
     public void SetActiveObjectives(List<Objective> objectives, int amount)
     {
 
-        for (int i = 0; i < amount; i++)
+        int attempts = 0; // To prevent infinite loops in case there are not enough valid objectives.
+
+        while (activeObjectives.Count < amount && attempts < objectives.Count * 2) // Safety check to avoid too many iterations.
         {
-            int randomIndex;
-            Objective selectedObjective;
+            int randomIndex = Random.Range(0, objectives.Count);
+            Objective selectedObjective = objectives[randomIndex];
 
-            // Ensure no duplicates by repeatedly selecting a random objective if it's already active
-            do
+            // Check if the selected objective type is not already in the active objectives list.
+            if (!activeObjectives.Exists(x => x.GetType() == selectedObjective.GetType()))
             {
-                randomIndex = Random.Range(0, objectives.Count);
-                selectedObjective = objectives[randomIndex];
-            } while (!activeObjectives.Contains(selectedObjective));
+                activeObjectives.Add(selectedObjective);
+            }
 
-            activeObjectives.Add(selectedObjective);
+            attempts++; // Increase attempt counter
         }
+
     }
 
     public void RemoveAllObjectives()
@@ -116,34 +118,30 @@ public class ObjectivesManager : MonoBehaviour
     void OnAnyEnemyDestroyed(GameObject enemy)
     {
         if (activeObjectives.Count == 0) return;
+        Enemy enemyScript = enemy.GetComponent<Enemy>();
 
         foreach (Objective objective in activeObjectives)
         {
-            if (objective.IsActive)
+            if (objective.IsActive && _activeObjectivesID.Contains(objective.ObjectiveID))
             {
+                // Call RegisterKill only for the objective that matches the ID
                 if (objective is DestroyShipsTimed destroyShipsTimed)
                 {
-                    if (_activeObjectivesID.Contains(destroyShipsTimed.ObjectiveID))
-                        destroyShipsTimed.RegisterKill();
-
+                    destroyShipsTimed.RegisterKill();
                 }
-                if (objective is DestroyShooterBossObjective destroyShooterBoss)
+                else if (objective is DestroyShooterBossObjective destroyShooterBoss && enemyScript.EnemyID == objective.ObjectiveID)
                 {
-                    if (_activeObjectivesID.Contains(destroyShooterBoss.ObjectiveID))
-                        destroyShooterBoss.RegisterKill();
+                    destroyShooterBoss.RegisterKill();
                 }
-                if (objective is DestroyFormationTimed destroyFormationTimed)
+                else if (objective is DestroyFormationTimed destroyFormationTimed && enemyScript.EnemyID == objective.ObjectiveID)
                 {
-                    if (_activeObjectivesID.Contains(destroyFormationTimed.ObjectiveID))
-                        destroyFormationTimed.RegisterKill();
+                    destroyFormationTimed.RegisterKill();
                 }
-                if (objective is DestroySpawnerBossObjective destroySpawnerBoss)
+                else if (objective is DestroySpawnerBossObjective destroySpawnerBoss && enemyScript.EnemyID == objective.ObjectiveID)
                 {
-                    if (_activeObjectivesID.Contains(destroySpawnerBoss.ObjectiveID))
-                        destroySpawnerBoss.RegisterKill();
+                    destroySpawnerBoss.RegisterKill();
                 }
             }
         }
     }
-
 }

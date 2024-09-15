@@ -4,22 +4,15 @@ using UnityEngine;
 
 public class PlayerShieldPrefab : MonoBehaviour
 {
-    private float _dps;
+    float _dps;
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates") || other.CompareTag("CrimsonFleet"))
         {
-            other.gameObject.GetComponent<IDamageable>().TakeDamage(_dps * Time.deltaTime);
-        }
-        if (other.gameObject.CompareTag("EnemyBullet"))
-        {
-            other.gameObject.SetActive(false);
+            other.gameObject.GetComponent<IDamageable>().TakeDamage(_dps);
         }
     }
-    public void SetDamage(float dps)
-    {
-        this._dps = dps;
-    }
+    public float Dps { get => _dps; set => _dps = value; }
 
 }

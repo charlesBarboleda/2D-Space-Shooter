@@ -379,10 +379,10 @@ MonoBehaviour:
   - {fileID: 4884541028745969451}
   turretChildren: []
   _deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
-  _deathExplosion: MidExp
+  _deathExplosion: LargeExp
   _deathEffect:
-  - DeathEffectMid
-  - DeathEffectMid2
+  - DeathEffectLarge
+  - DeathEffectLarge2
   shakeType: 2
 --- !u!114 &-4946648656079321404
 MonoBehaviour:
@@ -402,6 +402,7 @@ MonoBehaviour:
   _stopDistance: 80
   separationRadius: 40
   separationWeight: 1.5
+  maxSeparationForce: 0.5
 --- !u!114 &1338450360641451553
 MonoBehaviour:
   m_ObjectHideFlags: 0

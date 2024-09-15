@@ -45,6 +45,7 @@ public class SuicideBomber : Enemy
 
     protected override void Attack()
     {
+        if (Health.isDead) return;
         StartCoroutine(Explode());
     }
     IEnumerator Glow()

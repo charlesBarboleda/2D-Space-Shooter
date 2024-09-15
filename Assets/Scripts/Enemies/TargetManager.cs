@@ -61,8 +61,6 @@ public class TargetManager : MonoBehaviour
                 {
                     closestDistance = distance;
                     bestTarget = targetCollider.transform;
-                    Debug.Log("Ship: " + gameObject.name + " Found best target: " + bestTarget.name);
-
 
                 }
             }

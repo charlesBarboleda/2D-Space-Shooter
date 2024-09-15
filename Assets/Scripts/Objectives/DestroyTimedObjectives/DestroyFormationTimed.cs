@@ -18,7 +18,12 @@ public class DestroyFormationTimed : Objective
     public override void InitObjective()
     {
         _elapsedTime = _timeToDestroy;
-        _requiredKills = 0; // Initialize required kills
+        _currentKills = 0;
+        IsCompleted = false;
+        IsActive = true;
+        IsFailed = false;
+        ObjectiveID = Guid.NewGuid().ToString();
+
 
         foreach (string formationName in _formationNames)
         {
@@ -31,30 +36,29 @@ public class DestroyFormationTimed : Objective
 
             // Get the total positions of the formation
             FleetFormation formationScript = formation.GetComponent<FleetFormation>();
-
+            _requiredKills = formationScript.FormationPositions.Count + formationScript.BossPositions.Count;
             // Spawn the ships in the formation
             foreach (Transform shipSpawn in formationScript.FormationPositions)
             {
                 // Spawn the ships in the formation
                 GameObject ship = ObjectPooler.Instance.SpawnFromPool(_shipNames[UnityEngine.Random.Range(0, _shipNames.Count)], shipSpawn.position, Quaternion.identity);
-                _requiredKills++;
+                Enemy enemyScript = ship.GetComponent<Enemy>();
+                enemyScript.EnemyID = ObjectiveID;
                 GameManager.Instance.AddEnemy(ship);
+
             }
             foreach (Transform bossSpawn in formationScript.BossPositions)
             {
                 // Spawn the bosses in the formation
                 GameObject boss = ObjectPooler.Instance.SpawnFromPool(_bossNames[UnityEngine.Random.Range(0, _bossNames.Count)], bossSpawn.position, Quaternion.identity);
-                _requiredKills++;
+                Enemy enemyScript = boss.GetComponent<Enemy>();
+                enemyScript.EnemyID = ObjectiveID;
                 GameManager.Instance.AddEnemy(boss);
+
             }
             formation.SetActive(false);
         }
 
-        _currentKills = _requiredKills; // Initialize current kills
-        IsCompleted = false;
-        IsActive = true;
-        IsFailed = false;
-        ObjectiveID = Guid.NewGuid().ToString();
     }
 
     public override void UpdateObjective()
@@ -66,8 +70,8 @@ public class DestroyFormationTimed : Objective
         if (_elapsedTime <= 0) FailedObjective();
         if (_currentKills >= _requiredKills && _elapsedTime > 0)
         {
-            _currentKills = _requiredKills;
             CompleteObjective();
+            _currentKills = _requiredKills;
         }
 
         if (IsCompleted) ObjectiveDescription = "Objective Completed";
@@ -81,10 +85,9 @@ public class DestroyFormationTimed : Objective
     }
     public override void CompleteObjective()
     {
-        if (_currentKills == 0)
-        {
-            MarkObjectiveCompleted();
-        }
+
+        MarkObjectiveCompleted();
+
     }
 
     public void RegisterKill()
