@@ -93,19 +93,19 @@ public class Kinematics : MonoBehaviour
 
         // Get separation force to avoid collisions with other enemies
         Vector3 separationForce = CalculateSeparation();
-        Debug.Log(gameObject.name + " has separation force of " + separationForce);
+
 
         if (_cachedDistance > _stopDistance)
         {
             Vector3 finalDirection = (_cachedDirection + separationForce).normalized;
             transform.position += finalDirection * _speed * Time.deltaTime;
-            Debug.Log(gameObject.name + " is moving towards target" + target.name);
+
         }
         else
         {
 
             Orbit(target);
-            Debug.Log(gameObject.name + " is orbiting target" + target.name);
+
         }
 
 

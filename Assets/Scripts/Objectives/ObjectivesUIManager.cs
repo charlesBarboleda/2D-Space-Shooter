@@ -54,9 +54,9 @@ public class ObjectivesUIManager : MonoBehaviour
         if (objectiveUITexts.ContainsKey(objective))
         {
             TextMeshProUGUI objectiveText = objectiveUITexts[objective];
-            objectiveText.text = objective.GetObjectiveDescription();
-            if (objective.GetIsCompleted()) objectiveText.color = Color.green;
-            else if (objective.GetIsFailed()) objectiveText.color = Color.red;
+            objectiveText.text = objective.ObjectiveDescription;
+            if (objective.IsCompleted) objectiveText.color = Color.green;
+            else if (objective.IsFailed) objectiveText.color = Color.red;
             else objectiveText.color = Color.white;
         }
     }

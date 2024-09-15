@@ -6,7 +6,7 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
 
-    public static event Action<GameObject, Faction> OnEnemyDestroyed;
+    public static event Action<GameObject> OnEnemyDestroyed;
 
     public static event System.Action OnGameOver;
     public static event System.Action OnNextRound;
@@ -14,14 +14,13 @@ public class EventManager : MonoBehaviour
     public static event System.Action<float> OnCurrencyChange;
 
 
-
     public static void CurrencyChangeEvent(float currency)
     {
         OnCurrencyChange?.Invoke(currency);
     }
-    public static void EnemyDestroyedEvent(GameObject enemy, Faction faction)
+    public static void AnyShipDestroyedEevent(GameObject go)
     {
-        OnEnemyDestroyed?.Invoke(enemy, faction);
+        OnEnemyDestroyed?.Invoke(go);
     }
     public static void GameOverEvent()
     {

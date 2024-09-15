@@ -19,14 +19,9 @@ public class TargetManager : MonoBehaviour
     {
         if (_currentTarget == null || !_currentTarget.gameObject.activeInHierarchy)
         {
-            Debug.Log(gameObject.name + " has no targets... Checking for targets ");
+
             _currentTarget = CheckForTargets();
             _checkForTargetsRadius += 10f;
-        }
-        if (_currentTarget != null)
-        {
-
-            Debug.Log(gameObject.name + " is targeting " + _currentTarget.name);
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,14 +48,15 @@ public class DestroySpawnerBossObjective : Objective
 
 
         }
-        SetIsCompleted(false);
-        SetIsActive(true);
-        SetIsFailed(false);
+        IsCompleted = false;
+        IsActive = true;
+        IsFailed = false;
+        ObjectiveID = Guid.NewGuid().ToString();
     }
 
     public override void UpdateObjective()
     {
-        if (GetIsCompleted() || GetIsFailed()) return;
+        if (IsCompleted || IsFailed) return;
         if (_elapsedTime <= 0) FailedObjective();
         if (_currentKills >= _requiredKills && _elapsedTime > 0)
         {
@@ -63,9 +65,9 @@ public class DestroySpawnerBossObjective : Objective
         }
         _elapsedTime -= Time.deltaTime;
 
-        if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
-        if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
-        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Destroy the Carrier ships: " + _currentKills + "/" + _requiredKills + " in " + Mathf.Round(_elapsedTime) + " seconds");
+        if (IsCompleted) ObjectiveDescription = "Objective Completed";
+        if (IsFailed) ObjectiveDescription = "Objective Failed";
+        if (IsActive && !IsCompleted && !IsFailed) ObjectiveDescription = $"Destroy {_requiredKills} Syndicate Carrier ship: {_currentKills} destroyed. " + " Time Left: " + Mathf.Round(_elapsedTime) + " seconds";
 
     }
     public override void CompleteObjective()
@@ -78,12 +80,13 @@ public class DestroySpawnerBossObjective : Objective
         MarkObjectiveFailed();
     }
 
-    public void SetCurrentKills(int kills)
+    public void RegisterKill()
     {
-        _currentKills = kills;
+        if (IsActive && !IsCompleted && !IsFailed)
+        {
+            _currentKills++;
+        }
     }
-    public int GetCurrentKills()
-    {
-        return _currentKills;
-    }
+
+    public int CurrentKills { get => _currentKills; set => _currentKills = value; }
 }

@@ -31,7 +31,7 @@ public class DestroyShooterBossObjective : Objective
     {
         _elapsedTime = _timeToDestroy;
         _requiredKills = _bossNames.Count;
-        _currentKills = _requiredKills;
+        _currentKills = 0;
         foreach (string bossName in _bossNames)
         {
             GameObject bossShip = ObjectPooler.Instance.SpawnFromPool(bossName, _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
@@ -54,25 +54,26 @@ public class DestroyShooterBossObjective : Objective
 
 
         }
-        SetIsCompleted(false);
-        SetIsActive(true);
-        SetIsFailed(false);
+        IsCompleted = false;
+        IsActive = true;
+        IsFailed = false;
+        ObjectiveID = Guid.NewGuid().ToString();
     }
 
     public override void UpdateObjective()
     {
-        if (GetIsCompleted() || GetIsFailed()) return;
+        if (IsCompleted || IsFailed) return;
         if (_elapsedTime <= 0) FailedObjective();
-        if (_currentKills <= 0 && _elapsedTime > 0)
+        if (_currentKills >= _requiredKills && _elapsedTime > 0)
         {
-            _currentKills = 0;
+            _currentKills = _requiredKills;
             CompleteObjective();
         }
         _elapsedTime -= Time.deltaTime;
 
-        if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
-        if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
-        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Destroy the Syndicate Assault ships: " + _currentKills + " ships left in " + Mathf.Round(_elapsedTime) + " seconds");
+        if (IsCompleted) ObjectiveDescription = "Objective Completed";
+        if (IsFailed) ObjectiveDescription = "Objective Failed";
+        if (IsActive && !IsCompleted && !IsFailed) ObjectiveDescription = $"Destroy {_requiredKills} Syndicate Assault ships: " + _currentKills + " destroyed. Time Left: " + Mathf.Round(_elapsedTime) + " seconds";
 
     }
     public override void CompleteObjective()
@@ -85,14 +86,15 @@ public class DestroyShooterBossObjective : Objective
         MarkObjectiveFailed();
     }
 
-    public void SetCurrentKills(int kills)
+    public void RegisterKill()
     {
-        _currentKills = kills;
+        if (IsActive && !IsCompleted && !IsFailed)
+        {
+            _currentKills++;
+        }
     }
-    public int GetCurrentKills()
-    {
-        return _currentKills;
-    }
+
+    public int CurrentKills { get => _currentKills; set => _currentKills = value; }
 
 
 

@@ -63,7 +63,6 @@ public class SuicideBomber : Enemy
             if (_explosionSound != null)
             {
                 AudioSource.PlayOneShot(_explosionSound);
-                Debug.Log("Playing explosion sound.");
             }
             yield return new WaitForSeconds(1f);
             explosion.SetActive(false);
@@ -105,12 +104,12 @@ public class SuicideBomber : Enemy
         // ObjectivesManager.Instance.DestroyCrimsonShipsTimed();
 
         // Notify Event Manager
-        EventManager.EnemyDestroyedEvent(gameObject, Faction);
+        EventManager.AnyShipDestroyedEevent(gameObject);
 
         // Create the debris
         GameObject currency = Instantiate(Health.CurrencyPrefab[Random.Range(0, Health.CurrencyPrefab.Count)], transform.position, transform.rotation);
         currency.GetComponent<Debris>().SetCurrency(Health.CurrencyDrop);
-        Debug.Log("Starting Explosion Animation");
+
         yield return StartCoroutine(ExplosionAnimation());
         gameObject.SetActive(false);
     }

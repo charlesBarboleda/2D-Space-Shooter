@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,14 +23,16 @@ public class EscortObjective : Objective
         CargoShip escortShipScript = escortShip.GetComponent<CargoShip>();
         escortShipScript.Health.CurrentHealth = shipHealth;
         escortShipScript.Health.MaxHealth = shipHealth;
-        SetIsCompleted(false);
-        SetIsActive(true);
-        SetIsFailed(false);
+
+        IsCompleted = false;
+        IsActive = true;
+        IsFailed = false;
+        ObjectiveID = Guid.NewGuid().ToString();
 
     }
     public override void UpdateObjective()
     {
-        if (GetIsCompleted() || GetIsFailed()) return;
+        if (IsCompleted || IsFailed) return;
 
         if (!escortShip.activeSelf) FailedObjective();
 
@@ -40,7 +43,7 @@ public class EscortObjective : Objective
             Vector3 targetAim = escortPathways[nextCheckpointIndex];
             Vector3 direction = targetAim - escortShip.transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            escortShip.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270f));
+            escortShip.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90f));
             escortShip.transform.position = Vector3.MoveTowards(
                 escortShip.transform.position,
                 escortPathways[nextCheckpointIndex],
@@ -52,16 +55,16 @@ public class EscortObjective : Objective
                 if (currentCheckpoints == requiredCheckpoints)
                 {
                     CompleteObjective();
-                    GameManager.Instance.RemoveEnemy(escortShip, escortShip.GetComponent<Faction>());
+                    GameManager.Instance.RemoveEnemy(escortShip);
                     escortShip.GetComponent<CargoShip>().TeleportAway();
                 }
             }
         }
-        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription($"Escort the ship to the next checkpoint" + $"\nCheckpoints remaining: {requiredCheckpoints - currentCheckpoints}");
 
-        if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
+        if (IsCompleted) ObjectiveDescription = "Objective Completed";
+        if (IsFailed) ObjectiveDescription = "Objective Failed";
+        if (IsActive && !IsCompleted && !IsFailed) ObjectiveDescription = $"Escort the ship to the next checkpoint" + $"\nCheckpoints remaining: {requiredCheckpoints - currentCheckpoints}";
 
-        if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
 
 
     }

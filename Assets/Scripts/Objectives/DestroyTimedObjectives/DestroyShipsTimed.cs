@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,37 +6,38 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DestroyShipsTimed", menuName = "Objectives/DestroyShipsTimed", order = 1)]
 public class DestroyShipsTimed : Objective
 {
-    [SerializeField] float timeToDestroy;
-    [SerializeField] float elapsedTime;
-    [SerializeField] int requiredKills;
-    [SerializeField] int currentKills;
+    [SerializeField] float _timeToDestroy;
+    [SerializeField] float _elapsedTime;
+    [SerializeField] int _requiredKills;
+    [SerializeField] int _currentKills;
 
 
     public override void InitObjective()
     {
-        elapsedTime = timeToDestroy;
-        currentKills = requiredKills;
-        SetIsCompleted(false);
-        SetIsActive(true);
-        SetIsFailed(false);
+        _elapsedTime = _timeToDestroy;
+        _currentKills = 0;
+        IsCompleted = false;
+        IsActive = true;
+        IsFailed = false;
+        ObjectiveID = Guid.NewGuid().ToString();
 
     }
     public override void UpdateObjective()
     {
-        if (GetIsCompleted() || GetIsFailed()) return;
+        if (IsCompleted || IsFailed) return;
 
-        elapsedTime -= Time.deltaTime;
+        _elapsedTime -= Time.deltaTime;
 
-        if (elapsedTime <= 0) FailedObjective();
-        if (currentKills <= 0 && elapsedTime > 0)
+        if (_elapsedTime <= 0) FailedObjective();
+        if (_currentKills >= _requiredKills && _elapsedTime > 0)
         {
-            currentKills = 0;
+            _currentKills = _requiredKills;
             CompleteObjective();
         }
 
-        if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
-        if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
-        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription($"Destroy {currentKills} ships in {elapsedTime:F0} seconds");
+        if (IsCompleted) ObjectiveDescription = "Objective Completed";
+        if (IsFailed) ObjectiveDescription = "Objective Failed";
+        if (IsActive && !IsCompleted && !IsFailed) ObjectiveDescription = $"Destroy {_requiredKills} ships: {_currentKills} destroyed. Time Left: {_elapsedTime:F0} seconds";
 
 
 
@@ -47,43 +49,24 @@ public class DestroyShipsTimed : Objective
     }
     public override void CompleteObjective()
     {
-        if (currentKills == 0)
+        if (_currentKills == 0)
         {
             MarkObjectiveCompleted();
         }
     }
-
-    public void SetTimeToDestroy(float time)
+    public void RegisterKill()
     {
-        timeToDestroy = time;
-    }
-    public void SetRequiredKills(int kills)
-    {
-        requiredKills = kills;
-    }
-
-    public float GetTimeToDestroy()
-    {
-        return timeToDestroy;
+        if (IsActive && !IsCompleted && !IsFailed)
+        {
+            _currentKills++;
+        }
     }
 
 
-    public float GetRequiredKills()
-    {
-        return requiredKills;
-    }
-    public float GetElapsedTime()
-    {
-        return elapsedTime;
-    }
+    public float TimeToDestroy { get => _timeToDestroy; set => _timeToDestroy = value; }
+    public float RequiredKills { get => _requiredKills; set => _requiredKills = (int)value; }
+    public float ElapsedTime { get => _elapsedTime; set => _elapsedTime = value; }
+    public int CurrentKills { get => _currentKills; set => _currentKills = value; }
 
-    public int GetCurrentKills()
-    {
-        return currentKills;
-    }
-    public void SetCurrentKills(int kills)
-    {
-        currentKills = kills;
-    }
 
 }

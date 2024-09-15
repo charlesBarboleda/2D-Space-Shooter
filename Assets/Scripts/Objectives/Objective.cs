@@ -4,77 +4,48 @@ using UnityEngine;
 
 public abstract class Objective : ScriptableObject
 {
-    [SerializeField] string objectiveDescription;
-    [SerializeField] bool isCompleted;
-    [SerializeField] bool isActive;
-    [SerializeField] bool isFailed;
-    [SerializeField] float reward;
+    [SerializeField] string _objectiveDescription;
+    [SerializeField] bool _isCompleted;
+    [SerializeField] bool _isActive;
+    [SerializeField] bool _isFailed;
+    [SerializeField] float _reward;
+    [SerializeField] string _objectiveID;
 
     public abstract void InitObjective();
     public abstract void UpdateObjective();
     public abstract void CompleteObjective();
     public abstract void FailedObjective();
 
+
+
     protected void GiveReward()
     {
-        PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() + reward);
+        PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() + _reward);
     }
     protected void MarkObjectiveFailed()
     {
-        isFailed = true;
-        isActive = true;
-        isCompleted = false;
+        _isFailed = true;
+        _isActive = true;
+        _isCompleted = false;
     }
     protected void MarkObjectiveCompleted()
     {
         GiveReward();
-        isCompleted = true;
-        isActive = true;
-        isFailed = false;
-    }
-    public string GetObjectiveDescription()
-    {
-        return objectiveDescription;
-    }
-    public void SetObjectiveDescription(string description)
-    {
-        objectiveDescription = description;
-    }
-    public bool GetIsCompleted()
-    {
-        return isCompleted;
-    }
-    public void SetIsCompleted(bool completed)
-    {
-        isCompleted = completed;
-    }
-    public bool GetIsActive()
-    {
-        return isActive;
-    }
-    public void SetIsActive(bool active)
-    {
-        isActive = active;
+        _isCompleted = true;
+        _isActive = true;
+        _isFailed = false;
     }
 
-    public bool GetIsFailed()
-    {
-        return isFailed;
-    }
+    public string ObjectiveDescription { get => _objectiveDescription; set => _objectiveDescription = value; }
+    public bool IsCompleted { get => _isCompleted; set => _isCompleted = value; }
 
-    public void SetIsFailed(bool status)
-    {
-        isFailed = status;
-    }
-    public float GetReward()
-    {
-        return reward;
-    }
+    public bool IsActive { get => _isActive; set => _isActive = value; }
 
-    public void SetReward(float reward)
-    {
-        this.reward = reward;
-    }
+    public bool IsFailed { get => _isFailed; set => _isFailed = value; }
+    public float Reward { get => _reward; set => _reward = value; }
+    public string ObjectiveID { get => _objectiveID; set => _objectiveID = value; }
+
+
 
 
 }

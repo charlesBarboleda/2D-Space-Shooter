@@ -104,7 +104,7 @@ public class Health : MonoBehaviour, IDamageable
         }
 
         // Notify Event Manager
-        EventManager.EnemyDestroyedEvent(gameObject, _faction);
+        EventManager.AnyShipDestroyedEevent(gameObject);
 
         // Create the debris
         if (_currencyPrefab.Count > 0)

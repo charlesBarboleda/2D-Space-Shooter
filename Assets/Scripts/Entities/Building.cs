@@ -6,17 +6,23 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
 
-    Faction _faction;
+    float rotationSpeed;
 
 
-
-    void Awake()
+    void Update()
     {
-        _faction = GetComponent<Faction>();
+        // rotate the gameobject on the z axis
+        transform.Rotate(0, 0, 10 * Time.deltaTime * rotationSpeed);
     }
     void OnEnable()
     {
+        rotationSpeed *= Random.Range(0, 2) == 0 ? 1 : -1;
         StartCoroutine(SpawnAnimationWithDelay());
+    }
+
+    void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     IEnumerator SpawnAnimation()
@@ -35,7 +41,7 @@ public class Building : MonoBehaviour
 
     public void TeleportAway()
     {
-        GameManager.Instance.RemoveEnemy(gameObject, _faction);
+        GameManager.Instance.RemoveEnemy(gameObject);
         StartCoroutine(TeleportEffect());
 
     }

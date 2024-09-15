@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,15 +28,16 @@ public class ProtectBuildingObjective : Objective
 
             }
         }
+        ObjectiveID = Guid.NewGuid().ToString();
         _elapsedTime = _requiredTime;
-        SetIsCompleted(false);
-        SetIsActive(true);
-        SetIsFailed(false);
+        IsCompleted = false;
+        IsFailed = false;
+        IsActive = true;
     }
 
     public override void UpdateObjective()
     {
-        if (GetIsCompleted() || GetIsFailed()) return;
+        if (IsCompleted || IsFailed) return;
         if (!_building.activeSelf) FailedObjective();
 
         if (_elapsedTime <= 0 && _building.activeSelf)
@@ -45,9 +47,9 @@ public class ProtectBuildingObjective : Objective
         }
         _elapsedTime -= Time.deltaTime;
 
-        if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
-        if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
-        if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription("Protect the VIP building for " + Mathf.Round(_elapsedTime) + " seconds");
+        if (IsCompleted) ObjectiveDescription = "Objective Completed";
+        if (IsFailed) ObjectiveDescription = "Objective Failed";
+        if (IsActive && !IsCompleted && !IsFailed) ObjectiveDescription = "Protect the Ancient building for " + Mathf.Round(_elapsedTime) + " seconds";
     }
     public override void CompleteObjective()
     {

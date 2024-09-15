@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ public class DestroyFormationTimed : Objective
 
         foreach (string formationName in _formationNames)
         {
-            int _randomIndex = Random.Range(0, _formationSpawnPoints.Count);
+            int _randomIndex = UnityEngine.Random.Range(0, _formationSpawnPoints.Count);
             Vector2 targetDirection = PlayerManager.Instance.transform.position - _formationSpawnPoints[_randomIndex].position;
             Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, targetDirection);
 
@@ -35,14 +36,14 @@ public class DestroyFormationTimed : Objective
             foreach (Transform shipSpawn in formationScript.FormationPositions)
             {
                 // Spawn the ships in the formation
-                GameObject ship = ObjectPooler.Instance.SpawnFromPool(_shipNames[Random.Range(0, _shipNames.Count)], shipSpawn.position, Quaternion.identity);
+                GameObject ship = ObjectPooler.Instance.SpawnFromPool(_shipNames[UnityEngine.Random.Range(0, _shipNames.Count)], shipSpawn.position, Quaternion.identity);
                 _requiredKills++;
                 GameManager.Instance.AddEnemy(ship);
             }
             foreach (Transform bossSpawn in formationScript.BossPositions)
             {
                 // Spawn the bosses in the formation
-                GameObject boss = ObjectPooler.Instance.SpawnFromPool(_bossNames[Random.Range(0, _bossNames.Count)], bossSpawn.position, Quaternion.identity);
+                GameObject boss = ObjectPooler.Instance.SpawnFromPool(_bossNames[UnityEngine.Random.Range(0, _bossNames.Count)], bossSpawn.position, Quaternion.identity);
                 _requiredKills++;
                 GameManager.Instance.AddEnemy(boss);
             }
@@ -50,30 +51,28 @@ public class DestroyFormationTimed : Objective
         }
 
         _currentKills = _requiredKills; // Initialize current kills
-        SetIsCompleted(false);
-        SetIsActive(true);
-        SetIsFailed(false);
+        IsCompleted = false;
+        IsActive = true;
+        IsFailed = false;
+        ObjectiveID = Guid.NewGuid().ToString();
     }
 
     public override void UpdateObjective()
     {
-        if (GetIsCompleted() || GetIsFailed()) return;
+        if (IsCompleted || IsFailed) return;
 
         _elapsedTime -= Time.deltaTime;
 
         if (_elapsedTime <= 0) FailedObjective();
-        if (_currentKills <= 0 && _elapsedTime > 0)
+        if (_currentKills >= _requiredKills && _elapsedTime > 0)
         {
-            _currentKills = 0;
+            _currentKills = _requiredKills;
             CompleteObjective();
         }
 
-        if (GetIsCompleted()) SetObjectiveDescription("Objective Completed");
-        else if (GetIsFailed()) SetObjectiveDescription("Objective Failed");
-        else if (GetIsActive() && !GetIsCompleted() && !GetIsFailed()) SetObjectiveDescription($"Eliminate the invading Crimson Fleet: {_currentKills} ships in {_elapsedTime:F0} seconds");
-
-
-
+        if (IsCompleted) ObjectiveDescription = "Objective Completed";
+        else if (IsFailed) ObjectiveDescription = "Objective Failed";
+        else if (IsActive && !IsCompleted && !IsFailed) ObjectiveDescription = $"Eliminate {_requiredKills} invading Crimson Fleet: {_currentKills} destroyed. Time Limit: {_elapsedTime:F0} seconds";
 
     }
     public override void FailedObjective()
@@ -85,6 +84,14 @@ public class DestroyFormationTimed : Objective
         if (_currentKills == 0)
         {
             MarkObjectiveCompleted();
+        }
+    }
+
+    public void RegisterKill()
+    {
+        if (IsActive && !IsCompleted && !IsFailed)
+        {
+            _currentKills++;
         }
     }
 

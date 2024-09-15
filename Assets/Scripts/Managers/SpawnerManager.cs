@@ -99,7 +99,6 @@ public class SpawnerManager : MonoBehaviour
 
     void OnEnable()
     {
-        EventManager.OnEnemyDestroyed += RemoveEnemyFromList;
         StartCoroutine(SpawnEnemiesOverTime());
         StartCoroutine(SpawnCometsOverTime());
 
@@ -107,7 +106,6 @@ public class SpawnerManager : MonoBehaviour
 
     void OnDisable()
     {
-        EventManager.OnEnemyDestroyed -= RemoveEnemyFromList;
         StopCoroutine(SpawnEnemiesOverTime());
         StopCoroutine(SpawnCometsOverTime());
     }
@@ -234,13 +232,5 @@ public class SpawnerManager : MonoBehaviour
         return ships[0].name; // Fallback in case no ship is chosen
     }
 
-    private void RemoveEnemyFromList(GameObject enemy, Faction faction)
-    {
-        if (GameManager.Instance.GetEnemies().Contains(enemy))
-        {
-            GameManager.Instance.GetEnemies().Remove(enemy);
-
-        }
-    }
 
 }

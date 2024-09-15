@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour
     {
         _enemies.Add(enemy);
     }
-    public void RemoveEnemy(GameObject enemy, Faction faction)
+    public void RemoveEnemy(GameObject enemy)
     {
         _enemies.Remove(enemy);
     }
@@ -213,7 +213,7 @@ public class GameManager : MonoBehaviour
             else if (_level >= 40 && _level < 50) ObjectivesManager.Instance.SetObjectives("Mid", 2);
             else if (_level >= 50 && _level < 60) ObjectivesManager.Instance.SetObjectives("Late", 2);
             else if (_level >= 60 && _level < 70) ObjectivesManager.Instance.SetObjectives("Late", 3);
-            else if (_level >= 70) ObjectivesManager.Instance.SetLateObjectives();
+            else if (_level >= 70) ObjectivesManager.Instance.SetObjectives("Late", 4);
 
 
         }
@@ -249,7 +249,6 @@ public class GameManager : MonoBehaviour
                 enemy.GetComponent<IDamageable>().Die();
             }
         }
-        Debug.Log("Nuked the map");
         _enemies.Clear();
     }
 
