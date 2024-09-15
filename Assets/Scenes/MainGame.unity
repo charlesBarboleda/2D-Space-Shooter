@@ -74021,6 +74021,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 794631230}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: SpeedPowerUp
+      value: 
+      objectReference: {fileID: 1893922601}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: currencyIcon
       value: 
       objectReference: {fileID: 552793842}
@@ -74060,6 +74064,14 @@ PrefabInstance:
       propertyPath: vitalityIcon
       value: 
       objectReference: {fileID: 474037563}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: DamagePowerUp
+      value: 
+      objectReference: {fileID: 1136445462}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: HealthPowerUp
+      value: 
+      objectReference: {fileID: 1223549826}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: blitzShotIcon
       value: 
@@ -74180,6 +74192,10 @@ PrefabInstance:
       propertyPath: vitalityButton
       value: 
       objectReference: {fileID: 283904140}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: FireRatePowerUp
+      value: 
+      objectReference: {fileID: 1299475802}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: acceleratedIcon
       value: 
@@ -74405,6 +74421,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 967273289}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: PickUpRadiusPowerUp
+      value: 
+      objectReference: {fileID: 764605389}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: bulletHellLevelText
       value: 
       objectReference: {fileID: 879364868}
@@ -74600,7 +74620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1500528328037580342, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: currency
-      value: 999999
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 2915462274123035723, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_Layer
@@ -74624,11 +74644,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392182452498158989, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: maxHealth
-      value: 999999
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4392182452498158989, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: currentHealth
-      value: 999999
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4392182452498158989, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: _deathExplosion

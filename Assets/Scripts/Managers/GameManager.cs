@@ -48,10 +48,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        _level = 1;
+        _level = 10;
         _spawnRate = 0.5f;
         _maxSpawnRate = 0.1f;
-        _enemiesToSpawnTotal = 20;
+        _enemiesToSpawnTotal = 100;
         _roundCountdown = 10f;
         _isCountdown = true;
     }
@@ -191,7 +191,6 @@ public class GameManager : MonoBehaviour
         _roundCountdown = 10f;
         EnableSpawning();
         _enemiesToSpawnLeft = _enemiesToSpawnTotal;
-        ObjectivesManager.Instance.SetObjectives("Early", 7);
 
     }
     private void NextRound()
@@ -207,24 +206,24 @@ public class GameManager : MonoBehaviour
         if (_isObjectiveRound)
         {
 
-            if (_level >= 1 && _level < 20) ObjectivesManager.Instance.SetObjectives("Early", 1);
-            else if (_level >= 20 && _level < 30) ObjectivesManager.Instance.SetObjectives("Early", 2);
-            else if (_level >= 30 && _level < 40) ObjectivesManager.Instance.SetObjectives("Mid", 1);
-            else if (_level >= 40 && _level < 50) ObjectivesManager.Instance.SetObjectives("Mid", 2);
-            else if (_level >= 50 && _level < 60) ObjectivesManager.Instance.SetObjectives("Late", 2);
-            else if (_level >= 60 && _level < 70) ObjectivesManager.Instance.SetObjectives("Late", 3);
+            if (_level >= 1 && _level < 20) ObjectivesManager.Instance.SetObjectives("Early", 2);
+            else if (_level >= 20 && _level < 30) ObjectivesManager.Instance.SetObjectives("Early", 3);
+            else if (_level >= 30 && _level < 40) ObjectivesManager.Instance.SetObjectives("Mid", 2);
+            else if (_level >= 40 && _level < 50) ObjectivesManager.Instance.SetObjectives("Mid", 3);
+            else if (_level >= 50 && _level < 60) ObjectivesManager.Instance.SetObjectives("Late", 3);
+            else if (_level >= 60 && _level < 70) ObjectivesManager.Instance.SetObjectives("Late", 4);
             else if (_level >= 70) ObjectivesManager.Instance.SetObjectives("Late", 4);
 
 
         }
-        if (_level % UnityEngine.Random.Range(20, 50) == 0)
+        if (_level % UnityEngine.Random.Range(5, 10) == 0)
         {
-            _cometsPerRound = 1000;
-            _cometSpawnRate = 1f;
+            _cometsPerRound = 100;
+            _cometSpawnRate = 5f;
         }
         else
         {
-            _cometsPerRound = 3;
+            _cometsPerRound = 5;
             _cometSpawnRate = UnityEngine.Random.Range(10f, 60f);
         }
 
