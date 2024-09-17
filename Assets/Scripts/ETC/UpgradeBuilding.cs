@@ -12,7 +12,7 @@ public class UpgradeBuilding : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit2D(Collider2D other)
     {
 
         if (other.gameObject.CompareTag("Player"))

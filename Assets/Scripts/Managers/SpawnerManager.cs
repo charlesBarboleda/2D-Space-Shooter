@@ -17,11 +17,18 @@ public class SpawnerManager : MonoBehaviour
         new Ship { name = "CrimsonSmall2", weight = 0.15f },
         new Ship { name = "CrimsonSmall3", weight = 0.15f },
         new Ship { name = "CrimsonSmall4", weight = 0.15f },
-        new Ship { name = "CrimsonBomber", weight = 0.34f },
-        new Ship { name = "CrimsonBomberSpawner", weight = 0.025f },
-        new Ship { name = "CrimsonBuffer", weight = 0.025f }
-
-
+        new Ship { name = "CrimsonBomber", weight = 0.38f },
+        new Ship { name = "CrimsonBomberSpawner", weight = 0.01f },
+        new Ship { name = "CrimsonBuffer", weight = 0.01f }
+    };
+    List<Ship> shipNamesThraxArmada = new List<Ship> {
+        new Ship { name = "ThraxSmall1", weight = 0.298f },
+        new Ship { name = "ThraxSmall2", weight = 0.298f },
+        new Ship { name = "ThraxSmall3", weight = 0.298f },
+        new Ship { name = "ThraxTeleporter1", weight = 0.05f },
+        new Ship { name = "ThraxTeleporter2", weight = 0.05f },
+        new Ship { name = "ThraxCarrier1", weight = 0.005f },
+        new Ship { name = "ThraxBoss1", weight = 0.001f }
     };
     List<Ship> shipNamesEarly = new List<Ship> {
         new Ship { name = "SmallShip", weight = 0.5f },
@@ -149,9 +156,7 @@ public class SpawnerManager : MonoBehaviour
             yield return new WaitForSeconds(GameManager.Instance.CometSpawnRate);
             GameObject comet = SpawnComet(cometSpawnPoint[Random.Range(0, cometSpawnPoint.Count)].position, Quaternion.identity);
             Comet cometSettings = comet.GetComponent<Comet>();
-            cometSettings.Speed = Random.Range(20, 50);
-            Debug.Log("Comets Per Round: " + GameManager.Instance.CometsPerRound);
-            Debug.Log("Comet Spawn Rate: " + GameManager.Instance.CometSpawnRate);
+            cometSettings.Speed = Random.Range(20, 40);
         }
     }
 
@@ -178,7 +183,7 @@ public class SpawnerManager : MonoBehaviour
             }
             else if (GameManager.Instance.Level >= 10 && GameManager.Instance.Level < 20)
             {
-                shipList = shipNamesCrimsonFleet;
+                shipList = shipNamesThraxArmada;
             }
             else if (GameManager.Instance.Level >= 20 && GameManager.Instance.Level < 30)
             {

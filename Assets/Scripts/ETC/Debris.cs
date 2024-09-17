@@ -17,6 +17,7 @@ public class Debris : MonoBehaviour, IPickable
     {
         _audioSource = GetComponent<AudioSource>();
         _colliders = GetComponent<Collider2D>();
+        _colliders.enabled = true;
     }
 
     void OnEnable()
