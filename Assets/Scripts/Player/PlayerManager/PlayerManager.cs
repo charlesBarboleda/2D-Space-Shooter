@@ -15,7 +15,8 @@ public class PlayerManager : MonoBehaviour
     PickUpBehaviour _pickUpBehaviour;
     PowerUpBehaviour _powerUpBehaviour;
     Weapon _weapon;
-    [SerializeField] AudioClip _onPickUpAudio;
+    [SerializeField] AudioClip _onDebrisAudio;
+    [SerializeField] AudioClip _onPowerUpAudio;
 
 
     private void Awake()
@@ -47,27 +48,24 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Syndicates") || other.gameObject.CompareTag("ThraxArmada") || other.gameObject.CompareTag("CrimsonFleet"))
+        if (other.CompareTag("Debris") || other.CompareTag("PowerUp"))
         {
-            _health.TakeDamage(other.gameObject.GetComponent<Bullet>().BulletDamage);
-        }
-
-        if (other.gameObject.CompareTag("Nuke"))
-        {
-            _health.TakeDamage(1000);
-        }
-
-        if (other.gameObject.CompareTag("Debris"))
-        {
-            other.gameObject.GetComponent<IPickable>().OnPickUp();
-        }
-        if (other.gameObject.CompareTag("PowerUp"))
-        {
-            other.gameObject.GetComponent<IPickable>().OnPickUp();
-            _audioSource.PlayOneShot(_onPickUpAudio);
-            _powerUpBehaviour.AddPowerUp(other.gameObject.GetComponent<PowerUp>());
+            IPickable iPickable = other.GetComponent<IPickable>();
+            if (iPickable != null)
+            {
+                iPickable.OnPickUp();
+                if (other.CompareTag("Debris"))
+                {
+                    _audioSource.PlayOneShot(_onDebrisAudio);
+                }
+                else if (other.CompareTag("PowerUp"))
+                {
+                    _audioSource.PlayOneShot(_onPowerUpAudio);
+                    _powerUpBehaviour.AddPowerUp(other.GetComponent<PowerUp>());
+                }
+            }
         }
     }
 

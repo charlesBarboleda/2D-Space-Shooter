@@ -474,12 +474,12 @@ MonoBehaviour:
   _maxHealth: 1000
   _currencyDrop: 100
   _currencyPrefab:
-  - {fileID: 232737819573426876, guid: 798e7352d1b7bd842bb51ec456936c90, type: 3}
-  - {fileID: 8786249437997132085, guid: 2af2c0724a550ab43a4ea3b59dea37e1, type: 3}
-  - {fileID: 7517879344937300690, guid: e7eb2046bdedd2546a45de5d8117227d, type: 3}
-  - {fileID: 8468102929113476940, guid: 61177acb6be5b2b4394980ebf89ca29b, type: 3}
-  - {fileID: 2392145456616378941, guid: b18f1bdd01f8b3d42935caef84a71643, type: 3}
-  - {fileID: 6778297818302970951, guid: 6100b1ba2ca1cf04784bea4468b3e99c, type: 3}
+  - Debris1
+  - Debris2
+  - Debris3
+  - Debris4
+  - Debris5
+  - Debris6
   exhaustChildren:
   - {fileID: 266865092843442929}
   turretChildren:
@@ -505,6 +505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 3
   _checkForTargetsRadius: 50
+  _targetPosition: {x: 0, y: 0, z: 0}
+  _currentTarget: {fileID: 0}
 --- !u!114 &-6774650854765809602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,6 +539,7 @@ MonoBehaviour:
   _stopDistance: 30
   separationRadius: 5
   separationWeight: 1.5
+  maxSeparationForce: 0.5
 --- !u!1 &8227692411707881614
 GameObject:
   m_ObjectHideFlags: 0

@@ -32,7 +32,7 @@ public class Kinematics : MonoBehaviour
     {
         if (_targetManager.CurrentTarget != null)
         {
-            Movement(_targetManager.CurrentTarget);
+            Movement(_targetManager.TargetPosition);
         }
     }
 
@@ -40,64 +40,57 @@ public class Kinematics : MonoBehaviour
     {
         if (_shouldRotate && _targetManager.CurrentTarget != null)
         {
-            Aim(_targetManager.CurrentTarget);
+            Aim(_targetManager.TargetPosition);
         }
     }
-
     void OnEnable()
     {
-        if (Random.value < 0.5) _rotateClockwise = true;
-        else _rotateClockwise = false;
+        _rotateClockwise = Random.value > 0.5f;
     }
 
-    protected virtual void Aim(Transform target)
+    void Aim(Vector3 target)
     {
         if (target == null) return;
 
-        // Get the target's closest point using colliders
-        Collider2D targetCollider = target.GetComponent<CompositeCollider2D>();
-        if (targetCollider != null)
-        {
-            Vector3 closestPoint = targetCollider.ClosestPoint(transform.position);
-            Vector3 direction = closestPoint - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + _aimOffset));
-        }
-        else
-        {
-            // Fallback if no collider is found
-            Vector3 direction = target.position - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + _aimOffset));
-        }
+        // Calculate the direction to the target
+        Vector3 directionToTarget = (target - transform.position).normalized;
+
+        // Get the desired angle in degrees
+        float targetAngle = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
+
+        // Add aim offset (if needed)
+        targetAngle += _aimOffset;
+
+        // Get the current rotation
+        Quaternion currentRotation = transform.rotation;
+
+        // Create the target rotation
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, targetAngle));
+
+        // Smoothly rotate towards the target using RotateTowards
+        // The factor for smooth rotation
+        float rotationSpeed = _speed * 100 * Time.deltaTime;
+
+        // Apply the rotation
+        transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, rotationSpeed);
+
     }
-    void Movement(Transform target)
+
+    void Movement(Vector3 target)
     {
         if (target == null) return;
 
-        // Get the target's closest point using colliders
-        Collider2D targetCollider = target.GetComponent<CompositeCollider2D>();
-        if (targetCollider != null)
+        // Get the target's closest point
+        if (target != null)
         {
-            Vector3 closestPoint = targetCollider.ClosestPoint(transform.position);
-            _cachedDirection = (closestPoint - transform.position).normalized;
-            _cachedDistance = Vector3.Distance(transform.position, closestPoint);
+            _cachedDistance = Vector3.Distance(transform.position, target);
+            _cachedDirection = (target - transform.position).normalized;
         }
-        else
-        {
-            // Fallback if no collider is found
-            _cachedDirection = (transform.position - target.position).normalized;
-            _cachedDistance = Vector3.Distance(transform.position, target.position);
-
-        }
-
-        // Get separation force to avoid collisions with other enemies
-        Vector3 separationForce = CalculateSeparation();
 
 
         if (_cachedDistance > _stopDistance)
         {
-            Vector3 finalDirection = (_cachedDirection + separationForce).normalized;
+            Vector3 finalDirection = _cachedDirection.normalized;
             transform.position += finalDirection * _speed * Time.deltaTime;
 
         }
@@ -110,54 +103,27 @@ public class Kinematics : MonoBehaviour
 
 
     }
-    void Orbit(Transform target)
+    void Orbit(Vector3 target)
     {
         float rotationDirection = _rotateClockwise ? 1 : -1;
 
         // Maintain a consistent orbit distance to avoid drifting away
-        float orbitRadius = Vector3.Distance(transform.position, target.position);
+        float orbitRadius = Vector3.Distance(transform.position, target);
         float targetOrbitDistance = _stopDistance * 1.2f; // Keep a consistent orbit slightly larger than stop distance
 
         if (orbitRadius > targetOrbitDistance)
         {
             // Move towards the target to maintain orbit radius
-            transform.position = Vector3.MoveTowards(transform.position, target.position, (_speed * Time.deltaTime));
+            transform.position = Vector3.MoveTowards(transform.position, target, (_speed * Time.deltaTime));
         }
 
         // Apply rotational orbit around the target
-        transform.RotateAround(target.position, Vector3.forward, rotationDirection * _speed * Time.deltaTime);
+        transform.RotateAround(target, Vector3.forward, rotationDirection * _speed * Time.deltaTime);
 
         // Update _cachedDirection for gizmos
-        _cachedDirection = (target.position - transform.position).normalized;
+        _cachedDirection = (target - transform.position).normalized;
     }
 
-
-    Vector3 CalculateSeparation()
-    {
-        LayerMask enemyLayer = LayerMask.GetMask("Syndicates", "ThraxArmada", "CrimsonFleet");
-        Collider2D[] nearbyEnemies = Physics2D.OverlapCircleAll(transform.position, separationRadius, enemyLayer);
-        Vector3 separationForce = Vector3.zero;
-        int count = 0;
-
-        foreach (Collider2D enemy in nearbyEnemies)
-        {
-            if (enemy != null && enemy.transform != transform)
-            {
-                Vector3 directionToEnemy = transform.position - enemy.transform.position;
-                float distance = directionToEnemy.magnitude;
-                separationForce += directionToEnemy.normalized / Mathf.Max(distance, 0.1f);  // Avoid division by zero
-                count++;
-            }
-        }
-
-        if (count > 0)
-        {
-            separationForce /= count; // Average the forces from nearby enemies
-            separationForce = Vector3.ClampMagnitude(separationForce * separationWeight, maxSeparationForce);  // Clamp the force
-        }
-
-        return separationForce;
-    }
     void OnDrawGizmos()
     {
         if (Application.isPlaying)
@@ -165,7 +131,7 @@ public class Kinematics : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, transform.position + _cachedDirection * 5);
             Gizmos.color = Color.blue;
-            Gizmos.DrawLine(transform.position, transform.position + (_cachedDirection + CalculateSeparation()).normalized * 20);
+            Gizmos.DrawLine(transform.position, transform.position + _cachedDirection.normalized * 20);
         }
     }
     public float Speed { get => _speed; set => _speed = value; }

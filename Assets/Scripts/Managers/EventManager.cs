@@ -18,7 +18,7 @@ public class EventManager : MonoBehaviour
     {
         OnCurrencyChange?.Invoke(currency);
     }
-    public static void AnyShipDestroyedEevent(GameObject go)
+    public static void AnyShipDestroyedEvent(GameObject go)
     {
         OnEnemyDestroyed?.Invoke(go);
     }

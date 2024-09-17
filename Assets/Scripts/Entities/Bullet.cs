@@ -11,13 +11,13 @@ public class Bullet : MonoBehaviour
     SpriteRenderer _spriteRenderer;
     BoxCollider2D _boxCollider2D;
 
-    private Rigidbody2D rb;
+    Rigidbody2D _rb;
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
     void OnEnable()
@@ -25,7 +25,11 @@ public class Bullet : MonoBehaviour
         if (_bulletOnHitEffect != null) _bulletOnHitEffect.SetActive(false);
         if (_boxCollider2D != null) _boxCollider2D.enabled = true;
         if (_spriteRenderer != null) _spriteRenderer.enabled = true;
-        if (rb != null) rb.velocity = Vector2.zero;
+        if (_rb != null)
+        {
+            _rb.simulated = true;
+            _rb.velocity = Vector2.zero;
+        }
 
     }
 
@@ -35,7 +39,7 @@ public class Bullet : MonoBehaviour
         BulletDamage = damage;
         BulletLifetime = lifetime;
 
-        rb.velocity = direction.normalized * BulletSpeed;
+        _rb.velocity = direction.normalized * BulletSpeed;
 
         if (BulletLifetime > 0)
         {
@@ -45,7 +49,10 @@ public class Bullet : MonoBehaviour
 
     private void Deactivate()
     {
-
+        _rb.velocity = Vector2.zero;
+        _rb.simulated = false;
+        if (_boxCollider2D != null) _boxCollider2D.enabled = false;
+        if (_spriteRenderer != null) _spriteRenderer.enabled = false;
         gameObject.SetActive(false);
     }
 

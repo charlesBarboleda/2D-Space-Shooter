@@ -26,6 +26,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] string _spawnAnimation;
 
     string _enemyID;
+    int _priority;
 
 
     protected abstract void Attack();
@@ -52,18 +53,18 @@ public abstract class Enemy : MonoBehaviour
 
         if (_abilityHolder != null)
         {
-            UseAbilities(TargetManager.CurrentTarget); // Uses the ability if the cooldown is 0
+            UseAbilities(TargetManager.CurrentTarget.transform); // Uses the ability if the cooldown is 0
             if (_abilitySound != null) _audioSource.PlayOneShot(_abilitySound);
         }
-        if (TargetManager.CurrentTarget != null)
+        if (TargetManager.CurrentTarget.transform != null)
         {
 
-            float distanceToTarget = Vector2.Distance(transform.position, TargetManager.CurrentTarget.position);
+            float distanceToTarget = Vector2.Distance(transform.position, TargetManager.CurrentTarget.transform.position);
             if (distanceToTarget < _attackManager.AimRange)
             {
 
                 // Check if the target is the one we should shoot at
-                if (_attackManager.IsTargetInRange(TargetManager.CurrentTarget) && _attackManager.ElapsedCooldown <= 0)
+                if (_attackManager.IsTargetInRange(TargetManager.CurrentTarget.transform) && _attackManager.ElapsedCooldown <= 0)
                 {
 
                     Attack();
@@ -145,6 +146,7 @@ public abstract class Enemy : MonoBehaviour
     public TargetManager TargetManager { get => _targetManager; }
     public AudioSource AudioSource { get => _audioSource; }
     public string EnemyID { get => _enemyID; set => _enemyID = value; }
+    public int Priority { get => _priority; set => _priority = value; }
 
 
 }

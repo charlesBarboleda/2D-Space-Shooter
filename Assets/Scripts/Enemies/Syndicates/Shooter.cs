@@ -30,14 +30,13 @@ public class ShooterEnemy : Enemy
 
     protected override void Attack()
     {
-        FireBullets(_amountOfBullets, bulletSpawnPoint.position, TargetManager.CurrentTarget);
+        FireBullets(_amountOfBullets, bulletSpawnPoint.position, TargetManager.TargetPosition);
         Debug.Log("Firing Bullets");
         PlayShootSound();
     }
 
-    public virtual void FireBullets(int bulletAmount, Vector3 position, Transform target)
+    public virtual void FireBullets(int bulletAmount, Vector3 position, Vector3 targetPosition)
     {
-        Vector3 targetPosition = target.position;
         Vector3 targetDirection = (targetPosition - position).normalized;
         float startAngle = -_amountOfBullets / 2.0f * _shootingAngle;
 

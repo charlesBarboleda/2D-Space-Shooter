@@ -34,7 +34,7 @@ public class EscortObjective : Objective
     {
         if (IsCompleted || IsFailed) return;
 
-        if (!escortShip.activeSelf) FailedObjective();
+        if (!escortShip.activeInHierarchy) FailedObjective();
 
         // Move the ship based on the current and next checkpoint
         if (currentCheckpoints >= 0 && currentCheckpoints < requiredCheckpoints)

@@ -43,7 +43,7 @@ public class NukeEnemy : Enemy
 
     IEnumerator ChargeNuke()
     {
-        _initTargetPos = TargetManager.CurrentTarget.position;
+        _initTargetPos = TargetManager.CurrentTarget.transform.position;
         _nukeTargetPool = ObjectPooler.Instance.SpawnFromPool(_nukeTarget, _initTargetPos, Quaternion.identity);
         Debug.Log("Target Aim Position: " + _initTargetPos);
         yield return new WaitForSeconds(_nukeChargeTime);
@@ -69,10 +69,5 @@ public class NukeEnemy : Enemy
         AttackManager.AttackCooldown = AttackManager.AttackCooldown * 1.5f;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(TargetManager.CurrentTarget.position, _nukeRadius);
-    }
 
 }

@@ -6,12 +6,11 @@ public class FriendlyTurret : ShooterEnemy
 {
     protected override void Attack()
     {
-        FireBullets(GetBulletAmount(), transform.position, TargetManager.CurrentTarget);
+        FireBullets(GetBulletAmount(), transform.position, TargetManager.TargetPosition);
     }
 
-    public override void FireBullets(int bulletAmount, Vector3 position, Transform target)
+    public override void FireBullets(int bulletAmount, Vector3 position, Vector3 targetPosition)
     {
-        Vector3 targetPosition = target.transform.position;
         Vector3 targetDirection = targetPosition - position;
         float startAngle = -GetBulletAmount() / 2.0f * GetShootingAngle();
 

@@ -8,7 +8,7 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] float _currentHealth;
     [SerializeField] float _maxHealth = 100f;
     [SerializeField] float _currencyDrop;
-    [SerializeField] List<GameObject> _currencyPrefab;
+    [SerializeField] List<string> _currencyPrefab;
     [SerializeField] List<GameObject> exhaustChildren;
     [SerializeField] List<GameObject> turretChildren;
     [SerializeField] AudioClip _deathSound;
@@ -19,6 +19,7 @@ public class Health : MonoBehaviour, IDamageable
     SpriteRenderer _spriteRenderer;
     AudioSource _audioSource;
     Collider2D[] _colliders;
+    Rigidbody2D _rigidbody;
     Faction _faction;
     public enum ShakeType { Small, Mid, Large }
     [SerializeField] ShakeType shakeType;
@@ -28,6 +29,7 @@ public class Health : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        _rigidbody = GetComponent<Rigidbody2D>();
         _faction = GetComponent<Faction>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _audioSource = GetComponent<AudioSource>();
@@ -41,6 +43,7 @@ public class Health : MonoBehaviour, IDamageable
         if (exhaustChildren.Count > 0) exhaustChildren.ForEach(child => child.SetActive(true));
         if (_colliders != null) _colliders.ForEach(collider => collider.enabled = true);
         if (_spriteRenderer != null) _spriteRenderer.enabled = true;
+        if (_rigidbody != null) _rigidbody.simulated = true;
         if (isDead) isDead = false;
     }
     public void TakeDamage(float damage)
@@ -83,11 +86,28 @@ public class Health : MonoBehaviour, IDamageable
         if (exhaustChildren.Count > 0) exhaustChildren.ForEach(child => child.SetActive(false));
 
         // Disable all colliders
-        if (_colliders != null) _colliders.ForEach(collider => collider.enabled = false);
+        if (_colliders != null)
+            foreach (var collider in _colliders)
+                collider.enabled = false;
+
 
 
         // Hide the ship's sprite
         if (_spriteRenderer != null) _spriteRenderer.enabled = false;
+
+        // Remove the rigidbody physics calculations
+        if (_rigidbody != null)
+        {
+            Debug.Log($"Rigidbody2D before disabling: Simulated={_rigidbody.simulated}, Velocity={_rigidbody.velocity}");
+            _rigidbody.simulated = false;
+        }
+
+        // Log after disabling simulation
+        if (_rigidbody != null)
+        {
+            Debug.Log($"Rigidbody2D after disabling: Simulated={_rigidbody.simulated}");
+        }
+
 
         // Shake the camera
         switch (shakeType)
@@ -104,13 +124,15 @@ public class Health : MonoBehaviour, IDamageable
         }
 
         // Notify Event Manager
-        EventManager.AnyShipDestroyedEevent(gameObject);
+        EventManager.AnyShipDestroyedEvent(gameObject);
 
         // Create the debris
         if (_currencyPrefab.Count > 0)
         {
-            GameObject currency = Instantiate(_currencyPrefab[Random.Range(0, _currencyPrefab.Count)], transform.position, transform.rotation);
+
+            GameObject currency = ObjectPooler.Instance.SpawnFromPool(_currencyPrefab[Random.Range(0, _currencyPrefab.Count)], transform.position, transform.rotation);
             currency.GetComponent<Debris>().SetCurrency(_currencyDrop);
+
         }
 
         // Wait for the death animation to complete
@@ -124,7 +146,7 @@ public class Health : MonoBehaviour, IDamageable
     {
         GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(deathEffect[Random.Range(0, deathEffect.Count)], transform.position, Quaternion.identity);
         GameObject exp = ObjectPooler.Instance.SpawnFromPool(deathExplosion, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(2f); // Wait for the animation to finish
+        yield return new WaitForSeconds(0.5f); // Wait for the animation to finish
         exp.SetActive(false);
         exp2.SetActive(false);
     }
@@ -138,7 +160,8 @@ public class Health : MonoBehaviour, IDamageable
     public float CurrencyDrop { get => _currencyDrop; set => _currencyDrop = value; }
     public Collider2D[] Colliders { get => _colliders; }
     public SpriteRenderer SpriteRenderer { get => _spriteRenderer; }
+    public Rigidbody2D Rigidbody { get => _rigidbody; }
     public List<GameObject> ExhaustChildren { get => exhaustChildren; }
-    public List<GameObject> CurrencyPrefab { get => _currencyPrefab; }
+    public List<string> CurrencyPrefab { get => _currencyPrefab; }
 
 }

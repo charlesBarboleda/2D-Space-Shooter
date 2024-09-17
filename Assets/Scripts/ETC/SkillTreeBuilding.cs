@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class SkillTreeBuilding : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             UIManager.Instance.OpenSkillTree();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            UIManager.Instance.ExitSkillTree();
         }
     }
 }

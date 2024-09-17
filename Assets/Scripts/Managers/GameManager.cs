@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         _level = 10;
         _spawnRate = 0.5f;
         _maxSpawnRate = 0.1f;
-        _enemiesToSpawnTotal = 100;
+        _enemiesToSpawnTotal = 200;
         _roundCountdown = 10f;
         _isCountdown = true;
     }
@@ -64,13 +64,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void LateUpdate()
-    {
-        _enemies.RemoveAll(enemy => enemy == null || !enemy.activeInHierarchy);
-    }
-
     void Update()
     {
+        Collider2D[] colliders = FindObjectsOfType<Collider2D>();
+        Debug.Log($"Number of colliders in scene: {colliders.Length}");
+
+        // If you want to track only active colliders that are contributing to physics
+        int activeColliders = 0;
+        foreach (Collider2D col in colliders)
+        {
+            if (col.enabled && col.attachedRigidbody != null && col.attachedRigidbody.simulated)
+            {
+                activeColliders++;
+            }
+        }
+        Debug.Log($"Active physics objects in scene: {activeColliders}");
         // On-going round
         if (_isRound)
         {
@@ -102,6 +110,11 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    void LateUpdate()
+    {
+        _enemies.RemoveAll(enemy => enemy == null || !enemy.activeInHierarchy);
+    }
+
     IEnumerator NextRoundCooldown()
     {
 

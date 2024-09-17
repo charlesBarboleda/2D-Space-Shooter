@@ -281,6 +281,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: LargeSpawn
   _spawnRadius: 60
+  _shipsPerSpawn: 5
   ships:
   - CrimsonBomber
 --- !u!66 &3750255413437554291
@@ -383,16 +384,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 0
-  _maxHealth: 100
-  _currencyDrop: 0
-  _currencyPrefab: []
-  exhaustChildren: []
+  _currentHealth: 10000
+  _maxHealth: 10000
+  _currencyDrop: 5000
+  _currencyPrefab:
+  - Debris1
+  - Debris2
+  - Debris3
+  - Debris4
+  - Debris5
+  - Debris6
+  exhaustChildren:
+  - {fileID: 8039788867163802201}
   turretChildren: []
-  _deathSound: {fileID: 0}
-  _deathExplosion: 
-  _deathEffect: []
-  shakeType: 0
+  _deathSound: {fileID: 8300000, guid: ba594aad031975b45a5acdbd5fa34f5c, type: 3}
+  _deathExplosion: LargeExp
+  _deathEffect:
+  - DeathEffectLarge
+  - DeathEffectLarge2
+  shakeType: 2
 --- !u!114 &5183538933905969519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,10 +417,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimOffset: 0
   _shouldRotate: 0
-  _speed: 0
-  _stopDistance: 0
-  separationRadius: 2
+  _speed: 20
+  _stopDistance: 100
+  separationRadius: 20
   separationWeight: 1.5
+  maxSeparationForce: 0.5
 --- !u!114 &3194415468971244602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,8 +434,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkForTargetsInterval: 3
+  _checkForTargetsInterval: 0.1
   _checkForTargetsRadius: 50
+  _targetPosition: {x: 0, y: 0, z: 0}
+  _currentTarget: {fileID: 0}
 --- !u!114 &-4833121564440448356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,8 +450,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9216c03e867f274db5aaf93c01462f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aimRange: 20
-  _attackCooldown: 1
+  _aimRange: 120
+  _attackCooldown: 3
 --- !u!1001 &4761905306650182420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -647,6 +660,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6243763712300015545}
   m_SourcePrefab: {fileID: 100100000, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+--- !u!1 &8039788867163802201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3280519133390621005, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+  m_PrefabInstance: {fileID: 4761905306650182420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8039788867163802214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}

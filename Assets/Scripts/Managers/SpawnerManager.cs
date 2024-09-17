@@ -12,6 +12,17 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] int numberOfSpawnPoints = 360;
     [SerializeField] int spawnPointRadius = 30;
 
+    List<Ship> shipNamesCrimsonFleet = new List<Ship> {
+        new Ship { name = "CrimsonSmall1", weight = 0.15f },
+        new Ship { name = "CrimsonSmall2", weight = 0.15f },
+        new Ship { name = "CrimsonSmall3", weight = 0.15f },
+        new Ship { name = "CrimsonSmall4", weight = 0.15f },
+        new Ship { name = "CrimsonBomber", weight = 0.34f },
+        new Ship { name = "CrimsonBomberSpawner", weight = 0.025f },
+        new Ship { name = "CrimsonBuffer", weight = 0.025f }
+
+
+    };
     List<Ship> shipNamesEarly = new List<Ship> {
         new Ship { name = "SmallShip", weight = 0.5f },
         new Ship { name = "MeleeShip", weight = 0.5f }
@@ -167,7 +178,7 @@ public class SpawnerManager : MonoBehaviour
             }
             else if (GameManager.Instance.Level >= 10 && GameManager.Instance.Level < 20)
             {
-                shipList = shipNamesEarly2;
+                shipList = shipNamesCrimsonFleet;
             }
             else if (GameManager.Instance.Level >= 20 && GameManager.Instance.Level < 30)
             {

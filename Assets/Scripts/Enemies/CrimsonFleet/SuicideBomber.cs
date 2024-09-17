@@ -28,6 +28,19 @@ public class SuicideBomber : Enemy
 
     }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        Health.SpriteRenderer.enabled = true;
+        Health.Colliders.ForEach(collider => collider.enabled = true);
+        Health.Rigidbody.simulated = true;
+    }
+    void OnDisable()
+    {
+        StopAllCoroutines();
+
+    }
+
     public override void BuffedState()
     {
         base.BuffedState();
@@ -93,7 +106,13 @@ public class SuicideBomber : Enemy
         Health.ExhaustChildren.ForEach(child => child.SetActive(false));
 
         // Disable all colliders
-        Health.Colliders.ForEach(collider => collider.enabled = false);
+        foreach (var collider in Health.Colliders)
+        {
+            collider.enabled = false;
+        }
+
+        // Disable the rigidbody
+        Health.Rigidbody.simulated = false;
 
         // Hide the ship's sprite
         Health.SpriteRenderer.enabled = false;
@@ -105,10 +124,10 @@ public class SuicideBomber : Enemy
         // ObjectivesManager.Instance.DestroyCrimsonShipsTimed();
 
         // Notify Event Manager
-        EventManager.AnyShipDestroyedEevent(gameObject);
+        EventManager.AnyShipDestroyedEvent(gameObject);
 
         // Create the debris
-        GameObject currency = Instantiate(Health.CurrencyPrefab[Random.Range(0, Health.CurrencyPrefab.Count)], transform.position, transform.rotation);
+        GameObject currency = ObjectPooler.Instance.SpawnFromPool(Health.CurrencyPrefab[Random.Range(0, Health.CurrencyPrefab.Count)], transform.position, transform.rotation);
         currency.GetComponent<Debris>().SetCurrency(Health.CurrencyDrop);
 
         yield return StartCoroutine(ExplosionAnimation());

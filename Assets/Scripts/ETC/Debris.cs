@@ -11,10 +11,17 @@ public class Debris : MonoBehaviour, IPickable
     float _maxSpeed;
     public float maxSpeed { get => _maxSpeed; set => _maxSpeed = value; }
     float currencyWorth;
+    Collider2D _colliders;
 
     void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
+        _colliders = GetComponent<Collider2D>();
+    }
+
+    void OnEnable()
+    {
+        _colliders.enabled = true;
     }
     void FixedUpdate()
     {
@@ -27,6 +34,7 @@ public class Debris : MonoBehaviour, IPickable
 
     public void OnPickUp()
     {
+        _colliders.enabled = false;
         PlayerManager.Instance.SetCurrency(PlayerManager.Instance.Currency() + currencyWorth);
         _audioSource.PlayOneShot(_onPickUpAudio);
         gameObject.SetActive(false);
