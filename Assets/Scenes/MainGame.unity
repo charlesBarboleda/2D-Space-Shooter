@@ -8128,6 +8128,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2188082cb20a6d43bba970188e51567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &215415222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215415213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6949c3503d1410c4c955bb68d7b8248b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _currentLevelIndex: 0
+--- !u!114 &215415223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215415213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0209a09cedf33249a9ea1039b1d6d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cometSpawnPoint:
+  - {fileID: 1874667251}
+  - {fileID: 697929460}
+  - {fileID: 1780495524}
+  - {fileID: 2000966158}
+  - {fileID: 198813566}
+  - {fileID: 1204847962}
+  - {fileID: 540522952}
+  - {fileID: 390948255}
+  cometsList:
+  - Comet
+  - Comet2
+  - Comet3
+  - Comet4
+  - Comet5
+  - Comet6
+  - Comet7
+  - Comet8
+  numberOfSpawnPoints: 360
+  spawnPointRadius: 200
+  _enemiesList: []
+  enemiesToSpawnLeft: 0
 --- !u!1 &220021036
 GameObject:
   m_ObjectHideFlags: 0
@@ -25834,7 +25881,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 700, y: -224.96054}
+  m_AnchoredPosition: {x: 750, y: -609.53394}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &764605391
@@ -37498,7 +37545,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -224.96054}
+  m_AnchoredPosition: {x: 110, y: -609.53394}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1136445464
@@ -40484,7 +40531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -224.96054}
+  m_AnchoredPosition: {x: 483.33337, y: -609.53394}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1223549828
@@ -43928,7 +43975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -224.96054}
+  m_AnchoredPosition: {x: 350, y: -609.53394}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1299475804
@@ -64582,7 +64629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -224.96054}
+  m_AnchoredPosition: {x: 350, y: -609.53394}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1893922603
@@ -66735,7 +66782,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 288.83148, y: 26.702244}
+  m_AnchoredPosition: {x: 285.44165, y: 26.70224}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1964422257
@@ -66791,9 +66838,9 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: 719
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 5
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -70189,70 +70236,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079854176}
   m_CullTransparentMesh: 1
---- !u!1 &2081907816
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2081907818}
-  - component: {fileID: 2081907817}
-  m_Layer: 0
-  m_Name: SpawnerManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &2081907817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081907816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0209a09cedf33249a9ea1039b1d6d39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cometSpawnPoint:
-  - {fileID: 1874667251}
-  - {fileID: 697929460}
-  - {fileID: 1780495524}
-  - {fileID: 2000966158}
-  - {fileID: 198813566}
-  - {fileID: 1204847962}
-  - {fileID: 540522952}
-  - {fileID: 390948255}
-  cometsList:
-  - Comet
-  - Comet2
-  - Comet3
-  - Comet4
-  - Comet5
-  - Comet6
-  - Comet7
-  - Comet8
-  numberOfSpawnPoints: 360
-  spawnPointRadius: 200
---- !u!4 &2081907818
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081907816}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2082138639
 GameObject:
   m_ObjectHideFlags: 0
@@ -76160,7 +76143,7 @@ PrefabInstance:
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: spawnerManager
       value: 
-      objectReference: {fileID: 2081907816}
+      objectReference: {fileID: 0}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: _nextRoundAudio
       value: 
@@ -76168,7 +76151,7 @@ PrefabInstance:
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: _spawnerManager
       value: 
-      objectReference: {fileID: 2081907816}
+      objectReference: {fileID: 215415223}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: _objectiveManager
       value: 
@@ -76195,6 +76178,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8085019803907562949, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       insertIndex: -1
       addedObject: {fileID: 215415219}
+    - targetCorrespondingSourceObject: {fileID: 8085019803907562949, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 215415222}
+    - targetCorrespondingSourceObject: {fileID: 8085019803907562949, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 215415223}
   m_SourcePrefab: {fileID: 100100000, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
 --- !u!1001 &1968306420699232059
 PrefabInstance:
@@ -81099,7 +81088,6 @@ SceneRoots:
   - {fileID: 894135877}
   - {fileID: 2145981196}
   - {fileID: 1136222167}
-  - {fileID: 2081907818}
   - {fileID: 1865317798}
   - {fileID: 1260175705}
   - {fileID: 462833273931406140}

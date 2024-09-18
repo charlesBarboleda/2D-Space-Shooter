@@ -19,7 +19,7 @@ public class EscortObjective : Objective
         currentCheckpoints = 0;
         requiredCheckpoints = escortPathways.Count - 1;
         escortShip = ObjectPooler.Instance.SpawnFromPool("CargoShip", escortPathways[0], Quaternion.identity);
-        GameManager.Instance.AddEnemy(escortShip);
+        SpawnerManager.Instance.AddEnemy(escortShip);
         CargoShip escortShipScript = escortShip.GetComponent<CargoShip>();
         escortShipScript.Health.CurrentHealth = shipHealth;
         escortShipScript.Health.MaxHealth = shipHealth;
@@ -55,7 +55,7 @@ public class EscortObjective : Objective
                 if (currentCheckpoints == requiredCheckpoints)
                 {
                     CompleteObjective();
-                    GameManager.Instance.RemoveEnemy(escortShip);
+                    SpawnerManager.Instance.RemoveEnemy(escortShip);
                     escortShip.GetComponent<CargoShip>().TeleportAway();
                 }
             }

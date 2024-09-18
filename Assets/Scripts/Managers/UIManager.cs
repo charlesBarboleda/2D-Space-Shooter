@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
 
     {
         EventManager.OnCurrencyChange += UpdateCurrencyText;
-        EventManager.OnNextRound += UpdateRoundText;
+        EventManager.OnNextLevel += UpdateRoundText;
         EventManager.OnGameOver += GameOver;
         EventManager.OnGameOver += UpdateHighScoreUI;
 
@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour
     void OnDisable()
     {
         EventManager.OnCurrencyChange -= UpdateCurrencyText;
-        EventManager.OnNextRound -= UpdateRoundText;
+        EventManager.OnNextLevel -= UpdateRoundText;
         EventManager.OnGameOver -= GameOver;
         EventManager.OnGameOver -= UpdateHighScoreUI;
     }
@@ -180,8 +180,8 @@ public class UIManager : MonoBehaviour
 
     private void UpdateRoundText()
     {
-        if (GameManager.Instance.IsRound) roundText.text = $"{GameManager.Instance.Level}";
-        if (GameManager.Instance.IsCountdown) roundText.text = $"{Math.Round(GameManager.Instance.RoundCountdown, 0)}";
+        if (GameManager.Instance.CurrentGameState == GameManager.GameState.LevelIn) roundText.text = $"{LevelManager.Instance.CurrentLevelIndex + 1}";
+        if (GameManager.Instance.CurrentGameState == GameManager.GameState.Countdown) roundText.text = $"{Math.Round(GameManager.Instance.RoundCountdown, 0)}";
     }
 
     private void SetDescriptionText(TextMeshProUGUI text, Upgrade upgrade)

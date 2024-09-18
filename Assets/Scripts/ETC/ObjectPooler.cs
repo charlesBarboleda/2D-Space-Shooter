@@ -53,8 +53,6 @@ public class ObjectPooler : MonoBehaviour
         objectToSpawn.SetActive(true);
         objectToSpawn.transform.position = position;
         objectToSpawn.transform.rotation = rotation;
-
-        Debug.Log($"Spawned object from pool: {tag}. Active in pool: {poolDictionary[tag].Count}");
         poolDictionary[tag].Enqueue(objectToSpawn);
 
         return objectToSpawn;

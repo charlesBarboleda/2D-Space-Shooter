@@ -44,7 +44,7 @@ public class DestroyFormationTimed : Objective
                 GameObject ship = ObjectPooler.Instance.SpawnFromPool(_shipNames[UnityEngine.Random.Range(0, _shipNames.Count)], shipSpawn.position, Quaternion.identity);
                 Enemy enemyScript = ship.GetComponent<Enemy>();
                 enemyScript.EnemyID = ObjectiveID;
-                GameManager.Instance.AddEnemy(ship);
+                SpawnerManager.Instance.AddEnemy(ship);
 
             }
             foreach (Transform bossSpawn in formationScript.BossPositions)
@@ -53,7 +53,7 @@ public class DestroyFormationTimed : Objective
                 GameObject boss = ObjectPooler.Instance.SpawnFromPool(_bossNames[UnityEngine.Random.Range(0, _bossNames.Count)], bossSpawn.position, Quaternion.identity);
                 Enemy enemyScript = boss.GetComponent<Enemy>();
                 enemyScript.EnemyID = ObjectiveID;
-                GameManager.Instance.AddEnemy(boss);
+                SpawnerManager.Instance.AddEnemy(boss);
 
             }
             formation.SetActive(false);

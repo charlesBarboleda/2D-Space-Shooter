@@ -19,7 +19,7 @@ public class ProtectBuildingObjective : Objective
         foreach (string buildingName in buildingNames)
         {
             _building = ObjectPooler.Instance.SpawnFromPool(buildingName, _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
-            GameManager.Instance.AddEnemy(_building);
+            SpawnerManager.Instance.AddEnemy(_building);
             Health buildingHealth = _building.GetComponent<Health>();
             if (_building.GetComponent<Health>() != null)
             {

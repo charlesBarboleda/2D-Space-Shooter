@@ -9,8 +9,10 @@ public class EventManager : MonoBehaviour
     public static event Action<GameObject> OnEnemyDestroyed;
 
     public static event System.Action OnGameOver;
-    public static event System.Action OnNextRound;
-    public static event System.Action OnRoundStart;
+    public static event System.Action OnNextLevel;
+    public static event System.Action OnLevelStart;
+    public static event System.Action OnLevelComplete;
+
     public static event System.Action<float> OnCurrencyChange;
 
 
@@ -27,14 +29,19 @@ public class EventManager : MonoBehaviour
         OnGameOver?.Invoke();
     }
 
-    public static void NextRoundEvent()
+    public static void NextLevelEvent()
     {
-        OnNextRound?.Invoke();
+        OnNextLevel?.Invoke();
     }
 
-    public static void RoundStartEvent()
+    public static void LevelStartEvent()
     {
-        OnRoundStart?.Invoke();
+        OnLevelStart?.Invoke();
+    }
+
+    public static void LevelCompleteEvent()
+    {
+        OnLevelComplete?.Invoke();
     }
 
 

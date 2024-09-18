@@ -22,7 +22,7 @@ public class SpawnerEnemy : Enemy
             Vector3 spawnPosition = transform.position + new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * _spawnRadius;
 
             GameObject enemy = ObjectPooler.Instance.SpawnFromPool(ships[randomShipIndex], spawnPosition, transform.rotation);
-            GameManager.Instance.AddEnemy(enemy);
+            SpawnerManager.Instance.AddEnemy(enemy);
         }
 
 
@@ -30,7 +30,7 @@ public class SpawnerEnemy : Enemy
     protected override void OnEnable()
     {
         base.OnEnable();
-        AttackManager.AttackCooldown -= GameManager.Instance.Level * 0.01f;
+        AttackManager.AttackCooldown -= LevelManager.Instance.CurrentLevelIndex * 0.01f;
         if (AttackManager.AttackCooldown <= 0.1f)
         {
             AttackManager.AttackCooldown = 0.1f;

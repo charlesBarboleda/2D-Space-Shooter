@@ -6,31 +6,38 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    [Header("Game State Machine")]
+    GameState _currentState;
+    int _currentLevelIndex = 0;
+    bool _isInputActive = true;
+    public enum GameState
+    {
+        Countdown,
+        Start,
+        Paused,
+        LevelIn,
+        LevelEnd,
+        GameOver,
+    }
+
+    [Header("Audio")]
     AudioSource _audioSource;
     [SerializeField] AudioClip _nextRoundAudio;
     [SerializeField] AudioClip _gameOverAudio;
 
     [Header("Managers")]
-    [SerializeField] GameObject _spawnerManager;
+    SpawnerManager _spawnerManager;
+    LevelManager _levelManager;
 
 
     [Header("Round Settings")]
     [SerializeField] int _cometsPerRound = 1;
     [SerializeField] float _cometSpawnRate = 30f;
-    [SerializeField] float _maxSpawnRate;
-    [SerializeField] float _spawnRate;
-    [SerializeField] int _enemiesToSpawnTotal;
-    [SerializeField] int _enemiesToSpawnLeft;
-    [SerializeField] int _level;
+
 
     [Header("Round States")]
     float _roundCountdown;
-    bool _isRoundOver;
-    bool _isCountdown;
-    bool _isRound;
-    bool _isObjectiveRound;
-    bool _canTriggerNextRound = true;
-    List<GameObject> _enemies = new List<GameObject>();
+
 
     void Awake()
     {
@@ -44,93 +51,140 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        _levelManager = GetComponent<LevelManager>();
+        _audioSource = GetComponent<AudioSource>();
+        _spawnerManager = GetComponent<SpawnerManager>();
     }
     void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
-        _level = 10;
-        _spawnRate = 0.5f;
-        _maxSpawnRate = 0.1f;
-        _enemiesToSpawnTotal = 200;
-        _roundCountdown = 10f;
-        _isCountdown = true;
+        if (_levelManager != null)
+        {
+
+            Debug.Log($"Levels Count: {_levelManager.Levels.Count}");
+
+            StartCoroutine(GameStartCoroutine());
+        }
+        else
+        {
+            Debug.LogError("Level Manager not found");
+        }
+
     }
+
+    IEnumerator GameStartCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (_levelManager.Levels.Count > 0)
+        {
+            Debug.Log("Game Started... Counting down");
+            ChangeState(GameState.Countdown);
+        }
+        else
+        {
+            Debug.LogError("No levels found");
+        }
+    }
+
+    public void ChangeState(GameState state)
+    {
+        Debug.Log($"Changing State to {state}");
+        _currentState = state;
+        switch (_currentState)
+        {
+            case GameState.Countdown:
+                StartCoroutine(StartCountdown());
+                break;
+            case GameState.Start:
+                StartGame();
+                break;
+            case GameState.Paused:
+                PauseGame();
+                break;
+            case GameState.LevelIn:
+                LevelStart();
+                break;
+            case GameState.LevelEnd:
+                LevelComplete();
+                break;
+            case GameState.GameOver:
+                GameEnd();
+                break;
+        }
+    }
+
+    IEnumerator StartCountdown()
+    {
+        Debug.Log("Countdown Started");
+        _isInputActive = true;
+        _roundCountdown = 10f;
+
+        while (_roundCountdown > 0)
+        {
+            _roundCountdown -= Time.deltaTime;
+            yield return null;
+        }
+
+        ChangeState(GameState.Start);
+
+    }
+
+    void StartGame()
+    {
+        Debug.Log("Game Started");
+        ChangeState(GameState.LevelIn);
+    }
+
+    void PauseGame()
+    {
+        Debug.Log("Game Paused");
+        ChangeState(GameState.Paused);
+        _isInputActive = false;
+    }
+
+    void UnPauseGame()
+    {
+        Debug.Log("Game Unpaused");
+        _isInputActive = true;
+    }
+
+    void LevelStart()
+    {
+        Debug.Log("Level Start from Game Manager");
+
+        _levelManager.StartLevel();
+    }
+
+    void LevelComplete()
+    {
+        Debug.Log("Level End");
+        _levelManager.CompleteLevel();
+        ChangeState(GameState.LevelEnd);
+        _levelManager.CurrentLevelIndex++;
+    }
+
+    void GameEnd()
+    {
+        Debug.Log("Game Over");
+        ChangeState(GameState.GameOver);
+        _isInputActive = false;
+        _audioSource.PlayOneShot(_gameOverAudio);
+        UpdateHighScore();
+    }
+
+
 
     void UpdateHighScore()
     {
-        if (_level > PlayerPrefs.GetFloat("HighScore"))
+        if (_levelManager.CurrentLevelIndex > PlayerPrefs.GetFloat("HighScore"))
         {
-            PlayerPrefs.SetFloat("HighScore", _level);
+            PlayerPrefs.SetFloat("HighScore", _levelManager.CurrentLevelIndex + 1);
         }
-    }
-
-    void Update()
-    {
-        Collider2D[] colliders = FindObjectsOfType<Collider2D>();
-        Debug.Log($"Number of colliders in scene: {colliders.Length}");
-
-        // If you want to track only active colliders that are contributing to physics
-        int activeColliders = 0;
-        foreach (Collider2D col in colliders)
-        {
-            if (col.enabled && col.attachedRigidbody != null && col.attachedRigidbody.simulated)
-            {
-                activeColliders++;
-            }
-        }
-        Debug.Log($"Active physics objects in scene: {activeColliders}");
-        // On-going round
-        if (_isRound)
-        {
-            Debug.Log("Enemies Count: " + _enemies.Count);
-            Debug.Log("Enemies To Spawn Left: " + _enemiesToSpawnLeft);
-            if (_enemies.Count <= 0 && !_isRoundOver && _canTriggerNextRound && _enemiesToSpawnLeft <= 0)
-            {
-
-                _isRoundOver = true;
-                _isCountdown = true;
-
-                StartCoroutine(NextRoundCooldown());  // Start cooldown to prevent double calls
-                EventManager.NextRoundEvent();
-            }
-        }
-
-        // Preperation stage before next round
-        if (_isCountdown)
-        {
-
-            _roundCountdown -= Time.deltaTime;
-            if (_roundCountdown <= 0)
-            {
-                _isCountdown = false;
-                _isRoundOver = false;
-                _isRound = true;
-                EventManager.RoundStartEvent();
-            }
-        }
-
-    }
-    void LateUpdate()
-    {
-        _enemies.RemoveAll(enemy => enemy == null || !enemy.activeInHierarchy);
-    }
-
-    IEnumerator NextRoundCooldown()
-    {
-
-        _canTriggerNextRound = false;
-        yield return new WaitForSeconds(0.1f);  // Short delay to prevent double trigger
-        _canTriggerNextRound = true;
-
     }
 
 
 
     void OnEnable()
     {
-        EventManager.OnEnemyDestroyed += RemoveEnemy;
-        EventManager.OnRoundStart += RoundStart;
-        EventManager.OnNextRound += NextRound;
         EventManager.OnGameOver += GameOverSound;
         EventManager.OnGameOver += UpdateHighScore;
 
@@ -138,114 +192,14 @@ public class GameManager : MonoBehaviour
 
     void OnDisable()
     {
-        EventManager.OnEnemyDestroyed -= RemoveEnemy;
-        EventManager.OnNextRound -= NextRound;
-        EventManager.OnRoundStart -= RoundStart;
         EventManager.OnGameOver -= UpdateHighScore;
         EventManager.OnGameOver -= GameOverSound;
-
-
-    }
-
-
-    public void IncreaseLevel()
-    {
-        _level++;
-    }
-
-    public float GetSpawnRate()
-    {
-        return _spawnRate;
-    }
-
-    public List<GameObject> GetEnemies()
-    {
-        return _enemies;
-    }
-    public int GetEnemiesToSpawnLeft()
-    {
-        return _enemiesToSpawnLeft;
-    }
-
-    public int GetEnemiesToSpawnTotal()
-    {
-        return _enemiesToSpawnTotal;
-    }
-    public void SetEnemiesToSpawnLeft(int value)
-    {
-        _enemiesToSpawnLeft = value;
-    }
-    public void AddEnemy(GameObject enemy)
-    {
-        _enemies.Add(enemy);
-    }
-    public void RemoveEnemy(GameObject enemy)
-    {
-        _enemies.Remove(enemy);
     }
 
 
 
 
-    private void DisableSpawning()
-    {
-        _spawnerManager.SetActive(false);
-    }
 
-    private void EnableSpawning()
-    {
-        _spawnerManager.SetActive(true);
-    }
-
-    private void RoundStart()
-    {
-        _isRound = true;
-        _isRoundOver = false;
-        _roundCountdown = 10f;
-        EnableSpawning();
-        _enemiesToSpawnLeft = _enemiesToSpawnTotal;
-
-    }
-    private void NextRound()
-    {
-        ObjectivesManager.Instance.RemoveAllObjectives();
-        _isObjectiveRound = false;
-
-        _audioSource.PlayOneShot(_nextRoundAudio);
-
-        if (UnityEngine.Random.value <= 0.99f) _isObjectiveRound = true;
-        else _isObjectiveRound = false;
-        Debug.Log("Objective Round: " + _isObjectiveRound);
-        if (_isObjectiveRound)
-        {
-
-            if (_level >= 1 && _level < 20) ObjectivesManager.Instance.SetObjectives("Early", 2);
-            else if (_level >= 20 && _level < 30) ObjectivesManager.Instance.SetObjectives("Early", 3);
-            else if (_level >= 30 && _level < 40) ObjectivesManager.Instance.SetObjectives("Mid", 2);
-            else if (_level >= 40 && _level < 50) ObjectivesManager.Instance.SetObjectives("Mid", 3);
-            else if (_level >= 50 && _level < 60) ObjectivesManager.Instance.SetObjectives("Late", 3);
-            else if (_level >= 60 && _level < 70) ObjectivesManager.Instance.SetObjectives("Late", 4);
-            else if (_level >= 70) ObjectivesManager.Instance.SetObjectives("Late", 4);
-
-
-        }
-        if (_level % UnityEngine.Random.Range(5, 10) == 0)
-        {
-            _cometsPerRound = 100;
-            _cometSpawnRate = 5f;
-        }
-        else
-        {
-            _cometsPerRound = 5;
-            _cometSpawnRate = UnityEngine.Random.Range(10f, 60f);
-        }
-
-        DisableSpawning();
-        _spawnRate -= 0.005f;
-        _enemiesToSpawnTotal += 10;
-        _spawnRate = Mathf.Max(_spawnRate, _maxSpawnRate);
-        IncreaseLevel();
-    }
     private void GameOverSound()
     {
         _audioSource.PlayOneShot(_gameOverAudio);
@@ -253,7 +207,7 @@ public class GameManager : MonoBehaviour
 
     public void DestroyAllShips()
     {
-        List<GameObject> enemiesCopy = new List<GameObject>(_enemies);
+        List<GameObject> enemiesCopy = new List<GameObject>(SpawnerManager.Instance.EnemiesList);
         foreach (GameObject enemy in enemiesCopy)
         {
             if (enemy != null)
@@ -261,17 +215,13 @@ public class GameManager : MonoBehaviour
                 enemy.GetComponent<IDamageable>().Die();
             }
         }
-        _enemies.Clear();
+        SpawnerManager.Instance.EnemiesList.Clear();
     }
 
     public int CometsPerRound { get => _cometsPerRound; set => _cometsPerRound = value; }
     public float CometSpawnRate { get => _cometSpawnRate; set => _cometSpawnRate = value; }
-    public float RoundCountdown { get => _roundCountdown; set => _roundCountdown = value; }
-    public int Level { get => _level; set => _level = value; }
-
-    public bool IsRound { get => _isRound; set => _isRound = value; }
-
-    public bool IsObjectiveRound { get => _isObjectiveRound; set => _isObjectiveRound = value; }
-    public bool IsCountdown { get => _isCountdown; set => _isCountdown = value; }
+    public float RoundCountdown { get => _roundCountdown; }
+    public bool IsInputActive { get => _isInputActive; }
+    public GameState CurrentGameState { get => _currentState; }
 
 }

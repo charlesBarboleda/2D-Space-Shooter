@@ -39,7 +39,7 @@ public class DestroyShooterBossObjective : Objective
         foreach (string bossName in _bossNames)
         {
             GameObject bossShip = ObjectPooler.Instance.SpawnFromPool(bossName, _spawnPoints[UnityEngine.Random.Range(0, _spawnPoints.Count)].position, Quaternion.identity);
-            GameManager.Instance.AddEnemy(bossShip);
+            SpawnerManager.Instance.AddEnemy(bossShip);
             BossShooter bossScript = bossShip.GetComponent<BossShooter>();
             bossScript.EnemyID = ObjectiveID;
             if (bossShip.GetComponent<BossShooter>() != null)

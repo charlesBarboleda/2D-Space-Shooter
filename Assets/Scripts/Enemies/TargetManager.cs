@@ -93,7 +93,7 @@ public class TargetManager : MonoBehaviour
                     closestDistance = distance;
                     bestTargetPoint = closestPointOnTarget;
                     _currentTarget = targetCollider.gameObject;
-                    Debug.Log($"New target acquired: {_currentTarget.name}, Position: {bestTargetPoint}");
+
                 }
             }
         }

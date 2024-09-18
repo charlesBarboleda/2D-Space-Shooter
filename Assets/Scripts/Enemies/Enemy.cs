@@ -81,6 +81,7 @@ public abstract class Enemy : MonoBehaviour
 
     }
 
+
     public virtual void UnBuffedState()
     {
         _buffedParticles.SetActive(false);
@@ -126,13 +127,13 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void IncreaseStatsPerLevel()
     {
-        _health.CurrentHealth += GameManager.Instance.Level * 5f;
-        _health.MaxHealth += GameManager.Instance.Level * 5f;
+        _health.CurrentHealth += LevelManager.Instance.CurrentLevelIndex * 5f;
+        _health.MaxHealth += LevelManager.Instance.CurrentLevelIndex * 5f;
 
 
-        _health.CurrencyDrop += GameManager.Instance.Level * 0.5f;
+        _health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 0.5f;
 
-        _kinematics.Speed += GameManager.Instance.Level * 0.05f;
+        _kinematics.Speed += LevelManager.Instance.CurrentLevelIndex * 0.05f;
 
     }
 

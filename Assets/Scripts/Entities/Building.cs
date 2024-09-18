@@ -33,7 +33,7 @@ public class Building : MonoBehaviour
 
     public void TeleportAway()
     {
-        GameManager.Instance.RemoveEnemy(gameObject);
+        SpawnerManager.Instance.RemoveEnemy(gameObject);
         StartCoroutine(TeleportEffect());
 
     }

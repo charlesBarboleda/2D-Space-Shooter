@@ -27,7 +27,7 @@ public class ObjectivesManager : MonoBehaviour
     void OnEnable()
     {
 
-        EventManager.OnRoundStart += StartObjectives;
+        EventManager.OnLevelStart += StartObjectives;
         EventManager.OnEnemyDestroyed += OnAnyEnemyDestroyed;
 
 
@@ -35,7 +35,7 @@ public class ObjectivesManager : MonoBehaviour
 
     void OnDisable()
     {
-        EventManager.OnRoundStart -= StartObjectives;
+        EventManager.OnLevelStart -= StartObjectives;
         EventManager.OnEnemyDestroyed -= OnAnyEnemyDestroyed;
 
 

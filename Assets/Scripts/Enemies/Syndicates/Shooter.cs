@@ -55,9 +55,9 @@ public class ShooterEnemy : Enemy
     public override void IncreaseStatsPerLevel()
     {
         base.IncreaseStatsPerLevel();
-        _bulletSpeed += GameManager.Instance.Level * 0.01f;
-        _bulletDamage += GameManager.Instance.Level * 0.5f;
-        AttackManager.AimRange += GameManager.Instance.Level * 0.1f;
+        _bulletSpeed += LevelManager.Instance.CurrentLevelIndex * 0.01f;
+        _bulletDamage += LevelManager.Instance.CurrentLevelIndex * 0.5f;
+        AttackManager.AimRange += LevelManager.Instance.CurrentLevelIndex * 0.1f;
     }
 
     public override void BuffedState()

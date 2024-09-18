@@ -10,9 +10,11 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] List<Transform> cometSpawnPoint = new List<Transform>();
     [SerializeField] List<string> cometsList = new List<string>();
     [SerializeField] int numberOfSpawnPoints = 360;
-    [SerializeField] int spawnPointRadius = 30;
+    [SerializeField] int spawnPointRadius = 200;
+    [SerializeField] List<GameObject> _enemiesList;
+    [SerializeField] int enemiesToSpawnLeft;
 
-    List<Ship> shipNamesCrimsonFleet = new List<Ship> {
+    public List<Ship> shipNamesCrimsonFleet = new List<Ship> {
         new Ship { name = "CrimsonSmall1", weight = 0.15f },
         new Ship { name = "CrimsonSmall2", weight = 0.15f },
         new Ship { name = "CrimsonSmall3", weight = 0.15f },
@@ -21,7 +23,7 @@ public class SpawnerManager : MonoBehaviour
         new Ship { name = "CrimsonBomberSpawner", weight = 0.01f },
         new Ship { name = "CrimsonBuffer", weight = 0.01f }
     };
-    List<Ship> shipNamesThraxArmada = new List<Ship> {
+    public List<Ship> shipNamesThraxArmada = new List<Ship> {
         new Ship { name = "ThraxSmall1", weight = 0.298f },
         new Ship { name = "ThraxSmall2", weight = 0.298f },
         new Ship { name = "ThraxSmall3", weight = 0.298f },
@@ -30,23 +32,23 @@ public class SpawnerManager : MonoBehaviour
         new Ship { name = "ThraxCarrier1", weight = 0.005f },
         new Ship { name = "ThraxBoss1", weight = 0.001f }
     };
-    List<Ship> shipNamesEarly = new List<Ship> {
+    public List<Ship> shipNamesEarly = new List<Ship> {
         new Ship { name = "SmallShip", weight = 0.5f },
         new Ship { name = "MeleeShip", weight = 0.5f }
     };
-    List<Ship> shipNamesEarly2 = new List<Ship> {
+    public List<Ship> shipNamesEarly2 = new List<Ship> {
         new Ship { name = "SmallShip", weight = 0.3f },
         new Ship { name = "MeleeShip", weight = 0.3f },
         new Ship { name = "MediumShip", weight = 0.2f },
         new Ship { name = "MediumShip2", weight = 0.2f },
     };
-    List<Ship> shipNamesEarly3 = new List<Ship> {
+    public List<Ship> shipNamesEarly3 = new List<Ship> {
         new Ship { name = "SmallShip", weight = 0.1f },
         new Ship { name = "MeleeShip", weight = 0.1f },
         new Ship { name = "MediumShip", weight = 0.4f },
         new Ship { name = "MediumShip2", weight = 0.4f },
     };
-    List<Ship> shipNamesMid = new List<Ship> {
+    public List<Ship> shipNamesMid = new List<Ship> {
         new Ship { name = "SmallShip", weight = 0.1f },
         new Ship { name = "MeleeShip", weight = 0.1f },
         new Ship { name = "MediumShip", weight = 0.35f },
@@ -54,14 +56,14 @@ public class SpawnerManager : MonoBehaviour
         new Ship { name = "LargeShip", weight = 0.05f },
 
     };
-    List<Ship> shipNamesMid2 = new List<Ship> {
+    public List<Ship> shipNamesMid2 = new List<Ship> {
         new Ship { name = "SmallShip", weight = 0.05f },
         new Ship { name = "MeleeShip", weight = 0.05f },
         new Ship { name = "MediumShip", weight = 0.3f },
         new Ship { name = "MediumShip2", weight = 0.4f },
         new Ship { name = "LargeShip", weight = 0.2f },
     };
-    List<Ship> shipNamesMid3 = new List<Ship> {
+    public List<Ship> shipNamesMid3 = new List<Ship> {
         new Ship { name = "SmallShip", weight = 0.05f },
         new Ship { name = "MeleeShip", weight = 0.05f },
         new Ship { name = "MediumShip", weight = 0.3f },
@@ -69,7 +71,7 @@ public class SpawnerManager : MonoBehaviour
         new Ship { name = "LargeShip", weight = 0.2f },
         new Ship { name = "NukeShip", weight = 0.05f },
     };
-    List<Ship> shipNamesLate = new List<Ship> {
+    public List<Ship> shipNamesLate = new List<Ship> {
         new Ship { name = "SmallShip", weight = 0.05f },
         new Ship { name = "MeleeShip", weight = 0.05f },
         new Ship { name = "MediumShip", weight = 0.3f },
@@ -77,7 +79,7 @@ public class SpawnerManager : MonoBehaviour
         new Ship { name = "LargeShip", weight = 0.2f },
         new Ship { name = "NukeShip", weight = 0.05f },
     };
-    List<Ship> shipNamesLate2 = new List<Ship> {
+    public List<Ship> shipNamesLate2 = new List<Ship> {
         new Ship { name = "SmallShip", weight = 0.05f },
         new Ship { name = "MeleeShip", weight = 0.05f },
         new Ship { name = "MediumShip", weight = 0.3f },
@@ -88,7 +90,7 @@ public class SpawnerManager : MonoBehaviour
 
 
     };
-    List<Ship> shipNamesLate3 = new List<Ship> {
+    public List<Ship> shipNamesLate3 = new List<Ship> {
         new Ship { name = "MediumShip", weight = 0.2f },
         new Ship { name = "MediumShip2", weight = 0.2f },
         new Ship { name = "LargeShip", weight = 0.3f },
@@ -96,39 +98,34 @@ public class SpawnerManager : MonoBehaviour
 
     };
 
-
-
-    public struct Ship
-    {
-        public string name;
-        public float weight;
-    }
     void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
+            Destroy(this);
         }
         else
         {
-            Destroy(gameObject);
+            Instance = this;
         }
     }
 
     void OnEnable()
     {
-        StartCoroutine(SpawnEnemiesOverTime());
         StartCoroutine(SpawnCometsOverTime());
 
     }
 
     void OnDisable()
     {
-        StopCoroutine(SpawnEnemiesOverTime());
         StopCoroutine(SpawnCometsOverTime());
     }
+    void LateUpdate()
+    {
+        EnemiesList.RemoveAll(enemy => enemy == null || !enemy.activeInHierarchy);
+    }
 
-    private GameObject SpawnComet(Vector3 position, Quaternion rotation)
+    public GameObject SpawnComet(Vector3 position, Quaternion rotation)
     {
         GameObject comet = ObjectPooler.Instance.SpawnFromPool(cometsList[Random.Range(0, cometsList.Count)], position, rotation);
         return comet;
@@ -136,14 +133,14 @@ public class SpawnerManager : MonoBehaviour
 
 
 
-    private GameObject SpawnShip(string tag, Vector3 position, Quaternion rotation)
+    public GameObject SpawnShip(string tag, Vector3 position, Quaternion rotation)
     {
 
         GameObject enemy = ObjectPooler.Instance.SpawnFromPool(tag, position, rotation);
         if (enemy != null)
         {
-            GameManager.Instance.AddEnemy(enemy);
-            GameManager.Instance.SetEnemiesToSpawnLeft(GameManager.Instance.GetEnemiesToSpawnLeft() - 1);
+            AddEnemy(enemy);
+            EnemiesToSpawnLeft--;
         }
 
 
@@ -160,12 +157,10 @@ public class SpawnerManager : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnEnemiesOverTime()
+    public IEnumerator SpawnEnemiesOverTime(List<Ship> shipList, float spawnRate, int numberOfEnemiesToSpawn)
     {
-        int spawnCount = 0;
-        for (int i = 0; i <= GameManager.Instance.GetEnemiesToSpawnTotal(); i++)
+        for (int i = 0; i <= numberOfEnemiesToSpawn; i++)
         {
-            spawnCount++;
             // Select a random segment between two consecutive points
             float segmentIndex = Random.Range(0, numberOfSpawnPoints);
             float minAngle = segmentIndex * Mathf.PI * 2 / numberOfSpawnPoints;
@@ -175,54 +170,13 @@ public class SpawnerManager : MonoBehaviour
             // Calculate the random position on the circle
             Vector3 spawnPosition = new Vector3(Mathf.Cos(randomAngle) * spawnPointRadius, Mathf.Sin(randomAngle) * spawnPointRadius, 0);
 
-            // Choose the correct ship list based on the level
-            List<Ship> shipList;
-            if (GameManager.Instance.Level >= 1 && GameManager.Instance.Level < 10)
-            {
-                shipList = shipNamesEarly;
-            }
-            else if (GameManager.Instance.Level >= 10 && GameManager.Instance.Level < 20)
-            {
-                shipList = shipNamesThraxArmada;
-            }
-            else if (GameManager.Instance.Level >= 20 && GameManager.Instance.Level < 30)
-            {
-                shipList = shipNamesEarly3;
-            }
-            else if (GameManager.Instance.Level >= 30 && GameManager.Instance.Level < 40)
-            {
-                shipList = shipNamesMid;
-            }
-            else if (GameManager.Instance.Level >= 40 && GameManager.Instance.Level < 50)
-            {
-                shipList = shipNamesMid2;
-            }
-            else if (GameManager.Instance.Level >= 50 && GameManager.Instance.Level < 60)
-            {
-                shipList = shipNamesMid3;
-            }
-            else if (GameManager.Instance.Level >= 60 && GameManager.Instance.Level < 70)
-            {
-                shipList = shipNamesLate;
-            }
-            else if (GameManager.Instance.Level >= 70 && GameManager.Instance.Level < 80)
-            {
-                shipList = shipNamesLate2;
-            }
-            else if (GameManager.Instance.Level >= 80 && GameManager.Instance.Level < 90)
-            {
-                shipList = shipNamesLate3;
-            }
-            else
-            {
-                shipList = shipNamesLate3;
-            }
+
 
             // Get a random ship based on probabilities
             string chosenShip = GetRandomShip(shipList);
             GameObject ship = SpawnShip(chosenShip, spawnPosition, Quaternion.identity);
 
-            yield return new WaitForSeconds(GameManager.Instance.GetSpawnRate());
+            yield return new WaitForSeconds(spawnRate);
         }
     }
     private string GetRandomShip(List<Ship> ships)
@@ -248,5 +202,26 @@ public class SpawnerManager : MonoBehaviour
         return ships[0].name; // Fallback in case no ship is chosen
     }
 
+    public void AddEnemy(GameObject enemy)
+    {
+        EnemiesList.Add(enemy);
+    }
+    public void RemoveEnemy(GameObject enemy)
+    {
+        EnemiesList.Remove(enemy);
+    }
+
+    public void DisableSpawning()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void EnableSpawning()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public List<GameObject> EnemiesList { get => _enemiesList; }
+    public int EnemiesToSpawnLeft { get => enemiesToSpawnLeft; set => enemiesToSpawnLeft = value; }
 
 }

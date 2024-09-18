@@ -5,13 +5,12 @@ using UnityEngine;
 public class BossSpawner : SpawnerEnemy
 {
 
-
     public override void IncreaseStatsPerLevel()
     {
 
-        Health.CurrentHealth += GameManager.Instance.Level * 10f;
-        Health.CurrencyDrop += GameManager.Instance.Level * 1f;
-        Kinematics.Speed += GameManager.Instance.Level * 0.1f;
+        Health.CurrentHealth += LevelManager.Instance.CurrentLevelIndex * 10f;
+        Health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 1f;
+        Kinematics.Speed += LevelManager.Instance.CurrentLevelIndex * 0.1f;
     }
 
 }

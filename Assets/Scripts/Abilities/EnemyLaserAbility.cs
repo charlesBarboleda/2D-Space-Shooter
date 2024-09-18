@@ -99,7 +99,7 @@ public class EnemyLaserAbility : Ability
 
     void SetStatsBasedOnLevel()
     {
-        damagePerSecond += GameManager.Instance.Level * 0.5f;
-        duration += GameManager.Instance.Level * 0.1f;
+        damagePerSecond += LevelManager.Instance.CurrentLevelIndex * 0.5f;
+        duration += LevelManager.Instance.CurrentLevelIndex * 0.1f;
     }
 }
