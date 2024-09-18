@@ -46,11 +46,11 @@ public class DestroyShooterBossObjective : Objective
             {
                 bossScript.Health.CurrentHealth = _health;
                 bossScript.Health.MaxHealth = _health;
-                bossScript.SetBulletAmount(_bulletAmount);
-                bossScript.SetBulletSpeed(_bulletSpeed);
-                bossScript.SetBulletDamage(_bulletDamage);
+                bossScript.BulletAmount = _bulletAmount;
+                bossScript.BulletSpeed = _bulletSpeed;
+                bossScript.BulletDamage = _bulletDamage;
                 bossScript.AttackManager.AttackCooldown = _fireRate;
-                bossScript.SetShootingAngle(_shootingAngle);
+                bossScript.ShootingAngle = _shootingAngle;
                 bossScript.Health.CurrencyDrop = _currencyDrop;
                 bossScript.Kinematics.Speed = _speed;
                 bossScript.AttackManager.AimRange = _aimRange;

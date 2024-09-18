@@ -22,7 +22,7 @@ public class HordeLevel : Level
     public override void StartLevel()
     {
         Debug.Log("Starting Horde Level");
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, 1f, _amountOfEnemiesToSpawn));
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, 1f, _amountOfEnemiesToSpawn, 200f));
 
     }
 

@@ -94,12 +94,12 @@ public class Kinematics : MonoBehaviour
             transform.position += finalDirection * _speed * Time.deltaTime;
 
         }
-        else
+        else if (_cachedDistance < _stopDistance)
         {
-
+            transform.position += -_cachedDirection * _speed * Time.deltaTime;
             Orbit(target);
-
         }
+
 
 
     }

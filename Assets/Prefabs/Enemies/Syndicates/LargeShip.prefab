@@ -70,7 +70,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -23.2, y: 5.6, z: 0}
-  m_LocalScale: {x: 9.506245, y: 9.506245, z: 9.506245}
+  m_LocalScale: {x: 14.076847, y: 18.018364, z: 14.076847}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2193635423315327897}
@@ -149,10 +149,10 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 2193635423315327897}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   _bulletType: SyndicatesBullet
-  _bulletSpeed: 10
+  _bulletSpeed: 30
   _bulletDamage: 20
-  _amountOfBullets: 5
-  _shootingAngle: 5
+  _amountOfBullets: 6
+  _shootingAngle: 15
   _bulletLifetime: 5
   nextFireTime: 0
 --- !u!61 &1183282191928038283
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 3
-  _allyFactions: 
+  _allyFactions: 03000000
 --- !u!66 &620962100525014961
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -466,48 +466,48 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 7269771317246057452}
     m_ColliderPaths:
-    - - X: -39931016
-        Y: -42925168
-      - X: -99340240
-        Y: -42925168
-      - X: -99340240
-        Y: -121399416
-      - X: -39931016
-        Y: -121399416
+    - - X: -59129848
+        Y: -63563584
+      - X: -147103040
+        Y: -63563584
+      - X: -147103040
+        Y: -179768240
+      - X: -59129848
+        Y: -179768240
   - m_Collider: {fileID: 7096312941657266070}
     m_ColliderPaths:
-    - - X: 99340240
-        Y: -42925168
-      - X: 38430616
-        Y: -42925168
-      - X: 38430616
-        Y: -124078656
-      - X: 99340240
-        Y: -124078656
+    - - X: 147103040
+        Y: -63563584
+      - X: 56908056
+        Y: -63563584
+      - X: 56908056
+        Y: -183735680
+      - X: 147103040
+        Y: -183735680
   - m_Collider: {fileID: 1183282191928038283}
     m_ColliderPaths:
-    - - X: 45415832
-        Y: 226297184
-      - X: -48526892
-        Y: 226297184
-      - X: -48526892
-        Y: -227674560
-      - X: 45415832
-        Y: -227674560
+    - - X: 67251760
+        Y: 335100864
+      - X: -71858624
+        Y: 335100864
+      - X: -71858624
+        Y: -337140512
+      - X: 67251760
+        Y: -337140512
   m_CompositePaths:
     m_Paths:
-    - - {x: 4.541554, y: -22.767456}
-      - {x: 4.5416126, y: -12.407866}
-      - {x: 9.934024, y: -12.407836}
-      - {x: 9.933994, y: -4.2925167}
-      - {x: 4.541583, y: -4.292487}
-      - {x: 4.541554, y: 22.629719}
-      - {x: -4.8526893, y: 22.62969}
-      - {x: -4.8527184, y: -4.2925167}
-      - {x: -9.934024, y: -4.2925463}
-      - {x: -9.933994, y: -12.139942}
-      - {x: -4.8526893, y: -12.139972}
-      - {x: -4.85266, y: -22.767456}
+    - - {x: 6.7251463, y: -33.71405}
+      - {x: 6.725206, y: -18.373568}
+      - {x: 14.710304, y: -18.373539}
+      - {x: 14.710276, y: -6.3563585}
+      - {x: 6.725176, y: -6.356329}
+      - {x: 6.7251463, y: 33.510086}
+      - {x: -7.1858625, y: 33.51006}
+      - {x: -7.185892, y: -6.3563585}
+      - {x: -14.710304, y: -6.3563876}
+      - {x: -14.710276, y: -17.976824}
+      - {x: -7.1858625, y: -17.976852}
+      - {x: -7.185833, y: -33.71405}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -524,9 +524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 700
-  _maxHealth: 700
-  _currencyDrop: 70
+  _currentHealth: 5000
+  _maxHealth: 5000
+  _currencyDrop: 5000
   _currencyPrefab:
   - Debris1
   - Debris2
@@ -542,8 +542,8 @@ MonoBehaviour:
   _deathExplosion: MidExp
   _deathEffect:
   - DeathEffectMid
-  - DeathEffecMid2
-  shakeType: 0
+  - DeathEffectMid2
+  shakeType: 1
 --- !u!114 &1322832060781890686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,8 +558,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimOffset: -90
   _shouldRotate: 1
-  _speed: 12
-  _stopDistance: 40
+  _speed: 20
+  _stopDistance: 100
   separationRadius: 20
   separationWeight: 1.5
   maxSeparationForce: 0.5
@@ -591,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9216c03e867f274db5aaf93c01462f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aimRange: 60
+  _aimRange: 120
   _attackCooldown: 3
 --- !u!1001 &2627245770091234517
 PrefabInstance:

@@ -80,15 +80,11 @@ public class ShooterEnemy : Enemy
 
 
     // Properties for bullet settings
-    public void SetBulletAmount(int amount) => _amountOfBullets = amount;
-    public void SetBulletSpeed(float speed) => _bulletSpeed = speed;
-    public void SetBulletDamage(float damage) => _bulletDamage = damage;
-    public void SetShootingAngle(float angle) => _shootingAngle = angle;
 
-    public int GetBulletAmount() => _amountOfBullets;
-    public float GetBulletSpeed() => _bulletSpeed;
-    public float GetBulletDamage() => _bulletDamage;
 
-    public float GetShootingAngle() => _shootingAngle;
-    public float GetBulletLifetime() => _bulletLifetime;
+    public int BulletAmount { get => _amountOfBullets; set => _amountOfBullets = value; }
+    public float BulletSpeed { get => _bulletSpeed; set => _bulletSpeed = value; }
+    public float BulletDamage { get => _bulletDamage; set => _bulletDamage = value; }
+    public float ShootingAngle { get => _shootingAngle; set => _shootingAngle = value; }
+    public float BulletLifetime { get => _bulletLifetime; set => _bulletLifetime = value; }
 }

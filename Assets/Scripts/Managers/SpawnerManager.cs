@@ -13,6 +13,7 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] int spawnPointRadius = 200;
     [SerializeField] List<GameObject> _enemiesList;
     [SerializeField] int enemiesToSpawnLeft;
+    [SerializeField] List<Vector3> _soloBossSpawnPoints = new List<Vector3>();
 
     public List<Ship> shipNamesCrimsonFleet = new List<Ship> {
         new Ship { name = "CrimsonSmall1", weight = 0.15f },
@@ -157,7 +158,7 @@ public class SpawnerManager : MonoBehaviour
         }
     }
 
-    public IEnumerator SpawnEnemiesOverTime(List<Ship> shipList, float spawnRate, int numberOfEnemiesToSpawn)
+    public IEnumerator SpawnEnemiesOverTime(List<Ship> shipList, float spawnRate, int numberOfEnemiesToSpawn, float spawnPointRadius)
     {
         for (int i = 0; i <= numberOfEnemiesToSpawn; i++)
         {
@@ -223,5 +224,6 @@ public class SpawnerManager : MonoBehaviour
 
     public List<GameObject> EnemiesList { get => _enemiesList; }
     public int EnemiesToSpawnLeft { get => enemiesToSpawnLeft; set => enemiesToSpawnLeft = value; }
+    public List<Vector3> SoloBossSpawnPoints { get => _soloBossSpawnPoints; }
 
 }
