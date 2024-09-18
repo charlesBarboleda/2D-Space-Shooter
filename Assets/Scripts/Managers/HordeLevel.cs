@@ -28,6 +28,7 @@ public class HordeLevel : Level
 
     public override void UpdateLevel()
     {
+        Debug.Log("Updating Horde Level");
         if (_spawnerManager.EnemiesList.Count == 0)
         {
             CompleteLevel();
@@ -36,6 +37,9 @@ public class HordeLevel : Level
 
     public override void CompleteLevel()
     {
+        Debug.Log("Completing Horde Level");
         _levelManager.CompleteLevel();
     }
+
+
 }

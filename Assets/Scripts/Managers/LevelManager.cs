@@ -50,8 +50,10 @@ public class LevelManager : MonoBehaviour
 
     public void CompleteLevel()
     {
-
+        _currentLevelIndex++;
+        GameManager.Instance.ChangeState(GameManager.GameState.LevelEnd);
     }
+
 
     public Level CreateHordeLevel(int amountOfEnemies, List<Ship> shipsToSpawn, float spawnRate)
     {

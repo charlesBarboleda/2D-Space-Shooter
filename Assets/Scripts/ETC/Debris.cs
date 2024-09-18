@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Debris : MonoBehaviour, IPickable
 {
-    [SerializeField] AudioClip _onPickUpAudio;
+
     AudioSource _audioSource;
     bool _isAttracted;
     public bool isAttracted { get => _isAttracted; set => _isAttracted = value; }
@@ -15,7 +15,6 @@ public class Debris : MonoBehaviour, IPickable
 
     void Awake()
     {
-        _audioSource = GetComponent<AudioSource>();
         _colliders = GetComponent<Collider2D>();
         _colliders.enabled = true;
     }
@@ -37,7 +36,6 @@ public class Debris : MonoBehaviour, IPickable
     {
         _colliders.enabled = false;
         PlayerManager.Instance.SetCurrency(PlayerManager.Instance.Currency() + currencyWorth);
-        _audioSource.PlayOneShot(_onPickUpAudio);
         gameObject.SetActive(false);
     }
 

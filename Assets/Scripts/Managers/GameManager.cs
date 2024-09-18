@@ -150,16 +150,13 @@ public class GameManager : MonoBehaviour
     void LevelStart()
     {
         Debug.Log("Level Start from Game Manager");
-
         _levelManager.StartLevel();
     }
 
     void LevelComplete()
     {
-        Debug.Log("Level End");
-        _levelManager.CompleteLevel();
-        ChangeState(GameState.LevelEnd);
-        _levelManager.CurrentLevelIndex++;
+        Debug.Log("Level Complete from Game Manager");
+        ChangeState(GameState.Countdown);
     }
 
     void GameEnd()
