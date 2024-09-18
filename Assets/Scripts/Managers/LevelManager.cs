@@ -30,11 +30,13 @@ public class LevelManager : MonoBehaviour
     {
         _levels.Add(CreateInvasionLevel(
             1f, // Spawn Rate Losing
-            SpawnerManager.Instance.shipNamesEarly2, // Ships to Spawn Winning
-            SpawnerManager.Instance.shipNamesThraxArmada, // Ships to Spawn Losing
-            4 / 1, // Spawn Amount Ratio
-            10)); // Amount of Enemies Losing
+            SpawnerManager.Instance.shipNamesLate3, // Ships to Spawn Winning
+            SpawnerManager.Instance.shipNamesCrimsonFleet, // Ships to Spawn Losing
+            5 / 1, // Spawn Amount Ratio
+            20)); // Amount of Enemies Losing
+
         _levels.Add(CreateHordeLevel(10, SpawnerManager.Instance.shipNamesCrimsonFleet, 5f));
+
         _levels.Add(CreateSoloShooterBossLevel(
             _currentLevelIndex * 350f, // Health
             _currentLevelIndex * 2f, // Bullet Damage
