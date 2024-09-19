@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
         // In 5-10 levels, create a solo shooter boss level or a solo carrier boss level
         else if (_currentLevelIndex % Random.Range(5, 10) == 0)
         {
-            if (Random.value > 0.5f) CreateSoloShooterBossLevel(GetShooterBossName());
+            if (Random.value > 0.5f) CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
             else CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
         }
         else if (_currentLevelIndex % Random.Range(20, 40) == 0)

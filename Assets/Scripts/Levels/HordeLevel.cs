@@ -30,10 +30,6 @@ public class HordeLevel : Level
 
     public override void UpdateLevel()
     {
-        Debug.Log("Updating Horde Level");
-        Debug.Log("Amount of enemies to spawn" + _amountOfEnemiesToSpawn);
-        Debug.Log("Enemies to spawn: " + _spawnerManager.EnemiesToSpawnLeft);
-        Debug.Log("Enemies spawned: " + _spawnerManager.EnemiesList.Count);
         if (_spawnerManager.EnemiesList.Count <= 0 && _spawnerManager.EnemiesToSpawnLeft <= 0)
         {
             CompleteLevel();

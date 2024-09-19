@@ -11,6 +11,7 @@ public class EnemyLaserAbility : Ability
     [SerializeField] float damagePerSecond = 10f;
     [SerializeField] float duration = 5f;
     List<Transform> _laserSpawnPoints;
+    [SerializeField] string _laserPoolTag = "ThraxLaser";
 
     public override async void AbilityLogic(GameObject owner, Transform target)
     {
@@ -48,7 +49,7 @@ public class EnemyLaserAbility : Ability
         Quaternion laserRotation = Quaternion.LookRotation(laserDirection);
 
         // Spawn laser from the pool at the correct world position
-        GameObject _laser = ObjectPooler.Instance.SpawnFromPool("ThraxLaser", worldPosition, laserRotation);
+        GameObject _laser = ObjectPooler.Instance.SpawnFromPool(_laserPoolTag, worldPosition, laserRotation);
 
         // Assign laser settings
         EnemyLaserSettings laserScript = _laser.GetComponent<EnemyLaserSettings>();

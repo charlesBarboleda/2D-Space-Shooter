@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47ed08d377cc54341b2d84176167c8b5, type: 3}
-  m_Name: EnemyTeleport10s
+  m_Script: {fileID: 11500000, guid: 64cc43b8ef41d5a438b71d69f82f9dd4, type: 3}
+  m_Name: EnemyGravityWellLarge
   m_EditorClassIdentifier: 
   isUnlocked: 1
-  abilityName: EnemyTeleport
+  abilityName: Gravity Well
   icon: {fileID: 0}
-  cooldown: 10
-  currentCooldown: 5.072218
+  cooldown: 20
+  currentCooldown: 5.055402
   _audioSource: {fileID: 0}
   _audioClip: {fileID: 0}
-  teleportDistance: 52.5
+  _duration: 10
+  _pullStrength: 3000
+  _gravityWellTag: GravityWellLarge

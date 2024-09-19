@@ -328,19 +328,24 @@ public class SpawnerManager : MonoBehaviour
                 return "Carrier";
         }
     }
-    public string GetSpawnerBossName()
+    public string GetShooterBossName()
     {
+        List<string> syndicateBosses = new List<string> { "AssaultShip", "AssaultShip2" };
+        List<string> crimsonBosses = new List<string> { "CrimsonBoss1", "CrimsonBoss2" };
+        List<string> thraxBosses = new List<string> { "ThraxBoss1", "ThraxBoss2" };
+
         switch (InvasionManager.Instance.DefendingFaction)
         {
             case FactionType.CrimsonFleet:
-                return "CrimsonBomberSpawner";
+                return crimsonBosses[Random.Range(0, crimsonBosses.Count)];
             case FactionType.Syndicates:
-                return Random.value <= 0.9 ? "Carrier" : "SuperCarrier";
+                return syndicateBosses[Random.Range(0, syndicateBosses.Count)];
             case FactionType.ThraxArmada:
-                return "ThraxCarrier1";
+                return thraxBosses[Random.Range(0, thraxBosses.Count)];
             default:
-                return "Carrier";
+                return "AssaultShip";
         }
+
     }
 
 
