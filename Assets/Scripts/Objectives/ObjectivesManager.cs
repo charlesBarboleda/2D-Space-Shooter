@@ -115,7 +115,7 @@ public class ObjectivesManager : MonoBehaviour
     }
 
 
-    void OnAnyEnemyDestroyed(GameObject enemy)
+    void OnAnyEnemyDestroyed(string ID, GameObject enemy)
     {
         if (activeObjectives.Count == 0) return;
         Enemy enemyScript = enemy.GetComponent<Enemy>();

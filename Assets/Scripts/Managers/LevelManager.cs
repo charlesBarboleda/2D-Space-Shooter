@@ -7,10 +7,8 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
     [SerializeField] List<Level> _levels = new List<Level>();
-    [SerializeField] int _currentLevelIndex;
+    [SerializeField] int _currentLevelIndex = 1;
     SpawnerManager _spawnerManager;
-
-
 
     void Awake()
     {
@@ -24,43 +22,45 @@ public class LevelManager : MonoBehaviour
             Instance = this;
         }
         _spawnerManager = GetComponent<SpawnerManager>();
+        _currentLevelIndex = 1;
 
     }
     void Start()
     {
-        _levels.Add(CreateInvasionLevel(
-            1f, // Spawn Rate Losing
-            SpawnerManager.Instance.shipNamesLate3, // Ships to Spawn Winning
-            SpawnerManager.Instance.shipNamesCrimsonFleet, // Ships to Spawn Losing
-            5 / 1, // Spawn Amount Ratio
-            20)); // Amount of Enemies Losing
-
-        _levels.Add(CreateHordeLevel(10, SpawnerManager.Instance.shipNamesCrimsonFleet, 5f));
-
-        _levels.Add(CreateSoloShooterBossLevel(
-            _currentLevelIndex * 350f, // Health
-            _currentLevelIndex * 2f, // Bullet Damage
-            _currentLevelIndex * 1.5f, // Bullet Speed
-            Random.Range(1, 5), // Firerate
-            _currentLevelIndex * 1, // Speed
-            _currentLevelIndex * 2, // Stop Distance
-            _currentLevelIndex * 2.1f, // Attack Range
-            Random.Range(5, 15), // Fire Angle
-            _currentLevelIndex * 400f, // Currency Drop
-            SpawnerManager.Instance.SoloBossSpawnPoints, // Spawn Points
-            "LargeShip" // Boss Name Used to Spawn the Boss
-
-        ));
-
-
+        _levels.Add(GenerateNextLevel());
         Debug.Log($"Levels added in Awake. Levels count: {_levels.Count}");
     }
+
+
+    Level GenerateNextLevel()
+    {
+        // In 10-20 levels, create an invasion level
+        if (_currentLevelIndex % Random.Range(10, 20) == 0)
+            return CreateSoloInvasionLevel();
+
+        // In 5-10 levels, create a solo shooter boss level or a solo carrier boss level
+        else if (_currentLevelIndex % Random.Range(5, 10) == 0)
+        {
+            if (Random.value > 0.5f) CreateSoloShooterBossLevel(GetShooterBossName());
+            else CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
+        }
+        else if (_currentLevelIndex % Random.Range(20, 40) == 0)
+        {
+            // return CreateDoubleInvasionLevel();
+        }
+
+
+        // Otherwise, create a horde level
+        return CreateHordeLevel();
+    }
+
+
 
     void Update()
     {
         if (GameManager.Instance.CurrentGameState == GameManager.GameState.LevelIn)
         {
-            _levels[_currentLevelIndex].UpdateLevel();
+            _levels[_currentLevelIndex - 1].UpdateLevel();
         }
     }
 
@@ -68,34 +68,98 @@ public class LevelManager : MonoBehaviour
     public void StartLevel()
     {
         Debug.Log("Starting Level from LevelManager");
-        _levels[_currentLevelIndex].StartLevel();
+        _levels[_currentLevelIndex - 1].StartLevel();
     }
+
 
     public void CompleteLevel()
     {
         _currentLevelIndex++;
+        SpawnerManager.Instance.EnemiesToSpawnLeft = 0;
+        _levels.Add(GenerateNextLevel());
         GameManager.Instance.ChangeState(GameManager.GameState.LevelEnd);
     }
 
-    public Level CreateInvasionLevel(float spawnRateLosing, List<Ship> shipsToSpawnWinning, List<Ship> shipsToSpawnLosing, int spawnAmountRatio, int amountOfEnemiesLosing)
+
+
+    public Level CreateSoloInvasionLevel()
     {
-        return new InvasionLevel(
-            spawnRateLosing,
-            shipsToSpawnWinning,
-            shipsToSpawnLosing,
+        float spawnRateDefending = Mathf.Max(5f - (_currentLevelIndex * 0.1f), 0.1f);
+        List<Ship> shipsToSpawnInvading = _spawnerManager.DetermineSoloInvadingShips();
+        Debug.Log($"Ships to spawn invading: {shipsToSpawnInvading.Count}");
+        List<Ship> shipsToSpawnDefending = _spawnerManager.DetermineDefendingShips();
+        Debug.Log($"Ships to spawn defending: {shipsToSpawnDefending.Count}");
+        int spawnAmountRatio = 2 / 1;
+        int amountOfEnemiesLosing = _currentLevelIndex * 5;
+        FactionType factionType = FactionType.CrimsonFleet;
+
+        return new SoloInvasionLevel(
+            factionType,
+            spawnRateDefending,
+            shipsToSpawnInvading,
+            shipsToSpawnDefending,
             spawnAmountRatio,
             amountOfEnemiesLosing,
             this,
             _spawnerManager);
     }
 
-    public Level CreateHordeLevel(int amountOfEnemies, List<Ship> shipsToSpawn, float spawnRate)
+    public Level CreateSoloSpawnerBossLevel(string bossName)
     {
-        return new HordeLevel(amountOfEnemies, this, shipsToSpawn, spawnRate, _spawnerManager);
+        float health = _currentLevelIndex * 500f;
+        // Every 20 levels, add 1 extra ship to spawn
+        int shipsPerSpawn = Mathf.RoundToInt(_currentLevelIndex / 20) + 1;
+        float speed = _currentLevelIndex * 1f;
+        float spawnRate = Mathf.Max(5f - (_currentLevelIndex * 0.1f), 0.1f);
+        float stopDistance = _currentLevelIndex * 2.5f;
+        float attackRange = _currentLevelIndex * 2.6f;
+        float currencyDrop = _currentLevelIndex * 600f;
+        List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
+        return new SoloSpawnerBossLevel(
+            health,
+            speed,
+            spawnRate,
+            stopDistance,
+            shipsPerSpawn,
+            attackRange,
+            currencyDrop,
+            spawnPoints,
+            bossName,
+            this,
+            _spawnerManager
+        );
     }
 
-    public Level CreateSoloShooterBossLevel(float health, float bulletDamage, float bulletSpeed, float firerate, float speed, float stopDistance, float attackRange, float fireAngle, float currencyDrop, List<Vector3> spawnPoints, string bossName)
+    public Level CreateHordeLevel()
     {
+        int amountOfEnemies = _currentLevelIndex * 5;
+        List<Ship> shipsToSpawn = _spawnerManager.DetermineDefendingShips();
+        float spawnRate = Mathf.Max(5f - (_currentLevelIndex * 0.1f), 0.1f);
+        FactionType factionType = FactionType.Syndicates;
+
+        return new HordeLevel(
+            amountOfEnemies,
+            this,
+            shipsToSpawn,
+            spawnRate,
+            _spawnerManager,
+            factionType
+        );
+    }
+
+
+    public Level CreateSoloShooterBossLevel(string bossName)
+    {
+        float health = _currentLevelIndex * 350f;
+        float bulletDamage = _currentLevelIndex * 2f;
+        float bulletSpeed = _currentLevelIndex * 1.5f;
+        float firerate = Random.Range(1, 5);
+        float speed = _currentLevelIndex * 0.5f;
+        float stopDistance = _currentLevelIndex * 2f;
+        float attackRange = _currentLevelIndex * 2.1f;
+        float fireAngle = Random.Range(5, 15);
+        float currencyDrop = _currentLevelIndex * 400f;
+        List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
         return new SoloShooterBossLevel(
             health,
             bulletDamage,
@@ -112,6 +176,7 @@ public class LevelManager : MonoBehaviour
             _spawnerManager
         );
     }
+
 
 
     public List<Level> Levels { get => _levels; }

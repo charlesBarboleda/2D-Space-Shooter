@@ -59,11 +59,8 @@ public class SpawnerEnemy : Enemy
     }
 
     public float SpawnRadius { get => _spawnRadius; set => _spawnRadius = value; }
-
-    public void SetShips(List<string> ships)
-    {
-        this.ships = ships;
-    }
+    public int ShipsPerSpawn { get => _shipsPerSpawn; set => _shipsPerSpawn = value; }
+    public List<string> Ships { get => ships; set => ships = value; }
 
 
 }

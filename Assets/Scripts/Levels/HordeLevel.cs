@@ -10,9 +10,10 @@ public class HordeLevel : Level
     SpawnerManager _spawnerManager;
 
 
-    public HordeLevel(int amountOfEnemies, LevelManager levelManager, List<Ship> shipsToSpawn, float spawnRate, SpawnerManager spawnerManager)
+    public HordeLevel(int amountOfEnemies, LevelManager levelManager, List<Ship> shipsToSpawn, float spawnRate, SpawnerManager spawnerManager, FactionType factionType)
     {
         _leveltype = LevelType.Horde;
+        _factionType = factionType;
         _amountOfEnemiesToSpawn = amountOfEnemies;
         _levelManager = levelManager;
         _spawnerManager = spawnerManager;
@@ -21,15 +22,19 @@ public class HordeLevel : Level
     }
     public override void StartLevel()
     {
+        _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesToSpawn;
         Debug.Log("Starting Horde Level");
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, 1f, _amountOfEnemiesToSpawn, 200f));
-
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRate, _amountOfEnemiesToSpawn, 200f, shipList));
+        Debug.Log("Spawning Enemies");
     }
 
     public override void UpdateLevel()
     {
         Debug.Log("Updating Horde Level");
-        if (_spawnerManager.EnemiesList.Count == 0)
+        Debug.Log("Amount of enemies to spawn" + _amountOfEnemiesToSpawn);
+        Debug.Log("Enemies to spawn: " + _spawnerManager.EnemiesToSpawnLeft);
+        Debug.Log("Enemies spawned: " + _spawnerManager.EnemiesList.Count);
+        if (_spawnerManager.EnemiesList.Count <= 0 && _spawnerManager.EnemiesToSpawnLeft <= 0)
         {
             CompleteLevel();
         }
@@ -39,6 +44,8 @@ public class HordeLevel : Level
     {
         Debug.Log("Completing Horde Level");
         _levelManager.CompleteLevel();
+        _spawnerManager.EnemiesToSpawnLeft = 0;
+        _spawnerManager.EnemiesList.Clear();
     }
 
 

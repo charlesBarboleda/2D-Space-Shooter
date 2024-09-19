@@ -22,10 +22,6 @@ public class ShooterEnemy : Enemy
         {
             AudioSource.PlayOneShot(_shootSound);
         }
-        else
-        {
-            Debug.LogWarning("Attempted to play a shooting sound, but no AudioClip is assigned to _shootSound.");
-        }
     }
 
     protected override void Attack()

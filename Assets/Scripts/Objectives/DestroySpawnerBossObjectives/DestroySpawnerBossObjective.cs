@@ -48,7 +48,7 @@ public class DestroySpawnerBossObjective : Objective
                 bossScript.Health.CurrencyDrop = _currencyDrop;
                 bossScript.Kinematics.Speed = _speed;
                 bossScript.Kinematics.StopDistance = _stopDistance;
-                bossScript.SetShips(_spawnerNames);
+                bossScript.Ships = _spawnerNames;
             }
 
 

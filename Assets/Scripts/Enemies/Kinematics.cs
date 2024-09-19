@@ -8,9 +8,6 @@ public class Kinematics : MonoBehaviour
     [SerializeField] bool _shouldRotate;
     [SerializeField] float _speed;
     [SerializeField] float _stopDistance;
-    [SerializeField] float separationRadius = 2f;  // Radius for separation behavior
-    [SerializeField] float separationWeight = 1.5f;   // Strength of the repulsion force
-    [SerializeField] float maxSeparationForce = 0.5f;
     bool _rotateClockwise = false;
     float _cachedDistance;
     TargetManager _targetManager;

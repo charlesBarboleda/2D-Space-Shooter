@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -43,7 +44,7 @@ public abstract class Enemy : MonoBehaviour
         _targetManager = GetComponent<TargetManager>();
         _kinematics = GetComponent<Kinematics>();
         _faction.AddAllyFaction(_faction.factionType);
-        _enemyID = "1";
+        _enemyID = Guid.NewGuid().ToString();
 
 
     }

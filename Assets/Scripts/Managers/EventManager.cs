@@ -6,7 +6,8 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
 
-    public static event Action<GameObject> OnEnemyDestroyed;
+    public static event Action<string, GameObject> OnEnemyDestroyed;
+    public static event Action<FactionType> OnFactionInvasionWon;
 
     public static event System.Action OnGameOver;
     public static event System.Action OnNextLevel;
@@ -20,9 +21,9 @@ public class EventManager : MonoBehaviour
     {
         OnCurrencyChange?.Invoke(currency);
     }
-    public static void AnyShipDestroyedEvent(GameObject go)
+    public static void EnemyShipDestroyedEvent(string id, GameObject go)
     {
-        OnEnemyDestroyed?.Invoke(go);
+        OnEnemyDestroyed?.Invoke(id, go);
     }
     public static void GameOverEvent()
     {
@@ -42,6 +43,11 @@ public class EventManager : MonoBehaviour
     public static void LevelCompleteEvent()
     {
         OnLevelComplete?.Invoke();
+    }
+
+    public static void FactionInvasionWonEvent(FactionType faction)
+    {
+        OnFactionInvasionWon?.Invoke(faction);
     }
 
 

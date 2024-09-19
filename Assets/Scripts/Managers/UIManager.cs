@@ -80,7 +80,7 @@ public class UIManager : MonoBehaviour
 
     void UpdateHighScoreUI()
     {
-        highscoreText.text = $"Highscore: Level {PlayerPrefs.GetFloat("HighScore") + 1}";
+        highscoreText.text = $"Highscore: Level {PlayerPrefs.GetFloat("HighScore")}";
     }
 
 
@@ -180,7 +180,7 @@ public class UIManager : MonoBehaviour
 
     private void UpdateRoundText()
     {
-        if (GameManager.Instance.CurrentGameState == GameManager.GameState.LevelIn) roundText.text = $"{LevelManager.Instance.CurrentLevelIndex + 1}";
+        if (GameManager.Instance.CurrentGameState == GameManager.GameState.LevelIn) roundText.text = $"{LevelManager.Instance.CurrentLevelIndex}";
         if (GameManager.Instance.CurrentGameState == GameManager.GameState.Countdown) roundText.text = $"{Math.Round(GameManager.Instance.RoundCountdown, 0)}";
     }
 

@@ -90,24 +90,14 @@ public class Health : MonoBehaviour, IDamageable
             foreach (var collider in _colliders)
                 collider.enabled = false;
 
-
-
         // Hide the ship's sprite
         if (_spriteRenderer != null) _spriteRenderer.enabled = false;
 
         // Remove the rigidbody physics calculations
         if (_rigidbody != null)
         {
-            Debug.Log($"Rigidbody2D before disabling: Simulated={_rigidbody.simulated}, Velocity={_rigidbody.velocity}");
             _rigidbody.simulated = false;
         }
-
-        // Log after disabling simulation
-        if (_rigidbody != null)
-        {
-            Debug.Log($"Rigidbody2D after disabling: Simulated={_rigidbody.simulated}");
-        }
-
 
         // Shake the camera
         switch (shakeType)
@@ -124,7 +114,11 @@ public class Health : MonoBehaviour, IDamageable
         }
 
         // Notify Event Manager
-        EventManager.AnyShipDestroyedEvent(gameObject);
+        TryGetComponent(out Enemy enemy);
+        if (enemy != null)
+        {
+            EventManager.EnemyShipDestroyedEvent(enemy.EnemyID, gameObject);
+        }
 
         // Create the debris
         if (_currencyPrefab.Count > 0)

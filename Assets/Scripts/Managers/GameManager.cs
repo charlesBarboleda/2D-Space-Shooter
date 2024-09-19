@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     [Header("Game State Machine")]
     GameState _currentState;
-    int _currentLevelIndex = 0;
     bool _isInputActive = true;
     public enum GameState
     {
@@ -172,7 +171,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateHighScore()
     {
-        if (_levelManager.CurrentLevelIndex > PlayerPrefs.GetFloat("HighScore"))
+        if (_levelManager.CurrentLevelIndex + 1 > PlayerPrefs.GetFloat("HighScore"))
         {
             PlayerPrefs.SetFloat("HighScore", _levelManager.CurrentLevelIndex + 1);
         }
