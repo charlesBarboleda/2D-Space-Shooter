@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: -7244606099809199152}
   - component: {fileID: -3389012036726420148}
   - component: {fileID: -8115179084758974438}
-  - component: {fileID: -6273869338371390371}
+  - component: {fileID: 6537159407056257850}
   m_Layer: 14
   m_Name: ThraxBoss 1
   m_TagString: ThraxArmada
@@ -950,7 +950,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 8069788359676706865}
   _shootSound: {fileID: 8300000, guid: 3f2ea133f3a172d47be752f14c01259e, type: 3}
   _bulletType: ThraxBullet
-  _bulletSpeed: 20
+  _bulletSpeed: 30
   _bulletDamage: 50
   _amountOfBullets: 6
   _shootingAngle: 5
@@ -1119,9 +1119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9216c03e867f274db5aaf93c01462f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aimRange: 120
+  _aimRange: 100
   _attackCooldown: 3
---- !u!114 &-6273869338371390371
+--- !u!114 &6537159407056257850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1130,16 +1130,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7143085703906712905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd460e7f24ce9d34493bb0571c6c9720, type: 3}
+  m_Script: {fileID: 11500000, guid: b29e4a2dc9e0de34785662ee5693c861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aimOffset: 90
-  _shouldRotate: 0
+  _aimOffset: 0
+  _shouldRotate: 1
   _speed: 20
-  _stopDistance: 100
-  separationRadius: 20
-  separationWeight: 1.5
-  maxSeparationForce: 0.5
+  _stopDistance: 80
+  _rotationSpeed: 10
 --- !u!1 &8638413270787602566
 GameObject:
   m_ObjectHideFlags: 0

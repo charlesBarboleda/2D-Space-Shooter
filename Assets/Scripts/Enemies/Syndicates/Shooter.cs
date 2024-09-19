@@ -27,7 +27,6 @@ public class ShooterEnemy : Enemy
     protected override void Attack()
     {
         FireBullets(_amountOfBullets, bulletSpawnPoint.position, TargetManager.TargetPosition);
-        Debug.Log("Firing Bullets");
         PlayShootSound();
     }
 

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Kinematics : MonoBehaviour
 {
-    [SerializeField] float _aimOffset;
-    [SerializeField] bool _shouldRotate;
-    [SerializeField] float _speed;
-    [SerializeField] float _stopDistance;
-    bool _rotateClockwise = false;
-    float _cachedDistance;
-    TargetManager _targetManager;
-    Vector3 _cachedDirection;
+    [SerializeField] protected float _aimOffset;
+    [SerializeField] protected bool _shouldRotate;
+    [SerializeField] protected float _speed;
+    [SerializeField] protected float _stopDistance;
+    protected bool _rotateClockwise = false;
+    protected float _cachedDistance;
+    protected TargetManager _targetManager;
+    protected Vector3 _cachedDirection;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,13 +19,13 @@ public class Kinematics : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         HandleMovement();
         HandleRotation();
     }
 
-    void HandleMovement()
+    protected virtual void HandleMovement()
     {
         if (_targetManager.CurrentTarget != null)
         {
@@ -33,19 +33,19 @@ public class Kinematics : MonoBehaviour
         }
     }
 
-    void HandleRotation()
+    protected virtual void HandleRotation()
     {
         if (_shouldRotate && _targetManager.CurrentTarget != null)
         {
             Aim(_targetManager.TargetPosition);
         }
     }
-    void OnEnable()
+    protected virtual void OnEnable()
     {
         _rotateClockwise = Random.value > 0.5f;
     }
 
-    void Aim(Vector3 target)
+    protected virtual void Aim(Vector3 target)
     {
         if (target == null) return;
 
@@ -100,7 +100,7 @@ public class Kinematics : MonoBehaviour
 
 
     }
-    void Orbit(Vector3 target)
+    protected virtual void Orbit(Vector3 target)
     {
         float rotationDirection = _rotateClockwise ? 1 : -1;
 
@@ -121,16 +121,6 @@ public class Kinematics : MonoBehaviour
         _cachedDirection = (target - transform.position).normalized;
     }
 
-    void OnDrawGizmos()
-    {
-        if (Application.isPlaying)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(transform.position, transform.position + _cachedDirection * 5);
-            Gizmos.color = Color.blue;
-            Gizmos.DrawLine(transform.position, transform.position + _cachedDirection.normalized * 20);
-        }
-    }
     public float Speed { get => _speed; set => _speed = value; }
     public float StopDistance { get => _stopDistance; set => _stopDistance = value; }
 }

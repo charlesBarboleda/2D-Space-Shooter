@@ -30,6 +30,7 @@ public class Health : MonoBehaviour, IDamageable
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody.gravityScale = 0;
         _faction = GetComponent<Faction>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _audioSource = GetComponent<AudioSource>();

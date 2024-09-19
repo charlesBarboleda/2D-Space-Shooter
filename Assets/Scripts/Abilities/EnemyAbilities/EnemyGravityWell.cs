@@ -33,8 +33,6 @@ public class EnemyGravityWell : MonoBehaviour
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             rb.isKinematic = false;
             rb.AddForce(direction * _pullStrength);
-            Debug.Log("Applied force: " + direction * _pullStrength);
-            Debug.Log("Pulling");
         }
     }
 
@@ -44,7 +42,6 @@ public class EnemyGravityWell : MonoBehaviour
         {
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             rb.isKinematic = true;
-            Debug.Log("Exiting Gravity Well");
         }
 
     }

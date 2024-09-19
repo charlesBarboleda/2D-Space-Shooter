@@ -33,6 +33,7 @@ public class EnemyLaserAbility : Ability
             laserTasks.Add(SpawnLaser(target, spawnPoint));
         }
 
+
         // Wait for all lasers to complete their duration
         await Task.WhenAll(laserTasks);
     }
@@ -54,6 +55,7 @@ public class EnemyLaserAbility : Ability
         // Assign laser settings
         EnemyLaserSettings laserScript = _laser.GetComponent<EnemyLaserSettings>();
         laserScript.Dps = damagePerSecond;
+
 
         // Keep the laser active and follow the spawn point for the duration
         await FollowSpawnPoint(_laser, spawnPoint);
