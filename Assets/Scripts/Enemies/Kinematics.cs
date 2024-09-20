@@ -7,15 +7,19 @@ public class Kinematics : MonoBehaviour
     [SerializeField] protected float _aimOffset;
     [SerializeField] protected bool _shouldRotate;
     [SerializeField] protected float _speed;
+    [SerializeField] protected float _maxSpeed = 10f; // Maximum speed
+    [SerializeField] protected float _acceleration = 1f; // Acceleration value
     [SerializeField] protected float _stopDistance;
     protected bool _rotateClockwise = false;
     protected float _cachedDistance;
     protected TargetManager _targetManager;
     protected Vector3 _cachedDirection;
-    // Start is called before the first frame update
+    protected float _currentSpeed; // Speed that changes over time based on acceleration
+
     void Awake()
     {
         _targetManager = GetComponent<TargetManager>();
+        _currentSpeed = 0f; // Start with zero speed
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class Kinematics : MonoBehaviour
             Aim(_targetManager.TargetPosition);
         }
     }
+
     protected virtual void OnEnable()
     {
         _rotateClockwise = Random.value > 0.5f;
@@ -65,12 +70,10 @@ public class Kinematics : MonoBehaviour
         Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, targetAngle));
 
         // Smoothly rotate towards the target using RotateTowards
-        // The factor for smooth rotation
         float rotationSpeed = _speed * 100 * Time.deltaTime;
 
         // Apply the rotation
         transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, rotationSpeed);
-
     }
 
     void Movement(Vector3 target)
@@ -78,28 +81,27 @@ public class Kinematics : MonoBehaviour
         if (target == null) return;
 
         // Get the target's closest point
-        if (target != null)
-        {
-            _cachedDistance = Vector3.Distance(transform.position, target);
-            _cachedDirection = (target - transform.position).normalized;
-        }
-
+        _cachedDistance = Vector3.Distance(transform.position, target);
+        _cachedDirection = (target - transform.position).normalized;
 
         if (_cachedDistance > _stopDistance)
         {
-            Vector3 finalDirection = _cachedDirection.normalized;
-            transform.position += finalDirection * _speed * Time.deltaTime;
+            // Accelerate towards the target
+            _currentSpeed = Mathf.Min(_currentSpeed + _acceleration * Time.deltaTime, _maxSpeed); // Gradually increase speed
 
+            Vector3 finalDirection = _cachedDirection.normalized;
+            transform.position += finalDirection * _currentSpeed * Time.deltaTime;
         }
         else if (_cachedDistance < _stopDistance)
         {
-            transform.position += -_cachedDirection * _speed * Time.deltaTime;
+            // Decelerate when orbiting
+            _currentSpeed = Mathf.Max(_currentSpeed - _acceleration * Time.deltaTime, 0f); // Gradually decrease speed
+
+            transform.position += -_cachedDirection * _currentSpeed * Time.deltaTime;
             Orbit(target);
         }
-
-
-
     }
+
     protected virtual void Orbit(Vector3 target)
     {
         float rotationDirection = _rotateClockwise ? 1 : -1;
@@ -111,16 +113,16 @@ public class Kinematics : MonoBehaviour
         if (orbitRadius > targetOrbitDistance)
         {
             // Move towards the target to maintain orbit radius
-            transform.position = Vector3.MoveTowards(transform.position, target, (_speed * Time.deltaTime));
+            transform.position = Vector3.MoveTowards(transform.position, target, (_currentSpeed * Time.deltaTime));
         }
 
         // Apply rotational orbit around the target
-        transform.RotateAround(target, Vector3.forward, rotationDirection * _speed * Time.deltaTime);
+        transform.RotateAround(target, Vector3.forward, rotationDirection * _currentSpeed * Time.deltaTime);
 
         // Update _cachedDirection for gizmos
         _cachedDirection = (target - transform.position).normalized;
     }
 
-    public float Speed { get => _speed; set => _speed = value; }
+    public float Speed { get => _currentSpeed; set => _currentSpeed = value; }
     public float StopDistance { get => _stopDistance; set => _stopDistance = value; }
 }

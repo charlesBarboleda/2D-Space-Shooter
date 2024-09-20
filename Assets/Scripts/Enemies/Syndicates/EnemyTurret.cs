@@ -10,11 +10,6 @@ public class EnemyTurret : ShooterEnemy
     {
         if (_bossShooterEnemy != null) InitializeTurrets();
     }
-    // Update is called once per frame
-    protected override void Update()
-    {
-        base.Update();
-    }
 
     public override void IncreaseStatsPerLevel()
     {
