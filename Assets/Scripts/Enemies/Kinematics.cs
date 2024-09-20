@@ -6,6 +6,7 @@ public class Kinematics : MonoBehaviour
 {
     [SerializeField] protected float _aimOffset;
     [SerializeField] protected bool _shouldRotate;
+    [SerializeField] protected bool _shouldMove = true;
     [SerializeField] protected float _speed;
     [SerializeField] protected float _maxSpeed = 10f; // Maximum speed
     [SerializeField] protected float _acceleration = 1f; // Acceleration value
@@ -31,7 +32,7 @@ public class Kinematics : MonoBehaviour
 
     protected virtual void HandleMovement()
     {
-        if (_targetManager.CurrentTarget != null)
+        if (_shouldMove && _targetManager.CurrentTarget != null)
         {
             Movement(_targetManager.TargetPosition);
         }
