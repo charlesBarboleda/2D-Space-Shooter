@@ -97,8 +97,8 @@ public class Kinematics : MonoBehaviour
             // Decelerate when orbiting
             _currentSpeed = Mathf.Max(_currentSpeed - _acceleration * Time.deltaTime, 0f); // Gradually decrease speed
 
-            transform.position += -_cachedDirection * _currentSpeed * Time.deltaTime;
             Orbit(target);
+            transform.position += -_cachedDirection * _currentSpeed * Time.deltaTime;
         }
     }
 

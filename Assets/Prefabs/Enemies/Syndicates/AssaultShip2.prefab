@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8c47f4654f9d4a8448fb6a63d19cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abilityParticles: []
   _buffedParticles: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
@@ -141,8 +142,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 500
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -596,10 +597,9 @@ MonoBehaviour:
   _aimOffset: -90
   _shouldRotate: 1
   _speed: 18
+  _maxSpeed: 10
+  _acceleration: 1
   _stopDistance: 50
-  separationRadius: 20
-  separationWeight: 1.5
-  maxSeparationForce: 0.5
 --- !u!114 &-5872829319275535106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,6 +1007,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Syndicates
       objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
@@ -1145,6 +1157,18 @@ PrefabInstance:
     - target: {fileID: 7343858230156979994, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_TagString
       value: Syndicates
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: bulletSpawnPoint
@@ -1285,6 +1309,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Syndicates
       objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
@@ -1423,6 +1459,18 @@ PrefabInstance:
     - target: {fileID: 7343858230156979994, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_TagString
       value: Syndicates
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: bulletSpawnPoint

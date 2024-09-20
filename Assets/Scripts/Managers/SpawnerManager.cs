@@ -16,120 +16,6 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] List<Vector3> _soloBossSpawnPoints = new List<Vector3>();
     List<Ship> _defendingShipsList = new List<Ship>();
 
-    public List<Ship> CrimsonFleetEarly = new List<Ship> {
-        new Ship { name = "CrimsonSmall1", weight = 0.25f },
-        new Ship { name = "CrimsonSmall2", weight = 0.25f },
-        new Ship { name = "CrimsonSmall3", weight = 0.25f },
-        new Ship { name = "CrimsonSmall4", weight = 0.25f },
-    };
-
-    public List<Ship> CrimsonFleetMid = new List<Ship> {
-        new Ship { name = "CrimsonSmall1", weight = 0.15f },
-        new Ship { name = "CrimsonSmall2", weight = 0.15f },
-        new Ship { name = "CrimsonSmall3", weight = 0.15f },
-        new Ship { name = "CrimsonSmall4", weight = 0.15f },
-        new Ship { name = "CrimsonBomber", weight = 0.38f },
-        new Ship { name = "CrimsonBuffer", weight = 0.02f }
-    };
-
-    public List<Ship> CrimsonFleetLate = new List<Ship> {
-        new Ship { name = "CrimsonSmall1", weight = 0.15f },
-        new Ship { name = "CrimsonSmall2", weight = 0.15f },
-        new Ship { name = "CrimsonSmall3", weight = 0.15f },
-        new Ship { name = "CrimsonSmall4", weight = 0.15f },
-        new Ship { name = "CrimsonBomber", weight = 0.38f },
-        new Ship { name = "CrimsonBomberSpawner", weight = 0.01f },
-        new Ship { name = "CrimsonBuffer", weight = 0.01f }
-    };
-    public List<Ship> ThraxArmadaEarly = new List<Ship> {
-        new Ship { name = "ThraxSmall1", weight = 0.333f },
-        new Ship { name = "ThraxSmall2", weight = 0.333f },
-        new Ship { name = "ThraxSmall3", weight = 0.333f },
-    };
-    public List<Ship> ThraxArmadaMid = new List<Ship> {
-        new Ship { name = "ThraxSmall1", weight = 0.3f },
-        new Ship { name = "ThraxSmall2", weight = 0.3f },
-        new Ship { name = "ThraxSmall3", weight = 0.3f },
-        new Ship { name = "ThraxTeleporter1", weight = 0.05f },
-        new Ship { name = "ThraxTeleporter2", weight = 0.05f },
-    };
-
-    public List<Ship> ThraxArmadaLate = new List<Ship> {
-        new Ship { name = "ThraxSmall1", weight = 0.298f },
-        new Ship { name = "ThraxSmall2", weight = 0.298f },
-        new Ship { name = "ThraxSmall3", weight = 0.298f },
-        new Ship { name = "ThraxTeleporter1", weight = 0.05f },
-        new Ship { name = "ThraxTeleporter2", weight = 0.05f },
-        new Ship { name = "ThraxCarrier1", weight = 0.005f },
-        new Ship { name = "ThraxBoss1", weight = 0.001f }
-    };
-
-    public List<Ship> SyndicatesEarly = new List<Ship> {
-        new Ship { name = "SmallShip", weight = 0.5f },
-        new Ship { name = "MeleeShip", weight = 0.5f }
-    };
-    public List<Ship> SyndicatesEarly2 = new List<Ship> {
-        new Ship { name = "SmallShip", weight = 0.3f },
-        new Ship { name = "MeleeShip", weight = 0.3f },
-        new Ship { name = "MediumShip", weight = 0.2f },
-        new Ship { name = "MediumShip2", weight = 0.2f },
-    };
-    public List<Ship> SyndicatesEarly3 = new List<Ship> {
-        new Ship { name = "SmallShip", weight = 0.1f },
-        new Ship { name = "MeleeShip", weight = 0.1f },
-        new Ship { name = "MediumShip", weight = 0.4f },
-        new Ship { name = "MediumShip2", weight = 0.4f },
-    };
-    public List<Ship> SyndicatesMid = new List<Ship> {
-        new Ship { name = "SmallShip", weight = 0.1f },
-        new Ship { name = "MeleeShip", weight = 0.1f },
-        new Ship { name = "MediumShip", weight = 0.35f },
-        new Ship { name = "MediumShip2", weight = 0.4f },
-        new Ship { name = "LargeShip", weight = 0.05f },
-
-    };
-    public List<Ship> SyndicatesMid2 = new List<Ship> {
-        new Ship { name = "SmallShip", weight = 0.05f },
-        new Ship { name = "MeleeShip", weight = 0.05f },
-        new Ship { name = "MediumShip", weight = 0.3f },
-        new Ship { name = "MediumShip2", weight = 0.4f },
-        new Ship { name = "LargeShip", weight = 0.2f },
-    };
-    public List<Ship> SyndicatesMid3 = new List<Ship> {
-        new Ship { name = "SmallShip", weight = 0.05f },
-        new Ship { name = "MeleeShip", weight = 0.05f },
-        new Ship { name = "MediumShip", weight = 0.3f },
-        new Ship { name = "MediumShip2", weight = 0.35f },
-        new Ship { name = "LargeShip", weight = 0.2f },
-        new Ship { name = "NukeShip", weight = 0.05f },
-    };
-    public List<Ship> SyndicateLate = new List<Ship> {
-        new Ship { name = "SmallShip", weight = 0.05f },
-        new Ship { name = "MeleeShip", weight = 0.05f },
-        new Ship { name = "MediumShip", weight = 0.3f },
-        new Ship { name = "MediumShip2", weight = 0.35f },
-        new Ship { name = "LargeShip", weight = 0.2f },
-        new Ship { name = "NukeShip", weight = 0.05f },
-    };
-    public List<Ship> SyndicatesLate2 = new List<Ship> {
-        new Ship { name = "SmallShip", weight = 0.05f },
-        new Ship { name = "MeleeShip", weight = 0.05f },
-        new Ship { name = "MediumShip", weight = 0.3f },
-        new Ship { name = "MediumShip2", weight = 0.3f },
-        new Ship { name = "LargeShip", weight = 0.2f },
-        new Ship { name = "NukeShip", weight = 0.05f },
-        new Ship { name = "NukeShip2", weight = 0.05f },
-
-
-    };
-    public List<Ship> SyndicatesLate3 = new List<Ship> {
-        new Ship { name = "MediumShip", weight = 0.2f },
-        new Ship { name = "MediumShip2", weight = 0.2f },
-        new Ship { name = "LargeShip", weight = 0.3f },
-        new Ship { name = "NukeShip2", weight = 0.3f },
-
-    };
-
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -283,26 +169,26 @@ public class SpawnerManager : MonoBehaviour
 
     private List<Ship> GetCrimsonFleetShips()
     {
-        return GetShipsBasedOnLevel(CrimsonFleetEarly, CrimsonFleetMid, CrimsonFleetLate);
+        return GetShipsBasedOnLevel(ShipDatabase.CrimsonFleetEarly, ShipDatabase.CrimsonFleetMid, ShipDatabase.CrimsonFleetLate);
     }
 
     private List<Ship> GetThraxArmadaShips()
     {
-        return GetShipsBasedOnLevel(ThraxArmadaEarly, ThraxArmadaMid, ThraxArmadaLate);
+        return GetShipsBasedOnLevel(ShipDatabase.ThraxArmadaEarly, ShipDatabase.ThraxArmadaMid, ShipDatabase.ThraxArmadaLate);
     }
 
     private List<Ship> GetSyndicatesShips()
     {
         int level = LevelManager.Instance.CurrentLevelIndex + 1;
-        if (level < 10) return SyndicatesEarly;
-        else if (level < 20) return SyndicatesEarly2;
-        else if (level < 30) return SyndicatesEarly3;
-        else if (level < 40) return SyndicatesMid;
-        else if (level < 50) return SyndicatesMid2;
-        else if (level < 60) return SyndicatesMid3;
-        else if (level < 70) return SyndicateLate;
-        else if (level < 80) return SyndicatesLate2;
-        else if (level < 90) return SyndicatesLate3;
+        if (level < 10) return ShipDatabase.SyndicatesEarly;
+        else if (level < 20) return ShipDatabase.SyndicatesEarly2;
+        else if (level < 30) return ShipDatabase.SyndicatesEarly3;
+        else if (level < 40) return ShipDatabase.SyndicatesMid;
+        else if (level < 50) return ShipDatabase.SyndicatesMid2;
+        else if (level < 60) return ShipDatabase.SyndicatesMid3;
+        else if (level < 70) return ShipDatabase.SyndicateLate;
+        else if (level < 80) return ShipDatabase.SyndicatesLate2;
+        else if (level < 90) return ShipDatabase.SyndicatesLate3;
 
         return null;
     }

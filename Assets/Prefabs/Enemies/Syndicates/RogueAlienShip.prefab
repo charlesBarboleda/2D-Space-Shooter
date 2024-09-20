@@ -123,8 +123,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 500
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -465,6 +465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8c47f4654f9d4a8448fb6a63d19cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abilityParticles: []
   _buffedParticles: {fileID: 0}
   _abilitySound: {fileID: 8300000, guid: 113a0f1929ad74dcba20169a2eaa5e57, type: 3}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
@@ -493,6 +494,7 @@ MonoBehaviour:
   abilities:
   - {fileID: 11400000, guid: c0a1c8b75daa63544aa7d4b54f1b721c, type: 2}
   target: {fileID: 0}
+  abilityParticles: []
 --- !u!82 &6773131972991441591
 AudioSource:
   m_ObjectHideFlags: 0
@@ -802,10 +804,9 @@ MonoBehaviour:
   _aimOffset: -90
   _shouldRotate: 1
   _speed: 16
+  _maxSpeed: 10
+  _acceleration: 1
   _stopDistance: 50
-  separationRadius: 40
-  separationWeight: 1.5
-  maxSeparationForce: 0.5
 --- !u!114 &8808043192608797657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,6 +1202,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Syndicates
       objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _deathExplosion
       value: SmallExp
@@ -1451,6 +1464,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Syndicates
       objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _deathExplosion
       value: SmallExp
@@ -1586,6 +1611,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Syndicates
       objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _deathExplosion
       value: SmallExp
@@ -1720,6 +1757,18 @@ PrefabInstance:
     - target: {fileID: 7343858230156979994, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_TagString
       value: Syndicates
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _deathExplosion
@@ -1984,6 +2033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities: []
   target: {fileID: 0}
+  abilityParticles: []
 --- !u!114 &4188304739963531401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1998,6 +2048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities: []
   target: {fileID: 0}
+  abilityParticles: []
 --- !u!114 &4189650107053210585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2012,6 +2063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities: []
   target: {fileID: 0}
+  abilityParticles: []
 --- !u!114 &5606718319013294409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2026,3 +2078,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities: []
   target: {fileID: 0}
+  abilityParticles: []

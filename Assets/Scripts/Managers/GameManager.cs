@@ -67,7 +67,23 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Level Manager not found");
         }
+        StartCoroutine(DisableShipCollision());
+    }
 
+    IEnumerator DisableShipCollision()
+    {
+        yield return new WaitForSeconds(1f);
+        Collider2D[] ships = Physics2D.OverlapCircleAll(new Vector2(0, 0), 300f);
+        foreach (var ship1 in ships)
+        {
+            foreach (var ship2 in ships)
+            {
+                if (ship1 != ship2)
+                {
+                    Physics2D.IgnoreCollision(ship1.GetComponent<Collider2D>(), ship2.GetComponent<Collider2D>());
+                }
+            }
+        }
     }
 
     IEnumerator GameStartCoroutine()

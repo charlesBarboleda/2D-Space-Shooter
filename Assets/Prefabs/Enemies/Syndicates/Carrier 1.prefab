@@ -112,8 +112,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 500
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -409,6 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6888f4ee4b8a7e3469743d54dac9f865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abilityParticles: []
   _buffedParticles: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
@@ -695,10 +696,9 @@ MonoBehaviour:
   _aimOffset: 0
   _shouldRotate: 0
   _speed: 16
+  _maxSpeed: 10
+  _acceleration: 1
   _stopDistance: 50
-  separationRadius: 40
-  separationWeight: 1.5
-  maxSeparationForce: 0.5
 --- !u!114 &-1380015948310427542
 MonoBehaviour:
   m_ObjectHideFlags: 0
