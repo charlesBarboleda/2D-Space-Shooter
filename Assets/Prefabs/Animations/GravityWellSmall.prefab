@@ -4844,7 +4844,7 @@ GameObject:
   - component: {fileID: 5305276718762077880}
   - component: {fileID: 805254910094873742}
   m_Layer: 0
-  m_Name: GravityWellLarge
+  m_Name: GravityWellSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4860,7 +4860,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.8839917, y: 7.8839917, z: 7.8839917}
+  m_LocalScale: {x: 6.420029, y: 6.420029, z: 6.420029}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8865950552366336351}
@@ -4883,9 +4883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _duration: 5
   _pullStrength: 3000
-  gravityWellMaterial: {fileID: 2100000, guid: dee330abfdc61904e999ae784ee0ffa8, type: 2}
-  maxShearAmount: 1
-  suctionDuration: 2
+  _pullStopDistance: 2
 --- !u!212 &5483148542809625276
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4998,7 +4996,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!1 &8594860932842687956
 GameObject:

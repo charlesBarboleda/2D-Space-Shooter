@@ -331,7 +331,7 @@ public class SpawnerManager : MonoBehaviour
     public string GetShooterBossName()
     {
         List<string> syndicateBosses = new List<string> { "AssaultShip", "AssaultShip2" };
-        List<string> crimsonBosses = new List<string> { "CrimsonBoss1", "CrimsonBoss2" };
+        List<string> crimsonBosses = new List<string> { "CrimsonDestroyer", "CrimsonDestroyer2" };
         List<string> thraxBosses = new List<string> { "ThraxBoss1", "ThraxBoss2" };
 
         switch (InvasionManager.Instance.DefendingFaction)

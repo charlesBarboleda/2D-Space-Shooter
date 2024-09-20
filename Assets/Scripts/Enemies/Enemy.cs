@@ -21,6 +21,7 @@ public abstract class Enemy : MonoBehaviour
 
     // Animations 
 
+    [SerializeField] List<ParticleSystem> _abilityParticles = new List<ParticleSystem>();
     [SerializeField] GameObject _buffedParticles;
     [SerializeField] AudioClip _abilitySound;
     [SerializeField] AudioClip _spawnSound;
@@ -121,8 +122,18 @@ public abstract class Enemy : MonoBehaviour
     {
         foreach (Ability ability in _abilityHolder.abilities)
         {
-            if (ability.currentCooldown >= ability.cooldown) ability.TriggerAbility(gameObject, target);
+            // Check if the ability can be triggered
+            if (ability.currentCooldown >= ability.cooldown)
+            {
+                // Trigger the ability
+                ability.TriggerAbility(gameObject, target);
 
+                // Play the associated particles
+                foreach (ParticleSystem particle in _abilityParticles)
+                {
+                    particle.Play();
+                }
+            }
         }
     }
 

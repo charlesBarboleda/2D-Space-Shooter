@@ -16,7 +16,7 @@ public class EnemyGravityWellAbility : Ability
 
     public override void AbilityLogic(GameObject owner, Transform target)
     {
-        _aimOffset = new Vector3(Random.Range(-50f, 50f), Random.Range(-50f, 50f), 0f);
+        _aimOffset = new Vector3(Random.Range(-100f, 100f), Random.Range(-100, 100f), 0f);
         SetStatsBasedOnLevel();
 
         // Spawn gravity well at the target position

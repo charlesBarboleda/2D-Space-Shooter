@@ -26,11 +26,13 @@ public class EnemyGravityWell : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("ThraxArmada") || other.CompareTag("CrimsonFleet") || other.CompareTag("Syndicates"))
+        Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+        Kinematics kinematics = other.GetComponent<Kinematics>();
+
+        if (other.CompareTag("Player") || other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates"))
         {
 
             Vector2 direction = (transform.position - other.transform.position).normalized;
-            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             rb.isKinematic = false;
             rb.AddForce(direction * _pullStrength);
         }
@@ -38,9 +40,12 @@ public class EnemyGravityWell : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("ThraxArmada") || other.CompareTag("CrimsonFleet") || other.CompareTag("Syndicates"))
+        Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+        Kinematics kinematics = other.GetComponent<Kinematics>();
+
+        if (other.CompareTag("Player") || other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates"))
         {
-            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+
             rb.isKinematic = true;
         }
 
