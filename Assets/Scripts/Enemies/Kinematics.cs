@@ -126,4 +126,5 @@ public class Kinematics : MonoBehaviour
 
     public float Speed { get => _currentSpeed; set => _currentSpeed = value; }
     public float StopDistance { get => _stopDistance; set => _stopDistance = value; }
+    public bool ShouldMove { get => _shouldMove; set => _shouldMove = value; }
 }

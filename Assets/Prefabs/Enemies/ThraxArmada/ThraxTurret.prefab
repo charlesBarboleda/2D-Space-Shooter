@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf25bfc5ef904b04baef50236a5678d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abilityParticles: []
   _buffedParticles: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 0}
@@ -242,7 +243,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 500
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -403,11 +404,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimOffset: 90
   _shouldRotate: 1
+  _shouldMove: 1
   _speed: 0
+  _maxSpeed: 10
+  _acceleration: 1
   _stopDistance: 0
-  separationRadius: 2
-  separationWeight: 1.5
-  maxSeparationForce: 0.5
 --- !u!114 &-6886902918841533862
 MonoBehaviour:
   m_ObjectHideFlags: 0

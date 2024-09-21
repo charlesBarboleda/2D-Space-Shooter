@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8c47f4654f9d4a8448fb6a63d19cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abilityParticles: []
   _buffedParticles: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 113a0f1929ad74dcba20169a2eaa5e57, type: 3}
@@ -444,7 +445,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 500
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -621,11 +622,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimOffset: 90
   _shouldRotate: 1
+  _shouldMove: 1
   _speed: 16
+  _maxSpeed: 10
+  _acceleration: 1
   _stopDistance: 40
-  separationRadius: 5
-  separationWeight: 1.5
-  maxSeparationForce: 0.5
 --- !u!1 &8227692411707881614
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,6 +901,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThraxTurret (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7704650118714988610, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: _currencyPrefab.Array.size
       value: 0
@@ -1073,6 +1082,14 @@ PrefabInstance:
     - target: {fileID: 7343858230156979994, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: m_Name
       value: ThraxTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374238319847458687, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7704650118714988610, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: _currencyPrefab.Array.size

@@ -8,7 +8,6 @@ public class AbilityHolder : MonoBehaviour
 
     public List<Ability> abilities;
     public Transform target;
-    public List<ParticleSystem> abilityParticles;
 
 
     void Start()

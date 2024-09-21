@@ -27,6 +27,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] AudioClip _spawnSound;
     [SerializeField] string _spawnAnimation;
 
+    [SerializeField] bool isThraxBoss = false;
     string _enemyID;
     int _priority;
 
@@ -129,11 +130,23 @@ public abstract class Enemy : MonoBehaviour
                 ability.TriggerAbility(gameObject, target);
 
                 // Play the associated particles
-                foreach (ParticleSystem particle in _abilityParticles)
-                {
-                    particle.Play();
-                }
+                StartCoroutine(PlayAbilityParticles());
             }
+        }
+    }
+
+    IEnumerator PlayAbilityParticles()
+    {
+        foreach (ParticleSystem particle in _abilityParticles)
+        {
+            particle.gameObject.SetActive(true);
+            particle.Play();
+        }
+        yield return new WaitForSeconds(isThraxBoss ? Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 0.5f, 20f) : 3f);
+        foreach (ParticleSystem particle in _abilityParticles)
+        {
+            particle.Stop();
+            particle.gameObject.SetActive(false);
         }
     }
 

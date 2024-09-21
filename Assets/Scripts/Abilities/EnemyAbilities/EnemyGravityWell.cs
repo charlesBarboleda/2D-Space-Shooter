@@ -34,6 +34,7 @@ public class EnemyGravityWell : MonoBehaviour
 
             Vector2 direction = (transform.position - other.transform.position).normalized;
             rb.isKinematic = false;
+            kinematics.ShouldMove = false;
             rb.AddForce(direction * _pullStrength);
         }
     }
@@ -45,7 +46,7 @@ public class EnemyGravityWell : MonoBehaviour
 
         if (other.CompareTag("Player") || other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates"))
         {
-
+            kinematics.ShouldMove = true;
             rb.isKinematic = true;
         }
 

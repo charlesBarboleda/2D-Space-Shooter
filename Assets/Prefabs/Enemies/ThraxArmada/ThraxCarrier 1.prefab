@@ -253,7 +253,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 500
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -283,6 +283,7 @@ MonoBehaviour:
   abilities:
   - {fileID: 11400000, guid: a2f3506fab9ccba46bc954ae91cd57e0, type: 2}
   target: {fileID: 0}
+  abilityParticles: []
 --- !u!114 &5996855414479644662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,6 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6888f4ee4b8a7e3469743d54dac9f865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abilityParticles: []
   _buffedParticles: {fileID: 0}
   _abilitySound: {fileID: 8300000, guid: 113a0f1929ad74dcba20169a2eaa5e57, type: 3}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
@@ -661,11 +663,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimOffset: 0
   _shouldRotate: 0
+  _shouldMove: 1
   _speed: 0
+  _maxSpeed: 10
+  _acceleration: 1
   _stopDistance: 0
-  separationRadius: 2
-  separationWeight: 1.5
-  maxSeparationForce: 0.5
 --- !u!1001 &3328906306701253564
 PrefabInstance:
   m_ObjectHideFlags: 0
