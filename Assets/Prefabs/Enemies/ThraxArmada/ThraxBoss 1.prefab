@@ -1138,11 +1138,11 @@ MonoBehaviour:
   _aimOffset: 0
   _shouldRotate: 1
   _shouldMove: 1
-  _speed: 20
-  _maxSpeed: 10
-  _acceleration: 1
+  _speed: 30
+  _maxSpeed: 30
+  _acceleration: 25
   _stopDistance: 80
-  _rotationSpeed: 10
+  _rotationSpeed: 15
 --- !u!1 &8638413270787602566
 GameObject:
   m_ObjectHideFlags: 0

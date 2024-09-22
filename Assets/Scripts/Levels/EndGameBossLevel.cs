@@ -7,7 +7,7 @@ public class EndGameBossLevel : SoloShooterBossLevel
     public bool phase1Complete = false;
     public bool phase2Complete = false;
     public bool phase3Complete = false;
-    public bool hasPlayedPhase2Music = false;
+    public bool hasTransitionedPhase2 = false;
 
     public EndGameBossLevel(float health, float bulletDamage, float bulletSpeed,
     float firerate, float speed, float stopDistance, float attackRange, float fireAngle,
@@ -42,29 +42,34 @@ public class EndGameBossLevel : SoloShooterBossLevel
 
     public override void UpdateLevel()
     {
-        if (spawnerManager.EnemiesList.Count == 1 && spawnerManager.EnemiesToSpawnLeft <= 0 && !phase1Complete)
+        if (spawnerManager.EnemiesList.Count == 1 && spawnerManager.EnemiesToSpawnLeft <= 0)
         {
             phase1Complete = true;
             Debug.Log("Phase 1 Complete");
-            // Pan the camera to the boss ship
-            CameraFollowBehaviour cameraFollow = Camera.main.GetComponent<CameraFollowBehaviour>();
-            cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShip.transform, 7f));
+            Debug.Log("Phase 2 Started");
+
 
             // Start the boss ship
             bossShip.GetComponent<Health>().isDead = false;
             bossShip.GetComponent<Kinematics>().ShouldMove = true;
 
 
-            if (!hasPlayedPhase2Music)
+            if (!hasTransitionedPhase2)
             {
+                // Pan the camera to the boss ship
+                CameraFollowBehaviour cameraFollow = Camera.main.GetComponent<CameraFollowBehaviour>();
+                cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShip.transform, 7f));
+
+                // Play Phase 2 music
                 Background.Instance.PlayThraxBossPhase2Music();
-                hasPlayedPhase2Music = true;
+                hasTransitionedPhase2 = true;
                 Debug.Log("Played Phase 2 Music");
             }
 
+
         }
-        Debug.Log("Enemies to spawn: " + spawnerManager.EnemiesToSpawnLeft);
-        Debug.Log("Enemies Count: " + spawnerManager.EnemiesList.Count);
+
+
         if ((bossShip == null || bossShip.GetComponent<Health>().isDead ||
             !bossShip.activeInHierarchy) && spawnerManager.EnemiesToSpawnLeft <= 0 &&
             spawnerManager.EnemiesList.Count <= 0)

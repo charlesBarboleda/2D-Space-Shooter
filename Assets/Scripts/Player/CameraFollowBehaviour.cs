@@ -7,7 +7,7 @@ public class CameraFollowBehaviour : MonoBehaviour
     public static CameraFollowBehaviour Instance { get; private set; }
     public CinemachineVirtualCamera playerCamera; // Main camera that follows the player
     public CinemachineVirtualCamera targetCamera; // Secondary camera for focusing on the target
-    public float transitionDuration = 1.5f;      // Duration for the smooth transition
+    public float transitionDuration = 3f;      // Duration for the smooth transition
 
     void Awake()
     {

@@ -505,9 +505,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 50000
-  _maxHealth: 50000
-  _currencyDrop: 50000
+  _currentHealth: 100000
+  _maxHealth: 100000
+  _currencyDrop: 100000
   _currencyPrefab:
   - Debris1
   - Debris2
@@ -663,7 +663,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8c47f4654f9d4a8448fb6a63d19cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _abilityParticles: []
+  _abilityParticles:
+  - {fileID: 3839542542067180794}
+  - {fileID: 5218655636810823212}
   _buffedParticles: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: ba594aad031975b45a5acdbd5fa34f5c, type: 3}
@@ -691,7 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _aimRange: 120
-  _attackCooldown: 5
+  _attackCooldown: 3
 --- !u!114 &7681796144276164879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,6 +847,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2275721571885089005, guid: acdb90624a404aa438447006f1026065, type: 3}
   m_PrefabInstance: {fileID: 3967868223709851968}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &5218655636810823212 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9186446616439801708, guid: acdb90624a404aa438447006f1026065, type: 3}
+  m_PrefabInstance: {fileID: 3967868223709851968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5346928481832919958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -946,6 +953,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acdb90624a404aa438447006f1026065, type: 3}
+--- !u!198 &3839542542067180794 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9186446616439801708, guid: acdb90624a404aa438447006f1026065, type: 3}
+  m_PrefabInstance: {fileID: 5346928481832919958}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6170186205300679547 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2275721571885089005, guid: acdb90624a404aa438447006f1026065, type: 3}

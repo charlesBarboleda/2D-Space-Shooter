@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
 
 
         // Otherwise, create a horde level
-        return CreateEndGameBossLevel(_spawnerManager.GetShooterBossName());
+        return CreateEndGameBossLevel("ThraxBoss2");
     }
 
 
@@ -150,13 +150,13 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateEndGameBossLevel(string bossName)
     {
-        float health = _currentLevelIndex * 1000f;
+        float health = _currentLevelIndex * 2000f;
         float bulletDamage = _currentLevelIndex * 5f;
         float bulletSpeed = _currentLevelIndex * 2f;
-        float firerate = Random.Range(1, 5);
-        float speed = _currentLevelIndex * 0.5f;
-        float stopDistance = _currentLevelIndex * 2f;
-        float attackRange = _currentLevelIndex * 2.1f;
+        float firerate = Random.Range(2, 4);
+        float speed = Mathf.Max(_currentLevelIndex * 0.5f, 20f);
+        float stopDistance = Mathf.Max(_currentLevelIndex * 2f, 100f);
+        float attackRange = Mathf.Max(_currentLevelIndex * 2.1f, 80f);
         float fireAngle = Random.Range(5, 15);
         float currencyDrop = _currentLevelIndex * 1000f;
         List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
