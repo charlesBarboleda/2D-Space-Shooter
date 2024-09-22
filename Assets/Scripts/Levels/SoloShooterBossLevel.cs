@@ -5,67 +5,111 @@ using UnityEngine;
 public class SoloShooterBossLevel : Level
 {
 
-    string _bossName;
-    List<Vector3> _spawnPoints = new List<Vector3>();
-    LevelManager _levelManager;
-    SpawnerManager _spawnerManager;
-    GameObject _bossShip;
-    float _health;
-    float _bulletDamage;
-    float _bulletSpeed;
-    float _fireRate;
-    float _speed;
-    float _stopDistance;
-    float _attackRange;
-    float _fireAngle;
-    float _currencyDrop;
+    public string bossName;
+    public List<Vector3> spawnPoints = new List<Vector3>();
+    public LevelManager levelManager;
+    public SpawnerManager spawnerManager;
+    public GameObject bossShip;
+    public FormationType formationType = FormationType.Circle;
+    public float health;
+    public float bulletDamage; public float bulletSpeed;
+    public float fireRate;
+    public float speed;
+    public float stopDistance;
+    public float attackRange;
+    public float fireAngle;
+    public float currencyDrop;
+    public int numberOfShipsInFormation = 5;
+    public float formationRadius = 10f;
+    public List<string> formationShipName = new List<string>();
+    public List<GameObject> formationShips = new List<GameObject>(); // List to store spawned formation ships
 
 
-    public SoloShooterBossLevel(float health, float bulletDamage, float bulletSpeed, float firerate, float speed, float stopDistance, float attackRange, float fireAngle, float currencyDrop, List<Vector3> spawnPoints, string bossName, LevelManager levelManager, SpawnerManager spawnerManager)
+    public SoloShooterBossLevel(float health, float bulletDamage, float bulletSpeed, float firerate,
+                                float speed, float stopDistance, float attackRange, float fireAngle,
+                                float currencyDrop, List<Vector3> spawnPoints, string bossName,
+                                LevelManager levelManager, SpawnerManager spawnerManager,
+                                FormationType formationType, int numberOfShipsInFormation,
+                                 float formationRadius, List<string> formationShipName)
     {
-        _health = health;
-        _bulletDamage = bulletDamage;
-        _bulletSpeed = bulletSpeed;
-        _fireRate = firerate;
-        _speed = speed;
-        _stopDistance = stopDistance;
-        _attackRange = attackRange;
-        _fireAngle = fireAngle;
-        _spawnPoints = spawnPoints;
-        _bossName = bossName;
-        _currencyDrop = currencyDrop;
-        _leveltype = LevelType.Boss;
-        _levelManager = levelManager;
-        _spawnerManager = spawnerManager;
+        this.health = health;
+        this.bulletDamage = bulletDamage;
+        this.bulletSpeed = bulletSpeed;
+        this.fireRate = firerate;
+        this.speed = speed;
+        this.stopDistance = stopDistance;
+        this.attackRange = attackRange;
+        this.fireAngle = fireAngle;
+        this.spawnPoints = spawnPoints;
+        this.bossName = bossName;
+        this.currencyDrop = currencyDrop;
+        this.levelManager = levelManager;
+        this.spawnerManager = spawnerManager;
+        this.formationType = formationType;
+        this.numberOfShipsInFormation = numberOfShipsInFormation;
+        this.formationRadius = formationRadius;
+        this.formationShipName = formationShipName;
+
     }
     public override void StartLevel()
     {
         Debug.Log("Starting Boss Level");
-        _bossShip = _spawnerManager.SpawnShip(_bossName, _spawnPoints[Random.Range(0, _spawnPoints.Count)], Quaternion.identity);
+        bossShip = spawnerManager.SpawnShip(bossName, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
+        SetBossShooterStats(bossShip);
+        switch (formationType)
+        {
+            case FormationType.Circle:
+                Debug.Log("Spawning Circle Formation from level");
+                spawnerManager.SpawnCircleFormation(numberOfShipsInFormation, formationRadius, bossShip.transform.position, formationShipName);
+                break;
+            case FormationType.VShape:
+                Debug.Log("Spawning VShape Formation");
+                spawnerManager.SpawnVShapeFormation(numberOfShipsInFormation, formationRadius, bossShip.transform.position, formationShipName);
+                break;
+            case FormationType.Line:
+                Debug.Log("Spawning Line Formation");
+                spawnerManager.SpawnLineFormation(numberOfShipsInFormation, formationRadius, bossShip.transform.position, formationShipName);
+                break;
+            case FormationType.Grid:
+                Debug.Log("Spawning Grid Formation");
+                spawnerManager.SpawnGridFormation(numberOfShipsInFormation, formationRadius, bossShip.transform.position, formationShipName);
+                break;
+            case FormationType.Star:
+                Debug.Log("Spawning Star Formation");
+                spawnerManager.SpawnStarFormation(numberOfShipsInFormation, formationRadius, bossShip.transform.position, formationShipName);
+                break;
+            case FormationType.Spiral:
+                Debug.Log("Spawning Spiral Formation");
+                spawnerManager.SpawnSpiralFormation(numberOfShipsInFormation, formationRadius, bossShip.transform.position, formationShipName);
+                break;
+        }
 
+    }
+
+    public void SetBossShooterStats(GameObject bossShooter)
+    {
         // Get the components
-        Health health = _bossShip.GetComponent<Health>();
-        Kinematics kinematics = _bossShip.GetComponent<Kinematics>();
-        AttackManager attackManager = _bossShip.GetComponent<AttackManager>();
-        ShooterEnemy shooterEnemy = _bossShip.GetComponent<ShooterEnemy>();
+        Health healthScript = bossShooter.GetComponent<Health>();
+        Kinematics kinematics = bossShooter.GetComponent<Kinematics>();
+        AttackManager attackManager = bossShooter.GetComponent<AttackManager>();
+        ShooterEnemy shooterEnemy = bossShooter.GetComponent<ShooterEnemy>();
 
         // Set the stats
-        health.MaxHealth = _health;
-        health.CurrentHealth = _health;
-        health.CurrencyDrop = _currencyDrop;
-        shooterEnemy.BulletDamage = _bulletDamage;
-        shooterEnemy.BulletSpeed = _bulletSpeed;
-        shooterEnemy.ShootingAngle = _fireAngle;
-        kinematics.Speed = _speed;
-        kinematics.StopDistance = _stopDistance;
-        attackManager.AttackCooldown = _fireRate;
-        attackManager.AimRange = _attackRange;
+        healthScript.MaxHealth = health;
+        healthScript.CurrentHealth = health;
+        healthScript.CurrencyDrop = currencyDrop;
+        shooterEnemy.BulletDamage = bulletDamage;
+        shooterEnemy.BulletSpeed = bulletSpeed;
+        shooterEnemy.ShootingAngle = fireAngle;
+        kinematics.Speed = speed;
+        kinematics.StopDistance = stopDistance;
+        attackManager.AttackCooldown = fireRate;
+        attackManager.AimRange = attackRange;
     }
 
     public override void UpdateLevel()
     {
-        Debug.Log("Updating Boss Level");
-        if (_bossShip == null || _bossShip.GetComponent<Health>().isDead || !_bossShip.activeInHierarchy)
+        if (bossShip == null || bossShip.GetComponent<Health>().isDead || !bossShip.activeInHierarchy)
             CompleteLevel();
 
     }
@@ -73,8 +117,9 @@ public class SoloShooterBossLevel : Level
     public override void CompleteLevel()
     {
         Debug.Log("Completing Level");
-        _levelManager.CompleteLevel();
+        levelManager.CompleteLevel();
     }
+
 
 
 }

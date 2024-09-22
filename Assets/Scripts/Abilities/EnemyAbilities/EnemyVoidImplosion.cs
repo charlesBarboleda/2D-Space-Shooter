@@ -14,8 +14,6 @@ public class EnemyVoidImplosion : MonoBehaviour
 
     void OnEnable()
     {
-        // Log messages to track behavior
-        Debug.Log("OnEnable called for " + gameObject.name);
 
         if (_implosionParticles == null)
         {
@@ -30,12 +28,12 @@ public class EnemyVoidImplosion : MonoBehaviour
         }
 
         // Randomly set the initial size and countdown duration
-        _size = UnityEngine.Random.Range(5, 30);
+        _size = UnityEngine.Random.Range(5, 40);
         _countdown = _size * 0.1f;
         _initialSize = _size;
 
         // Set the implosion particle size
-        _implosionParticles.transform.localScale = new Vector3(_size / 2, _size / 2, _size / 2);
+        _implosionParticles.transform.localScale = new Vector3(_size / 1.5f, _size / 1.5f, _size / 1.5f);
 
         // Set the charging particle size to its maximum initially
         _chargingParticles.transform.localScale = new Vector3(_size, _size, _size);
@@ -84,6 +82,19 @@ public class EnemyVoidImplosion : MonoBehaviour
 
     IEnumerator Implode()
     {
+        LayerMask _damageLayerMask = LayerMask.GetMask("Player", "CrimsonFleet", "Syndicates");
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, _size, _damageLayerMask);
+
+        // Apply damage or effects to all hit objects
+        foreach (Collider2D hitCollider in hitColliders)
+        {
+            // Example of applying damage (assuming objects have a Damageable component)
+            IDamageable damageable = hitCollider.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(_damage);
+            }
+        }
         // Check if _implosionParticles exists before trying to access it
         if (_implosionParticles != null)
         {
@@ -103,4 +114,10 @@ public class EnemyVoidImplosion : MonoBehaviour
     public float Damage { get => _damage; set => _damage = value; }
     public float Countdown { get => _countdown; set => _countdown = value; }
     public float Size { get => _size; set => _size = value; }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, _size);
+    }
 }

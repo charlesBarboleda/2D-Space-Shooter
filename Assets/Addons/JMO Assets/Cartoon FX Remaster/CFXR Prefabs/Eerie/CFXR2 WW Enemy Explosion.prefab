@@ -14584,6 +14584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7226888052447524523}
   - component: {fileID: 7226888052447524524}
+  - component: {fileID: 5338496970100908407}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -14668,6 +14669,29 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &5338496970100908407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7226888052447524525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &7226888052524955021
 GameObject:
   m_ObjectHideFlags: 0
@@ -19589,7 +19613,6 @@ GameObject:
   - component: {fileID: 7226888052703040407}
   - component: {fileID: 7226888052703040408}
   - component: {fileID: 7226888052703040405}
-  - component: {fileID: 1376379542245938730}
   m_Layer: 0
   m_Name: CFXR2 WW Enemy Explosion
   m_TagString: Untagged
@@ -20258,7 +20281,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 2, y: 2, z: 2}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -20566,7 +20589,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 16
+        scalar: 64
         minScalar: 6
         maxCurve:
           serializedVersion: 2
@@ -23272,7 +23295,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 1
     collisionMode: 1
@@ -24649,19 +24672,6 @@ MonoBehaviour:
     perlinColor: 0
     perlinColorSpeed: 0
   fadeOutReference: {fileID: 0}
---- !u!114 &1376379542245938730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7226888052703040409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ecde0b32f005484380e4ff518ff54c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _implosionScript: {fileID: 7226443498351114565, guid: 7927882c87b6fe140886116046f85f8e, type: 3}
 --- !u!1 &7226888052859246535
 GameObject:
   m_ObjectHideFlags: 0

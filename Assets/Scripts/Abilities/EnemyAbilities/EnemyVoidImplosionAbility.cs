@@ -40,9 +40,9 @@ public class EnemyVoidImplosionAbility : Ability
     void SetStatsBasedOnLevel()
     {
         _aimOffset = _aimOffset - LevelManager.Instance.CurrentLevelIndex * 0.5f;
-        if (_aimOffset < 100f)
+        if (_aimOffset < 50f)
         {
-            _aimOffset = 100f;
+            _aimOffset = 50f;
         }
         _duration = Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 0.5f, 20f);
         _attackRate = _attackRate - LevelManager.Instance.CurrentLevelIndex * 0.01f;
@@ -54,7 +54,7 @@ public class EnemyVoidImplosionAbility : Ability
 
     public override void ResetStats()
     {
-        _aimOffset = 150f;
+        _aimOffset = 100f;
         _duration = 20f;
         _attackRate = 0.5f;
     }

@@ -1,35 +1,57 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CameraFollowBehaviour : MonoBehaviour
 {
+    public static CameraFollowBehaviour Instance { get; private set; }
+    public CinemachineVirtualCamera playerCamera; // Main camera that follows the player
+    public CinemachineVirtualCamera targetCamera; // Secondary camera for focusing on the target
+    public float transitionDuration = 1.5f;      // Duration for the smooth transition
 
-    [SerializeField] Camera _mainCamera;
-    [SerializeField] Transform _playerTransform;
-
-    [SerializeField] float _damping = 0.1f; // Adjust this value to control the damping effect
-
-    Vector3 _offset; // Optional: if you want to keep an offset from the player
-
-    void Start()
+    void Awake()
     {
-        if (_playerTransform != null)
+        if (Instance != null && Instance != this)
         {
-            _offset = _mainCamera.transform.position - _playerTransform.position;
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
         }
     }
-
-    void FixedUpdate()
+    void Start()
     {
-        if (_playerTransform != null)
-        {
-            // Desired position with optional offset
-            Vector3 desiredPosition = _playerTransform.position + _offset;
-            desiredPosition.z = -10; // Ensure the camera stays at the same z position
+        // Make sure the player camera is active at the start
+        ActivatePlayerCamera();
+    }
+    // Call this method to pan to the target camera
+    public void ActivateTargetCamera(Transform target)
+    {
+        // Enable the target camera and give it higher priority
+        targetCamera.Follow = target;
+        targetCamera.Priority = 11;
+        playerCamera.Priority = 10;
+    }
 
-            // Smoothly interpolate camera position towards the desired position
-            _mainCamera.transform.position = Vector3.Lerp(_mainCamera.transform.position, desiredPosition, _damping);
-        }
+    // Call this method to pan back to the player camera
+    public void ActivatePlayerCamera()
+    {
+        // Enable the player camera and give it higher priority
+        playerCamera.Priority = 11;
+        targetCamera.Priority = 10;
+    }
+
+    // Optionally, call this method to smoothly pan back after a delay (useful for cutscenes)
+    public IEnumerator PanToTargetAndBack(Transform target, float waitTime)
+    {
+        // Pan to the target camera
+        ActivateTargetCamera(target);
+
+        // Wait for some time at the target
+        yield return new WaitForSeconds(waitTime);
+
+        // Pan back to the player camera
+        ActivatePlayerCamera();
     }
 }

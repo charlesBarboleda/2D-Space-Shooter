@@ -11,7 +11,7 @@ public class ImplosionCollision : MonoBehaviour
         // You can apply damage or any effect to the object here
         if (other.CompareTag("Player") || other.CompareTag("CrimsonFleet") || other.CompareTag("Syndicates"))
         {
-            IDamageable iDamageable = other.GetComponent<IDamageable>();  // Assuming objects have a Health component
+            IDamageable iDamageable = other.GetComponent<IDamageable>();
             if (iDamageable != null)
             {
                 iDamageable.TakeDamage(_implosionScript.Damage);

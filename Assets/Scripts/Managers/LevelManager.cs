@@ -39,9 +39,9 @@ public class LevelManager : MonoBehaviour
             return CreateSoloInvasionLevel();
 
         // In 5-10 levels, create a solo shooter boss level or a solo carrier boss level
-        else if (_currentLevelIndex % Random.Range(5, 10) == 0)
+        else if (_currentLevelIndex % Random.Range(1, 2) == 0)
         {
-            if (Random.value > 0.5f) CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
+            if (Random.value > 0.01f) CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
             else CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
         }
         else if (_currentLevelIndex % Random.Range(20, 40) == 0)
@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
 
 
         // Otherwise, create a horde level
-        return CreateHordeLevel();
+        return CreateEndGameBossLevel(_spawnerManager.GetShooterBossName());
     }
 
 
@@ -75,6 +75,7 @@ public class LevelManager : MonoBehaviour
     public void CompleteLevel()
     {
         _currentLevelIndex++;
+        Background.Instance.PlayOriginalBackgroundMusic();
         SpawnerManager.Instance.EnemiesToSpawnLeft = 0;
         _levels.Add(GenerateNextLevel());
         GameManager.Instance.ChangeState(GameManager.GameState.LevelEnd);
@@ -147,6 +148,47 @@ public class LevelManager : MonoBehaviour
         );
     }
 
+    public Level CreateEndGameBossLevel(string bossName)
+    {
+        float health = _currentLevelIndex * 1000f;
+        float bulletDamage = _currentLevelIndex * 5f;
+        float bulletSpeed = _currentLevelIndex * 2f;
+        float firerate = Random.Range(1, 5);
+        float speed = _currentLevelIndex * 0.5f;
+        float stopDistance = _currentLevelIndex * 2f;
+        float attackRange = _currentLevelIndex * 2.1f;
+        float fireAngle = Random.Range(5, 15);
+        float currencyDrop = _currentLevelIndex * 1000f;
+        List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
+        // Choose a random formation type
+        FormationType formationType = (FormationType)Random.Range(0, 7);
+        Debug.Log($"Formation type: {formationType}");
+        // Number of ships in formation is based on the current level index
+        int numberOfShipsInFormation = Mathf.Min(_currentLevelIndex * 5, 50);
+        float formationRadius = Mathf.Min(Mathf.Max(_currentLevelIndex * 2, 25f), 50f);
+        List<string> formationShipName = new List<string>(_spawnerManager.GetFormationShipNames());
+
+        return new EndGameBossLevel(
+            health,
+            bulletDamage,
+            bulletSpeed,
+            firerate,
+            speed,
+            stopDistance,
+            attackRange,
+            fireAngle,
+            currencyDrop,
+            spawnPoints,
+            bossName,
+            this,
+            _spawnerManager,
+            formationType,
+            numberOfShipsInFormation,
+            formationRadius,
+            formationShipName
+        );
+    }
+
 
     public Level CreateSoloShooterBossLevel(string bossName)
     {
@@ -160,6 +202,14 @@ public class LevelManager : MonoBehaviour
         float fireAngle = Random.Range(5, 15);
         float currencyDrop = _currentLevelIndex * 400f;
         List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
+        // Choose a random formation type
+        FormationType formationType = (FormationType)Random.Range(0, 7);
+        Debug.Log($"Formation type: {formationType}");
+        // Number of ships in formation is based on the current level index
+        int numberOfShipsInFormation = Mathf.Min(_currentLevelIndex * 5, 25);
+        float formationRadius = Mathf.Min(Mathf.Max(_currentLevelIndex * 2, 25f), 50f);
+        List<string> formationShipName = new List<string>(_spawnerManager.GetFormationShipNames());
+
         return new SoloShooterBossLevel(
             health,
             bulletDamage,
@@ -173,7 +223,11 @@ public class LevelManager : MonoBehaviour
             spawnPoints,
             bossName,
             this,
-            _spawnerManager
+            _spawnerManager,
+            formationType,
+            numberOfShipsInFormation,
+            formationRadius,
+            formationShipName
         );
     }
 

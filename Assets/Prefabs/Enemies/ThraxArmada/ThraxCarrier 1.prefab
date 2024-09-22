@@ -143,13 +143,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.251
+  m_Volume: 0.036
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 49
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -283,7 +283,6 @@ MonoBehaviour:
   abilities:
   - {fileID: 11400000, guid: a2f3506fab9ccba46bc954ae91cd57e0, type: 2}
   target: {fileID: 0}
-  abilityParticles: []
 --- !u!114 &5996855414479644662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +300,7 @@ MonoBehaviour:
   _abilitySound: {fileID: 8300000, guid: 113a0f1929ad74dcba20169a2eaa5e57, type: 3}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: LargeSpawn
+  isThraxBoss: 0
   _spawnRadius: 60
   _shipsPerSpawn: 3
   ships:

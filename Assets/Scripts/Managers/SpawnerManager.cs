@@ -200,6 +200,29 @@ public class SpawnerManager : MonoBehaviour
         else if (level < 60) return mid;
         else return late;
     }
+    public List<string> GetFormationShipNames()
+    {
+        Debug.Log("GetFormationShipNames called.");
+        List<string> crimsonFleetShipNames = new List<string> { "CrimsonSmall1", "CrimsonSmall2", "CrimsonSmall3", "CrimsonSmall4" };
+        List<string> syndicatesShipNames = new List<string> { "MediumShip", "MediumShip2" };
+        List<string> thraxArmadaShipNames = new List<string> { "ThraxSmall1", "ThraxSmall2", "ThraxSmall3" };
+
+
+        switch (InvasionManager.Instance.DefendingFaction)
+        {
+            case FactionType.CrimsonFleet:
+                Debug.Log("Crimson Fleet Names");
+                return crimsonFleetShipNames;
+            case FactionType.Syndicates:
+                Debug.Log("Syndicates Names: " + syndicatesShipNames.Count + syndicatesShipNames[0]);
+                return syndicatesShipNames;
+            case FactionType.ThraxArmada:
+                Debug.Log("Thrax Armada Names");
+                return thraxArmadaShipNames;
+            default:
+                return new List<string> { "MediumShip" };
+        }
+    }
     public string GetSpawnerBossName()
     {
         switch (InvasionManager.Instance.DefendingFaction)
@@ -207,7 +230,7 @@ public class SpawnerManager : MonoBehaviour
             case FactionType.CrimsonFleet:
                 return "CrimsonBomberSpawner";
             case FactionType.Syndicates:
-                return Random.value <= 0.9 ? "Carrier" : "SuperCarrier";
+                return Random.value <= 0.7 ? "Carrier" : "SuperCarrier";
             case FactionType.ThraxArmada:
                 return "ThraxCarrier1";
             default:
@@ -233,7 +256,109 @@ public class SpawnerManager : MonoBehaviour
         }
 
     }
+    // --- Different formation methods ---
 
+    public void SpawnCircleFormation(int _numberOfShipsInFormation, float _formationRadius, Vector3 _formationCenter, List<string> _formationShipName)
+    {
+        float angleStep = 360f / _numberOfShipsInFormation;
+        for (int i = 0; i < _numberOfShipsInFormation; i++)
+        {
+            float angle = i * angleStep;
+            Vector3 spawnPosition = _formationCenter + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * _formationRadius;
+            SpawnFormationShip(spawnPosition, _formationShipName);
+            Debug.Log("Spawning Circle Formation from spawnermanager");
+        }
+    }
+
+    public void SpawnVShapeFormation(int _numberOfShipsInFormation, float _formationRadius, Vector3 _formationCenter, List<string> _formationShipName)
+    {
+        float angleStep = 30f; // Angle between the ships on either side of the V
+        int halfFormation = _numberOfShipsInFormation / 2;
+
+        for (int i = 0; i < _numberOfShipsInFormation; i++)
+        {
+            float angle = angleStep * (i - halfFormation); // Spread ships based on angle, centered on 0
+
+            // Calculate the position using polar coordinates
+            float xOffset = Mathf.Sin(Mathf.Deg2Rad * angle) * _formationRadius;
+            float yOffset = Mathf.Cos(Mathf.Deg2Rad * angle) * _formationRadius;
+
+            // Adjust positions to make a V (ships closer at the bottom, wider at the top)
+            Vector3 spawnPosition = _formationCenter + new Vector3(xOffset, -Mathf.Abs(yOffset), 0);
+            SpawnFormationShip(spawnPosition, _formationShipName);
+        }
+    }
+
+
+    public void SpawnLineFormation(int _numberOfShipsInFormation, float _formationRadius, Vector3 _formationCenter, List<string> _formationShipName)
+    {
+        float offset = _formationRadius * 1.5f;
+        for (int i = 0; i < _numberOfShipsInFormation; i++)
+        {
+            Vector3 spawnPosition = _formationCenter + new Vector3(i * offset, 0, 0); // Horizontal line
+            SpawnFormationShip(spawnPosition, _formationShipName);
+        }
+    }
+
+
+    public void SpawnGridFormation(int _numberOfShipsInFormation, float _formationRadius, Vector3 _formationCenter, List<string> _formationShipName)
+    {
+        int gridSize = Mathf.CeilToInt(Mathf.Sqrt(_numberOfShipsInFormation));
+        float offset = _formationRadius * 1.5f;
+        for (int i = 0; i < _numberOfShipsInFormation; i++)
+        {
+            int row = i / gridSize;
+            int col = i % gridSize;
+            Vector3 spawnPosition = _formationCenter + new Vector3(col * offset, row * offset, 0);
+            SpawnFormationShip(spawnPosition, _formationShipName);
+        }
+    }
+
+    public void SpawnStarFormation(int _numberOfShipsInFormation, float _formationRadius, Vector3 _formationCenter, List<string> _formationShipName)
+    {
+        float angleStep = 360f / _numberOfShipsInFormation;
+
+        for (int i = 0; i < _numberOfShipsInFormation; i++)
+        {
+            float angle = Mathf.Deg2Rad * i * angleStep;
+            float radius = i % 2 == 0 ? _formationRadius * 0.5f : _formationRadius; // Alternate between inner and outer radius for star points
+
+            Vector3 spawnPosition = _formationCenter + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
+            SpawnFormationShip(spawnPosition, _formationShipName);
+        }
+    }
+
+    public void SpawnSpiralFormation(int _numberOfShipsInFormation, float _formationRadius, Vector3 _formationCenter, List<string> _formationShipName)
+    {
+        float angleStep = 360f / _numberOfShipsInFormation;
+        float radiusStep = _formationRadius / _numberOfShipsInFormation;
+        for (int i = 0; i < _numberOfShipsInFormation; i++)
+        {
+            float angle = i * angleStep;
+            float radius = i * radiusStep;
+            Vector3 spawnPosition = _formationCenter + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
+            SpawnFormationShip(spawnPosition, _formationShipName);
+        }
+    }
+
+    void SpawnFormationShip(Vector3 spawnPosition, List<string> _formationShipName)
+    {
+        GameObject formationShip = SpawnShip(_formationShipName[Random.Range(0, _formationShipName.Count)], spawnPosition, Quaternion.identity);
+    }
+
+
+    public IEnumerator SpawnEnemiesWaves(int numberOfWaves, float spawnRate)
+    {
+        int numberOfShips = 1;
+        EnemiesToSpawnLeft = numberOfWaves * numberOfShips;
+        while (numberOfWaves > 0)
+        {
+            SpawnStarFormation(numberOfShips, 500, new Vector3(0, 0, 0), new List<string>(GetFormationShipNames()));
+            yield return new WaitForSeconds(spawnRate);
+            numberOfWaves--;
+            numberOfShips += 15;
+        }
+    }
 
 
     public void AddEnemy(GameObject enemy)
