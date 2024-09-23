@@ -150,14 +150,14 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateEndGameBossLevel(string bossName)
     {
-        float health = _currentLevelIndex * 2000f;
-        float bulletDamage = _currentLevelIndex * 5f;
-        float bulletSpeed = _currentLevelIndex * 2f;
-        float firerate = Random.Range(2, 4);
+        float health = Mathf.Max(_currentLevelIndex * 2000f, 20000f);
+        float bulletDamage = Mathf.Max(_currentLevelIndex * 5f, 50f);
+        float bulletSpeed = Mathf.Min(Mathf.Max(_currentLevelIndex * 1f, 30f), 40f);
+        float firerate = Random.Range(1, 3);
         float speed = Mathf.Max(_currentLevelIndex * 0.5f, 20f);
-        float stopDistance = Mathf.Max(_currentLevelIndex * 2f, 100f);
-        float attackRange = Mathf.Max(_currentLevelIndex * 2.1f, 80f);
-        float fireAngle = Random.Range(5, 15);
+        float stopDistance = Mathf.Min(Mathf.Max(_currentLevelIndex * 2f, 90f), 120f);
+        float attackRange = Mathf.Min(Mathf.Max(_currentLevelIndex * 4, 150f), 180f);
+        float fireAngle = Random.Range(15, 21);
         float currencyDrop = _currentLevelIndex * 1000f;
         List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
         // Choose a random formation type

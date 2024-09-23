@@ -29,7 +29,7 @@ public class EndGameBossLevel : SoloShooterBossLevel
         Debug.Log("Enemies Count: " + spawnerManager.EnemiesList.Count);
 
         Debug.Log("Spawning Boss Ship");
-        Background.Instance.PlayThraxBossPhase1Music();
+        spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase1Music());
         Debug.Log("Played Phase 1 Music");
 
         bossShip = spawnerManager.SpawnShip(bossName, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
@@ -44,6 +44,11 @@ public class EndGameBossLevel : SoloShooterBossLevel
     {
         if (spawnerManager.EnemiesList.Count == 1 && spawnerManager.EnemiesToSpawnLeft <= 0)
         {
+            Health bossHealth = bossShip.GetComponent<Health>();
+            Kinematics bossKinematics = bossShip.GetComponent<Kinematics>();
+            CameraFollowBehaviour cameraFollow = Camera.main.GetComponent<CameraFollowBehaviour>();
+
+
             phase1Complete = true;
             Debug.Log("Phase 1 Complete");
             Debug.Log("Phase 2 Started");
@@ -54,16 +59,23 @@ public class EndGameBossLevel : SoloShooterBossLevel
             bossShip.GetComponent<Kinematics>().ShouldMove = true;
 
 
-            if (!hasTransitionedPhase2)
+            if (!hasTransitionedPhase2 && phase1Complete)
             {
                 // Pan the camera to the boss ship
-                CameraFollowBehaviour cameraFollow = Camera.main.GetComponent<CameraFollowBehaviour>();
-                cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShip.transform, 7f));
+                cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShip.transform, 10f));
 
                 // Play Phase 2 music
-                Background.Instance.PlayThraxBossPhase2Music();
+                cameraFollow.StartCoroutine(Background.Instance.PlayThraxBossPhase2Music());
                 hasTransitionedPhase2 = true;
                 Debug.Log("Played Phase 2 Music");
+            }
+            if (bossHealth.CurrentHealth <= bossHealth.MaxHealth / 2 && !phase2Complete)
+            {
+                phase2Complete = true;
+                Debug.Log("Phase 2 Complete");
+                Debug.Log("Phase 3 Started");
+                cameraFollow.StartCoroutine(Background.Instance.PlayThraxBossPhase3Music());
+
             }
 
 

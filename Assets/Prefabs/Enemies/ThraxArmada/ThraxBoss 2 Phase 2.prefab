@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 1369175367832247438}
   - component: {fileID: 7681796144276164879}
   m_Layer: 14
-  m_Name: ThraxBoss 2
+  m_Name: ThraxBoss 2 Phase 2
   m_TagString: ThraxArmada
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16.095936, y: 16.095936, z: 16.095936}
+  m_LocalScale: {x: 20.454802, y: 20.454802, z: 20.454802}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8987605826513359484}
@@ -396,80 +396,80 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1138640088906016016}
     m_ColliderPaths:
-    - - X: -408356736
-        Y: -255787808
-      - X: -573158016
-        Y: -255787808
-      - X: -573158016
-        Y: -554472896
-      - X: -408356736
-        Y: -554472896
+    - - X: -518941952
+        Y: -325056544
+      - X: -728372288
+        Y: -325056544
+      - X: -728372288
+        Y: -704627136
+      - X: -518941952
+        Y: -704627136
   - m_Collider: {fileID: 5660362373887011817}
     m_ColliderPaths:
-    - - X: 631946816
-        Y: 86719760
-      - X: -634502400
-        Y: 86719760
-      - X: -634502400
-        Y: -278421984
-      - X: 631946816
-        Y: -278421984
+    - - X: 803081344
+        Y: 110203936
+      - X: -806329024
+        Y: 110203936
+      - X: -806329024
+        Y: -353820128
+      - X: 803081344
+        Y: -353820128
   - m_Collider: {fileID: 2385465585439789347}
     m_ColliderPaths:
-    - - X: 537373248
-        Y: 490572384
-      - X: -568046016
-        Y: 490572384
-      - X: -568046016
-        Y: 76865760
-      - X: 537373248
-        Y: 76865760
+    - - X: 682896832
+        Y: 623422080
+      - X: -721875904
+        Y: 623422080
+      - X: -721875904
+        Y: 97681424
+      - X: 682896832
+        Y: 97681424
   - m_Collider: {fileID: 2607286687990683815}
     m_ColliderPaths:
-    - - X: 133521120
-        Y: 585145408
-      - X: -156525520
-        Y: 585145408
-      - X: -156525520
-        Y: -546804864
-      - X: 133521120
-        Y: -546804864
+    - - X: 169679360
+        Y: 743605888
+      - X: -198913472
+        Y: 743605888
+      - X: -198913472
+        Y: -694882496
+      - X: 169679360
+        Y: -694882496
   - m_Collider: {fileID: 7401826703987973874}
     m_ColliderPaths:
-    - - X: 555265664
-        Y: -266012000
-      - X: 398132544
-        Y: -266012000
-      - X: 398132544
-        Y: -554473088
-      - X: 555265664
-        Y: -554473088
+    - - X: 705634624
+        Y: -338049472
+      - X: 505948992
+        Y: -338049472
+      - X: 505948992
+        Y: -704627392
+      - X: 705634624
+        Y: -704627392
   m_CompositePaths:
     m_Paths:
-    - - {x: 55.526535, y: -55.447308}
-      - {x: 55.5266, y: -27.8422}
-      - {x: 63.194683, y: -27.84217}
-      - {x: 63.19465, y: 8.671976}
-      - {x: 53.737324, y: 8.672006}
-      - {x: 53.737293, y: 49.05724}
-      - {x: 13.352112, y: 49.057266}
-      - {x: 13.352082, y: 58.51454}
-      - {x: -15.652553, y: 58.51451}
-      - {x: -15.652581, y: 49.05724}
-      - {x: -56.804604, y: 49.05721}
-      - {x: -56.804634, y: 8.671976}
-      - {x: -63.45024, y: 8.671947}
-      - {x: -63.45021, y: -27.8422}
-      - {x: -57.315804, y: -27.842228}
-      - {x: -57.31577, y: -55.44729}
-      - {x: -40.835674, y: -55.447258}
-      - {x: -40.835644, y: -27.8422}
-      - {x: -15.652553, y: -27.842228}
-      - {x: -15.652523, y: -54.68049}
-      - {x: 13.352112, y: -54.680454}
-      - {x: 13.352141, y: -27.8422}
-      - {x: 39.813255, y: -27.842228}
-      - {x: 39.813282, y: -55.447308}
+    - - {x: 70.56343, y: -70.46274}
+      - {x: 70.56349, y: -35.38201}
+      - {x: 80.308136, y: -35.381985}
+      - {x: 80.308105, y: 11.020393}
+      - {x: 68.28968, y: 11.020423}
+      - {x: 68.28965, y: 62.34221}
+      - {x: 16.967936, y: 62.34224}
+      - {x: 16.967907, y: 74.36059}
+      - {x: -19.891348, y: 74.36056}
+      - {x: -19.891376, y: 62.34221}
+      - {x: -72.18759, y: 62.34218}
+      - {x: -72.18762, y: 11.020393}
+      - {x: -80.632904, y: 11.020364}
+      - {x: -80.63287, y: -35.38201}
+      - {x: -72.83723, y: -35.382042}
+      - {x: -72.8372, y: -70.462715}
+      - {x: -51.894196, y: -70.462685}
+      - {x: -51.89417, y: -35.38201}
+      - {x: -19.891348, y: -35.382042}
+      - {x: -19.89132, y: -69.48825}
+      - {x: 16.967936, y: -69.48822}
+      - {x: 16.967964, y: -35.38201}
+      - {x: 50.5949, y: -35.382042}
+      - {x: 50.59493, y: -70.46274}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -837,6 +837,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9186446616439801708, guid: acdb90624a404aa438447006f1026065, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186446616439801708, guid: acdb90624a404aa438447006f1026065, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186446616439801708, guid: acdb90624a404aa438447006f1026065, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -947,6 +959,18 @@ PrefabInstance:
     - target: {fileID: 8986935675043883179, guid: acdb90624a404aa438447006f1026065, type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186446616439801708, guid: acdb90624a404aa438447006f1026065, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186446616439801708, guid: acdb90624a404aa438447006f1026065, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186446616439801708, guid: acdb90624a404aa438447006f1026065, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

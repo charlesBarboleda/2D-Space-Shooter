@@ -55,7 +55,7 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Update()
     {
         // Disable the audio source if the player is too far away
-        if (Vector2.Distance(transform.position, PlayerManager.Instance.transform.position) > 60f)
+        if (Vector2.Distance(transform.position, PlayerManager.Instance.transform.position) > 100f)
         {
             DisableAudioSource();
         }
@@ -102,14 +102,14 @@ public abstract class Enemy : MonoBehaviour
         _buffedParticles.SetActive(false);
         Health.CurrentHealth /= 1.5f;
         Health.MaxHealth /= 1.5f;
-        Kinematics.Speed /= 1.5f;
+        Kinematics.MaxSpeed /= 1.5f;
     }
     public virtual void BuffedState()
     {
         _buffedParticles.SetActive(true);
         Health.CurrentHealth *= 1.5f;
         Health.MaxHealth *= 1.5f;
-        Kinematics.Speed *= 1.5f;
+        Kinematics.MaxSpeed *= 1.5f;
 
     }
 
@@ -141,13 +141,12 @@ public abstract class Enemy : MonoBehaviour
                 // Trigger the ability
                 ability.TriggerAbility(gameObject, target);
 
-                // Play the associated particles
-                StartCoroutine(PlayAbilityParticles());
+
             }
         }
     }
 
-    IEnumerator PlayAbilityParticles()
+    public IEnumerator PlayAbilityParticles()
     {
         foreach (ParticleSystem particle in _abilityParticles)
         {
@@ -170,7 +169,7 @@ public abstract class Enemy : MonoBehaviour
 
         _health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 0.5f;
 
-        _kinematics.Speed += LevelManager.Instance.CurrentLevelIndex * 0.05f;
+        _kinematics.MaxSpeed += LevelManager.Instance.CurrentLevelIndex * 0.05f;
 
     }
 

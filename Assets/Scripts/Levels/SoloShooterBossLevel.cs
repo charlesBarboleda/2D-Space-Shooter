@@ -101,7 +101,7 @@ public class SoloShooterBossLevel : Level
         shooterEnemy.BulletDamage = bulletDamage;
         shooterEnemy.BulletSpeed = bulletSpeed;
         shooterEnemy.ShootingAngle = fireAngle;
-        kinematics.Speed = speed;
+        kinematics.MaxSpeed = speed;
         kinematics.StopDistance = stopDistance;
         attackManager.AttackCooldown = fireRate;
         attackManager.AimRange = attackRange;

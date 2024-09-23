@@ -10,7 +10,7 @@ public class BossSpawner : SpawnerEnemy
 
         Health.CurrentHealth += LevelManager.Instance.CurrentLevelIndex * 10f;
         Health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 1f;
-        Kinematics.Speed += LevelManager.Instance.CurrentLevelIndex * 0.1f;
+        Kinematics.MaxSpeed += LevelManager.Instance.CurrentLevelIndex * 0.1f;
     }
 
 }

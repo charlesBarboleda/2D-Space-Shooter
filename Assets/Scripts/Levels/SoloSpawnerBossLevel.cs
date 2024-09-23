@@ -50,7 +50,7 @@ public class SoloSpawnerBossLevel : Level
         health.CurrentHealth = _health;
         health.CurrencyDrop = _currencyDrop;
         enemy.ShipsPerSpawn = _shipsPerSpawn;
-        kinematics.Speed = _speed;
+        kinematics.MaxSpeed = _speed;
         kinematics.StopDistance = _stopDistance;
         attackManager.AttackCooldown = _spawnRate;
         attackManager.AimRange = _attackRange;

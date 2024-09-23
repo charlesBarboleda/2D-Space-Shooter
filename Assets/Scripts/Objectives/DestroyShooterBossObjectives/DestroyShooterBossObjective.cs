@@ -52,7 +52,7 @@ public class DestroyShooterBossObjective : Objective
                 bossScript.AttackManager.AttackCooldown = _fireRate;
                 bossScript.ShootingAngle = _shootingAngle;
                 bossScript.Health.CurrencyDrop = _currencyDrop;
-                bossScript.Kinematics.Speed = _speed;
+                bossScript.Kinematics.MaxSpeed = _speed;
                 bossScript.AttackManager.AimRange = _aimRange;
                 bossScript.Kinematics.StopDistance = _stopDistance;
             }
