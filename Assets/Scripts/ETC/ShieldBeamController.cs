@@ -1,14 +1,16 @@
 using UnityEngine;
-using UnityEngine.Analytics;
 
 public class ShieldBeamController : MonoBehaviour
 {
     [SerializeField] Transform originPoint;
-    [SerializeField] Transform endPoint;
     [SerializeField] LayerMask _layerMask;
-    [SerializeField] ParticleSystem _hitEffectInstance;
+    [SerializeField] ParticleSystem _hitEffectInstanceEnd;
+    [SerializeField] ParticleSystem _hitEffectInstanceStart;
+
     [SerializeField] float ignoreDistanceThreshold = 5f;
-    LineRenderer _lineRenderer;
+
+    private GameObject _target;
+    private LineRenderer _lineRenderer;
 
     void Awake()
     {
@@ -18,57 +20,45 @@ public class ShieldBeamController : MonoBehaviour
 
     void Update()
     {
-        if (originPoint != null && endPoint != null)
+        if (originPoint != null && _target != null)
         {
-            Vector3 direction = (endPoint.position - originPoint.position).normalized;
-            float distance = Vector3.Distance(originPoint.position, endPoint.position);
+            Vector3 direction = (_target.transform.position - originPoint.position).normalized;
+            float distance = Vector3.Distance(originPoint.position, _target.transform.position);
 
             // Perform raycast to detect any colliders in the path of the beam
             RaycastHit2D hit = Physics2D.Raycast(originPoint.position, direction, distance, _layerMask);
 
-            // Default to extending to the end point
             _lineRenderer.SetPosition(0, originPoint.position);
-            _lineRenderer.SetPosition(1, endPoint.position);
+            _lineRenderer.SetPosition(1, _target.transform.position);
+            Debug.Log("Beam positions set");
 
-            // Check if we hit something
             if (hit.collider != null)
             {
+                Debug.Log("Hit detected " + hit.collider.name);
                 float hitDistance = Vector2.Distance(originPoint.position, hit.point);
-
-                // Ignore the collision if it's too close (within the threshold)
                 if (hitDistance >= ignoreDistanceThreshold)
                 {
-                    // Set the end of the line to the hit point if it's a valid hit
                     _lineRenderer.SetPosition(1, hit.point);
-
-                    // Play the hit effect at the collision point
-                    if (_hitEffectInstance != null)
+                    Debug.Log("Hit distance greater than threshold");
+                    if (_hitEffectInstanceStart != null)
                     {
-                        _hitEffectInstance.transform.position = hit.point;
-                        _hitEffectInstance.Play();
+                        Debug.Log("Playing hit effect start");
+                        _hitEffectInstanceStart.transform.position = originPoint.position;
+                        _hitEffectInstanceStart.Play();
+                        Debug.Log("Hit Effect Played start");
                     }
-                }
-                else
-                {
-                    // Disable the hit effect if the hit is ignored
-                    if (_hitEffectInstance != null)
+                    if (_hitEffectInstanceEnd != null)
                     {
-                        _hitEffectInstance.Stop();
+                        Debug.Log("Playing hit effect");
+                        _hitEffectInstanceEnd.transform.position = hit.point;
+                        _hitEffectInstanceEnd.Play();
+                        Debug.Log("Hit Effect Played");
                     }
-                }
-            }
-            else
-            {
-                // Disable the hit effect if there's no collision
-                if (_hitEffectInstance != null)
-                {
-                    _hitEffectInstance.Stop();
                 }
             }
         }
     }
 
-
     public Transform OriginPoint { get => originPoint; set => originPoint = value; }
-    public Transform EndPoint { get => endPoint; set => endPoint = value; }
+    public GameObject Target { get => _target; set => _target = value; }
 }

@@ -7,8 +7,10 @@ public class TargetManager : MonoBehaviour
     [SerializeField] float _checkForTargetsInterval = 2f; // Set interval to 2 seconds
     [SerializeField] float _checkForTargetsRadius = 50f; // Set radius to 50 units
     [SerializeField] bool _targetAllies; // Flag to target allies or not
+    [SerializeField] bool _canSwitchTargets = true; // Flag to allow/disallow switching targets
     [SerializeField] Vector3 _targetPosition;
     [SerializeField] GameObject _currentTarget;
+    [SerializeField] GameObject _maximumPriority;
 
     Faction _faction;
 
@@ -22,11 +24,16 @@ public class TargetManager : MonoBehaviour
 
     void Update()
     {
-        // Check if _currentTarget is null first
+        if (_maximumPriority != null)
+        {
+            _currentTarget = _maximumPriority;
+        }
+        // Check if _currentTarget is null or not valid
         if (_currentTarget == null || !_currentTarget.activeInHierarchy ||
             (_currentTarget.GetComponent<Health>() != null && _currentTarget.GetComponent<Health>().isDead))
         {
-            _targetPosition = CheckForTargets(); // Continuously check for new targets
+            // If target is invalid, look for a new target regardless of _canSwitchTargets
+            _targetPosition = CheckForTargets();
         }
 
         // Update target position based on current target if available
@@ -53,22 +60,29 @@ public class TargetManager : MonoBehaviour
     {
         while (true)
         {
-            _targetPosition = CheckForTargets();
+            if (_canSwitchTargets)
+            {
+                // Only check for targets if switching is allowed
+                _targetPosition = CheckForTargets();
+            }
             yield return new WaitForSeconds(_checkForTargetsInterval);
         }
     }
 
     Vector3 CheckForTargets()
     {
+        if (!_canSwitchTargets && _currentTarget != null)
+        {
+            // If switching is not allowed and we have a valid target, keep the current target
+            return _currentTarget.transform.position;
+        }
+
         LayerMask targetLayerMask = LayerMask.GetMask("Syndicates", "ThraxArmada", "CrimsonFleet", "Player");
-        Transform playerTransform = PlayerManager.Instance.transform;
-        Collider2D enemyCollider = GetComponent<Collider2D>();
+        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, _checkForTargetsRadius, targetLayerMask);
 
         Vector3 bestTargetPoint = Vector3.zero;
         float closestDistance = Mathf.Infinity;
         GameObject previousTarget = _currentTarget; // Keep a reference to the previous target
-
-        Collider2D[] hitTargets = Physics2D.OverlapCircleAll(transform.position, _checkForTargetsRadius, targetLayerMask);
 
         foreach (Collider2D targetCollider in hitTargets)
         {
@@ -98,13 +112,11 @@ public class TargetManager : MonoBehaviour
                 isValidTarget = false; // Prevent targeting the player
             }
 
+            // Only update current target if it's valid and closer
             if (isValidTarget)
             {
                 Vector3 closestPointOnTarget = targetCollider.ClosestPoint(transform.position);
                 float distance = Vector3.Distance(transform.position, closestPointOnTarget);
-
-                Debug.Log($"Valid Target: {targetCollider.gameObject.name}, Distance: {distance}");
-
                 // Only update current target if it's closer
                 if (distance < closestDistance)
                 {
@@ -143,4 +155,5 @@ public class TargetManager : MonoBehaviour
     /// </summary>
     public Vector3 TargetPosition { get => _targetPosition; }
     public GameObject CurrentTarget { get => _currentTarget; }
+    public bool CanSwitchTargets { get => _canSwitchTargets; set => _canSwitchTargets = value; }
 }

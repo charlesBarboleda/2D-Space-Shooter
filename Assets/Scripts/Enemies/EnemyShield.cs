@@ -10,10 +10,18 @@ public class EnemyShield : MonoBehaviour, IDamageable
     [SerializeField] float _currentShield;
     [SerializeField] float _shieldRegenRate = 100f;
     [SerializeField] float _size;
+    SpriteRenderer spriteRenderer;
+    Color originalColor;
 
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
+
+    }
     void OnEnable()
     {
-        ResetStats();
+        Debug.Log($"Shield owner: {_shieldOwner.name}, Max Shield: {_maxShield}, Shield Regen: {_shieldRegenRate}");
     }
     void Update()
     {
@@ -27,11 +35,19 @@ public class EnemyShield : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         _currentShield -= damage;
+        StartCoroutine(FlashRed());
         if (_currentShield < 0)
         {
             _currentShield = 0;
             Die();
         }
+    }
+
+    IEnumerator FlashRed()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = originalColor;
     }
 
     public void RegenShield()

@@ -19,9 +19,9 @@ GameObject:
   - component: {fileID: 7371399014754427640}
   - component: {fileID: 8977897439213701476}
   - component: {fileID: 6280349405031195926}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: ThraxShieldConduit
-  m_TagString: Untagged
+  m_TagString: ThraxArmada
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -310,10 +310,10 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _spawnAnimation: SmallSpawn
   isThraxBoss: 1
-  _tetherRange: 250
   _shieldRegenRate: 100
   _maxShield: 5000
   _currentShield: 5000
+  _tetherRange: 100
 --- !u!114 &8977897439213701476
 MonoBehaviour:
   m_ObjectHideFlags: 0
