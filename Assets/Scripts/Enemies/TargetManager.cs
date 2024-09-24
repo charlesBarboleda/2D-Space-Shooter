@@ -10,6 +10,7 @@ public class TargetManager : MonoBehaviour
     [SerializeField] bool _canSwitchTargets = true; // Flag to allow/disallow switching targets
     [SerializeField] Vector3 _targetPosition;
     [SerializeField] GameObject _currentTarget;
+    [SerializeField] bool prioritizePlayer = true;
     [SerializeField] GameObject _maximumPriority;
 
     Faction _faction;
@@ -18,8 +19,8 @@ public class TargetManager : MonoBehaviour
     {
         _faction = GetComponent<Faction>();
         StartCoroutine(CheckForTargetsRoutine());
-        _currentTarget = PlayerManager.Instance.gameObject;
-        _targetPosition = PlayerManager.Instance.transform.position;
+        _currentTarget = prioritizePlayer ? PlayerManager.Instance.gameObject : _maximumPriority;
+        _targetPosition = prioritizePlayer ? PlayerManager.Instance.transform.position : _maximumPriority.transform.position;
     }
 
     void Update()
@@ -156,4 +157,5 @@ public class TargetManager : MonoBehaviour
     public Vector3 TargetPosition { get => _targetPosition; }
     public GameObject CurrentTarget { get => _currentTarget; }
     public bool CanSwitchTargets { get => _canSwitchTargets; set => _canSwitchTargets = value; }
+    public GameObject MaximumPriority { get => _maximumPriority; set => _maximumPriority = value; }
 }
