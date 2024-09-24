@@ -133,8 +133,9 @@ MonoBehaviour:
   _bulletSpeed: 25
   _bulletDamage: 40
   _amountOfBullets: 3
-  _shootingAngle: 5
+  _shootingAngle: 50
   _bulletLifetime: 5
+  _bulletPattern: 3
   nextFireTime: 0
 --- !u!212 &2630535583225570822
 SpriteRenderer:
@@ -507,6 +508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 3
   _checkForTargetsRadius: 50
+  _targetAllies: 0
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
 --- !u!114 &-6774650854765809602

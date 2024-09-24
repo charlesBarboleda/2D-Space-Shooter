@@ -39,7 +39,8 @@ Transform:
   m_LocalPosition: {x: 0.257, y: -0.131, z: 0}
   m_LocalScale: {x: 0.9049959, y: 0.9049959, z: 0.9049959}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7650686810646978793}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4269631521700113
@@ -112,7 +113,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
   isThraxBoss: 0
-  bulletSpawnPoint: {fileID: 0}
+  bulletSpawnPoint: {fileID: 7650686810646978793}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   _bulletType: ThraxBullet
   _bulletSpeed: 20
@@ -120,6 +121,7 @@ MonoBehaviour:
   _amountOfBullets: 3
   _shootingAngle: 5
   _bulletLifetime: 3
+  _bulletPattern: 0
   nextFireTime: 0
   _bossShooterEnemy: {fileID: 0}
 --- !u!82 &-1632575951528345661
@@ -424,6 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 3
   _checkForTargetsRadius: 50
+  _targetAllies: 0
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
 --- !u!114 &-6236857672304150841
@@ -440,3 +443,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimRange: 100
   _attackCooldown: 1
+--- !u!1 &9002935437112815961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7650686810646978793}
+  m_Layer: 14
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7650686810646978793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9002935437112815961}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -4.6961536, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6097976889594631833}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

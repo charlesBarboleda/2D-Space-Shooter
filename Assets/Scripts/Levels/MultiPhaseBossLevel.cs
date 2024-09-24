@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndGameBossLevel : SoloShooterBossLevel
+public class MultiPhaseBossLevel : SoloShooterBossLevel
 {
     public bool phase1Complete = false;
     public bool phase2Complete = false;
     public bool phase3Complete = false;
     public bool hasTransitionedPhase2 = false;
+    public bool hasTransitionedPhase3 = false;
 
-    public EndGameBossLevel(float health, float bulletDamage, float bulletSpeed,
+    public MultiPhaseBossLevel(float health, float bulletDamage, float bulletSpeed,
     float firerate, float speed, float stopDistance, float attackRange, float fireAngle,
     float currencyDrop, List<Vector3> spawnPoints, string bossName, LevelManager levelManager,
     SpawnerManager spawnerManager, FormationType formationType, int numberOfShipsInFormation,

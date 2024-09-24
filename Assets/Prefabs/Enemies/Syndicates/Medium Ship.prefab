@@ -117,14 +117,16 @@ MonoBehaviour:
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: MidSpawn
+  isThraxBoss: 0
   bulletSpawnPoint: {fileID: 3128259729751783214}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   _bulletType: SyndicatesBullet
   _bulletSpeed: 10
   _bulletDamage: 10
   _amountOfBullets: 1
-  _shootingAngle: 5
+  _shootingAngle: 70
   _bulletLifetime: 5
+  _bulletPattern: 3
   nextFireTime: 0
 --- !u!50 &-7678257154814548157
 Rigidbody2D:
@@ -665,6 +667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 3
   _checkForTargetsRadius: 50
+  _targetAllies: 0
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
 --- !u!114 &-1889400832481025556

@@ -112,14 +112,16 @@ MonoBehaviour:
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
+  isThraxBoss: 0
   bulletSpawnPoint: {fileID: 0}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   _bulletType: SyndicatesBullet
   _bulletSpeed: 0
   _bulletDamage: 0
-  _amountOfBullets: 0
+  _amountOfBullets: 1
   _shootingAngle: 0
   _bulletLifetime: 0
+  _bulletPattern: 3
   nextFireTime: 0
   _bossShooterEnemy: {fileID: 0}
 --- !u!61 &1863285965622434854
@@ -424,6 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 3
   _checkForTargetsRadius: 50
+  _targetAllies: 0
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
 --- !u!114 &3681667465588522016

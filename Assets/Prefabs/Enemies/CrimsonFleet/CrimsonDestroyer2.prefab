@@ -229,14 +229,16 @@ MonoBehaviour:
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: debaac2e3180a1043b7fc951f54cccd1, type: 3}
   _spawnAnimation: LargeSpawn
+  isThraxBoss: 0
   bulletSpawnPoint: {fileID: 678279572690312679}
   _shootSound: {fileID: 8300000, guid: 380a61624a607f042ab5e96218f37633, type: 3}
   _bulletType: CrimsonBullet
   _bulletSpeed: 40
   _bulletDamage: 10
   _amountOfBullets: 10
-  _shootingAngle: 10
+  _shootingAngle: 50
   _bulletLifetime: 5
+  _bulletPattern: 3
   nextFireTime: 0
 --- !u!114 &5380859441759840201
 MonoBehaviour:
@@ -252,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimOffset: 90
   _shouldRotate: 1
+  _shouldMove: 1
   _speed: 25
   _maxSpeed: 25
   _acceleration: 10
@@ -511,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 0.5
   _checkForTargetsRadius: 100
+  _targetAllies: 0
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
 --- !u!1 &5959578993367322370

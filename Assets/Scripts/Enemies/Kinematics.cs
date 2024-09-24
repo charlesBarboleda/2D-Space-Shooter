@@ -128,4 +128,5 @@ public class Kinematics : MonoBehaviour
     public float MaxSpeed { get => _maxSpeed; set => _maxSpeed = value; }
     public float StopDistance { get => _stopDistance; set => _stopDistance = value; }
     public bool ShouldMove { get => _shouldMove; set => _shouldMove = value; }
+    public bool ShouldRotate { get => _shouldRotate; set => _shouldRotate = value; }
 }

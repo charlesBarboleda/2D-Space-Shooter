@@ -47,7 +47,7 @@ public abstract class Enemy : MonoBehaviour
         _kinematics = GetComponent<Kinematics>();
         _faction.AddAllyFaction(_faction.factionType);
         _enemyID = Guid.NewGuid().ToString();
-        DisableAudioSource();
+        // DisableAudioSource();
 
 
     }
@@ -55,11 +55,11 @@ public abstract class Enemy : MonoBehaviour
     protected virtual void Update()
     {
         // Disable the audio source if the player is too far away
-        if (Vector2.Distance(transform.position, PlayerManager.Instance.transform.position) > 100f)
-        {
-            DisableAudioSource();
-        }
-        else EnableAudioSource();
+        // if (Vector2.Distance(transform.position, PlayerManager.Instance.transform.position) > 100f)
+        // {
+        //     DisableAudioSource();
+        // }
+        // else EnableAudioSource();
 
         if (_abilityHolder != null)
         {
