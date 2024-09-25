@@ -43,7 +43,7 @@ public class Comet : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         if (isDead) return;
-        CameraShake.Instance.TriggerShakeLarge();
+        CameraShake.Instance.TriggerShakeLarge(0.3f);
         hitsToBreak--;
         if (hitsToBreak <= 0)
         {

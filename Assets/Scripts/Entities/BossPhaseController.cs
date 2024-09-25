@@ -51,5 +51,6 @@ public class BossPhaseController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public float PhaseThreshold { get => phaseThreshold; set => phaseThreshold = value; }
 
 }

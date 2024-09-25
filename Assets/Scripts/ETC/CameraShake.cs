@@ -54,27 +54,27 @@ public class CameraShake : MonoBehaviour
         }
     }
 
-    public void TriggerShakeSmall()
+    public void TriggerShakeSmall(float duration)
     {
         shakeMagnitude = 1f;
-        _shakeDurationRemaining = 0.1f;
+        _shakeDurationRemaining = duration;
 
         // Save the original camera position
         _originalCameraPosition = _mainCamera.transform.localPosition;
     }
 
-    public void TriggerShakeMid()
+    public void TriggerShakeMid(float duration)
     {
         shakeMagnitude = 2f;
-        _shakeDurationRemaining = 0.2f;
+        _shakeDurationRemaining = duration;
 
         // Save the original camera position
         _originalCameraPosition = _mainCamera.transform.localPosition;
     }
-    public void TriggerShakeLarge()
+    public void TriggerShakeLarge(float duration)
     {
         shakeMagnitude = 3f;
-        _shakeDurationRemaining = 0.3f;
+        _shakeDurationRemaining = duration;
 
         // Save the original camera position
         _originalCameraPosition = _mainCamera.transform.localPosition;

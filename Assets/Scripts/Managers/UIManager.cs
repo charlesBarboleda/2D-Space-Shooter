@@ -39,6 +39,9 @@ public class UIManager : MonoBehaviour
     public GameObject HealthPowerUp;
     public GameObject PickUpRadiusPowerUp;
 
+    [Header("HealthBar")]
+    public GameObject bossHealthBar;
+
     void Awake()
     {
 

@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
 
 
         // Otherwise, create a horde level
-        return CreateMultiPhaseBossLevel("ThraxBoss2Phase1");
+        return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
     }
 
 
@@ -148,7 +148,7 @@ public class LevelManager : MonoBehaviour
         );
     }
 
-    public Level CreateMultiPhaseBossLevel(string bossName)
+    public Level CreateMultiPhaseBossLevel(string bossName, string bossNamePhase2)
     {
         float health = Mathf.Max(_currentLevelIndex * 2000f, 20000f);
         float bulletDamage = Mathf.Max(_currentLevelIndex * 5f, 50f);
@@ -185,7 +185,8 @@ public class LevelManager : MonoBehaviour
             formationType,
             numberOfShipsInFormation,
             formationRadius,
-            formationShipName
+            formationShipName,
+            bossNamePhase2
         );
     }
 

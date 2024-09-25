@@ -118,7 +118,7 @@ public class SuicideBomber : Enemy
         Health.SpriteRenderer.enabled = false;
 
         // Shake the camera
-        CameraShake.Instance.TriggerShakeMid();
+        CameraShake.Instance.TriggerShakeMid(0.1f);
 
         //Notify Objectives Manager
         // ObjectivesManager.Instance.DestroyCrimsonShipsTimed();
