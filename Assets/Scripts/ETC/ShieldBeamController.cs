@@ -30,29 +30,29 @@ public class ShieldBeamController : MonoBehaviour
 
             _lineRenderer.SetPosition(0, originPoint.position);
             _lineRenderer.SetPosition(1, _target.transform.position);
-            Debug.Log("Beam positions set");
+
 
             if (hit.collider != null)
             {
-                Debug.Log("Hit detected " + hit.collider.name);
+
                 float hitDistance = Vector2.Distance(originPoint.position, hit.point);
                 if (hitDistance >= ignoreDistanceThreshold)
                 {
                     _lineRenderer.SetPosition(1, hit.point);
-                    Debug.Log("Hit distance greater than threshold");
+
                     if (_hitEffectInstanceStart != null)
                     {
-                        Debug.Log("Playing hit effect start");
+
                         _hitEffectInstanceStart.transform.position = originPoint.position;
                         _hitEffectInstanceStart.Play();
-                        Debug.Log("Hit Effect Played start");
+
                     }
                     if (_hitEffectInstanceEnd != null)
                     {
-                        Debug.Log("Playing hit effect");
+
                         _hitEffectInstanceEnd.transform.position = hit.point;
                         _hitEffectInstanceEnd.Play();
-                        Debug.Log("Hit Effect Played");
+
                     }
                 }
             }

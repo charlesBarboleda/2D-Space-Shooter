@@ -6,10 +6,13 @@ public class SkillTreeBuilding : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Collided with: " + other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
             UIManager.Instance.OpenSkillTree();
+            Debug.Log("Inside Skill Tree building");
         }
+
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -18,6 +21,7 @@ public class SkillTreeBuilding : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             UIManager.Instance.ExitSkillTree();
+            Debug.Log("Exit Skill Tree building");
         }
     }
 }

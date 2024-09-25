@@ -6,9 +6,11 @@ public class UpgradeBuilding : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Collided with: " + other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
             UpgradeShopManager.Instance.OpenUpgradeShop();
+            Debug.Log("Inside Upgrade building");
         }
     }
 
@@ -18,6 +20,7 @@ public class UpgradeBuilding : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             UpgradeShopManager.Instance.ExitUpgradeShop();
+            Debug.Log("Exit Upgrade building");
         }
     }
 }

@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 8683576}
   - component: {fileID: 8683577}
   - component: {fileID: 8683578}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 15346328}
   - component: {fileID: 15346327}
   - component: {fileID: 15346329}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1096,7 +1096,7 @@ GameObject:
   - component: {fileID: 19871748}
   - component: {fileID: 19871749}
   - component: {fileID: 19871750}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1281,7 +1281,7 @@ GameObject:
   - component: {fileID: 24562288}
   - component: {fileID: 24562287}
   - component: {fileID: 24562289}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1382,7 +1382,7 @@ GameObject:
   - component: {fileID: 25204069}
   - component: {fileID: 25204070}
   - component: {fileID: 25204071}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1688,7 +1688,7 @@ GameObject:
   - component: {fileID: 30753613}
   - component: {fileID: 30753614}
   - component: {fileID: 30753615}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1789,7 +1789,7 @@ GameObject:
   - component: {fileID: 34527281}
   - component: {fileID: 34527282}
   - component: {fileID: 34527283}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2296,7 +2296,7 @@ GameObject:
   - component: {fileID: 46148307}
   - component: {fileID: 46148308}
   - component: {fileID: 46148309}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2397,7 +2397,7 @@ GameObject:
   - component: {fileID: 46282814}
   - component: {fileID: 46282815}
   - component: {fileID: 46282816}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2741,7 +2741,7 @@ GameObject:
   - component: {fileID: 50177251}
   - component: {fileID: 50177250}
   - component: {fileID: 50177252}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3285,7 +3285,7 @@ GameObject:
   - component: {fileID: 62714469}
   - component: {fileID: 62714470}
   - component: {fileID: 62714471}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3470,7 +3470,7 @@ GameObject:
   - component: {fileID: 69497541}
   - component: {fileID: 69497542}
   - component: {fileID: 69497543}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3647,7 +3647,7 @@ GameObject:
   m_Component:
   - component: {fileID: 73058788}
   - component: {fileID: 73058789}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Leftside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3805,7 +3805,7 @@ GameObject:
   - component: {fileID: 74653224}
   - component: {fileID: 74653225}
   - component: {fileID: 74653226}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3908,11 +3908,9 @@ GameObject:
   - component: {fileID: 81475750}
   - component: {fileID: 81475749}
   - component: {fileID: 81475748}
-  - component: {fileID: 81475747}
-  - component: {fileID: 81475746}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BackgroundBorders
-  m_TagString: Untagged
+  m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3936,132 +3934,6 @@ Transform:
   - {fileID: 235352648}
   m_Father: {fileID: 1840538624}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!66 &81475746
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81475744}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 1
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 81475751}
-    m_ColliderPaths:
-    - - X: 2633540608
-        Y: -1966420096
-      - X: -2708190208
-        Y: -1966420096
-      - X: -2708190208
-        Y: -2499007744
-      - X: 2633540608
-        Y: -2499007744
-  - m_Collider: {fileID: 81475750}
-    m_ColliderPaths:
-    - - X: -1933683456
-        Y: 2519366656
-      - X: -2497812992
-        Y: 2519366656
-      - X: -2497812992
-        Y: -2499008256
-      - X: -1933683456
-        Y: -2499008256
-  - m_Collider: {fileID: 81475749}
-    m_ColliderPaths:
-    - - X: 2633540352
-        Y: 2621161984
-      - X: -2477453824
-        Y: 2621161984
-      - X: -2477453824
-        Y: 1979992704
-      - X: 2633540352
-        Y: 1979992704
-  - m_Collider: {fileID: 81475748}
-    m_ColliderPaths:
-    - - X: 2639831808
-        Y: 2607589376
-      - X: 1946531200
-        Y: 2607589376
-      - X: 1946531200
-        Y: -2489658624
-      - X: 2639831808
-        Y: -2489658624
-  m_CompositePaths:
-    m_Paths:
-    - - {x: 263.35403, y: -249.90077}
-      - {x: 263.3541, y: -248.96587}
-      - {x: 263.9832, y: -248.96584}
-      - {x: 263.98315, y: 260.75894}
-      - {x: 263.35403, y: 260.75897}
-      - {x: 263.354, y: 262.1162}
-      - {x: -247.74539, y: 262.11618}
-      - {x: -247.7454, y: 251.93668}
-      - {x: -249.7813, y: 251.93665}
-      - {x: -249.78133, y: -196.64201}
-      - {x: -270.81903, y: -196.64204}
-      - {x: -270.819, y: -249.90077}
-    - - {x: 194.65312, y: -196.64198}
-      - {x: -193.36835, y: -196.64198}
-      - {x: -193.36832, y: 197.99927}
-      - {x: 194.65312, y: 197.99925}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
-  m_CompositeGameObject: {fileID: 81475744}
---- !u!50 &81475747
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81475744}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!61 &81475748
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4093,7 +3965,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 18.6413, y: 0.5272646}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -4138,7 +4010,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: 0.6344147, y: 20.571566}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -4183,7 +4055,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: -18.011845, y: 0.091023445}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -4228,7 +4100,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 1
+  m_UsedByComposite: 0
   m_Offset: {x: -0.3034134, y: -19.964737}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -4253,7 +4125,7 @@ GameObject:
   - component: {fileID: 83790758}
   - component: {fileID: 83790759}
   - component: {fileID: 83790760}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4780,7 +4652,7 @@ GameObject:
   - component: {fileID: 94841527}
   - component: {fileID: 94841528}
   - component: {fileID: 94841529}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4881,7 +4753,7 @@ GameObject:
   - component: {fileID: 95602087}
   - component: {fileID: 95602088}
   - component: {fileID: 95602089}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5066,7 +4938,7 @@ GameObject:
   - component: {fileID: 99295137}
   - component: {fileID: 99295138}
   - component: {fileID: 99295139}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5242,7 +5114,7 @@ GameObject:
   - component: {fileID: 101544678}
   - component: {fileID: 101544679}
   - component: {fileID: 101544680}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5380,7 +5252,7 @@ GameObject:
   - component: {fileID: 112734577}
   - component: {fileID: 112734578}
   - component: {fileID: 112734579}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5481,7 +5353,7 @@ GameObject:
   - component: {fileID: 114147306}
   - component: {fileID: 114147305}
   - component: {fileID: 114147307}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5666,7 +5538,7 @@ GameObject:
   - component: {fileID: 119824956}
   - component: {fileID: 119824957}
   - component: {fileID: 119824958}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5767,7 +5639,7 @@ GameObject:
   - component: {fileID: 121844992}
   - component: {fileID: 121844993}
   - component: {fileID: 121844994}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6073,7 +5945,7 @@ GameObject:
   - component: {fileID: 126989746}
   - component: {fileID: 126989747}
   - component: {fileID: 126989748}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6174,7 +6046,7 @@ GameObject:
   - component: {fileID: 135393035}
   - component: {fileID: 135393034}
   - component: {fileID: 135393036}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6351,7 +6223,7 @@ GameObject:
   - component: {fileID: 136817481}
   - component: {fileID: 136817480}
   - component: {fileID: 136817482}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6489,7 +6361,7 @@ GameObject:
   - component: {fileID: 140263216}
   - component: {fileID: 140263215}
   - component: {fileID: 140263217}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6901,7 +6773,7 @@ GameObject:
   - component: {fileID: 157523977}
   - component: {fileID: 157523976}
   - component: {fileID: 157523978}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7049,7 +6921,7 @@ GameObject:
   - component: {fileID: 164225987}
   - component: {fileID: 164225986}
   - component: {fileID: 164225988}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7150,7 +7022,7 @@ GameObject:
   - component: {fileID: 165157073}
   - component: {fileID: 165157074}
   - component: {fileID: 165157075}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7335,7 +7207,7 @@ GameObject:
   - component: {fileID: 166652935}
   - component: {fileID: 166652936}
   - component: {fileID: 166652937}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: (Small) Earthlike 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7436,7 +7308,7 @@ GameObject:
   - component: {fileID: 167355892}
   - component: {fileID: 167355891}
   - component: {fileID: 167355893}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7537,7 +7409,7 @@ GameObject:
   - component: {fileID: 169989196}
   - component: {fileID: 169989197}
   - component: {fileID: 169989198}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7797,7 +7669,7 @@ GameObject:
   - component: {fileID: 177125448}
   - component: {fileID: 177125449}
   - component: {fileID: 177125450}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8066,7 +7938,7 @@ GameObject:
   - component: {fileID: 184190182}
   - component: {fileID: 184190183}
   - component: {fileID: 184190184}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9264,7 +9136,7 @@ GameObject:
   - component: {fileID: 198750704}
   - component: {fileID: 198750705}
   - component: {fileID: 198750706}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9489,7 +9361,7 @@ GameObject:
   - component: {fileID: 203474483}
   - component: {fileID: 203474484}
   - component: {fileID: 203474485}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9590,7 +9462,7 @@ GameObject:
   - component: {fileID: 209736473}
   - component: {fileID: 209736474}
   - component: {fileID: 209736475}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10115,7 +9987,7 @@ GameObject:
   - component: {fileID: 214163592}
   - component: {fileID: 214163593}
   - component: {fileID: 214163594}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10810,7 +10682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 235352648}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Topside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10903,7 +10775,7 @@ GameObject:
   - component: {fileID: 241908978}
   - component: {fileID: 241908977}
   - component: {fileID: 241908979}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11430,7 +11302,7 @@ GameObject:
   - component: {fileID: 254258990}
   - component: {fileID: 254258989}
   - component: {fileID: 254258991}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11615,7 +11487,7 @@ GameObject:
   - component: {fileID: 258928900}
   - component: {fileID: 258928901}
   - component: {fileID: 258928902}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11994,7 +11866,7 @@ GameObject:
   - component: {fileID: 270480327}
   - component: {fileID: 270480328}
   - component: {fileID: 270480329}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13150,7 +13022,7 @@ GameObject:
   - component: {fileID: 296165298}
   - component: {fileID: 296165299}
   - component: {fileID: 296165300}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13487,7 +13359,7 @@ GameObject:
   - component: {fileID: 298616501}
   - component: {fileID: 298616502}
   - component: {fileID: 298616503}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14279,7 +14151,7 @@ GameObject:
   - component: {fileID: 312376566}
   - component: {fileID: 312376565}
   - component: {fileID: 312376567}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14380,7 +14252,7 @@ GameObject:
   - component: {fileID: 314778694}
   - component: {fileID: 314778695}
   - component: {fileID: 314778696}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14662,7 +14534,7 @@ GameObject:
   - component: {fileID: 322051291}
   - component: {fileID: 322051292}
   - component: {fileID: 322051293}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14763,7 +14635,7 @@ GameObject:
   - component: {fileID: 326423232}
   - component: {fileID: 326423233}
   - component: {fileID: 326423234}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14997,7 +14869,7 @@ GameObject:
   - component: {fileID: 330988177}
   - component: {fileID: 330988176}
   - component: {fileID: 330988178}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15182,7 +15054,7 @@ GameObject:
   - component: {fileID: 339671387}
   - component: {fileID: 339671388}
   - component: {fileID: 339671389}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15283,7 +15155,7 @@ GameObject:
   - component: {fileID: 342305398}
   - component: {fileID: 342305397}
   - component: {fileID: 342305399}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15554,7 +15426,7 @@ GameObject:
   - component: {fileID: 356340667}
   - component: {fileID: 356340666}
   - component: {fileID: 356340668}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15739,7 +15611,7 @@ GameObject:
   - component: {fileID: 360788449}
   - component: {fileID: 360788448}
   - component: {fileID: 360788450}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16038,7 +15910,7 @@ GameObject:
   - component: {fileID: 364592807}
   - component: {fileID: 364592808}
   - component: {fileID: 364592809}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16298,7 +16170,7 @@ GameObject:
   - component: {fileID: 373358047}
   - component: {fileID: 373358046}
   - component: {fileID: 373358048}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16483,7 +16355,7 @@ GameObject:
   - component: {fileID: 376951197}
   - component: {fileID: 376951196}
   - component: {fileID: 376951198}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16584,7 +16456,7 @@ GameObject:
   - component: {fileID: 381697512}
   - component: {fileID: 381697511}
   - component: {fileID: 381697513}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16817,7 +16689,7 @@ GameObject:
   - component: {fileID: 387052284}
   - component: {fileID: 387052283}
   - component: {fileID: 387052285}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17580,7 +17452,7 @@ GameObject:
   - component: {fileID: 399947405}
   - component: {fileID: 399947406}
   - component: {fileID: 399947407}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17681,7 +17553,7 @@ GameObject:
   - component: {fileID: 400309098}
   - component: {fileID: 400309097}
   - component: {fileID: 400309099}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17829,7 +17701,7 @@ GameObject:
   - component: {fileID: 406659080}
   - component: {fileID: 406659081}
   - component: {fileID: 406659082}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17930,7 +17802,7 @@ GameObject:
   - component: {fileID: 407158037}
   - component: {fileID: 407158038}
   - component: {fileID: 407158039}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18078,7 +17950,7 @@ GameObject:
   - component: {fileID: 410737700}
   - component: {fileID: 410737699}
   - component: {fileID: 410737701}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18347,7 +18219,7 @@ GameObject:
   - component: {fileID: 413474481}
   - component: {fileID: 413474482}
   - component: {fileID: 413474483}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18666,7 +18538,7 @@ GameObject:
   - component: {fileID: 421004206}
   - component: {fileID: 421004205}
   - component: {fileID: 421004207}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19003,7 +18875,7 @@ GameObject:
   - component: {fileID: 426327765}
   - component: {fileID: 426327766}
   - component: {fileID: 426327767}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19431,7 +19303,7 @@ GameObject:
   - component: {fileID: 428402018}
   - component: {fileID: 428402019}
   - component: {fileID: 428402020}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19675,7 +19547,7 @@ GameObject:
   - component: {fileID: 436076779}
   - component: {fileID: 436076780}
   - component: {fileID: 436076781}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19776,7 +19648,7 @@ GameObject:
   - component: {fileID: 438793508}
   - component: {fileID: 438793509}
   - component: {fileID: 438793510}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19877,7 +19749,7 @@ GameObject:
   - component: {fileID: 440801398}
   - component: {fileID: 440801397}
   - component: {fileID: 440801399}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20053,7 +19925,7 @@ GameObject:
   - component: {fileID: 443910045}
   - component: {fileID: 443910046}
   - component: {fileID: 443910047}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20154,7 +20026,7 @@ GameObject:
   - component: {fileID: 447490797}
   - component: {fileID: 447490798}
   - component: {fileID: 447490799}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20878,7 +20750,7 @@ GameObject:
   - component: {fileID: 469077969}
   - component: {fileID: 469077970}
   - component: {fileID: 469077971}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21347,7 +21219,7 @@ GameObject:
   - component: {fileID: 483291710}
   - component: {fileID: 483291711}
   - component: {fileID: 483291712}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22724,7 +22596,7 @@ GameObject:
   - component: {fileID: 512736621}
   - component: {fileID: 512736622}
   - component: {fileID: 512736623}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22825,7 +22697,7 @@ GameObject:
   - component: {fileID: 515770120}
   - component: {fileID: 515770121}
   - component: {fileID: 515770122}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22962,7 +22834,7 @@ GameObject:
   - component: {fileID: 527692086}
   - component: {fileID: 527692087}
   - component: {fileID: 527692088}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23147,7 +23019,7 @@ GameObject:
   - component: {fileID: 529292987}
   - component: {fileID: 529292988}
   - component: {fileID: 529292989}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23248,7 +23120,7 @@ GameObject:
   - component: {fileID: 533873221}
   - component: {fileID: 533873222}
   - component: {fileID: 533873223}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23349,7 +23221,7 @@ GameObject:
   - component: {fileID: 534106071}
   - component: {fileID: 534106070}
   - component: {fileID: 534106072}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23450,7 +23322,7 @@ GameObject:
   - component: {fileID: 535744424}
   - component: {fileID: 535744425}
   - component: {fileID: 535744426}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23551,7 +23423,7 @@ GameObject:
   - component: {fileID: 535895550}
   - component: {fileID: 535895549}
   - component: {fileID: 535895551}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23652,7 +23524,7 @@ GameObject:
   - component: {fileID: 537495067}
   - component: {fileID: 537495068}
   - component: {fileID: 537495069}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23905,7 +23777,7 @@ GameObject:
   - component: {fileID: 539527048}
   - component: {fileID: 539527049}
   - component: {fileID: 539527050}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24046,7 +23918,7 @@ GameObject:
   - component: {fileID: 546985086}
   - component: {fileID: 546985087}
   - component: {fileID: 546985088}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24147,7 +24019,7 @@ GameObject:
   - component: {fileID: 552619758}
   - component: {fileID: 552619759}
   - component: {fileID: 552619760}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24625,7 +24497,7 @@ GameObject:
   - component: {fileID: 561681423}
   - component: {fileID: 561681424}
   - component: {fileID: 561681425}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26401,7 +26273,7 @@ GameObject:
   - component: {fileID: 594397996}
   - component: {fileID: 594397997}
   - component: {fileID: 594397998}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26698,7 +26570,7 @@ GameObject:
   - component: {fileID: 605301619}
   - component: {fileID: 605301620}
   - component: {fileID: 605301621}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26958,7 +26830,7 @@ GameObject:
   - component: {fileID: 612652306}
   - component: {fileID: 612652307}
   - component: {fileID: 612652308}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27059,7 +26931,7 @@ GameObject:
   - component: {fileID: 620930815}
   - component: {fileID: 620930816}
   - component: {fileID: 620930817}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27160,7 +27032,7 @@ GameObject:
   - component: {fileID: 622658386}
   - component: {fileID: 622658387}
   - component: {fileID: 622658388}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27420,7 +27292,7 @@ GameObject:
   - component: {fileID: 630854620}
   - component: {fileID: 630854619}
   - component: {fileID: 630854621}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28281,7 +28153,7 @@ GameObject:
   - component: {fileID: 650580570}
   - component: {fileID: 650580571}
   - component: {fileID: 650580572}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28479,7 +28351,7 @@ GameObject:
   - component: {fileID: 651487542}
   - component: {fileID: 651487541}
   - component: {fileID: 651487543}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28843,7 +28715,7 @@ GameObject:
   - component: {fileID: 657063854}
   - component: {fileID: 657063855}
   - component: {fileID: 657063856}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29096,7 +28968,7 @@ GameObject:
   - component: {fileID: 661516959}
   - component: {fileID: 661516960}
   - component: {fileID: 661516961}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29351,7 +29223,7 @@ GameObject:
   - component: {fileID: 668557866}
   - component: {fileID: 668557867}
   - component: {fileID: 668557868}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29754,7 +29626,7 @@ GameObject:
   - component: {fileID: 677478053}
   - component: {fileID: 677478054}
   - component: {fileID: 677478055}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30064,7 +29936,7 @@ GameObject:
   - component: {fileID: 678780090}
   - component: {fileID: 678780089}
   - component: {fileID: 678780091}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30165,7 +30037,7 @@ GameObject:
   - component: {fileID: 681256931}
   - component: {fileID: 681256932}
   - component: {fileID: 681256933}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30434,7 +30306,7 @@ GameObject:
   - component: {fileID: 684680709}
   - component: {fileID: 684680710}
   - component: {fileID: 684680711}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30717,7 +30589,7 @@ GameObject:
   - component: {fileID: 694343203}
   - component: {fileID: 694343204}
   - component: {fileID: 694343205}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30818,7 +30690,7 @@ GameObject:
   - component: {fileID: 694490978}
   - component: {fileID: 694490979}
   - component: {fileID: 694490980}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30961,7 +30833,7 @@ GameObject:
   - component: {fileID: 700615471}
   - component: {fileID: 700615470}
   - component: {fileID: 700615472}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31099,7 +30971,7 @@ GameObject:
   - component: {fileID: 711090937}
   - component: {fileID: 711090938}
   - component: {fileID: 711090939}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31198,7 +31070,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 715084366}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Rightside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32119,7 +31991,7 @@ GameObject:
   - component: {fileID: 747989694}
   - component: {fileID: 747989693}
   - component: {fileID: 747989695}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32531,7 +32403,7 @@ GameObject:
   - component: {fileID: 755170466}
   - component: {fileID: 755170467}
   - component: {fileID: 755170468}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32632,7 +32504,7 @@ GameObject:
   - component: {fileID: 756165707}
   - component: {fileID: 756165708}
   - component: {fileID: 756165709}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33366,7 +33238,7 @@ GameObject:
   - component: {fileID: 776635001}
   - component: {fileID: 776635002}
   - component: {fileID: 776635003}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33601,7 +33473,7 @@ GameObject:
   - component: {fileID: 778295696}
   - component: {fileID: 778295697}
   - component: {fileID: 778295698}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34558,7 +34430,7 @@ GameObject:
   - component: {fileID: 795363336}
   - component: {fileID: 795363337}
   - component: {fileID: 795363338}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34659,7 +34531,7 @@ GameObject:
   - component: {fileID: 796996385}
   - component: {fileID: 796996384}
   - component: {fileID: 796996386}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35062,7 +34934,7 @@ GameObject:
   - component: {fileID: 802565915}
   - component: {fileID: 802565916}
   - component: {fileID: 802565917}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35422,7 +35294,7 @@ GameObject:
   - component: {fileID: 813552462}
   - component: {fileID: 813552463}
   - component: {fileID: 813552464}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36636,7 +36508,7 @@ GameObject:
   - component: {fileID: 848331472}
   - component: {fileID: 848331473}
   - component: {fileID: 848331474}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36742,7 +36614,7 @@ GameObject:
   - component: {fileID: 853356617}
   - component: {fileID: 853356618}
   - component: {fileID: 853356619}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36927,7 +36799,7 @@ GameObject:
   - component: {fileID: 854235144}
   - component: {fileID: 854235145}
   - component: {fileID: 854235146}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37208,7 +37080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863163210}
   - component: {fileID: 863163211}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37377,7 +37249,7 @@ GameObject:
   - component: {fileID: 872635708}
   - component: {fileID: 872635709}
   - component: {fileID: 872635710}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37478,7 +37350,7 @@ GameObject:
   - component: {fileID: 877391335}
   - component: {fileID: 877391336}
   - component: {fileID: 877391337}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37788,7 +37660,7 @@ GameObject:
   - component: {fileID: 881783535}
   - component: {fileID: 881783534}
   - component: {fileID: 881783536}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38020,7 +37892,7 @@ GameObject:
   - component: {fileID: 884903578}
   - component: {fileID: 884903579}
   - component: {fileID: 884903580}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38121,7 +37993,7 @@ GameObject:
   - component: {fileID: 885840998}
   - component: {fileID: 885840999}
   - component: {fileID: 885841000}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38297,7 +38169,7 @@ GameObject:
   - component: {fileID: 890279530}
   - component: {fileID: 890279531}
   - component: {fileID: 890279532}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38576,7 +38448,7 @@ GameObject:
   - component: {fileID: 895248897}
   - component: {fileID: 895248898}
   - component: {fileID: 895248899}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38677,7 +38549,7 @@ GameObject:
   - component: {fileID: 895631052}
   - component: {fileID: 895631053}
   - component: {fileID: 895631054}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39031,7 +38903,7 @@ GameObject:
   - component: {fileID: 899366098}
   - component: {fileID: 899366099}
   - component: {fileID: 899366100}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39132,7 +39004,7 @@ GameObject:
   - component: {fileID: 903802105}
   - component: {fileID: 903802106}
   - component: {fileID: 903802107}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39308,7 +39180,7 @@ GameObject:
   - component: {fileID: 906720472}
   - component: {fileID: 906720473}
   - component: {fileID: 906720474}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39493,7 +39365,7 @@ GameObject:
   - component: {fileID: 928553007}
   - component: {fileID: 928553008}
   - component: {fileID: 928553009}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39594,7 +39466,7 @@ GameObject:
   - component: {fileID: 936053601}
   - component: {fileID: 936053602}
   - component: {fileID: 936053603}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39863,7 +39735,7 @@ GameObject:
   - component: {fileID: 945847244}
   - component: {fileID: 945847245}
   - component: {fileID: 945847246}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40254,7 +40126,7 @@ GameObject:
   - component: {fileID: 954712638}
   - component: {fileID: 954712639}
   - component: {fileID: 954712640}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40560,7 +40432,7 @@ GameObject:
   - component: {fileID: 962349722}
   - component: {fileID: 962349723}
   - component: {fileID: 962349724}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40661,7 +40533,7 @@ GameObject:
   - component: {fileID: 965940161}
   - component: {fileID: 965940162}
   - component: {fileID: 965940163}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41182,7 +41054,7 @@ GameObject:
   - component: {fileID: 970719236}
   - component: {fileID: 970719237}
   - component: {fileID: 970719238}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41367,7 +41239,7 @@ GameObject:
   - component: {fileID: 978010087}
   - component: {fileID: 978010088}
   - component: {fileID: 978010089}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42128,7 +42000,7 @@ GameObject:
   - component: {fileID: 991393920}
   - component: {fileID: 991393921}
   - component: {fileID: 991393922}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42453,7 +42325,7 @@ GameObject:
   - component: {fileID: 1003042355}
   - component: {fileID: 1003042354}
   - component: {fileID: 1003042356}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42554,7 +42426,7 @@ GameObject:
   - component: {fileID: 1003499802}
   - component: {fileID: 1003499801}
   - component: {fileID: 1003499803}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42730,7 +42602,7 @@ GameObject:
   - component: {fileID: 1005928624}
   - component: {fileID: 1005928625}
   - component: {fileID: 1005928626}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42831,7 +42703,7 @@ GameObject:
   - component: {fileID: 1007535404}
   - component: {fileID: 1007535405}
   - component: {fileID: 1007535406}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43007,7 +42879,7 @@ GameObject:
   - component: {fileID: 1012086011}
   - component: {fileID: 1012086010}
   - component: {fileID: 1012086012}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43108,7 +42980,7 @@ GameObject:
   - component: {fileID: 1013848190}
   - component: {fileID: 1013848191}
   - component: {fileID: 1013848192}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43209,7 +43081,7 @@ GameObject:
   - component: {fileID: 1015733683}
   - component: {fileID: 1015733684}
   - component: {fileID: 1015733685}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43394,7 +43266,7 @@ GameObject:
   - component: {fileID: 1018866188}
   - component: {fileID: 1018866187}
   - component: {fileID: 1018866189}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43495,7 +43367,7 @@ GameObject:
   - component: {fileID: 1019928586}
   - component: {fileID: 1019928587}
   - component: {fileID: 1019928588}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43643,7 +43515,7 @@ GameObject:
   - component: {fileID: 1024530383}
   - component: {fileID: 1024530382}
   - component: {fileID: 1024530384}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43744,7 +43616,7 @@ GameObject:
   - component: {fileID: 1025508301}
   - component: {fileID: 1025508300}
   - component: {fileID: 1025508302}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44156,7 +44028,7 @@ GameObject:
   - component: {fileID: 1030417693}
   - component: {fileID: 1030417694}
   - component: {fileID: 1030417695}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44444,7 +44316,7 @@ GameObject:
   - component: {fileID: 1042375743}
   - component: {fileID: 1042375744}
   - component: {fileID: 1042375745}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44576,7 +44448,7 @@ GameObject:
   - component: {fileID: 1046776149}
   - component: {fileID: 1046776150}
   - component: {fileID: 1046776151}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44749,7 +44621,7 @@ GameObject:
   - component: {fileID: 1048349564}
   - component: {fileID: 1048349565}
   - component: {fileID: 1048349566}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45284,7 +45156,7 @@ GameObject:
   - component: {fileID: 1056605863}
   - component: {fileID: 1056605864}
   - component: {fileID: 1056605865}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45460,7 +45332,7 @@ GameObject:
   - component: {fileID: 1059987109}
   - component: {fileID: 1059987108}
   - component: {fileID: 1059987110}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45929,7 +45801,7 @@ GameObject:
   - component: {fileID: 1067123481}
   - component: {fileID: 1067123482}
   - component: {fileID: 1067123483}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46273,7 +46145,7 @@ GameObject:
   - component: {fileID: 1072083026}
   - component: {fileID: 1072083025}
   - component: {fileID: 1072083027}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46420,7 +46292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1076742342}
   - component: {fileID: 1076742343}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46832,7 +46704,7 @@ GameObject:
   - component: {fileID: 1088070257}
   - component: {fileID: 1088070258}
   - component: {fileID: 1088070259}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47008,7 +46880,7 @@ GameObject:
   - component: {fileID: 1092596996}
   - component: {fileID: 1092596995}
   - component: {fileID: 1092596997}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47109,7 +46981,7 @@ GameObject:
   - component: {fileID: 1095066060}
   - component: {fileID: 1095066061}
   - component: {fileID: 1095066062}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47257,7 +47129,7 @@ GameObject:
   - component: {fileID: 1101066428}
   - component: {fileID: 1101066427}
   - component: {fileID: 1101066429}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47442,7 +47314,7 @@ GameObject:
   - component: {fileID: 1113220843}
   - component: {fileID: 1113220844}
   - component: {fileID: 1113220845}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47898,7 +47770,7 @@ GameObject:
   - component: {fileID: 1132140768}
   - component: {fileID: 1132140769}
   - component: {fileID: 1132140770}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48119,7 +47991,7 @@ GameObject:
   - component: {fileID: 1141822329}
   - component: {fileID: 1141822330}
   - component: {fileID: 1141822331}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48426,7 +48298,7 @@ GameObject:
   - component: {fileID: 1153845847}
   - component: {fileID: 1153845848}
   - component: {fileID: 1153845849}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48574,7 +48446,7 @@ GameObject:
   - component: {fileID: 1154745000}
   - component: {fileID: 1154745001}
   - component: {fileID: 1154745002}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48675,7 +48547,7 @@ GameObject:
   - component: {fileID: 1155376557}
   - component: {fileID: 1155376558}
   - component: {fileID: 1155376559}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48776,7 +48648,7 @@ GameObject:
   - component: {fileID: 1155614902}
   - component: {fileID: 1155614901}
   - component: {fileID: 1155614903}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49340,7 +49212,7 @@ GameObject:
   - component: {fileID: 1163358638}
   - component: {fileID: 1163358639}
   - component: {fileID: 1163358640}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49441,7 +49313,7 @@ GameObject:
   - component: {fileID: 1163565813}
   - component: {fileID: 1163565814}
   - component: {fileID: 1163565815}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49542,7 +49414,7 @@ GameObject:
   - component: {fileID: 1164936396}
   - component: {fileID: 1164936397}
   - component: {fileID: 1164936398}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49643,7 +49515,7 @@ GameObject:
   - component: {fileID: 1165539941}
   - component: {fileID: 1165539942}
   - component: {fileID: 1165539943}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50029,7 +49901,7 @@ GameObject:
   - component: {fileID: 1170614724}
   - component: {fileID: 1170614725}
   - component: {fileID: 1170614726}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50130,7 +50002,7 @@ GameObject:
   - component: {fileID: 1173271513}
   - component: {fileID: 1173271514}
   - component: {fileID: 1173271515}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50278,7 +50150,7 @@ GameObject:
   - component: {fileID: 1176224172}
   - component: {fileID: 1176224173}
   - component: {fileID: 1176224174}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50801,7 +50673,7 @@ GameObject:
   - component: {fileID: 1192867133}
   - component: {fileID: 1192867134}
   - component: {fileID: 1192867135}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50902,7 +50774,7 @@ GameObject:
   - component: {fileID: 1197778285}
   - component: {fileID: 1197778286}
   - component: {fileID: 1197778287}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51003,7 +50875,7 @@ GameObject:
   - component: {fileID: 1199669793}
   - component: {fileID: 1199669794}
   - component: {fileID: 1199669795}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51188,7 +51060,7 @@ GameObject:
   - component: {fileID: 1201806104}
   - component: {fileID: 1201806105}
   - component: {fileID: 1201806106}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52046,7 +51918,7 @@ GameObject:
   - component: {fileID: 1226014764}
   - component: {fileID: 1226014763}
   - component: {fileID: 1226014765}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52147,7 +52019,7 @@ GameObject:
   - component: {fileID: 1227077405}
   - component: {fileID: 1227077406}
   - component: {fileID: 1227077407}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52591,7 +52463,7 @@ GameObject:
   - component: {fileID: 1232008169}
   - component: {fileID: 1232008170}
   - component: {fileID: 1232008171}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52692,7 +52564,7 @@ GameObject:
   - component: {fileID: 1236153977}
   - component: {fileID: 1236153978}
   - component: {fileID: 1236153979}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53161,7 +53033,7 @@ GameObject:
   - component: {fileID: 1248797756}
   - component: {fileID: 1248797757}
   - component: {fileID: 1248797758}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53449,7 +53321,7 @@ GameObject:
   - component: {fileID: 1254697063}
   - component: {fileID: 1254697062}
   - component: {fileID: 1254697064}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53634,7 +53506,7 @@ GameObject:
   - component: {fileID: 1257222253}
   - component: {fileID: 1257222254}
   - component: {fileID: 1257222255}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53735,7 +53607,7 @@ GameObject:
   - component: {fileID: 1258394992}
   - component: {fileID: 1258394991}
   - component: {fileID: 1258394993}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54040,7 +53912,7 @@ GameObject:
   - component: {fileID: 1264825062}
   - component: {fileID: 1264825063}
   - component: {fileID: 1264825064}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54178,7 +54050,7 @@ GameObject:
   - component: {fileID: 1266510725}
   - component: {fileID: 1266510726}
   - component: {fileID: 1266510727}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54354,7 +54226,7 @@ GameObject:
   - component: {fileID: 1268752616}
   - component: {fileID: 1268752617}
   - component: {fileID: 1268752618}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54455,7 +54327,7 @@ GameObject:
   - component: {fileID: 1271080452}
   - component: {fileID: 1271080451}
   - component: {fileID: 1271080453}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54660,7 +54532,7 @@ GameObject:
   - component: {fileID: 1274611694}
   - component: {fileID: 1274611695}
   - component: {fileID: 1274611696}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55706,7 +55578,7 @@ GameObject:
   - component: {fileID: 1298342662}
   - component: {fileID: 1298342663}
   - component: {fileID: 1298342664}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55807,7 +55679,7 @@ GameObject:
   - component: {fileID: 1299164117}
   - component: {fileID: 1299164116}
   - component: {fileID: 1299164118}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55984,7 +55856,7 @@ GameObject:
   - component: {fileID: 1302102633}
   - component: {fileID: 1302102634}
   - component: {fileID: 1302102635}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56085,7 +55957,7 @@ GameObject:
   - component: {fileID: 1302295622}
   - component: {fileID: 1302295623}
   - component: {fileID: 1302295624}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56615,7 +56487,7 @@ GameObject:
   - component: {fileID: 1311896600}
   - component: {fileID: 1311896601}
   - component: {fileID: 1311896602}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56800,7 +56672,7 @@ GameObject:
   - component: {fileID: 1315073866}
   - component: {fileID: 1315073867}
   - component: {fileID: 1315073868}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56985,7 +56857,7 @@ GameObject:
   - component: {fileID: 1317063413}
   - component: {fileID: 1317063412}
   - component: {fileID: 1317063414}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57086,7 +56958,7 @@ GameObject:
   - component: {fileID: 1318207661}
   - component: {fileID: 1318207662}
   - component: {fileID: 1318207663}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57187,7 +57059,7 @@ GameObject:
   - component: {fileID: 1319235965}
   - component: {fileID: 1319235964}
   - component: {fileID: 1319235966}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57372,7 +57244,7 @@ GameObject:
   - component: {fileID: 1322603241}
   - component: {fileID: 1322603242}
   - component: {fileID: 1322603243}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57473,7 +57345,7 @@ GameObject:
   - component: {fileID: 1324562805}
   - component: {fileID: 1324562806}
   - component: {fileID: 1324562807}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57972,7 +57844,7 @@ GameObject:
   - component: {fileID: 1336580144}
   - component: {fileID: 1336580145}
   - component: {fileID: 1336580146}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58325,7 +58197,7 @@ GameObject:
   - component: {fileID: 1347216393}
   - component: {fileID: 1347216394}
   - component: {fileID: 1347216395}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58635,7 +58507,7 @@ GameObject:
   - component: {fileID: 1349074422}
   - component: {fileID: 1349074423}
   - component: {fileID: 1349074424}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58811,7 +58683,7 @@ GameObject:
   - component: {fileID: 1352367885}
   - component: {fileID: 1352367884}
   - component: {fileID: 1352367886}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59083,7 +58955,7 @@ GameObject:
   - component: {fileID: 1359548158}
   - component: {fileID: 1359548157}
   - component: {fileID: 1359548159}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59436,7 +59308,7 @@ GameObject:
   - component: {fileID: 1372456231}
   - component: {fileID: 1372456232}
   - component: {fileID: 1372456233}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59932,7 +59804,7 @@ GameObject:
   - component: {fileID: 1387609296}
   - component: {fileID: 1387609297}
   - component: {fileID: 1387609298}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60070,7 +59942,7 @@ GameObject:
   - component: {fileID: 1392060006}
   - component: {fileID: 1392060007}
   - component: {fileID: 1392060008}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60859,7 +60731,7 @@ GameObject:
   - component: {fileID: 1403448688}
   - component: {fileID: 1403448689}
   - component: {fileID: 1403448690}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60960,7 +60832,7 @@ GameObject:
   - component: {fileID: 1404513693}
   - component: {fileID: 1404513694}
   - component: {fileID: 1404513695}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61224,7 +61096,7 @@ GameObject:
   - component: {fileID: 1414894992}
   - component: {fileID: 1414894993}
   - component: {fileID: 1414894994}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61325,7 +61197,7 @@ GameObject:
   - component: {fileID: 1416760492}
   - component: {fileID: 1416760493}
   - component: {fileID: 1416760494}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61426,7 +61298,7 @@ GameObject:
   - component: {fileID: 1417505599}
   - component: {fileID: 1417505598}
   - component: {fileID: 1417505600}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61715,7 +61587,7 @@ GameObject:
   - component: {fileID: 1425763980}
   - component: {fileID: 1425763981}
   - component: {fileID: 1425763982}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61950,7 +61822,7 @@ GameObject:
   - component: {fileID: 1427303755}
   - component: {fileID: 1427303756}
   - component: {fileID: 1427303757}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62051,7 +61923,7 @@ GameObject:
   - component: {fileID: 1428654682}
   - component: {fileID: 1428654683}
   - component: {fileID: 1428654684}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62419,7 +62291,7 @@ GameObject:
   - component: {fileID: 1440000413}
   - component: {fileID: 1440000414}
   - component: {fileID: 1440000415}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62520,7 +62392,7 @@ GameObject:
   - component: {fileID: 1445437388}
   - component: {fileID: 1445437387}
   - component: {fileID: 1445437389}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62621,7 +62493,7 @@ GameObject:
   - component: {fileID: 1445990311}
   - component: {fileID: 1445990312}
   - component: {fileID: 1445990313}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62806,7 +62678,7 @@ GameObject:
   - component: {fileID: 1448229303}
   - component: {fileID: 1448229302}
   - component: {fileID: 1448229304}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63267,7 +63139,7 @@ GameObject:
   - component: {fileID: 1457342611}
   - component: {fileID: 1457342612}
   - component: {fileID: 1457342613}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63502,7 +63374,7 @@ GameObject:
   - component: {fileID: 1459475236}
   - component: {fileID: 1459475237}
   - component: {fileID: 1459475238}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63603,7 +63475,7 @@ GameObject:
   - component: {fileID: 1459774098}
   - component: {fileID: 1459774099}
   - component: {fileID: 1459774100}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63788,7 +63660,7 @@ GameObject:
   - component: {fileID: 1461839564}
   - component: {fileID: 1461839565}
   - component: {fileID: 1461839566}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63889,7 +63761,7 @@ GameObject:
   - component: {fileID: 1465393616}
   - component: {fileID: 1465393617}
   - component: {fileID: 1465393618}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63990,7 +63862,7 @@ GameObject:
   - component: {fileID: 1467106592}
   - component: {fileID: 1467106591}
   - component: {fileID: 1467106593}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64091,7 +63963,7 @@ GameObject:
   - component: {fileID: 1472335954}
   - component: {fileID: 1472335955}
   - component: {fileID: 1472335956}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64276,7 +64148,7 @@ GameObject:
   - component: {fileID: 1473308407}
   - component: {fileID: 1473308408}
   - component: {fileID: 1473308409}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64377,7 +64249,7 @@ GameObject:
   - component: {fileID: 1474147587}
   - component: {fileID: 1474147586}
   - component: {fileID: 1474147588}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64478,7 +64350,7 @@ GameObject:
   - component: {fileID: 1477872382}
   - component: {fileID: 1477872381}
   - component: {fileID: 1477872383}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64579,7 +64451,7 @@ GameObject:
   - component: {fileID: 1484381360}
   - component: {fileID: 1484381361}
   - component: {fileID: 1484381362}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64680,7 +64552,7 @@ GameObject:
   - component: {fileID: 1487480659}
   - component: {fileID: 1487480660}
   - component: {fileID: 1487480661}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65148,7 +65020,7 @@ GameObject:
   - component: {fileID: 1494271845}
   - component: {fileID: 1494271846}
   - component: {fileID: 1494271847}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65249,7 +65121,7 @@ GameObject:
   - component: {fileID: 1501643837}
   - component: {fileID: 1501643838}
   - component: {fileID: 1501643839}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65350,7 +65222,7 @@ GameObject:
   - component: {fileID: 1504504587}
   - component: {fileID: 1504504588}
   - component: {fileID: 1504504589}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65619,7 +65491,7 @@ GameObject:
   - component: {fileID: 1511059683}
   - component: {fileID: 1511059684}
   - component: {fileID: 1511059685}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65720,7 +65592,7 @@ GameObject:
   - component: {fileID: 1518056199}
   - component: {fileID: 1518056200}
   - component: {fileID: 1518056201}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66106,7 +65978,7 @@ GameObject:
   - component: {fileID: 1523743805}
   - component: {fileID: 1523743806}
   - component: {fileID: 1523743807}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66207,7 +66079,7 @@ GameObject:
   - component: {fileID: 1528724772}
   - component: {fileID: 1528724773}
   - component: {fileID: 1528724774}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66526,7 +66398,7 @@ GameObject:
   - component: {fileID: 1537610569}
   - component: {fileID: 1537610570}
   - component: {fileID: 1537610571}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66711,7 +66583,7 @@ GameObject:
   - component: {fileID: 1543117186}
   - component: {fileID: 1543117187}
   - component: {fileID: 1543117188}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: (Small) Earthlike 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66812,7 +66684,7 @@ GameObject:
   - component: {fileID: 1544136009}
   - component: {fileID: 1544136008}
   - component: {fileID: 1544136010}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66913,7 +66785,7 @@ GameObject:
   - component: {fileID: 1545911542}
   - component: {fileID: 1545911543}
   - component: {fileID: 1545911544}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67689,7 +67561,7 @@ GameObject:
   - component: {fileID: 1562823244}
   - component: {fileID: 1562823245}
   - component: {fileID: 1562823246}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68296,7 +68168,7 @@ GameObject:
   - component: {fileID: 1589733046}
   - component: {fileID: 1589733047}
   - component: {fileID: 1589733048}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69704,7 +69576,7 @@ GameObject:
   - component: {fileID: 1618654271}
   - component: {fileID: 1618654270}
   - component: {fileID: 1618654272}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70119,7 +69991,7 @@ GameObject:
   - component: {fileID: 1626366229}
   - component: {fileID: 1626366228}
   - component: {fileID: 1626366230}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70220,7 +70092,7 @@ GameObject:
   - component: {fileID: 1626392059}
   - component: {fileID: 1626392060}
   - component: {fileID: 1626392061}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70455,7 +70327,7 @@ GameObject:
   - component: {fileID: 1632349695}
   - component: {fileID: 1632349696}
   - component: {fileID: 1632349697}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70640,7 +70512,7 @@ GameObject:
   - component: {fileID: 1635602502}
   - component: {fileID: 1635602503}
   - component: {fileID: 1635602504}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70996,7 +70868,7 @@ GameObject:
   - component: {fileID: 1642652834}
   - component: {fileID: 1642652835}
   - component: {fileID: 1642652836}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71216,7 +71088,7 @@ GameObject:
   - component: {fileID: 1644420747}
   - component: {fileID: 1644420748}
   - component: {fileID: 1644420749}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71317,7 +71189,7 @@ GameObject:
   - component: {fileID: 1644647577}
   - component: {fileID: 1644647578}
   - component: {fileID: 1644647579}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71418,7 +71290,7 @@ GameObject:
   - component: {fileID: 1645177739}
   - component: {fileID: 1645177740}
   - component: {fileID: 1645177741}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71519,7 +71391,7 @@ GameObject:
   - component: {fileID: 1649501162}
   - component: {fileID: 1649501163}
   - component: {fileID: 1649501164}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71620,7 +71492,7 @@ GameObject:
   - component: {fileID: 1653950345}
   - component: {fileID: 1653950344}
   - component: {fileID: 1653950346}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71873,7 +71745,7 @@ GameObject:
   - component: {fileID: 1657145005}
   - component: {fileID: 1657145004}
   - component: {fileID: 1657145006}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71974,7 +71846,7 @@ GameObject:
   - component: {fileID: 1662045674}
   - component: {fileID: 1662045673}
   - component: {fileID: 1662045675}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72595,7 +72467,7 @@ GameObject:
   - component: {fileID: 1670519162}
   - component: {fileID: 1670519161}
   - component: {fileID: 1670519163}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72696,7 +72568,7 @@ GameObject:
   - component: {fileID: 1670857359}
   - component: {fileID: 1670857360}
   - component: {fileID: 1670857361}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72832,7 +72704,7 @@ GameObject:
   - component: {fileID: 1677326186}
   - component: {fileID: 1677326185}
   - component: {fileID: 1677326187}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73176,7 +73048,7 @@ GameObject:
   - component: {fileID: 1681372388}
   - component: {fileID: 1681372389}
   - component: {fileID: 1681372390}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73277,7 +73149,7 @@ GameObject:
   - component: {fileID: 1683463102}
   - component: {fileID: 1683463101}
   - component: {fileID: 1683463103}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73566,7 +73438,7 @@ GameObject:
   - component: {fileID: 1687984540}
   - component: {fileID: 1687984541}
   - component: {fileID: 1687984542}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73667,7 +73539,7 @@ GameObject:
   - component: {fileID: 1691026671}
   - component: {fileID: 1691026670}
   - component: {fileID: 1691026672}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74048,7 +73920,7 @@ GameObject:
   - component: {fileID: 1697242543}
   - component: {fileID: 1697242544}
   - component: {fileID: 1697242545}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74308,7 +74180,7 @@ GameObject:
   - component: {fileID: 1700677505}
   - component: {fileID: 1700677506}
   - component: {fileID: 1700677507}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74979,7 +74851,7 @@ GameObject:
   - component: {fileID: 1714849182}
   - component: {fileID: 1714849183}
   - component: {fileID: 1714849184}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75285,7 +75157,7 @@ GameObject:
   - component: {fileID: 1728707278}
   - component: {fileID: 1728707277}
   - component: {fileID: 1728707279}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75461,7 +75333,7 @@ GameObject:
   - component: {fileID: 1736806052}
   - component: {fileID: 1736806053}
   - component: {fileID: 1736806054}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75562,7 +75434,7 @@ GameObject:
   - component: {fileID: 1738453840}
   - component: {fileID: 1738453839}
   - component: {fileID: 1738453841}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75797,7 +75669,7 @@ GameObject:
   - component: {fileID: 1740710402}
   - component: {fileID: 1740710403}
   - component: {fileID: 1740710404}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75982,7 +75854,7 @@ GameObject:
   - component: {fileID: 1747101730}
   - component: {fileID: 1747101731}
   - component: {fileID: 1747101732}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76395,7 +76267,7 @@ GameObject:
   - component: {fileID: 1755850967}
   - component: {fileID: 1755850968}
   - component: {fileID: 1755850969}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77187,7 +77059,7 @@ GameObject:
   - component: {fileID: 1771119580}
   - component: {fileID: 1771119581}
   - component: {fileID: 1771119582}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77400,7 +77272,7 @@ GameObject:
   - component: {fileID: 1776531245}
   - component: {fileID: 1776531246}
   - component: {fileID: 1776531247}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77786,7 +77658,7 @@ GameObject:
   - component: {fileID: 1784230362}
   - component: {fileID: 1784230361}
   - component: {fileID: 1784230363}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78130,7 +78002,7 @@ GameObject:
   - component: {fileID: 1797395162}
   - component: {fileID: 1797395163}
   - component: {fileID: 1797395164}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78231,7 +78103,7 @@ GameObject:
   - component: {fileID: 1797501462}
   - component: {fileID: 1797501463}
   - component: {fileID: 1797501464}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78584,7 +78456,7 @@ GameObject:
   - component: {fileID: 1799242617}
   - component: {fileID: 1799242618}
   - component: {fileID: 1799242619}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78819,7 +78691,7 @@ GameObject:
   - component: {fileID: 1802747564}
   - component: {fileID: 1802747565}
   - component: {fileID: 1802747566}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79101,7 +78973,7 @@ GameObject:
   - component: {fileID: 1808912270}
   - component: {fileID: 1808912269}
   - component: {fileID: 1808912271}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79419,7 +79291,7 @@ GameObject:
   - component: {fileID: 1809578284}
   - component: {fileID: 1809578285}
   - component: {fileID: 1809578286}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79567,7 +79439,7 @@ GameObject:
   - component: {fileID: 1812625135}
   - component: {fileID: 1812625134}
   - component: {fileID: 1812625136}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79668,7 +79540,7 @@ GameObject:
   - component: {fileID: 1817818199}
   - component: {fileID: 1817818200}
   - component: {fileID: 1817818201}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79921,7 +79793,7 @@ GameObject:
   - component: {fileID: 1829301874}
   - component: {fileID: 1829301875}
   - component: {fileID: 1829301876}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80022,7 +79894,7 @@ GameObject:
   - component: {fileID: 1829364981}
   - component: {fileID: 1829364982}
   - component: {fileID: 1829364983}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80123,7 +79995,7 @@ GameObject:
   - component: {fileID: 1829737027}
   - component: {fileID: 1829737028}
   - component: {fileID: 1829737029}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80412,7 +80284,7 @@ GameObject:
   - component: {fileID: 1832572458}
   - component: {fileID: 1832572459}
   - component: {fileID: 1832572460}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80513,7 +80385,7 @@ GameObject:
   - component: {fileID: 1834249068}
   - component: {fileID: 1834249069}
   - component: {fileID: 1834249070}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80614,7 +80486,7 @@ GameObject:
   - component: {fileID: 1836832911}
   - component: {fileID: 1836832910}
   - component: {fileID: 1836832912}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80750,7 +80622,7 @@ GameObject:
   - component: {fileID: 1844598680}
   - component: {fileID: 1844598681}
   - component: {fileID: 1844598682}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80851,7 +80723,7 @@ GameObject:
   - component: {fileID: 1845390462}
   - component: {fileID: 1845390461}
   - component: {fileID: 1845390463}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81330,7 +81202,7 @@ GameObject:
   - component: {fileID: 1864170041}
   - component: {fileID: 1864170042}
   - component: {fileID: 1864170043}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81729,7 +81601,7 @@ GameObject:
   - component: {fileID: 1877361848}
   - component: {fileID: 1877361849}
   - component: {fileID: 1877361850}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82116,7 +81988,7 @@ GameObject:
   - component: {fileID: 1889400160}
   - component: {fileID: 1889400161}
   - component: {fileID: 1889400162}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82743,7 +82615,7 @@ GameObject:
   - component: {fileID: 1902238673}
   - component: {fileID: 1902238674}
   - component: {fileID: 1902238675}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83003,7 +82875,7 @@ GameObject:
   - component: {fileID: 1905244314}
   - component: {fileID: 1905244315}
   - component: {fileID: 1905244316}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84280,7 +84152,7 @@ GameObject:
   - component: {fileID: 1944444094}
   - component: {fileID: 1944444095}
   - component: {fileID: 1944444096}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84455,7 +84327,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1946797925}
   - component: {fileID: 1946797926}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84540,7 +84412,7 @@ GameObject:
   - component: {fileID: 1947524281}
   - component: {fileID: 1947524280}
   - component: {fileID: 1947524282}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84641,7 +84513,7 @@ GameObject:
   - component: {fileID: 1948960686}
   - component: {fileID: 1948960687}
   - component: {fileID: 1948960688}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85044,7 +84916,7 @@ GameObject:
   - component: {fileID: 1964010452}
   - component: {fileID: 1964010453}
   - component: {fileID: 1964010454}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85411,7 +85283,7 @@ GameObject:
   - component: {fileID: 1970434034}
   - component: {fileID: 1970434035}
   - component: {fileID: 1970434036}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86454,7 +86326,7 @@ GameObject:
   - component: {fileID: 2027822551}
   - component: {fileID: 2027822552}
   - component: {fileID: 2027822553}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86639,7 +86511,7 @@ GameObject:
   - component: {fileID: 2031258602}
   - component: {fileID: 2031258601}
   - component: {fileID: 2031258603}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86740,7 +86612,7 @@ GameObject:
   - component: {fileID: 2036653902}
   - component: {fileID: 2036653901}
   - component: {fileID: 2036653903}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87517,7 +87389,7 @@ GameObject:
   - component: {fileID: 2043129565}
   - component: {fileID: 2043129564}
   - component: {fileID: 2043129566}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87752,7 +87624,7 @@ GameObject:
   - component: {fileID: 2047287497}
   - component: {fileID: 2047287498}
   - component: {fileID: 2047287499}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88121,7 +87993,7 @@ GameObject:
   - component: {fileID: 2049698711}
   - component: {fileID: 2049698712}
   - component: {fileID: 2049698713}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88390,7 +88262,7 @@ GameObject:
   - component: {fileID: 2052359880}
   - component: {fileID: 2052359879}
   - component: {fileID: 2052359881}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88937,7 +88809,7 @@ GameObject:
   - component: {fileID: 2069075242}
   - component: {fileID: 2069075243}
   - component: {fileID: 2069075244}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89038,7 +88910,7 @@ GameObject:
   - component: {fileID: 2070066107}
   - component: {fileID: 2070066106}
   - component: {fileID: 2070066108}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89139,7 +89011,7 @@ GameObject:
   - component: {fileID: 2073272742}
   - component: {fileID: 2073272743}
   - component: {fileID: 2073272744}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89240,7 +89112,7 @@ GameObject:
   - component: {fileID: 2073702461}
   - component: {fileID: 2073702460}
   - component: {fileID: 2073702462}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89341,7 +89213,7 @@ GameObject:
   - component: {fileID: 2074020000}
   - component: {fileID: 2074020001}
   - component: {fileID: 2074020002}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89575,7 +89447,7 @@ GameObject:
   - component: {fileID: 2078347652}
   - component: {fileID: 2078347651}
   - component: {fileID: 2078347653}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89940,7 +89812,7 @@ GameObject:
   - component: {fileID: 2084049375}
   - component: {fileID: 2084049376}
   - component: {fileID: 2084049377}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90041,7 +89913,7 @@ GameObject:
   - component: {fileID: 2084164173}
   - component: {fileID: 2084164172}
   - component: {fileID: 2084164174}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90142,7 +90014,7 @@ GameObject:
   - component: {fileID: 2084205226}
   - component: {fileID: 2084205227}
   - component: {fileID: 2084205228}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90243,7 +90115,7 @@ GameObject:
   - component: {fileID: 2086623110}
   - component: {fileID: 2086623111}
   - component: {fileID: 2086623112}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90467,7 +90339,7 @@ GameObject:
   - component: {fileID: 2092578795}
   - component: {fileID: 2092578796}
   - component: {fileID: 2092578797}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91019,7 +90891,7 @@ GameObject:
   - component: {fileID: 2096693546}
   - component: {fileID: 2096693547}
   - component: {fileID: 2096693548}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91120,7 +90992,7 @@ GameObject:
   - component: {fileID: 2097482551}
   - component: {fileID: 2097482552}
   - component: {fileID: 2097482553}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91296,7 +91168,7 @@ GameObject:
   - component: {fileID: 2099432647}
   - component: {fileID: 2099432648}
   - component: {fileID: 2099432649}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91481,7 +91353,7 @@ GameObject:
   - component: {fileID: 2103455534}
   - component: {fileID: 2103455535}
   - component: {fileID: 2103455536}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 1 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91666,7 +91538,7 @@ GameObject:
   - component: {fileID: 2108423022}
   - component: {fileID: 2108423023}
   - component: {fileID: 2108423024}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92094,7 +91966,7 @@ GameObject:
   - component: {fileID: 2119620178}
   - component: {fileID: 2119620177}
   - component: {fileID: 2119620179}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 5 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92193,7 +92065,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2120300829}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Botside
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92503,7 +92375,7 @@ GameObject:
   - component: {fileID: 2121959194}
   - component: {fileID: 2121959193}
   - component: {fileID: 2121959195}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92604,7 +92476,7 @@ GameObject:
   - component: {fileID: 2123966667}
   - component: {fileID: 2123966668}
   - component: {fileID: 2123966669}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92705,7 +92577,7 @@ GameObject:
   - component: {fileID: 2124438616}
   - component: {fileID: 2124438617}
   - component: {fileID: 2124438618}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92881,7 +92753,7 @@ GameObject:
   - component: {fileID: 2130183521}
   - component: {fileID: 2130183522}
   - component: {fileID: 2130183523}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 3 (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92982,7 +92854,7 @@ GameObject:
   - component: {fileID: 2131978734}
   - component: {fileID: 2131978735}
   - component: {fileID: 2131978736}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93083,7 +92955,7 @@ GameObject:
   - component: {fileID: 2134586399}
   - component: {fileID: 2134586398}
   - component: {fileID: 2134586400}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93381,7 +93253,7 @@ GameObject:
   - component: {fileID: 2137205100}
   - component: {fileID: 2137205101}
   - component: {fileID: 2137205102}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 6 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93599,7 +93471,7 @@ GameObject:
   - component: {fileID: 2143537223}
   - component: {fileID: 2143537224}
   - component: {fileID: 2143537225}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Asteroid 4 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95234,6 +95106,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6097979029989899117, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6097979029989899117, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6097979029989899117, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6097979029989899117, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6253943412290227433, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -95281,6 +95169,10 @@ PrefabInstance:
     - target: {fileID: 7676815499729968480, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_BodyType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676815499729968480, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048218574253681071, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: fireRate
@@ -95340,35 +95232,155 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_ColliderPaths.Array.size
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_ColliderPaths.Array.data[2].m_Collider
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.size
-      value: 12
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[1].x
-      value: 0.5082934
-      objectReference: {fileID: 0}
-    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[1].y
-      value: -1.3142319
-      objectReference: {fileID: 0}
-    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[2].x
-      value: 2.666686
-      objectReference: {fileID: 0}
-    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[2].y
-      value: -1.3142025
-      objectReference: {fileID: 0}
-    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[3].x
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
       value: 2.6666567
       objectReference: {fileID: 0}
     - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
-      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[3].y
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].y
+      value: -1.3142319
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[1].x
+      value: 2.6666567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[1].y
       value: 1.8905075
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[2].x
+      value: -2.6383703
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[2].y
+      value: 1.890478
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[3].x
+      value: -2.638341
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[3].y
+      value: -1.3142319
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[4].x
+      value: 0.508264
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[4].y
+      value: 1.8905368
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[5].x
+      value: 0.5082347
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[5].y
+      value: 2.3636968
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[6].x
+      value: -0.4853272
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[6].y
+      value: 2.3636677
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[7].x
+      value: -0.4853566
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[7].y
+      value: 1.8905075
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[8].x
+      value: -2.6383703
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[8].y
+      value: 1.890478
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[9].x
+      value: -2.638341
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[9].y
+      value: -1.3142319
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[10].x
+      value: -0.4853272
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[10].y
+      value: -1.3142612
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[11].x
+      value: -0.48529792
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[11].y
+      value: -2.507569
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_ColliderPaths.Array.data[2].m_ColliderPaths.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_ColliderPaths.Array.data[2].m_ColliderPaths.Array.data[0].Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_ColliderPaths.Array.data[2].m_ColliderPaths.Array.data[0].Array.data[0].X
+      value: 26666860
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_ColliderPaths.Array.data[2].m_ColliderPaths.Array.data[0].Array.data[0].Y
+      value: 18905074
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_ColliderPaths.Array.data[2].m_ColliderPaths.Array.data[0].Array.data[1].X
+      value: -26383702
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_ColliderPaths.Array.data[2].m_ColliderPaths.Array.data[0].Array.data[1].Y
+      value: 18905074
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_ColliderPaths.Array.data[2].m_ColliderPaths.Array.data[0].Array.data[2].X
+      value: -26383702
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_ColliderPaths.Array.data[2].m_ColliderPaths.Array.data[0].Array.data[2].Y
+      value: -13142318
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_ColliderPaths.Array.data[2].m_ColliderPaths.Array.data[0].Array.data[3].X
+      value: 26666860
+      objectReference: {fileID: 0}
+    - target: {fileID: 8900266283558779468, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_ColliderPaths.Array.data[2].m_ColliderPaths.Array.data[0].Array.data[3].Y
+      value: -13142318
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -95377,9 +95389,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5239728600239547954, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6134276281835507844}
-    - targetCorrespondingSourceObject: {fileID: 5239728600239547954, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6134276281835507845}
   m_SourcePrefab: {fileID: 100100000, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
 --- !u!4 &526056468200387199 stripped
 Transform:
@@ -99441,20 +99450,6 @@ Transform:
   m_PrefabInstance: {fileID: 462833273931406140}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6134276281835507844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849731839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 472675415ca54e44db35c6088a2c1b85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilities: []
-  target: {fileID: 0}
---- !u!114 &6134276281835507845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

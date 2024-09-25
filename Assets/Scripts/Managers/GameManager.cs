@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
         Collider2D[] ships = Physics2D.OverlapCircleAll(new Vector2(0, 0), 300f);
         foreach (var ship1 in ships)
         {
+            if (!ship1.CompareTag("Player")) continue;
             foreach (var ship2 in ships)
             {
                 if (ship1 != ship2)
