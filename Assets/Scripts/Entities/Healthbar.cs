@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] Image image;
+    public Health health;
+    public PlayerHealthBehaviour playerHealth;
 
     void Update()
     {
@@ -13,7 +15,7 @@ public class HealthBar : MonoBehaviour
     }
     public void UpdateHealth()
     {
-        image.fillAmount = Mathf.Lerp(image.fillAmount, PlayerManager.GetInstance().CurrentHealth() / PlayerManager.GetInstance().MaxHealth(), 0.1f);
+        image.fillAmount = playerHealth != null ? Mathf.Lerp(image.fillAmount, playerHealth.currentHealth, playerHealth.maxHealth) : Mathf.Lerp(image.fillAmount, health.CurrentHealth / health.MaxHealth, 0.1f);
 
     }
 }
