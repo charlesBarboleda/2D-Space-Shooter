@@ -76,13 +76,20 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         // Play the phase 1 music
         spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase1Music());
 
-        // Spawn the boss in idle mode and grab the boss' health and kinematicsPhasebossKinematicsPhase1
+        // Spawn the boss in idle mode and grab the boss' health and kinematics
         bossShip = spawnerManager.SpawnShip(bossName, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
         bossHealthPhase1 = bossShip.GetComponent<Health>();
         bossKinematicsPhase1 = bossShip.GetComponent<Kinematics>();
         cameraFollow = Camera.main.GetComponent<CameraFollowBehaviour>();
         bossHealthPhase1.isDead = true;
         bossKinematicsPhase1.ShouldMove = false;
+
+        // Spawn the second boss in idle mode and grab the boss' health and kinematics
+        bossShipPhase2 = spawnerManager.SpawnShip(bossNamePhase2, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
+        bossHealthPhase2 = bossShipPhase2.GetComponent<Health>();
+        bossKinematicsPhase2 = bossShipPhase2.GetComponent<Kinematics>();
+        bossHealthPhase2.isDead = true;
+        bossKinematicsPhase2.ShouldMove = false;
 
         // Set the boss' stats
         SetBossShooterStats(bossShip);

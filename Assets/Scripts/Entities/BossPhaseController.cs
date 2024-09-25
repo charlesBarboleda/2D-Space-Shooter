@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using AssetUsageDetectorNamespace;
 using UnityEngine;
 
 public class BossPhaseController : MonoBehaviour
@@ -22,29 +23,67 @@ public class BossPhaseController : MonoBehaviour
         {
             if (!hasPhased)
             {
-                _kinematics.ShouldMove = false;
-                _kinematics.ShouldRotate = false;
-                _health.isDead = true;
-                StartCoroutine(PhaseTransitionOut());
-                hasPhased = true;
+
+                PhaseTransition();
+
             }
         }
     }
-
-    IEnumerator PhaseTransitionOut()
+    IEnumerator PhaseTransition()
+    {
+        _kinematics.ShouldMove = false;
+        _kinematics.ShouldRotate = false;
+        _health.isDead = true;
+        yield return PhaseTransitionOut(3f);
+        hasPhased = true;
+        yield return PhaseTransitionIn(3f);
+    }
+    IEnumerator PhaseTransitionIn(float duration)
     {
         GameObject portal = ObjectPooler.Instance.SpawnFromPool("ThraxPortal", transform.position, Quaternion.identity);
+        portal.transform.localScale = Vector3.zero;
         yield return new WaitForSeconds(3f);
-        // Reduce the size of the boss to zero using lerp
         float t = 0;
-        Vector3 startScale = transform.localScale;
-        Vector3 endScale = Vector3.zero;
-        while (t < 1)
+        Vector3 startScale = Vector3.zero;
+        Vector3 endScale = transform.localScale;
+        while (t < duration)
         {
             t += Time.deltaTime;
             transform.localScale = Vector3.Lerp(startScale, endScale, t);
             yield return null;
         }
+        portal.GetComponent<ParticleSystem>().Stop();
+        yield return new WaitForSeconds(1f);
+        portal.SetActive(false);
+        gameObject.SetActive(false);
+    }
+
+    IEnumerator PhaseTransitionOut(float duration)
+    {
+        GameObject portal = ObjectPooler.Instance.SpawnFromPool("ThraxPortal", transform.position, Quaternion.identity);
+        portal.transform.localScale = Vector3.zero;
+        Vector3 startScale = Vector3.zero;
+        Vector3 endScale = portal.transform.localScale;
+        float t = 0;
+        // Increase the size of the portal to the size of the boss using lerp
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            portal.transform.localScale = Vector3.Lerp(startScale, endScale, t);
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+        // Reduce the size of the boss to zero using lerp
+        t = 0;
+        startScale = transform.localScale;
+        endScale = Vector3.zero;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            transform.localScale = Vector3.Lerp(startScale, endScale, t);
+            yield return null;
+        }
+        // Stop the portal particles and deactivate the portal
         portal.GetComponent<ParticleSystem>().Stop();
         yield return new WaitForSeconds(1f);
         portal.SetActive(false);

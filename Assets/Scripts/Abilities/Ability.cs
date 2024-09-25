@@ -18,7 +18,6 @@ public abstract class Ability : ScriptableObject
     {
         if (!isUnlocked)
         {
-            Debug.Log("Ability is locked");
             return;
         }
         if (currentCooldown >= cooldown)

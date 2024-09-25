@@ -9,7 +9,7 @@ public class FillValueNumber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float amount = TargetImage.fillAmount * 100;
+        float amount = PlayerManager.Instance.GetComponent<PlayerHealthBehaviour>().currentHealth;
         gameObject.GetComponent<Text>().text = amount.ToString("F0");
     }
 }

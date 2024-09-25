@@ -9,6 +9,10 @@ public class HealthBar : MonoBehaviour
     public Health health;
     public PlayerHealthBehaviour playerHealth;
 
+    void OnEnable()
+    {
+        health = FindAnyObjectByType<BossShooter>().GetComponent<Health>();
+    }
     void Update()
     {
         UpdateHealth();
