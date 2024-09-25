@@ -515,8 +515,11 @@ MonoBehaviour:
   _checkForTargetsInterval: 0.5
   _checkForTargetsRadius: 100
   _targetAllies: 0
+  _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
+  prioritizePlayer: 1
+  _maximumPriority: {fileID: 0}
 --- !u!1 &5959578993367322370
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +709,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrimsonTurret (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3863525881345526987, guid: f25d6954f52309b4bb038715c8338cd0, type: 3}
+      propertyPath: prioritizePlayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5344363908109915682, guid: f25d6954f52309b4bb038715c8338cd0, type: 3}
       propertyPath: _bossShooterEnemy
       value: 
@@ -788,6 +795,10 @@ PrefabInstance:
     - target: {fileID: 718810189780992712, guid: f25d6954f52309b4bb038715c8338cd0, type: 3}
       propertyPath: m_Name
       value: CrimsonTurret
+      objectReference: {fileID: 0}
+    - target: {fileID: 3863525881345526987, guid: f25d6954f52309b4bb038715c8338cd0, type: 3}
+      propertyPath: prioritizePlayer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5344363908109915682, guid: f25d6954f52309b4bb038715c8338cd0, type: 3}
       propertyPath: _bossShooterEnemy

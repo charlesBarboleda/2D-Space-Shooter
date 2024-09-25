@@ -8,11 +8,17 @@ public class ShieldConduit : Enemy
     [SerializeField] float _shieldRegenRate = 100f;
     [SerializeField] float _maxShield = 5000f;
     [SerializeField] float _currentShield = 5000f;
-    [SerializeField] float _tetherRange = 250f;
+    [SerializeField] float _tetherRange = 200f;
+    [SerializeField] SpriteRenderer _spriteRenderer;
 
     // Dictionary to track conduits applied to a target
     private static Dictionary<GameObject, List<ShieldConduit>> _shieldRegistry = new Dictionary<GameObject, List<ShieldConduit>>();
 
+    protected override void Awake()
+    {
+        base.Awake();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     protected override void Update()
     {
         base.Update();
@@ -24,7 +30,13 @@ public class ShieldConduit : Enemy
         {
             RemoveBeam(TargetManager.CurrentTarget);
         }
+        if (Health.isDead == true)
+        {
+            RemoveBeam(TargetManager.CurrentTarget);
+        }
     }
+
+
     protected override void Attack()
     {
         if (TargetManager.CurrentTarget == null)
@@ -88,6 +100,7 @@ public class ShieldConduit : Enemy
         }
     }
 
+
     void RemoveBeam(GameObject target)
     {
         if (_shieldBeam != null)
@@ -112,6 +125,8 @@ public class ShieldConduit : Enemy
             }
         }
     }
+
+
 
     // Recalculate the shield values based on all active conduits for the target
     void RecalculateShieldValues(GameObject target)

@@ -23,9 +23,10 @@ public class BossPhaseController : MonoBehaviour
             if (!hasPhased)
             {
                 _kinematics.ShouldMove = false;
+                _kinematics.ShouldRotate = false;
                 _health.isDead = true;
-                hasPhased = true;
                 StartCoroutine(PhaseTransitionOut());
+                hasPhased = true;
             }
         }
     }

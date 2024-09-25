@@ -470,6 +470,7 @@ MonoBehaviour:
   _abilitySound: {fileID: 8300000, guid: 113a0f1929ad74dcba20169a2eaa5e57, type: 3}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: LargeSpawn
+  isThraxBoss: 0
   bulletSpawnPoint: {fileID: 1505549262504421735}
   _shootSound: {fileID: 8300000, guid: de812cfb519929c4aad9d296f655c81d, type: 3}
   _bulletType: SyndicatesBullet
@@ -478,6 +479,7 @@ MonoBehaviour:
   _amountOfBullets: 3
   _shootingAngle: 5
   _bulletLifetime: 5
+  _bulletPattern: 0
   nextFireTime: 0
 --- !u!114 &3660565783014978915
 MonoBehaviour:
@@ -494,7 +496,6 @@ MonoBehaviour:
   abilities:
   - {fileID: 11400000, guid: c0a1c8b75daa63544aa7d4b54f1b721c, type: 2}
   target: {fileID: 0}
-  abilityParticles: []
 --- !u!82 &6773131972991441591
 AudioSource:
   m_ObjectHideFlags: 0
@@ -822,8 +823,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 3
   _checkForTargetsRadius: 50
+  _targetAllies: 0
+  _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
+  prioritizePlayer: 1
+  _maximumPriority: {fileID: 0}
 --- !u!114 &-341129665034422533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1111,6 +1116,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: prioritizePlayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
       value: 3
@@ -1373,6 +1382,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: prioritizePlayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
       value: 3
@@ -1520,6 +1533,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: prioritizePlayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
       value: 3
@@ -1666,6 +1683,10 @@ PrefabInstance:
     - target: {fileID: 4269631521700113, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_SortingOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: prioritizePlayer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -2034,7 +2055,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities: []
   target: {fileID: 0}
-  abilityParticles: []
 --- !u!114 &4188304739963531401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2049,7 +2069,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities: []
   target: {fileID: 0}
-  abilityParticles: []
 --- !u!114 &4189650107053210585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2064,7 +2083,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities: []
   target: {fileID: 0}
-  abilityParticles: []
 --- !u!114 &5606718319013294409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2079,4 +2097,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities: []
   target: {fileID: 0}
-  abilityParticles: []

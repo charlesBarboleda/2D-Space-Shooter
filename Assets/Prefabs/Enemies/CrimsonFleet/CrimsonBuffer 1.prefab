@@ -56,10 +56,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d0b28aa31c0e254d9270b59d75ef07e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abilityParticles: []
   _buffedParticles: {fileID: 8892414429202947096}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: 81dbc2b345d4a4d8aa98f60aa04e5145, type: 3}
   _spawnAnimation: LargeSpawn
+  isThraxBoss: 0
   _buffRadius: 100
   _buffedAllies: []
 --- !u!212 &1023426846237315687
@@ -398,11 +400,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimOffset: 0
   _shouldRotate: 0
+  _shouldMove: 1
   _speed: 20
+  _maxSpeed: 10
+  _acceleration: 1
   _stopDistance: 80
-  separationRadius: 40
-  separationWeight: 1.5
-  maxSeparationForce: 0.5
 --- !u!114 &1338450360641451553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,8 +419,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 3
   _checkForTargetsRadius: 50
+  _targetAllies: 0
+  _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
+  prioritizePlayer: 1
+  _maximumPriority: {fileID: 0}
 --- !u!114 &9094090864129631265
 MonoBehaviour:
   m_ObjectHideFlags: 0

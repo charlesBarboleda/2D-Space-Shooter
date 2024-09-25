@@ -11,11 +11,11 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] List<string> _currencyPrefab;
     [SerializeField] List<GameObject> exhaustChildren;
     [SerializeField] List<GameObject> turretChildren;
+
     [SerializeField] AudioClip _deathSound;
     [SerializeField] string _deathExplosion;
+
     [SerializeField] List<string> _deathEffect;
-    public string deathExplosion { get => _deathExplosion; set => _deathExplosion = value; }
-    public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
     SpriteRenderer _spriteRenderer;
     AudioSource _audioSource;
     Collider2D[] _colliders;
@@ -23,7 +23,6 @@ public class Health : MonoBehaviour, IDamageable
     Faction _faction;
     public enum ShakeType { Small, Mid, Large }
     [SerializeField] ShakeType shakeType;
-
     public bool isDead { get; set; }
 
 
@@ -99,6 +98,11 @@ public class Health : MonoBehaviour, IDamageable
         {
             _rigidbody.simulated = false;
         }
+        // Disable attacking and all the attacking particles
+        if (TryGetComponent(out AttackManager attackManager))
+        {
+            attackManager.enabled = false;
+        }
 
         // Shake the camera
         switch (shakeType)
@@ -139,8 +143,8 @@ public class Health : MonoBehaviour, IDamageable
     }
     public IEnumerator DeathAnimation()
     {
-        GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(deathEffect[Random.Range(0, deathEffect.Count)], transform.position, Quaternion.identity);
-        GameObject exp = ObjectPooler.Instance.SpawnFromPool(deathExplosion, transform.position, Quaternion.identity);
+        GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(_deathEffect[Random.Range(0, _deathEffect.Count)], transform.position, Quaternion.identity);
+        GameObject exp = ObjectPooler.Instance.SpawnFromPool(_deathExplosion, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.5f); // Wait for the animation to finish
         exp.SetActive(false);
         exp2.SetActive(false);
@@ -158,5 +162,7 @@ public class Health : MonoBehaviour, IDamageable
     public Rigidbody2D Rigidbody { get => _rigidbody; }
     public List<GameObject> ExhaustChildren { get => exhaustChildren; }
     public List<string> CurrencyPrefab { get => _currencyPrefab; }
+    public string deathExplosion { get => _deathExplosion; set => _deathExplosion = value; }
+    public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
 
 }

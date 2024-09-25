@@ -318,8 +318,11 @@ MonoBehaviour:
   _checkForTargetsInterval: 0.5
   _checkForTargetsRadius: 100
   _targetAllies: 0
+  _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
+  prioritizePlayer: 1
+  _maximumPriority: {fileID: 0}
 --- !u!114 &5092068372275762858
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -679,6 +679,7 @@ MonoBehaviour:
   _amountOfBullets: 10
   _shootingAngle: 10
   _bulletLifetime: 5
+  _bulletPattern: 0
   nextFireTime: 0
 --- !u!114 &1369175367832247438
 MonoBehaviour:
@@ -708,8 +709,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 0.5
   _checkForTargetsRadius: 200
+  _targetAllies: 0
+  _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
+  prioritizePlayer: 1
+  _maximumPriority: {fileID: 0}
 --- !u!1 &2503615000600082859
 GameObject:
   m_ObjectHideFlags: 0

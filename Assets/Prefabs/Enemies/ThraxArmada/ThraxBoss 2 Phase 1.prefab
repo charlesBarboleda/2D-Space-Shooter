@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9216c03e867f274db5aaf93c01462f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aimRange: 200
+  _aimRange: 300
   _attackCooldown: 2
 --- !u!114 &7295268482656544201
 MonoBehaviour:
@@ -446,12 +446,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 4356735935373426977}
     m_Modifications:
     - target: {fileID: -6886902918841533862, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: prioritizePlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6886902918841533862, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: _checkForTargetsRadius
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: -6236857672304150841, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: _aimRange
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5867372721351398644, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -687,6 +691,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 4356735935373426977}
+    - target: {fileID: 7263661888852822655, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _rotationSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7371399014754427640, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _shieldRegenRate
       value: 500
@@ -813,6 +821,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 4356735935373426977}
+    - target: {fileID: 7263661888852822655, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _rotationSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7371399014754427640, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _shieldRegenRate
       value: 500
@@ -939,6 +951,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 4356735935373426977}
+    - target: {fileID: 7263661888852822655, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _rotationSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7371399014754427640, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _shieldRegenRate
       value: 500
@@ -978,12 +994,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 4356735935373426977}
     m_Modifications:
     - target: {fileID: -6886902918841533862, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: prioritizePlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6886902918841533862, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: _checkForTargetsRadius
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: -6236857672304150841, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: _aimRange
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5867372721351398644, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -1219,6 +1239,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 4356735935373426977}
+    - target: {fileID: 7263661888852822655, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _rotationSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7371399014754427640, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _shieldRegenRate
       value: 500
@@ -1448,6 +1472,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 4356735935373426977}
+    - target: {fileID: 7263661888852822655, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _rotationSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7371399014754427640, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _shieldRegenRate
       value: 500
@@ -1560,7 +1588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133430969737, guid: bdd8480b5f5b6ac46a65a19c8596785c, type: 3}
       propertyPath: m_Intensity
-      value: 2.73634
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3280519133430969738, guid: bdd8480b5f5b6ac46a65a19c8596785c, type: 3}
       propertyPath: m_Layer
@@ -1677,6 +1705,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 4356735935373426977}
+    - target: {fileID: 7263661888852822655, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _rotationSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7371399014754427640, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _shieldRegenRate
       value: 500
@@ -1716,12 +1748,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 4356735935373426977}
     m_Modifications:
     - target: {fileID: -6886902918841533862, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: prioritizePlayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6886902918841533862, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: _checkForTargetsRadius
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: -6236857672304150841, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: _aimRange
-      value: 200
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5867372721351398644, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[0].x
@@ -1957,6 +1993,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 4356735935373426977}
+    - target: {fileID: 7263661888852822655, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _rotationSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7371399014754427640, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _shieldRegenRate
       value: 500
@@ -2083,6 +2123,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 4356735935373426977}
+    - target: {fileID: 7263661888852822655, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _rotationSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7371399014754427640, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _shieldRegenRate
       value: 500
