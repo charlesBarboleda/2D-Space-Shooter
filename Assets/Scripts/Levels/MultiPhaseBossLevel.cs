@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using AssetUsageDetectorNamespace;
 using UnityEngine;
 
 public class MultiPhaseBossLevel : SoloShooterBossLevel
@@ -22,6 +21,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
     Kinematics bossKinematicsPhase1;
     Kinematics bossKinematicsPhase2;
     Health bossHealthPhase1;
+    AttackManager bossAttackManagerPhase1;
     Health bossHealthPhase2;
     GameObject bossShipPhase2;
     CameraFollowBehaviour cameraFollow;
@@ -50,13 +50,13 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
             case BossPhase.Phase1:
                 if (ShouldTransitionToPhase2())
                 {
-                    StartPhase2();
+                    cameraFollow.StartCoroutine(TransitionToPhase2());
                 }
                 break;
             case BossPhase.Phase2:
-                if (ShouldTransitionToPhase3())
+                if (IsBossHealthLow())
                 {
-                    StartPhase3();
+                    cameraFollow.StartCoroutine(TransitionToPhase3(5f));
                 }
                 break;
             case BossPhase.Phase3:
@@ -67,82 +67,165 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
                 break;
         }
     }
-
     void StartPhase1()
     {
         // Start the spawning of enemies
         spawnerManager.StartCoroutine(spawnerManager.SpawnEnemiesWaves(1, 30f));
 
-        // Play the phase 1 music
+        // Play phase 1 music
         spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase1Music());
 
-        // Spawn the boss in idle mode and grab the boss' health and kinematics
+        // Spawn the boss in idle mode
         bossShip = spawnerManager.SpawnShip(bossName, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
         bossHealthPhase1 = bossShip.GetComponent<Health>();
         bossKinematicsPhase1 = bossShip.GetComponent<Kinematics>();
         cameraFollow = Camera.main.GetComponent<CameraFollowBehaviour>();
+        bossAttackManagerPhase1 = bossShip.GetComponent<AttackManager>();
+
+        // Boss stats and initial state
         bossHealthPhase1.isDead = true;
         bossKinematicsPhase1.ShouldMove = false;
 
-        // Spawn the second boss in idle mode and grab the boss' health and kinematics
-        bossShipPhase2 = spawnerManager.SpawnShip(bossNamePhase2, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
-        bossHealthPhase2 = bossShipPhase2.GetComponent<Health>();
-        bossKinematicsPhase2 = bossShipPhase2.GetComponent<Kinematics>();
-        bossHealthPhase2.isDead = true;
-        bossKinematicsPhase2.ShouldMove = false;
-
-        // Set the boss' stats
-        SetBossShooterStats(bossShip);
-
         currentPhase = BossPhase.Phase1;
     }
-    bool ShouldTransitionToPhase3()
-    {
-        return bossHealthPhase1.CurrentHealth <= bossHealthPhase1.MaxHealth / bossShip.GetComponent<BossPhaseController>().PhaseThreshold;
-    }
-    void StartPhase2()
-    {
-        Debug.Log("Phase 2 Started");
 
-        bossHealthPhase1.isDead = false;
+    IEnumerator TransitionToPhase2()
+    {
+        if (hasTransitionedPhase2) yield break;
+        hasTransitionedPhase2 = true;
+        Debug.Log("Transitioning to Phase 2");
+        bossHealthPhase1.isDead = false; // Activate the boss
         bossKinematicsPhase1.ShouldMove = true;
 
         // Pan camera to boss and play Phase 2 music
-        CameraShake.Instance.TriggerShakeMid(3f);
-        cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShip.transform, 10f));
+        spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase2Music());
         UIManager.Instance.bossHealthBar.gameObject.SetActive(true);
-        cameraFollow.StartCoroutine(Background.Instance.PlayThraxBossPhase2Music());
+        yield return cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShip.transform, 11f));
 
         currentPhase = BossPhase.Phase2;
     }
 
-    void StartPhase3()
+    IEnumerator TransitionToPhase3(float phaseTransitionDuration)
     {
-        GameObject bossShipPhase2 = spawnerManager.SpawnShip(bossNamePhase2, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
-        // bossShipPhase2.transform.localScale = Vector3.zero;
-        bossHealthPhase2 = bossShipPhase2.GetComponent<Health>();
-        bossKinematicsPhase2 = bossShipPhase2.GetComponent<Kinematics>();
-        bossHealthPhase2.isDead = true;
-        bossKinematicsPhase2.ShouldMove = false;
-        bossShipPhase2.GetComponent<Health>().isDead = true;
-        GameObject portal = ObjectPooler.Instance.SpawnFromPool("ThraxPortal", bossShipPhase2.transform.position, Quaternion.identity);
+        if (hasTransitionedPhase3) yield break;
+        hasTransitionedPhase3 = true;
+        Debug.Log("Transitioning to Phase 3");
+        // Disable the UI panels
+        UIManager.Instance.DeactivateAllUIPanels();
+        Debug.Log("Deactivated all UI panels from MultiPhaseBossLevel");
+        bossAttackManagerPhase1.AimRange = 0; // Disable boss attacks while transitioning
+        UIManager.Instance.bossHealthBar.gameObject.SetActive(false);
+        // Play Phase 3 music and disable boss movement and health
+        spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase3Music());
+
+        bossKinematicsPhase1.ShouldMove = false; // Disable boss movement
+        bossHealthPhase1.isDead = true; // Mark boss as "dead" to stop its actions
+
+        // Spawn portal
+        GameObject portal = ObjectPooler.Instance.SpawnFromPool("ThraxPortal", bossShip.transform.position, Quaternion.identity);
+        Vector3 expandedScale = portal.transform.localScale;
+        // Pan camera to portal
+        cameraFollow.ActivateTargetCamera(portal.transform);
+        Vector3 initialScale = Vector3.zero;
+        portal.transform.localScale = initialScale;
+
+        // Expand portal
+        float elapsedTime = 0f;
+        while (elapsedTime < phaseTransitionDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = Mathf.Clamp01(elapsedTime / phaseTransitionDuration);
+            portal.transform.localScale = Vector3.Lerp(initialScale, expandedScale, progress); // Assuming the original size is (1, 1, 1)
+            yield return null;
+        }
+
+        // Boss shrinks to portal
+        elapsedTime = 0f;
+        Vector3 bossInitialScale = bossShip.transform.localScale;
+        while (elapsedTime < phaseTransitionDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = Mathf.Clamp01(elapsedTime / phaseTransitionDuration);
+            bossShip.transform.localScale = Vector3.Lerp(bossInitialScale, Vector3.zero, progress);
+            yield return null;
+        }
+
+        // Deactivate the portal and the boss after the boss shrinks
+        bossShip.SetActive(false);
+        portal.SetActive(false);
+
+        // Now spawn the next portal
+        GameObject nextPortal = ObjectPooler.Instance.SpawnFromPool("ThraxPortal", spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
+        Vector3 expandedSize = nextPortal.transform.localScale;
+        // Pan the camera to the next portal
+        cameraFollow.ActivateTargetCamera(nextPortal.transform);
+        nextPortal.transform.localScale = Vector3.zero;
+        elapsedTime = 0f;
+
+        // Expand next portal
+        while (elapsedTime < phaseTransitionDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = Mathf.Clamp01(elapsedTime / phaseTransitionDuration);
+            nextPortal.transform.localScale = Vector3.Lerp(Vector3.zero, expandedSize, progress);
+            yield return null;
+        }
+
+        // Spawn new boss ship with size zero
+        bossShipPhase2 = spawnerManager.SpawnShip(bossNamePhase2, nextPortal.transform.position, Quaternion.identity);
+        Vector3 bossExpandedSize = bossShipPhase2.transform.localScale;
+        bossShipPhase2.transform.localScale = Vector3.zero;
+
+        // Expand the new boss ship
+        elapsedTime = 0f;
+        while (elapsedTime < phaseTransitionDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float progress = Mathf.Clamp01(elapsedTime / phaseTransitionDuration);
+            bossShipPhase2.transform.localScale = Vector3.Lerp(Vector3.zero, bossExpandedSize, progress);
+            yield return null;
+        }
+
+        // Enable movement and health systems for the new boss
+        bossShipPhase2.GetComponent<Kinematics>().ShouldMove = true;
+        bossShipPhase2.GetComponent<Health>().isDead = false;
+
+        // Disable the portal
+        portal.SetActive(false);
+
+        // Pan camera to new boss ship
+        yield return cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShipPhase2.transform, 3f));
+
+        // Enable the UI panels
+        UIManager.Instance.bossHealthBar.gameObject.SetActive(true);
+        UIManager.Instance.ActivateAllUIPanels();
+
+        yield return new WaitForSeconds(15f);
+        // Unlock the boss' first ability
+        bossShipPhase2.GetComponent<AbilityHolder>().abilities[0].isUnlocked = true;
+        currentPhase = BossPhase.Phase3;
     }
 
     bool ShouldTransitionToPhase2()
     {
-        return spawnerManager.EnemiesList.Count == 1;
+        return spawnerManager.EnemiesList.Count == 1; // Phase 1 complete when all ships are destroyed but 1
+    }
+
+    bool IsBossHealthLow()
+    {
+        return bossHealthPhase1.CurrentHealth <= bossHealthPhase1.MaxHealth / 7; // Check if a seventh of the health is gone
     }
 
     bool IsBossDefeated()
     {
-        return bossShipPhase2 == null || bossHealthPhase2.CurrentHealth <= 0 || !bossShipPhase2.activeInHierarchy;
+        return bossShipPhase2 == null || !bossShipPhase2.activeInHierarchy || bossShipPhase2.GetComponent<Health>().CurrentHealth <= 0;
     }
 
     public override void CompleteLevel()
     {
         Debug.Log("Completing Level");
+        UIManager.Instance.bossHealthBar.gameObject.SetActive(false);
         levelManager.CompleteLevel();
     }
-
 
 }

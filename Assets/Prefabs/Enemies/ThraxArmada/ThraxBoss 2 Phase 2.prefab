@@ -73,7 +73,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 32fac6e45890e9d48961b3db7c93c0be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -669,15 +669,15 @@ MonoBehaviour:
   _buffedParticles: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 8300000, guid: ba594aad031975b45a5acdbd5fa34f5c, type: 3}
-  _spawnAnimation: LargeSpawn
+  _spawnAnimation: BlinkLarge
   isThraxBoss: 1
   bulletSpawnPoint: {fileID: 4766833632333426715}
   _shootSound: {fileID: 8300000, guid: 3f2ea133f3a172d47be752f14c01259e, type: 3}
   _bulletType: ThraxBullet
   _bulletSpeed: 40
   _bulletDamage: 50
-  _amountOfBullets: 10
-  _shootingAngle: 10
+  _amountOfBullets: 30
+  _shootingAngle: 50
   _bulletLifetime: 5
   _bulletPattern: 0
   nextFireTime: 0
@@ -693,7 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9216c03e867f274db5aaf93c01462f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aimRange: 120
+  _aimRange: 1000
   _attackCooldown: 3
 --- !u!114 &7681796144276164879
 MonoBehaviour:
@@ -708,13 +708,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 0.5
-  _checkForTargetsRadius: 200
+  _checkForTargetsRadius: 1000
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
   prioritizePlayer: 1
-  _maximumPriority: {fileID: 0}
+  _maximumPriority: {fileID: 5239728600239547954, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
 --- !u!1 &2503615000600082859
 GameObject:
   m_ObjectHideFlags: 0

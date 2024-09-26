@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fb75589e90d394bba5bc3e0d727ca4, type: 3}
   m_Name: EnemyVoidImplosion
   m_EditorClassIdentifier: 
-  isUnlocked: 0
+  isUnlocked: 1
   abilityName: Void Implosion
   icon: {fileID: 0}
-  cooldown: 20
-  currentCooldown: 17.692715
+  cooldown: 40
+  currentCooldown: 26.674345
   _audioSource: {fileID: 0}
   _audioClip: {fileID: 0}
-  _attackRate: 0.49
-  _duration: 14.120003
-  _aimOffset: 99.5
+  _attackRate: 0.18
+  _duration: -0.16001755
+  _aimOffset: 99
   _voidImplosionTag: ThraxImplosion

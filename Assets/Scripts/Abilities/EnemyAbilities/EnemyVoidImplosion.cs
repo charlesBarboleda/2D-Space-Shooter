@@ -28,7 +28,7 @@ public class EnemyVoidImplosion : MonoBehaviour
         }
 
         // Randomly set the initial size and countdown duration
-        _size = UnityEngine.Random.Range(5, 40);
+        _size = UnityEngine.Random.Range(5, 50);
         _countdown = _size * 0.1f;
         _initialSize = _size;
 
@@ -47,8 +47,12 @@ public class EnemyVoidImplosion : MonoBehaviour
         // Check if particles still exist
         if (_implosionParticles == null)
         {
-            Debug.Log("Implosion particles were destroyed or null!0");
+            Debug.Log("Implosion particles were destroyed or null!");
         }
+        // Wait for a short delay before spawning the target circle to get an accurate spawn position
+        yield return new WaitForSeconds(0.1f);
+        GameObject targetCircle = ObjectPooler.Instance.SpawnFromPool("TargetHitCircle", transform.position, Quaternion.identity);
+        targetCircle.transform.localScale = new Vector3(_size / 1f, _size / 1f, _size / 1f);
 
         // Play the charging particles
         _chargingParticles.Play();
@@ -78,6 +82,7 @@ public class EnemyVoidImplosion : MonoBehaviour
 
         // Trigger the implosion
         StartCoroutine(Implode());
+        targetCircle.SetActive(false);
     }
 
     IEnumerator Implode()

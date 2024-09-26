@@ -20,15 +20,13 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] Image currencyIcon;
     [SerializeField] TextMeshProUGUI currencyText;
-    [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject _pauseMenu;
 
     [Header("Player Abilities UI")]
     [SerializeField] Image laserIconFill, shieldIconFill, teleportIconFill, turretIconFill;
     public GameObject laserPanel, shieldPanel, teleportPanel, turretPanel;
 
-    [Header("Skill Tree")]
-    [SerializeField] GameObject skillTreePanel;
+
 
     AbilityHolder _abilityHolder;
 
@@ -39,8 +37,17 @@ public class UIManager : MonoBehaviour
     public GameObject HealthPowerUp;
     public GameObject PickUpRadiusPowerUp;
 
-    [Header("HealthBar")]
+    [Header("UI Panels")]
+    public GameObject skillTreePanel;
     public GameObject bossHealthBar;
+    public GameObject gameOverPanel;
+    public GameObject miniMapContainer;
+    public GameObject playerHealthBar;
+    public GameObject objectivesPanel;
+    public GameObject powerUpsPanel;
+    public GameObject currencyPanel;
+    public GameObject roundNumber;
+
 
     void Awake()
     {
@@ -85,8 +92,6 @@ public class UIManager : MonoBehaviour
     {
         highscoreText.text = $"Highscore: Level {PlayerPrefs.GetFloat("HighScore")}";
     }
-
-
 
     void Update()
     {
@@ -145,6 +150,31 @@ public class UIManager : MonoBehaviour
 
         }
     }
+    public void DeactivateAllUIPanels()
+    {
+        Debug.Log("Deactivating all UI panels");
+        skillTreePanel.SetActive(false);
+        upgradeShopPanel.SetActive(false);
+        playerHealthBar.SetActive(false);
+        objectivesPanel.SetActive(false);
+        powerUpsPanel.SetActive(false);
+        currencyPanel.SetActive(false);
+        roundNumber.SetActive(false);
+        bossHealthBar.SetActive(false);
+        miniMapContainer.SetActive(false);
+        Debug.Log("Deactivated all UI panels");
+    }
+
+    public void ActivateAllUIPanels()
+    {
+
+        playerHealthBar.SetActive(true);
+        objectivesPanel.SetActive(true);
+        powerUpsPanel.SetActive(true);
+        currencyPanel.SetActive(true);
+        roundNumber.SetActive(true);
+        miniMapContainer.SetActive(true);
+    }
 
     public void UnPauseButton()
     {
@@ -174,6 +204,12 @@ public class UIManager : MonoBehaviour
         SetCostText(extraBulletCost, UpgradeShopManager.extraBulletUpgrade);
         SetCostText(speedCost, UpgradeShopManager.shipSpeedUpgrade);
         SetCostText(pickUpCost, UpgradeShopManager.pickUpUpgrade);
+    }
+
+    public void DisableAllUIPanels()
+    {
+        upgradeShopPanel.SetActive(false);
+        skillTreePanel.SetActive(false);
     }
 
     private void UpdateCurrencyText(float newCurrency)

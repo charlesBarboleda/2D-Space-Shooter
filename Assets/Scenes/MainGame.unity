@@ -11805,7 +11805,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268172930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.74546, y: 0.7487817, z: 0.74546}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17381,7 +17381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &397908832
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50833,6 +50833,11 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1 &1194662219 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5784895257406628654, guid: 17cbc357bf20de74485f5f5d54b77b72, type: 3}
+  m_PrefabInstance: {fileID: 1678232476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1197778284
 GameObject:
   m_ObjectHideFlags: 0
@@ -74778,6 +74783,12 @@ MonoBehaviour:
   - tag: ThraxBoss2Phase1
     prefab: {fileID: 3552526014053328916, guid: b8850ccf496770744b7d8c5a75a6705b, type: 3}
     size: 20
+  - tag: BlinkLarge
+    prefab: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
+    size: 20
+  - tag: TargetHitCircle
+    prefab: {fileID: 6475745086044108472, guid: 6f72b9a029cc96d4a92af579b896b8ab, type: 3}
+    size: 20
 --- !u!4 &1707799895
 Transform:
   m_ObjectHideFlags: 0
@@ -94596,6 +94607,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 847418534}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: roundNumber
+      value: 
+      objectReference: {fileID: 1529310118}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: shieldPanel
       value: 
       objectReference: {fileID: 196124684}
@@ -94684,6 +94699,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: currencyPanel
+      value: 
+      objectReference: {fileID: 72360802}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: damageUpgrade
       value: 
       objectReference: {fileID: 2042315831}
@@ -94719,6 +94738,10 @@ PrefabInstance:
       propertyPath: pickUpUpgrade
       value: 
       objectReference: {fileID: 949497191}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: powerUpsPanel
+      value: 
+      objectReference: {fileID: 1964422255}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: rapidFireIcon
       value: 
@@ -94840,6 +94863,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1566032367}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: objectivesPanel
+      value: 
+      objectReference: {fileID: 794986752}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: playerHealthBar
+      value: 
+      objectReference: {fileID: 1194662219}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: rapidFireButton
       value: 
       objectReference: {fileID: 654780385}
@@ -94859,6 +94890,10 @@ PrefabInstance:
       propertyPath: bulletHellButton
       value: 
       objectReference: {fileID: 2066512390}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: miniMapContainer
+      value: 
+      objectReference: {fileID: 10960005}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: rejuvenationIcon
       value: 
@@ -95295,7 +95330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6097979029989899117, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_Interpolate
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6097979029989899117, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_GravityScale

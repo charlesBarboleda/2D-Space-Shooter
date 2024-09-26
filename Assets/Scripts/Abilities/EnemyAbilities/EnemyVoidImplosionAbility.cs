@@ -8,8 +8,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyVoidImplosion", menuName = "EnemyAbilities/EnemyVoidImplosion")]
 public class EnemyVoidImplosionAbility : Ability
 {
-    [SerializeField] float _attackRate = 0.5f;
-    [SerializeField] float _duration = 10f;
+    [SerializeField] float _attackRate = 0.2f;
+    [SerializeField] float _duration = 20f;
     [SerializeField] float _aimOffset = 200f;
     [SerializeField] string _voidImplosionTag = "ThraxImplosion";
 
@@ -56,6 +56,9 @@ public class EnemyVoidImplosionAbility : Ability
     {
         _aimOffset = 100f;
         _duration = 20f;
-        _attackRate = 0.5f;
+        _attackRate = 0.2f;
+        cooldown = 40f;
+        currentCooldown = cooldown;
+        isUnlocked = false;
     }
 }
