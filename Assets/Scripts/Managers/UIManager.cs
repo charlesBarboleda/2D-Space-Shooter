@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -206,6 +207,50 @@ public class UIManager : MonoBehaviour
         SetCostText(speedCost, UpgradeShopManager.shipSpeedUpgrade);
         SetCostText(pickUpCost, UpgradeShopManager.pickUpUpgrade);
     }
+
+    public IEnumerator OnHitDamageText(string text, Vector3 position)
+    {
+        // Get screen position from world position
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(position);
+
+        // Spawn damage text and convert its position to canvas space
+        GameObject damageText = ObjectPooler.Instance.SpawnFromPool("DamageText", transform.position, Quaternion.identity);
+
+        // Set the parent to the world canvas and convert the screen point to the canvas's world position
+        damageText.transform.SetParent(worldCanvas.transform, false);
+
+        // Convert screen position to local position in the canvas
+        RectTransform canvasRect = worldCanvas.GetComponent<RectTransform>();
+        RectTransform damageTextRect = damageText.GetComponent<RectTransform>();
+
+        Vector2 localPosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPosition, Camera.main, out localPosition);
+        damageTextRect.localPosition = localPosition;
+
+
+        // Set damage text content
+        damageText.GetComponent<TextMeshProUGUI>().text = text;
+        yield return StartCoroutine(MoveUpAndFadeOut(damageText, 1f));
+        damageText.SetActive(false);
+    }
+
+    public void CreateOnHitDamageText(string text, Vector3 position)
+    {
+        StartCoroutine(OnHitDamageText(text, position));
+    }
+    public IEnumerator MoveUpAndFadeOut(GameObject damageTextObject, float duration)
+    {
+        float time = 0;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            damageTextObject.transform.position += Vector3.up * Time.deltaTime * 5f;
+            damageTextObject.GetComponent<TextMeshProUGUI>().color = new Color(1, 1, 1, 1 - time / duration);
+            yield return null;
+        }
+        damageTextObject.SetActive(false);
+    }
+
 
     public void DisableAllUIPanels()
     {

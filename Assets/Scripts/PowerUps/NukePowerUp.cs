@@ -33,7 +33,7 @@ public class NukePowerUp : PowerUp, IPickable
     protected override void Effect()
     {
         Debug.Log("Nuke PowerUp Activated");
-        CameraShake.Instance.TriggerShakeLarge(3f);
+        CameraFollowBehaviour.Instance.ShakePlayerCamera(20f, 2f, 2f);
         GameManager.Instance.DestroyAllShips();
     }
 

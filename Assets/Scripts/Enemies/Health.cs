@@ -108,13 +108,13 @@ public class Health : MonoBehaviour, IDamageable
         switch (shakeType)
         {
             case ShakeType.Small:
-                CameraShake.Instance.TriggerShakeSmall(0.1f);
+                CameraFollowBehaviour.Instance.ShakePlayerCamera(6f, 5.0f, 0.25f); ;
                 break;
             case ShakeType.Mid:
-                CameraShake.Instance.TriggerShakeMid(0.2f);
+                CameraFollowBehaviour.Instance.ShakePlayerCamera(10f, 5.0f, 1f);
                 break;
             case ShakeType.Large:
-                CameraShake.Instance.TriggerShakeLarge(0.3f);
+                CameraFollowBehaviour.Instance.ShakePlayerCamera(16f, 5.0f, 2f);
                 break;
         }
 

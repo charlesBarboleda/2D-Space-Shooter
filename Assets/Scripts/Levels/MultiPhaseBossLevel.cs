@@ -70,7 +70,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
     void StartPhase1()
     {
         // Start the spawning of enemies
-        spawnerManager.StartCoroutine(spawnerManager.SpawnEnemiesWaves(5, 20f));
+        spawnerManager.StartCoroutine(spawnerManager.SpawnEnemiesWaves(1, 20f));
 
         // Play phase 1 music
         spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase1Music());
@@ -133,6 +133,8 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         Vector3 expandedScale = portal.transform.localScale;
         // Pan camera to portal
         cameraFollow.ActivateTargetCamera(portal.transform);
+        cameraFollow.ShakeTargetCamera(5f, 2f, 15f);
+
         Vector3 initialScale = Vector3.zero;
         portal.transform.localScale = initialScale;
 

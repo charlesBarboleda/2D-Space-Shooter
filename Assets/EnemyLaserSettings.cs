@@ -14,6 +14,7 @@ public class EnemyLaserSettings : MonoBehaviour
         {
             if (other.CompareTag("Player") || other.CompareTag("EnemyDestroyable") || other.CompareTag("CrimsonFleet") || other.CompareTag("Syndicates"))
             {
+                UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
                 damageable.TakeDamage(_dps);
             }
         }

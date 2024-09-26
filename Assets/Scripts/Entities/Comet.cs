@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Comet : MonoBehaviour, IDamageable
@@ -43,7 +44,8 @@ public class Comet : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         if (isDead) return;
-        CameraShake.Instance.TriggerShakeLarge(0.3f);
+        CameraFollowBehaviour.Instance.ShakePlayerCamera(20f, 5.0f, 1f);
+
         hitsToBreak--;
         if (hitsToBreak <= 0)
         {
@@ -55,6 +57,7 @@ public class Comet : MonoBehaviour, IDamageable
     {
         if (other.CompareTag("PlayerBullet"))
         {
+            UIManager.Instance.CreateOnHitDamageText("1", other.transform.position);
             TakeDamage(0);
         }
     }

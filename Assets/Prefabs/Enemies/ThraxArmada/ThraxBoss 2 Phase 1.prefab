@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 7295268482656544201}
   - component: {fileID: 846770944425970231}
   - component: {fileID: 2682419910093720599}
+  - component: {fileID: 8858224167725333741}
   m_Layer: 14
   m_Name: ThraxBoss 2 Phase 1
   m_TagString: ThraxArmada
@@ -293,6 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimRange: 300
   _attackCooldown: 2
+  _isSilenced: 0
 --- !u!114 &7295268482656544201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +439,20 @@ MonoBehaviour:
   _bulletLifetime: 10
   _bulletPattern: 1
   nextFireTime: 0
+--- !u!114 &8858224167725333741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552526014053328916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472675415ca54e44db35c6088a2c1b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities: []
+  target: {fileID: 0}
 --- !u!1001 &492738797243629508
 PrefabInstance:
   m_ObjectHideFlags: 0

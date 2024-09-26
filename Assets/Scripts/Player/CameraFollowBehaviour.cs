@@ -9,6 +9,10 @@ public class CameraFollowBehaviour : MonoBehaviour
     public CinemachineVirtualCamera targetCamera; // Secondary camera for focusing on the target
     public float transitionDuration = 3f;      // Duration for the smooth transition
 
+    private CinemachineBasicMultiChannelPerlin playerNoise; // Reference to the noise component for player camera
+    private CinemachineBasicMultiChannelPerlin targetNoise; // Reference to the noise component for target camera
+    private bool isShaking = false; // Flag to ensure shake doesn't overlap
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -20,11 +24,17 @@ public class CameraFollowBehaviour : MonoBehaviour
             Instance = this;
         }
     }
+
     void Start()
     {
         // Make sure the player camera is active at the start
         ActivatePlayerCamera();
+
+        // Get the noise components for both cameras
+        playerNoise = playerCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        targetNoise = targetCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
+
     // Call this method to pan to the target camera
     public void ActivateTargetCamera(Transform target)
     {
@@ -53,5 +63,43 @@ public class CameraFollowBehaviour : MonoBehaviour
 
         // Pan back to the player camera
         ActivatePlayerCamera();
+    }
+
+    // Function to start camera shake on the player camera
+    public void ShakePlayerCamera(float amplitude, float frequency, float duration)
+    {
+        if (!isShaking) // Ensure that shake isn't already in progress
+        {
+            StartCoroutine(ShakeCameraCoroutine(playerNoise, amplitude, frequency, duration));
+            Debug.Log("Shaking player camera");
+        }
+    }
+
+    // Function to start camera shake on the target camera
+    public void ShakeTargetCamera(float amplitude, float frequency, float duration)
+    {
+        if (!isShaking)
+        {
+            StartCoroutine(ShakeCameraCoroutine(targetNoise, amplitude, frequency, duration));
+        }
+    }
+
+    // Coroutine that handles the custom camera shake effect
+    private IEnumerator ShakeCameraCoroutine(CinemachineBasicMultiChannelPerlin noise, float amplitude, float frequency, float duration)
+    {
+        isShaking = true;
+
+        // Set the noise parameters
+        noise.m_AmplitudeGain = amplitude;
+        noise.m_FrequencyGain = frequency;
+
+        // Wait for the specified duration
+        yield return new WaitForSeconds(duration);
+
+        // Reset the noise parameters to zero
+        noise.m_AmplitudeGain = 0f;
+        noise.m_FrequencyGain = 0f;
+
+        isShaking = false;
     }
 }

@@ -16,6 +16,7 @@ public class PlayerLaserSettings : MonoBehaviour
 
             if (other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates") || other.CompareTag("CrimsonFleet"))
             {
+                UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
                 damageable.TakeDamage(_dps);
             }
         }
