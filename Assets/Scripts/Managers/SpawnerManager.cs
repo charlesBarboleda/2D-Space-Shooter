@@ -349,7 +349,7 @@ public class SpawnerManager : MonoBehaviour
 
     public IEnumerator SpawnEnemiesWaves(int numberOfWaves, float spawnRate)
     {
-        int numberOfShips = 15;
+        int numberOfShips = 1;
         EnemiesToSpawnLeft = numberOfWaves * numberOfShips;
         while (numberOfWaves > 0)
         {

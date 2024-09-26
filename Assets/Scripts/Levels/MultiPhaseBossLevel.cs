@@ -133,7 +133,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         Vector3 expandedScale = portal.transform.localScale;
         // Pan camera to portal
         cameraFollow.ActivateTargetCamera(portal.transform);
-        cameraFollow.ShakeTargetCamera(5f, 2f, 15f);
+
 
         Vector3 initialScale = Vector3.zero;
         portal.transform.localScale = initialScale;
@@ -168,6 +168,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         Vector3 expandedSize = nextPortal.transform.localScale;
         // Pan the camera to the next portal
         cameraFollow.ActivateTargetCamera(nextPortal.transform);
+        cameraFollow.ShakeTargetCamera(5f, 2f, 5f);
         nextPortal.transform.localScale = Vector3.zero;
         elapsedTime = 0f;
 
@@ -234,6 +235,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
     {
         Debug.Log("Completing Level");
         UIManager.Instance.bossHealthBar.gameObject.SetActive(false);
+        spawnerManager.StartCoroutine(Background.Instance.PlayOriginalBackgroundMusic());
         levelManager.CompleteLevel();
     }
 

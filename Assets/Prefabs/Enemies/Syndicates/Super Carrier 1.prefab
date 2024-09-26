@@ -672,7 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 3
-  _checkForTargetsRadius: 50
+  _checkForTargetsRadius: 100
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
@@ -826,8 +826,16 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _targetAllies
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _checkForTargetsRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -1132,8 +1140,16 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _targetAllies
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _checkForTargetsRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -1323,8 +1339,16 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _targetAllies
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _checkForTargetsRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -1514,8 +1538,16 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _targetAllies
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: _checkForTargetsRadius
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType

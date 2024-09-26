@@ -343,6 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimRange: 90
   _attackCooldown: 1
+  _isSilenced: 0
 --- !u!61 &2617275652360592418
 BoxCollider2D:
   m_ObjectHideFlags: 0

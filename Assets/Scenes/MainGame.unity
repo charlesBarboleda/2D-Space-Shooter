@@ -10174,8 +10174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29158824a6962a04fad8eef13c561bf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defendingFaction: 2
-  _invadingFactions: 01000000
+  _defendingFaction: 3
+  _invadingFactions: 02000000
 --- !u!1 &220021036
 GameObject:
   m_ObjectHideFlags: 0
@@ -34115,7 +34115,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: dedf03c384791c641b8de80c38b54026, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -74660,7 +74660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - tag: SyndicatesBullet
-    prefab: {fileID: 6728492749699202131, guid: 0271eb768e721e7469bada9ea73ce922, type: 3}
+    prefab: {fileID: 6209516934632428617, guid: c776f00cf8071fd41aab69169e123b6e, type: 3}
     size: 5000
   - tag: SmallShip
     prefab: {fileID: 7097431120715797597, guid: 82b6cde468d559744ae31829d2994c4b, type: 3}

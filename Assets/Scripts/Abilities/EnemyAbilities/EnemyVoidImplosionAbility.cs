@@ -56,7 +56,7 @@ public class EnemyVoidImplosionAbility : Ability
     {
         _aimOffset = 150f;
         _duration = 20f;
-        _attackRate = 0.15f;
+        _attackRate = 0.1f;
         cooldown = 40f;
         currentCooldown = cooldown;
         isUnlocked = false;
