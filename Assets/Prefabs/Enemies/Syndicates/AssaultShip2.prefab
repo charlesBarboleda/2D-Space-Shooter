@@ -128,7 +128,7 @@ MonoBehaviour:
   _bulletSpeed: 0
   _bulletDamage: 0
   _amountOfBullets: 0
-  _shootingAngle: 5
+  _shootingAngle: 70
   _bulletLifetime: 0
   _bulletPattern: 3
   nextFireTime: 0
@@ -615,13 +615,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _checkForTargetsInterval: 3
+  _checkForTargetsRadius: 50
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
   prioritizePlayer: 1
   _maximumPriority: {fileID: 0}
-  _checkForTargetsInterval: 3
 --- !u!114 &7559088924168760026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,16 +916,8 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-      propertyPath: _targetAllies
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-      propertyPath: _checkForTargetsRadius
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -1078,16 +1071,8 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-      propertyPath: _targetAllies
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-      propertyPath: _checkForTargetsRadius
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -1241,16 +1226,8 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-      propertyPath: _targetAllies
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-      propertyPath: _checkForTargetsRadius
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -1404,16 +1381,8 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-      propertyPath: _targetAllies
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
-      propertyPath: _checkForTargetsRadius
-      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType

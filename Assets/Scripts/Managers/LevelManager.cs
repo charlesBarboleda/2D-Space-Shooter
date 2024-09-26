@@ -31,11 +31,11 @@ public class LevelManager : MonoBehaviour
         Debug.Log($"Levels added in Awake. Levels count: {_levels.Count}");
     }
 
-    // Generate the next level based on the current level index *Trial Version*
+
     Level GenerateNextLevel()
     {
-        // In 2-3 levels, create an invasion level
-        if (_currentLevelIndex % Random.Range(2, 4) == 0)
+        // In 10-20 levels, create an invasion level
+        if (_currentLevelIndex % Random.Range(10, 20) == 0)
             return CreateSoloInvasionLevel();
 
         // In 5-10 levels, create a solo shooter boss level or a solo carrier boss level
@@ -44,14 +44,14 @@ public class LevelManager : MonoBehaviour
             if (Random.value > 0.01f) CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
             else CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
         }
-        // In 20-40 levels, create a double invasion level
-        else if (_currentLevelIndex % Random.Range(20, 40) == 0 && InvasionManager.Instance.DefendingFaction != FactionType.ThraxArmada)
+        else if (_currentLevelIndex % Random.Range(20, 40) == 0)
         {
-            return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
+            // return CreateDoubleInvasionLevel();
         }
 
+
         // Otherwise, create a horde level
-        return CreateHordeLevel();
+        return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
     }
 
 
@@ -91,7 +91,7 @@ public class LevelManager : MonoBehaviour
         List<Ship> shipsToSpawnDefending = _spawnerManager.DetermineDefendingShips();
         Debug.Log($"Ships to spawn defending: {shipsToSpawnDefending.Count}");
         int spawnAmountRatio = 2 / 1;
-        int amountOfEnemiesLosing = 1;
+        int amountOfEnemiesLosing = _currentLevelIndex * 5;
         FactionType factionType = FactionType.CrimsonFleet;
 
         return new SoloInvasionLevel(
@@ -133,7 +133,7 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateHordeLevel()
     {
-        int amountOfEnemies = 1;
+        int amountOfEnemies = _currentLevelIndex * 5;
         List<Ship> shipsToSpawn = _spawnerManager.DetermineDefendingShips();
         float spawnRate = Mathf.Max(5f - (_currentLevelIndex * 0.1f), 0.1f);
         FactionType factionType = FactionType.Syndicates;

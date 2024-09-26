@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkForTargetsInterval: 3
-  _checkForTargetsRadius: 100
+  _checkForTargetsRadius: 50
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
@@ -1128,7 +1128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimRange: 100
   _attackCooldown: 3
-  _isSilenced: 0
 --- !u!114 &6537159407056257850
 MonoBehaviour:
   m_ObjectHideFlags: 0

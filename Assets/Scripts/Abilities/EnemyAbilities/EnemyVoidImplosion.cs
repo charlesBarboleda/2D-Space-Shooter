@@ -28,7 +28,7 @@ public class EnemyVoidImplosion : MonoBehaviour
         }
 
         // Randomly set the initial size and countdown duration
-        _size = UnityEngine.Random.Range(10, 35);
+        _size = UnityEngine.Random.Range(5, 35);
         _countdown = _size * 0.1f;
         _initialSize = _size;
 

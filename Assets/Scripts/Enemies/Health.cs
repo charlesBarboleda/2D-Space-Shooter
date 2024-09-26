@@ -145,7 +145,7 @@ public class Health : MonoBehaviour, IDamageable
     {
         GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(_deathEffect[Random.Range(0, _deathEffect.Count)], transform.position, Quaternion.identity);
         GameObject exp = ObjectPooler.Instance.SpawnFromPool(_deathExplosion, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(1.5f); // Wait for the animation to finish
+        yield return new WaitForSeconds(0.5f); // Wait for the animation to finish
         exp.SetActive(false);
         exp2.SetActive(false);
     }
