@@ -614,6 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimRange: 60
   _attackCooldown: 1
+  _isSilenced: 0
 --- !u!114 &-4000554216632896822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,7 +778,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6886902918841533862, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: prioritizePlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1632575951528345661, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: Priority
@@ -967,7 +968,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6886902918841533862, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: prioritizePlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1632575951528345661, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: Priority

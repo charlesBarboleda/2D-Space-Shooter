@@ -6,6 +6,7 @@ public class SceneChanger : MonoBehaviour
 {
     public void ChangeScene(string sceneName)
     {
+        Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 }

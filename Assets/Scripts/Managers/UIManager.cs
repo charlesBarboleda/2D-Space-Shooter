@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+    public Canvas worldCanvas;
 
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;

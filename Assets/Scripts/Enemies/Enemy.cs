@@ -31,7 +31,6 @@ public abstract class Enemy : MonoBehaviour
     string _enemyID;
     int _priority;
 
-
     protected abstract void Attack();
 
     protected virtual void Awake()
@@ -54,12 +53,12 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        // Disable the audio source if the player is too far away
-        // if (Vector2.Distance(transform.position, PlayerManager.Instance.transform.position) > 100f)
-        // {
-        //     DisableAudioSource();
-        // }
-        // else EnableAudioSource();
+        // Disable the audio source if the camera is too far away
+        if (Vector2.Distance(transform.position, Camera.main.transform.position) > 100f)
+        {
+            DisableAudioSource();
+        }
+        else EnableAudioSource();
 
         if (_abilityHolder != null)
         {
@@ -74,7 +73,7 @@ public abstract class Enemy : MonoBehaviour
             {
 
                 // Check if the target is the one we should shoot at
-                if (_attackManager.IsTargetInRange(TargetManager.CurrentTarget.transform) && _attackManager.ElapsedCooldown <= 0)
+                if (_attackManager.IsTargetInRange(TargetManager.CurrentTarget.transform) && _attackManager.ElapsedCooldown <= 0 && _attackManager.IsSilenced == false)
                 {
 
                     Attack();
@@ -136,10 +135,13 @@ public abstract class Enemy : MonoBehaviour
         foreach (Ability ability in _abilityHolder.abilities)
         {
             // Check if the ability can be triggered
-            if (ability.currentCooldown >= ability.cooldown)
+            if (ability.currentCooldown >= ability.cooldown && ability.isUnlocked)
             {
                 // Trigger the ability
                 ability.TriggerAbility(gameObject, target);
+                Debug.Log("Triggered ability: " + ability.name);
+                StartCoroutine(PlayAbilityParticles());
+                Debug.Log("Played ability particles from UseAbilities");
 
 
             }
@@ -148,16 +150,19 @@ public abstract class Enemy : MonoBehaviour
 
     public IEnumerator PlayAbilityParticles()
     {
+        Debug.Log("Playing ability particles");
         foreach (ParticleSystem particle in _abilityParticles)
         {
             particle.gameObject.SetActive(true);
             particle.Play();
+            Debug.Log("Played ability particles");
         }
-        yield return new WaitForSeconds(isThraxBoss ? Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 0.5f, 20f) : 3f);
+        yield return new WaitForSeconds(isThraxBoss ? Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 0.5f, 20f) : 0.1f);
         foreach (ParticleSystem particle in _abilityParticles)
         {
             particle.Stop();
             particle.gameObject.SetActive(false);
+            Debug.Log("Stopped ability particles");
         }
     }
 

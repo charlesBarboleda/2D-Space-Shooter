@@ -8,7 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyVoidImplosion", menuName = "EnemyAbilities/EnemyVoidImplosion")]
 public class EnemyVoidImplosionAbility : Ability
 {
-    [SerializeField] float _attackRate = 0.2f;
+    [SerializeField] float _attackRate = 0.15f;
     [SerializeField] float _duration = 20f;
     [SerializeField] float _aimOffset = 200f;
     [SerializeField] string _voidImplosionTag = "ThraxImplosion";
@@ -40,9 +40,9 @@ public class EnemyVoidImplosionAbility : Ability
     void SetStatsBasedOnLevel()
     {
         _aimOffset = _aimOffset - LevelManager.Instance.CurrentLevelIndex * 0.5f;
-        if (_aimOffset < 50f)
+        if (_aimOffset < 100f)
         {
-            _aimOffset = 50f;
+            _aimOffset = 100f;
         }
         _duration = Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 0.5f, 20f);
         _attackRate = _attackRate - LevelManager.Instance.CurrentLevelIndex * 0.01f;
@@ -54,9 +54,9 @@ public class EnemyVoidImplosionAbility : Ability
 
     public override void ResetStats()
     {
-        _aimOffset = 100f;
+        _aimOffset = 150f;
         _duration = 20f;
-        _attackRate = 0.2f;
+        _attackRate = 0.15f;
         cooldown = 40f;
         currentCooldown = cooldown;
         isUnlocked = false;

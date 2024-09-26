@@ -19,8 +19,16 @@ public class TargetManager : MonoBehaviour
     {
         _faction = GetComponent<Faction>();
         StartCoroutine(CheckForTargetsRoutine());
+    }
+    void OnEnable()
+    {
         _currentTarget = prioritizePlayer ? PlayerManager.Instance.gameObject : _maximumPriority;
         _targetPosition = prioritizePlayer ? PlayerManager.Instance.transform.position : _maximumPriority.transform.position;
+    }
+
+    void OnDisable()
+    {
+        StopAllCoroutines();
     }
 
     void Update()
@@ -44,18 +52,6 @@ public class TargetManager : MonoBehaviour
         }
     }
 
-    void OnEnable()
-    {
-        StopAllCoroutines(); // Ensure no duplicate coroutines
-        StartCoroutine(CheckForTargetsRoutine());
-        _currentTarget = PlayerManager.Instance.gameObject;
-        _targetPosition = PlayerManager.Instance.transform.position;
-    }
-
-    void OnDisable()
-    {
-        StopAllCoroutines();
-    }
 
     IEnumerator CheckForTargetsRoutine()
     {

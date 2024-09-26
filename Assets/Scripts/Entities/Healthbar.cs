@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
     }
     public void UpdateHealth()
     {
-        image.fillAmount = playerHealth != null ? Mathf.Lerp(image.fillAmount, playerHealth.currentHealth, playerHealth.maxHealth) : Mathf.Lerp(image.fillAmount, health.CurrentHealth / health.MaxHealth, 0.1f);
+        image.fillAmount = playerHealth != null ? Mathf.Lerp(image.fillAmount, playerHealth.currentHealth / playerHealth.maxHealth, 0.1f) : Mathf.Lerp(image.fillAmount, health.CurrentHealth / health.MaxHealth, 0.1f);
 
     }
 }

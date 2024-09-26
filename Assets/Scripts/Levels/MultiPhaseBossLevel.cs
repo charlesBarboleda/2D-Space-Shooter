@@ -70,7 +70,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
     void StartPhase1()
     {
         // Start the spawning of enemies
-        spawnerManager.StartCoroutine(spawnerManager.SpawnEnemiesWaves(1, 30f));
+        spawnerManager.StartCoroutine(spawnerManager.SpawnEnemiesWaves(5, 20f));
 
         // Play phase 1 music
         spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase1Music());
@@ -112,13 +112,20 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         Debug.Log("Transitioning to Phase 3");
         // Disable the UI panels
         UIManager.Instance.DeactivateAllUIPanels();
-        Debug.Log("Deactivated all UI panels from MultiPhaseBossLevel");
-        bossAttackManagerPhase1.AimRange = 0; // Disable boss attacks while transitioning
+        // Disable boss attacks while transitioning
+        bossAttackManagerPhase1.IsSilenced = true;
+        // Disable turret attacks while transitioning
+        AttackManager[] turretManager = bossShip.GetComponentsInChildren<AttackManager>();
+        foreach (AttackManager turret in turretManager)
+        {
+            turret.IsSilenced = true;
+        }
         UIManager.Instance.bossHealthBar.gameObject.SetActive(false);
         // Play Phase 3 music and disable boss movement and health
         spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase3Music());
 
         bossKinematicsPhase1.ShouldMove = false; // Disable boss movement
+        bossKinematicsPhase1.ShouldRotate = false; // Disable boss rotation
         bossHealthPhase1.isDead = true; // Mark boss as "dead" to stop its actions
 
         // Spawn portal

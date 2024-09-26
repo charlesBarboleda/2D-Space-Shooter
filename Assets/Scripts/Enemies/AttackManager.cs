@@ -6,6 +6,7 @@ public class AttackManager : MonoBehaviour
 {
     [SerializeField] float _aimRange = 20f;
     [SerializeField] float _attackCooldown = 1f;
+    [SerializeField] bool _isSilenced;
     float _elapsedCooldown;
 
     // Update is called once per frame
@@ -38,4 +39,5 @@ public class AttackManager : MonoBehaviour
     public float AimRange { get => _aimRange; set => _aimRange = value; }
     public float AttackCooldown { get => _attackCooldown; set => _attackCooldown = value; }
     public float ElapsedCooldown { get => _elapsedCooldown; set => _elapsedCooldown = value; }
+    public bool IsSilenced { get => _isSilenced; set => _isSilenced = value; }
 }

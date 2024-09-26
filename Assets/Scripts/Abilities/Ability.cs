@@ -25,9 +25,6 @@ public abstract class Ability : ScriptableObject
 
             AbilityLogic(owner, target);
 
-            // Play the ability particles
-            owner.GetComponent<Enemy>().PlayAbilityParticles();
-
             currentCooldown = 0f;
         }
         else

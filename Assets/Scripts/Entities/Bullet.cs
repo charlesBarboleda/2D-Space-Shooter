@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -69,12 +71,50 @@ public class Bullet : MonoBehaviour
 
     IEnumerator BulletOnHitEffect()
     {
+        // Get screen position from world position
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+
+        // Spawn damage text and convert its position to canvas space
+        GameObject damageText = ObjectPooler.Instance.SpawnFromPool("DamageText", transform.position, Quaternion.identity);
+        Debug.Log("Damage text spawned");
+
+        // Set the parent to the world canvas and convert the screen point to the canvas's world position
+        damageText.transform.SetParent(UIManager.Instance.worldCanvas.transform, false);
+
+        // Convert screen position to local position in the canvas
+        RectTransform canvasRect = UIManager.Instance.worldCanvas.GetComponent<RectTransform>();
+        RectTransform damageTextRect = damageText.GetComponent<RectTransform>();
+
+        Vector2 localPosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPosition, Camera.main, out localPosition);
+        damageTextRect.localPosition = localPosition;
+
+        Debug.Log("Damage text parented and positioned");
+
+        // Set damage text content
+        damageText.GetComponent<TextMeshProUGUI>().text = Mathf.Round(BulletDamage).ToString();
+
         _spriteRenderer.enabled = false;
         _boxCollider2D.enabled = false;
         _bulletOnHitEffect = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(1f);
-        Deactivate();
+
+        yield return StartCoroutine(MoveUpAndFadeOut(damageText, 1f));
+
         _bulletOnHitEffect.SetActive(false);
+        Deactivate();
+    }
+
+    IEnumerator MoveUpAndFadeOut(GameObject damageTextObject, float duration)
+    {
+        float time = 0;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            damageTextObject.transform.position += Vector3.up * Time.deltaTime * 5f;
+            damageTextObject.GetComponent<TextMeshProUGUI>().color = new Color(1, 1, 1, 1 - time / duration);
+            yield return null;
+        }
+        damageTextObject.SetActive(false);
     }
 
 
