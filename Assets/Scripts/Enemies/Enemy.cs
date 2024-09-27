@@ -73,7 +73,7 @@ public abstract class Enemy : MonoBehaviour, ITargetable
             {
 
                 // Check if the target is the one we should shoot at
-                if (_attackManager.IsTargetInRange(TargetManager.CurrentTarget.transform) && _attackManager.ElapsedCooldown <= 0 && _attackManager.IsSilenced == false)
+                if (_attackManager.IsTargetInRange() && _attackManager.ElapsedCooldown <= 0 && _attackManager.IsSilenced == false)
                 {
 
                     Attack();

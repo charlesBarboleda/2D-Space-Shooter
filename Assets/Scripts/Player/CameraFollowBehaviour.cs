@@ -75,6 +75,25 @@ public class CameraFollowBehaviour : MonoBehaviour
         }
     }
 
+    public void IncreaseOrthographicSize(float targetSize, float duration)
+    {
+        StartCoroutine(ChangeOrthographicSize(targetSize, duration));
+    }
+
+    public IEnumerator ChangeOrthographicSize(float targetSize, float duration)
+    {
+        float startSize = targetCamera.m_Lens.OrthographicSize;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            targetCamera.m_Lens.OrthographicSize = Mathf.Lerp(startSize, targetSize, elapsedTime / transitionDuration);
+            Debug.Log("Changing orthographic size to " + targetCamera.m_Lens.OrthographicSize);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+    }
+
     // Function to start camera shake on the target camera
     public void ShakeTargetCamera(float amplitude, float frequency, float duration)
     {

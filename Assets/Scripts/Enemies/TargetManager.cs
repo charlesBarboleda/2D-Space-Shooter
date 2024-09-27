@@ -55,7 +55,8 @@ public class TargetManager : MonoBehaviour
 
         if (_currentTarget != null)
         {
-            _targetPosition = _currentTarget.transform.position;
+            // Instead of using the center position, ensure the perimeter point is used
+            _targetPosition = GetColliderPerimeterPoint(_currentTarget);
         }
     }
 
@@ -76,8 +77,7 @@ public class TargetManager : MonoBehaviour
         // If switching is not allowed and there is a current target, maintain it
         if (!_canSwitchTargets && _currentTarget != null)
         {
-
-            return _currentTarget.transform.position;
+            return GetColliderPerimeterPoint(_currentTarget);
         }
 
         Vector3 bestTargetPoint = Vector3.zero;
@@ -86,7 +86,6 @@ public class TargetManager : MonoBehaviour
 
         foreach (ITargetable target in _targets)
         {
-
             if (!target.IsAlive())
             {
                 continue;
@@ -103,19 +102,18 @@ public class TargetManager : MonoBehaviour
             {
                 isValidTarget = true; // Target enemies
             }
-            else
-            {
-            }
 
             // If the target is valid, check its distance
             if (isValidTarget)
             {
-                float distance = Vector3.Distance(transform.position, target.GetPosition());
+                GameObject targetGameObject = (target as MonoBehaviour).gameObject;
+                Vector3 perimeterPoint = GetColliderPerimeterPoint(targetGameObject);
+                float distance = Vector3.Distance(transform.position, perimeterPoint);
 
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
-                    bestTargetPoint = target.GetPosition();
+                    bestTargetPoint = perimeterPoint;
                     bestTarget = target;
                 }
             }
@@ -125,7 +123,7 @@ public class TargetManager : MonoBehaviour
         if (bestTarget != null)
         {
             _currentTarget = (bestTarget as MonoBehaviour).gameObject; // Get GameObject from target
-            return bestTargetPoint; // Return the new target's position
+            return bestTargetPoint; // Return the new target's perimeter point
         }
 
         // Fallback: If no valid target is found, stick with player or maximum priority
@@ -133,13 +131,43 @@ public class TargetManager : MonoBehaviour
         {
             _currentTarget = prioritizePlayer ? PlayerManager.Instance.gameObject : _maximumPriority;
         }
-        else
-        {
-        }
 
         // Return the player's or priority target's position if no other valid target was found
-        return _currentTarget != null ? _currentTarget.transform.position : bestTargetPoint;
+        return _currentTarget != null ? GetColliderPerimeterPoint(_currentTarget) : bestTargetPoint;
     }
+
+    // Get a point on the perimeter of the target's Collider2D
+    Vector3 GetColliderPerimeterPoint(GameObject target)
+    {
+        CompositeCollider2D targetCollider = target.GetComponent<CompositeCollider2D>();
+        if (targetCollider != null)
+        {
+            // Get the vector direction from the source (this object) to the target
+            Vector3 directionToTarget = (target.transform.position - transform.position).normalized;
+
+            // Get the point on the perimeter of the collider by using ClosestPoint and raycasting outward
+            Vector3 sourcePosition = transform.position;
+
+            // Offset the source position slightly in the direction of the target to avoid calculating inside the collider
+            Vector3 offsetPosition = sourcePosition + directionToTarget * 0.1f;
+
+            // Find the closest point on the collider to this slightly offset source position
+            Vector3 closestPoint = targetCollider.ClosestPoint(offsetPosition);
+
+            // Debug line to see the result
+            Debug.DrawLine(transform.position, closestPoint, Color.green, 1.0f);
+
+            return closestPoint;
+        }
+        else
+        {
+            // Fallback to the target's center if there's no Collider2D
+            Debug.LogWarning($"Target {target.name} does not have a Collider2D. Falling back to center.");
+            return target.transform.position;
+        }
+    }
+
+
     // Register target to the list
     public static void RegisterTarget(ITargetable target)
     {

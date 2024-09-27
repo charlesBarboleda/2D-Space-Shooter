@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 5608435919869897698}
   - component: {fileID: 1369175367832247438}
   - component: {fileID: 7681796144276164879}
+  - component: {fileID: 7088061518754756023}
+  - component: {fileID: 2582666440724623257}
   m_Layer: 14
   m_Name: ThraxBoss 2 Phase 2
   m_TagString: ThraxArmada
@@ -73,7 +75,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 32fac6e45890e9d48961b3db7c93c0be, type: 2}
+  - {fileID: 2100000, guid: 84645e35fa1249b43b8252ddd6bbf58b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -678,7 +680,7 @@ MonoBehaviour:
   _bulletDamage: 50
   _amountOfBullets: 30
   _shootingAngle: 50
-  _bulletLifetime: 5
+  _bulletLifetime: 10
   _bulletPattern: 0
   nextFireTime: 0
 --- !u!114 &1369175367832247438
@@ -694,7 +696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _aimRange: 1000
-  _attackCooldown: 3
+  _attackCooldown: 1.5
+  _isSilenced: 0
 --- !u!114 &7681796144276164879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,14 +710,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkForTargetsInterval: 0.5
-  _checkForTargetsRadius: 1000
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
   prioritizePlayer: 1
   _maximumPriority: {fileID: 5239728600239547954, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+  _checkForTargetsInterval: 0.5
+--- !u!114 &7088061518754756023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777100890437770891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e4739b503f8d3f448b555d9043458f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveAmount: 0.02
+  dissolveSpeed: 1
+--- !u!114 &2582666440724623257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777100890437770891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beda144f9d9035749b6471b54b716de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _exhausts:
+  - {fileID: 8987605826513359427}
+  - {fileID: 5974782661177597016}
+  - {fileID: 8312833670853841048}
+  phaseThreshold: 2
 --- !u!1 &2503615000600082859
 GameObject:
   m_ObjectHideFlags: 0

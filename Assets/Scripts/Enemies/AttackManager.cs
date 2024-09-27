@@ -7,7 +7,14 @@ public class AttackManager : MonoBehaviour
     [SerializeField] float _aimRange = 20f;
     [SerializeField] float _attackCooldown = 1f;
     [SerializeField] bool _isSilenced;
+    TargetManager _targetManager;
     float _elapsedCooldown;
+
+
+    void Awake()
+    {
+        _targetManager = GetComponent<TargetManager>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -24,17 +31,15 @@ public class AttackManager : MonoBehaviour
     }
 
 
-    public bool IsTargetInRange(Transform target)
+    public bool IsTargetInRange()
     {
-        // Calculate edge distance
-        if (target.TryGetComponent<Collider2D>(out Collider2D targetCollider))
-        {
-            Vector2 closestPointToTarget = targetCollider.ClosestPoint(transform.position);
-            float distanceToTargetEdge = Vector2.Distance(transform.position, closestPointToTarget);
-            return distanceToTargetEdge < _aimRange;
-        }
-        return false;
+        CompositeCollider2D targetCollider = _targetManager.CurrentTarget.GetComponent<CompositeCollider2D>();
+        float targetSize = targetCollider != null ? targetCollider.bounds.extents.magnitude : 0;
+
+        // Add targetSize to account for bigger targets
+        return Vector3.Distance(transform.position, _targetManager.TargetPosition) <= _aimRange + targetSize;
     }
+
 
     public float AimRange { get => _aimRange; set => _aimRange = value; }
     public float AttackCooldown { get => _attackCooldown; set => _attackCooldown = value; }
