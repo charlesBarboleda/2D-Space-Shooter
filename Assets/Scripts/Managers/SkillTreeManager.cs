@@ -234,8 +234,8 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's speed by 10%
-                float _increaseSpeed = 1.10f;
+                // Increase the player's speed by 5%
+                float _increaseSpeed = 1.05f;
                                 PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
 
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
@@ -250,8 +250,8 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's speed by 8%
-                float _increaseSpeed = 1.08f;
+                // Increase the player's speed by 4%
+                float _increaseSpeed = 1.04f;
                                 PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
 
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
@@ -266,8 +266,8 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's speed by 5%
-                float _increaseSpeed = 1.05f;
+                // Increase the player's speed by 3%
+                float _increaseSpeed = 1.03f;
                 PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
 
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
@@ -281,8 +281,8 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's speed by 3%
-                float _increaseSpeed = 1.03f;
+                // Increase the player's speed by 1%
+                float _increaseSpeed = 1.01f;
                 PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
@@ -442,13 +442,13 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
             () =>
             {
                 // Increase the player's bullet count by 3
-                int bulletIncrease = 3;
+                int bulletIncrease = 1;
                 PlayerManager.GetInstance().Weapon().amountOfBullets += bulletIncrease;
-                Debug.Log("Bullet Count Increased by " + bulletIncrease + " Bullets");
+                Debug.Log("Bullet Count Increased by " + bulletIncrease + " Bullet");
             }
         };
 
-        ApplySkillEffect("Bullet Hell", 0, skillEffects);
+        ApplySkillEffect("Bullet Hell", 1000, skillEffects);
     }
     public void ApplyBlitzShotEffect()
     {
@@ -456,8 +456,8 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
         {
             () =>
             {
-                // Decrease the player's fire rate by 10%
-                float decreaseFireRate = 0.90f;
+                // Decrease the player's fire rate by 5%
+                float decreaseFireRate = 0.95f;
                 PlayerManager.GetInstance().Weapon().fireRate *= decreaseFireRate;
                 Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
             }
@@ -472,7 +472,7 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
             () =>
             {
                 // Decrease the player's fire rate by 5%
-                float decreaseFireRate = 0.95f;
+                float decreaseFireRate = 0.975f;
                 PlayerManager.GetInstance().Weapon().fireRate *= decreaseFireRate;
                 Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
             }
@@ -486,8 +486,8 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
         {
             () =>
             {
-                // Decrease the player's fire rate by 5%
-                float decreaseFireRate = 0.95f;
+                // Decrease the player's fire rate by 2.5%
+                float decreaseFireRate = 0.975f;
                 PlayerManager.GetInstance().Weapon().fireRate *= decreaseFireRate;
                 Debug.Log("Fire Rate Decreased by " + (1 - decreaseFireRate) * 100 + "%");
             }
@@ -580,7 +580,7 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
             () =>
             {
                 // Increase the player's bullet damage by 10%
-                float increaseDamage = 1.10f;
+                float increaseDamage = 1.05f;
                 PlayerManager.GetInstance().Weapon().bulletDamage *= increaseDamage;
                 Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
             },
@@ -595,14 +595,14 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
         {
             () =>
             {
-                // Increase the player's bullet count by 3
-                int bulletIncrease = 3;
+                // Increase the player's bullet count by 1
+                int bulletIncrease = 1;
                 PlayerManager.GetInstance().Weapon().amountOfBullets += bulletIncrease;
                 Debug.Log("Bullet Count Increased by " + bulletIncrease + " Bullets");
             },
         };
 
-        ApplySkillEffect("Spray And Pray", 250, skillEffects);
+        ApplySkillEffect("Spray And Pray", 1000, skillEffects);
     }
     public void ApplyFerocityEffect()
     {
@@ -611,7 +611,7 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
             () =>
             {
                 // Increase the player's bullet damage by 10%
-                float increaseDamage = 1.10f;
+                float increaseDamage = 1.05f;
                 PlayerManager.GetInstance().Weapon().bulletDamage *= increaseDamage;
                 Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
             },
@@ -627,7 +627,7 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
             () =>
             {
                 // Increase the player's bullet damage by 10%
-                float increaseDamage = 1.10f;
+                float increaseDamage = 1.05f;
                 PlayerManager.GetInstance().Weapon().bulletDamage *= increaseDamage;
                 Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
             },
@@ -642,8 +642,8 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
         {
             () =>
             {
-                // Increase the player's bullet damage by 5%
-                float increaseDamage = 1.05f;
+                // Increase the player's bullet damage by 2.5%
+                float increaseDamage = 1.025f;
                 PlayerManager.GetInstance().Weapon().bulletDamage *= increaseDamage;
                 Debug.Log("Bullet Damage Increased by " + increaseDamage + "%");
             }

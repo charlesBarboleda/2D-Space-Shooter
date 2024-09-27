@@ -49,10 +49,6 @@ public class LevelManager : MonoBehaviour
         {
             return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
         }
-        {
-            // return CreateDoubleInvasionLevel();
-        }
-
 
         // Otherwise, create a horde level
         return CreateHordeLevel();
@@ -94,7 +90,7 @@ public class LevelManager : MonoBehaviour
         Debug.Log($"Ships to spawn invading: {shipsToSpawnInvading.Count}");
         List<Ship> shipsToSpawnDefending = _spawnerManager.DetermineDefendingShips();
         Debug.Log($"Ships to spawn defending: {shipsToSpawnDefending.Count}");
-        int spawnAmountRatio = 2 / 1;
+        int spawnAmountRatio = 1 / 2;
         int amountOfEnemiesLosing = _currentLevelIndex * 10;
         FactionType factionType = InvasionManager.Instance.InvadingFactions[0];
 

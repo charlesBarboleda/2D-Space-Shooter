@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: BulletHell
   m_EditorClassIdentifier: 
   skillName: Bullet Hell
-  description: Increase bullet count by 3
+  description: Increase bullet count by 1
   cost: 1000
   skillIcon: {fileID: 21300000, guid: cbd5dd2ae373bd84997e34a41273466c, type: 3}
   startingCost: 1000
   prequisites:
   - {fileID: 11400000, guid: 7e5a012ae1e4cbe4f9cf577c3d23b3c7, type: 2}
   children: []
-  skillLevel: 0
-  maxSkillLevel: 1
-  isUnlocked: 0
+  skillLevel: 1
+  maxSkillLevel: 3
+  isUnlocked: 1

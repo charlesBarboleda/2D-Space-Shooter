@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [DefaultExecutionOrder(-99)]
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, ITargetable
 {
     public static PlayerManager Instance { get; private set; }
 
@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     AbilityHolder _abilityHolder;
     PickUpBehaviour _pickUpBehaviour;
     PowerUpBehaviour _powerUpBehaviour;
+    Faction _faction;
     Weapon _weapon;
     [SerializeField] AudioClip _onDebrisAudio;
     [SerializeField] AudioClip _onPowerUpAudio;
@@ -26,6 +27,7 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
+        _faction = GetComponent<Faction>();
         _audioSource = GetComponent<AudioSource>();
         _powerUpBehaviour = GetComponent<PowerUpBehaviour>();
         _pickUpBehaviour = GetComponent<PickUpBehaviour>();
@@ -96,6 +98,21 @@ public class PlayerManager : MonoBehaviour
     #region Currency Management
     public float Currency() => _currency.currency;
     public void SetCurrency(float amount) => _currency.SetCurrency(amount);
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
+    public bool IsAlive()
+    {
+        return !_health.isDead;
+    }
+
+    public FactionType GetFactionType()
+    {
+        return _faction.factionType;
+    }
     #endregion
 
     #region PickUp Management

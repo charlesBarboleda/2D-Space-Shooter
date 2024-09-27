@@ -98,7 +98,7 @@ public class SoloInvasionLevel : Level
     {
         yield return new WaitForSeconds(Random.Range(20f, 30f));
         _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateLosing / 2, _amountOfEnemiesDefending * _spawnAmountRatio, 200f, _totalInvaders));
-        UIManager.Instance.MidScreenWarningText($"{InvasionManager.Instance.InvadingFactions[0]} Invasion!", 3f);
+        UIManager.Instance.MidScreenWarningText($"An invasion is coming!", 2f);
     }
 
     public void RegisterInvaderKill(string invaderID, GameObject invader)
