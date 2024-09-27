@@ -76,7 +76,7 @@ public class TargetManager : MonoBehaviour
         // If switching is not allowed and there is a current target, maintain it
         if (!_canSwitchTargets && _currentTarget != null)
         {
-            Debug.Log($"Maintaining current target: {_currentTarget.transform.position}");
+
             return _currentTarget.transform.position;
         }
 
@@ -86,11 +86,9 @@ public class TargetManager : MonoBehaviour
 
         foreach (ITargetable target in _targets)
         {
-            Debug.Log($"Checking target: {target}");
 
             if (!target.IsAlive())
             {
-                Debug.Log($"Skipping target {target} - not alive");
                 continue;
             }
 
@@ -100,30 +98,25 @@ public class TargetManager : MonoBehaviour
             if (_targetAllies && target.GetFactionType() == _faction.factionType)
             {
                 isValidTarget = true; // Target allies
-                Debug.Log($"Target {target} is an ally.");
             }
             else if (!_targetAllies && _faction.IsHostileTo(target.GetFactionType()))
             {
                 isValidTarget = true; // Target enemies
-                Debug.Log($"Target {target} is an enemy.");
             }
             else
             {
-                Debug.Log($"Target {target} is not valid. Is Ally: {_targetAllies}, Faction Type: {target.GetFactionType()}");
             }
 
             // If the target is valid, check its distance
             if (isValidTarget)
             {
                 float distance = Vector3.Distance(transform.position, target.GetPosition());
-                Debug.Log($"Evaluating target {target} at distance {distance}");
 
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
                     bestTargetPoint = target.GetPosition();
                     bestTarget = target;
-                    Debug.Log($"New closest target: {target} at distance {closestDistance}");
                 }
             }
         }
@@ -132,7 +125,6 @@ public class TargetManager : MonoBehaviour
         if (bestTarget != null)
         {
             _currentTarget = (bestTarget as MonoBehaviour).gameObject; // Get GameObject from target
-            Debug.Log($"Current target updated to: {_currentTarget.transform.position}");
             return bestTargetPoint; // Return the new target's position
         }
 
@@ -140,11 +132,9 @@ public class TargetManager : MonoBehaviour
         if (_currentTarget == null || !_currentTarget.activeInHierarchy)
         {
             _currentTarget = prioritizePlayer ? PlayerManager.Instance.gameObject : _maximumPriority;
-            Debug.Log($"Fallback to target: {_currentTarget?.transform.position}");
         }
         else
         {
-            Debug.Log("No valid targets found, retaining current target.");
         }
 
         // Return the player's or priority target's position if no other valid target was found

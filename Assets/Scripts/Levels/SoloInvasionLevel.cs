@@ -11,6 +11,8 @@ public class SoloInvasionLevel : Level
     float _spawnRateLosing;
     LevelManager _levelManager;
     SpawnerManager _spawnerManager;
+    bool _invasionLost = false;
+    bool _invasionWon = false;
 
 
 
@@ -35,29 +37,31 @@ public class SoloInvasionLevel : Level
         // Calculate the amount of enemies to spawn
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesDefending + (_amountOfEnemiesDefending * _spawnAmountRatio);
         // Start the spawning of the losing enemies
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRateLosing, _amountOfEnemiesDefending, 200f, shipList));
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRateLosing, _amountOfEnemiesDefending, 150f, shipList));
         // Start the spawning of the winning enemies after a delay
         _spawnerManager.StartCoroutine(DelayedSpawn());
     }
 
     public override void UpdateLevel()
     {
-        Debug.Log("Enemies to spawn: " + _spawnerManager.EnemiesToSpawnLeft);
-        Debug.Log("Enemies spawned: " + _spawnerManager.EnemiesList.Count);
-        Debug.Log("Total invaders: " + _totalInvaders.Count);
         if (_spawnerManager.EnemiesList.Count <= 0 && _spawnerManager.EnemiesToSpawnLeft <= 0)
         {
             CompleteLevel();
         }
         // Check if the invasion has lost
-        if (InvasionLost())
+        else if (InvasionLost())
         {
-            Debug.Log("The Invasion has lost");
-            // Add UI event
+            if (!_invasionLost)
+            {
+                _invasionLost = true;
+                Debug.Log("The Invasion has lost");
+            }
+
         }
         // Check if the invasion has won
-        else if (InvasionWon())
+        else if (InvasionWon() && !_invasionWon)
         {
+            _invasionWon = true;
             EventManager.FactionInvasionWonEvent(_factionType);
             Debug.Log("The Invasion has won");
         }
@@ -92,8 +96,9 @@ public class SoloInvasionLevel : Level
 
     IEnumerator DelayedSpawn()
     {
-        yield return new WaitForSeconds(Random.Range(10f, 20f));
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateLosing / 2, _amountOfEnemiesDefending * _spawnAmountRatio, 300f, _totalInvaders));
+        yield return new WaitForSeconds(Random.Range(20f, 30f));
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateLosing / 2, _amountOfEnemiesDefending * _spawnAmountRatio, 200f, _totalInvaders));
+        UIManager.Instance.MidScreenWarningText($"{InvasionManager.Instance.InvadingFactions[0]} Invasion!", 3f);
     }
 
     public void RegisterInvaderKill(string invaderID, GameObject invader)

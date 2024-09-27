@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     public Canvas worldCanvas;
+    public TextMeshProUGUI midScreenText;
 
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
@@ -206,6 +207,27 @@ public class UIManager : MonoBehaviour
         SetCostText(extraBulletCost, UpgradeShopManager.extraBulletUpgrade);
         SetCostText(speedCost, UpgradeShopManager.shipSpeedUpgrade);
         SetCostText(pickUpCost, UpgradeShopManager.pickUpUpgrade);
+    }
+
+    public void MidScreenWarningText(string text, float duration)
+    {
+        StartCoroutine(OnMidScreenText(text, duration));
+    }
+    IEnumerator OnMidScreenText(string text, float duration)
+    {
+        midScreenText.text = text;
+        midScreenText.gameObject.SetActive(true);
+        float t = 0;
+        while (t < duration)
+        {
+            // Text fades in and out multiple times to create a pulsing effect
+            midScreenText.color = new Color(1, 1, 1, Mathf.PingPong(Time.time * 2, 1));
+            t += Time.deltaTime;
+
+            yield return null;
+        }
+        yield return new WaitForSeconds(2f);
+        midScreenText.gameObject.SetActive(false);
     }
 
     public IEnumerator OnHitDamageText(string text, Vector3 position)

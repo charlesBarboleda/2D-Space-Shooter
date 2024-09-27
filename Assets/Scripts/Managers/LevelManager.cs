@@ -34,24 +34,28 @@ public class LevelManager : MonoBehaviour
 
     Level GenerateNextLevel()
     {
-        // In 10-20 levels, create an invasion level
-        if (_currentLevelIndex % Random.Range(10, 20) == 0)
+        // In 3-6 levels, create an invasion level
+        if (_currentLevelIndex % Random.Range(3, 7) == 0)
             return CreateSoloInvasionLevel();
 
         // In 5-10 levels, create a solo shooter boss level or a solo carrier boss level
-        else if (_currentLevelIndex % Random.Range(1, 2) == 0)
+        else if (_currentLevelIndex % Random.Range(5, 11) == 0)
         {
-            if (Random.value > 0.01f) CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
+            if (Random.value > 0.5f) CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
             else CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
         }
-        else if (_currentLevelIndex % Random.Range(20, 40) == 0)
+        // In 10-20 levels, create a Multi Phase Boss level if the defending faction is the Thrax Armada
+        else if (_currentLevelIndex % Random.Range(10, 21) == 0 && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
+        {
+            return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
+        }
         {
             // return CreateDoubleInvasionLevel();
         }
 
 
         // Otherwise, create a horde level
-        return CreateSoloInvasionLevel();
+        return CreateHordeLevel();
     }
 
 
@@ -85,14 +89,14 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateSoloInvasionLevel()
     {
-        float spawnRateDefending = Mathf.Max(5f - (_currentLevelIndex * 0.1f), 0.1f);
+        float spawnRateDefending = 0.5f;
         List<Ship> shipsToSpawnInvading = _spawnerManager.DetermineSoloInvadingShips();
         Debug.Log($"Ships to spawn invading: {shipsToSpawnInvading.Count}");
         List<Ship> shipsToSpawnDefending = _spawnerManager.DetermineDefendingShips();
         Debug.Log($"Ships to spawn defending: {shipsToSpawnDefending.Count}");
         int spawnAmountRatio = 2 / 1;
-        int amountOfEnemiesLosing = _currentLevelIndex * 5;
-        FactionType factionType = FactionType.CrimsonFleet;
+        int amountOfEnemiesLosing = _currentLevelIndex * 10;
+        FactionType factionType = InvasionManager.Instance.InvadingFactions[0];
 
         return new SoloInvasionLevel(
             factionType,
@@ -133,9 +137,9 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateHordeLevel()
     {
-        int amountOfEnemies = _currentLevelIndex * 5;
+        int amountOfEnemies = _currentLevelIndex * 10;
         List<Ship> shipsToSpawn = _spawnerManager.DetermineDefendingShips();
-        float spawnRate = Mathf.Max(5f - (_currentLevelIndex * 0.1f), 0.1f);
+        float spawnRate = 0.5f;
         FactionType factionType = FactionType.Syndicates;
 
         return new HordeLevel(
