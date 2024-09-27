@@ -91,7 +91,7 @@ public class LevelManager : MonoBehaviour
         List<Ship> shipsToSpawnDefending = _spawnerManager.DetermineDefendingShips();
         Debug.Log($"Ships to spawn defending: {shipsToSpawnDefending.Count}");
         int spawnAmountRatio = 2 / 1;
-        int amountOfEnemiesLosing = _currentLevelIndex * 5;
+        int amountOfEnemiesLosing = 1;
         FactionType factionType = FactionType.CrimsonFleet;
 
         return new SoloInvasionLevel(
