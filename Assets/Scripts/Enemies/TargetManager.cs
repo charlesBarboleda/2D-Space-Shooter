@@ -18,13 +18,21 @@ public class TargetManager : MonoBehaviour
     void Awake()
     {
         _faction = GetComponent<Faction>();
-        StartCoroutine(CheckForTargetsRoutine());
+
     }
 
     void OnEnable()
     {
         _currentTarget = prioritizePlayer ? PlayerManager.Instance.gameObject : _maximumPriority;
-        _targetPosition = _currentTarget.transform.position;
+        if (_canSwitchTargets)
+        {
+            _targetPosition = CheckForTargets(); // Immediately check for nearby targets
+        }
+        else
+        {
+            _targetPosition = _currentTarget.transform.position;
+        }
+        StartCoroutine(CheckForTargetsRoutine());
     }
 
     void OnDisable()

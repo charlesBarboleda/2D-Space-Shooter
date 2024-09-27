@@ -57,6 +57,14 @@ public class InvasionManager : MonoBehaviour
             _invadingFactions.Remove(faction);
             _defendingFaction = faction;
             _factionInvasionProgress[faction] = 0;
+            // Add a random faction that's not in defending faction to the invading faction list 
+            FactionType randomFaction = (FactionType)Random.Range(0, 3);
+            while (randomFaction == _defendingFaction)
+            {
+                randomFaction = (FactionType)Random.Range(0, 3);
+            }
+            _invadingFactions.Add(randomFaction);
+
         }
     }
 
