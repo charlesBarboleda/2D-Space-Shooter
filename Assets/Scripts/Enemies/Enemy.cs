@@ -8,7 +8,7 @@ using UnityUtils;
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Faction))]
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour, ITargetable
 {
     // References
     Health _health;
@@ -88,7 +88,18 @@ public abstract class Enemy : MonoBehaviour
         EnableAudioSource();
         IncreaseStatsPerLevel();
         StartCoroutine(StartSpawnAnimationWithDelay());
+        StartCoroutine(RegisterWithDelay());
+    }
 
+
+    IEnumerator RegisterWithDelay()
+    {
+        yield return new WaitForEndOfFrame();
+        TargetManager.RegisterTarget(this);
+    }
+    protected virtual void OnDisable()
+    {
+        TargetManager.UnregisterTarget(this);
     }
 
     void EnableAudioSource() => _audioSource.enabled = true;
@@ -176,6 +187,21 @@ public abstract class Enemy : MonoBehaviour
 
         _kinematics.MaxSpeed += LevelManager.Instance.CurrentLevelIndex * 0.05f;
 
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
+    public bool IsAlive()
+    {
+        return !_health.isDead;
+    }
+
+    public FactionType GetFactionType()
+    {
+        return _faction.factionType;
     }
 
     /// <summary>
