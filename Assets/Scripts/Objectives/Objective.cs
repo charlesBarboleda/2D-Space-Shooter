@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Objective : ScriptableObject
 {
+    Level _level;
     [SerializeField] string _objectiveDescription;
     [SerializeField] bool _isCompleted;
     [SerializeField] bool _isActive;

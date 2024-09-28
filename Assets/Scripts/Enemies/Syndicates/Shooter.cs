@@ -134,7 +134,7 @@ public class ShooterEnemy : Enemy
         base.IncreaseStatsPerLevel();
         _bulletSpeed += LevelManager.Instance.CurrentLevelIndex * 0.01f;
         _bulletDamage += LevelManager.Instance.CurrentLevelIndex * 0.5f;
-        AttackManager.AimRange += LevelManager.Instance.CurrentLevelIndex * 0.1f;
+        AttackManager.AimRange = Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 0.1f, 100f);
     }
 
     public override void BuffedState()

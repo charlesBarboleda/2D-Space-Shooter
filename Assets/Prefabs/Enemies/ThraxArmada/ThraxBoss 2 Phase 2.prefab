@@ -509,7 +509,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHealth: 100000
   _maxHealth: 100000
-  _currencyDrop: 100000
+  _currencyDrop: 50000
   _currencyPrefab:
   - Debris1
   - Debris2
@@ -747,7 +747,7 @@ MonoBehaviour:
   - {fileID: 8987605826513359427}
   - {fileID: 5974782661177597016}
   - {fileID: 8312833670853841048}
-  phaseThreshold: 2
+  phaseThreshold: 10
 --- !u!1 &2503615000600082859
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,8 +12,10 @@ public class BossPhaseController : MonoBehaviour
     AttackManager _attackManager;
     [SerializeField] List<GameObject> _exhausts = new List<GameObject>();
     bool hasPhased = false;
+    bool hasPhased2 = false;
     Dissolve _dissolve;
-    [SerializeField] float phaseThreshold = 1f;
+    [SerializeField] float phase1Threshold = 2f;
+    [SerializeField] float phase2Threshold = 10f;
 
 
     void Awake()
@@ -26,13 +28,25 @@ public class BossPhaseController : MonoBehaviour
 
     void Update()
     {
-        if (_health.CurrentHealth <= _health.MaxHealth / phaseThreshold && !hasPhased)
+        if (_health.CurrentHealth <= _health.MaxHealth / phase2Threshold && !hasPhased2)
         {
-            hasPhased = true;
+            hasPhased2 = true;
             Debug.Log("Health is below threshold");
             StartCoroutine(Phase2());
             Debug.Log("Starting phase 2");
         }
+        else if (_health.CurrentHealth <= _health.MaxHealth / phase1Threshold && !hasPhased)
+        {
+            hasPhased = true;
+            Debug.Log("Health is below threshold");
+            StartCoroutine(Phase1());
+            Debug.Log("Starting phase 1");
+        }
+    }
+
+    IEnumerator Phase1()
+    {
+        yield return StartCoroutine(_dissolve.DissolveOut());
     }
 
     IEnumerator Phase2()
@@ -48,7 +62,7 @@ public class BossPhaseController : MonoBehaviour
         yield return StartCoroutine(_dissolve.DissolveOut());
         transform.position = new Vector3(0, 0, 0);
         CameraFollowBehaviour.Instance.ActivateTargetCamera(transform);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6f);
         yield return StartCoroutine(_dissolve.DissolveIn());
         yield return StartCoroutine(CameraFollowBehaviour.Instance.ChangeOrthographicSize(200, 1f));
         foreach (GameObject exhaust in _exhausts)
@@ -62,6 +76,7 @@ public class BossPhaseController : MonoBehaviour
     }
 
 
-    public float PhaseThreshold { get => phaseThreshold; set => phaseThreshold = value; }
+    public float Phase1Threshold { get => phase1Threshold; set => phase1Threshold = value; }
+    public float Phase2Threshold { get => phase2Threshold; set => phase2Threshold = value; }
 
 }

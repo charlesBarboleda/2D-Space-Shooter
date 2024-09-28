@@ -162,7 +162,6 @@ public class TargetManager : MonoBehaviour
         else
         {
             // Fallback to the target's center if there's no Collider2D
-            Debug.LogWarning($"Target {target.name} does not have a Collider2D. Falling back to center.");
             return target.transform.position;
         }
     }

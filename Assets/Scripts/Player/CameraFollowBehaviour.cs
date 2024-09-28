@@ -71,7 +71,6 @@ public class CameraFollowBehaviour : MonoBehaviour
         if (!isShaking) // Ensure that shake isn't already in progress
         {
             StartCoroutine(ShakeCameraCoroutine(playerNoise, amplitude, frequency, duration));
-            Debug.Log("Shaking player camera");
         }
     }
 
@@ -87,8 +86,9 @@ public class CameraFollowBehaviour : MonoBehaviour
 
         while (elapsedTime < duration)
         {
-            targetCamera.m_Lens.OrthographicSize = Mathf.Lerp(startSize, targetSize, elapsedTime / transitionDuration);
-            Debug.Log("Changing orthographic size to " + targetCamera.m_Lens.OrthographicSize);
+            targetCamera.m_Lens.OrthographicSize = Mathf.Lerp(startSize, targetSize, elapsedTime / duration);
+            Debug.Log("Changing orthographic size to " + targetSize);
+            Debug.Log("Current orthographic size: " + targetCamera.m_Lens.OrthographicSize);
             elapsedTime += Time.deltaTime;
             yield return null;
         }

@@ -259,7 +259,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: -0.0039661005, y: 0.1255948}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -419,9 +419,23 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 2273399776220737156}
+    m_ColliderPaths:
+    - - X: 2243973
+        Y: 7428352
+      - X: -2590580
+        Y: 7428352
+      - X: -2590580
+        Y: 3547674
+      - X: 2243973
+        Y: 3547674
   m_CompositePaths:
-    m_Paths: []
+    m_Paths:
+    - - {x: 0.224368, y: 0.3547674}
+      - {x: 0.224368, y: 0.7428352}
+      - {x: -0.259058, y: 0.7428059}
+      - {x: -0.2590287, y: 0.3547674}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0

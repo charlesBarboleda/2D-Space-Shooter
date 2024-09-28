@@ -97,8 +97,8 @@ public class SoloInvasionLevel : Level
     IEnumerator DelayedSpawn()
     {
         yield return new WaitForSeconds(Random.Range(20f, 30f));
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateLosing / 2, _amountOfEnemiesDefending * _spawnAmountRatio, 200f, _totalInvaders));
-        UIManager.Instance.MidScreenWarningText($"An invasion is coming!", 2f);
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateLosing / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 200f, _totalInvaders));
+        UIManager.Instance.MidScreenWarningText($"An invasion is coming!", 3.5f);
     }
 
     public void RegisterInvaderKill(string invaderID, GameObject invader)

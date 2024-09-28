@@ -47,9 +47,9 @@ public class SpawnerEnemy : Enemy
         AttackManager.AttackCooldown = AttackManager.AttackCooldown * 1.5f;
     }
 
-    protected void OnDisable()
+    protected override void OnDisable()
     {
-
+        base.OnDisable();
         CancelInvoke("SpawnRandomShips");
     }
 

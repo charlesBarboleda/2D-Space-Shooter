@@ -217,18 +217,22 @@ public class UIManager : MonoBehaviour
     {
         midScreenText.text = text;
         midScreenText.gameObject.SetActive(true);
+
         float t = 0;
+
         while (t < duration)
         {
-            // Text fades in and out multiple times to create a pulsing effect
-            midScreenText.color = new Color(1, 1, 1, Mathf.PingPong(Time.time * 2, 1));
-            t += Time.deltaTime;
+            // Use PingPong to create a continuous fade-in and fade-out effect
+            float fade = Mathf.PingPong(Time.time * 3, 1); // Adjust the multiplier (2) for faster or slower fading
+            midScreenText.color = new Color(1, 1, 1, fade);
 
+            t += Time.deltaTime;
             yield return null;
         }
-        yield return new WaitForSeconds(2f);
+
         midScreenText.gameObject.SetActive(false);
     }
+
 
     public IEnumerator OnHitDamageText(string text, Vector3 position)
     {

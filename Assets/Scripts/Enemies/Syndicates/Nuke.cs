@@ -17,8 +17,9 @@ public class NukeEnemy : Enemy
 
 
 
-    void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         StopAllCoroutines();
         if (_nukeTargetPool != null) _nukeTargetPool.SetActive(false);
 

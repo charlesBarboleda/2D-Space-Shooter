@@ -35,8 +35,9 @@ public class SuicideBomber : Enemy
         Health.Colliders.ForEach(collider => collider.enabled = true);
         Health.Rigidbody.simulated = true;
     }
-    void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         StopAllCoroutines();
 
     }

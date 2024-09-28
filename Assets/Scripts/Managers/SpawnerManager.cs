@@ -10,7 +10,6 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] List<Transform> cometSpawnPoint = new List<Transform>();
     [SerializeField] List<string> cometsList = new List<string>();
     [SerializeField] int numberOfSpawnPoints = 360;
-    [SerializeField] int spawnPointRadius = 200;
     [SerializeField] List<GameObject> _enemiesList;
     [SerializeField] int enemiesToSpawnLeft;
     [SerializeField] List<Vector3> _soloBossSpawnPoints = new List<Vector3>();

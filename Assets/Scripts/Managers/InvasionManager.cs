@@ -27,12 +27,12 @@ public class InvasionManager : MonoBehaviour
             Instance = this;
         }
         // *Trial version code*
-        _defendingFaction = FactionType.Syndicates;
-        _invadingFactions.Add(FactionType.ThraxArmada);
+        // _defendingFaction = FactionType.Syndicates;
+        // _invadingFactions.Add(FactionType.ThraxArmada);
 
         // *Real version code*
-        // _defendingFaction = FactionType.Syndicates;
-        // _invadingFactions.Add(FactionType.CrimsonFleet);
+        _defendingFaction = FactionType.Syndicates;
+        _invadingFactions.Add(FactionType.CrimsonFleet);
     }
 
     void Start()
@@ -73,13 +73,17 @@ public class InvasionManager : MonoBehaviour
             _invadingFactions.Remove(faction);
             _defendingFaction = faction;
             _factionInvasionProgress[faction] = 0;
-            // Add a random faction that's not in defending faction to the invading faction list 
-            FactionType randomFaction = (FactionType)Random.Range(0, 3);
-            while (randomFaction == _defendingFaction)
+
+            // Add a new random faction to the invasion list excluding the defending faction and the player faction
+            FactionType _randomFaction = (FactionType)Random.Range(0, 4);
+            while (_randomFaction == _defendingFaction || _randomFaction == FactionType.Player)
             {
-                randomFaction = (FactionType)Random.Range(0, 3);
+                _randomFaction = (FactionType)Random.Range(0, 4);
             }
-            _invadingFactions.Add(randomFaction);
+            _invadingFactions.Add(_randomFaction);
+
+
+
 
         }
     }

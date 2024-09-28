@@ -44,14 +44,14 @@ public class LevelManager : MonoBehaviour
             if (Random.value > 0.5f) CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
             else CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
         }
-        // In 10-20 levels, create a Multi Phase Boss level if the defending faction is the Thrax Armada
-        else if (_currentLevelIndex % Random.Range(10, 21) == 0 && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
+        // In 5-10 levels, create a Multi Phase Boss level if the defending faction is the Thrax Armada
+        else if (_currentLevelIndex % Random.Range(5, 11) == 0 && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
         {
             return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
         }
 
         // Otherwise, create a horde level
-        return CreateHordeLevel();
+        return CreateSoloInvasionLevel();
     }
 
 

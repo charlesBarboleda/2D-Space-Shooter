@@ -508,7 +508,7 @@ MonoBehaviour:
   _speed: 15
   _maxSpeed: 10
   _acceleration: 1
-  _stopDistance: 30
+  _stopDistance: 60
 --- !u!114 &-8685784215459564580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,14 +521,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkForTargetsInterval: 3
-  _checkForTargetsRadius: 50
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
   prioritizePlayer: 1
   _maximumPriority: {fileID: 0}
+  _checkForTargetsInterval: 3
 --- !u!114 &3038458476815981962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,8 +540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9216c03e867f274db5aaf93c01462f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aimRange: 50
+  _aimRange: 80
   _attackCooldown: 1
+  _isSilenced: 0
 --- !u!1001 &4761905306650182420
 PrefabInstance:
   m_ObjectHideFlags: 0
