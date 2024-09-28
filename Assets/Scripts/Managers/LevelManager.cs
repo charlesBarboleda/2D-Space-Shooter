@@ -102,7 +102,8 @@ public class LevelManager : MonoBehaviour
             spawnAmountRatio,
             amountOfEnemiesLosing,
             this,
-            _spawnerManager);
+            _spawnerManager
+            );
     }
 
     public Level CreateSoloSpawnerBossLevel(string bossName)

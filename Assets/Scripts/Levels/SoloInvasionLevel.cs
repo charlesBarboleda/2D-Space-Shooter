@@ -8,7 +8,7 @@ public class SoloInvasionLevel : Level
     int _spawnAmountRatio;
     List<Ship> _shipsToSpawnInvading;
     Dictionary<string, GameObject> _totalInvaders = new Dictionary<string, GameObject>();
-    float _spawnRateLosing;
+    float _spawnRateDefending;
     LevelManager _levelManager;
     SpawnerManager _spawnerManager;
     bool _invasionLost = false;
@@ -17,17 +17,18 @@ public class SoloInvasionLevel : Level
 
 
 
-    public SoloInvasionLevel(FactionType factionType, float spawnRateLosing, List<Ship> shipsToSpawnInvading, List<Ship> shipsToSpawnDefending, int spawnAmountRatio, int amountOfEnemiesDefending, LevelManager levelManager, SpawnerManager spawnerManager)
+    public SoloInvasionLevel(FactionType factionType, float spawnRateDefending, List<Ship> shipsToSpawnInvading, List<Ship> shipsToSpawnDefending, int spawnAmountRatio, int amountOfEnemiesDefending, LevelManager levelManager, SpawnerManager spawnerManager, List<Objective> objectives)
     {
         _factionType = factionType;
         _leveltype = LevelType.Invasion;
-        _spawnRateLosing = spawnRateLosing;
+        _spawnRateDefending = spawnRateDefending;
         _shipsToSpawn = shipsToSpawnDefending;
         _shipsToSpawnInvading = shipsToSpawnInvading;
         _spawnAmountRatio = spawnAmountRatio;
         _amountOfEnemiesDefending = amountOfEnemiesDefending;
         _levelManager = levelManager;
         _spawnerManager = spawnerManager;
+        _objectives = objectives;
     }
     public override void StartLevel()
     {
@@ -36,8 +37,11 @@ public class SoloInvasionLevel : Level
         EventManager.OnEnemyDestroyed += RegisterInvaderKill;
         // Calculate the amount of enemies to spawn
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesDefending + (_amountOfEnemiesDefending * _spawnAmountRatio);
-        // Start the spawning of the losing enemies
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRateLosing, _amountOfEnemiesDefending, 150f, shipList));
+        // Start the spawning of the defending enemies
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRateDefending, _amountOfEnemiesDefending, 150f, shipList));
+        // Start the proper objectives
+        ObjectivesManager.Instance.StartObjectives();
+
         // Start the spawning of the winning enemies after a delay
         _spawnerManager.StartCoroutine(DelayedSpawn());
     }
@@ -54,7 +58,7 @@ public class SoloInvasionLevel : Level
             if (!_invasionLost)
             {
                 _invasionLost = true;
-                Debug.Log("The Invasion has lost");
+                Debug.Log("The invasion has lost");
             }
 
         }
@@ -63,7 +67,7 @@ public class SoloInvasionLevel : Level
         {
             _invasionWon = true;
             EventManager.FactionInvasionWonEvent(_factionType);
-            Debug.Log("The Invasion has won");
+            Debug.Log("The invasion has won");
         }
 
     }
@@ -97,8 +101,9 @@ public class SoloInvasionLevel : Level
     IEnumerator DelayedSpawn()
     {
         yield return new WaitForSeconds(Random.Range(20f, 30f));
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateLosing / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 200f, _totalInvaders));
-        UIManager.Instance.MidScreenWarningText($"An invasion is coming!", 3.5f);
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateDefending / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 200f, _totalInvaders));
+        UIManager.Instance.MidScreenWarningText($"An invasion is occuring!", 3.5f);
+
     }
 
     public void RegisterInvaderKill(string invaderID, GameObject invader)
@@ -110,6 +115,8 @@ public class SoloInvasionLevel : Level
             Debug.Log($"Invader {invaderID} destroyed. Remaining invaders: {_totalInvaders.Count}");
         }
     }
+
+    public Dictionary<string, GameObject> TotalInvaders { get => _totalInvaders; }
 
 
 }
