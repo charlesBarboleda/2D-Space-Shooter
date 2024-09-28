@@ -179,15 +179,15 @@ public class SpawnerManager : MonoBehaviour
     private List<Ship> GetSyndicatesShips()
     {
         int level = LevelManager.Instance.CurrentLevelIndex + 1;
-        if (level < 10) return ShipDatabase.SyndicatesEarly;
-        else if (level < 20) return ShipDatabase.SyndicatesEarly2;
-        else if (level < 30) return ShipDatabase.SyndicatesEarly3;
-        else if (level < 40) return ShipDatabase.SyndicatesMid;
-        else if (level < 50) return ShipDatabase.SyndicatesMid2;
-        else if (level < 60) return ShipDatabase.SyndicatesMid3;
-        else if (level < 70) return ShipDatabase.SyndicateLate;
-        else if (level < 80) return ShipDatabase.SyndicatesLate2;
-        else if (level < 90) return ShipDatabase.SyndicatesLate3;
+        if (level < 5) return ShipDatabase.SyndicatesEarly;
+        else if (level < 10) return ShipDatabase.SyndicatesEarly2;
+        else if (level < 15) return ShipDatabase.SyndicatesEarly3;
+        else if (level < 20) return ShipDatabase.SyndicatesMid;
+        else if (level < 25) return ShipDatabase.SyndicatesMid2;
+        else if (level < 30) return ShipDatabase.SyndicatesMid3;
+        else if (level < 35) return ShipDatabase.SyndicateLate;
+        else if (level < 40) return ShipDatabase.SyndicatesLate2;
+        else if (level < 45) return ShipDatabase.SyndicatesLate3;
 
         return null;
     }
@@ -195,8 +195,8 @@ public class SpawnerManager : MonoBehaviour
     private List<Ship> GetShipsBasedOnLevel(List<Ship> early, List<Ship> mid, List<Ship> late)
     {
         int level = LevelManager.Instance.CurrentLevelIndex + 1;
-        if (level < 30) return early;
-        else if (level < 60) return mid;
+        if (level < 10) return early;
+        else if (level < 20) return mid;
         else return late;
     }
     public List<string> GetFormationShipNames()
@@ -380,6 +380,7 @@ public class SpawnerManager : MonoBehaviour
     }
 
     public List<GameObject> EnemiesList { get => _enemiesList; }
+    public List<GameObject> SpecialEnemiesList { get; set; }
     public int EnemiesToSpawnLeft { get => enemiesToSpawnLeft; set => enemiesToSpawnLeft = value; }
     public List<Vector3> SoloBossSpawnPoints { get => _soloBossSpawnPoints; }
     public List<Ship> DefendingShipsList { get => _defendingShipsList; }

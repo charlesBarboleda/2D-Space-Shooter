@@ -34,11 +34,11 @@ public class LevelManager : MonoBehaviour
 
     Level GenerateNextLevel()
     {
-        // In 3-6 levels, create an invasion level
-        if (_currentLevelIndex % Random.Range(3, 7) == 0)
+        // In 2-4 levels, create an invasion level
+        if (_currentLevelIndex % Random.Range(2, 5) == 0)
             return CreateSoloInvasionLevel();
 
-        // In 5-10 levels, create a solo shooter boss level or a solo carrier boss level
+        // In 3-6 levels, create a solo shooter boss level or a solo carrier boss level
         else if (_currentLevelIndex % Random.Range(5, 11) == 0)
         {
             if (Random.value > 0.5f) CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
         }
 
         // Otherwise, create a horde level
-        return CreateSoloInvasionLevel();
+        return CreateHordeLevel();
     }
 
 

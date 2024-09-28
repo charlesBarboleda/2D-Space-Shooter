@@ -73,7 +73,7 @@ public abstract class Enemy : MonoBehaviour, ITargetable
             {
 
                 // Check if the target is the one we should shoot at
-                if (_attackManager.IsTargetInRange() && _attackManager.ElapsedCooldown <= 0 && _attackManager.IsSilenced == false)
+                if (_attackManager.IsTargetInRange() && _attackManager.ElapsedCooldown <= 0 && !_attackManager.IsSilenced)
                 {
 
                     Attack();
@@ -179,11 +179,13 @@ public abstract class Enemy : MonoBehaviour, ITargetable
 
     public virtual void IncreaseStatsPerLevel()
     {
-        _health.CurrentHealth += LevelManager.Instance.CurrentLevelIndex * 5f;
-        _health.MaxHealth += LevelManager.Instance.CurrentLevelIndex * 5f;
+        _health.CurrentHealth += LevelManager.Instance.CurrentLevelIndex * 20f;
+        _health.MaxHealth += LevelManager.Instance.CurrentLevelIndex * 20f;
 
-
-        _health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 0.5f;
+        // *Real Values*
+        // _health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 0.5f;
+        // *Trial Values*
+        _health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 100f;
 
         _kinematics.MaxSpeed += LevelManager.Instance.CurrentLevelIndex * 0.05f;
 

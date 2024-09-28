@@ -87,21 +87,20 @@ public class Kinematics : MonoBehaviour
 
         if (_cachedDistance > _stopDistance)
         {
-            // Accelerate towards the target
-            _currentSpeed = Mathf.Min(_currentSpeed + _acceleration * Time.deltaTime, _maxSpeed); // Gradually increase speed
-
+            // Move towards the target at max speed
             Vector3 finalDirection = _cachedDirection.normalized;
-            transform.position += finalDirection * _currentSpeed * Time.deltaTime;
+            transform.position += finalDirection * _maxSpeed * Time.deltaTime;
         }
         else if (_cachedDistance < _stopDistance)
         {
             // Decelerate when orbiting
-            _currentSpeed = Mathf.Max(_currentSpeed - _acceleration * Time.deltaTime, 0f); // Gradually decrease speed
+            _currentSpeed = Mathf.Max(_currentSpeed * Time.deltaTime, 0f); // Gradually decrease speed
 
             Orbit(target);
             transform.position += -_cachedDirection * _currentSpeed * Time.deltaTime;
         }
     }
+
 
     protected virtual void Orbit(Vector3 target)
     {

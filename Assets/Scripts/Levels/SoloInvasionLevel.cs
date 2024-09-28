@@ -17,7 +17,7 @@ public class SoloInvasionLevel : Level
 
 
 
-    public SoloInvasionLevel(FactionType factionType, float spawnRateDefending, List<Ship> shipsToSpawnInvading, List<Ship> shipsToSpawnDefending, int spawnAmountRatio, int amountOfEnemiesDefending, LevelManager levelManager, SpawnerManager spawnerManager, List<Objective> objectives)
+    public SoloInvasionLevel(FactionType factionType, float spawnRateDefending, List<Ship> shipsToSpawnInvading, List<Ship> shipsToSpawnDefending, int spawnAmountRatio, int amountOfEnemiesDefending, LevelManager levelManager, SpawnerManager spawnerManager)
     {
         _factionType = factionType;
         _leveltype = LevelType.Invasion;
@@ -28,7 +28,6 @@ public class SoloInvasionLevel : Level
         _amountOfEnemiesDefending = amountOfEnemiesDefending;
         _levelManager = levelManager;
         _spawnerManager = spawnerManager;
-        _objectives = objectives;
     }
     public override void StartLevel()
     {
@@ -38,9 +37,9 @@ public class SoloInvasionLevel : Level
         // Calculate the amount of enemies to spawn
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesDefending + (_amountOfEnemiesDefending * _spawnAmountRatio);
         // Start the spawning of the defending enemies
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRateDefending, _amountOfEnemiesDefending, 150f, shipList));
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRateDefending, _amountOfEnemiesDefending, 200f, shipList));
         // Start the proper objectives
-        ObjectivesManager.Instance.StartObjectives();
+        // ObjectivesManager.Instance.StartObjectives();
 
         // Start the spawning of the winning enemies after a delay
         _spawnerManager.StartCoroutine(DelayedSpawn());
@@ -101,7 +100,7 @@ public class SoloInvasionLevel : Level
     IEnumerator DelayedSpawn()
     {
         yield return new WaitForSeconds(Random.Range(20f, 30f));
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateDefending / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 200f, _totalInvaders));
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateDefending / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 250f, _totalInvaders));
         UIManager.Instance.MidScreenWarningText($"An invasion is occuring!", 3.5f);
 
     }

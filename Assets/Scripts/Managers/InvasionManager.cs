@@ -27,16 +27,12 @@ public class InvasionManager : MonoBehaviour
             Instance = this;
         }
         // *Trial version code*
-        // _defendingFaction = FactionType.Syndicates;
-        // _invadingFactions.Add(FactionType.ThraxArmada);
+        _defendingFaction = FactionType.Syndicates;
+        _invadingFactions.Add(FactionType.ThraxArmada);
 
         // *Real version code*
-        _defendingFaction = FactionType.Syndicates;
-        _invadingFactions.Add(FactionType.CrimsonFleet);
-    }
-
-    void Start()
-    {
+        // _defendingFaction = FactionType.Syndicates;
+        // _invadingFactions.Add(FactionType.CrimsonFleet);
     }
 
     void Update()
@@ -48,6 +44,7 @@ public class InvasionManager : MonoBehaviour
             Debug.Log($"Syndicates Invasion Progress: {_factionInvasionProgress[FactionType.Syndicates]} / 3");
             Debug.Log($"Crimson Fleet Invasion Progress: {_factionInvasionProgress[FactionType.CrimsonFleet]} / 3");
             Debug.Log($"Defending Faction: {_defendingFaction}");
+            Debug.Log($"Invading Factions: {string.Join(", ", _invadingFactions)}");
         }
     }
 
