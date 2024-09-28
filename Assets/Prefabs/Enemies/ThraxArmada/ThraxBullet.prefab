@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7628268079014872113}
   m_Layer: 10
   m_Name: ThraxBullet
-  m_TagString: ThraxArmada
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,4 +171,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7576762f0db02f747b4761e84196922e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldCanvas: {fileID: 6297271172948113503, guid: cf7b4ad47d5a205459e86bd32e90f415, type: 3}

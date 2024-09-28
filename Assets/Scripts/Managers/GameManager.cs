@@ -172,6 +172,7 @@ public class GameManager : MonoBehaviour
     void LevelComplete()
     {
         Debug.Log("Level Complete from Game Manager");
+        AudioManager.Instance.PlaySound(_audioSource, _nextRoundAudio);
         ChangeState(GameState.Countdown);
     }
 
@@ -180,7 +181,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         ChangeState(GameState.GameOver);
         _isInputActive = false;
-        _audioSource.PlayOneShot(_gameOverAudio);
+        GameOverSound();
         UpdateHighScore();
     }
 
@@ -215,7 +216,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOverSound()
     {
-        _audioSource.PlayOneShot(_gameOverAudio);
+        AudioManager.Instance.PlaySound(_audioSource, _gameOverAudio);
     }
 
     public void DestroyAllShips()

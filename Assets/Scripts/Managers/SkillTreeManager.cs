@@ -79,14 +79,14 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Decrease the player's shield cooldown by 5%
-                float decreaseCooldown = 0.95f;
+                // Decrease the player's shield cooldown by 4%
+                float decreaseCooldown = 0.96f;
                 abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault().cooldown *= decreaseCooldown;
                 Debug.Log("Shield Cooldown Decreased by " + (1 - decreaseCooldown) * 100 + "%");
             }
         };
 
-        ApplySkillEffect("Reduced", 250, skillEffects);
+        ApplySkillEffect("Reduced", 750, skillEffects);
     }
     public void ApplyProlongedEffect()
     {
@@ -94,14 +94,14 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's shield duration by 0.2 seconds
-                float increaseDuration = 0.2f;
+                // Increase the player's shield duration by 0.1 seconds
+                float increaseDuration = 0.1f;
                 abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._duration += increaseDuration;
                 Debug.Log("Shield Duration Increased by " + increaseDuration + " seconds");
             }
         };
 
-        ApplySkillEffect("Prolonged", 250, skillEffects);
+        ApplySkillEffect("Prolonged", 500, skillEffects);
     }
     public void ApplyExpandedEffect()
     {
@@ -109,14 +109,14 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's shield size by 7%
-                float increaseSize = 1.07f;
+                // Increase the player's shield size by 6%
+                float increaseSize = 1.06f;
                 abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._shieldSize *= increaseSize;
-                Debug.Log("Shield Size Increased by 7%");
+                Debug.Log("Shield Size Increased by 6%");
             }
         };
 
-        ApplySkillEffect("Expanded", 125, skillEffects);
+        ApplySkillEffect("Expanded", 250, skillEffects);
     }
     public void ApplyDevastationEffect()
     {
@@ -124,14 +124,14 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's shield damage by 5%
-                float increaseDamage = 1.05f;
+                // Increase the player's shield damage by 10%
+                float increaseDamage = 1.10f;
                 abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._shieldDamage *= increaseDamage;
                 Debug.Log("Shield Damage Increased by 10%");
             },
         };
 
-        ApplySkillEffect("Devastation", 250, skillEffects);
+        ApplySkillEffect("Devastation", 100, skillEffects);
     }
     public void ApplyUnlockShieldEffect()
     {
@@ -175,7 +175,7 @@ public class SkillTreeManager : MonoBehaviour
                 Debug.Log("Teleport Cooldown Decreased by " + (1 - decreaseCooldown) * 100 + "%");
             }
         };
-        ApplySkillEffect("Quickened", 250, skillEffects);
+        ApplySkillEffect("Quickened", 500, skillEffects);
     }
     public void ApplyEnhancedEffect()
     {
@@ -188,10 +188,10 @@ public class SkillTreeManager : MonoBehaviour
                 abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportDuration += increaseDuration;
                 Debug.Log("Teleport Duration Increased by " + increaseDuration + " seconds");
 
-                // Increase the player's teleport size by 5%
-                float increaseSize = 1.05f;
+                // Increase the player's teleport size by 7%
+                float increaseSize = 1.07f;
                 abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportSize *= increaseSize;
-                Debug.Log("Teleport Size Increased by 5%");
+                Debug.Log("Teleport Size Increased by 7%");
 
             }
         };

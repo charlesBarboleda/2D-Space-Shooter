@@ -124,7 +124,7 @@ MonoBehaviour:
   _bulletSpeed: 10
   _bulletDamage: 10
   _amountOfBullets: 1
-  _shootingAngle: 70
+  _shootingAngle: 5
   _bulletLifetime: 5
   _bulletPattern: 3
   nextFireTime: 0
@@ -650,8 +650,6 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 1
   _speed: 14
-  _maxSpeed: 10
-  _acceleration: 1
   _stopDistance: 25
 --- !u!114 &2773822406909933532
 MonoBehaviour:

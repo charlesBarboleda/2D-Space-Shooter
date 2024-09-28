@@ -51,7 +51,6 @@ public class FireRatePowerUp : PowerUp, IPickable
         _initFireRate = _weapon.fireRate * 2;
         _weapon.fireRate = _initFireRate;
         UIManager.Instance.FireRatePowerUp.SetActive(false);
-
         Debug.Log("FireRate: " + _weapon.fireRate);
     }
 

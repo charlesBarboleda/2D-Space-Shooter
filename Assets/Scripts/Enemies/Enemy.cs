@@ -112,14 +112,14 @@ public abstract class Enemy : MonoBehaviour, ITargetable
         _buffedParticles.SetActive(false);
         Health.CurrentHealth /= 1.5f;
         Health.MaxHealth /= 1.5f;
-        Kinematics.MaxSpeed /= 1.5f;
+        Kinematics.Speed /= 1.5f;
     }
     public virtual void BuffedState()
     {
         _buffedParticles.SetActive(true);
         Health.CurrentHealth *= 1.5f;
         Health.MaxHealth *= 1.5f;
-        Kinematics.MaxSpeed *= 1.5f;
+        Kinematics.Speed *= 1.5f;
 
     }
 
@@ -185,9 +185,9 @@ public abstract class Enemy : MonoBehaviour, ITargetable
         // *Real Values*
         // _health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 0.5f;
         // *Trial Values*
-        _health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 100f;
+        _health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 10f;
 
-        _kinematics.MaxSpeed += LevelManager.Instance.CurrentLevelIndex * 0.05f;
+        _kinematics.Speed += LevelManager.Instance.CurrentLevelIndex * 0.05f;
 
     }
 

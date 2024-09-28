@@ -753,8 +753,6 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 1
   _speed: 14
-  _maxSpeed: 10
-  _acceleration: 1
   _stopDistance: 40
 --- !u!114 &-8485945176352853180
 MonoBehaviour:
@@ -820,7 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -975,7 +973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -1130,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -1400,7 +1398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType

@@ -16,6 +16,8 @@ public class Health : MonoBehaviour, IDamageable
     [SerializeField] string _deathExplosion;
 
     [SerializeField] List<string> _deathEffect;
+
+    AttackManager _attackManager;
     SpriteRenderer _spriteRenderer;
     AudioSource _audioSource;
     Collider2D[] _colliders;
@@ -28,6 +30,7 @@ public class Health : MonoBehaviour, IDamageable
 
     void Awake()
     {
+        _attackManager = GetComponent<AttackManager>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _rigidbody.gravityScale = 0;
         _faction = GetComponent<Faction>();
@@ -45,6 +48,7 @@ public class Health : MonoBehaviour, IDamageable
         if (_spriteRenderer != null) _spriteRenderer.enabled = true;
         if (_rigidbody != null) _rigidbody.simulated = true;
         if (isDead) isDead = false;
+        if (_attackManager != null) _attackManager.IsSilenced = false;
     }
     public void TakeDamage(float damage)
     {
@@ -99,9 +103,9 @@ public class Health : MonoBehaviour, IDamageable
             _rigidbody.simulated = false;
         }
         // Disable attacking and all the attacking particles
-        if (TryGetComponent(out AttackManager attackManager))
+        if (_attackManager != null)
         {
-            attackManager.enabled = false;
+            _attackManager.IsSilenced = true;
         }
 
         // Shake the camera

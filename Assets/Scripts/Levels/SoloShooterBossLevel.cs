@@ -12,7 +12,9 @@ public class SoloShooterBossLevel : Level
     public GameObject bossShip;
     public FormationType formationType = FormationType.Circle;
     public float health;
-    public float bulletDamage; public float bulletSpeed;
+    public int bulletAmount;
+    public float bulletDamage;
+    public float bulletSpeed;
     public float fireRate;
     public float speed;
     public float stopDistance;
@@ -25,7 +27,7 @@ public class SoloShooterBossLevel : Level
     public List<GameObject> formationShips = new List<GameObject>(); // List to store spawned formation ships
 
 
-    public SoloShooterBossLevel(float health, float bulletDamage, float bulletSpeed, float firerate,
+    public SoloShooterBossLevel(float health, int bulletAmount, float bulletDamage, float bulletSpeed, float firerate,
                                 float speed, float stopDistance, float attackRange, float fireAngle,
                                 float currencyDrop, List<Vector3> spawnPoints, string bossName,
                                 LevelManager levelManager, SpawnerManager spawnerManager,
@@ -33,6 +35,7 @@ public class SoloShooterBossLevel : Level
                                  float formationRadius, List<string> formationShipName)
     {
         this.health = health;
+        this.bulletAmount = bulletAmount;
         this.bulletDamage = bulletDamage;
         this.bulletSpeed = bulletSpeed;
         this.fireRate = firerate;
@@ -55,6 +58,7 @@ public class SoloShooterBossLevel : Level
     {
         Debug.Log("Starting Boss Level");
         bossShip = spawnerManager.SpawnShip(bossName, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
+        spawnerManager.StartCoroutine(CameraFollowBehaviour.Instance.PanToTargetAndBack(bossShip.transform, 6f));
         SetBossShooterStats(bossShip);
         switch (formationType)
         {
@@ -86,6 +90,8 @@ public class SoloShooterBossLevel : Level
 
     }
 
+
+
     public void SetBossShooterStats(GameObject bossShooter)
     {
         // Get the components
@@ -98,10 +104,11 @@ public class SoloShooterBossLevel : Level
         healthScript.MaxHealth = health;
         healthScript.CurrentHealth = health;
         healthScript.CurrencyDrop = currencyDrop;
+        shooterEnemy.BulletAmount = bulletAmount;
         shooterEnemy.BulletDamage = bulletDamage;
         shooterEnemy.BulletSpeed = bulletSpeed;
         shooterEnemy.ShootingAngle = fireAngle;
-        kinematics.MaxSpeed = speed;
+        kinematics.Speed = speed;
         kinematics.StopDistance = stopDistance;
         attackManager.AttackCooldown = fireRate;
         attackManager.AimRange = attackRange;

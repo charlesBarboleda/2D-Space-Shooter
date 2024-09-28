@@ -38,7 +38,7 @@ public class SoloSpawnerBossLevel : Level
     {
         Debug.Log("Starting Boss Level");
         _bossShip = _spawnerManager.SpawnShip(_bossName, _spawnPoints[Random.Range(0, _spawnPoints.Count)], Quaternion.identity);
-
+        _spawnerManager.StartCoroutine(CameraFollowBehaviour.Instance.PanToTargetAndBack(_bossShip.transform, 6f));
         // Get the components
         Health health = _bossShip.GetComponent<Health>();
         Kinematics kinematics = _bossShip.GetComponent<Kinematics>();
@@ -50,7 +50,7 @@ public class SoloSpawnerBossLevel : Level
         health.CurrentHealth = _health;
         health.CurrencyDrop = _currencyDrop;
         enemy.ShipsPerSpawn = _shipsPerSpawn;
-        kinematics.MaxSpeed = _speed;
+        kinematics.Speed = _speed;
         kinematics.StopDistance = _stopDistance;
         attackManager.AttackCooldown = _spawnRate;
         attackManager.AimRange = _attackRange;

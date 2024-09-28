@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Ferocity
   description: Increase damage by 10%
-  cost: 502
+  cost: 500
   skillIcon: {fileID: 362099136, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
-  startingCost: 500
+  startingCost: 750
   prequisites:
   - {fileID: 11400000, guid: de676b40d9fa8ff449bf928632f8a0ba, type: 2}
   children:

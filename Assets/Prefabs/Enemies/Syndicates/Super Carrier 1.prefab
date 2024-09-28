@@ -392,13 +392,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.126
+  m_Volume: 0.044
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 225
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _factionType: 3
-  _allyFactions: 
+  _allyFactions: 03000000
 --- !u!66 &8786917906247069931
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -656,8 +656,6 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 1
   _speed: 15
-  _maxSpeed: 10
-  _acceleration: 1
   _stopDistance: 60
 --- !u!114 &-7956372525996800556
 MonoBehaviour:
@@ -826,7 +824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -1132,7 +1130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -1323,7 +1321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType
@@ -1514,7 +1512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2008143879663076253, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: prioritizePlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4238250742732926151, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: _factionType

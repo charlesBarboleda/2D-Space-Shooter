@@ -34,22 +34,26 @@ public class LevelManager : MonoBehaviour
 
     Level GenerateNextLevel()
     {
-        // In 2-4 levels, create an invasion level
-        if (_currentLevelIndex % Random.Range(2, 5) == 0)
-            return CreateSoloInvasionLevel();
-
-        // In 3-6 levels, create a solo shooter boss level or a solo carrier boss level
-        else if (_currentLevelIndex % Random.Range(5, 11) == 0)
+        // There's a 30% chance of creating a solo invasion level
+        if (Random.value > 0.7f)
         {
-            if (Random.value > 0.5f) CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
-            else CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
+            return CreateSoloInvasionLevel();
         }
-        // In 5-10 levels, create a Multi Phase Boss level if the defending faction is the Thrax Armada
-        else if (_currentLevelIndex % Random.Range(5, 11) == 0 && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
+
+
+        // There's a 20% chance of creating a solo boss level
+        else if (Random.value > 0.8f)
+        {
+            if (Random.value > 0.5f) return CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
+            else return CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
+        }
+
+        // There's a 30% chance of creating a multi-phase boss level
+        else if (Random.value > 0.7f && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
         {
             return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
-        }
 
+        }
         // Otherwise, create a horde level
         return CreateHordeLevel();
     }
@@ -75,7 +79,6 @@ public class LevelManager : MonoBehaviour
     public void CompleteLevel()
     {
         _currentLevelIndex++;
-        Background.Instance.PlayOriginalBackgroundMusic();
         SpawnerManager.Instance.EnemiesToSpawnLeft = 0;
         _levels.Add(GenerateNextLevel());
         GameManager.Instance.ChangeState(GameManager.GameState.LevelEnd);
@@ -106,31 +109,6 @@ public class LevelManager : MonoBehaviour
             );
     }
 
-    public Level CreateSoloSpawnerBossLevel(string bossName)
-    {
-        float health = _currentLevelIndex * 500f;
-        // Every 20 levels, add 1 extra ship to spawn
-        int shipsPerSpawn = Mathf.RoundToInt(_currentLevelIndex / 20) + 1;
-        float speed = _currentLevelIndex * 1f;
-        float spawnRate = Mathf.Max(5f - (_currentLevelIndex * 0.1f), 0.1f);
-        float stopDistance = _currentLevelIndex * 2.5f;
-        float attackRange = _currentLevelIndex * 2.6f;
-        float currencyDrop = _currentLevelIndex * 600f;
-        List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
-        return new SoloSpawnerBossLevel(
-            health,
-            speed,
-            spawnRate,
-            stopDistance,
-            shipsPerSpawn,
-            attackRange,
-            currencyDrop,
-            spawnPoints,
-            bossName,
-            this,
-            _spawnerManager
-        );
-    }
 
     public Level CreateHordeLevel()
     {
@@ -151,7 +129,8 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateMultiPhaseBossLevel(string bossName, string bossNamePhase2)
     {
-        float health = Mathf.Max(_currentLevelIndex * 2000f, 20000f);
+        float health = Mathf.Max(_currentLevelIndex * 5000f, 50000f);
+        int bulletAmount = Mathf.Min(Mathf.Max(_currentLevelIndex * 2, 30), 60);
         float bulletDamage = Mathf.Max(_currentLevelIndex * 5f, 50f);
         float bulletSpeed = Mathf.Min(Mathf.Max(_currentLevelIndex * 1f, 30f), 40f);
         float firerate = Random.Range(1, 3);
@@ -159,7 +138,7 @@ public class LevelManager : MonoBehaviour
         float stopDistance = Mathf.Min(Mathf.Max(_currentLevelIndex * 2f, 90f), 120f);
         float attackRange = Mathf.Min(Mathf.Max(_currentLevelIndex * 4, 150f), 180f);
         float fireAngle = Random.Range(15, 21);
-        float currencyDrop = _currentLevelIndex * 1000f;
+        float currencyDrop = health;
         List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
         // Choose a random formation type
         FormationType formationType = (FormationType)Random.Range(0, 7);
@@ -171,6 +150,7 @@ public class LevelManager : MonoBehaviour
 
         return new MultiPhaseBossLevel(
             health,
+            bulletAmount,
             bulletDamage,
             bulletSpeed,
             firerate,
@@ -191,18 +171,44 @@ public class LevelManager : MonoBehaviour
         );
     }
 
+    public Level CreateSoloSpawnerBossLevel(string bossName)
+    {
+        float health = _currentLevelIndex * 3000f;
+        // Every 5 levels, add 1 extra ship to spawn
+        int shipsPerSpawn = Mathf.RoundToInt(_currentLevelIndex / 5) + 1;
+        float speed = Mathf.Max(_currentLevelIndex * 2f, 20f);
+        float spawnRate = Mathf.Max(5f - (_currentLevelIndex * 0.1f), 0.1f);
+        float stopDistance = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.5f, 80f), 120f);
+        float attackRange = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.5f, 100f), 120f);
+        float currencyDrop = health;
+        List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
+        return new SoloSpawnerBossLevel(
+            health,
+            speed,
+            spawnRate,
+            stopDistance,
+            shipsPerSpawn,
+            attackRange,
+            currencyDrop,
+            spawnPoints,
+            bossName,
+            this,
+            _spawnerManager
+        );
+    }
 
     public Level CreateSoloShooterBossLevel(string bossName)
     {
-        float health = _currentLevelIndex * 350f;
+        float health = _currentLevelIndex * 3000f;
+        int bulletAmount = _currentLevelIndex * 1;
         float bulletDamage = _currentLevelIndex * 2f;
         float bulletSpeed = _currentLevelIndex * 1.5f;
         float firerate = Random.Range(1, 5);
-        float speed = _currentLevelIndex * 0.5f;
-        float stopDistance = _currentLevelIndex * 2f;
-        float attackRange = _currentLevelIndex * 2.1f;
-        float fireAngle = Random.Range(5, 15);
-        float currencyDrop = _currentLevelIndex * 400f;
+        float speed = Mathf.Max(_currentLevelIndex * 0.5f, 20f);
+        float stopDistance = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.5f, 60f), 100f);
+        float attackRange = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.4f, 80f), 120f);
+        float fireAngle = bulletAmount * 4;
+        float currencyDrop = health;
         List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
         // Choose a random formation type
         FormationType formationType = (FormationType)Random.Range(0, 7);
@@ -214,6 +220,7 @@ public class LevelManager : MonoBehaviour
 
         return new SoloShooterBossLevel(
             health,
+            bulletAmount,
             bulletDamage,
             bulletSpeed,
             firerate,

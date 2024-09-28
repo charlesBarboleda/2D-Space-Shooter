@@ -135,7 +135,7 @@ MonoBehaviour:
   _bulletDamage: 40
   _amountOfBullets: 6
   _shootingAngle: 50
-  _bulletLifetime: 5
+  _bulletLifetime: 3
   _bulletPattern: 3
   nextFireTime: 0
 --- !u!212 &2630535583225570822
@@ -592,14 +592,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkForTargetsInterval: 3
-  _checkForTargetsRadius: 50
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
   prioritizePlayer: 1
   _maximumPriority: {fileID: 0}
+  _checkForTargetsInterval: 3
 --- !u!114 &3282169715535366820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,8 +630,6 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 1
   _speed: 16
-  _maxSpeed: 10
-  _acceleration: 1
   _stopDistance: 50
 --- !u!1 &8227692411707881614
 GameObject:

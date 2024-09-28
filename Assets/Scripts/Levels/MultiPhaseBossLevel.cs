@@ -26,11 +26,11 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
     GameObject bossShipPhase2;
     CameraFollowBehaviour cameraFollow;
 
-    public MultiPhaseBossLevel(float health, float bulletDamage, float bulletSpeed,
+    public MultiPhaseBossLevel(float health, int bulletAmount, float bulletDamage, float bulletSpeed,
     float firerate, float speed, float stopDistance, float attackRange, float fireAngle,
     float currencyDrop, List<Vector3> spawnPoints, string bossName, LevelManager levelManager,
     SpawnerManager spawnerManager, FormationType formationType, int numberOfShipsInFormation,
-    float formationRadius, List<string> formationShipName, string bossNamePhase2) : base(health, bulletDamage,
+    float formationRadius, List<string> formationShipName, string bossNamePhase2) : base(health, bulletAmount, bulletDamage,
     bulletSpeed, firerate, speed, stopDistance, attackRange, fireAngle, currencyDrop,
     spawnPoints, bossName, levelManager, spawnerManager, formationType, numberOfShipsInFormation,
     formationRadius, formationShipName)
@@ -79,14 +79,27 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         bossShip = spawnerManager.SpawnShip(bossName, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
         bossHealthPhase1 = bossShip.GetComponent<Health>();
         bossKinematicsPhase1 = bossShip.GetComponent<Kinematics>();
-        cameraFollow = Camera.main.GetComponent<CameraFollowBehaviour>();
         bossAttackManagerPhase1 = bossShip.GetComponent<AttackManager>();
+        cameraFollow = Camera.main.GetComponent<CameraFollowBehaviour>();
+
+        SetBossStats();
 
         // Boss stats and initial state
         bossHealthPhase1.isDead = true;
         bossKinematicsPhase1.ShouldMove = false;
 
         currentPhase = BossPhase.Phase1;
+    }
+
+    void SetBossStats()
+    {
+        bossHealthPhase1.MaxHealth = health;
+        bossHealthPhase1.CurrentHealth = health;
+        bossHealthPhase1.CurrencyDrop = currencyDrop;
+        bossKinematicsPhase1.Speed = speed;
+        bossKinematicsPhase1.StopDistance = stopDistance;
+        bossAttackManagerPhase1.AttackCooldown = fireRate;
+        bossAttackManagerPhase1.AimRange = attackRange;
     }
 
     IEnumerator TransitionToPhase2()

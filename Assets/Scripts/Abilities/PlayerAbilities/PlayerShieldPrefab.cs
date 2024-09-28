@@ -8,11 +8,22 @@ public class PlayerShieldPrefab : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates") || other.CompareTag("CrimsonFleet"))
+        IDamageable damageable = other.GetComponent<IDamageable>();
+        if (damageable != null)
         {
-            other.gameObject.GetComponent<IDamageable>().TakeDamage(_dps);
+            if (other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates") || other.CompareTag("CrimsonFleet"))
+            {
+                UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
+                damageable.TakeDamage(_dps);
+            }
+
+        }
+        if (other.CompareTag("EnemyBullet"))
+        {
+            other.gameObject.SetActive(false);
         }
     }
+
     public float Dps { get => _dps; set => _dps = value; }
 
 }

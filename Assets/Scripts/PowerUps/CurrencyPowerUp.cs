@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CurrencyPowerUp : PowerUp, IPickable
 {
-    [SerializeField] float _currencyAmount = 2000f;
+    [SerializeField] float _currencyAmount = 5000f;
     bool _isAttracted;
     public bool isAttracted { get => _isAttracted; set => _isAttracted = value; }
     float _maxSpeed;

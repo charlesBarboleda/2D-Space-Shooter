@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Brutality
   description: Increase damage by 5%
-  cost: 501
+  cost: 250
   skillIcon: {fileID: 362099136, guid: 132358e9bf26b60458b731bf001e31db, type: 3}
-  startingCost: 250
+  startingCost: 500
   prequisites:
   - {fileID: 11400000, guid: 3ccecda4881ab5b47bd8eb249a34b273, type: 2}
   children:

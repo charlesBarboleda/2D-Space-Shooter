@@ -8,9 +8,13 @@ public class PlayerTeleportPrefab : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
-        if (damageable != null && other.CompareTag("Enemy"))
+        if (damageable != null)
         {
-            damageable.TakeDamage(_dps);
+            if (other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates") || other.CompareTag("CrimsonFleet"))
+            {
+                UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
+                damageable.TakeDamage(_dps);
+            }
         }
     }
 

@@ -8,19 +8,15 @@ public class Kinematics : MonoBehaviour
     [SerializeField] protected bool _shouldRotate;
     [SerializeField] protected bool _shouldMove = true;
     [SerializeField] protected float _speed;
-    [SerializeField] protected float _maxSpeed = 10f; // Maximum speed
-    [SerializeField] protected float _acceleration = 1f; // Acceleration value
     [SerializeField] protected float _stopDistance;
     protected bool _rotateClockwise = false;
     protected float _cachedDistance;
     protected TargetManager _targetManager;
     protected Vector3 _cachedDirection;
-    protected float _currentSpeed; // Speed that changes over time based on acceleration
 
     void Awake()
     {
         _targetManager = GetComponent<TargetManager>();
-        _currentSpeed = 0f; // Start with zero speed
     }
 
     // Update is called once per frame
@@ -89,15 +85,13 @@ public class Kinematics : MonoBehaviour
         {
             // Move towards the target at max speed
             Vector3 finalDirection = _cachedDirection.normalized;
-            transform.position += finalDirection * _maxSpeed * Time.deltaTime;
+            transform.position += finalDirection * Speed * Time.deltaTime;
         }
         else if (_cachedDistance < _stopDistance)
         {
-            // Decelerate when orbiting
-            _currentSpeed = Mathf.Max(_currentSpeed * Time.deltaTime, 0f); // Gradually decrease speed
 
             Orbit(target);
-            transform.position += -_cachedDirection * _currentSpeed * Time.deltaTime;
+            transform.position += -_cachedDirection * Speed * Time.deltaTime;
         }
     }
 
@@ -113,18 +107,17 @@ public class Kinematics : MonoBehaviour
         if (orbitRadius > targetOrbitDistance)
         {
             // Move towards the target to maintain orbit radius
-            transform.position = Vector3.MoveTowards(transform.position, target, (_currentSpeed * Time.deltaTime));
+            transform.position = Vector3.MoveTowards(transform.position, target, (Speed * Time.deltaTime));
         }
 
         // Apply rotational orbit around the target
-        transform.RotateAround(target, Vector3.forward, rotationDirection * _currentSpeed * Time.deltaTime);
+        transform.RotateAround(target, Vector3.forward, rotationDirection * Speed * Time.deltaTime);
 
         // Update _cachedDirection for gizmos
         _cachedDirection = (target - transform.position).normalized;
     }
 
-    public float Speed { get => _currentSpeed; set => _currentSpeed = value; }
-    public float MaxSpeed { get => _maxSpeed; set => _maxSpeed = value; }
+    public float Speed { get => _speed; set => _speed = value; }
     public float StopDistance { get => _stopDistance; set => _stopDistance = value; }
     public bool ShouldMove { get => _shouldMove; set => _shouldMove = value; }
     public bool ShouldRotate { get => _shouldRotate; set => _shouldRotate = value; }

@@ -9,6 +9,8 @@ public class Background : MonoBehaviour
     [SerializeField] AudioClip _thraxBossPhase1Music;
     [SerializeField] AudioClip _thraxBossPhase2Music;
     [SerializeField] AudioClip _thraxBossPhase3Music;
+    [SerializeField] AudioClip _invasionMusic;
+
 
 
     void Awake()
@@ -56,6 +58,12 @@ public class Background : MonoBehaviour
         _audioSource.clip = backgroundMusic;
         yield return new WaitForSeconds(0.1f);
         yield return StartCoroutine(FadeIn(0.1f)); // Start fading in after setting the new clip
+    }
+
+    public IEnumerator PlayInvasionMusic()
+    {
+        Debug.Log("Playing Invasion Music");
+        yield return StartCoroutine(TransitionBackgroundMusic(_invasionMusic));
     }
 
     public IEnumerator PlayOriginalBackgroundMusic()

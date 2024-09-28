@@ -74,6 +74,7 @@ public class SoloInvasionLevel : Level
     {
         Debug.Log("Completing Invasion Level");
         EventManager.OnEnemyDestroyed -= RegisterInvaderKill;
+        _spawnerManager.StartCoroutine(Background.Instance.PlayOriginalBackgroundMusic());
         _levelManager.CompleteLevel();
     }
 
@@ -101,6 +102,8 @@ public class SoloInvasionLevel : Level
     {
         yield return new WaitForSeconds(Random.Range(20f, 30f));
         _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateDefending / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 250f, _totalInvaders));
+        yield return _spawnerManager.StartCoroutine(Background.Instance.PlayInvasionMusic());
+        Debug.Log("Played Invasion music from SoloInvasionLevel");
         UIManager.Instance.MidScreenWarningText($"An invasion is occuring!", 3.5f);
 
     }
