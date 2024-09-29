@@ -16332,6 +16332,63 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!1001 &379920954
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 777100890437770891, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
+      propertyPath: m_Name
+      value: ThraxBoss 2 Phase 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395178064832196167, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.599849
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395178064832196167, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -113.46021
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395178064832196167, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395178064832196167, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395178064832196167, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395178064832196167, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395178064832196167, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395178064832196167, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395178064832196167, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395178064832196167, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d1111394957c064fad5360347fc2c5c, type: 3}
 --- !u!1 &381697510
 GameObject:
   m_ObjectHideFlags: 0
@@ -75001,6 +75058,9 @@ MonoBehaviour:
   - tag: DamageText
     prefab: {fileID: 5543933812811699609, guid: 26cd0edb89ceb064fa06608174e50cd3, type: 3}
     size: 10
+  - tag: ThraxGasExplosion
+    prefab: {fileID: 1824193093686316071, guid: 36ffcaafd234aec42891ab630e2fe83c, type: 3}
+    size: 50
 --- !u!4 &1707799895
 Transform:
   m_ObjectHideFlags: 0
@@ -102335,3 +102395,4 @@ SceneRoots:
   - {fileID: 351679519}
   - {fileID: 1642659880}
   - {fileID: 656105094}
+  - {fileID: 379920954}

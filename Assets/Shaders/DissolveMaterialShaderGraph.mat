@@ -62,9 +62,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CrackIntensity: 0.5
+    - _CrackIntensity: 0
     - _DamageAmount: 0.1
-    - _DissolveAmount: 0
+    - _DissolveAmount: 0.09
     - _Fade: 0.5
     - _OutlineThickness: 0.026
     - _Scale: 40

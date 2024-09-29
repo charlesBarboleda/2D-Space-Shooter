@@ -260,7 +260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beda144f9d9035749b6471b54b716de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phaseThreshold: 3
+  _exhausts: []
+  phase1Threshold: 2
+  phase2Threshold: 10
 --- !u!114 &7755817396335036869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,8 +279,6 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 1
   _speed: 20
-  _maxSpeed: 20
-  _acceleration: 1
   _stopDistance: 90
 --- !u!114 &546763129541443367
 MonoBehaviour:
@@ -307,14 +307,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkForTargetsInterval: 2
-  _checkForTargetsRadius: 100
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
   prioritizePlayer: 1
   _maximumPriority: {fileID: 0}
+  _checkForTargetsInterval: 2
 --- !u!82 &846770944425970231
 AudioSource:
   m_ObjectHideFlags: 0
@@ -624,8 +623,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4356735935373426977}
     - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _maxHealth
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _currencyDrop
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentHealth
-      value: 5000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 3647327567358520353, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentTarget
@@ -725,7 +732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Name
-      value: ThraxShield 1
+      value: ThraxShieldConduit
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Layer
@@ -762,8 +769,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4356735935373426977}
     - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _maxHealth
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _currencyDrop
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentHealth
-      value: 5000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 3647327567358520353, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentTarget
@@ -863,7 +878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Name
-      value: ThraxShield 1 (2)
+      value: ThraxShieldConduit
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Layer
@@ -900,8 +915,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4356735935373426977}
     - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _maxHealth
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _currencyDrop
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentHealth
-      value: 5000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 3647327567358520353, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentTarget
@@ -1001,7 +1024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Name
-      value: ThraxShield 1 (6)
+      value: ThraxShieldConduit
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Layer
@@ -1196,8 +1219,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4356735935373426977}
     - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _maxHealth
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _currencyDrop
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentHealth
-      value: 5000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 3647327567358520353, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentTarget
@@ -1297,7 +1328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Name
-      value: ThraxShield 1 (4)
+      value: ThraxShieldConduit
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Layer
@@ -1437,8 +1468,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4356735935373426977}
     - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _maxHealth
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _currencyDrop
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentHealth
-      value: 5000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 3647327567358520353, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentTarget
@@ -1538,7 +1577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Name
-      value: ThraxShield 1 (3)
+      value: ThraxShieldConduit
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Layer
@@ -1678,8 +1717,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4356735935373426977}
     - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _maxHealth
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _currencyDrop
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentHealth
-      value: 5000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 3647327567358520353, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentTarget
@@ -1779,7 +1826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Name
-      value: ThraxShield 1 (8)
+      value: ThraxShieldConduit
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Layer
@@ -1974,8 +2021,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4356735935373426977}
     - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _maxHealth
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _currencyDrop
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentHealth
-      value: 5000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 3647327567358520353, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentTarget
@@ -2075,7 +2130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Name
-      value: ThraxShield 1 (7)
+      value: ThraxShieldConduit
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Layer
@@ -2112,8 +2167,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4356735935373426977}
     - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _maxHealth
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
+      propertyPath: _currencyDrop
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2781301829254435026, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentHealth
-      value: 5000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 3647327567358520353, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: _currentTarget
@@ -2213,7 +2276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Name
-      value: ThraxShield 1 (1)
+      value: ThraxShieldConduit
       objectReference: {fileID: 0}
     - target: {fileID: 8321032140571861052, guid: 152c7e0f6a0f5834e98de16f115a7acf, type: 3}
       propertyPath: m_Layer

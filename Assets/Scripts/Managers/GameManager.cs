@@ -70,6 +70,14 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DisableShipCollision());
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            ObjectPooler.Instance.SpawnFromPool("ThraxGasExplosion", Vector3.zero, Quaternion.identity);
+        }
+    }
+
     IEnumerator DisableShipCollision()
     {
         yield return new WaitForSeconds(1f);

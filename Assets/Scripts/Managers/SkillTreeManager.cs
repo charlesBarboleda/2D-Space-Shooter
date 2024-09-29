@@ -116,7 +116,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         };
 
-        ApplySkillEffect("Expanded", 250, skillEffects);
+        ApplySkillEffect("Expanded", 500, skillEffects);
     }
     public void ApplyDevastationEffect()
     {
@@ -124,10 +124,10 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's shield damage by 10%
-                float increaseDamage = 1.10f;
+                // Increase the player's shield damage by 3%
+                float increaseDamage = 1.03f;
                 abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._shieldDamage *= increaseDamage;
-                Debug.Log("Shield Damage Increased by 10%");
+                Debug.Log("Shield Damage Increased by 5%");
             },
         };
 
@@ -154,10 +154,10 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's teleport distance by 7%
-                float increaseDistance = 1.07f;
+                // Increase the player's teleport distance by 8%
+                float increaseDistance = 1.08f;
                 abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportDistance *= increaseDistance;
-                Debug.Log("Teleport Distance Increased by 7%");
+                Debug.Log("Teleport Distance Increased by 8%");
             }
         };
 

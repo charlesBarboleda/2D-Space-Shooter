@@ -32,19 +32,9 @@ public class BossPhaseController : MonoBehaviour
             StartCoroutine(Phase2());
             Debug.Log("Starting phase 2");
         }
-        else if (_health.CurrentHealth <= _health.MaxHealth / phase1Threshold && !hasPhased)
-        {
-            hasPhased = true;
-            Debug.Log("Health is below threshold");
-            StartCoroutine(Phase1());
-            Debug.Log("Starting phase 1");
-        }
+
     }
 
-    IEnumerator Phase1()
-    {
-        yield return StartCoroutine(_dissolve.DissolveOut());
-    }
 
     IEnumerator Phase2()
     {
