@@ -34,15 +34,15 @@ public class LevelManager : MonoBehaviour
 
     Level GenerateNextLevel()
     {
-        // There's a 10% chance of creating a solo invasion level
-        if (Random.value > 0.9f)
+        // There's a 1% chance of creating a solo invasion level
+        if (Random.value > 0.99f)
         {
             return CreateSoloInvasionLevel();
         }
 
 
-        // There's a 20% chance of creating a solo boss level
-        else if (Random.value > 0.8f)
+        // There's a 1% chance of creating a solo boss level
+        else if (Random.value > 0.99f)
         {
             if (Random.value > 0.5f) return CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
             else return CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());

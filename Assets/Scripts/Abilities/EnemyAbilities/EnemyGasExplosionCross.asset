@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea6fbbc2d24c0941b07293a4d2ec2e2, type: 3}
+  m_Name: EnemyGasExplosionCross
+  m_EditorClassIdentifier: 
+  isUnlocked: 1
+  abilityName: Gas Explosion Cross
+  icon: {fileID: 0}
+  duration: 0
+  cooldown: 120
+  currentCooldown: 30.70681
+  _audioSource: {fileID: 0}
+  _audioClip: {fileID: 0}
+  abilityDirection: 3
+  _verticalGasExplosionPositions:
+  - {fileID: 7414867134618564971, guid: d77e7699a90024444afdf6b473190c2d, type: 3}
+  - {fileID: 2924030195177811428, guid: cd123c8fff6a974498235332ea0e40f0, type: 3}
+  - {fileID: 784279586805840775, guid: 1ac2d217e237c3d41a3504d38021b7b1, type: 3}
+  - {fileID: 5676042206196002398, guid: 9995418624c04644597fd5c0d693557c, type: 3}
+  - {fileID: 4147217487594411582, guid: 54b6b5e718465f54da19ef24813c7eb6, type: 3}
+  - {fileID: 6566814328257160187, guid: 3a2d4281641bb3e45a2ce8c7e43a5b9c, type: 3}
+  - {fileID: 3548620434109570338, guid: cc7575db002ddd64cb06ee9a40f94586, type: 3}
+  - {fileID: 8752770850637695197, guid: 020afc1db792e984ba52ca2357416154, type: 3}
+  - {fileID: 3356836057175114768, guid: f80b39eac29cf90439eabe935ca02038, type: 3}
+  - {fileID: 983243578283981451, guid: 0e54b08b20e00ff469c1075477e55bcd, type: 3}
+  - {fileID: 8002189494361715222, guid: ff69c4e2ce34fcc4db00aa11ad972561, type: 3}
+  _horizontalGasExplosionPositions:
+  - {fileID: 3833586618949653214, guid: da02dce67a9a21b418471dd9633c48c1, type: 3}
+  - {fileID: 6335909212151199682, guid: 0075e6f862157c343b8c4fe48df5791e, type: 3}
+  - {fileID: 6944316095003711934, guid: 6ac3269e05b0c1a4b8f46c9ec0ef1aa7, type: 3}
+  - {fileID: 8957677222479339251, guid: 2a92f170c1367ad42a2542a4bbeb6479, type: 3}
+  - {fileID: 508106180170180863, guid: 3a9142ce85f1d7244a2f4b82c0bf249f, type: 3}
+  - {fileID: 8197489081693326557, guid: ca2919c0b60d440488337aab64ccf0cc, type: 3}
+  - {fileID: 3348980377840855222, guid: 0239a5c622ade7845aeac081cb2e2376, type: 3}
+  - {fileID: 619038104061383300, guid: f48b195beb24417488fb8e6578f7cff4, type: 3}
+  - {fileID: 4237361135677070745, guid: 4da7ba8291ad7e945916bc7790bd27ad, type: 3}
+  - {fileID: 8123059745639956663, guid: 2463b3ccb7fac454ca5e02932cc677b3, type: 3}
+  - {fileID: 8277846461656794527, guid: c78523b2cf4abcc4ab4397084092df46, type: 3}
+  _plusGasExplosionPositions:
+  - {fileID: 1849761979857051161, guid: 9bf70605bf97a6d40ab9ac2bb416df59, type: 3}
+  - {fileID: 4073685920632104504, guid: a554c045ee3254245a002319224eeb26, type: 3}
+  - {fileID: 7939619523239563914, guid: 7bb9da4954657ec4aa68cca222f51871, type: 3}
+  - {fileID: 6067254965917822361, guid: 661e601de7df377429d42c63138113c7, type: 3}
+  - {fileID: 8593556618632329002, guid: c188b98f9f797414eb6ab65ce4a4e394, type: 3}
+  - {fileID: 6975016911346692033, guid: df82df138702e7944ba453c5397ae76d, type: 3}
+  - {fileID: 4369336277123564359, guid: efb813cbab7f626449fb4f734c95ceb7, type: 3}
+  - {fileID: 1280448071208513893, guid: 056b3963bb1e8f049b439d001c2ef81a, type: 3}
+  - {fileID: 4579839490706215440, guid: 1f6d8979a7892c745a6502e0e07b8796, type: 3}
+  - {fileID: 1322482546531584890, guid: 0fd200f71054db04c8d582064e5d3760, type: 3}
+  - {fileID: 6167765614466859012, guid: ccad7c548de047549bf53493048250fb, type: 3}
+  - {fileID: 797673062898141923, guid: bf3b6f64b8b6fb648af2bbbce41123db, type: 3}
+  - {fileID: 614242892742313450, guid: e04a66a3a5dc26f49ad456b9db1158c3, type: 3}
+  - {fileID: 8198099199678002910, guid: 50824f5384d2a09468e311b00ddbfded, type: 3}
+  - {fileID: 5636265113970095598, guid: 01c6f2388e1e641448a0e0c69d6dd2e4, type: 3}
+  - {fileID: 6122299455818835915, guid: b3cc42cb21e1f464eb75727951214f60, type: 3}
+  - {fileID: 5371334129766369251, guid: 0dfff66abc0e1bf4ea63ccde5c66e259, type: 3}
+  - {fileID: 5946034485933784493, guid: 6e43818e551a6ae47a0719a8a90324e3, type: 3}
+  - {fileID: 8137789532214667237, guid: 12e695a95f454f64e8b04f412bd6e114, type: 3}
+  - {fileID: 1503548569978704949, guid: e90fd0a4de424ef4d9ceb6293856ce69, type: 3}
+  - {fileID: 652880336813597764, guid: 3b1e0fa772e97de4bacdafce55e67efc, type: 3}
+  _crossGasExplosionPositions:
+  - {fileID: 9189881513581034212, guid: 74b7efe2bcaeea34886ef4bc45eeb40f, type: 3}
+  - {fileID: 7817690643857059604, guid: a2ecb8906bd548340a44b81199f2940d, type: 3}
+  - {fileID: 6435409418779496917, guid: e41a3c5910e40f8429a740a8c340bcf7, type: 3}
+  - {fileID: 4989329791324133276, guid: 8df4d9e7fe9b53b4ea6620e43c14293d, type: 3}
+  - {fileID: 5759786833812931857, guid: 804bd277d6603074e942fc114eec4f80, type: 3}
+  - {fileID: 9059791096333392358, guid: 1dc4cd08eaab47340a33515fd9cb05b2, type: 3}
+  - {fileID: 8301350805501116594, guid: 698943fddd602da4fb3278bb93c2f747, type: 3}
+  - {fileID: 7109813806817074448, guid: d23b32b451a15c14d8937e8e7be5363f, type: 3}
+  - {fileID: 3413975808574337186, guid: 3cd94352a43b49c4f990faaee84bfebb, type: 3}
+  - {fileID: 1361397914074760540, guid: c79a2b82c73c96c41b6d2d07e0d19d20, type: 3}
+  - {fileID: 5057129685900711721, guid: 0ce7716ded6c5344b807d2bbcf920dbe, type: 3}
+  - {fileID: 393003921899605399, guid: 64211651e174dbe45ab34199136beea4, type: 3}
+  - {fileID: 5842162286355288969, guid: c0faec14b454a9e4d89ad0a24b2e608f, type: 3}
+  - {fileID: 5863341408544498893, guid: fbc014f3832b94c48bdb51c8c61f9e8b, type: 3}
+  - {fileID: 6795216508568453510, guid: b8ee03fc42ef0c14da5ea037d89099be, type: 3}
+  - {fileID: 893413802130281872, guid: bf55b47440b407341b207ed9fd436ecd, type: 3}
+  - {fileID: 8232113768946936778, guid: 3181bab71bd75bc4ab1de859b9604933, type: 3}
+  - {fileID: 8345003390532127677, guid: dfe9eb700c7a0074baae36f035ef997a, type: 3}
+  - {fileID: 5395542438778029062, guid: 9c60fe90e6a4a3f4bb85db36a6b631ca, type: 3}
+  - {fileID: 8003541938333717605, guid: f948e5649bdec234dba8be48e886b649, type: 3}
+  - {fileID: 8874269972743840745, guid: edb29f36296104e49bfb6c408ecc3f32, type: 3}
+  _diagonalLeftGasExplosionPositions:
+  - {fileID: 9151020863169758880, guid: 677041965c25c47458c7b256548817b2, type: 3}
+  - {fileID: 3090548348504449073, guid: eaadb86bc79096e4fab83053dae13c49, type: 3}
+  - {fileID: 5792083936044827640, guid: eff4a236fe6aed640a9987810fefc4c9, type: 3}
+  - {fileID: 7230242399203259971, guid: d6f31878d7b2a034fbd3816f3cd709e7, type: 3}
+  - {fileID: 1771076093755073250, guid: 92f60ac8ec62f7e4e8e238d843a42061, type: 3}
+  - {fileID: 503339129623589053, guid: bce73dfafacedcd4084bc701a62d2f90, type: 3}
+  - {fileID: 6439387675496833923, guid: e0c93acce2a9e8a4185cf338d669392b, type: 3}
+  - {fileID: 5741554017429390996, guid: 81413e8f324c18a448d09c3cce65de0b, type: 3}
+  - {fileID: 5127481891330347596, guid: 40e492e30f56f7b4584cb56262a74243, type: 3}
+  - {fileID: 7861768750294172106, guid: bd65d938961599a4cac08a86562eb15a, type: 3}
+  - {fileID: 6782649019237617089, guid: 1724912bfcbddf24e9fdb4c33cb24949, type: 3}
+  _diagonalRightGasExplosionPositions:
+  - {fileID: 5089624431611875003, guid: db584c3e81817894fbab97e153a6bae9, type: 3}
+  - {fileID: 4981116970431840578, guid: a93fef12353603745aee8c4d957494e6, type: 3}
+  - {fileID: 6291393810392480060, guid: e7d440c7ffa1b08498c40e7dbdc12eb9, type: 3}
+  - {fileID: 8197267293921578200, guid: 39ff529f797559f42b389d0e50f3cec0, type: 3}
+  - {fileID: 4802932161368383804, guid: e101362064c8471489f00a8fe979d4ce, type: 3}
+  - {fileID: 4047325930102358816, guid: 3d8827066bb8b274c8b81dbfa5fd1124, type: 3}
+  - {fileID: 8514421274380775064, guid: 4a6f8ca2dc1afc24dacc90fd392e6b51, type: 3}
+  - {fileID: 2767160426898744209, guid: aed99ce80a624f14890df61d03ea46d0, type: 3}
+  - {fileID: 2075299957340440085, guid: b285537dd0f2e524f9326b5b952e3ab2, type: 3}
+  - {fileID: 341504249917949145, guid: ba30f06f7be747049811c64159c65ee7, type: 3}
+  - {fileID: 377785438254054827, guid: dfa28c93eb92aa642ab105682d504b52, type: 3}
+  _gasExplosionTag: GasExplosionLarge

@@ -520,7 +520,7 @@ MonoBehaviour:
   - {fileID: 5974782661177597016}
   - {fileID: 8312833670853841048}
   turretChildren: []
-  _deathSound: {fileID: 8300000, guid: 1d74880bed4586644a16a79a2d9dc8af, type: 3}
+  _deathSound: {fileID: 8300000, guid: ba594aad031975b45a5acdbd5fa34f5c, type: 3}
   _deathExplosion: LargeExp
   _deathEffect:
   - DeathEffectLarge
@@ -540,7 +540,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities:
   - {fileID: 11400000, guid: 94fc40a2a85ceaa4687e9c4427f96b48, type: 2}
+  - {fileID: 11400000, guid: 2bc67780a24fbb0498a4c2d8aad1ceec, type: 2}
+  - {fileID: 11400000, guid: b606d26ed3942aa48a77f22a5972c8fd, type: 2}
+  - {fileID: 11400000, guid: b70bc6cf1d1eeef4a9bc1f7c00a260f7, type: 2}
+  - {fileID: 11400000, guid: eab9c848430fb194b941f56a7018d219, type: 2}
   - {fileID: 11400000, guid: cdeac7b70d5c02345bed6b435cf057a0, type: 2}
+  - {fileID: 11400000, guid: 3aeeda386d0d65a459b0a232ccbff7cf, type: 2}
   target: {fileID: 0}
 --- !u!82 &8498825487326027702
 AudioSource:

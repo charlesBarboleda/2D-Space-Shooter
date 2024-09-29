@@ -47,6 +47,7 @@ public class BossPhaseController : MonoBehaviour
 
     IEnumerator Phase1()
     {
+        _abilityHolder.abilities[0].isUnlocked = false;
         // Disable the exhausts
         foreach (GameObject exhaust in _exhausts)
         {
@@ -75,22 +76,24 @@ public class BossPhaseController : MonoBehaviour
             exhaust.SetActive(true);
         }
         // Increase camera ortho size
-        yield return StartCoroutine(CameraFollowBehaviour.Instance.ChangeOrthographicSize(225, 1f));
+        yield return StartCoroutine(CameraFollowBehaviour.Instance.ChangeOrthographicSize(210, 1f));
         // Enable boss damageable
         _health.isDead = false;
         // Enable boss rotation
         _kinematics.ShouldRotate = true;
 
-        // Activate boss' first second ability and make sure it's not on cooldown
-        _abilityHolder.abilities[1].isUnlocked = true;
-        _abilityHolder.abilities[1].currentCooldown = _abilityHolder.abilities[1].cooldown;
+        // Get a random full map ability
+        int randomAbility = Random.Range(1, 5);
+        // Activate boss' second ability and make sure it's not on cooldown
+        _abilityHolder.abilities[randomAbility].isUnlocked = true;
+        _abilityHolder.abilities[randomAbility].currentCooldown = _abilityHolder.abilities[1].cooldown;
         // Wait for 7 seconds to finish animations
-        yield return new WaitForSeconds(14f);
+        yield return new WaitForSeconds(8f);
         // Activate the boss' first ability and make sure it's not on cooldown
         _abilityHolder.abilities[0].isUnlocked = true;
         _abilityHolder.abilities[0].duration = 30f;
         _abilityHolder.abilities[0].currentCooldown = _abilityHolder.abilities[0].cooldown;
-        yield return new WaitForSeconds(29f);
+        yield return new WaitForSeconds(26f);
 
         // Enable the boss movement
         _kinematics.ShouldMove = true;
@@ -100,9 +103,10 @@ public class BossPhaseController : MonoBehaviour
         _attackManager.IsSilenced = false;
 
 
-        // Reset the boss' ability cooldowns
+        // Reset the boss' ability 
+
         _abilityHolder.abilities[0].currentCooldown = 0f;
-        _abilityHolder.abilities[1].currentCooldown = 0f;
+        _abilityHolder.abilities[randomAbility].isUnlocked = false;
         // Activate the player camera
         CameraFollowBehaviour.Instance.ActivatePlayerCamera();
     }
@@ -138,27 +142,28 @@ public class BossPhaseController : MonoBehaviour
             exhaust.SetActive(true);
         }
         // Increase camera ortho size
-        yield return StartCoroutine(CameraFollowBehaviour.Instance.ChangeOrthographicSize(225, 1f));
+        yield return StartCoroutine(CameraFollowBehaviour.Instance.ChangeOrthographicSize(210, 1f));
         // Enable boss damageable
         _health.isDead = false;
         // Enable boss attacks with buffed attack rate
-        _attackManager.AttackCooldown = 0.5f;
-        _attackManager.IsSilenced = false;
         _kinematics.ShouldRotate = true;
 
+        int randomAbility = Random.Range(5, 7);
+
         // Activate boss' second ability and make sure it's not on cooldown
-        _abilityHolder.abilities[1].isUnlocked = true;
-        _abilityHolder.abilities[1].currentCooldown = _abilityHolder.abilities[1].cooldown;
+        _abilityHolder.abilities[randomAbility].isUnlocked = true;
+        _abilityHolder.abilities[randomAbility].currentCooldown = _abilityHolder.abilities[1].cooldown;
         // Wait for 7 seconds to finish animations
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(8f);
         // Activate the boss' first ability and make sure it's not on cooldown
         _abilityHolder.abilities[0].isUnlocked = true;
         _abilityHolder.abilities[0].duration = 30f;
         _abilityHolder.abilities[0].currentCooldown = _abilityHolder.abilities[0].cooldown;
-        yield return new WaitForSeconds(29f);
+        yield return new WaitForSeconds(26f);
 
         // Enable the boss movement
         _kinematics.ShouldMove = true;
+
         // Activate the player camera
         CameraFollowBehaviour.Instance.ActivatePlayerCamera();
 

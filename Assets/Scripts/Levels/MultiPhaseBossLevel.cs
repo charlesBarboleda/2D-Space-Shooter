@@ -235,7 +235,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
 
     bool IsBossHealthLow()
     {
-        return bossHealthPhase1.CurrentHealth <= bossHealthPhase1.MaxHealth / 7; // Check if a seventh of the health is gone
+        return bossHealthPhase1.CurrentHealth <= bossHealthPhase1.MaxHealth / 10; // Check if a ninth of the health is gone
     }
 
     bool IsBossDefeated()
@@ -247,6 +247,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
     {
         Debug.Log("Completing Level");
         UIManager.Instance.bossHealthBar.gameObject.SetActive(false);
+        spawnerManager.StartCoroutine(Background.Instance.PlayOriginalBackgroundMusic());
         levelManager.CompleteLevel();
     }
 
