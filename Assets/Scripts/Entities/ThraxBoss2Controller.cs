@@ -163,6 +163,9 @@ public class BossPhaseController : MonoBehaviour
 
         // Enable the boss movement
         _kinematics.ShouldMove = true;
+        // Enable the boss attacks with buffed attack rate
+        _attackManager.AttackCooldown = 0.5f;
+        _attackManager.IsSilenced = false;
 
         // Activate the player camera
         CameraFollowBehaviour.Instance.ActivatePlayerCamera();

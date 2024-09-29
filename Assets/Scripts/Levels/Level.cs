@@ -16,11 +16,15 @@ public abstract class Level
 {
     protected LevelType _leveltype;
     protected FactionType _factionType = FactionType.Player;
+    protected List<ObjectiveBase> _levelObjectives = new List<ObjectiveBase>();
     protected List<Ship> _shipsToSpawn = new List<Ship>();
-    protected Dictionary<string, GameObject> shipList = new Dictionary<string, GameObject>();
-
+    protected List<GameObject> shipList = new List<GameObject>();
     public abstract void StartLevel();
     public abstract void UpdateLevel();
     public abstract void CompleteLevel();
+    public virtual List<ObjectiveBase> GetLevelObjectives()
+    {
+        return _levelObjectives;
+    }
 
 }

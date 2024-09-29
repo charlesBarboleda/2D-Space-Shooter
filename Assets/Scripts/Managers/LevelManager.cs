@@ -48,14 +48,14 @@ public class LevelManager : MonoBehaviour
             else return CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
         }
 
-        // There's a 30% chance of creating a multi-phase boss level
-        else if (Random.value > 0.7f && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
+        // There's a 1% chance of creating a multi-phase boss level
+        else if (Random.value > 0.99f && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
         {
             return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
 
         }
         // Otherwise, create a horde level
-        return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
+        return CreateSoloInvasionLevel();
     }
 
 
@@ -82,6 +82,7 @@ public class LevelManager : MonoBehaviour
         SpawnerManager.Instance.EnemiesToSpawnLeft = 0;
         _levels.Add(GenerateNextLevel());
         GameManager.Instance.ChangeState(GameManager.GameState.LevelEnd);
+
     }
 
 

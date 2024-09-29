@@ -13,7 +13,8 @@ public class SpawnerManager : MonoBehaviour
     [SerializeField] List<GameObject> _enemiesList;
     [SerializeField] int enemiesToSpawnLeft;
     [SerializeField] List<Vector3> _soloBossSpawnPoints = new List<Vector3>();
-    List<Ship> _defendingShipsList = new List<Ship>();
+    List<GameObject> _defendingShipsList = new List<GameObject>();
+    List<GameObject> _specialEnemiesList = new List<GameObject>();
 
     void Awake()
     {
@@ -74,7 +75,7 @@ public class SpawnerManager : MonoBehaviour
         }
     }
 
-    public IEnumerator SpawnEnemiesOverTime(List<Ship> shipList, float spawnRate, int numberOfEnemiesToSpawn, float spawnPointRadius, Dictionary<string, GameObject> specialEnemies)
+    public IEnumerator SpawnEnemiesOverTime(List<Ship> shipList, float spawnRate, int numberOfEnemiesToSpawn, float spawnPointRadius, List<GameObject> specialEnemies)
     {
         if (shipList == null || shipList.Count == 0)
         {
@@ -98,7 +99,7 @@ public class SpawnerManager : MonoBehaviour
             string chosenShip = GetRandomShip(shipList);
             GameObject ship = SpawnShip(chosenShip, spawnPosition, Quaternion.identity);
             Enemy enemy = ship.GetComponent<Enemy>();
-            specialEnemies.Add(enemy.EnemyID, ship);
+            specialEnemies.Add(ship);
             yield return new WaitForSeconds(spawnRate);
         }
     }
@@ -380,9 +381,9 @@ public class SpawnerManager : MonoBehaviour
     }
 
     public List<GameObject> EnemiesList { get => _enemiesList; }
-    public List<GameObject> SpecialEnemiesList { get; set; }
+    public List<GameObject> SpecialEnemiesList { get => _specialEnemiesList; set => _specialEnemiesList = value; }
+    public List<GameObject> DefendingShipsList { get => _defendingShipsList; }
     public int EnemiesToSpawnLeft { get => enemiesToSpawnLeft; set => enemiesToSpawnLeft = value; }
     public List<Vector3> SoloBossSpawnPoints { get => _soloBossSpawnPoints; }
-    public List<Ship> DefendingShipsList { get => _defendingShipsList; }
 
 }

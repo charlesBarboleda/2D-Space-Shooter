@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
+        ObjectiveManager.Instance.ClearActiveObjectives();
         Debug.Log("Countdown Started");
         _isInputActive = true;
         _roundCountdown = 10f;

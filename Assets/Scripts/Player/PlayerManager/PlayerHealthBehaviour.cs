@@ -32,6 +32,7 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         if (isDead) return;
+        OnPlayerDamageCameraEffect.Instance.DamageEffect();
         currentHealth -= damage;
         StartCoroutine(FlashRed());
 

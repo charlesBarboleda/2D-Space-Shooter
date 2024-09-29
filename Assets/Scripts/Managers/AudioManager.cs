@@ -27,8 +27,6 @@ public class AudioManager : MonoBehaviour
         // Check if the clip is already being played
         if (playingClips.ContainsKey(clip) && playingClips[clip].isPlaying)
         {
-            // Clip is already playing, do not play it again
-            Debug.Log("Clip already playing: " + clip.name);
             return;
         }
 

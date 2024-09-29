@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GasBlockade : MonoBehaviour
 {
-
+    [SerializeField] bool _shouldDisable = true;
     void OnEnable()
     {
-        StartCoroutine(DisableAfterTime());
+        if (_shouldDisable)
+            StartCoroutine(DisableAfterTime());
     }
     private void OnTriggerStay2D(Collider2D other)
     {

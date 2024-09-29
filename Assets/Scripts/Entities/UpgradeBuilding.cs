@@ -6,7 +6,6 @@ public class UpgradeBuilding : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collided with: " + other.gameObject.name);
         if (other.gameObject.CompareTag("Player"))
         {
             UpgradeShopManager.Instance.OpenUpgradeShop();

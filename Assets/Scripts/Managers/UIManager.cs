@@ -12,6 +12,13 @@ public class UIManager : MonoBehaviour
     public Canvas worldCanvas;
     public TextMeshProUGUI midScreenText;
 
+    [Header("Objectives")]
+    [SerializeField] GameObject objectiveDescriptionText;
+    [SerializeField] GameObject objectivePanel;
+
+    // A list to keep track of instantiated objective UI elements
+    private List<GameObject> objectiveUIElements = new List<GameObject>();
+
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
     [SerializeField] TextMeshProUGUI healthUpgradeText, damageUpgradeText, fireRateUpgradeText, bulletSpeedUpgradeText, extraBulletUpgradeText, speedUpgradeText, pickUpUpgradeText;
@@ -28,8 +35,6 @@ public class UIManager : MonoBehaviour
     [Header("Player Abilities UI")]
     [SerializeField] Image laserIconFill, shieldIconFill, teleportIconFill, turretIconFill;
     public GameObject laserPanel, shieldPanel, teleportPanel, turretPanel;
-
-
 
     AbilityHolder _abilityHolder;
 
@@ -51,36 +56,29 @@ public class UIManager : MonoBehaviour
     public GameObject currencyPanel;
     public GameObject roundNumber;
 
-
     void Awake()
     {
-
         if (Instance == null)
         {
             Instance = this;
-
         }
         else
         {
-
             Destroy(gameObject);
         }
     }
 
     void Start()
     {
-
         _abilityHolder = PlayerManager.GetInstance().AbilityHolder();
-
     }
-    void OnEnable()
 
+    void OnEnable()
     {
         EventManager.OnCurrencyChange += UpdateCurrencyText;
         EventManager.OnNextLevel += UpdateRoundText;
         EventManager.OnGameOver += GameOver;
         EventManager.OnGameOver += UpdateHighScoreUI;
-
     }
 
     void OnDisable()
@@ -91,21 +89,15 @@ public class UIManager : MonoBehaviour
         EventManager.OnGameOver -= UpdateHighScoreUI;
     }
 
-    void UpdateHighScoreUI()
-    {
-        highscoreText.text = $"Highscore: Level {PlayerPrefs.GetFloat("HighScore")}";
-    }
-
     void Update()
     {
         UpdateRoundText();
         PauseMenu();
+
         if (upgradeShopPanel.activeSelf)
         {
             UpdateAllUpgradeText();
         }
-
-
 
         // Update the ability icons fill amount based on the cooldown
         foreach (Ability ability in _abilityHolder.abilities)
@@ -135,6 +127,59 @@ public class UIManager : MonoBehaviour
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
     }
 
+    // --------------- Objective System Integration ---------------
+
+    /// <summary>
+    /// Adds an objective to the UI panel.
+    /// </summary>
+    /// <param name="objective">The objective to display in the UI.</param>
+    public void AddObjectiveToUI(ObjectiveBase objective)
+    {
+        GameObject objectiveDescription = Instantiate(objectiveDescriptionText, objectivePanel.transform);
+        objectiveDescription.GetComponent<TextMeshProUGUI>().text = objective.objectiveName + ": " + objective.objectiveDescription;
+        objectiveUIElements.Add(objectiveDescription);
+        Debug.Log("Instantiated objective description UI");
+    }
+
+    /// <summary>
+    /// Marks an objective as complete in the UI.
+    /// </summary>
+    /// <param name="objective">The completed objective.</param>
+    public void MarkObjectiveAsComplete(ObjectiveBase objective)
+    {
+        foreach (GameObject objUIElement in objectiveUIElements)
+        {
+            TextMeshProUGUI textComponent = objUIElement.GetComponent<TextMeshProUGUI>();
+            if (textComponent.text.Contains(objective.objectiveName))
+            {
+                textComponent.text += " [COMPLETED]";
+                textComponent.color = Color.green;  // Change the color to indicate completion
+                Debug.Log("Objective marked as complete in UI");
+                break;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Clears all objective UI elements from the screen.
+    /// </summary>
+    public void ClearObjectivesFromUI()
+    {
+        foreach (GameObject objUIElement in objectiveUIElements)
+        {
+            Destroy(objUIElement);
+        }
+        objectiveUIElements.Clear();
+        Debug.Log("Cleared all objective UI elements.");
+    }
+
+    // ------------------------------------------------------------
+
+    void UpdateHighScoreUI()
+    {
+        highscoreText.text = $"Highscore: Level {PlayerPrefs.GetFloat("HighScore")}";
+    }
+
     void PauseMenu()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -144,18 +189,16 @@ public class UIManager : MonoBehaviour
                 _pauseMenu.SetActive(false);
                 Time.timeScale = 1;
             }
-
             else
             {
                 Time.timeScale = 0;
                 _pauseMenu.SetActive(true);
             }
-
         }
     }
+
     public void DeactivateAllUIPanels()
     {
-        Debug.Log("Deactivating all UI panels");
         skillTreePanel.SetActive(false);
         upgradeShopPanel.SetActive(false);
         playerHealthBar.SetActive(false);
@@ -165,12 +208,10 @@ public class UIManager : MonoBehaviour
         roundNumber.SetActive(false);
         bossHealthBar.SetActive(false);
         miniMapContainer.SetActive(false);
-        Debug.Log("Deactivated all UI panels");
     }
 
     public void ActivateAllUIPanels()
     {
-
         playerHealthBar.SetActive(true);
         objectivesPanel.SetActive(true);
         powerUpsPanel.SetActive(true);
@@ -185,11 +226,8 @@ public class UIManager : MonoBehaviour
         _pauseMenu.SetActive(false);
     }
 
-    // Methods for the Upgrade
     void UpdateAllUpgradeText()
     {
-        // Updates the description text and cost text for each upgrade
-
         SetDescriptionText(healthUpgradeText, UpgradeShopManager.healthUpgrade);
         SetDescriptionText(damageUpgradeText, UpgradeShopManager.bulletDamageUpgrade);
         SetDescriptionText(fireRateUpgradeText, UpgradeShopManager.fireRateUpgrade);
@@ -197,8 +235,6 @@ public class UIManager : MonoBehaviour
         SetDescriptionText(extraBulletUpgradeText, UpgradeShopManager.extraBulletUpgrade);
         SetDescriptionText(speedUpgradeText, UpgradeShopManager.shipSpeedUpgrade);
         SetDescriptionText(pickUpUpgradeText, UpgradeShopManager.pickUpUpgrade);
-
-
 
         SetCostText(healthCost, UpgradeShopManager.healthUpgrade);
         SetCostText(damageCost, UpgradeShopManager.bulletDamageUpgrade);
@@ -213,17 +249,16 @@ public class UIManager : MonoBehaviour
     {
         StartCoroutine(OnMidScreenText(text, duration));
     }
+
     IEnumerator OnMidScreenText(string text, float duration)
     {
         midScreenText.text = text;
         midScreenText.gameObject.SetActive(true);
 
         float t = 0;
-
         while (t < duration)
         {
-            // Use PingPong to create a continuous fade-in and fade-out effect
-            float fade = Mathf.PingPong(Time.time * 3, 1); // Adjust the multiplier (2) for faster or slower fading
+            float fade = Mathf.PingPong(Time.time * 3, 1); // Fading effect
             midScreenText.color = new Color(1, 1, 1, fade);
 
             t += Time.deltaTime;
@@ -233,19 +268,12 @@ public class UIManager : MonoBehaviour
         midScreenText.gameObject.SetActive(false);
     }
 
-
     public IEnumerator OnHitDamageText(string text, Vector3 position)
     {
-        // Get screen position from world position
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(position);
-
-        // Spawn damage text and convert its position to canvas space
         GameObject damageText = ObjectPooler.Instance.SpawnFromPool("DamageText", transform.position, Quaternion.identity);
-
-        // Set the parent to the world canvas and convert the screen point to the canvas's world position
         damageText.transform.SetParent(worldCanvas.transform, false);
 
-        // Convert screen position to local position in the canvas
         RectTransform canvasRect = worldCanvas.GetComponent<RectTransform>();
         RectTransform damageTextRect = damageText.GetComponent<RectTransform>();
 
@@ -253,8 +281,6 @@ public class UIManager : MonoBehaviour
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPosition, Camera.main, out localPosition);
         damageTextRect.localPosition = localPosition;
 
-
-        // Set damage text content
         damageText.GetComponent<TextMeshProUGUI>().text = text;
         yield return StartCoroutine(MoveUpAndFadeOut(damageText, 1f));
         damageText.SetActive(false);
@@ -264,6 +290,7 @@ public class UIManager : MonoBehaviour
     {
         StartCoroutine(OnHitDamageText(text, position));
     }
+
     public IEnumerator MoveUpAndFadeOut(GameObject damageTextObject, float duration)
     {
         float time = 0;
@@ -276,7 +303,6 @@ public class UIManager : MonoBehaviour
         }
         damageTextObject.SetActive(false);
     }
-
 
     public void DisableAllUIPanels()
     {
@@ -291,8 +317,10 @@ public class UIManager : MonoBehaviour
 
     private void UpdateRoundText()
     {
-        if (GameManager.Instance.CurrentGameState == GameManager.GameState.LevelIn) roundText.text = $"{LevelManager.Instance.CurrentLevelIndex}";
-        if (GameManager.Instance.CurrentGameState == GameManager.GameState.Countdown) roundText.text = $"{Math.Round(GameManager.Instance.RoundCountdown, 0)}";
+        if (GameManager.Instance.CurrentGameState == GameManager.GameState.LevelIn)
+            roundText.text = $"{LevelManager.Instance.CurrentLevelIndex}";
+        if (GameManager.Instance.CurrentGameState == GameManager.GameState.Countdown)
+            roundText.text = $"{Math.Round(GameManager.Instance.RoundCountdown, 0)}";
     }
 
     private void SetDescriptionText(TextMeshProUGUI text, Upgrade upgrade)
@@ -304,7 +332,6 @@ public class UIManager : MonoBehaviour
     {
         text.text = $"{upgrade.upgradeCost}";
     }
-
 
     public void GameOver()
     {

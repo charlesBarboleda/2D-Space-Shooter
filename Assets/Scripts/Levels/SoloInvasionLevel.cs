@@ -7,15 +7,11 @@ public class SoloInvasionLevel : Level
     int _amountOfEnemiesDefending;
     int _spawnAmountRatio;
     List<Ship> _shipsToSpawnInvading;
-    Dictionary<string, GameObject> _totalInvaders = new Dictionary<string, GameObject>();
     float _spawnRateDefending;
     LevelManager _levelManager;
     SpawnerManager _spawnerManager;
     bool _invasionLost = false;
     bool _invasionWon = false;
-
-
-
 
     public SoloInvasionLevel(FactionType factionType, float spawnRateDefending, List<Ship> shipsToSpawnInvading, List<Ship> shipsToSpawnDefending, int spawnAmountRatio, int amountOfEnemiesDefending, LevelManager levelManager, SpawnerManager spawnerManager)
     {
@@ -29,19 +25,16 @@ public class SoloInvasionLevel : Level
         _levelManager = levelManager;
         _spawnerManager = spawnerManager;
     }
+
     public override void StartLevel()
     {
         Debug.Log("Starting Invasion Level");
-
+        Debug.Log("Objectives List Count: " + _levelObjectives.Count);
         EventManager.OnEnemyDestroyed += RegisterInvaderKill;
-        // Calculate the amount of enemies to spawn
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesDefending + (_amountOfEnemiesDefending * _spawnAmountRatio);
-        // Start the spawning of the defending enemies
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRateDefending, _amountOfEnemiesDefending, 200f, shipList));
-        // Start the proper objectives
-        // ObjectivesManager.Instance.StartObjectives();
 
-        // Start the spawning of the winning enemies after a delay
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRateDefending, _amountOfEnemiesDefending, 200f, _spawnerManager.DefendingShipsList));
+
         _spawnerManager.StartCoroutine(DelayedSpawn());
     }
 
@@ -51,7 +44,6 @@ public class SoloInvasionLevel : Level
         {
             CompleteLevel();
         }
-        // Check if the invasion has lost
         else if (InvasionLost())
         {
             if (!_invasionLost)
@@ -59,17 +51,15 @@ public class SoloInvasionLevel : Level
                 _invasionLost = true;
                 Debug.Log("The invasion has lost");
             }
-
         }
-        // Check if the invasion has won
         else if (InvasionWon() && !_invasionWon)
         {
             _invasionWon = true;
             EventManager.FactionInvasionWonEvent(_factionType);
             Debug.Log("The invasion has won");
         }
-
     }
+
     public override void CompleteLevel()
     {
         Debug.Log("Completing Invasion Level");
@@ -78,47 +68,37 @@ public class SoloInvasionLevel : Level
         _levelManager.CompleteLevel();
     }
 
-    public bool InvasionLost()
+    private bool InvasionLost()
     {
-        if (_totalInvaders.Count <= 0 && _spawnerManager.EnemiesToSpawnLeft <= 0)
-        {
-            return true;
-        }
-        return false;
+        return _spawnerManager.SpecialEnemiesList.Count <= 0 && _spawnerManager.EnemiesToSpawnLeft <= 0;
     }
 
-    public bool InvasionWon()
+    private bool InvasionWon()
     {
-        if (_totalInvaders.Count > 0 && _spawnerManager.EnemiesToSpawnLeft <= 0 && _spawnerManager.EnemiesList.Count - _totalInvaders.Count <= 0)
-        {
-            return true;
-        }
-        return false;
+        return _spawnerManager.DefendingShipsList.Count <= 0 && _spawnerManager.EnemiesToSpawnLeft <= 0;
     }
-
-
 
     IEnumerator DelayedSpawn()
     {
         yield return new WaitForSeconds(Random.Range(20f, 30f));
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateDefending / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 250f, _totalInvaders));
-        yield return _spawnerManager.StartCoroutine(Background.Instance.PlayInvasionMusic());
-        Debug.Log("Played Invasion music from SoloInvasionLevel");
-        UIManager.Instance.MidScreenWarningText($"An invasion is occuring!", 3.5f);
+        ObjectiveBase invasionObjective = ObjectiveManager.Instance.GetObjectiveFromPool("InvasionObjective");
+        if (invasionObjective != null)
+        {
 
+            _levelObjectives.Add(invasionObjective);
+        }
+        ObjectiveManager.Instance.StartObjectivesForLevel(this);
+
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateDefending / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 250f, _spawnerManager.SpecialEnemiesList));
+        yield return _spawnerManager.StartCoroutine(Background.Instance.PlayInvasionMusic());
+        UIManager.Instance.MidScreenWarningText($"An invasion is occuring!", 3.5f);
     }
 
-    public void RegisterInvaderKill(string invaderID, GameObject invader)
+    public void RegisterInvaderKill(GameObject invader)
     {
-        // Check if the destroyed invader exists in the dictionary
-        if (_totalInvaders.ContainsKey(invaderID))
+        if (_spawnerManager.SpecialEnemiesList.Contains(invader))
         {
-            _totalInvaders.Remove(invaderID);
-            Debug.Log($"Invader {invaderID} destroyed. Remaining invaders: {_totalInvaders.Count}");
+            _spawnerManager.SpecialEnemiesList.Remove(invader);
         }
     }
-
-    public Dictionary<string, GameObject> TotalInvaders { get => _totalInvaders; }
-
-
 }

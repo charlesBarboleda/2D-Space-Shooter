@@ -126,7 +126,7 @@ public class Health : MonoBehaviour, IDamageable
         TryGetComponent(out Enemy enemy);
         if (enemy != null)
         {
-            EventManager.EnemyShipDestroyedEvent(enemy.EnemyID, gameObject);
+            EventManager.EnemyShipDestroyedEvent(gameObject);
         }
 
         // Create the debris
