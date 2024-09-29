@@ -9,7 +9,6 @@ using UnityEngine;
 public class EnemyVoidImplosionAbility : Ability
 {
     [SerializeField] float _attackRate = 0.15f;
-    [SerializeField] float _duration = 20f;
     [SerializeField] float _aimOffset = 200f;
     [SerializeField] string _voidImplosionTag = "ThraxImplosion";
 
@@ -26,14 +25,14 @@ public class EnemyVoidImplosionAbility : Ability
 
     IEnumerator SpawnVoidImplosions(Transform target)
     {
-        while (_duration > 0)
+        while (duration > 0)
         {
             Debug.Log("Spawning Void Implosion");
             Vector3 _finalOffset = new Vector3(Random.Range(-_aimOffset, _aimOffset), Random.Range(-_aimOffset, _aimOffset), 0f);
             GameObject _voidImplosion = ObjectPooler.Instance.SpawnFromPool(_voidImplosionTag, target.position + _finalOffset, Quaternion.identity);
             EnemyVoidImplosion voidImplosionScript = _voidImplosion.GetComponent<EnemyVoidImplosion>();
             yield return new WaitForSeconds(_attackRate);
-            _duration -= _attackRate;
+            duration -= _attackRate;
         }
     }
 
@@ -44,7 +43,7 @@ public class EnemyVoidImplosionAbility : Ability
         {
             _aimOffset = 100f;
         }
-        _duration = Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 0.5f, 20f);
+        duration = Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 0.5f, 20f);
         _attackRate = _attackRate - LevelManager.Instance.CurrentLevelIndex * 0.01f;
         if (_attackRate < 0.1f)
         {
@@ -55,7 +54,7 @@ public class EnemyVoidImplosionAbility : Ability
     public override void ResetStats()
     {
         _aimOffset = 150f;
-        _duration = 20f;
+        duration = 20f;
         _attackRate = 0.15f;
         cooldown = 40f;
         currentCooldown = cooldown;

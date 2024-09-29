@@ -70,7 +70,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
     void StartPhase1()
     {
         // Start the spawning of enemies
-        spawnerManager.StartCoroutine(spawnerManager.SpawnEnemiesWaves(5, 20f));
+        spawnerManager.StartCoroutine(spawnerManager.SpawnEnemiesWaves(1, 20f));
 
         // Play phase 1 music
         spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase1Music());

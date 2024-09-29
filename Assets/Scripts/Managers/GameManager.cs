@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            ObjectPooler.Instance.SpawnFromPool("ThraxGasExplosion", Vector3.zero, Quaternion.identity);
+            ObjectPooler.Instance.SpawnFromPool("GasExplosionLarge", Vector3.zero, Quaternion.identity);
         }
     }
 

@@ -6,7 +6,6 @@ public class AbilityLaser : Ability
 {
 
     [SerializeField] GameObject _laserPrefab;
-    public float duration;
     public float dps;
 
     // Start is called before the first frame update

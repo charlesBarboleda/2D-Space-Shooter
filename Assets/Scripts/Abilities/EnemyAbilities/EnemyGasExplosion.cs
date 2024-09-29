@@ -9,7 +9,7 @@ public class EnemyGasExplosion : MonoBehaviour
 
     [SerializeField] float _countdown = 5f;  // Default countdown duration
     [SerializeField] float _size = 50f;      // Default size
-    [SerializeField] float _damage = 10000f;    // Default damage
+    [SerializeField] float _damage = 10000f; // Default damage
 
     private float _initialSize;
     private bool isActivated = false;
@@ -17,7 +17,37 @@ public class EnemyGasExplosion : MonoBehaviour
     void OnEnable()
     {
         ResetExplosion(); // Initialize and reset everything
-        StartCoroutine(CircleCountdown());
+        StartCoroutine(DelayedCircleCountdown());
+    }
+
+    IEnumerator DelayedCircleCountdown()
+    {
+
+
+        // Wait until the position is confirmed to be non-zero or as expected
+        yield return new WaitForSeconds(0.5f);
+
+        // Recheck the position before starting the circle countdown
+
+        if (transform.position != Vector3.zero || isCenterPosition())
+        {
+            // Reset the circle position to ensure it's not at (0,0,0)
+            _circleTargetCountdown.transform.position = transform.position;
+
+            StartCoroutine(CircleCountdown());
+        }
+        else
+        {
+            Debug.LogError("Position is invalid for spawning!");
+        }
+    }
+
+    private bool isCenterPosition()
+    {
+        // Consider a small threshold for floating point precision issues
+        const float threshold = 0.1f;
+        bool isCenter = Mathf.Abs(transform.position.x) < threshold && Mathf.Abs(transform.position.y) < threshold;
+        return isCenter;
     }
 
     private void ResetExplosion()
@@ -25,14 +55,21 @@ public class EnemyGasExplosion : MonoBehaviour
         // Ensure particles are stopped and the initial size is set
         _chargingParticles.Stop();
         _explosionParticles.Stop();
+
         if (_explosionParticles == null || _chargingParticles == null)
         {
             Debug.LogError("Particles are missing or destroyed!");
             return;
         }
 
-        // Create or reset the countdown circle
+        // Log the position to ensure it is set correctly
+
+
+        // Create or reset the countdown circle at the object's position
         _circleTargetCountdown = ObjectPooler.Instance.SpawnFromPool("TargetHitCircle", transform.position, Quaternion.identity);
+
+        // Ensure that the target circle position matches the explosion position
+        _circleTargetCountdown.transform.position = transform.position;
         _circleTargetCountdown.transform.localScale = Vector3.zero;
 
         // Set the initial size and countdown duration
@@ -42,6 +79,7 @@ public class EnemyGasExplosion : MonoBehaviour
         // Set the particle sizes
         _explosionParticles.transform.localScale = new Vector3(_initialSize / 2.1f, _initialSize / 2.1f, _initialSize / 2.1f);
         _chargingParticles.transform.localScale = new Vector3(_initialSize / 3.5f, _initialSize / 3.5f, _initialSize / 3.5f);
+
     }
 
     IEnumerator CircleCountdown()
@@ -52,7 +90,11 @@ public class EnemyGasExplosion : MonoBehaviour
             timeElapsed += Time.deltaTime;
             float lerpValue = timeElapsed / _countdown;
             float currentSize = Mathf.Lerp(0, _initialSize - 5f, lerpValue);
+
+            // Keep the circle in sync with the explosion's position
+            _circleTargetCountdown.transform.position = transform.position;
             _circleTargetCountdown.transform.localScale = new Vector3(currentSize, currentSize, currentSize);
+
             yield return null;
         }
         _circleTargetCountdown.SetActive(false);
@@ -69,6 +111,7 @@ public class EnemyGasExplosion : MonoBehaviour
 
     IEnumerator Implode()
     {
+
         LayerMask _damageLayerMask = LayerMask.GetMask("Player", "CrimsonFleet", "Syndicates");
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, _initialSize, _damageLayerMask);
 
@@ -86,7 +129,7 @@ public class EnemyGasExplosion : MonoBehaviour
         if (_explosionParticles != null)
         {
             _explosionParticles.Play();
-            ObjectPooler.Instance.SpawnFromPool("GasBlockade", transform.position, Quaternion.identity);
+            ObjectPooler.Instance.SpawnFromPool("GasBlockadeLarge", transform.position, Quaternion.identity);
             yield return new WaitForSeconds(_explosionParticles.main.duration);
             _explosionParticles.Stop();
         }

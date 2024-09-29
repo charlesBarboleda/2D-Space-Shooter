@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &995086207958443574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1771076093755073250}
+  m_Layer: 0
+  m_Name: DiagonalLeft 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1771076093755073250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995086207958443574}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.006989015, y: 0.0028937727, z: 0.38253984, w: 0.92390805}
+  m_LocalPosition: {x: -212.04666, y: 212.16893, z: 4.53849}
+  m_LocalScale: {x: 9.432505, y: 9.432504, z: 9.432505}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0.613, y: 0.613, z: 44.987}

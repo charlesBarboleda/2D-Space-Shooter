@@ -492,8 +492,6 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 1
   _speed: 10
-  _maxSpeed: 10
-  _acceleration: 5
   _stopDistance: 100
 --- !u!114 &2041493744797454961
 MonoBehaviour:
@@ -542,6 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities:
   - {fileID: 11400000, guid: 94fc40a2a85ceaa4687e9c4427f96b48, type: 2}
+  - {fileID: 11400000, guid: cdeac7b70d5c02345bed6b435cf057a0, type: 2}
   target: {fileID: 0}
 --- !u!82 &8498825487326027702
 AudioSource:
@@ -747,7 +746,8 @@ MonoBehaviour:
   - {fileID: 8987605826513359427}
   - {fileID: 5974782661177597016}
   - {fileID: 8312833670853841048}
-  phaseThreshold: 10
+  phase1Threshold: 2
+  phase2Threshold: 10
 --- !u!1 &2503615000600082859
 GameObject:
   m_ObjectHideFlags: 0

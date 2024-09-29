@@ -34,8 +34,8 @@ public class LevelManager : MonoBehaviour
 
     Level GenerateNextLevel()
     {
-        // There's a 30% chance of creating a solo invasion level
-        if (Random.value > 0.7f)
+        // There's a 10% chance of creating a solo invasion level
+        if (Random.value > 0.9f)
         {
             return CreateSoloInvasionLevel();
         }
