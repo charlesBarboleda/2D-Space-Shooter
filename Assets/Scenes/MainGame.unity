@@ -6179,6 +6179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableObjectives:
   - {fileID: 11400000, guid: 576b150b37410b94fbdabc52c069889e, type: 2}
+  activeObjectives: []
 --- !u!1 &220021036
 GameObject:
   m_ObjectHideFlags: 0
@@ -23970,7 +23971,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 11.299438, y: -60}
-  m_SizeDelta: {x: 977.09, y: 449}
+  m_SizeDelta: {x: 977.09, y: 395.7976}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &794986755
 CanvasRenderer:
@@ -23995,7 +23996,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 277
     m_Right: 57
-    m_Top: 294
+    m_Top: 100
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 108.41
@@ -24089,7 +24090,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -168.12941, z: 0, w: -0.00013737894}
+  m_margin: {x: 0, y: -168.12941, z: 0, w: 399.01675}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

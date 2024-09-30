@@ -36,10 +36,10 @@ public class OnPlayerDamageCameraEffect : MonoBehaviour
     {
         // Increase the _vignette intensity to simulate damage
         float currentIntensity = _vignette.intensity.value;
-        while (currentIntensity < 0.6f)
+        while (currentIntensity < 0.5f)
         {
             currentIntensity += Time.deltaTime * 3f;
-            _vignette.intensity.value = Mathf.Clamp(currentIntensity, 0, 0.6f);
+            _vignette.intensity.value = Mathf.Clamp(currentIntensity, 0, 0.5f);
             yield return null;
         }
 
@@ -50,7 +50,7 @@ public class OnPlayerDamageCameraEffect : MonoBehaviour
         while (currentIntensity > 0)
         {
             currentIntensity -= Time.deltaTime * 3f;
-            _vignette.intensity.value = Mathf.Clamp(currentIntensity, 0, 0.6f);
+            _vignette.intensity.value = Mathf.Clamp(currentIntensity, 0, 0.5f);
             yield return null;
         }
     }

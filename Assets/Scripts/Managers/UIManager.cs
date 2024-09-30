@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject objectivePanel;
 
     // A list to keep track of instantiated objective UI elements
-    private List<GameObject> objectiveUIElements = new List<GameObject>();
+    Dictionary<ObjectiveBase, TextMeshProUGUI> _objectiveUIElements = new Dictionary<ObjectiveBase, TextMeshProUGUI>();
 
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
@@ -135,10 +135,37 @@ public class UIManager : MonoBehaviour
     /// <param name="objective">The objective to display in the UI.</param>
     public void AddObjectiveToUI(ObjectiveBase objective)
     {
+        // Create a new UI element for the objective
         GameObject objectiveDescription = Instantiate(objectiveDescriptionText, objectivePanel.transform);
-        objectiveDescription.GetComponent<TextMeshProUGUI>().text = objective.objectiveName + ": " + objective.objectiveDescription;
-        objectiveUIElements.Add(objectiveDescription);
-        Debug.Log("Instantiated objective description UI");
+        TextMeshProUGUI textComponent = objectiveDescription.GetComponent<TextMeshProUGUI>();
+
+        // Set the initial text
+        textComponent.text = $"{objective.objectiveName}: {objective.objectiveDescription}";
+
+        // Map the objective to its UI element
+        _objectiveUIElements[objective] = textComponent;
+
+        Debug.Log("Instantiated objective description UI for " + objective.objectiveName);
+    }
+
+    /// <summary>
+    /// Updates the description of a specific objective in the UI.
+    /// </summary>
+    /// <param name="objective">The objective to update.</param>
+    public void UpdateObjectiveUI(ObjectiveBase objective)
+    {
+        Debug.Log("Update Objective UI called from UIManager");
+
+        // Check if the objective is already mapped to a UI element
+        if (_objectiveUIElements.TryGetValue(objective, out TextMeshProUGUI textComponent))
+        {
+            // Update the text to the latest description
+            textComponent.text = $"{objective.objectiveDescription}";
+        }
+        else
+        {
+            Debug.LogError("Failed to find the UI element for the objective: " + objective.objectiveName);
+        }
     }
 
     /// <summary>
@@ -147,16 +174,11 @@ public class UIManager : MonoBehaviour
     /// <param name="objective">The completed objective.</param>
     public void MarkObjectiveAsComplete(ObjectiveBase objective)
     {
-        foreach (GameObject objUIElement in objectiveUIElements)
+        if (_objectiveUIElements.TryGetValue(objective, out TextMeshProUGUI textComponent))
         {
-            TextMeshProUGUI textComponent = objUIElement.GetComponent<TextMeshProUGUI>();
-            if (textComponent.text.Contains(objective.objectiveName))
-            {
-                textComponent.text += " [COMPLETED]";
-                textComponent.color = Color.green;  // Change the color to indicate completion
-                Debug.Log("Objective marked as complete in UI");
-                break;
-            }
+            textComponent.text += " [COMPLETED]";
+            textComponent.color = Color.green;  // Change the color to indicate completion
+            Debug.Log("Objective marked as complete in UI");
         }
     }
 
@@ -165,15 +187,13 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void ClearObjectivesFromUI()
     {
-        foreach (GameObject objUIElement in objectiveUIElements)
+        foreach (var uiElement in _objectiveUIElements.Values)
         {
-            Destroy(objUIElement);
+            Destroy(uiElement.gameObject); // Destroy the UI GameObjects
         }
-        objectiveUIElements.Clear();
+        _objectiveUIElements.Clear(); // Clear the dictionary
         Debug.Log("Cleared all objective UI elements.");
     }
-
-    // ------------------------------------------------------------
 
     void UpdateHighScoreUI()
     {

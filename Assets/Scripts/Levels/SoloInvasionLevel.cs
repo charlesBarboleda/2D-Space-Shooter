@@ -29,7 +29,7 @@ public class SoloInvasionLevel : Level
     public override void StartLevel()
     {
         Debug.Log("Starting Invasion Level");
-        Debug.Log("Objectives List Count: " + _levelObjectives.Count);
+
         EventManager.OnEnemyDestroyed += RegisterInvaderKill;
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesDefending + (_amountOfEnemiesDefending * _spawnAmountRatio);
 
@@ -80,7 +80,11 @@ public class SoloInvasionLevel : Level
 
     IEnumerator DelayedSpawn()
     {
-        yield return new WaitForSeconds(Random.Range(20f, 30f));
+        yield return new WaitForSeconds(25f);
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateDefending / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 250f, _spawnerManager.SpecialEnemiesList));
+        yield return _spawnerManager.StartCoroutine(Background.Instance.PlayInvasionMusic());
+        UIManager.Instance.MidScreenWarningText($"An invasion is occuring!", 3.5f);
+        yield return new WaitForSeconds(3.5f);
         ObjectiveBase invasionObjective = ObjectiveManager.Instance.GetObjectiveFromPool("InvasionObjective");
         if (invasionObjective != null)
         {
@@ -88,10 +92,6 @@ public class SoloInvasionLevel : Level
             _levelObjectives.Add(invasionObjective);
         }
         ObjectiveManager.Instance.StartObjectivesForLevel(this);
-
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateDefending / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 250f, _spawnerManager.SpecialEnemiesList));
-        yield return _spawnerManager.StartCoroutine(Background.Instance.PlayInvasionMusic());
-        UIManager.Instance.MidScreenWarningText($"An invasion is occuring!", 3.5f);
     }
 
     public void RegisterInvaderKill(GameObject invader)
@@ -101,4 +101,5 @@ public class SoloInvasionLevel : Level
             _spawnerManager.SpecialEnemiesList.Remove(invader);
         }
     }
+
 }

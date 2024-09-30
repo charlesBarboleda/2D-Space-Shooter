@@ -6,8 +6,8 @@ public class ObjectiveManager : MonoBehaviour
     public static ObjectiveManager Instance { get; private set; }
 
     [SerializeField] private List<ObjectiveBase> availableObjectives = new List<ObjectiveBase>();
-    private List<ObjectiveBase> activeObjectives = new List<ObjectiveBase>();
-    private UIManager uiManager;
+    public List<ObjectiveBase> activeObjectives = new List<ObjectiveBase>();
+    UIManager _UIManager;
 
     void Awake()
     {
@@ -24,11 +24,13 @@ public class ObjectiveManager : MonoBehaviour
 
     void Start()
     {
-        if (uiManager == null)
+        if (_UIManager == null)
         {
-            uiManager = UIManager.Instance;
+            _UIManager = UIManager.Instance;
         }
     }
+
+
 
     // Method to start objectives for a specific level
     public void StartObjectivesForLevel(Level level)
@@ -41,7 +43,7 @@ public class ObjectiveManager : MonoBehaviour
             ObjectiveBase objectiveInstance = Instantiate(objective);
             objectiveInstance.Initialize();
             activeObjectives.Add(objectiveInstance);
-            uiManager.AddObjectiveToUI(objectiveInstance);
+            _UIManager.AddObjectiveToUI(objectiveInstance);
         }
 
         Debug.Log($"Objectives initialized for Level: {level.GetType().Name}");
@@ -67,17 +69,25 @@ public class ObjectiveManager : MonoBehaviour
             objective.ResetObjective();
         }
         activeObjectives.Clear();
-        uiManager.ClearObjectivesFromUI();
+        _UIManager.ClearObjectivesFromUI();
     }
 
-    // Handle completion of an objective
+    public void UpdateObjectivesUI()
+    {
+        Debug.Log("UpdateObjectivesUI called from ObjectiveManager");
+        foreach (var objective in activeObjectives)
+        {
+            UIManager.Instance.UpdateObjectiveUI(objective);
+        }
+    }
+
     public void HandleObjectiveCompletion(ObjectiveBase objective)
     {
         if (objective.isObjectiveCompleted)
         {
             Debug.Log($"Objective Completed: {objective.objectiveName} - Reward: {objective.rewardPoints} points.");
             PlayerManager.Instance.SetCurrency(PlayerManager.Instance.Currency() + objective.rewardPoints);
-            uiManager.MarkObjectiveAsComplete(objective);
+            UIManager.Instance.MarkObjectiveAsComplete(objective);
         }
     }
     public ObjectiveBase GetObjectiveFromPool(string objectiveName)
