@@ -88,6 +88,10 @@ public class InvasionObjective : ObjectiveBase
             _invadingShips.Remove(ship);
         }
     }
+    public override void FailObjective()
+    {
+        // Not implemented since this objective does not have a fail state
+    }
 
     public override void ResetObjective()
     {

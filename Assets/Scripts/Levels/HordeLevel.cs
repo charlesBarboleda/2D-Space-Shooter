@@ -22,10 +22,26 @@ public class HordeLevel : Level
     }
     public override void StartLevel()
     {
+        // 30% chance to start a random objective
+        if (Random.value < 0.3f)
+        {
+            _spawnerManager.StartCoroutine(StartRandomObjective());
+        }
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesToSpawn;
         Debug.Log("Starting Horde Level");
         _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRate, _amountOfEnemiesToSpawn, 200f, shipList));
         Debug.Log("Spawning Enemies");
+    }
+
+    IEnumerator StartRandomObjective()
+    {
+        yield return new WaitForSeconds(Random.Range(5, 15));
+        ObjectiveBase randomObjective = ObjectiveManager.Instance.GetRandomObjectiveFromPool();
+        if (randomObjective != null)
+        {
+            _levelObjectives.Add(randomObjective);
+        }
+        ObjectiveManager.Instance.StartObjectivesForLevel(this);
     }
 
     public override void UpdateLevel()
@@ -38,6 +54,7 @@ public class HordeLevel : Level
 
     public override void CompleteLevel()
     {
+        _spawnerManager.StopAllCoroutines();
         Debug.Log("Completing Horde Level");
         _levelManager.CompleteLevel();
         _spawnerManager.EnemiesToSpawnLeft = 0;

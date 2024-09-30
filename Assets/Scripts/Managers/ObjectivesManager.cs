@@ -5,7 +5,9 @@ public class ObjectiveManager : MonoBehaviour
 {
     public static ObjectiveManager Instance { get; private set; }
 
-    [SerializeField] private List<ObjectiveBase> availableObjectives = new List<ObjectiveBase>();
+    [SerializeField] private List<ObjectiveBase> specialObjectives = new List<ObjectiveBase>();
+    [SerializeField] private List<ObjectiveBase> generalObjectives = new List<ObjectiveBase>();
+
     public List<ObjectiveBase> activeObjectives = new List<ObjectiveBase>();
     UIManager _UIManager;
 
@@ -61,6 +63,7 @@ public class ObjectiveManager : MonoBehaviour
         }
     }
 
+
     // Clear all active objectives and reset the UI
     public void ClearActiveObjectives()
     {
@@ -90,15 +93,29 @@ public class ObjectiveManager : MonoBehaviour
             UIManager.Instance.MarkObjectiveAsComplete(objective);
         }
     }
+
+    public void HandleObjectiveFailure(ObjectiveBase objective)
+    {
+        if (objective.isObjectiveFailed)
+        {
+            Debug.Log($"Objective Failed: {objective.objectiveName}");
+            UIManager.Instance.MarkObjectiveAsFailed(objective);
+        }
+    }
     public ObjectiveBase GetObjectiveFromPool(string objectiveName)
     {
-        ObjectiveBase foundObjective = availableObjectives.Find(obj => obj.objectiveName == objectiveName);
+        ObjectiveBase foundObjective = specialObjectives.Find(obj => obj.objectiveName == objectiveName);
 
         if (foundObjective == null)
         {
-            Debug.LogError($"Objective with name {objectiveName} not found in availableObjectives.");
+            Debug.LogError($"Objective with name {objectiveName} not found in specialObjectives.");
         }
 
         return foundObjective;
+    }
+
+    public ObjectiveBase GetRandomObjectiveFromPool()
+    {
+        return generalObjectives[Random.Range(0, generalObjectives.Count)];
     }
 }

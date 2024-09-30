@@ -55,7 +55,7 @@ public class LevelManager : MonoBehaviour
 
         }
         // Otherwise, create a horde level
-        return CreateSoloInvasionLevel();
+        return CreateHordeLevel();
     }
 
 

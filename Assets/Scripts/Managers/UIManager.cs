@@ -182,6 +182,16 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void MarkObjectiveAsFailed(ObjectiveBase objective)
+    {
+        if (_objectiveUIElements.TryGetValue(objective, out TextMeshProUGUI textComponent))
+        {
+            textComponent.text += " [FAILED]";
+            textComponent.color = Color.red;  // Change the color to indicate failure
+            Debug.Log("Objective marked as failed in UI");
+        }
+    }
+
     /// <summary>
     /// Clears all objective UI elements from the screen.
     /// </summary>

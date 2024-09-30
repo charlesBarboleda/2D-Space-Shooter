@@ -6177,8 +6177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cec38d395a7e064f98ea1ee4c2f6096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableObjectives:
+  specialObjectives:
   - {fileID: 11400000, guid: 576b150b37410b94fbdabc52c069889e, type: 2}
+  generalObjectives:
+  - {fileID: 11400000, guid: b0968da482b209345bc0a82ae2d4d6d7, type: 2}
   activeObjectives: []
 --- !u!1 &220021036
 GameObject:
@@ -27409,6 +27411,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &940478413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940478414}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &940478414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940478413}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 197, y: 198, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &943342034
 GameObject:
   m_ObjectHideFlags: 0
@@ -50617,7 +50650,7 @@ MonoBehaviour:
     size: 100
   - tag: DamageText
     prefab: {fileID: 5543933812811699609, guid: 26cd0edb89ceb064fa06608174e50cd3, type: 3}
-    size: 10
+    size: 100
   - tag: GasExplosionLarge
     prefab: {fileID: 1824193093686316071, guid: 36ffcaafd234aec42891ab630e2fe83c, type: 3}
     size: 50
@@ -77026,3 +77059,4 @@ SceneRoots:
   - {fileID: 351679519}
   - {fileID: 1642659880}
   - {fileID: 656105094}
+  - {fileID: 940478414}

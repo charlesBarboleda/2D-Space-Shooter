@@ -100,6 +100,7 @@ public class TargetManager : MonoBehaviour
             }
             else if (!_targetAllies && _faction.IsHostileTo(target.GetFactionType()))
             {
+
                 isValidTarget = true; // Target enemies
             }
 
