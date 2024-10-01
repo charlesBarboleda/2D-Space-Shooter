@@ -2409,7 +2409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -497.27856, y: -182.73976}
+  m_AnchoredPosition: {x: -497.27856, y: -158}
   m_SizeDelta: {x: -606.9444, y: -396.69998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &72360804
@@ -7529,7 +7529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -9.000046}
+  m_AnchoredPosition: {x: 0, y: -9.000061}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &268172932
@@ -11644,7 +11644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -9.000046}
+  m_AnchoredPosition: {x: 0, y: -9.000061}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &397908833
@@ -49321,7 +49321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5784895257406628655, guid: 17cbc357bf20de74485f5f5d54b77b72, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -211.50688
+      value: -186.7671
       objectReference: {fileID: 0}
     - target: {fileID: 5784895257406628655, guid: 17cbc357bf20de74485f5f5d54b77b72, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -65685,7 +65685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1500528328037580342, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: currency
-      value: 9999999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2915462274123035723, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_Layer
@@ -65709,11 +65709,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4392182452498158989, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: maxHealth
-      value: 999999
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4392182452498158989, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: currentHealth
-      value: 999999
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4392182452498158989, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: _deathExplosion
@@ -65833,11 +65833,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8048218574253681071, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: bulletDamage
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8048218574253681071, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: amountOfBullets
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8408294533076223621, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -68024,7 +68024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: _cometsPerRound
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: _nextRoundAudio

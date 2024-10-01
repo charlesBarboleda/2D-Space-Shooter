@@ -55,7 +55,9 @@ public class Bullet : MonoBehaviour
         _rb.simulated = false;
         if (_boxCollider2D != null) _boxCollider2D.enabled = false;
         if (_spriteRenderer != null) _spriteRenderer.enabled = false;
+
         gameObject.SetActive(false);
+        StopAllCoroutines();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -77,7 +79,8 @@ public class Bullet : MonoBehaviour
         _boxCollider2D.enabled = false;
         _bulletOnHitEffect = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
 
-        yield return StartCoroutine(UIManager.Instance.OnHitDamageText(Mathf.Round(BulletDamage).ToString(), transform.position));
+        UIManager.Instance.CreateOnHitDamageText(Mathf.Round(BulletDamage).ToString(), transform.position);
+        yield return new WaitForSeconds(0.1f);
         _bulletOnHitEffect.SetActive(false);
         Deactivate();
     }

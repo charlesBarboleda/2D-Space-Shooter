@@ -185,9 +185,9 @@ public abstract class Enemy : MonoBehaviour, ITargetable
         // *Real Values*
         // _health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 0.5f;
         // *Trial Values*
-        _health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 10f;
+        _health.CurrencyDrop += LevelManager.Instance.CurrentLevelIndex * 3f;
 
-        _kinematics.Speed += LevelManager.Instance.CurrentLevelIndex * 0.05f;
+        _kinematics.Speed += Mathf.Min(LevelManager.Instance.CurrentLevelIndex * 0.05f, 20f);
 
     }
 

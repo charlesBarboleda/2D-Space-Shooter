@@ -9,7 +9,6 @@ using UnityEngine;
 public class EnemyLaserAbility : Ability
 {
     [SerializeField] float damagePerSecond = 10f;
-    [SerializeField] float duration = 5f;
     List<Transform> _laserSpawnPoints;
     [SerializeField] string _laserPoolTag = "ThraxLaser";
 

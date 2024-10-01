@@ -140,7 +140,7 @@ public class UIManager : MonoBehaviour
         TextMeshProUGUI textComponent = objectiveDescription.GetComponent<TextMeshProUGUI>();
 
         // Set the initial text
-        textComponent.text = $"{objective.objectiveName}: {objective.objectiveDescription}";
+        textComponent.text = $"{objective.objectiveDescription}";
 
         // Map the objective to its UI element
         _objectiveUIElements[objective] = textComponent;
@@ -300,21 +300,41 @@ public class UIManager : MonoBehaviour
 
     public IEnumerator OnHitDamageText(string text, Vector3 position)
     {
+        // Convert the world position of the damage to screen space
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(position);
-        GameObject damageText = ObjectPooler.Instance.SpawnFromPool("DamageText", transform.position, Quaternion.identity);
-        damageText.transform.SetParent(worldCanvas.transform, false);
 
-        RectTransform canvasRect = worldCanvas.GetComponent<RectTransform>();
-        RectTransform damageTextRect = damageText.GetComponent<RectTransform>();
+        // Check if the object is within the camera's view
+        if (screenPosition.z > 0 && IsWithinCameraView(position))
+        {
+            GameObject damageText = ObjectPooler.Instance.SpawnFromPool("DamageText", transform.position, Quaternion.identity);
+            damageText.transform.SetParent(worldCanvas.transform, false);
 
-        Vector2 localPosition;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPosition, Camera.main, out localPosition);
-        damageTextRect.localPosition = localPosition;
+            RectTransform canvasRect = worldCanvas.GetComponent<RectTransform>();
+            RectTransform damageTextRect = damageText.GetComponent<RectTransform>();
 
-        damageText.GetComponent<TextMeshProUGUI>().text = text;
-        yield return StartCoroutine(MoveUpAndFadeOut(damageText, 1f));
-        damageText.SetActive(false);
+            Vector2 localPosition;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screenPosition, Camera.main, out localPosition);
+            damageTextRect.localPosition = localPosition;
+
+            damageText.GetComponent<TextMeshProUGUI>().text = text;
+            yield return StartCoroutine(MoveUpAndFadeOut(damageText, 1f));
+            damageText.SetActive(false);
+        }
+        else
+        {
+            yield break; // Exit the coroutine if not in camera view
+        }
     }
+
+    // Helper method to check if the position is within the camera's view
+    bool IsWithinCameraView(Vector3 worldPosition)
+    {
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+        Bounds bounds = new Bounds(worldPosition, Vector3.one); // Check with a small bounding box
+
+        return GeometryUtility.TestPlanesAABB(planes, bounds);
+    }
+
 
     public void CreateOnHitDamageText(string text, Vector3 position)
     {

@@ -286,10 +286,10 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 9144009670669768331}
   _shootSound: {fileID: 8300000, guid: 380a61624a607f042ab5e96218f37633, type: 3}
   _bulletType: CrimsonBullet
-  _bulletSpeed: 30
+  _bulletSpeed: 10
   _bulletDamage: 15
   _amountOfBullets: 6
-  _shootingAngle: 50
+  _shootingAngle: 30
   _bulletLifetime: 5
   _bulletPattern: 3
   nextFireTime: 0
@@ -442,8 +442,6 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 1
   _speed: 15
-  _maxSpeed: 10
-  _acceleration: 1
   _stopDistance: 40
 --- !u!114 &642829058510854343
 MonoBehaviour:

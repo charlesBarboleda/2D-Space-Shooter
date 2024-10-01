@@ -16,7 +16,6 @@ public class ObjectiveManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Persist across scenes
         }
         else
         {
@@ -89,7 +88,6 @@ public class ObjectiveManager : MonoBehaviour
         if (objective.isObjectiveCompleted)
         {
             Debug.Log($"Objective Completed: {objective.objectiveName} - Reward: {objective.rewardPoints} points.");
-            PlayerManager.Instance.SetCurrency(PlayerManager.Instance.Currency() + objective.rewardPoints);
             UIManager.Instance.MarkObjectiveAsComplete(objective);
         }
     }

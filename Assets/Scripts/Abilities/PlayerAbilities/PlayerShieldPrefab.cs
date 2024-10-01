@@ -5,8 +5,14 @@ using UnityEngine;
 public class PlayerShieldPrefab : MonoBehaviour
 {
     float _dps;
+    PlayerHealthBehaviour _playerHealth;
 
-    private void OnTriggerStay2D(Collider2D other)
+    void OnEnable()
+    {
+        _playerHealth = PlayerManager.Instance.GetComponent<PlayerHealthBehaviour>();
+        _playerHealth.isDead = true;
+    }
+    void OnTriggerStay2D(Collider2D other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null)
@@ -22,6 +28,11 @@ public class PlayerShieldPrefab : MonoBehaviour
         {
             other.gameObject.SetActive(false);
         }
+    }
+
+    void OnDisable()
+    {
+        _playerHealth.isDead = false;
     }
 
     public float Dps { get => _dps; set => _dps = value; }

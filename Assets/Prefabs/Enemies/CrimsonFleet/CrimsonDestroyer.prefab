@@ -236,7 +236,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 8199537558120811656}
   _shootSound: {fileID: 8300000, guid: 380a61624a607f042ab5e96218f37633, type: 3}
   _bulletType: CrimsonBullet
-  _bulletSpeed: 20
+  _bulletSpeed: 10
   _bulletDamage: 30
   _amountOfBullets: 20
   _shootingAngle: 50
@@ -290,8 +290,6 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 1
   _speed: 16
-  _maxSpeed: 10
-  _acceleration: 1
   _stopDistance: 80
 --- !u!114 &5972600035181754390
 MonoBehaviour:
@@ -305,14 +303,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkForTargetsInterval: 0.5
-  _checkForTargetsRadius: 100
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
   prioritizePlayer: 1
   _maximumPriority: {fileID: 0}
+  _checkForTargetsInterval: 0.5
 --- !u!114 &5746896703618553438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimRange: 90
   _attackCooldown: 1
+  _isSilenced: 0
 --- !u!61 &2617275652360592418
 BoxCollider2D:
   m_ObjectHideFlags: 0

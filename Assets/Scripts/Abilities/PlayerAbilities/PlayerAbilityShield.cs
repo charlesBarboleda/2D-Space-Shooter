@@ -7,8 +7,8 @@ using UnityEngine;
 public class AbilityShield : Ability
 {
     public float _duration = 5f;
-    public float _shieldSize = 3f;
-    public float _shieldDamage = 10f;
+    public float _shieldSize = 4f;
+    public float _shieldDamage = 20f;
     [SerializeField] GameObject _shieldprefab;
 
 
@@ -30,8 +30,8 @@ public class AbilityShield : Ability
     public override void ResetStats()
     {
         currentCooldown = 30f;
-        _shieldSize = 3f;
-        _shieldDamage = 10f;
+        _shieldSize = 4f;
+        _shieldDamage = 20f;
         _duration = 5f;
         cooldown = 30f;
         isUnlocked = false;

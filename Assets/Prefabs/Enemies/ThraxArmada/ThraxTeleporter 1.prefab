@@ -608,14 +608,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkForTargetsInterval: 3
-  _checkForTargetsRadius: 50
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
   prioritizePlayer: 1
   _maximumPriority: {fileID: 0}
+  _checkForTargetsInterval: 3
 --- !u!114 &1476592301589719542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,8 +646,6 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 1
   _speed: 0
-  _maxSpeed: 10
-  _acceleration: 1
   _stopDistance: 70
 --- !u!1 &8227692411707881614
 GameObject:

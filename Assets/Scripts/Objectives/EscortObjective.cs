@@ -16,9 +16,11 @@ public class EscortObjective : ObjectiveBase
 
         _wayPoints = GeneratePath(_waypointsAmount);
         _cargoShip = ObjectPooler.Instance.SpawnFromPool("CargoShip", _wayPoints[0], Quaternion.identity);
+        SpawnerManager.Instance.EnemiesList.Add(_cargoShip);
         _cargoShipHealth = _cargoShip.GetComponent<Health>();
         _cargoShip.GetComponent<CargoShip>().SetWaypoints(_wayPoints);
         objectiveDescription = "Escort the Cargo Ship to its destination";
+        ObjectiveManager.Instance.UpdateObjectivesUI();
     }
 
     public override void UpdateObjective()
@@ -37,6 +39,7 @@ public class EscortObjective : ObjectiveBase
     {
         base.CompleteObjective();
         isObjectiveCompleted = true;
+        SpawnerManager.Instance.EnemiesList.Remove(_cargoShip);
 
         objectiveDescription = "The Cargo Ship has reached its destination and sucessfully escaped!";
         // Force UI to update
@@ -50,6 +53,7 @@ public class EscortObjective : ObjectiveBase
     public override void FailObjective()
     {
         isObjectiveFailed = true;
+        SpawnerManager.Instance.EnemiesList.Remove(_cargoShip);
         objectiveDescription = "The Cargo Ship has been destroyed";
         ObjectiveManager.Instance.UpdateObjectivesUI();
         ObjectiveManager.Instance.HandleObjectiveFailure(this);

@@ -15,7 +15,6 @@ public class LevelManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(this);
-            DontDestroyOnLoad(this);
         }
         else
         {
@@ -34,25 +33,30 @@ public class LevelManager : MonoBehaviour
 
     Level GenerateNextLevel()
     {
-        // There's a 1% chance of creating a solo invasion level
-        if (Random.value > 0.99f)
+        // There's a 25% chance of creating a solo invasion level after level 5
+        if (Random.value > 0.75f && _currentLevelIndex > 5)
         {
             return CreateSoloInvasionLevel();
         }
 
 
-        // There's a 1% chance of creating a solo boss level
-        else if (Random.value > 0.99f)
+        // There's a 50% chance of creating a solo boss level after level 5
+        else if (Random.value > 0.5f && _currentLevelIndex > 5)
         {
             if (Random.value > 0.5f) return CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
             else return CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
         }
 
-        // There's a 1% chance of creating a multi-phase boss level
-        else if (Random.value > 0.99f && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
+        // There's a 10% chance of creating a multi-phase boss level
+        else if (Random.value > 0.90f && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
         {
             return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
 
+        }
+        // There's a 1% chance of creating a comet level
+        else if (Random.value > 0.99f)
+        {
+            return CreateCometLevel();
         }
         // Otherwise, create a horde level
         return CreateHordeLevel();
@@ -85,7 +89,12 @@ public class LevelManager : MonoBehaviour
 
     }
 
-
+    public Level CreateCometLevel()
+    {
+        int cometCount = 300;
+        float cometSpawnRate = 0.5f;
+        return new CometLevel(cometCount, cometSpawnRate);
+    }
 
     public Level CreateSoloInvasionLevel()
     {
@@ -113,9 +122,9 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateHordeLevel()
     {
-        int amountOfEnemies = _currentLevelIndex * 10;
+        int amountOfEnemies = _currentLevelIndex * 5;
         List<Ship> shipsToSpawn = _spawnerManager.DetermineDefendingShips();
-        float spawnRate = 0.5f;
+        float spawnRate = Mathf.Min(0.5f, _currentLevelIndex * 0.01f);
         FactionType factionType = FactionType.Syndicates;
 
         return new HordeLevel(
@@ -130,7 +139,7 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateMultiPhaseBossLevel(string bossName, string bossNamePhase2)
     {
-        float health = Mathf.Max(_currentLevelIndex * 5000f, 50000f);
+        float health = Mathf.Max(_currentLevelIndex * 15000f, 100000f);
         int bulletAmount = Mathf.Min(Mathf.Max(_currentLevelIndex * 2, 30), 60);
         float bulletDamage = Mathf.Max(_currentLevelIndex * 5f, 50f);
         float bulletSpeed = Mathf.Min(Mathf.Max(_currentLevelIndex * 1f, 30f), 40f);
@@ -203,7 +212,7 @@ public class LevelManager : MonoBehaviour
         float health = _currentLevelIndex * 3000f;
         int bulletAmount = _currentLevelIndex * 1;
         float bulletDamage = _currentLevelIndex * 2f;
-        float bulletSpeed = _currentLevelIndex * 1.5f;
+        float bulletSpeed = Mathf.Min(Mathf.Max(_currentLevelIndex * 1f, 10), 30);
         float firerate = Random.Range(1, 5);
         float speed = Mathf.Max(_currentLevelIndex * 0.5f, 20f);
         float stopDistance = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.5f, 60f), 100f);

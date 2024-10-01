@@ -30,13 +30,13 @@ public class SpawnerManager : MonoBehaviour
 
     void OnEnable()
     {
-        StartCoroutine(SpawnCometsOverTime());
+        StartCoroutine(SpawnCometsOverTime(GameManager.Instance.CometsPerRound, GameManager.Instance.CometSpawnRate));
 
     }
 
     void OnDisable()
     {
-        StopCoroutine(SpawnCometsOverTime());
+        StopAllCoroutines();
     }
     void LateUpdate()
     {
@@ -64,11 +64,11 @@ public class SpawnerManager : MonoBehaviour
 
         return enemy;
     }
-    IEnumerator SpawnCometsOverTime()
+    public IEnumerator SpawnCometsOverTime(int cometAmount, float cometSpawnRate)
     {
-        for (int i = 0; i <= GameManager.Instance.CometsPerRound; i++)
+        for (int i = 0; i <= cometAmount; i++)
         {
-            yield return new WaitForSeconds(GameManager.Instance.CometSpawnRate);
+            yield return new WaitForSeconds(cometSpawnRate);
             GameObject comet = SpawnComet(cometSpawnPoint[Random.Range(0, cometSpawnPoint.Count)].position, Quaternion.identity);
             Comet cometSettings = comet.GetComponent<Comet>();
             cometSettings.Speed = Random.Range(20, 40);

@@ -91,7 +91,7 @@ public class Kinematics : MonoBehaviour
         {
 
             Orbit(target);
-            transform.position += -_cachedDirection * Speed * Time.deltaTime;
+            transform.position += -_cachedDirection * Speed / 6 * Time.deltaTime;
         }
     }
 

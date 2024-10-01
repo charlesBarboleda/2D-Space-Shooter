@@ -26,6 +26,11 @@ public class InvasionManager : MonoBehaviour
         {
             Instance = this;
         }
+
+    }
+
+    void Start()
+    {
         // *Trial version code*
         _defendingFaction = FactionType.Syndicates;
         _invadingFactions.Add(FactionType.ThraxArmada);

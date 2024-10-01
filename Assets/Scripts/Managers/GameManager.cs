@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(this);
-            DontDestroyOnLoad(this);
         }
         else
         {
@@ -56,6 +55,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        _levelManager.CurrentLevelIndex = 1;
         if (_levelManager != null)
         {
 

@@ -21,6 +21,7 @@ public class Debris : MonoBehaviour, IPickable
 
     void OnEnable()
     {
+        _isAttracted = false;
         _colliders.enabled = true;
     }
     void FixedUpdate()
