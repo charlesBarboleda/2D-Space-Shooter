@@ -13,6 +13,7 @@ public class Kinematics : MonoBehaviour
     protected float _cachedDistance;
     protected TargetManager _targetManager;
     protected Vector3 _cachedDirection;
+    public bool outOfBounds = false;
 
     void Awake()
     {
@@ -22,8 +23,21 @@ public class Kinematics : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        HandleMovement();
-        HandleRotation();
+
+        if (outOfBounds) HandleOutOfBounds();
+        else
+        {
+            HandleMovement();
+            HandleRotation();
+        }
+    }
+    protected virtual void HandleOutOfBounds()
+    {
+        if (_shouldMove)
+        {
+            Movement(new Vector3(0, 0, 0));
+            Aim(new Vector3(0, 0, 0));
+        }
     }
 
     protected virtual void HandleMovement()

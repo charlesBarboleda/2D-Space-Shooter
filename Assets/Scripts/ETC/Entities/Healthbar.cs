@@ -11,7 +11,8 @@ public class HealthBar : MonoBehaviour
 
     void OnEnable()
     {
-        health = FindAnyObjectByType<BossShooter>().GetComponent<Health>();
+        if (playerHealth == null)
+            health = FindAnyObjectByType<BossShooter>().GetComponent<Health>();
     }
     void Update()
     {

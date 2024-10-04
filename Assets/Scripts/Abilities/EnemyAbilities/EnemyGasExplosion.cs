@@ -12,7 +12,6 @@ public class EnemyGasExplosion : MonoBehaviour
     [SerializeField] float _damage = 10000f; // Default damage
 
     private float _initialSize;
-    private bool isActivated = false;
 
     void OnEnable()
     {

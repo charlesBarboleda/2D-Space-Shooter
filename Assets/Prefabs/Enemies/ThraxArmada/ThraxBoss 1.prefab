@@ -1077,12 +1077,12 @@ MonoBehaviour:
   _maxHealth: 20000
   _currencyDrop: 5000
   _currencyPrefab:
-  - Debris1
-  - Debris2
-  - Debris3
-  - Debris4
-  - Debris5
-  - Debris6
+  - DebrisLarge1
+  - DebrisLarge2
+  - DebrisLarge3
+  - DebrisLarge4
+  - DebrisLarge5
+  - DebrisLarge6
   exhaustChildren:
   - {fileID: 261621228065520090}
   turretChildren:
@@ -1106,14 +1106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkForTargetsInterval: 3
-  _checkForTargetsRadius: 50
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
   prioritizePlayer: 1
   _maximumPriority: {fileID: 0}
+  _checkForTargetsInterval: 3
 --- !u!114 &-8115179084758974438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1128,6 +1127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimRange: 100
   _attackCooldown: 3
+  _isSilenced: 0
 --- !u!114 &6537159407056257850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,8 +1144,6 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 1
   _speed: 30
-  _maxSpeed: 30
-  _acceleration: 25
   _stopDistance: 80
   _rotationSpeed: 15
 --- !u!1 &8638413270787602566

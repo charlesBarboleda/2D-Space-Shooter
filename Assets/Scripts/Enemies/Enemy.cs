@@ -37,13 +37,13 @@ public abstract class Enemy : MonoBehaviour, ITargetable
     {
 
         TryGetComponent<AbilityHolder>(out AbilityHolder abilityHolder);
+        _kinematics = GetComponent<Kinematics>();
         _abilityHolder = abilityHolder;
         _faction = GetComponent<Faction>();
         _audioSource = GetComponent<AudioSource>();
         _attackManager = GetComponent<AttackManager>();
         _health = GetComponent<Health>();
         _targetManager = GetComponent<TargetManager>();
-        _kinematics = GetComponent<Kinematics>();
         _faction.AddAllyFaction(_faction.factionType);
         _enemyID = Guid.NewGuid().ToString();
         // DisableAudioSource();

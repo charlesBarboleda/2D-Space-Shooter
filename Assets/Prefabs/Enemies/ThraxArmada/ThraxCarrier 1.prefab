@@ -604,12 +604,12 @@ MonoBehaviour:
   _maxHealth: 10000
   _currencyDrop: 1000
   _currencyPrefab:
-  - Debris1
-  - Debris2
-  - Debris3
-  - Debris4
-  - Debris5
-  - Debris6
+  - DebrisLarge1
+  - DebrisLarge2
+  - DebrisLarge3
+  - DebrisLarge4
+  - DebrisLarge5
+  - DebrisLarge6
   exhaustChildren:
   - {fileID: 266865092843442929}
   turretChildren: []

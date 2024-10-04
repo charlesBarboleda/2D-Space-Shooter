@@ -29,9 +29,9 @@ public class SkillHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        UpdateSkillInfo();
         isHovering = true;
         descriptionPanel.SetActive(true);
-        UpdateSkillInfo();
 
         Vector3 offset = new Vector3(0, 350f, 0f); // Offset to position the box
         descriptionPanel.transform.position = Input.mousePosition + offset;
