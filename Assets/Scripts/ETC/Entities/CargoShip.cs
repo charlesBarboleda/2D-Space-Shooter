@@ -10,7 +10,6 @@ public class CargoShip : MonoBehaviour, ITargetable
     int _currentWaypointIndex = 0;
     Health _health;
     Faction _faction;
-    [SerializeField] GameObject spawnAnimation;
 
     void Awake()
     {
@@ -61,15 +60,15 @@ public class CargoShip : MonoBehaviour, ITargetable
     {
         TargetManager.RegisterTarget(this);
         yield return new WaitForSeconds(0.1f);
-        GameObject animation = Instantiate(spawnAnimation, transform.position, Quaternion.identity);
-        Destroy(animation, 1f);
+        GameObject animation = ObjectPooler.Instance.SpawnFromPool("BlinkLarge", transform.position, Quaternion.identity);
+        animation.SetActive(false);
     }
 
 
     public void TeleportAway()
     {
-        GameObject animation = Instantiate(spawnAnimation, transform.position, Quaternion.identity);
-        Destroy(animation, 1f);
+        GameObject animation = ObjectPooler.Instance.SpawnFromPool("BlinkLarge", transform.position, Quaternion.identity);
+        animation.SetActive(false);
         gameObject.SetActive(false);
     }
 

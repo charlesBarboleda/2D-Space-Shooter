@@ -32521,11 +32521,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4356735935373426977, guid: b8850ccf496770744b7d8c5a75a6705b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7892978
+      value: -149
       objectReference: {fileID: 0}
     - target: {fileID: 4356735935373426977, guid: b8850ccf496770744b7d8c5a75a6705b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.23678976
+      value: -6.9
       objectReference: {fileID: 0}
     - target: {fileID: 4356735935373426977, guid: b8850ccf496770744b7d8c5a75a6705b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -51380,6 +51380,12 @@ MonoBehaviour:
     size: 50
   - tag: LightningExplosion
     prefab: {fileID: 1106217196661657933, guid: cb55ec88f3cb9744e8cfb6b842695c8b, type: 3}
+    size: 50
+  - tag: BlinkLarge
+    prefab: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
+    size: 50
+  - tag: BlinkSmall
+    prefab: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
     size: 50
 --- !u!4 &1707799895
 Transform:

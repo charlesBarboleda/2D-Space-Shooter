@@ -12,12 +12,10 @@ public class EnemyLightningExplosionAbility : Ability
 
     public override void AbilityLogic(GameObject owner, Transform target)
     {
-        _lightningExplosion = ObjectPooler.Instance.SpawnFromPool("LightningExplosion", target.position, Quaternion.identity);
+        _lightningExplosion = ObjectPooler.Instance.SpawnFromPool("LightningExplosion", owner.transform.position, Quaternion.identity);
         LightningExplosion lightningExplosionScript = _lightningExplosion.GetComponent<LightningExplosion>();
         lightningExplosionScript.damagePerSecond = _damagePerSecond;
-        lightningExplosionScript.duration = duration;
-        // Start the channel with an x and y offset of 50
-        Vector3 finalTarget = new Vector3(target.position.x + Random.Range(20, 50), target.position.y + Random.Range(20, 50), target.position.z);
+        Vector3 finalTarget = new Vector3(target.position.x + Random.Range(5, 20), target.position.y + Random.Range(5, 20), target.position.z);
         lightningExplosionScript.StartChannel(owner.transform, finalTarget);
 
     }
