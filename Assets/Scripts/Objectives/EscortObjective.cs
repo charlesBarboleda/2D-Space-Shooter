@@ -18,6 +18,9 @@ public class EscortObjective : ObjectiveBase
         _cargoShip = ObjectPooler.Instance.SpawnFromPool("CargoShip", _wayPoints[0], Quaternion.identity);
         SpawnerManager.Instance.EnemiesList.Add(_cargoShip);
         _cargoShipHealth = _cargoShip.GetComponent<Health>();
+        _cargoShipHealth.MaxHealth = LevelManager.Instance.CurrentLevelIndex * 1000;
+        _cargoShipHealth.CurrentHealth = _cargoShipHealth.MaxHealth;
+        rewardPoints = (int)_cargoShipHealth.MaxHealth / 2;
         _cargoShip.GetComponent<CargoShip>().SetWaypoints(_wayPoints);
         objectiveDescription = "Escort the Cargo Ship to its destination";
         ObjectiveManager.Instance.UpdateObjectivesUI();
@@ -37,17 +40,17 @@ public class EscortObjective : ObjectiveBase
 
     public override void CompleteObjective()
     {
+        // Notify ObjectiveManager of completion
+        ObjectiveManager.Instance.HandleObjectiveCompletion(this);
         base.CompleteObjective();
         isObjectiveCompleted = true;
         SpawnerManager.Instance.EnemiesList.Remove(_cargoShip);
 
         objectiveDescription = "The Cargo Ship has reached its destination and sucessfully escaped!";
         // Force UI to update
-        ObjectiveManager.Instance.UpdateObjectivesUI();
         Debug.Log("Updated Objective from Invasion Objective");
 
-        // Notify ObjectiveManager of completion
-        ObjectiveManager.Instance.HandleObjectiveCompletion(this);
+        ObjectiveManager.Instance.UpdateObjectivesUI();
 
     }
     public override void FailObjective()

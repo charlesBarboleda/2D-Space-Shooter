@@ -493,6 +493,7 @@ MonoBehaviour:
   _shouldMove: 1
   _speed: 10
   _stopDistance: 100
+  outOfBounds: 0
 --- !u!114 &2041493744797454961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,6 +547,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eab9c848430fb194b941f56a7018d219, type: 2}
   - {fileID: 11400000, guid: cdeac7b70d5c02345bed6b435cf057a0, type: 2}
   - {fileID: 11400000, guid: 3aeeda386d0d65a459b0a232ccbff7cf, type: 2}
+  - {fileID: 11400000, guid: adadf8d828c5f8145b0cb94a5ef2f9ad, type: 2}
   target: {fileID: 0}
 --- !u!82 &8498825487326027702
 AudioSource:

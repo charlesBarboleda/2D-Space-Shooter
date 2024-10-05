@@ -31,6 +31,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4356735935373426977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1963288298100663617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8618385106104522929}
+  m_Layer: 0
+  m_Name: AbilitySpawnPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8618385106104522929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963288298100663617}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.13, y: -2.52, z: 0}
+  m_LocalScale: {x: 0.07082314, y: 0.07082314, z: 0.07082314}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4356735935373426977}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3412333563509227392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7379935758499893021}
+  m_Layer: 14
+  m_Name: AbilitySpawnPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7379935758499893021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3412333563509227392}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.2, y: -2.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4356735935373426977}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3552526014053328916
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,6 +147,8 @@ Transform:
   - {fileID: 3307887964029262950}
   - {fileID: 1996225606965584103}
   - {fileID: 5942168752632506717}
+  - {fileID: 7379935758499893021}
+  - {fileID: 8618385106104522929}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5284122176067228457
@@ -264,6 +328,7 @@ MonoBehaviour:
   _shouldMove: 1
   _speed: 20
   _stopDistance: 90
+  outOfBounds: 0
 --- !u!114 &546763129541443367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,7 +499,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472675415ca54e44db35c6088a2c1b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilities: []
+  abilities:
+  - {fileID: 11400000, guid: 6971b38ad37647641bc225b737b23693, type: 2}
+  - {fileID: 11400000, guid: adadf8d828c5f8145b0cb94a5ef2f9ad, type: 2}
+  - {fileID: 11400000, guid: adadf8d828c5f8145b0cb94a5ef2f9ad, type: 2}
   target: {fileID: 0}
 --- !u!1001 &492738797243629508
 PrefabInstance:
@@ -770,7 +838,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
   isThraxBoss: 0
-  bulletSpawnPoint: {fileID: 0}
+  bulletSpawnPoint: {fileID: 5809918415383618021}
   _shootSound: {fileID: 0}
   _bulletType: ThraxBullet
   _bulletSpeed: 20
@@ -951,7 +1019,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
   isThraxBoss: 0
-  bulletSpawnPoint: {fileID: 0}
+  bulletSpawnPoint: {fileID: 8763218082645392685}
   _shootSound: {fileID: 0}
   _bulletType: ThraxBullet
   _bulletSpeed: 20
@@ -1137,7 +1205,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
   isThraxBoss: 0
-  bulletSpawnPoint: {fileID: 0}
+  bulletSpawnPoint: {fileID: 8553768966705676944}
   _shootSound: {fileID: 0}
   _bulletType: ThraxBullet
   _bulletSpeed: 20
@@ -1486,7 +1554,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
   isThraxBoss: 0
-  bulletSpawnPoint: {fileID: 0}
+  bulletSpawnPoint: {fileID: 1583916512264931103}
   _shootSound: {fileID: 0}
   _bulletType: ThraxBullet
   _bulletSpeed: 20
@@ -1770,7 +1838,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
   isThraxBoss: 0
-  bulletSpawnPoint: {fileID: 0}
+  bulletSpawnPoint: {fileID: 4161628842147803587}
   _shootSound: {fileID: 0}
   _bulletType: ThraxBullet
   _bulletSpeed: 20
@@ -2059,7 +2127,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
   isThraxBoss: 0
-  bulletSpawnPoint: {fileID: 0}
+  bulletSpawnPoint: {fileID: 4352253404392263554}
   _shootSound: {fileID: 0}
   _bulletType: ThraxBullet
   _bulletSpeed: 20
@@ -2403,7 +2471,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
   isThraxBoss: 0
-  bulletSpawnPoint: {fileID: 0}
+  bulletSpawnPoint: {fileID: 3748663268153570588}
   _shootSound: {fileID: 0}
   _bulletType: ThraxBullet
   _bulletSpeed: 20
@@ -2589,7 +2657,7 @@ MonoBehaviour:
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
   isThraxBoss: 0
-  bulletSpawnPoint: {fileID: 0}
+  bulletSpawnPoint: {fileID: 3763537376935732243}
   _shootSound: {fileID: 0}
   _bulletType: ThraxBullet
   _bulletSpeed: 20

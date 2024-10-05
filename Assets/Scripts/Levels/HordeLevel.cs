@@ -22,8 +22,8 @@ public class HordeLevel : Level
     }
     public override void StartLevel()
     {
-        // 30% chance to start a random objective
-        if (Random.value < 0.3f)
+        // 10% chance to start a random objective
+        if (Random.value < 0.1f)
         {
             _spawnerManager.StartCoroutine(StartRandomObjective());
         }

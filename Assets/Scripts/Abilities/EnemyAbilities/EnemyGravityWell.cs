@@ -29,7 +29,7 @@ public class EnemyGravityWell : MonoBehaviour
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
         Kinematics kinematics = other.GetComponent<Kinematics>();
 
-        if (other.CompareTag("Player") || other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates"))
+        if (other.CompareTag("Player"))
         {
 
             Vector2 direction = (transform.position - other.transform.position).normalized;
@@ -44,7 +44,7 @@ public class EnemyGravityWell : MonoBehaviour
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
         Kinematics kinematics = other.GetComponent<Kinematics>();
 
-        if (other.CompareTag("Player") || other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates"))
+        if (other.CompareTag("Player"))
         {
             kinematics.ShouldMove = true;
             rb.isKinematic = true;

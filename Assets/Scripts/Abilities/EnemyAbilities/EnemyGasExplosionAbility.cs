@@ -31,6 +31,7 @@ public class EnemyGasExplosionFullMapAbility : Ability
 
     public override void AbilityLogic(GameObject owner, Transform target)
     {
+
         switch (abilityDirection)
         {
             case AbilityDirection.Vertical:

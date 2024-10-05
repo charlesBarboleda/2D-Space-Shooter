@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
     public Canvas worldCanvas;
     public TextMeshProUGUI midScreenText;
+    public TextMeshProUGUI countdownText;
 
     [Header("Objectives")]
     [SerializeField] GameObject objectiveDescriptionText;
@@ -91,6 +92,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        UpdateCountdownText();
         UpdateRoundText();
         PauseMenu();
 
@@ -369,8 +371,11 @@ public class UIManager : MonoBehaviour
     {
         if (GameManager.Instance.CurrentGameState == GameManager.GameState.LevelIn)
             roundText.text = $"{LevelManager.Instance.CurrentLevelIndex}";
-        if (GameManager.Instance.CurrentGameState == GameManager.GameState.Countdown)
-            roundText.text = $"{Math.Round(GameManager.Instance.RoundCountdown, 0)}";
+    }
+
+    void UpdateCountdownText()
+    {
+        countdownText.text = $"{Mathf.Round(GameManager.Instance.RoundCountdown)}";
     }
 
     private void SetDescriptionText(TextMeshProUGUI text, Upgrade upgrade)

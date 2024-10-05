@@ -8,7 +8,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyGravityWell", menuName = "EnemyAbilities/EnemyGravityWell")]
 public class EnemyGravityWellAbility : Ability
 {
-    [SerializeField] float _duration = 5f;
     [SerializeField] float _pullStrength = 3000f;
     Vector3 _aimOffset;
 
@@ -24,7 +23,7 @@ public class EnemyGravityWellAbility : Ability
 
         // Assign gravity well settings
         EnemyGravityWell gravityWellScript = _gravityWell.GetComponent<EnemyGravityWell>();
-        gravityWellScript.Duration = _duration;
+        gravityWellScript.Duration = duration;
         gravityWellScript.PullStrength = _pullStrength;
     }
 
@@ -34,13 +33,13 @@ public class EnemyGravityWellAbility : Ability
 
     public override void ResetStats()
     {
-        _duration = 5f;
+        duration = 5f;
         _pullStrength = 3000f;
     }
 
     void SetStatsBasedOnLevel()
     {
         _pullStrength = Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 150f, 3000f);
-        _duration = Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 0.3f, 5f);
+        duration = Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 0.3f, 5f);
     }
 }

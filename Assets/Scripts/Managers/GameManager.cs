@@ -70,14 +70,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(DisableShipCollision());
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            ObjectPooler.Instance.SpawnFromPool("GasExplosionLarge", Vector3.zero, Quaternion.identity);
-        }
-    }
-
     IEnumerator DisableShipCollision()
     {
         yield return new WaitForSeconds(1f);
@@ -141,14 +133,15 @@ public class GameManager : MonoBehaviour
         ObjectiveManager.Instance.ClearActiveObjectives();
         Debug.Log("Countdown Started");
         _isInputActive = true;
-        _roundCountdown = 10f;
+        _roundCountdown = 20f;
+        UIManager.Instance.countdownText.gameObject.SetActive(true);
 
         while (_roundCountdown > 0)
         {
             _roundCountdown -= Time.deltaTime;
             yield return null;
         }
-
+        UIManager.Instance.countdownText.gameObject.SetActive(false);
         ChangeState(GameState.Start);
 
     }

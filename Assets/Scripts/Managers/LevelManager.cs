@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour
             return CreateCometLevel();
         }
         // Otherwise, create a horde level
-        return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
+        return CreateHordeLevel();
 
     }
 
@@ -105,7 +105,7 @@ public class LevelManager : MonoBehaviour
         List<Ship> shipsToSpawnDefending = _spawnerManager.DetermineDefendingShips();
         Debug.Log($"Ships to spawn defending: {shipsToSpawnDefending.Count}");
         int spawnAmountRatio = 1 / 2;
-        int amountOfEnemiesLosing = _currentLevelIndex * 10;
+        int amountOfEnemiesLosing = _currentLevelIndex * 3;
         FactionType factionType = InvasionManager.Instance.InvadingFactions[0];
 
         return new SoloInvasionLevel(
@@ -123,7 +123,7 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateHordeLevel()
     {
-        int amountOfEnemies = _currentLevelIndex * 5;
+        int amountOfEnemies = _currentLevelIndex * 3;
         List<Ship> shipsToSpawn = _spawnerManager.DetermineDefendingShips();
         float spawnRate = Mathf.Min(0.5f, _currentLevelIndex * 0.01f);
         FactionType factionType = FactionType.Syndicates;
@@ -149,7 +149,7 @@ public class LevelManager : MonoBehaviour
         float stopDistance = Mathf.Min(Mathf.Max(_currentLevelIndex * 2f, 90f), 120f);
         float attackRange = Mathf.Min(Mathf.Max(_currentLevelIndex * 4, 150f), 180f);
         float fireAngle = Random.Range(15, 21);
-        float currencyDrop = health;
+        float currencyDrop = health / 2;
         List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
         // Choose a random formation type
         FormationType formationType = (FormationType)Random.Range(0, 7);
@@ -191,7 +191,7 @@ public class LevelManager : MonoBehaviour
         float spawnRate = Mathf.Max(5f - (_currentLevelIndex * 0.1f), 0.1f);
         float stopDistance = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.5f, 80f), 120f);
         float attackRange = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.5f, 100f), 120f);
-        float currencyDrop = health;
+        float currencyDrop = health / 2;
         List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
         return new SoloSpawnerBossLevel(
             health,
@@ -219,7 +219,7 @@ public class LevelManager : MonoBehaviour
         float stopDistance = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.5f, 60f), 100f);
         float attackRange = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.4f, 80f), 120f);
         float fireAngle = bulletAmount * 4;
-        float currencyDrop = health;
+        float currencyDrop = health / 2;
         List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
         // Choose a random formation type
         FormationType formationType = (FormationType)Random.Range(0, 7);
