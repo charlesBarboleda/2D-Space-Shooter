@@ -663,8 +663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 5000
-  _maxHealth: 5000
+  _currentHealth: 2500
+  _maxHealth: 2500
   _currencyDrop: 500
   _currencyPrefab:
   - DebrisLarge1
@@ -699,6 +699,7 @@ MonoBehaviour:
   _shouldMove: 1
   _speed: 16
   _stopDistance: 50
+  outOfBounds: 0
 --- !u!114 &-1380015948310427542
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -167,6 +167,7 @@ public class GameManager : MonoBehaviour
 
     void LevelStart()
     {
+        _spawnerManager.SpawnCometsOverTime(_cometsPerRound, _cometSpawnRate);
         Debug.Log("Level Start from Game Manager");
         _levelManager.StartLevel();
     }

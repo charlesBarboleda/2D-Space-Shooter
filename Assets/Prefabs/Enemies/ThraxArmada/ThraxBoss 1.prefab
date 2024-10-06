@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHealth: 20000
   _maxHealth: 20000
-  _currencyDrop: 5000
+  _currencyDrop: 2000
   _currencyPrefab:
   - DebrisLarge1
   - DebrisLarge2
@@ -1145,6 +1145,7 @@ MonoBehaviour:
   _shouldMove: 1
   _speed: 30
   _stopDistance: 80
+  outOfBounds: 0
   _rotationSpeed: 15
 --- !u!1 &8638413270787602566
 GameObject:

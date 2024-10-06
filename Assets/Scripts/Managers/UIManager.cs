@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     public Canvas worldCanvas;
     public TextMeshProUGUI midScreenText;
     public TextMeshProUGUI countdownText;
+    [SerializeField] TextMeshProUGUI _comboText;
+
 
     [Header("Objectives")]
     [SerializeField] GameObject objectiveDescriptionText;
@@ -94,6 +96,7 @@ public class UIManager : MonoBehaviour
     {
         UpdateCountdownText();
         UpdateRoundText();
+        UpdateComboText();
         PauseMenu();
 
         if (upgradeShopPanel.activeSelf)
@@ -127,6 +130,19 @@ public class UIManager : MonoBehaviour
 
         // Set the currency icon position based on the currency text width
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
+    }
+
+    void UpdateComboText()
+    {
+        if (ComboManager.Instance.comboCount == 0)
+        {
+            _comboText.gameObject.SetActive(false);
+        }
+        else
+        {
+            _comboText.gameObject.SetActive(true);
+            _comboText.text = $"{ComboManager.Instance.comboCount}";
+        }
     }
 
     // --------------- Objective System Integration ---------------

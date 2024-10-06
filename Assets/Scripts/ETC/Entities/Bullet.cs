@@ -62,9 +62,16 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("EnemyDestroyable") || other.CompareTag("CrimsonFleet") || other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates"))
+        if (other.CompareTag("CrimsonFleet") || other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates"))
         {
 
+            StartCoroutine(BulletOnHitEffect());
+            other.GetComponent<IDamageable>()?.TakeDamage(BulletDamage);
+            ComboManager.Instance.IncreaseCombo();
+
+        }
+        if (other.CompareTag("Player") || other.CompareTag("EnemyDestroyable"))
+        {
             StartCoroutine(BulletOnHitEffect());
             other.GetComponent<IDamageable>()?.TakeDamage(BulletDamage);
 

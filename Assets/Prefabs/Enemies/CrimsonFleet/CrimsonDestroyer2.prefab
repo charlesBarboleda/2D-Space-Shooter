@@ -257,6 +257,7 @@ MonoBehaviour:
   _shouldMove: 1
   _speed: 25
   _stopDistance: 60
+  outOfBounds: 0
 --- !u!114 &5174883650044196316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,9 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 20000
-  _maxHealth: 20000
-  _currencyDrop: 20000
+  _currentHealth: 5000
+  _maxHealth: 5000
+  _currencyDrop: 500
   _currencyPrefab:
   - DebrisLarge1
   - DebrisLarge2
