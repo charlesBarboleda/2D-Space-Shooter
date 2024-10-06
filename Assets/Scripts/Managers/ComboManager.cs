@@ -29,10 +29,8 @@ public class ComboManager : MonoBehaviour
         }
         else
         {
-            comboCount = 0;
+            ResetCombo();
         }
-
-
     }
 
     public void IncreaseCombo()
