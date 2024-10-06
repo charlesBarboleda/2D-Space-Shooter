@@ -10,7 +10,6 @@ public class ComboTimerFill : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(ComboManager.Instance.comboTimer);
         if (ComboManager.Instance.comboTimer < 3f)
         {
             image.enabled = true;

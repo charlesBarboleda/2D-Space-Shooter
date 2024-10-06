@@ -53,7 +53,7 @@ public class LightningExplosion : MonoBehaviour
 
     IEnumerator Explode()
     {
-        GameObject animation = ObjectPooler.Instance.SpawnFromPool("BlinkSmall", lightningExplosion.transform.position, Quaternion.identity);
+        GameObject animation = ObjectPooler2.Instance.SpawnFromPool("BlinkSmall", lightningExplosion.transform.position, Quaternion.identity);
         LayerMask _damageLayerMask = LayerMask.GetMask("Player", "CrimsonFleet", "Syndicates");
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(lightningExplosion.transform.position, 30f, _damageLayerMask);
 
