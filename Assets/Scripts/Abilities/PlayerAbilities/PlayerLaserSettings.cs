@@ -6,6 +6,8 @@ public class PlayerLaserSettings : MonoBehaviour
 {
 
     float _dps;
+    int _comboCount = 0;
+    int _maxComboCount = 20;
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -18,6 +20,15 @@ public class PlayerLaserSettings : MonoBehaviour
             {
                 UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
                 damageable.TakeDamage(_dps);
+                if (_comboCount < _maxComboCount)
+                {
+                    _comboCount++;
+                }
+                else
+                {
+                    _comboCount = 0;
+                    ComboManager.Instance.IncreaseCombo();
+                }
             }
         }
     }

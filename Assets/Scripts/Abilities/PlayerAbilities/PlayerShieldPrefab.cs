@@ -6,7 +6,8 @@ public class PlayerShieldPrefab : MonoBehaviour
 {
     float _dps;
     PlayerHealthBehaviour _playerHealth;
-
+    int _maxComboCount = 20;
+    int _comboCount = 0;
     void OnEnable()
     {
         _playerHealth = PlayerManager.Instance.GetComponent<PlayerHealthBehaviour>();
@@ -21,6 +22,15 @@ public class PlayerShieldPrefab : MonoBehaviour
             {
                 UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
                 damageable.TakeDamage(_dps);
+                if (_comboCount < _maxComboCount)
+                {
+                    _comboCount++;
+                }
+                else
+                {
+                    _comboCount = 0;
+                    ComboManager.Instance.IncreaseCombo();
+                }
             }
 
         }
