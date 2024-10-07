@@ -9,10 +9,11 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-    public Canvas worldCanvas;
-    public TextMeshProUGUI midScreenText;
-    public TextMeshProUGUI countdownText;
+    [Header("Combo System")]
     [SerializeField] TextMeshProUGUI _comboText;
+    [SerializeField] GameObject _comboHotkey;
+    [SerializeField] GameObject _comboProgressSparks;
+    int _lastComboCount = 0;
 
 
     [Header("Objectives")]
@@ -28,6 +29,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthCost, damageCost, fireRateCost, bulletSpeedCost, extraBulletCost, speedCost, pickUpCost;
 
     [Header("Game UI Elements")]
+    public Canvas worldCanvas;
+    public TextMeshProUGUI midScreenText;
+    public TextMeshProUGUI countdownText;
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI highscoreText;
 
@@ -132,18 +136,71 @@ public class UIManager : MonoBehaviour
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
     }
 
+    public void ActivateComboKey()
+    {
+        _comboHotkey.SetActive(true);
+    }
+
+    public void DeactivateComboKey()
+    {
+        _comboHotkey.SetActive(false);
+    }
+
     void UpdateComboText()
     {
-        if (ComboManager.Instance.comboCount == 0)
+        int currentComboCount = ComboManager.Instance.comboCount;
+
+        // Update combo text only if combo count has changed
+        if (currentComboCount != _lastComboCount)
         {
-            _comboText.gameObject.SetActive(false);
-        }
-        else
-        {
-            _comboText.gameObject.SetActive(true);
-            _comboText.text = $"{ComboManager.Instance.comboCount}";
+            if (currentComboCount == 0)
+            {
+                _comboText.gameObject.SetActive(false);
+            }
+            else
+            {
+                _comboText.gameObject.SetActive(true);
+                _comboText.text = $"{currentComboCount}";
+
+                // Start the pop animation when the combo count changes
+                StartCoroutine(PopTextAnimation(_comboText));
+            }
+
+            _lastComboCount = currentComboCount;  // Update the last combo count
         }
     }
+
+    // Coroutine to animate the pop effect on the text
+    IEnumerator PopTextAnimation(TextMeshProUGUI text)
+    {
+        Vector3 originalScale = Vector3.one; // Reset to (1, 1, 1) scale
+        Vector3 popScale = originalScale * 1.5f;  // Scale up by 50%
+        float animationDuration = 0.2f;  // Duration of pop animation
+
+        // Animate scaling up
+        float elapsedTime = 0f;
+        while (elapsedTime < animationDuration)
+        {
+            text.transform.localScale = Vector3.Lerp(originalScale, popScale, elapsedTime / animationDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        text.transform.localScale = popScale; // Ensure it's fully scaled up
+
+        // Animate scaling back down
+        elapsedTime = 0f;
+        while (elapsedTime < animationDuration)
+        {
+            text.transform.localScale = Vector3.Lerp(popScale, originalScale, elapsedTime / animationDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Reset back to original scale after the animation
+        text.transform.localScale = originalScale;
+    }
+
 
     // --------------- Objective System Integration ---------------
 

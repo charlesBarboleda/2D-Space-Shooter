@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CartoonFX;
 using UnityEngine;
 
 [DefaultExecutionOrder(-99)]
@@ -10,12 +11,16 @@ public class PlayerManager : MonoBehaviour, ITargetable
     PlayerHealthBehaviour _health;
     PlayerCurrencyBehaviour _currency;
     PlayerMovementBehaviour _movement;
+    PlayerComboManager _combo;
     AudioSource _audioSource;
     AbilityHolder _abilityHolder;
     PickUpBehaviour _pickUpBehaviour;
     PowerUpBehaviour _powerUpBehaviour;
+
     Faction _faction;
     Weapon _weapon;
+    public ParticleSystem arrowEmission;
+    [SerializeField] GameObject Buff;
     [SerializeField] AudioClip _onDebrisAudio;
     [SerializeField] AudioClip _onPowerUpAudio;
 
@@ -28,6 +33,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
     void Start()
     {
         _faction = GetComponent<Faction>();
+        _combo = GetComponent<PlayerComboManager>();
         _audioSource = GetComponent<AudioSource>();
         _powerUpBehaviour = GetComponent<PowerUpBehaviour>();
         _pickUpBehaviour = GetComponent<PickUpBehaviour>();
@@ -49,6 +55,18 @@ public class PlayerManager : MonoBehaviour, ITargetable
             Destroy(gameObject);
         }
     }
+    public void ActivateBuffAnimations()
+    {
+        Buff.SetActive(true);
+    }
+
+    public void DeactivateBuffAnimations()
+    {
+        var emission = arrowEmission.emission;
+        emission.rateOverTime = 5;
+        Buff.SetActive(false);
+    }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -77,6 +95,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
     public static PlayerManager GetInstance() => Instance;
     public AbilityHolder AbilityHolder() => _abilityHolder;
     public Weapon Weapon() => _weapon;
+    public PlayerComboManager ComboManager() => _combo;
     public PickUpBehaviour PickUpBehaviour() => _pickUpBehaviour;
     public PowerUpBehaviour PowerUpBehaviour() => _powerUpBehaviour;
 

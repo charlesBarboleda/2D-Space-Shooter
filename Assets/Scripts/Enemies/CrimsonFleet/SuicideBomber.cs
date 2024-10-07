@@ -31,9 +31,12 @@ public class SuicideBomber : Enemy
     protected override void OnEnable()
     {
         base.OnEnable();
-        Health.SpriteRenderer.enabled = true;
-        Health.Colliders.ForEach(collider => collider.enabled = true);
-        Health.Rigidbody.simulated = true;
+        if (Health != null)
+        {
+            Health.SpriteRenderer.enabled = true;
+            Health.Colliders.ForEach(collider => collider.enabled = true);
+            Health.Rigidbody.simulated = true;
+        }
     }
     protected override void OnDisable()
     {

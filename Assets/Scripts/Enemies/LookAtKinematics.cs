@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LookAtKinematics : MonoBehaviour
+public class LookAtKinematics : Kinematics
 {
     [SerializeField] Transform _target;
     [SerializeField] float _rotationSpeed = 50f;
@@ -10,7 +10,7 @@ public class LookAtKinematics : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         transform.LookAt(_target.position);
         OrbitAround(_target.position);

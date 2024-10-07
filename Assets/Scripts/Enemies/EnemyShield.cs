@@ -19,10 +19,6 @@ public class EnemyShield : MonoBehaviour, IDamageable
         originalColor = spriteRenderer.color;
 
     }
-    void OnEnable()
-    {
-        Debug.Log($"Shield owner: {_shieldOwner.name}, Max Shield: {_maxShield}, Shield Regen: {_shieldRegenRate}");
-    }
     void Update()
     {
         RegenShield();

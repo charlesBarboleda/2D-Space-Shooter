@@ -7,6 +7,7 @@ public class ComboManager : MonoBehaviour
     public static ComboManager Instance { get; private set; }
     public int comboCount = 0;
     public float comboTimer = 5f;
+    PlayerManager _playerManager;
 
 
     void Awake()
@@ -19,6 +20,10 @@ public class ComboManager : MonoBehaviour
         {
             Instance = this;
         }
+    }
+    void Start()
+    {
+        _playerManager = PlayerManager.Instance;
     }
 
     void Update()
@@ -43,5 +48,6 @@ public class ComboManager : MonoBehaviour
     {
         comboCount = 0;
         comboTimer = 5f;
+        _playerManager.ComboManager().RemoveAllBuffs();
     }
 }
