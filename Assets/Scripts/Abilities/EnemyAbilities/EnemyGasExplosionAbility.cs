@@ -29,7 +29,7 @@ public class EnemyGasExplosionFullMapAbility : Ability
 
     [SerializeField] string _gasExplosionTag = "GasExplosionLarge";
 
-    public override void AbilityLogic(GameObject owner, Transform target)
+    public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
     {
 
         switch (abilityDirection)

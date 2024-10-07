@@ -13,7 +13,7 @@ public class EnemyGravityWellAbility : Ability
 
     [SerializeField] string _gravityWellTag = "GravityWellSmall";
 
-    public override void AbilityLogic(GameObject owner, Transform target)
+    public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
     {
         _aimOffset = new Vector3(Random.Range(-100f, 100f), Random.Range(-100, 100f), 0f);
         SetStatsBasedOnLevel();

@@ -12,7 +12,7 @@ public class EnemyVoidImplosionAbility : Ability
     [SerializeField] float _aimOffset = 200f;
     [SerializeField] string _voidImplosionTag = "ThraxImplosion";
 
-    public override void AbilityLogic(GameObject owner, Transform target)
+    public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
     {
         // Spawn void implosions based on attackRate and amountToSpawn
         SetStatsBasedOnLevel();

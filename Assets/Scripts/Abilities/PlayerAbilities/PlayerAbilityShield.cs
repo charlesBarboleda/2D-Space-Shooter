@@ -12,7 +12,7 @@ public class AbilityShield : Ability
     [SerializeField] GameObject _shieldprefab;
 
 
-    public override void AbilityLogic(GameObject owner, Transform target)
+    public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = true)
     {
 
         GameObject shield = Instantiate(_shieldprefab, target.position, Quaternion.identity);

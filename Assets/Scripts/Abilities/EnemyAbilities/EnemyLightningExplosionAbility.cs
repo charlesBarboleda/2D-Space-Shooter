@@ -10,7 +10,7 @@ public class EnemyLightningExplosionAbility : Ability
 
 
 
-    public override void AbilityLogic(GameObject owner, Transform target)
+    public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
     {
         _lightningExplosion = ObjectPooler.Instance.SpawnFromPool("LightningExplosion", owner.transform.position, Quaternion.identity);
         LightningExplosion lightningExplosionScript = _lightningExplosion.GetComponent<LightningExplosion>();

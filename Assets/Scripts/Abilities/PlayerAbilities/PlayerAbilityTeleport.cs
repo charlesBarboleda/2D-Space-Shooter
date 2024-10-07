@@ -11,7 +11,7 @@ public class AbilityTeleport : Ability
     public float _teleportSize;
     public float _teleportDamage;
     public float _teleportDuration;
-    public override void AbilityLogic(GameObject owner, Transform target)
+    public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = true)
     {
         // Initial teleport effect
         GameObject tpEffect = Instantiate(_teleportEffect, owner.transform.position, Quaternion.identity);

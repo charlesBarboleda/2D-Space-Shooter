@@ -4,17 +4,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Abilities/Laser")]
 public class AbilityLaser : Ability
 {
-
     [SerializeField] GameObject _laserPrefab;
     public float dps;
+    public float ultimateDpsMultiplier = 2f; // Example: ultimate deals more damage
 
-    // Start is called before the first frame update
-    public override void AbilityLogic(GameObject owner, Transform target)
+    public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
     {
-        //Object Pool the laser prefab
+        // Object pool the laser prefab
         GameObject Laser = ObjectPooler.Instance.SpawnFromPool("PlayerLaser", owner.transform.position, Quaternion.identity);
         Laser.transform.rotation = owner.transform.rotation;
-        // Start playing the audio clip
+
+        // Play audio
         AudioSource ownerAudioSource = owner.GetComponent<AudioSource>();
         if (ownerAudioSource == null)
         {
@@ -24,41 +24,37 @@ public class AbilityLaser : Ability
         ownerAudioSource.loop = true;
         ownerAudioSource.volume = 0.5f;
         ownerAudioSource.Play();
-        Laser.transform.rotation = owner.transform.rotation;
+
+        // Attach laser to owner
         Laser.transform.SetParent(owner.transform);
 
-        //Pass the damage value to the laser
+        // Pass damage values: if ultimate, apply multiplier
         PlayerLaserSettings laserScript = Laser.GetComponent<PlayerLaserSettings>();
-        laserScript.Dps = dps;
-        owner.GetComponent<MonoBehaviour>().StartCoroutine(HandleLaser(Laser, owner, ownerAudioSource));
+        laserScript.Dps = isUltimate ? dps * ultimateDpsMultiplier : dps;
 
+        owner.GetComponent<MonoBehaviour>().StartCoroutine(HandleLaser(Laser, owner, ownerAudioSource, isUltimate));
     }
-    IEnumerator HandleLaser(GameObject laser, GameObject owner, AudioSource ownerAudioSource)
+
+    IEnumerator HandleLaser(GameObject laser, GameObject owner, AudioSource ownerAudioSource, bool isUltimate)
     {
         float timer = 0f;
+        float maxDuration = isUltimate ? duration * 2f : duration; // Example: ultimate lasts longer
 
-        while (timer < duration)
+        while (timer < maxDuration)
         {
-            // Get mouse position in the world
+            // Follow mouse logic as before
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0; // Ensure the mouse position stays in the same plane as the player
+            mousePosition.z = 0;
 
-            // Calculate direction from owner to mouse position
             Vector3 direction = (mousePosition - owner.transform.position).normalized;
-
-            // Rotate the laser to face the mouse cursor
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             laser.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
 
-            // Make the laser follow the owner
-            // laser.transform.position = owner.transform.position;
-
-            // Increment timer
             timer += Time.deltaTime;
             yield return null;
         }
 
-        // After the duration, stop the audio and deactivate the laser
+        // Stop audio and deactivate laser after duration
         ownerAudioSource.Stop();
         laser.SetActive(false);
     }
@@ -66,9 +62,13 @@ public class AbilityLaser : Ability
     public override void ResetStats()
     {
         currentCooldown = 45f;
+        currentUltimateCooldown = 60f; // Separate cooldown for ultimate
         duration = 3f;
         dps = 5f;
+        ultimateDpsMultiplier = 2f;
         cooldown = 45f;
+        ultimateCooldown = 60f; // Different cooldown for ultimate
         isUnlocked = false;
     }
 }
+

@@ -9,7 +9,7 @@ public class EnemyTeleport : Ability
 {
     [SerializeField] float teleportDistance = 50f;
 
-    public override async void AbilityLogic(GameObject owner, Transform target)
+    public override async void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
     {
         await Teleport(owner, target);
     }

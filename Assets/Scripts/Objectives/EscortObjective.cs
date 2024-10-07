@@ -28,11 +28,17 @@ public class EscortObjective : ObjectiveBase
 
     public override void UpdateObjective()
     {
-        if (_cargoShip == null || !_cargoShip.activeInHierarchy || (SpawnerManager.Instance.EnemiesToSpawnLeft <= 0 && SpawnerManager.Instance.EnemiesList.Count <= 0))
+        Debug.Log("Enemies Count: " + SpawnerManager.Instance.EnemiesList.Count);
+        Debug.Log("Enemies to spawn: " + SpawnerManager.Instance.EnemiesToSpawnLeft);
+        if (_cargoShip == null || !_cargoShip.activeInHierarchy)
         {
             CompleteObjective();
         }
-        else
+        if (SpawnerManager.Instance.EnemiesToSpawnLeft <= 0 && SpawnerManager.Instance.EnemiesList.Count == 1)
+        {
+            _cargoShip.GetComponent<CargoShip>().TeleportAway();
+            CompleteObjective();
+        }
         if (_cargoShipHealth.isDead)
         {
             FailObjective();

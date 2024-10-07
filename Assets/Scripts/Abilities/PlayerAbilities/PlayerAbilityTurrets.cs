@@ -11,7 +11,7 @@ public class AbilityTurrets : Ability
     public float bulletDamage;
     public float fireRate;
 
-    public override void AbilityLogic(GameObject owner, Transform target)
+    public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
     {
         // Calculate the offset for the next turret
         float offset = (numberOfTurretsPerSide + 1) * turretSpacing;

@@ -12,7 +12,7 @@ public class EnemyLaserAbility : Ability
     List<Transform> _laserSpawnPoints;
     [SerializeField] string _laserPoolTag = "ThraxLaser";
 
-    public override async void AbilityLogic(GameObject owner, Transform target)
+    public override async void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
     {
         // Get the spawn points from the enemy ship (owner)
         _laserSpawnPoints = GetLaserSpawnPoints(owner);

@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour
             return CreateCometLevel();
         }
         // Otherwise, create a horde level
-        return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
+        return CreateHordeLevel();
 
 
     }
@@ -185,9 +185,9 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateSoloSpawnerBossLevel(string bossName)
     {
-        float health = _currentLevelIndex * 3000f;
+        float health = _currentLevelIndex * 2000f;
         // Every 5 levels, add 1 extra ship to spawn
-        int shipsPerSpawn = Mathf.RoundToInt(_currentLevelIndex / 5) + 1;
+        int shipsPerSpawn = Mathf.RoundToInt(_currentLevelIndex / 10) + 1;
         float speed = Mathf.Max(_currentLevelIndex * 2f, 20f);
         float spawnRate = Mathf.Max(5f - (_currentLevelIndex * 0.1f), 0.1f);
         float stopDistance = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.5f, 80f), 120f);
@@ -211,7 +211,7 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateSoloShooterBossLevel(string bossName)
     {
-        float health = _currentLevelIndex * 3000f;
+        float health = _currentLevelIndex * 2000f;
         int bulletAmount = _currentLevelIndex * 1;
         float bulletDamage = _currentLevelIndex * 2f;
         float bulletSpeed = Mathf.Min(Mathf.Max(_currentLevelIndex * 1f, 10), 30);
