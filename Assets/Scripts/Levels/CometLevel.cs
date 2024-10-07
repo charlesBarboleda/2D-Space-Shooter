@@ -24,7 +24,7 @@ public class CometLevel : Level
         if (!_roundStarted)
         {
             _roundStarted = true;
-            SpawnerManager.Instance.StartCoroutine(EndRoundAfter(120f));
+            SpawnerManager.Instance.StartCoroutine(EndRoundAfter(60f));
         }
     }
 

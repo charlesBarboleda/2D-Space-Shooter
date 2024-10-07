@@ -12,6 +12,7 @@ public abstract class Ability : ScriptableObject
     public float currentCooldown;
     public float ultimateCooldown = 30f; // Ultimate cooldown time
     public float currentUltimateCooldown;
+    public bool isUltimateUnlocked;
     public bool isUltimateReady = false; // Flag to check if ultimate can be triggered
     public float ultimateTriggerWindow = 3f; // Time window to press the same key for ultimate
     [SerializeField] protected AudioSource _audioSource;
@@ -26,7 +27,7 @@ public abstract class Ability : ScriptableObject
             return;
         }
 
-        if (isUltimateReady && currentUltimateCooldown >= ultimateCooldown)
+        if (isUltimateReady && currentUltimateCooldown >= ultimateCooldown && isUltimateUnlocked)
         {
             // Trigger ultimate ability
             AbilityLogic(owner, target, true);
