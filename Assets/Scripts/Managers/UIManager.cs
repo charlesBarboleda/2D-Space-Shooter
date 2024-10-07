@@ -9,6 +9,13 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+    [Header("Ultimate Animations")]
+    [SerializeField] Material _revealMaterial;
+    [SerializeField] Image _cameraCrack;
+    [SerializeField] Image _whiteFlash;
+    [SerializeField] ParticleSystem _shatterParticles;
+
+
     [Header("Combo System")]
     [SerializeField] TextMeshProUGUI _comboText;
     [SerializeField] GameObject _comboHotkey;
@@ -78,6 +85,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _abilityHolder = PlayerManager.GetInstance().AbilityHolder();
+
     }
 
     void OnEnable()
@@ -98,6 +106,10 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            ActivateCrackAndShatter();
+        }
         UpdateCountdownText();
         UpdateRoundText();
         UpdateComboText();
@@ -135,6 +147,57 @@ public class UIManager : MonoBehaviour
         // Set the currency icon position based on the currency text width
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
     }
+
+    public void ActivateCrackAndShatter()
+    {
+        _cameraCrack.gameObject.SetActive(true);
+        StartCoroutine(RevealAndShatter());
+    }
+
+    IEnumerator RevealAndShatter()
+    {
+        _revealMaterial.SetFloat("_Cutoff", 0f);
+        StartCoroutine(AnimateReveal(0.5f));
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(Shatter());
+    }
+
+    IEnumerator AnimateReveal(float revealDuration)
+    {
+
+        float t = 0f;
+        while (t < revealDuration)
+        {
+            t += Time.deltaTime;
+            float _cutoffValue = Mathf.Lerp(0f, 1f, t / revealDuration);  // Lerp from 0 to 1
+            _revealMaterial.SetFloat("_Cutoff", _cutoffValue);  // Set the new cutoff value
+            yield return null;
+        }
+    }
+
+    IEnumerator Shatter()
+    {
+        StartCoroutine(FlashWhite(0.1f));
+        yield return new WaitForSeconds(0.2f);
+        _shatterParticles.Play();
+        _cameraCrack.gameObject.SetActive(false);
+    }
+
+    IEnumerator FlashWhite(float duration)
+    {
+        _whiteFlash.gameObject.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        float t = 0;
+        while (t < 0.5f)
+        {
+            t += Time.deltaTime;
+            float fade = Mathf.Lerp(1, 0, t / 0.5f);
+            _whiteFlash.color = new Color(1, 1, 1, fade);
+            yield return null;
+        }
+    }
+
+
 
     public void ActivateComboKey()
     {
