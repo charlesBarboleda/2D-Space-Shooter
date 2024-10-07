@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4941121986464838559}
   - component: {fileID: -3993841399799926068}
   - component: {fileID: 2732255611077029992}
+  - component: {fileID: -7171780843070186441}
   m_Layer: 13
   m_Name: NukeShip
   m_TagString: Syndicates
@@ -505,6 +506,28 @@ MonoBehaviour:
   _aimRange: 40
   _attackCooldown: 5
   _isSilenced: 0
+--- !u!195 &-7171780843070186441
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7576126605128404253}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.98
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2.64
+  m_BaseOffset: 1.32
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &5484781429886236636
 PrefabInstance:
   m_ObjectHideFlags: 0

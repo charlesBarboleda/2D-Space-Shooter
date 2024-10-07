@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 205415147540852656}
   - component: {fileID: -1380015948310427542}
   - component: {fileID: 6813454302779562601}
+  - component: {fileID: 3676368019564496077}
   m_Layer: 13
   m_Name: Carrier 1
   m_TagString: Syndicates
@@ -734,6 +735,28 @@ MonoBehaviour:
   _aimRange: 100
   _attackCooldown: 1
   _isSilenced: 0
+--- !u!195 &3676368019564496077
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997652989131009235}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.785
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2.88
+  m_BaseOffset: 1.44
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &3317441190673641113
 PrefabInstance:
   m_ObjectHideFlags: 0

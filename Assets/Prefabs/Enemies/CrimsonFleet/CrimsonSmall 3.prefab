@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: -3567657628417670295}
   - component: {fileID: 642829058510854343}
   - component: {fileID: -6240759722182996213}
+  - component: {fileID: -5592353298459812865}
   m_Layer: 15
   m_Name: CrimsonSmall 3
   m_TagString: CrimsonFleet
@@ -478,6 +479,28 @@ MonoBehaviour:
   _aimRange: 60
   _attackCooldown: 1
   _isSilenced: 0
+--- !u!195 &-5592353298459812865
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126911676597071214}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 5.5299997
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 8.159999
+  m_BaseOffset: 4.0799994
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &4034575219664494482
 PrefabInstance:
   m_ObjectHideFlags: 0

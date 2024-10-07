@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Kinematics : MonoBehaviour
 {
@@ -13,11 +14,18 @@ public class Kinematics : MonoBehaviour
     protected float _cachedDistance;
     protected TargetManager _targetManager;
     protected Vector3 _cachedDirection;
+    protected NavMeshAgent agent;
     public bool outOfBounds = false;
 
-    void Awake()
+
+    void Start()
     {
         _targetManager = GetComponent<TargetManager>();
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = _speed;
+        agent.stoppingDistance = _stopDistance;
+        agent.updateRotation = true;
+        agent.updateUpAxis = false;
     }
 
     // Update is called once per frame
@@ -42,10 +50,11 @@ public class Kinematics : MonoBehaviour
 
     protected virtual void HandleMovement()
     {
-        if (_shouldMove && _targetManager.CurrentTarget != null)
-        {
-            Movement(_targetManager.TargetPosition);
-        }
+        agent.SetDestination(_targetManager.TargetPosition);
+        // if (_shouldMove && _targetManager.CurrentTarget != null)
+        // {
+        //     Movement(_targetManager.TargetPosition);
+        // }
     }
 
     protected virtual void HandleRotation()
@@ -131,8 +140,8 @@ public class Kinematics : MonoBehaviour
         _cachedDirection = (target - transform.position).normalized;
     }
 
-    public float Speed { get => _speed; set => _speed = value; }
-    public float StopDistance { get => _stopDistance; set => _stopDistance = value; }
+    public float Speed { get => agent.speed; set => agent.speed = value; }
+    public float StopDistance { get => agent.stoppingDistance; set => agent.stoppingDistance = value; }
     public bool ShouldMove { get => _shouldMove; set => _shouldMove = value; }
     public bool ShouldRotate { get => _shouldRotate; set => _shouldRotate = value; }
 }

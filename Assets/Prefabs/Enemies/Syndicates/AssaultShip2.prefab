@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: -4165466705935490925}
   - component: {fileID: -5872829319275535106}
   - component: {fileID: 7559088924168760026}
+  - component: {fileID: 3389582575560845445}
   m_Layer: 13
   m_Name: AssaultShip2
   m_TagString: Syndicates
@@ -636,6 +637,28 @@ MonoBehaviour:
   _aimRange: 80
   _attackCooldown: 3
   _isSilenced: 0
+--- !u!195 &3389582575560845445
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354811038995012457}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.81999993
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.7399999
+  m_BaseOffset: 0.86999995
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &8858676872308680497
 GameObject:
   m_ObjectHideFlags: 0
