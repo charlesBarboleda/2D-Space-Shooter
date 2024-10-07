@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 2860895594444816078}
   - component: {fileID: 2008143879663076253}
   - component: {fileID: 3681667465588522016}
+  - component: {fileID: 3626854786859465253}
   m_Layer: 13
   m_Name: EnemyTurret
   m_TagString: Syndicates
@@ -305,7 +306,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!66 &5867372721351398644
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -445,3 +446,25 @@ MonoBehaviour:
   _aimRange: 80
   _attackCooldown: 1
   _isSilenced: 0
+--- !u!195 &3626854786859465253
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343858230156979994}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.17
+  m_Speed: 0
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.42
+  m_BaseOffset: 0.21
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

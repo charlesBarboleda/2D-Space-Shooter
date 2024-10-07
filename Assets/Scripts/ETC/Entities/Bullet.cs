@@ -22,6 +22,12 @@ public class Bullet : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    void Update()
+    {
+        Vector3 position = transform.position;
+        position.z = 0; // Locks the Z position to 0
+        transform.position = position;
+    }
     void OnEnable()
     {
         if (_bulletOnHitEffect != null) _bulletOnHitEffect.SetActive(false);

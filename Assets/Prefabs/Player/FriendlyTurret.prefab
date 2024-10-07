@@ -105,10 +105,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e141fe11180f9c14d94651455e62c8bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _abilityParticles: []
   _buffedParticles: {fileID: 0}
   _abilitySound: {fileID: 0}
   _spawnSound: {fileID: 0}
   _spawnAnimation: 
+  isThraxBoss: 0
   bulletSpawnPoint: {fileID: 7742219350932295475}
   _shootSound: {fileID: 0}
   _bulletType: PlayerBullet
@@ -117,6 +119,7 @@ MonoBehaviour:
   _amountOfBullets: 3
   _shootingAngle: 5
   _bulletLifetime: 5
+  _bulletPattern: 0
   nextFireTime: 0
 --- !u!82 &304988168129856637
 AudioSource:
@@ -254,7 +257,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!66 &9175048172773483353
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -334,8 +337,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _targetAllies: 0
+  _canSwitchTargets: 1
+  _targetPosition: {x: 0, y: 0, z: 0}
+  _currentTarget: {fileID: 0}
+  prioritizePlayer: 1
+  _maximumPriority: {fileID: 0}
   _checkForTargetsInterval: 3
-  _checkForTargetsRadius: 50
 --- !u!114 &1786240908306883250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimRange: 100
   _attackCooldown: 2
+  _isSilenced: 0
 --- !u!114 &2740604804376442547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aimOffset: -90
   _shouldRotate: 1
+  _shouldMove: 1
   _speed: 0
   _stopDistance: 0
-  separationRadius: 2
-  separationWeight: 1.5
+  outOfBounds: 0

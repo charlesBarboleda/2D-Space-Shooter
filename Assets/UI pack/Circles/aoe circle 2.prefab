@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5640483996267981020}
   - component: {fileID: 220841267144428281}
   - component: {fileID: 1483194320345129568}
-  - component: {fileID: 4184585843232706004}
   m_Layer: 0
   m_Name: aoe circle 2
   m_TagString: Untagged
@@ -121,15 +120,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.2499999
---- !u!114 &4184585843232706004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5162065665235285962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84f7954dfb83c194b966e941d226cab4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

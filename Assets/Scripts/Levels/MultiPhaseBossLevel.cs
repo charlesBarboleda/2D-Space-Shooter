@@ -114,7 +114,8 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase2Music());
         UIManager.Instance.bossHealthBar.gameObject.SetActive(true);
         yield return cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShip.transform, 11f));
-
+        // Unlock the boss' first ability
+        bossShip.GetComponent<AbilityHolder>().abilities[0].isUnlocked = true;
         currentPhase = BossPhase.Phase2;
     }
 

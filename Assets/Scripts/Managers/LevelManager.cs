@@ -59,7 +59,8 @@ public class LevelManager : MonoBehaviour
             return CreateCometLevel();
         }
         // Otherwise, create a horde level
-        return CreateHordeLevel();
+        return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
+
 
     }
 

@@ -20,8 +20,17 @@ public class Kinematics : MonoBehaviour
 
     void Start()
     {
-        _targetManager = GetComponent<TargetManager>();
         agent = GetComponent<NavMeshAgent>();
+        if (agent == null)
+        {
+            Debug.LogError("NavMeshAgent component missing!");
+            return;
+        }
+        _targetManager = GetComponent<TargetManager>();
+        if (_targetManager == null)
+        {
+            Debug.LogError("TargetManager component missing!");
+        }
         agent.speed = _speed;
         agent.stoppingDistance = _stopDistance;
         agent.updateRotation = true;
@@ -31,6 +40,9 @@ public class Kinematics : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+        Vector3 position = transform.position;
+        position.z = 0;
+        transform.position = position;
 
         if (outOfBounds) HandleOutOfBounds();
         else
@@ -50,7 +62,12 @@ public class Kinematics : MonoBehaviour
 
     protected virtual void HandleMovement()
     {
-        agent.SetDestination(_targetManager.TargetPosition);
+        if (_shouldMove && _targetManager.CurrentTarget != null)
+        {
+            agent.SetDestination(_targetManager.TargetPosition);
+        }
+
+
         // if (_shouldMove && _targetManager.CurrentTarget != null)
         // {
         //     Movement(_targetManager.TargetPosition);

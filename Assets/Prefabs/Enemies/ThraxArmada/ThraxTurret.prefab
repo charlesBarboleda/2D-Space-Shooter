@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8195286461880515641}
   - component: {fileID: -6886902918841533862}
   - component: {fileID: -6236857672304150841}
+  - component: {fileID: 1265825167256802379}
   m_Layer: 14
   m_Name: ThraxTurret
   m_TagString: ThraxArmada
@@ -260,7 +261,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!66 &5867372721351398644
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -409,9 +410,8 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 0
   _speed: 0
-  _maxSpeed: 0
-  _acceleration: 0
   _stopDistance: 0
+  outOfBounds: 0
 --- !u!114 &-6886902918841533862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,14 +424,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876b33078bf7c8849ab7d89b0f03d8e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkForTargetsInterval: 3
-  _checkForTargetsRadius: 50
   _targetAllies: 0
   _canSwitchTargets: 1
   _targetPosition: {x: 0, y: 0, z: 0}
   _currentTarget: {fileID: 0}
   prioritizePlayer: 1
   _maximumPriority: {fileID: 0}
+  _checkForTargetsInterval: 3
 --- !u!114 &-6236857672304150841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +446,28 @@ MonoBehaviour:
   _aimRange: 100
   _attackCooldown: 1
   _isSilenced: 0
+--- !u!195 &1265825167256802379
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343858230156979994}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 5.12
+  m_Speed: 0
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 10.24
+  m_BaseOffset: 5.12
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &9002935437112815961
 GameObject:
   m_ObjectHideFlags: 0

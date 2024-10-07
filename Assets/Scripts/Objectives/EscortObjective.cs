@@ -28,29 +28,30 @@ public class EscortObjective : ObjectiveBase
 
     public override void UpdateObjective()
     {
+        if (_cargoShip == null || !_cargoShip.activeInHierarchy || (SpawnerManager.Instance.EnemiesToSpawnLeft <= 0 && SpawnerManager.Instance.EnemiesList.Count <= 0))
+        {
+            CompleteObjective();
+        }
+        else
         if (_cargoShipHealth.isDead)
         {
             FailObjective();
-        }
-        else if (_cargoShip == null || !_cargoShip.activeInHierarchy)
-        {
-            CompleteObjective();
         }
     }
 
     public override void CompleteObjective()
     {
         // Notify ObjectiveManager of completion
-        ObjectiveManager.Instance.HandleObjectiveCompletion(this);
         base.CompleteObjective();
+        ObjectiveManager.Instance.HandleObjectiveCompletion(this);
         isObjectiveCompleted = true;
         SpawnerManager.Instance.EnemiesList.Remove(_cargoShip);
 
         objectiveDescription = "The Cargo Ship has reached its destination and sucessfully escaped!";
         // Force UI to update
-        Debug.Log("Updated Objective from Invasion Objective");
-
         ObjectiveManager.Instance.UpdateObjectivesUI();
+
+        Debug.Log("Completed Objective from Invasion Objective");
 
     }
     public override void FailObjective()
@@ -60,6 +61,7 @@ public class EscortObjective : ObjectiveBase
         objectiveDescription = "The Cargo Ship has been destroyed";
         ObjectiveManager.Instance.UpdateObjectivesUI();
         ObjectiveManager.Instance.HandleObjectiveFailure(this);
+        Debug.Log("Failed Objective from Invasion Objective");
     }
 
     Vector2 ClampToMapBounds(Vector2 waypoint)
