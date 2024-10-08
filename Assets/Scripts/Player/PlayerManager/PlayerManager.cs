@@ -68,6 +68,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
     }
 
 
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Debris") || other.CompareTag("PowerUp"))

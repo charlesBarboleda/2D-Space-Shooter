@@ -7,40 +7,71 @@ using UnityEngine;
 public class AbilityTeleport : Ability
 {
     [SerializeField] GameObject _teleportEffect;
-    public float _teleportDistance;
-    public float _teleportSize;
-    public float _teleportDamage;
-    public float _teleportDuration;
-    public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = true)
+    public float teleportDistance;
+    public float teleportSize;
+    public float teleportDamage;
+
+    public float ultimateDamageMultiplier = 10f;
+    public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
+    {
+
+        if (isUltimate)
+        {
+            UIManager.Instance.ActivateCrackAndShatter();
+            GameManager.Instance.StartCoroutine(ActivateUltimateTeleport(owner));
+        }
+        else
+        {
+            GameManager.Instance.StartCoroutine(NormalTeleport(owner));
+        }
+
+    }
+    IEnumerator NormalTeleport(GameObject owner)
     {
         // Initial teleport effect
-        GameObject tpEffect = Instantiate(_teleportEffect, owner.transform.position, Quaternion.identity);
-        tpEffect.transform.localScale = new Vector3(_teleportSize, _teleportSize, _teleportSize);
+        GameObject tpEffect = ObjectPooler.Instance.SpawnFromPool("PlayerTeleport", owner.transform.position, Quaternion.identity);
+        tpEffect.transform.localScale = new Vector3(teleportSize, teleportSize, teleportSize);
         PlayerTeleportPrefab teleportScript = tpEffect.GetComponent<PlayerTeleportPrefab>();
-        teleportScript.SetDamage(_teleportDamage);
-        Destroy(tpEffect, _teleportDuration);
+        teleportScript.SetDamage(teleportDamage);
 
         // Teleport the player based on movement input
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
-        owner.transform.position += new Vector3(inputX, inputY, 0f) * _teleportDistance;
+        owner.transform.position += new Vector3(inputX, inputY, 0f) * teleportDistance;
 
         // Post teleport effect
-        GameObject postTPEffect = Instantiate(_teleportEffect, owner.transform.position, Quaternion.identity);
-        postTPEffect.transform.localScale = new Vector3(_teleportSize, _teleportSize, _teleportSize);
+        GameObject postTPEffect = ObjectPooler.Instance.SpawnFromPool("PlayerTeleport", owner.transform.position, Quaternion.identity);
+        postTPEffect.transform.localScale = new Vector3(teleportSize, teleportSize, teleportSize);
         PlayerTeleportPrefab teleportScript2 = postTPEffect.GetComponent<PlayerTeleportPrefab>();
-        teleportScript2.SetDamage(_teleportDamage);
-        Destroy(postTPEffect, _teleportDuration);
+        teleportScript2.SetDamage(teleportDamage);
+
+        yield return new WaitForSeconds(duration);
+        tpEffect.SetActive(false);
+        postTPEffect.SetActive(false);
+    }
+    IEnumerator ActivateUltimateTeleport(GameObject owner)
+    {
+        yield return new WaitForSeconds(1f);
+
+        GameObject tpEffect = ObjectPooler.Instance.SpawnFromPool("PlayerTeleport", owner.transform.position, Quaternion.identity);
+        tpEffect.transform.localScale = new Vector3(40, 40, 40);
+        tpEffect.transform.SetParent(owner.transform);
+        PlayerTeleportPrefab teleportScript = tpEffect.GetComponent<PlayerTeleportPrefab>();
+        teleportScript.SetDamage(teleportDamage * ultimateDamageMultiplier);
+        yield return new WaitForSeconds(ultimateDuration);
+        tpEffect.SetActive(false);
     }
 
     public override void ResetStats()
     {
         currentCooldown = 30f;
         cooldown = 30f;
-        _teleportDistance = 2;
-        _teleportDamage = 10;
-        _teleportSize = 1;
-        _teleportDuration = 1f;
+        teleportDistance = 5;
+        teleportDamage = 10;
+        teleportSize = 1;
+        duration = 1f;
+        ultimateDuration = 6f;
+        ultimateDamageMultiplier = 10f;
         isUnlocked = false;
     }
 

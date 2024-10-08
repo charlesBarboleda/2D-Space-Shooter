@@ -120,7 +120,7 @@ public class AbilityLaser : Ability
         currentUltimateCooldown = 60f; // Separate cooldown for ultimate
         duration = 3f;
         dps = 5f;
-        ultimateDpsMultiplier = 2f;
+        ultimateDpsMultiplier = 4f;
         ultimateDuration = 6f;
         cooldown = 45f;
         ultimateCooldown = 180f; // Different cooldown for ultimate

@@ -156,7 +156,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's teleport distance by 8%
                 float increaseDistance = 1.08f;
-                abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportDistance *= increaseDistance;
+                abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault().teleportDistance *= increaseDistance;
                 Debug.Log("Teleport Distance Increased by 8%");
             }
         };
@@ -185,12 +185,12 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's teleport duration by 0.2 seconds
                 float increaseDuration = 0.2f;
-                abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportDuration += increaseDuration;
+                abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault().duration += increaseDuration;
                 Debug.Log("Teleport Duration Increased by " + increaseDuration + " seconds");
 
                 // Increase the player's teleport size by 7%
                 float increaseSize = 1.07f;
-                abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportSize *= increaseSize;
+                abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault().teleportSize *= increaseSize;
                 Debug.Log("Teleport Size Increased by 7%");
 
             }
@@ -205,7 +205,7 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Increase the player's teleport damage by 10%
-               abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault()._teleportDamage *= 1.10f;
+               abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault().teleportDamage *= 1.10f;
                 Debug.Log("Teleport Damage Increased by 10%");
             },
         };
