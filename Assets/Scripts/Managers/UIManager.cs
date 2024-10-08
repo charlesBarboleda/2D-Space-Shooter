@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mkey;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -157,6 +158,7 @@ public class UIManager : MonoBehaviour
     IEnumerator RevealAndShatter()
     {
         _revealMaterial.SetFloat("_Cutoff", 0f);
+        CameraFollowBehaviour.Instance.ShakePlayerCamera(10f, 5f, 1.3f);
         StartCoroutine(AnimateReveal(0.5f));
         yield return new WaitForSeconds(1f);
         StartCoroutine(Shatter());

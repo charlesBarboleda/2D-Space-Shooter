@@ -96,7 +96,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's shield duration by 0.1 seconds
                 float increaseDuration = 0.1f;
-                abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._duration += increaseDuration;
+                abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault().duration += increaseDuration;
                 Debug.Log("Shield Duration Increased by " + increaseDuration + " seconds");
             }
         };
@@ -111,7 +111,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's shield size by 6%
                 float increaseSize = 1.06f;
-                abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._shieldSize *= increaseSize;
+                abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault().shieldSize *= increaseSize;
                 Debug.Log("Shield Size Increased by 6%");
             }
         };
@@ -126,7 +126,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's shield damage by 3%
                 float increaseDamage = 1.03f;
-                abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault()._shieldDamage *= increaseDamage;
+                abilityHolder.abilities.OfType<AbilityShield>().FirstOrDefault().shieldDamage *= increaseDamage;
                 Debug.Log("Shield Damage Increased by 5%");
             },
         };

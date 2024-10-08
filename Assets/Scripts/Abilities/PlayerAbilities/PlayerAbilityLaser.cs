@@ -71,7 +71,7 @@ public class AbilityLaser : Ability
     IEnumerator HandleLaser(GameObject laser, GameObject owner, AudioSource ownerAudioSource, bool isUltimate, float initialAngle)
     {
         float timer = 0f;
-        float maxDuration = isUltimate ? duration * 2f : duration; // Ultimate lasts longer
+        float maxDuration = isUltimate ? 6f : duration; // Ultimate lasts longer
         float rotationSpeed = 90f; // Degrees per second
 
         while (timer < maxDuration)

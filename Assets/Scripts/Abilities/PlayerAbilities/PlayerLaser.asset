@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50c9174cbab810f4aa1442b83e3acb37, type: 3}
   m_Name: PlayerLaser
   m_EditorClassIdentifier: 
-  isUnlocked: 1
+  isUnlocked: 0
   abilityName: PlayerLaser
   icon: {fileID: 21300000, guid: 1e6199c17ad27ca4fa282c8334a302fb, type: 3}
   duration: 3
   cooldown: 45
-  currentCooldown: 27.032862
+  currentCooldown: 45
   ultimateCooldown: 60
-  currentUltimateCooldown: 25.84656
+  currentUltimateCooldown: 60
   isUltimateUnlocked: 1
   isUltimateReady: 0
   ultimateTriggerWindow: 3
