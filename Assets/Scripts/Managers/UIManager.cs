@@ -49,6 +49,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Player Abilities UI")]
     [SerializeField] Image laserIconFill, shieldIconFill, teleportIconFill, turretIconFill;
+    [SerializeField] Image laserUltIconFill, shieldUltIconFill, teleportUltIconFill, turretUltIconFill;
+
     public GameObject laserPanel, shieldPanel, teleportPanel, turretPanel;
 
     AbilityHolder _abilityHolder;
@@ -107,10 +109,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            ActivateCrackAndShatter();
-        }
+        PulseAbilityIcon();
         UpdateCountdownText();
         UpdateRoundText();
         UpdateComboText();
@@ -143,10 +142,68 @@ public class UIManager : MonoBehaviour
                     turretIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
                 }
             }
+            if (ability.isUltimateUnlocked)
+            {
+                if (ability is AbilityLaser)
+                {
+                    laserUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
+                }
+                if (ability is AbilityShield)
+                {
+                    shieldUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
+                }
+                if (ability is AbilityTeleport)
+                {
+                    teleportUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
+                }
+                if (ability is AbilityTurrets)
+                {
+                    turretUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
+                }
+            }
         }
 
         // Set the currency icon position based on the currency text width
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
+    }
+    void PulseAbilityIcon()
+    {
+        foreach (Ability ability in _abilityHolder.abilities)
+        {
+            if (ability.isUltimateReady)
+            {
+                StartCoroutine(PulseIcon(ability));
+            }
+        }
+    }
+
+    IEnumerator PulseIcon(Ability ability)
+    {
+        float t = 0;
+        while (ability.isUltimateReady)
+        {
+            t += Time.deltaTime;
+            if (ability is AbilityLaser)
+            {
+                laserUltIconFill.transform.localScale = new Vector3(1 + Mathf.PingPong(Time.time, 0.1f), 1 + Mathf.PingPong(Time.time, 0.1f), 1);
+            }
+            else
+            if (ability is AbilityShield)
+            {
+                shieldUltIconFill.transform.localScale = new Vector3(1 + Mathf.PingPong(Time.time, 0.1f), 1 + Mathf.PingPong(Time.time, 0.1f), 1);
+            }
+            else
+            if (ability is AbilityTeleport)
+            {
+                teleportUltIconFill.transform.localScale = new Vector3(1 + Mathf.PingPong(Time.time, 0.1f), 1 + Mathf.PingPong(Time.time, 0.1f), 1);
+            }
+            else
+            if (ability is AbilityTurrets)
+            {
+                turretUltIconFill.transform.localScale = new Vector3(1 + Mathf.PingPong(Time.time, 0.1f), 1 + Mathf.PingPong(Time.time, 0.1f), 1);
+            }
+            yield return null;
+        }
     }
 
     public void ActivateCrackAndShatter()

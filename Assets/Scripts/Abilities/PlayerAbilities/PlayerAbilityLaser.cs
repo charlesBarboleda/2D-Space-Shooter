@@ -71,7 +71,7 @@ public class AbilityLaser : Ability
     IEnumerator HandleLaser(GameObject laser, GameObject owner, AudioSource ownerAudioSource, bool isUltimate, float initialAngle)
     {
         float timer = 0f;
-        float maxDuration = isUltimate ? 6f : duration; // Ultimate lasts longer
+        float maxDuration = isUltimate ? ultimateDuration : duration; // Ultimate lasts longer
         float rotationSpeed = 90f; // Degrees per second
 
         while (timer < maxDuration)
@@ -121,8 +121,9 @@ public class AbilityLaser : Ability
         duration = 3f;
         dps = 5f;
         ultimateDpsMultiplier = 2f;
+        ultimateDuration = 6f;
         cooldown = 45f;
-        ultimateCooldown = 60f; // Different cooldown for ultimate
+        ultimateCooldown = 180f; // Different cooldown for ultimate
         isUnlocked = false;
     }
 }

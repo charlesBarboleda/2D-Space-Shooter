@@ -41,6 +41,29 @@ public class TurretManager : MonoBehaviour
 
 
     }
+    public void AddBulletAmount(int amount)
+    {
+        foreach (var turret in turrets)
+        {
+            var turretScript = turret.GetComponent<PlayerTurretPrefab>();
+            if (turretScript != null)
+            {
+                turretScript.amountOfBullets += amount;
+            }
+        }
+    }
+    public void SetBulletSpeed(float bulletSpeed)
+    {
+        foreach (var turret in turrets)
+        {
+            var turretScript = turret.GetComponent<PlayerTurretPrefab>();
+            if (turretScript != null)
+            {
+                turretScript.bulletSpeed += bulletSpeed;
+            }
+        }
+    }
+
 
     public void SetTurretDamage(float bulletDamage)
     {

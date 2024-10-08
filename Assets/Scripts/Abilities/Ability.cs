@@ -11,6 +11,7 @@ public abstract class Ability : ScriptableObject
     public float cooldown = 10f;
     public float currentCooldown;
     public float ultimateCooldown = 30f; // Ultimate cooldown time
+    public float ultimateDuration; // Ultimate duration
     public float currentUltimateCooldown;
     public bool isUltimateUnlocked;
     public bool isUltimateReady = false; // Flag to check if ultimate can be triggered
@@ -29,6 +30,7 @@ public abstract class Ability : ScriptableObject
 
         if (isUltimateReady && currentUltimateCooldown >= ultimateCooldown && isUltimateUnlocked)
         {
+
             // Trigger ultimate ability
             AbilityLogic(owner, target, true);
             currentUltimateCooldown = 0f;
@@ -50,7 +52,9 @@ public abstract class Ability : ScriptableObject
     private IEnumerator TriggerUltimateWindow()
     {
         isUltimateReady = true; // Ultimate can now be triggered
+        EventManager.UltimateReadyEvent(this); // Trigger event
         yield return new WaitForSeconds(ultimateTriggerWindow); // Wait for the window duration
+        EventManager.UltimateUnreadyEvent(this); // Trigger event   
         isUltimateReady = false; // Reset after the window expires
     }
 

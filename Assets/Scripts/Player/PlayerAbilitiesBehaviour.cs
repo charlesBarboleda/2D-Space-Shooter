@@ -42,6 +42,13 @@ public class PlayerAbilitiesBehaviour : MonoBehaviour
 
         }
 
+        // Use the Ability Turrets
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            _abilityHolder.abilities[1].TriggerAbility(gameObject, _abilityHolder.target);
+
+        }
+
 
     }
 }

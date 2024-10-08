@@ -5,49 +5,38 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Abilities/Turrets")]
 public class AbilityTurrets : Ability
 {
-    [SerializeField] int numberOfTurretsPerSide;
-    [SerializeField] GameObject turret;
-    [SerializeField] float turretSpacing = 0.5f;
     public float bulletDamage;
     public float fireRate;
 
     public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
     {
-        // Calculate the offset for the next turret
-        float offset = (numberOfTurretsPerSide + 1) * turretSpacing;
-
-        // Calculate the position relative to the player's rotation
-        Vector3 leftOffset = new Vector3(-offset, -0.2f, 0);
-        Vector3 rightOffset = new Vector3(offset, -0.2f, 0);
-
-        // Rotate the offset based on the player's rotation
-        Vector3 leftPosition = owner.transform.position + owner.transform.rotation * leftOffset;
-        Vector3 rightPosition = owner.transform.position + owner.transform.rotation * rightOffset;
-
-        // Spawn the turret on the left side
-        GameObject leftTurret = Instantiate(turret, leftPosition, owner.transform.rotation);
-        leftTurret.transform.SetParent(owner.transform);
-        var leftTurretWeapon = leftTurret.GetComponent<PlayerTurretPrefab>();
-        // Initialize turret properties here if needed
-        leftTurretWeapon.bulletDamage = bulletDamage;
-        leftTurretWeapon.fireRate = fireRate;
-
-        // Spawn the turret on the right side
-        GameObject rightTurret = Instantiate(turret, rightPosition, owner.transform.rotation);
-        rightTurret.transform.SetParent(owner.transform);
-        var rightTurretWeapon = rightTurret.GetComponent<PlayerTurretPrefab>();
-        // Initialize turret properties here if needed
-        rightTurretWeapon.bulletDamage = bulletDamage;
-        rightTurretWeapon.fireRate = fireRate;
-
+        if (isUltimate)
+        {
+            UIManager.Instance.ActivateCrackAndShatter();
+            GameManager.Instance.StartCoroutine(UltimateTurretLogic());
+        }
 
     }
+
+    IEnumerator UltimateTurretLogic()
+    {
+        yield return new WaitForSeconds(1f);
+        PlayerManager.GetInstance().GetComponent<TurretManager>().SetBulletSpeed(20);
+        PlayerManager.GetInstance().GetComponent<TurretManager>().AddBulletAmount(2);
+        PlayerManager.GetInstance().GetComponent<TurretManager>().SetTurretFireRate(PlayerManager.GetInstance().GetComponent<TurretManager>().GetTurretFireRate() / 2f);
+        PlayerManager.GetInstance().GetComponent<TurretManager>().SetTurretDamage(PlayerManager.GetInstance().GetComponent<TurretManager>().GetTurretDamage() * 2);
+        yield return new WaitForSeconds(ultimateDuration);
+        PlayerManager.GetInstance().GetComponent<TurretManager>().SetBulletSpeed(-20);
+        PlayerManager.GetInstance().GetComponent<TurretManager>().AddBulletAmount(-2);
+        PlayerManager.GetInstance().GetComponent<TurretManager>().SetTurretFireRate(PlayerManager.GetInstance().GetComponent<TurretManager>().GetTurretFireRate() * 2f);
+        PlayerManager.GetInstance().GetComponent<TurretManager>().SetTurretDamage(PlayerManager.GetInstance().GetComponent<TurretManager>().GetTurretDamage() / 2);
+    }
+
 
     public override void ResetStats()
     {
         bulletDamage = 10f;
         fireRate = 0.4f;
-        numberOfTurretsPerSide = 0;
         isUnlocked = false;
     }
 }

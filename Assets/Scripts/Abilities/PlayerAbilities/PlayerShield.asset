@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db76ee8fd71334419b57c15807fdb34, type: 3}
   m_Name: PlayerShield
   m_EditorClassIdentifier: 
-  isUnlocked: 1
+  isUnlocked: 0
   abilityName: PlayerShield
   icon: {fileID: 21300000, guid: 0c32b8f3e89178d44a62c5d1d30aeb59, type: 3}
   duration: 5
   cooldown: 30
-  currentCooldown: 13.148148
-  ultimateCooldown: 30
-  currentUltimateCooldown: 12.54251
+  currentCooldown: 30
+  ultimateCooldown: 180
+  ultimateDuration: 6
+  currentUltimateCooldown: 30
   isUltimateUnlocked: 1
   isUltimateReady: 0
   ultimateTriggerWindow: 3
@@ -28,6 +29,5 @@ MonoBehaviour:
   shieldSize: 4
   shieldDamage: 20
   ultimateDamageMultiplier: 3
-  ultimateDuration: 6
-  shieldSpawnInterval: 0.1
+  shieldSpawnInterval: 0.05
   shieldTravelSpeed: 50

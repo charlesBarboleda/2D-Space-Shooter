@@ -6,8 +6,9 @@ public class PlayerTurretPrefab : MonoBehaviour
     [Header("Turret Settings")]
     public GameObject bulletPrefab;
     public float fireRate = 0.5f;
-    public float bulletSpeed = 20f;
+    public float bulletSpeed = 40f;
     public float bulletDamage = 10f;
+    public int amountOfBullets = 1;
 
     bool isFiring = false;
     Coroutine firingCoroutine;
@@ -55,13 +56,21 @@ public class PlayerTurretPrefab : MonoBehaviour
         Vector3 direction = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - bulletSpawnPoint).normalized;
         direction.z = 0; // Ensure it's a 2D game
 
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        if (bulletScript != null)
+        // Fire multiple bullets based on the amountOfBulletsFiredFromWeaponPerShot
+        for (int i = 0; i < amountOfBullets; i++)
         {
-            bulletScript.Initialize(bulletSpeed, bulletDamage, bulletScript.BulletLifetime, direction);
+            // Add some random spread if you want (optional)
+            Vector3 spread = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
+            Vector3 bulletDirection = (direction + spread).normalized;
+
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint, Quaternion.identity);
+            bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;
+
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            if (bulletScript != null)
+            {
+                bulletScript.Initialize(bulletSpeed, bulletDamage, bulletScript.BulletLifetime, bulletDirection);
+            }
         }
     }
 
@@ -83,5 +92,4 @@ public class PlayerTurretPrefab : MonoBehaviour
     {
         return bulletDamage;
     }
-
 }

@@ -8,7 +8,6 @@ public class AbilityShield : Ability
     public float shieldSize = 4f;
     public float shieldDamage = 20f;
     public float ultimateDamageMultiplier = 3f;
-    public float ultimateDuration;
     public float shieldSpawnInterval = 0.2f; // How quickly new shields are spawned during ultimate
     public float shieldTravelSpeed = 5f; // Speed at which shields fly outward
 
