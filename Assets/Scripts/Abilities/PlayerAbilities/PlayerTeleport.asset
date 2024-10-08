@@ -15,10 +15,19 @@ MonoBehaviour:
   isUnlocked: 1
   abilityName: PlayerTeleport
   icon: {fileID: 21300000, guid: 4ffbe445930f3214f86656e87c7a1934, type: 3}
+  duration: 1
   cooldown: 30
-  currentCooldown: 0.0033035735
+  currentCooldown: 13.011259
+  ultimateCooldown: 180
+  ultimateDuration: 6
+  currentUltimateCooldown: 11.659445
+  isUltimateUnlocked: 1
+  isUltimateReady: 0
+  ultimateTriggerWindow: 3
+  _audioSource: {fileID: 0}
+  _audioClip: {fileID: 0}
   _teleportEffect: {fileID: 9027514048236820045, guid: 6c906060d89785c4791f35aa92c60dbf, type: 3}
-  _teleportDistance: 2
-  _teleportSize: 1
-  _teleportDamage: 10
-  _teleportDuration: 1
+  teleportDistance: 5
+  teleportSize: 1
+  teleportDamage: 10
+  ultimateDamageMultiplier: 10

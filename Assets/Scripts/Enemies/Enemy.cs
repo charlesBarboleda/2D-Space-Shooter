@@ -86,9 +86,9 @@ public abstract class Enemy : MonoBehaviour, ITargetable
     protected virtual void OnEnable()
     {
         EnableAudioSource();
-        IncreaseStatsPerLevel();
         StartCoroutine(StartSpawnAnimationWithDelay());
         StartCoroutine(RegisterWithDelay());
+        IncreaseStatsPerLevel();
     }
 
 

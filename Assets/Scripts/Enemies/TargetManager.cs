@@ -77,17 +77,23 @@ public class TargetManager : MonoBehaviour
         // If switching is not allowed and there is a current target, maintain it
         if (!_canSwitchTargets && _currentTarget != null)
         {
+            Debug.Log("Current target exists, maintaining it.");
             return GetColliderPerimeterPoint(_currentTarget);
         }
 
+        Debug.Log("Checking for new targets...");
         Vector3 bestTargetPoint = Vector3.zero;
         float closestDistance = Mathf.Infinity;
         ITargetable bestTarget = null;
 
+        Debug.Log($"Number of targets in the list: {_targets.Count}");
         foreach (ITargetable target in _targets)
         {
+            Debug.Log($"Checking target: {target.GetFactionType()}");
+
             if (!target.IsAlive())
             {
+                Debug.Log($"Target {target.GetFactionType()} is dead, skipping.");
                 continue;
             }
 
@@ -97,11 +103,16 @@ public class TargetManager : MonoBehaviour
             if (_targetAllies && target.GetFactionType() == _faction.factionType)
             {
                 isValidTarget = true; // Target allies
+                Debug.Log($"Target {target.GetFactionType()} is an ally, valid target.");
             }
             else if (!_targetAllies && _faction.IsHostileTo(target.GetFactionType()))
             {
-
                 isValidTarget = true; // Target enemies
+                Debug.Log($"Target {target.GetFactionType()} is hostile, valid target.");
+            }
+            else
+            {
+                Debug.Log($"Target {target.GetFactionType()} is not a valid target.");
             }
 
             // If the target is valid, check its distance
@@ -111,8 +122,11 @@ public class TargetManager : MonoBehaviour
                 Vector3 perimeterPoint = GetColliderPerimeterPoint(targetGameObject);
                 float distance = Vector3.Distance(transform.position, perimeterPoint);
 
+                Debug.Log($"Distance to target {target.GetFactionType()}: {distance}");
+
                 if (distance < closestDistance)
                 {
+                    Debug.Log($"Target {target.GetFactionType()} is closer than previous targets. Setting as best target.");
                     closestDistance = distance;
                     bestTargetPoint = perimeterPoint;
                     bestTarget = target;
@@ -123,6 +137,7 @@ public class TargetManager : MonoBehaviour
         // Update the current target if a valid target was found
         if (bestTarget != null)
         {
+            Debug.Log($"Best target found: {bestTarget.GetFactionType()}");
             _currentTarget = (bestTarget as MonoBehaviour).gameObject; // Get GameObject from target
             return bestTargetPoint; // Return the new target's perimeter point
         }
@@ -130,12 +145,14 @@ public class TargetManager : MonoBehaviour
         // Fallback: If no valid target is found, stick with player or maximum priority
         if (_currentTarget == null || !_currentTarget.activeInHierarchy)
         {
+            Debug.Log("No valid target found, fallback to player or maximum priority.");
             _currentTarget = prioritizePlayer ? PlayerManager.Instance.gameObject : _maximumPriority;
         }
 
-        // Return the player's or priority target's position if no other valid target was found
+        Debug.Log("Returning the player's or maximum priority target position.");
         return _currentTarget != null ? GetColliderPerimeterPoint(_currentTarget) : bestTargetPoint;
     }
+
 
     // Get a point on the perimeter of the target's Collider2D
     Vector3 GetColliderPerimeterPoint(GameObject target)

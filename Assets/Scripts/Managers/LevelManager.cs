@@ -59,8 +59,7 @@ public class LevelManager : MonoBehaviour
             return CreateCometLevel();
         }
         // Otherwise, create a horde level
-        return CreateHordeLevel();
-
+        return CreateSoloInvasionLevel();
 
     }
 

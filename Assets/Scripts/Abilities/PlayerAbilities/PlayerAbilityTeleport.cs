@@ -70,6 +70,7 @@ public class AbilityTeleport : Ability
         teleportDamage = 10;
         teleportSize = 1;
         duration = 1f;
+        ultimateCooldown = 180f;
         ultimateDuration = 6f;
         ultimateDamageMultiplier = 10f;
         isUnlocked = false;

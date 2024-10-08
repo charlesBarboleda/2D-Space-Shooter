@@ -37,7 +37,7 @@ public class InvasionManager : MonoBehaviour
 
         // *Real version code*
         _defendingFaction = FactionType.Syndicates;
-        _invadingFactions.Add(FactionType.CrimsonFleet);
+        _invadingFactions.Add(FactionType.ThraxArmada);
     }
 
     void Update()
