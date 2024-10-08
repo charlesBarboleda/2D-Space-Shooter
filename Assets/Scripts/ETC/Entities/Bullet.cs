@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float BulletSpeed { get; private set; }
     public float BulletDamage { get; private set; }
     public float BulletLifetime { get; set; } = 5f;
+    public bool shouldIncreaseCombo = false;
     GameObject _bulletOnHitEffect;
     SpriteRenderer _spriteRenderer;
     BoxCollider2D _boxCollider2D;
@@ -73,7 +74,7 @@ public class Bullet : MonoBehaviour
 
             StartCoroutine(BulletOnHitEffect());
             other.GetComponent<IDamageable>()?.TakeDamage(BulletDamage);
-            ComboManager.Instance.IncreaseCombo();
+            if (shouldIncreaseCombo) ComboManager.Instance.IncreaseCombo();
 
         }
         if (other.CompareTag("Player") || other.CompareTag("EnemyDestroyable"))

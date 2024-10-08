@@ -124,7 +124,6 @@ public class ShooterEnemy : Enemy
         Bullet bullet = enemyBullet.GetComponent<Bullet>();
         bullet.Initialize(_bulletSpeed, _bulletDamage, _bulletLifetime, direction);
         enemyBullet.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
-        enemyBullet.tag = "EnemyBullet";
     }
 
     public override void IncreaseStatsPerLevel()

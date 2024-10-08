@@ -293,7 +293,7 @@ MonoBehaviour:
   _glowTickRate: 3
   _regularMaterial: {fileID: 2100000, guid: f73327638a0af40479db89a0cc40e047, type: 2}
   _glowMaterial: {fileID: 2100000, guid: 32fac6e45890e9d48961b3db7c93c0be, type: 2}
-  _attackRange: 5
+  _attackRange: 4
   _explosionEffect: BomberExplosion
   _explosionSound: {fileID: 8300000, guid: 40e683621ecb59d41924cc643af81bf8, type: 3}
 --- !u!66 &3750255413437554291
@@ -448,7 +448,7 @@ MonoBehaviour:
   _shouldRotate: 1
   _shouldMove: 1
   _speed: 12
-  _stopDistance: 2
+  _stopDistance: 1
   outOfBounds: 0
 --- !u!114 &-2844665691190379168
 MonoBehaviour:
@@ -493,7 +493,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6126911676597071214}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 5.53
+  m_Radius: 2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

@@ -74,9 +74,33 @@ public class CameraFollowBehaviour : MonoBehaviour
         }
     }
 
-    public void IncreaseOrthographicSize(float targetSize, float duration)
+    public void IncreaseTargetOrthographicSize(float targetSize, float duration)
     {
         StartCoroutine(ChangeOrthographicSize(targetSize, duration));
+    }
+
+    public void IncreasePlayerOrthographicSize(float targetSize, float duration)
+    {
+        StartCoroutine(ChangePlayerOrthographicSize(targetSize, duration));
+    }
+
+    public IEnumerator ChangePlayerOrthographicSize(float targetSize, float duration)
+    {
+        float startSize = playerCamera.m_Lens.OrthographicSize;
+        playerCamera.m_Lens.OrthographicSize = targetSize;
+        yield return new WaitForSeconds(duration);
+        float t = 0f;
+
+        while (t < 2f)
+        {
+            t += Time.deltaTime;
+            playerCamera.m_Lens.OrthographicSize = Mathf.Lerp(targetSize, startSize, t);
+            yield return null;
+        }
+        playerCamera.m_Lens.OrthographicSize = startSize;
+
+
+
     }
 
     public IEnumerator ChangeOrthographicSize(float targetSize, float duration)
@@ -92,6 +116,7 @@ public class CameraFollowBehaviour : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
     }
 
     // Function to start camera shake on the target camera

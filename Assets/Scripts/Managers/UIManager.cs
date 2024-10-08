@@ -20,7 +20,6 @@ public class UIManager : MonoBehaviour
     [Header("Combo System")]
     [SerializeField] TextMeshProUGUI _comboText;
     [SerializeField] GameObject _comboHotkey;
-    [SerializeField] GameObject _comboProgressSparks;
     int _lastComboCount = 0;
 
 
@@ -109,6 +108,10 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            ActivateCrackAndShatter();
+        }
         PulseAbilityIcon();
         UpdateCountdownText();
         UpdateRoundText();
@@ -218,6 +221,7 @@ public class UIManager : MonoBehaviour
         CameraFollowBehaviour.Instance.ShakePlayerCamera(10f, 5f, 1.3f);
         StartCoroutine(AnimateReveal(0.5f));
         yield return new WaitForSeconds(1f);
+        CameraFollowBehaviour.Instance.IncreasePlayerOrthographicSize(75f, 6f);
         StartCoroutine(Shatter());
     }
 
@@ -254,6 +258,7 @@ public class UIManager : MonoBehaviour
             _whiteFlash.color = new Color(1, 1, 1, fade);
             yield return null;
         }
+        _whiteFlash.gameObject.SetActive(false);
     }
 
 

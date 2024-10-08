@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
         }
 
 
-        // There's a 50% chance of creating a solo boss level after level 5
+        // There's a 10% chance of creating a solo boss level after level 5
         else if (Random.value > 0.5f && _currentLevelIndex > 5)
         {
             if (Random.value > 0.5f) return CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour
             return CreateCometLevel();
         }
         // Otherwise, create a horde level
-        return CreateSoloInvasionLevel();
+        return CreateHordeLevel();
 
     }
 
@@ -184,7 +184,7 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateSoloSpawnerBossLevel(string bossName)
     {
-        float health = _currentLevelIndex * 2000f;
+        float health = _currentLevelIndex * 1000f;
         // Every 5 levels, add 1 extra ship to spawn
         int shipsPerSpawn = Mathf.RoundToInt(_currentLevelIndex / 10) + 1;
         float speed = Mathf.Max(_currentLevelIndex * 2f, 20f);
@@ -210,8 +210,8 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateSoloShooterBossLevel(string bossName)
     {
-        float health = _currentLevelIndex * 2000f;
-        int bulletAmount = _currentLevelIndex * 1;
+        float health = _currentLevelIndex * 1000f;
+        int bulletAmount = (int)Mathf.Round(_currentLevelIndex / 3);
         float bulletDamage = _currentLevelIndex * 2f;
         float bulletSpeed = Mathf.Min(Mathf.Max(_currentLevelIndex * 1f, 10), 30);
         float firerate = Random.Range(1, 5);

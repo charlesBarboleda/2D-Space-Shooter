@@ -28,12 +28,6 @@ public class SoloInvasionLevel : Level
 
     public override void StartLevel()
     {
-        Debug.Log("Starting Invasion Level");
-        if (Random.value < 0.1f)
-        {
-            _spawnerManager.StartCoroutine(StartRandomObjective());
-        }
-
         EventManager.OnEnemyDestroyed += RegisterInvaderKill;
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesDefending + (_amountOfEnemiesDefending * _spawnAmountRatio);
 
@@ -72,16 +66,6 @@ public class SoloInvasionLevel : Level
         EventManager.OnEnemyDestroyed -= RegisterInvaderKill;
         _spawnerManager.StartCoroutine(Background.Instance.PlayOriginalBackgroundMusic());
         _levelManager.CompleteLevel();
-    }
-    IEnumerator StartRandomObjective()
-    {
-        yield return new WaitForSeconds(Random.Range(5, 15));
-        ObjectiveBase randomObjective = ObjectiveManager.Instance.GetRandomObjectiveFromPool();
-        if (randomObjective != null)
-        {
-            _levelObjectives.Add(randomObjective);
-        }
-        ObjectiveManager.Instance.StartObjectivesForLevel(this);
     }
 
     private bool InvasionLost()

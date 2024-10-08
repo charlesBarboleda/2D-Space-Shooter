@@ -49,5 +49,6 @@ public class ComboManager : MonoBehaviour
         comboCount = 0;
         comboTimer = 5f;
         _playerManager.ComboManager().RemoveAllBuffs();
+        UIManager.Instance.DeactivateComboKey();
     }
 }
