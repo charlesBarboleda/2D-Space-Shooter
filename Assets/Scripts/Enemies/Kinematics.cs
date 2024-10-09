@@ -33,7 +33,7 @@ public class Kinematics : MonoBehaviour
         }
         agent.speed = _speed;
         agent.stoppingDistance = _stopDistance;
-        agent.updateRotation = true;
+        agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
 
@@ -62,7 +62,7 @@ public class Kinematics : MonoBehaviour
 
     protected virtual void HandleMovement()
     {
-        if (_shouldMove && _targetManager.CurrentTarget != null)
+        if (_shouldMove)
         {
             agent.SetDestination(_targetManager.TargetPosition);
         }

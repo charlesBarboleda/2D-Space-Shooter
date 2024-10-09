@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour
             return CreateCometLevel();
         }
         // Otherwise, create a horde level
-        return CreateHordeLevel();
+        return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
 
     }
 
@@ -140,7 +140,7 @@ public class LevelManager : MonoBehaviour
 
     public Level CreateMultiPhaseBossLevel(string bossName, string bossNamePhase2)
     {
-        float health = Mathf.Max(_currentLevelIndex * 15000f, 100000f);
+        float health = Mathf.Max(_currentLevelIndex * 15000f, 500000f);
         int bulletAmount = Mathf.Min(Mathf.Max(_currentLevelIndex * 2, 30), 60);
         float bulletDamage = Mathf.Max(_currentLevelIndex * 5f, 50f);
         float bulletSpeed = Mathf.Min(Mathf.Max(_currentLevelIndex * 1f, 30f), 40f);

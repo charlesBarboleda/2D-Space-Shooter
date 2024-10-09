@@ -27,14 +27,12 @@ public class EnemyGravityWell : MonoBehaviour
     void OnTriggerStay2D(Collider2D other)
     {
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-        Kinematics kinematics = other.GetComponent<Kinematics>();
-
+        Debug.Log("Hit trigger name: " + other.name);
         if (other.CompareTag("Player"))
         {
-
+            Debug.Log("Hit player with gravity well");
             Vector2 direction = (transform.position - other.transform.position).normalized;
             rb.isKinematic = false;
-            kinematics.ShouldMove = false;
             rb.AddForce(direction * _pullStrength);
         }
     }
@@ -42,11 +40,9 @@ public class EnemyGravityWell : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-        Kinematics kinematics = other.GetComponent<Kinematics>();
 
         if (other.CompareTag("Player"))
         {
-            kinematics.ShouldMove = true;
             rb.isKinematic = true;
         }
 

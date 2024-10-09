@@ -15,10 +15,16 @@ MonoBehaviour:
   isUnlocked: 1
   abilityName: Gravity Well
   icon: {fileID: 0}
-  cooldown: 3
-  currentCooldown: 2.444017
+  duration: 5
+  cooldown: 15
+  currentCooldown: 0.43765384
+  ultimateCooldown: 30
+  ultimateDuration: 0
+  currentUltimateCooldown: 30
+  isUltimateUnlocked: 0
+  isUltimateReady: 1
+  ultimateTriggerWindow: 3
   _audioSource: {fileID: 0}
   _audioClip: {fileID: 0}
-  _duration: 10
   _pullStrength: 3000
   _gravityWellTag: GravityWellSmall

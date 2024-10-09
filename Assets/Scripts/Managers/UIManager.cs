@@ -48,6 +48,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _pauseMenu;
 
     [Header("Player Abilities UI")]
+    [SerializeField] GameObject abilitiesPanel;
     [SerializeField] Image laserIconFill, shieldIconFill, teleportIconFill, turretIconFill;
     [SerializeField] Image laserUltIconFill, shieldUltIconFill, teleportUltIconFill, turretUltIconFill;
 
@@ -442,6 +443,7 @@ public class UIManager : MonoBehaviour
         roundNumber.SetActive(false);
         bossHealthBar.SetActive(false);
         miniMapContainer.SetActive(false);
+        abilitiesPanel.SetActive(false);
     }
 
     public void ActivateAllUIPanels()
@@ -452,6 +454,7 @@ public class UIManager : MonoBehaviour
         currencyPanel.SetActive(true);
         roundNumber.SetActive(true);
         miniMapContainer.SetActive(true);
+        abilitiesPanel.SetActive(true);
     }
 
     public void UnPauseButton()
@@ -558,11 +561,6 @@ public class UIManager : MonoBehaviour
         damageTextObject.SetActive(false);
     }
 
-    public void DisableAllUIPanels()
-    {
-        upgradeShopPanel.SetActive(false);
-        skillTreePanel.SetActive(false);
-    }
 
     private void UpdateCurrencyText(float newCurrency)
     {

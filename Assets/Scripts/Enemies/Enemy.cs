@@ -46,7 +46,6 @@ public abstract class Enemy : MonoBehaviour, ITargetable
         _targetManager = GetComponent<TargetManager>();
         _faction.AddAllyFaction(_faction.factionType);
         _enemyID = Guid.NewGuid().ToString();
-        // DisableAudioSource();
 
 
     }

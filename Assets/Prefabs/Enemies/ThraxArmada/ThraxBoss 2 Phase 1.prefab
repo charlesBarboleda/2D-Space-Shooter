@@ -503,7 +503,6 @@ MonoBehaviour:
   abilities:
   - {fileID: 11400000, guid: 6971b38ad37647641bc225b737b23693, type: 2}
   - {fileID: 11400000, guid: adadf8d828c5f8145b0cb94a5ef2f9ad, type: 2}
-  - {fileID: 11400000, guid: adadf8d828c5f8145b0cb94a5ef2f9ad, type: 2}
   target: {fileID: 0}
 --- !u!195 &3454163184459626951
 NavMeshAgent:
@@ -512,7 +511,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3552526014053328916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 5.12
   m_Speed: 3.5

@@ -32,7 +32,7 @@ public class InvasionManager : MonoBehaviour
     void Start()
     {
         // *Trial version code*
-        _defendingFaction = FactionType.Syndicates;
+        _defendingFaction = FactionType.ThraxArmada;
         _invadingFactions.Add(FactionType.ThraxArmada);
 
         // *Real version code*

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MultiPhaseBossLevel : SoloShooterBossLevel
 {
@@ -25,6 +26,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
     Health bossHealthPhase2;
     GameObject bossShipPhase2;
     CameraFollowBehaviour cameraFollow;
+    NavMeshAgent navMeshAgent;
 
     public MultiPhaseBossLevel(float health, int bulletAmount, float bulletDamage, float bulletSpeed,
     float firerate, float speed, float stopDistance, float attackRange, float fireAngle,
@@ -76,19 +78,23 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase1Music());
 
         // Spawn the boss in idle mode
-        bossShip = spawnerManager.SpawnShip(bossName, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
+        bossShip = spawnerManager.SpawnShip(bossName, SpawnerManager.Instance.SoloBossSpawnPoints[Random.Range(0, SpawnerManager.Instance.SoloBossSpawnPoints.Count)], Quaternion.identity);
+        navMeshAgent = bossShip.GetComponent<NavMeshAgent>();
+        navMeshAgent.enabled = false;
         bossHealthPhase1 = bossShip.GetComponent<Health>();
         bossKinematicsPhase1 = bossShip.GetComponent<Kinematics>();
         bossAttackManagerPhase1 = bossShip.GetComponent<AttackManager>();
         cameraFollow = Camera.main.GetComponent<CameraFollowBehaviour>();
 
-        SetBossStats();
 
         // Boss stats and initial state
         bossHealthPhase1.isDead = true;
         bossKinematicsPhase1.ShouldMove = false;
 
+
+
         currentPhase = BossPhase.Phase1;
+        SetBossStats();
     }
 
     void SetBossStats()
@@ -107,6 +113,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         if (hasTransitionedPhase2) yield break;
         hasTransitionedPhase2 = true;
         Debug.Log("Transitioning to Phase 2");
+        navMeshAgent.enabled = true;
         bossHealthPhase1.isDead = false; // Activate the boss
         bossKinematicsPhase1.ShouldMove = true;
 
@@ -114,8 +121,11 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase2Music());
         UIManager.Instance.bossHealthBar.gameObject.SetActive(true);
         yield return cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShip.transform, 11f));
-        // Unlock the boss' first ability
+        // Unlock the boss' first and second abilities
+        yield return new WaitForSeconds(5f);
         bossShip.GetComponent<AbilityHolder>().abilities[0].isUnlocked = true;
+        bossShip.GetComponent<AbilityHolder>().abilities[1].isUnlocked = true;
+
         currentPhase = BossPhase.Phase2;
     }
 
@@ -138,6 +148,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         // Play Phase 3 music and disable boss movement and health
         spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase3Music());
 
+        navMeshAgent.enabled = false;
         bossKinematicsPhase1.ShouldMove = false; // Disable boss movement
         bossKinematicsPhase1.ShouldRotate = false; // Disable boss rotation
         bossHealthPhase1.isDead = true; // Mark boss as "dead" to stop its actions
@@ -178,7 +189,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         portal.SetActive(false);
 
         // Now spawn the next portal
-        GameObject nextPortal = ObjectPooler.Instance.SpawnFromPool("ThraxPortal", spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
+        GameObject nextPortal = ObjectPooler.Instance.SpawnFromPool("ThraxPortal", SpawnerManager.Instance.SoloBossSpawnPoints[Random.Range(0, SpawnerManager.Instance.SoloBossSpawnPoints.Count)], Quaternion.identity);
         Vector3 expandedSize = nextPortal.transform.localScale;
         // Pan the camera to the next portal
         cameraFollow.ActivateTargetCamera(nextPortal.transform);
@@ -196,6 +207,8 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
 
         // Spawn new boss ship with size zero
         bossShipPhase2 = spawnerManager.SpawnShip(bossNamePhase2, nextPortal.transform.position, Quaternion.identity);
+        NavMeshAgent navMeshAgent2 = bossShipPhase2.GetComponent<NavMeshAgent>();
+        navMeshAgent2.enabled = false;
         Vector3 bossExpandedSize = bossShipPhase2.transform.localScale;
         bossShipPhase2.transform.localScale = Vector3.zero;
 
@@ -210,6 +223,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         }
 
         // Enable movement and health systems for the new boss
+        navMeshAgent2.enabled = true;
         bossShipPhase2.GetComponent<Kinematics>().ShouldMove = true;
         bossShipPhase2.GetComponent<Health>().isDead = false;
 

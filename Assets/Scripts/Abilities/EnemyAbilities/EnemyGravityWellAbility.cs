@@ -34,7 +34,8 @@ public class EnemyGravityWellAbility : Ability
     public override void ResetStats()
     {
         duration = 5f;
-        _pullStrength = 3000f;
+        _pullStrength = 0.1f;
+        isUnlocked = false;
     }
 
     void SetStatsBasedOnLevel()

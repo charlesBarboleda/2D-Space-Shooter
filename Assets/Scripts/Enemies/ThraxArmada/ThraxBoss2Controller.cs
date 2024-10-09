@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BossPhaseController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BossPhaseController : MonoBehaviour
     Kinematics _kinematics;
     AttackManager _attackManager;
     AbilityHolder _abilityHolder;
+    NavMeshAgent _navMeshAgent;
     [SerializeField] List<GameObject> _exhausts = new List<GameObject>();
     bool hasPhased = false;
     bool hasPhased2 = false;
@@ -19,6 +21,8 @@ public class BossPhaseController : MonoBehaviour
 
     void Awake()
     {
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent.enabled = false;
         _abilityHolder = GetComponent<AbilityHolder>();
         _health = GetComponent<Health>();
         _kinematics = GetComponent<Kinematics>();
@@ -54,6 +58,7 @@ public class BossPhaseController : MonoBehaviour
             exhaust.SetActive(false);
         }
         // Disable boss movement
+        _navMeshAgent.enabled = false;
         _kinematics.ShouldRotate = false;
         _kinematics.ShouldMove = false;
         // Silence the boss
@@ -96,6 +101,7 @@ public class BossPhaseController : MonoBehaviour
         yield return new WaitForSeconds(26f);
 
         // Enable the boss movement
+        _navMeshAgent.enabled = true;
         _kinematics.ShouldMove = true;
 
         // Enable the boss attacks
@@ -120,6 +126,7 @@ public class BossPhaseController : MonoBehaviour
             exhaust.SetActive(false);
         }
         // Disable boss movement
+        _navMeshAgent.enabled = false;
         _kinematics.ShouldRotate = false;
         _kinematics.ShouldMove = false;
         // Silence the boss
@@ -162,6 +169,7 @@ public class BossPhaseController : MonoBehaviour
         yield return new WaitForSeconds(26f);
 
         // Enable the boss movement
+        _navMeshAgent.enabled = true;
         _kinematics.ShouldMove = true;
         // Enable the boss attacks with buffed attack rate
         _attackManager.AttackCooldown = 0.5f;

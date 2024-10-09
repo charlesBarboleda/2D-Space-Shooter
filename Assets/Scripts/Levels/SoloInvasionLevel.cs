@@ -31,8 +31,7 @@ public class SoloInvasionLevel : Level
         EventManager.OnEnemyDestroyed += RegisterInvaderKill;
         _spawnerManager.ResetRound();
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesDefending + (_amountOfEnemiesDefending * _spawnAmountRatio);
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRateDefending, _amountOfEnemiesDefending, 200f, _spawnerManager.DefendingShipsList));
-
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRateDefending, _amountOfEnemiesDefending, 300f, _spawnerManager.DefendingShipsList));
         _spawnerManager.StartCoroutine(DelayedSpawn());
     }
 
@@ -81,7 +80,7 @@ public class SoloInvasionLevel : Level
     IEnumerator DelayedSpawn()
     {
         yield return new WaitForSeconds(25f);
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateDefending / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 250f, _spawnerManager.SpecialEnemiesList));
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawnInvading, _spawnRateDefending / 2, (int)Mathf.Round(_amountOfEnemiesDefending / 2), 350f, _spawnerManager.SpecialEnemiesList));
         yield return _spawnerManager.StartCoroutine(Background.Instance.PlayInvasionMusic());
         UIManager.Instance.MidScreenWarningText($"An invasion is occuring!", 3.5f);
         yield return new WaitForSeconds(3.5f);

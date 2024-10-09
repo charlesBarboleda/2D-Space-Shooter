@@ -54,7 +54,7 @@ public class ComboTimerFill : MonoBehaviour
         float fillWidth = _imgRectTransform.rect.width * fillAmount;
 
         // Set the spark's anchored position relative to the image's width
-        Vector2 anchoredPosition = new Vector2(fillWidth - (_imgRectTransform.rect.width / 2f), _imgRectTransform.anchoredPosition.y);
+        Vector2 anchoredPosition = new Vector2(fillWidth - (_imgRectTransform.rect.width / 2f), _imgRectTransform.anchoredPosition.y - 1f);
         _basicSpark.anchoredPosition = anchoredPosition;
     }
 }

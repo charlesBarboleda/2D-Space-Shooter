@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.WSA;
 
 [CreateAssetMenu(menuName = "Abilities/Laser")]
 public class AbilityLaser : Ability

@@ -30,7 +30,7 @@ public class HordeLevel : Level
         _spawnerManager.ResetRound();
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesToSpawn;
         Debug.Log("Starting Horde Level");
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRate, _amountOfEnemiesToSpawn, 200f, shipList));
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRate, _amountOfEnemiesToSpawn, 300f, shipList));
         Debug.Log("Spawning Enemies");
     }
 

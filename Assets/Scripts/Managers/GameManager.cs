@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
         ObjectiveManager.Instance.ClearActiveObjectives();
         Debug.Log("Countdown Started");
         _isInputActive = true;
-        _roundCountdown = 20f;
+        _roundCountdown = 60f;
         UIManager.Instance.countdownText.gameObject.SetActive(true);
 
         while (_roundCountdown > 0)
