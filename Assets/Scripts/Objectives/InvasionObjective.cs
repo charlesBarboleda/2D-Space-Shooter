@@ -95,6 +95,7 @@ public class InvasionObjective : ObjectiveBase
 
     public override void ResetObjective()
     {
+        _hasStartedInvasion = false;
         base.ResetObjective();
         _defendingShips.Clear();
         _invadingShips.Clear();

@@ -29,8 +29,8 @@ public class SoloInvasionLevel : Level
     public override void StartLevel()
     {
         EventManager.OnEnemyDestroyed += RegisterInvaderKill;
+        _spawnerManager.ResetRound();
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesDefending + (_amountOfEnemiesDefending * _spawnAmountRatio);
-
         _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRateDefending, _amountOfEnemiesDefending, 200f, _spawnerManager.DefendingShipsList));
 
         _spawnerManager.StartCoroutine(DelayedSpawn());

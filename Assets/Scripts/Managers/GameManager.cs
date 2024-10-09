@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
     [Header("Game State Machine")]
     GameState _currentState;
     bool _isInputActive = true;
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
     }
 
     [Header("Audio")]
-    AudioSource _audioSource;
+    public AudioSource _audioSource;
     [SerializeField] AudioClip _nextRoundAudio;
     [SerializeField] AudioClip _gameOverAudio;
 

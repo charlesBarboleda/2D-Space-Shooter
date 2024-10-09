@@ -4505,7 +4505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.96981126, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.98490566, b: 0.9277641, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -44931,7 +44931,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 1, b: 0.005485058, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -55641,7 +55641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1707799894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55657,7 +55657,7 @@ MonoBehaviour:
   pools:
   - tag: SyndicatesBullet
     prefab: {fileID: 6209516934632428617, guid: bc77d65b14e5de744a5409a7dd319b07, type: 3}
-    size: 500
+    size: 2000
   - tag: SmallShip
     prefab: {fileID: 7097431120715797597, guid: 82b6cde468d559744ae31829d2994c4b, type: 3}
     size: 100
@@ -55801,10 +55801,10 @@ MonoBehaviour:
     size: 5
   - tag: ThraxBullet
     prefab: {fileID: 6209516934632428617, guid: 645b3683e9829cd43bfb132c8ae4e25d, type: 3}
-    size: 500
+    size: 2000
   - tag: CrimsonBullet
     prefab: {fileID: 6728492749699202131, guid: 01ad2f885fcb8274d853d165fa91110e, type: 3}
-    size: 500
+    size: 2000
   - tag: BomberExplosion
     prefab: {fileID: 2433282508537954060, guid: 2f587ee9264b993408e470cf0e6079d5, type: 3}
     size: 50
@@ -72129,7 +72129,7 @@ PrefabInstance:
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: _shatterSound
       value: 
-      objectReference: {fileID: 8300000, guid: 2287abf8795496442be5bf7d9f8521be, type: 3}
+      objectReference: {fileID: 8300000, guid: 90af38775c5bd43c084091ac77fe7257, type: 3}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: blitzShotIcon
       value: 
@@ -73225,7 +73225,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573661992567814207, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_Volume
-      value: 0.14
+      value: 0.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 7573661992567814207, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7676815499729968480, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: m_BodyType
@@ -80446,7 +80450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601b61236ed727c448cb7d9ddcb31f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onComboAbilityExecute: {fileID: 8300000, guid: a27ae245f760b4bf191c0234d3b43918, type: 3}
+  _onComboAbilityExecute: {fileID: 8300000, guid: a342f965c17de664bb9605c990897e7c, type: 3}
 --- !u!1001 &6143633835608759312
 PrefabInstance:
   m_ObjectHideFlags: 0

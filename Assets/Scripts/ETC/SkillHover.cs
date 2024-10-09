@@ -9,7 +9,11 @@ public class SkillHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     public Skill skill;
     public GameObject descriptionPanel;
-    [SerializeField] TextMeshProUGUI skillNameText, skillCostText, skillDescriptionText, skillMaxLevelText;
+    [SerializeField] TextMeshProUGUI skillNameText;
+    [SerializeField] TextMeshProUGUI skillCostText;
+    [SerializeField] TextMeshProUGUI skillDescriptionText;
+    [SerializeField] TextMeshProUGUI skillMaxLevelText;
+
     [SerializeField] GameObject defaultIcon;
     bool isHovering = false;
 
@@ -30,8 +34,8 @@ public class SkillHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerEnter(PointerEventData eventData)
     {
         UpdateSkillInfo();
-        isHovering = true;
         descriptionPanel.SetActive(true);
+        isHovering = true;
 
         Vector3 offset = new Vector3(0, 350f, 0f); // Offset to position the box
         descriptionPanel.transform.position = Input.mousePosition + offset;

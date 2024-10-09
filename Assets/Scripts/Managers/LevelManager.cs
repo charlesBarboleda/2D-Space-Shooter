@@ -191,7 +191,7 @@ public class LevelManager : MonoBehaviour
         float spawnRate = Mathf.Max(5f - (_currentLevelIndex * 0.1f), 0.1f);
         float stopDistance = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.5f, 80f), 120f);
         float attackRange = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.5f, 100f), 120f);
-        float currencyDrop = health / 2;
+        float currencyDrop = health / 4;
         List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
         return new SoloSpawnerBossLevel(
             health,
@@ -219,7 +219,7 @@ public class LevelManager : MonoBehaviour
         float stopDistance = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.5f, 60f), 100f);
         float attackRange = Mathf.Min(Mathf.Max(_currentLevelIndex * 2.4f, 80f), 120f);
         float fireAngle = bulletAmount * 4;
-        float currencyDrop = health / 2;
+        float currencyDrop = health / 4;
         List<Vector3> spawnPoints = SpawnerManager.Instance.SoloBossSpawnPoints;
         // Choose a random formation type
         FormationType formationType = (FormationType)Random.Range(0, 7);

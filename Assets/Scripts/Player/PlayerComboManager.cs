@@ -61,7 +61,7 @@ public class PlayerComboManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     // Activate the buff and disable the UI once the player presses the key
-                    AudioManager.Instance.PlaySound(_audioSource, _onComboAbilityExecute);
+                    AudioManager.Instance.PlaySound(GameManager.Instance._audioSource, _onComboAbilityExecute);
                     UIManager.Instance.DeactivateComboKey();
                     comboAction.Value.Invoke();
                     ComboAnimation();

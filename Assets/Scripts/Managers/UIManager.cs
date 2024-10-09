@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image _cameraCrack;
     [SerializeField] Image _whiteFlash;
     [SerializeField] ParticleSystem _shatterParticles;
+    [SerializeField] AudioClip _shatterSound;
 
 
     [Header("Combo System")]
@@ -221,7 +222,6 @@ public class UIManager : MonoBehaviour
         CameraFollowBehaviour.Instance.ShakePlayerCamera(10f, 5f, 1.3f);
         StartCoroutine(AnimateReveal(0.5f));
         yield return new WaitForSeconds(1f);
-        CameraFollowBehaviour.Instance.IncreasePlayerOrthographicSize(75f, 6f);
         StartCoroutine(Shatter());
     }
 
@@ -240,8 +240,10 @@ public class UIManager : MonoBehaviour
 
     IEnumerator Shatter()
     {
+        AudioManager.Instance.PlaySound(GameManager.Instance._audioSource, _shatterSound);
         StartCoroutine(FlashWhite(0.1f));
         yield return new WaitForSeconds(0.2f);
+        CameraFollowBehaviour.Instance.IncreasePlayerOrthographicSize(75f, 6f);
         _shatterParticles.Play();
         _cameraCrack.gameObject.SetActive(false);
     }

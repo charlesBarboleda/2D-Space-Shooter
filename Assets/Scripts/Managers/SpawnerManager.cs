@@ -49,6 +49,14 @@ public class SpawnerManager : MonoBehaviour
         return comet;
     }
 
+    public void ResetRound()
+    {
+        SpecialEnemiesList.Clear();
+        DefendingShipsList.Clear();
+        EnemiesList.Clear();
+        EnemiesToSpawnLeft = 0;
+    }
+
 
 
     public GameObject SpawnShip(string tag, Vector3 position, Quaternion rotation)

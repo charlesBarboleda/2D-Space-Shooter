@@ -52,7 +52,7 @@ public class PickUpRadiusPowerUp : PowerUp, IPickable
 
         _initPickUpRadius = _player.PickUpRadius / 10;
         _player.PickUpRadius = _initPickUpRadius;
-        UIManager.Instance.DamagePowerUp.SetActive(false);
+        UIManager.Instance.PickUpRadiusPowerUp.SetActive(false);
 
     }
 
