@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using CartoonFX;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [DefaultExecutionOrder(-99)]
 public class PlayerManager : MonoBehaviour, ITargetable
@@ -28,6 +29,14 @@ public class PlayerManager : MonoBehaviour, ITargetable
     private void Awake()
     {
         SetSingleton();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+
+        }
     }
 
     void Start()

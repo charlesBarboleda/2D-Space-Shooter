@@ -7,7 +7,9 @@ public class PlayerLaserSettings : MonoBehaviour
 
     float _dps;
     int _comboCount = 0;
-    int _maxComboCount = 20;
+    int _maxComboCount = 5;
+
+
 
     private void OnTriggerStay2D(Collider2D other)
     {

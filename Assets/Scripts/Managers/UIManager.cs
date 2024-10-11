@@ -110,10 +110,7 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            ActivateCrackAndShatter();
-        }
+
         PulseAbilityIcon();
         UpdateCountdownText();
         UpdateRoundText();

@@ -57,10 +57,10 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
     {
         if (currentHealth < maxHealth && currentHealth > 0)
         {
-            _healingParticles.Play();
+            _healingParticles.gameObject.SetActive(true);
             currentHealth += healthRegenRate * Time.deltaTime;
         }
-        else _healingParticles.Stop();
+        else _healingParticles.gameObject.SetActive(false);
     }
 
     public void SetMaxHealth(float newMaxHealth) => maxHealth = newMaxHealth;

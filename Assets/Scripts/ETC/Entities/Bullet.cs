@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using TMPro;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,30 +11,27 @@ public class Bullet : MonoBehaviour
     public float BulletDamage { get; private set; }
     public float BulletLifetime { get; set; } = 5f;
     public bool shouldIncreaseCombo = false;
-    GameObject _bulletOnHitEffect;
-    SpriteRenderer _spriteRenderer;
-    BoxCollider2D _boxCollider2D;
+    protected GameObject _bulletOnHitEffect;
+    protected Collider2D _collider2D;
 
-    Rigidbody2D _rb;
+    protected Rigidbody2D _rb;
 
-    private void Awake()
+    protected virtual void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _boxCollider2D = GetComponent<BoxCollider2D>();
+        _collider2D = GetComponent<BoxCollider2D>();
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         Vector3 position = transform.position;
         position.z = 0; // Locks the Z position to 0
         transform.position = position;
     }
-    void OnEnable()
+    protected virtual void OnEnable()
     {
         if (_bulletOnHitEffect != null) _bulletOnHitEffect.SetActive(false);
-        if (_boxCollider2D != null) _boxCollider2D.enabled = true;
-        if (_spriteRenderer != null) _spriteRenderer.enabled = true;
+        if (_collider2D != null) _collider2D.enabled = true;
         if (_rb != null)
         {
             _rb.simulated = true;
@@ -42,7 +40,7 @@ public class Bullet : MonoBehaviour
 
     }
 
-    public void Initialize(float speed, float damage, float lifetime, Vector3 direction)
+    public virtual void Initialize(float speed, float damage, float lifetime, Vector3 direction)
     {
         BulletSpeed = speed;
         BulletDamage = damage;
@@ -56,49 +54,21 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void Deactivate()
+    protected virtual void Deactivate()
     {
-        _rb.velocity = Vector2.zero;
-        _rb.simulated = false;
-        if (_boxCollider2D != null) _boxCollider2D.enabled = false;
-        if (_spriteRenderer != null) _spriteRenderer.enabled = false;
+        if (_rb != null) _rb.velocity = Vector2.zero;
+        if (_rb != null) _rb.simulated = false;
+        if (_collider2D != null) _collider2D.enabled = false;
 
         gameObject.SetActive(false);
         StopAllCoroutines();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+
+    protected virtual IEnumerator BulletOnHitEffect()
     {
-        if (other.CompareTag("CrimsonFleet") || other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates"))
-        {
-
-            StartCoroutine(BulletOnHitEffect());
-            other.GetComponent<IDamageable>()?.TakeDamage(BulletDamage);
-            if (shouldIncreaseCombo) ComboManager.Instance.IncreaseCombo();
-
-        }
-        if (other.CompareTag("Player") || other.CompareTag("EnemyDestroyable"))
-        {
-            StartCoroutine(BulletOnHitEffect());
-            other.GetComponent<IDamageable>()?.TakeDamage(BulletDamage);
-
-        }
+        yield return null;
     }
-
-    IEnumerator BulletOnHitEffect()
-    {
-
-
-        _spriteRenderer.enabled = false;
-        _boxCollider2D.enabled = false;
-        _bulletOnHitEffect = ObjectPooler.Instance.SpawnFromPool("BulletHitEffect", transform.position, Quaternion.identity);
-
-        UIManager.Instance.CreateOnHitDamageText(Mathf.Round(BulletDamage).ToString(), transform.position);
-        yield return new WaitForSeconds(0.1f);
-        _bulletOnHitEffect.SetActive(false);
-        Deactivate();
-    }
-
 
 
 

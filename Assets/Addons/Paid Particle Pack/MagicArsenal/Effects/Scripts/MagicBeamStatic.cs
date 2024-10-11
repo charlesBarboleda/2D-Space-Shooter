@@ -19,6 +19,7 @@ namespace MagicArsenal
 		private LineRenderer line;
 
 		[Header("Beam Options")]
+		public LayerMask layerMasks;
 		public float laserDamage = 20f;
 		public bool beamCollides = true; //Beam stops at colliders
 		public float beamLength = 100; //Ingame beam length
@@ -47,12 +48,13 @@ namespace MagicArsenal
 			{
 				line.SetPosition(0, transform.position);
 				Vector3 end = transform.position + (transform.forward * beamLength);
-				RaycastHit hit;
+				RaycastHit2D hit;
 
-				if (beamCollides && Physics.Raycast(transform.position, transform.forward, out hit))
+				if (beamCollides)
 				{
-					end = hit.point - (transform.forward * beamEndOffset);
-					end = Vector3.Distance(transform.position, end) > beamLength
+					hit = Physics2D.Raycast(transform.position, transform.forward, beamLength, layerMasks);
+					end = hit.point - (Vector2)(transform.forward * beamEndOffset);
+					end = Vector2.Distance(transform.position, end) > beamLength
 						? transform.position + (transform.forward * beamLength)
 						: end;
 

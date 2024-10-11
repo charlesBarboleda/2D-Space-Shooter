@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Abilities/Laser")]
 public class AbilityLaser : Ability
 {
-    [SerializeField] GameObject _laserPrefab;
     public float dps;
     public float ultimateDpsMultiplier = 3f; // Example: ultimate deals more damage
     MagicBeamStatic laserSettings;
@@ -34,10 +33,9 @@ public class AbilityLaser : Ability
             // Normal ability (single laser logic)
             GameObject Laser = ObjectPooler.Instance.SpawnFromPool("PlayerLaser", owner.transform.position, Quaternion.identity);
             Laser.transform.SetParent(owner.transform);
-            laserSettings = Laser.GetComponent<MagicBeamStatic>();
-            laserSettings.widthMultiplier = 3f;
+            PlayerLaserSettings laserSettings = Laser.GetComponent<PlayerLaserSettings>();
             // Pass damage values
-            laserSettings.laserDamage = dps;
+            laserSettings.Dps = dps;
 
             // Handle normal laser logic
             GameManager.Instance.StartCoroutine(HandleLaser(Laser, owner, ownerAudioSource, false, 0f));
@@ -63,7 +61,7 @@ public class AbilityLaser : Ability
             laserScript.Dps = dps * ultimateDpsMultiplier;
 
             // Start the coroutine for each laser to follow the player and rotate accordingly
-            GameManager.Instance.StartCoroutine(HandleLaser(laser, owner, ownerAudioSource, isUltimate, angle));
+            // GameManager.Instance.StartCoroutine(HandleLaser(laser, owner, ownerAudioSource, isUltimate, angle));
         }
     }
 
@@ -122,9 +120,9 @@ public class AbilityLaser : Ability
         dps = 5f;
         ultimateDpsMultiplier = 4f;
         ultimateDuration = 6f;
-        cooldown = 45f;
+        cooldown = 1f;
         ultimateCooldown = 180f; // Different cooldown for ultimate
-        isUnlocked = false;
+        isUnlocked = true;
     }
 }
 

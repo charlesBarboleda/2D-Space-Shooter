@@ -3,7 +3,17 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public enum WeaponType
+    {
+        PlayerBullet,
+        PlayerLeechBullet,
+        PlayerCorrodeBullet,
+        PlayerFreezeBullet,
+        PlayerExplodeBullet,
+        PlayerPierceBullet
+    }
     [Header("Weapon Settings")]
+    public WeaponType weaponType;
     public float fireRate = 0.2f;
     public float bulletSpeed = 30f;
     public float bulletDamage = 20f;
@@ -73,7 +83,8 @@ public class Weapon : MonoBehaviour
 
         for (int i = 0; i < bulletAmount; i++)
         {
-            GameObject bullet = ObjectPooler.Instance.SpawnFromPool("PlayerBullet", bulletSpawnPoint, Quaternion.identity);
+
+            GameObject bullet = ObjectPooler.Instance.SpawnFromPool(weaponType.ToString(), bulletSpawnPoint, Quaternion.identity);
             Bullet bulletScript = bullet.GetComponent<Bullet>();
 
             if (bulletScript != null)

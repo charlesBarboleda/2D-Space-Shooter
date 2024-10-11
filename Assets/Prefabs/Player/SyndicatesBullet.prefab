@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2759492806363124490}
   - component: {fileID: 445877642560822682}
   - component: {fileID: 8723620672076961699}
-  - component: {fileID: 7628268079014872113}
+  - component: {fileID: 6024036857099068277}
   m_Layer: 11
   m_Name: SyndicatesBullet
   m_TagString: EnemyBullet
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &7628268079014872113
+--- !u!114 &6024036857099068277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6209516934632428617}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7576762f0db02f747b4761e84196922e, type: 3}
+  m_Script: {fileID: 11500000, guid: 36c36310fa813df45a838e26063a9199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shouldIncreaseCombo: 0

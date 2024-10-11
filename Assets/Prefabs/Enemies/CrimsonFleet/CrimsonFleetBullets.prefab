@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1241694442520006986}
   - component: {fileID: 1981897283924476947}
   - component: {fileID: 2417209120860937525}
-  - component: {fileID: -304090899132741023}
   - component: {fileID: 8966701347751614381}
+  - component: {fileID: 534837736962336267}
   m_Layer: 12
   m_Name: CrimsonFleetBullets
   m_TagString: EnemyBullet
@@ -114,18 +114,6 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &-304090899132741023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6728492749699202131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7576762f0db02f747b4761e84196922e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &8966701347751614381
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,3 +149,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.0030188086}
   serializedVersion: 2
   m_Radius: 0.08762221
+--- !u!114 &534837736962336267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6728492749699202131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c36310fa813df45a838e26063a9199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldIncreaseCombo: 0

@@ -50,9 +50,12 @@ MonoBehaviour:
   beamLineRendererPrefab: {fileID: 4871294070405801697}
   beamStartPrefab: {fileID: 6018273506976259959}
   beamEndPrefab: {fileID: 4755477950278772356}
+  layerMasks:
+    serializedVersion: 2
+    m_Bits: 57344
   laserDamage: 20
   beamCollides: 1
-  beamLength: 35.4
+  beamLength: 50
   beamEndOffset: 0
   textureScrollSpeed: 10
   textureLengthScale: 5
@@ -195,6 +198,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 441978, guid: 1f7452042ec77d94ea7cece5cc4816fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12018526, guid: 1f7452042ec77d94ea7cece5cc4816fc, type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 12018526, guid: 1f7452042ec77d94ea7cece5cc4816fc, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
