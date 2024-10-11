@@ -1,4 +1,5 @@
 using System.Collections;
+using MagicArsenal;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Abilities/Laser")]
@@ -7,7 +8,7 @@ public class AbilityLaser : Ability
     [SerializeField] GameObject _laserPrefab;
     public float dps;
     public float ultimateDpsMultiplier = 3f; // Example: ultimate deals more damage
-
+    MagicBeamStatic laserSettings;
     public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
     {
         // Play audio for normal and ultimate abilities
@@ -33,10 +34,10 @@ public class AbilityLaser : Ability
             // Normal ability (single laser logic)
             GameObject Laser = ObjectPooler.Instance.SpawnFromPool("PlayerLaser", owner.transform.position, Quaternion.identity);
             Laser.transform.SetParent(owner.transform);
-
+            laserSettings = Laser.GetComponent<MagicBeamStatic>();
+            laserSettings.widthMultiplier = 3f;
             // Pass damage values
-            PlayerLaserSettings laserScript = Laser.GetComponent<PlayerLaserSettings>();
-            laserScript.Dps = dps;
+            laserSettings.laserDamage = dps;
 
             // Handle normal laser logic
             GameManager.Instance.StartCoroutine(HandleLaser(Laser, owner, ownerAudioSource, false, 0f));
