@@ -4856,7 +4856,7 @@ GameObject:
   - component: {fileID: 199255407689944526}
   - component: {fileID: 7540405745785848624}
   - component: {fileID: 3945534582454035347}
-  - component: {fileID: 7220491156504855607}
+  - component: {fileID: -7243990092006296730}
   m_Layer: 16
   m_Name: 2D Projectile 1 nature arrow
   m_TagString: Player
@@ -9756,7 +9756,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261555563981962}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -9773,7 +9773,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &3945534582454035347
 CircleCollider2D:
@@ -9810,7 +9810,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!114 &7220491156504855607
+--- !u!114 &-7243990092006296730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9819,10 +9819,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1261555563981962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7576762f0db02f747b4761e84196922e, type: 3}
+  m_Script: {fileID: 11500000, guid: bd0ee34812fb5344f86620577124766a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shouldIncreaseCombo: 1
+  leechAmount: 0.01
 --- !u!1 &1304599075670652
 GameObject:
   m_ObjectHideFlags: 0

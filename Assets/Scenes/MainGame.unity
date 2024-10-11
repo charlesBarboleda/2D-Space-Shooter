@@ -66370,6 +66370,9 @@ MonoBehaviour:
   - tag: PlayerLeechBullet
     prefab: {fileID: 1261555563981962, guid: ca5824498d345274c9b259632f7755f0, type: 3}
     size: 500
+  - tag: LeechBulletOnHitEffect
+    prefab: {fileID: 1438542530079480, guid: 21710859533a00746ad2bdd323061a2d, type: 3}
+    size: 500
 --- !u!4 &1707799895
 Transform:
   m_ObjectHideFlags: 0
@@ -86011,7 +86014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8048218574253681071, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: weaponType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048218574253681071, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: bulletSpeed
