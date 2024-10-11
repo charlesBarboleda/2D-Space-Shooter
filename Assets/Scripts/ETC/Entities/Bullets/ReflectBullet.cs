@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeechBullet : Bullet
+public class ReflectBullet : Bullet
 {
     ParticleSystem _particleSystem;
-    public float leechAmount = 0.01f;
+    public int amountOfReflections = 2;
 
     protected override void Awake()
     {
@@ -21,31 +21,40 @@ public class LeechBullet : Bullet
 
     protected override IEnumerator BulletOnHitEffect()
     {
-        if (_collider2D != null) _collider2D.enabled = false;
-        if (_rb != null) _rb.velocity = Vector2.zero;
-        if (_particleSystem != null) _particleSystem.Play();
-        _bulletOnHitEffect = ObjectPooler.Instance.SpawnFromPool("LeechBulletOnHitEffect", transform.position, Quaternion.identity);
+        _bulletOnHitEffect = ObjectPooler.Instance.SpawnFromPool("ReflectBulletOnHitEffect", transform.position, Quaternion.identity);
         UIManager.Instance.CreateOnHitDamageText(Mathf.Round(BulletDamage).ToString(), transform.position);
         yield return new WaitForSeconds(0.3f);
         _bulletOnHitEffect.SetActive(false);
-        Deactivate();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("LeechBullet Collision: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("ThraxArmada") || collision.gameObject.CompareTag("Syndicates") || collision.gameObject.CompareTag("CrimsonFleet") || collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("LeechBullet Collision with enemy: " + collision.gameObject.name);
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {
                 damageable.TakeDamage(BulletDamage);
-                // Increase player health by 1% of the bullet damage
-                PlayerManager.Instance.SetCurrentHealth(Mathf.Min(PlayerManager.Instance.CurrentHealth() + Mathf.RoundToInt(BulletDamage * leechAmount), PlayerManager.Instance.MaxHealth()));
                 StartCoroutine(BulletOnHitEffect());
                 if (shouldIncreaseCombo)
                     ComboManager.Instance.IncreaseCombo();
+                // Reflect the bullet
+                if (amountOfReflections > 0)
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, _rb.velocity.normalized);
+                    if (hit.collider != null)
+                    {
+                        // Reflect the bullet and add randomization to the angle
+                        Vector2 direction = Vector2.Reflect(_rb.velocity.normalized, hit.normal);
+
+                        // Randomize the angle slightly by rotating the direction vector
+                        float randomAngle = Random.Range(-25f, 25f); // You can adjust the angle range
+                        direction = Quaternion.Euler(0, 0, randomAngle) * direction;
+
+                        _rb.velocity = direction * BulletSpeed;
+                        amountOfReflections--;
+                    }
+                }
             }
         }
     }

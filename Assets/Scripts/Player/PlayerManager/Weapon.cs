@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour
     {
         PlayerBullet,
         PlayerLeechBullet,
-        PlayerCorrodeBullet,
+        PlayerReflectBullet,
         PlayerFreezeBullet,
         PlayerExplodeBullet,
         PlayerPierceBullet

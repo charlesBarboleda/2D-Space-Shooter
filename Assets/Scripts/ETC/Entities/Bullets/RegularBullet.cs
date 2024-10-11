@@ -32,10 +32,8 @@ public class RegularBullet : Bullet
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Bullet hit: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("ThraxArmada") || collision.gameObject.CompareTag("Syndicates") || collision.gameObject.CompareTag("CrimsonFleet") || collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Bullet hit layer check: " + collision.gameObject.name);
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {

@@ -4858,8 +4858,8 @@ GameObject:
   - component: {fileID: 3945534582454035347}
   - component: {fileID: -7243990092006296730}
   m_Layer: 16
-  m_Name: 2D Projectile 1 nature arrow
-  m_TagString: Player
+  m_Name: LeechBullet
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9772,7 +9772,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &3945534582454035347
