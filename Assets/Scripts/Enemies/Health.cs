@@ -39,6 +39,10 @@ public class Health : MonoBehaviour, IDamageable
         _colliders = GetComponents<Collider2D>();
         _currentHealth = _maxHealth;
     }
+    void OnDisable()
+    {
+
+    }
 
     void OnEnable()
     {

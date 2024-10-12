@@ -22,7 +22,7 @@ public class NavMeshScript : MonoBehaviour
     }
 
     // Call this method to update the NavMesh
-    public void UpdateBuildNavMesh()
+    public void UpdateNavMesh()
     {
         navMeshSurface.UpdateNavMesh(navMeshSurface.navMeshData);
     }
