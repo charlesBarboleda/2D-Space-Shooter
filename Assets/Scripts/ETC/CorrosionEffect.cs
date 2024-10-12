@@ -39,7 +39,7 @@ public class CorrosionEffect : MonoBehaviour
             Debug.Log(hitObjects);
             foreach (RaycastHit2D hit in hitObjects)
             {
-                if (hit.collider.CompareTag("ThraxArmada") || hit.collider.CompareTag("Syndicates") || hit.collider.CompareTag("CrimsonFleet"))
+                if (hit.collider.CompareTag("ThraxArmada") || hit.collider.CompareTag("Syndicates") || hit.collider.CompareTag("CrimsonFleet") || hit.collider.CompareTag("Asteroid"))
                 {
                     Debug.Log("Corrode Hit: " + hit.collider.name);
                     damageable = hit.collider.GetComponent<IDamageable>();

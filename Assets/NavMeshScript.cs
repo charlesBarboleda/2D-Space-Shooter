@@ -19,6 +19,8 @@ public class NavMeshScript : MonoBehaviour
         {
             Instance = this;
         }
+
+        navMeshSurface.BuildNavMeshAsync();
     }
 
     // Call this method to update the NavMesh

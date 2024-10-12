@@ -41,7 +41,7 @@ public class LeechBullet : Bullet
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("LeechBullet Collision: " + collision.gameObject.name);
-        if (collision.gameObject.CompareTag("ThraxArmada") || collision.gameObject.CompareTag("Syndicates") || collision.gameObject.CompareTag("CrimsonFleet") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("ThraxArmada") || collision.gameObject.CompareTag("Syndicates") || collision.gameObject.CompareTag("CrimsonFleet") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Asteroid"))
         {
             Debug.Log("LeechBullet Collision with enemy: " + collision.gameObject.name);
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
