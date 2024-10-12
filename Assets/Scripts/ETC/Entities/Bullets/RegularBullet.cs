@@ -16,6 +16,7 @@ public class RegularBullet : Bullet
     {
         if (_spriteRenderer != null) _spriteRenderer.enabled = true;
         base.OnEnable();
+        StartCoroutine(BulletFlashEffect());
     }
 
     protected override IEnumerator BulletOnHitEffect()
@@ -28,6 +29,14 @@ public class RegularBullet : Bullet
         yield return new WaitForSeconds(0.3f);
         _bulletOnHitEffect.SetActive(false);
         Deactivate();
+    }
+
+    IEnumerator BulletFlashEffect()
+    {
+        yield return new WaitForEndOfFrame();
+        GameObject flash = ObjectPooler.Instance.SpawnFromPool("RegularBulletFlash", transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.3f);
+        flash.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

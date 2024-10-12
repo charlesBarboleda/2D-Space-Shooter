@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: -6886902918841533862}
   - component: {fileID: -6236857672304150841}
   - component: {fileID: 1265825167256802379}
+  - component: {fileID: -962343232737692330}
   m_Layer: 14
   m_Name: ThraxTurret
   m_TagString: ThraxArmada
@@ -468,6 +469,18 @@ NavMeshAgent:
   m_BaseOffset: 5.12
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-962343232737692330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343858230156979994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9002935437112815961
 GameObject:
   m_ObjectHideFlags: 0

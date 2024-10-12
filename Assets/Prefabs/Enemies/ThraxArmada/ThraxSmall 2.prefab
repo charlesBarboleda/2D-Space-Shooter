@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 3282169715535366820}
   - component: {fileID: 8743131018156215595}
   - component: {fileID: -1748221427595312297}
+  - component: {fileID: -995091655141378380}
   m_Layer: 14
   m_Name: ThraxSmall 2
   m_TagString: ThraxArmada
@@ -655,6 +656,18 @@ NavMeshAgent:
   m_BaseOffset: 5.1199994
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-995091655141378380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143085703906712905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8227692411707881614
 GameObject:
   m_ObjectHideFlags: 0

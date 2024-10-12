@@ -66379,6 +66379,33 @@ MonoBehaviour:
   - tag: ReflectBulletOnHitEffect
     prefab: {fileID: 1153730961705006, guid: f1aeeba2f9003904da5c0a24ba150198, type: 3}
     size: 500
+  - tag: LeechBulletFlash
+    prefab: {fileID: 1437680763721510, guid: a311f5de96916bf44bcb1dae61840939, type: 3}
+    size: 50
+  - tag: ReflectBulletFlash
+    prefab: {fileID: 1373498804365708, guid: 1be2572052efd584296895036cceb277, type: 3}
+    size: 50
+  - tag: RegularBulletFlash
+    prefab: {fileID: 1960835308829046, guid: adca1c5f787b050449984aedac0cbdc5, type: 3}
+    size: 100
+  - tag: PlayerCorrodeBullet
+    prefab: {fileID: 194586, guid: a862ba583d75a834da6fe74054b4328b, type: 3}
+    size: 100
+  - tag: CorrodeBulletFlash
+    prefab: {fileID: 142474, guid: dac764baa80a59c4eb571085d48bd636, type: 3}
+    size: 100
+  - tag: CorrodeBulletOnHitEffect
+    prefab: {fileID: 150320, guid: 51e6dfc2ec9381647a7b3c25f6f6f626, type: 3}
+    size: 100
+  - tag: Corrosion
+    prefab: {fileID: 100000, guid: daae9487101e4b34390b5ba6a948bb66, type: 3}
+    size: 100
+  - tag: CorrosionPulse
+    prefab: {fileID: 192808, guid: 65e8f813c7e77dd40999770d67e7e908, type: 3}
+    size: 100
+  - tag: CorrodeEffect
+    prefab: {fileID: 7398054743902665175, guid: c78dc6fffbe957e46b10c539db7cea74, type: 3}
+    size: 100
 --- !u!4 &1707799895
 Transform:
   m_ObjectHideFlags: 0
@@ -76460,7 +76487,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4562029611935103579, guid: 7f3e3ae2361439a429bf596dee3dd711, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -113
+      value: -114.5
       objectReference: {fileID: 0}
     - target: {fileID: 4562029611935103579, guid: 7f3e3ae2361439a429bf596dee3dd711, type: 3}
       propertyPath: m_LocalPosition.y
@@ -86020,7 +86047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8048218574253681071, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: weaponType
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8048218574253681071, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: bulletSpeed

@@ -17,6 +17,15 @@ public class ReflectBullet : Bullet
     {
         if (_particleSystem != null) _particleSystem.Play();
         base.OnEnable();
+        StartCoroutine(BulletFlashEffect());
+    }
+
+    IEnumerator BulletFlashEffect()
+    {
+        yield return new WaitForEndOfFrame();
+        GameObject flash = ObjectPooler.Instance.SpawnFromPool("ReflectBulletFlash", transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.3f);
+        flash.SetActive(false);
     }
 
     protected override IEnumerator BulletOnHitEffect()

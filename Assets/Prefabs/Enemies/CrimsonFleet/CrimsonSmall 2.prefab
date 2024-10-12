@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: -8685784215459564580}
   - component: {fileID: 3038458476815981962}
   - component: {fileID: 7174421072973019827}
+  - component: {fileID: -6109729502782626241}
   m_Layer: 15
   m_Name: CrimsonSmall 2
   m_TagString: CrimsonFleet
@@ -565,6 +566,18 @@ NavMeshAgent:
   m_BaseOffset: 4.0799994
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-6109729502782626241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126911676597071214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4761905306650182420
 PrefabInstance:
   m_ObjectHideFlags: 0

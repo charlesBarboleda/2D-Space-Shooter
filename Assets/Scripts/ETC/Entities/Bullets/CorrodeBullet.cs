@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeechBullet : Bullet
+public class CorrodeBullet : Bullet
 {
     ParticleSystem _particleSystem;
-    public float leechAmount = 0.01f;
 
     protected override void Awake()
     {
@@ -22,46 +21,40 @@ public class LeechBullet : Bullet
     IEnumerator BulletFlashEffect()
     {
         yield return new WaitForEndOfFrame();
-        GameObject flash = ObjectPooler.Instance.SpawnFromPool("LeechBulletFlash", transform.position, Quaternion.identity);
+        GameObject flash = ObjectPooler.Instance.SpawnFromPool("CorrodeBulletFlash", transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.3f);
         flash.SetActive(false);
     }
     protected override IEnumerator BulletOnHitEffect()
     {
         if (_collider2D != null) _collider2D.enabled = false;
+        if (_rb != null) _rb.simulated = false;
         if (_rb != null) _rb.velocity = Vector2.zero;
-        if (_particleSystem != null) _particleSystem.Play();
-        _bulletOnHitEffect = ObjectPooler.Instance.SpawnFromPool("LeechBulletOnHitEffect", transform.position, Quaternion.identity);
-        UIManager.Instance.CreateOnHitDamageText(Mathf.Round(BulletDamage).ToString(), transform.position);
+        if (_particleSystem != null) _particleSystem.Stop();
+        _bulletOnHitEffect = ObjectPooler.Instance.SpawnFromPool("CorrodeBulletOnHitEffect", transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.3f);
         _bulletOnHitEffect.SetActive(false);
-        Deactivate();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("LeechBullet Collision: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("ThraxArmada") || collision.gameObject.CompareTag("Syndicates") || collision.gameObject.CompareTag("CrimsonFleet") || collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("LeechBullet Collision with enemy: " + collision.gameObject.name);
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+            EnemyDebuffs enemyDebuffs = collision.gameObject.GetComponent<EnemyDebuffs>();
+            // Check if the enemy is not already corroded
             if (damageable != null)
             {
-                damageable.TakeDamage(BulletDamage);
-                // Increase player health by 1% of the bullet damage by leeching
-                Leech();
+                // Apply Corrode Effect to Enemy
+
+                GameObject CorrodeEffect = ObjectPooler.Instance.SpawnFromPool("CorrodeEffect", collision.transform.position, Quaternion.identity);
+                enemyDebuffs.debuffsList["Corrode"] = true;
+                CorrodeEffect.GetComponent<CorrosionEffect>().ApplyCorrode(collision.gameObject, BulletDamage);
                 StartCoroutine(BulletOnHitEffect());
-                if (shouldIncreaseCombo)
-                    ComboManager.Instance.IncreaseCombo();
             }
         }
     }
 
-    void Leech()
-    {
-        PlayerManager.Instance.SetCurrentHealth(Mathf.Min(PlayerManager.Instance.CurrentHealth() + Mathf.RoundToInt(BulletDamage * leechAmount), PlayerManager.Instance.MaxHealth()));
-
-    }
 }
 
 

@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 1476592301589719542}
   - component: {fileID: 4427941813413749975}
   - component: {fileID: 641795192960267215}
+  - component: {fileID: -3231286740274001862}
   m_Layer: 14
   m_Name: ThraxTeleporter 1
   m_TagString: ThraxArmada
@@ -671,6 +672,18 @@ NavMeshAgent:
   m_BaseOffset: 4.0800004
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-3231286740274001862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143085703906712905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8227692411707881614
 GameObject:
   m_ObjectHideFlags: 0

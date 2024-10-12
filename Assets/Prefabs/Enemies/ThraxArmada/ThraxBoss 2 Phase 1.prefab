@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 2682419910093720599}
   - component: {fileID: 8858224167725333741}
   - component: {fileID: 3454163184459626951}
+  - component: {fileID: -5223105106220942767}
   m_Layer: 14
   m_Name: ThraxBoss 2 Phase 1
   m_TagString: ThraxArmada
@@ -526,6 +527,18 @@ NavMeshAgent:
   m_BaseOffset: 5.12
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-5223105106220942767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3552526014053328916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &492738797243629508
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 1963936846399815750}
   - component: {fileID: 7643676485623343379}
   - component: {fileID: 5132754360145106513}
+  - component: {fileID: -3948138480933126985}
   m_Layer: 15
   m_Name: CrimsonDestroyer2
   m_TagString: CrimsonFleet
@@ -542,6 +543,18 @@ NavMeshAgent:
   m_BaseOffset: 4.08
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-3948138480933126985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3920351723424583824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5959578993367322370
 GameObject:
   m_ObjectHideFlags: 0

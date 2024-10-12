@@ -698,6 +698,7 @@ GameObject:
   - component: {fileID: -8115179084758974438}
   - component: {fileID: 6537159407056257850}
   - component: {fileID: 7486203320613685980}
+  - component: {fileID: 8552112600673765103}
   m_Layer: 14
   m_Name: ThraxBoss 1
   m_TagString: ThraxArmada
@@ -1170,6 +1171,18 @@ NavMeshAgent:
   m_BaseOffset: 4.08
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8552112600673765103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143085703906712905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8638413270787602566
 GameObject:
   m_ObjectHideFlags: 0

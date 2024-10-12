@@ -56,12 +56,7 @@ public class Bullet : MonoBehaviour
 
     protected virtual void Deactivate()
     {
-        if (_rb != null) _rb.velocity = Vector2.zero;
-        if (_rb != null) _rb.simulated = false;
-        if (_collider2D != null) _collider2D.enabled = false;
-
         gameObject.SetActive(false);
-        StopAllCoroutines();
     }
 
 

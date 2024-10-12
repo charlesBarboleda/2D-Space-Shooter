@@ -18,6 +18,7 @@ public abstract class Enemy : MonoBehaviour, ITargetable
     Faction _faction;
     AudioSource _audioSource;
     AbilityHolder _abilityHolder;
+    EnemyDebuffs _debuffs;
 
     // Animations 
 
@@ -37,6 +38,7 @@ public abstract class Enemy : MonoBehaviour, ITargetable
     {
 
         TryGetComponent<AbilityHolder>(out AbilityHolder abilityHolder);
+        _debuffs = GetComponent<EnemyDebuffs>();
         _kinematics = GetComponent<Kinematics>();
         _abilityHolder = abilityHolder;
         _faction = GetComponent<Faction>();

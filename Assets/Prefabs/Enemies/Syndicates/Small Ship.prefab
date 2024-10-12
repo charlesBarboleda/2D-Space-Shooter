@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: -5080013714581478844}
   - component: {fileID: 7793750269675412776}
   - component: {fileID: 8887733694395381364}
+  - component: {fileID: -4320934650969672099}
   m_Layer: 13
   m_Name: Small Ship
   m_TagString: Syndicates
@@ -546,6 +547,18 @@ NavMeshAgent:
   m_BaseOffset: 0.17
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-4320934650969672099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7097431120715797597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5079925321749296110
 PrefabInstance:
   m_ObjectHideFlags: 0

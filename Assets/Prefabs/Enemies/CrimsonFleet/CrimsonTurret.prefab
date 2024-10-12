@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3863525881345526987}
   - component: {fileID: 5092068372275762858}
   - component: {fileID: 7180973405672486127}
+  - component: {fileID: -442022297447906518}
   m_Layer: 15
   m_Name: CrimsonTurret
   m_TagString: CrimsonFleet
@@ -360,6 +361,18 @@ NavMeshAgent:
   m_BaseOffset: 5.12
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-442022297447906518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718810189780992712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1099941551255569262
 GameObject:
   m_ObjectHideFlags: 0

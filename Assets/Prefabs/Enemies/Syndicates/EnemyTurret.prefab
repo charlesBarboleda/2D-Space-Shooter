@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 2008143879663076253}
   - component: {fileID: 3681667465588522016}
   - component: {fileID: 3626854786859465253}
+  - component: {fileID: 2455897886472241148}
   m_Layer: 13
   m_Name: EnemyTurret
   m_TagString: Syndicates
@@ -468,3 +469,15 @@ NavMeshAgent:
   m_BaseOffset: 0.21
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2455897886472241148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343858230156979994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

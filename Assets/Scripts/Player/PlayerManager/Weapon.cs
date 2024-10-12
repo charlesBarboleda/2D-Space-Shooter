@@ -8,9 +8,7 @@ public class Weapon : MonoBehaviour
         PlayerBullet,
         PlayerLeechBullet,
         PlayerReflectBullet,
-        PlayerFreezeBullet,
-        PlayerExplodeBullet,
-        PlayerPierceBullet
+        PlayerCorrodeBullet,
     }
     [Header("Weapon Settings")]
     public WeaponType weaponType;

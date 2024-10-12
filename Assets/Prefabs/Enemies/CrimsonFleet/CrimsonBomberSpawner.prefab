@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 3194415468971244602}
   - component: {fileID: -4833121564440448356}
   - component: {fileID: 8448592594134858712}
+  - component: {fileID: -6589909359511144121}
   m_Layer: 15
   m_Name: CrimsonBomberSpawner
   m_TagString: CrimsonFleet
@@ -480,6 +481,18 @@ NavMeshAgent:
   m_BaseOffset: 5.12
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-6589909359511144121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6126911676597071214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4761905306650182420
 PrefabInstance:
   m_ObjectHideFlags: 0

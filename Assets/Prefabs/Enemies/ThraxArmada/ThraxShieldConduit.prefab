@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8977897439213701476}
   - component: {fileID: 6280349405031195926}
   - component: {fileID: -4767751214136594176}
+  - component: {fileID: -8890050490601162244}
   m_Layer: 18
   m_Name: ThraxShieldConduit
   m_TagString: ThraxArmada
@@ -396,3 +397,15 @@ NavMeshAgent:
   m_BaseOffset: 5.1199994
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-8890050490601162244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8321032140571861052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 634d92929b7ed1e4daa340fb2ca6e68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
