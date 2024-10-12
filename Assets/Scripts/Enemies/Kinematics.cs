@@ -18,9 +18,29 @@ public class Kinematics : MonoBehaviour
     public bool outOfBounds = false;
 
 
-    void Start()
+    protected virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+    }
+    IEnumerator InitializeAgent()
+    {
+        // Wait for one frame to ensure everything is set up
+        yield return null;
+
+        if (agent != null)
+        {
+            agent.speed = _speed;
+            agent.stoppingDistance = _stopDistance;
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
+        }
+    }
+    protected virtual void OnEnable()
+    {
+        _rotateClockwise = Random.value > 0.5f;
+        agent = GetComponent<NavMeshAgent>();
+
+        StartCoroutine(InitializeAgent());
         if (agent == null)
         {
             Debug.LogError("NavMeshAgent component missing!");
@@ -30,11 +50,9 @@ public class Kinematics : MonoBehaviour
         if (_targetManager == null)
         {
             Debug.LogError("TargetManager component missing!");
+            return;
         }
-        agent.speed = _speed;
-        agent.stoppingDistance = _stopDistance;
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
+
     }
 
     // Update is called once per frame
@@ -80,11 +98,6 @@ public class Kinematics : MonoBehaviour
         {
             Aim(_targetManager.TargetPosition);
         }
-    }
-
-    protected virtual void OnEnable()
-    {
-        _rotateClockwise = Random.value > 0.5f;
     }
 
     protected virtual void Aim(Vector3 target)
