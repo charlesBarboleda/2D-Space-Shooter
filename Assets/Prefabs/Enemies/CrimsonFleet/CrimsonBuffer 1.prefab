@@ -39,7 +39,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -70, y: 0, z: 0}
-  m_LocalScale: {x: 5.82642, y: 5.82642, z: 5.82642}
+  m_LocalScale: {x: 4.466825, y: 4.466825, z: 4.466825}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4884541028745969428}
@@ -294,20 +294,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 2518149554995967086}
     m_ColliderPaths:
-    - - X: 204387536
-        Y: 237717936
-      - X: -252899072
-        Y: 237717936
-      - X: -252899072
-        Y: -173613472
-      - X: 204387536
-        Y: -173613472
+    - - X: 156693712
+        Y: 182246464
+      - X: -193885104
+        Y: 182246464
+      - X: -193885104
+        Y: -133100776
+      - X: 156693712
+        Y: -133100776
   m_CompositePaths:
     m_Paths:
-    - - {x: 20.438725, y: -17.361347}
-      - {x: 20.438725, y: 23.771793}
-      - {x: -25.289907, y: 23.771765}
-      - {x: -25.289879, y: -17.361347}
+    - - {x: 15.669343, y: -13.310078}
+      - {x: 15.669343, y: 18.224648}
+      - {x: -19.38851, y: 18.224617}
+      - {x: -19.388481, y: -13.310078}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0

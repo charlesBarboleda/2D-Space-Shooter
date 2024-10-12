@@ -66,6 +66,7 @@ public class CorrosionEffect : MonoBehaviour
             CorrodePulse.SetActive(false);
             Debug.Log("Deactivated Corrosion Pulse: " + i);
         }
+        Corrosion.SetActive(false);
         enemyDebuffs.RemoveDebuff("Corrode");
         gameObject.SetActive(false);
     }
