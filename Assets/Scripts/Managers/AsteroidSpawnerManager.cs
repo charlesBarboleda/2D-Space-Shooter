@@ -33,11 +33,11 @@ public class AsteroidSpawnerManager : MonoBehaviour
     {
         for (int i = 0; i < asteroidFieldCount; i++)
         {
-            Vector3 spawnPoint = new Vector3(Random.Range(-300, 300), Random.Range(-300, 300), 0);
+            Vector3 spawnPoint = new Vector3(Random.Range(-250, 250), Random.Range(-250, 250), 0);
             GameObject asteroidField = ObjectPooler.Instance.SpawnFromPool(asteroidFieldTag, spawnPoint, Quaternion.identity);
             foreach (Transform child in asteroidField.transform)
             {
-                child.transform.position = spawnPoint + new Vector3(Random.Range(-30, 30), Random.Range(-30, 30), 0);
+                child.transform.position = spawnPoint + new Vector3(Random.Range(-60, 60), Random.Range(-60, 60), 0);
             }
             NavMeshScript.Instance.UpdateNavMesh();
         }
