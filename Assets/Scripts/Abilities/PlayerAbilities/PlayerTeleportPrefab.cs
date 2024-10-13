@@ -12,7 +12,7 @@ public class PlayerTeleportPrefab : MonoBehaviour
         IDamageable damageable = other.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            if (other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates") || other.CompareTag("CrimsonFleet"))
+            if (other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates") || other.CompareTag("CrimsonFleet") || other.CompareTag("Asteroid"))
             {
                 UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
                 damageable.TakeDamage(_dps);

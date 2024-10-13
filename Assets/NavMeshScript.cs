@@ -8,7 +8,7 @@ public class NavMeshScript : MonoBehaviour
     public static NavMeshScript Instance { get; private set; }
     public NavMeshSurface navMeshSurface;
 
-    void Start()
+    void Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -19,8 +19,14 @@ public class NavMeshScript : MonoBehaviour
         {
             Instance = this;
         }
+    }
 
-        navMeshSurface.BuildNavMeshAsync();
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            UpdateNavMesh();
+        }
     }
 
     // Call this method to update the NavMesh
@@ -28,6 +34,7 @@ public class NavMeshScript : MonoBehaviour
     {
         navMeshSurface.UpdateNavMesh(navMeshSurface.navMeshData);
     }
+
 
 
 }

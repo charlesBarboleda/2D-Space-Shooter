@@ -32,16 +32,12 @@ public class Health : MonoBehaviour, IDamageable
     {
         _attackManager = GetComponent<AttackManager>();
         _rigidbody = GetComponent<Rigidbody2D>();
-        _rigidbody.gravityScale = 0;
+        if (_rigidbody != null) _rigidbody.gravityScale = 0;
         _faction = GetComponent<Faction>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _audioSource = GetComponent<AudioSource>();
         _colliders = GetComponents<Collider2D>();
         _currentHealth = _maxHealth;
-    }
-    void OnDisable()
-    {
-
     }
 
     void OnEnable()

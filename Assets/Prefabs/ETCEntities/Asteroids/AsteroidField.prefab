@@ -95,11 +95,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3010711558697090169, guid: 18a1d48fa686c5e4785b9530f39d9e43, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 219.6
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3010711558697090169, guid: 18a1d48fa686c5e4785b9530f39d9e43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 116.1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3010711558697090169, guid: 18a1d48fa686c5e4785b9530f39d9e43, type: 3}
       propertyPath: m_LocalPosition.z
@@ -133,6 +133,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 3215181850890744999, guid: 18a1d48fa686c5e4785b9530f39d9e43, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215181850890744999, guid: 18a1d48fa686c5e4785b9530f39d9e43, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215181850890744999, guid: 18a1d48fa686c5e4785b9530f39d9e43, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215181850890744999, guid: 18a1d48fa686c5e4785b9530f39d9e43, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215181850890744999, guid: 18a1d48fa686c5e4785b9530f39d9e43, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215181850890744999, guid: 18a1d48fa686c5e4785b9530f39d9e43, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3215181850890744999, guid: 18a1d48fa686c5e4785b9530f39d9e43, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 7437642697340254786, guid: 18a1d48fa686c5e4785b9530f39d9e43, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (43)
@@ -161,11 +189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7127516687409934502, guid: 42970b968b679504083f1d852073a25d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 209.6265
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7127516687409934502, guid: 42970b968b679504083f1d852073a25d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 111.53012
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7127516687409934502, guid: 42970b968b679504083f1d852073a25d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -199,6 +227,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 118.199
       objectReference: {fileID: 0}
+    - target: {fileID: 7723719036587126201, guid: 42970b968b679504083f1d852073a25d, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723719036587126201, guid: 42970b968b679504083f1d852073a25d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723719036587126201, guid: 42970b968b679504083f1d852073a25d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723719036587126201, guid: 42970b968b679504083f1d852073a25d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723719036587126201, guid: 42970b968b679504083f1d852073a25d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723719036587126201, guid: 42970b968b679504083f1d852073a25d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7723719036587126201, guid: 42970b968b679504083f1d852073a25d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -221,13 +277,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 5030453061952202030, guid: 1ed5f9cde92c40c40b14e48f9f4c18e4, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030453061952202030, guid: 1ed5f9cde92c40c40b14e48f9f4c18e4, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030453061952202030, guid: 1ed5f9cde92c40c40b14e48f9f4c18e4, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030453061952202030, guid: 1ed5f9cde92c40c40b14e48f9f4c18e4, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030453061952202030, guid: 1ed5f9cde92c40c40b14e48f9f4c18e4, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030453061952202030, guid: 1ed5f9cde92c40c40b14e48f9f4c18e4, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030453061952202030, guid: 1ed5f9cde92c40c40b14e48f9f4c18e4, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 8343680042370129959, guid: 1ed5f9cde92c40c40b14e48f9f4c18e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 206.19998
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8343680042370129959, guid: 1ed5f9cde92c40c40b14e48f9f4c18e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 137.89998
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8343680042370129959, guid: 1ed5f9cde92c40c40b14e48f9f4c18e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -279,17 +363,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 1554925025746944635, guid: dd9b5d761b3ac6a47b62ce1a79516db9, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554925025746944635, guid: dd9b5d761b3ac6a47b62ce1a79516db9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554925025746944635, guid: dd9b5d761b3ac6a47b62ce1a79516db9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554925025746944635, guid: dd9b5d761b3ac6a47b62ce1a79516db9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554925025746944635, guid: dd9b5d761b3ac6a47b62ce1a79516db9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554925025746944635, guid: dd9b5d761b3ac6a47b62ce1a79516db9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554925025746944635, guid: dd9b5d761b3ac6a47b62ce1a79516db9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 7878340442350470149, guid: dd9b5d761b3ac6a47b62ce1a79516db9, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (35)
       objectReference: {fileID: 0}
     - target: {fileID: 8895798449565213942, guid: dd9b5d761b3ac6a47b62ce1a79516db9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 171.1265
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8895798449565213942, guid: dd9b5d761b3ac6a47b62ce1a79516db9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 111.53012
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8895798449565213942, guid: dd9b5d761b3ac6a47b62ce1a79516db9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -347,11 +459,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3309061803539911999, guid: 93b82e3421a73604b858d776f43268c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 175.12827
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3309061803539911999, guid: 93b82e3421a73604b858d776f43268c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 75.53004
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3309061803539911999, guid: 93b82e3421a73604b858d776f43268c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -385,6 +497,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 472.167
       objectReference: {fileID: 0}
+    - target: {fileID: 4853207563790118336, guid: 93b82e3421a73604b858d776f43268c6, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853207563790118336, guid: 93b82e3421a73604b858d776f43268c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853207563790118336, guid: 93b82e3421a73604b858d776f43268c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853207563790118336, guid: 93b82e3421a73604b858d776f43268c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853207563790118336, guid: 93b82e3421a73604b858d776f43268c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853207563790118336, guid: 93b82e3421a73604b858d776f43268c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853207563790118336, guid: 93b82e3421a73604b858d776f43268c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -405,11 +545,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2619892965764948083, guid: 185eb073bac03bd40b96cdf880ae98f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 211.5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2619892965764948083, guid: 185eb073bac03bd40b96cdf880ae98f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 100.00001
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2619892965764948083, guid: 185eb073bac03bd40b96cdf880ae98f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -443,6 +583,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 6233549758921940472, guid: 185eb073bac03bd40b96cdf880ae98f1, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233549758921940472, guid: 185eb073bac03bd40b96cdf880ae98f1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233549758921940472, guid: 185eb073bac03bd40b96cdf880ae98f1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233549758921940472, guid: 185eb073bac03bd40b96cdf880ae98f1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233549758921940472, guid: 185eb073bac03bd40b96cdf880ae98f1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233549758921940472, guid: 185eb073bac03bd40b96cdf880ae98f1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233549758921940472, guid: 185eb073bac03bd40b96cdf880ae98f1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 8436726820393452968, guid: 185eb073bac03bd40b96cdf880ae98f1, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (69)
@@ -469,13 +637,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 7746676474239980077, guid: 24d0f66e5ef5d4b4bb68cce7411fad74, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746676474239980077, guid: 24d0f66e5ef5d4b4bb68cce7411fad74, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746676474239980077, guid: 24d0f66e5ef5d4b4bb68cce7411fad74, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746676474239980077, guid: 24d0f66e5ef5d4b4bb68cce7411fad74, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746676474239980077, guid: 24d0f66e5ef5d4b4bb68cce7411fad74, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746676474239980077, guid: 24d0f66e5ef5d4b4bb68cce7411fad74, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746676474239980077, guid: 24d0f66e5ef5d4b4bb68cce7411fad74, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 8685611049120848472, guid: 24d0f66e5ef5d4b4bb68cce7411fad74, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 167.69998
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8685611049120848472, guid: 24d0f66e5ef5d4b4bb68cce7411fad74, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 137.89998
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8685611049120848472, guid: 24d0f66e5ef5d4b4bb68cce7411fad74, type: 3}
       propertyPath: m_LocalPosition.z
@@ -533,11 +729,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578101850771504842, guid: e1d8380e66a7afc449452c71aa12a864, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 172.09999
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1578101850771504842, guid: e1d8380e66a7afc449452c71aa12a864, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 98.7
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1578101850771504842, guid: e1d8380e66a7afc449452c71aa12a864, type: 3}
       propertyPath: m_LocalPosition.z
@@ -571,6 +767,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 5216358894638827267, guid: e1d8380e66a7afc449452c71aa12a864, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216358894638827267, guid: e1d8380e66a7afc449452c71aa12a864, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216358894638827267, guid: e1d8380e66a7afc449452c71aa12a864, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216358894638827267, guid: e1d8380e66a7afc449452c71aa12a864, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216358894638827267, guid: e1d8380e66a7afc449452c71aa12a864, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216358894638827267, guid: e1d8380e66a7afc449452c71aa12a864, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5216358894638827267, guid: e1d8380e66a7afc449452c71aa12a864, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -589,13 +813,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 1511152500584104133, guid: 7a736132179897f45bd73f48cea55c8a, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511152500584104133, guid: 7a736132179897f45bd73f48cea55c8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511152500584104133, guid: 7a736132179897f45bd73f48cea55c8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511152500584104133, guid: 7a736132179897f45bd73f48cea55c8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511152500584104133, guid: 7a736132179897f45bd73f48cea55c8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511152500584104133, guid: 7a736132179897f45bd73f48cea55c8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511152500584104133, guid: 7a736132179897f45bd73f48cea55c8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 2953566390678675980, guid: 7a736132179897f45bd73f48cea55c8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 190.8
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2953566390678675980, guid: 7a736132179897f45bd73f48cea55c8a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 116.9
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2953566390678675980, guid: 7a736132179897f45bd73f48cea55c8a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -653,11 +905,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 901302817919731663, guid: ccafdca3c1e1bba46b6ff9db22b0fa85, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 223
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 901302817919731663, guid: ccafdca3c1e1bba46b6ff9db22b0fa85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 127.1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 901302817919731663, guid: ccafdca3c1e1bba46b6ff9db22b0fa85, type: 3}
       propertyPath: m_LocalPosition.z
@@ -695,6 +947,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 8058489205654293566, guid: ccafdca3c1e1bba46b6ff9db22b0fa85, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058489205654293566, guid: ccafdca3c1e1bba46b6ff9db22b0fa85, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058489205654293566, guid: ccafdca3c1e1bba46b6ff9db22b0fa85, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058489205654293566, guid: ccafdca3c1e1bba46b6ff9db22b0fa85, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058489205654293566, guid: ccafdca3c1e1bba46b6ff9db22b0fa85, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058489205654293566, guid: ccafdca3c1e1bba46b6ff9db22b0fa85, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058489205654293566, guid: ccafdca3c1e1bba46b6ff9db22b0fa85, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -713,13 +993,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 2972020043732559966, guid: 7498c1d51e132df4aa101d214dcd721b, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972020043732559966, guid: 7498c1d51e132df4aa101d214dcd721b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972020043732559966, guid: 7498c1d51e132df4aa101d214dcd721b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972020043732559966, guid: 7498c1d51e132df4aa101d214dcd721b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972020043732559966, guid: 7498c1d51e132df4aa101d214dcd721b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972020043732559966, guid: 7498c1d51e132df4aa101d214dcd721b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972020043732559966, guid: 7498c1d51e132df4aa101d214dcd721b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 5291174192800656314, guid: 7498c1d51e132df4aa101d214dcd721b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 197
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5291174192800656314, guid: 7498c1d51e132df4aa101d214dcd721b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 122.600006
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5291174192800656314, guid: 7498c1d51e132df4aa101d214dcd721b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -779,13 +1087,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 764325800313403136, guid: f1e0993335dd115478a420eb9a1faed1, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 764325800313403136, guid: f1e0993335dd115478a420eb9a1faed1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 764325800313403136, guid: f1e0993335dd115478a420eb9a1faed1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 764325800313403136, guid: f1e0993335dd115478a420eb9a1faed1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 764325800313403136, guid: f1e0993335dd115478a420eb9a1faed1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 764325800313403136, guid: f1e0993335dd115478a420eb9a1faed1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 764325800313403136, guid: f1e0993335dd115478a420eb9a1faed1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 5833791762581708939, guid: f1e0993335dd115478a420eb9a1faed1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 161.2
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5833791762581708939, guid: f1e0993335dd115478a420eb9a1faed1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 113.50001
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5833791762581708939, guid: f1e0993335dd115478a420eb9a1faed1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -839,11 +1175,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1076133365665820135, guid: 58990b9fa3f984a40819ad69b97d6278, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 193.5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1076133365665820135, guid: 58990b9fa3f984a40819ad69b97d6278, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 94.6
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1076133365665820135, guid: 58990b9fa3f984a40819ad69b97d6278, type: 3}
       propertyPath: m_LocalPosition.z
@@ -881,6 +1217,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 8136171940900084177, guid: 58990b9fa3f984a40819ad69b97d6278, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136171940900084177, guid: 58990b9fa3f984a40819ad69b97d6278, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136171940900084177, guid: 58990b9fa3f984a40819ad69b97d6278, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136171940900084177, guid: 58990b9fa3f984a40819ad69b97d6278, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136171940900084177, guid: 58990b9fa3f984a40819ad69b97d6278, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136171940900084177, guid: 58990b9fa3f984a40819ad69b97d6278, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8136171940900084177, guid: 58990b9fa3f984a40819ad69b97d6278, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -899,13 +1263,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 4330292769206046368, guid: 6dd6325da67f4224fb16d310d7ed41ff, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330292769206046368, guid: 6dd6325da67f4224fb16d310d7ed41ff, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330292769206046368, guid: 6dd6325da67f4224fb16d310d7ed41ff, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330292769206046368, guid: 6dd6325da67f4224fb16d310d7ed41ff, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330292769206046368, guid: 6dd6325da67f4224fb16d310d7ed41ff, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330292769206046368, guid: 6dd6325da67f4224fb16d310d7ed41ff, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4330292769206046368, guid: 6dd6325da67f4224fb16d310d7ed41ff, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 5430653929835510201, guid: 6dd6325da67f4224fb16d310d7ed41ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 163.4
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5430653929835510201, guid: 6dd6325da67f4224fb16d310d7ed41ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 95.3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5430653929835510201, guid: 6dd6325da67f4224fb16d310d7ed41ff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -963,11 +1355,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4083683112297974495, guid: 13f980cff7c3e3e429d78b004768fd15, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 153.8
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4083683112297974495, guid: 13f980cff7c3e3e429d78b004768fd15, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 129.68709
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4083683112297974495, guid: 13f980cff7c3e3e429d78b004768fd15, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1005,6 +1397,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 7762625541389925018, guid: 13f980cff7c3e3e429d78b004768fd15, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762625541389925018, guid: 13f980cff7c3e3e429d78b004768fd15, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762625541389925018, guid: 13f980cff7c3e3e429d78b004768fd15, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762625541389925018, guid: 13f980cff7c3e3e429d78b004768fd15, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762625541389925018, guid: 13f980cff7c3e3e429d78b004768fd15, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762625541389925018, guid: 13f980cff7c3e3e429d78b004768fd15, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762625541389925018, guid: 13f980cff7c3e3e429d78b004768fd15, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1023,17 +1443,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 1921929248731017840, guid: 17872697533067548b50665860ebd905, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921929248731017840, guid: 17872697533067548b50665860ebd905, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921929248731017840, guid: 17872697533067548b50665860ebd905, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921929248731017840, guid: 17872697533067548b50665860ebd905, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921929248731017840, guid: 17872697533067548b50665860ebd905, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921929248731017840, guid: 17872697533067548b50665860ebd905, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1921929248731017840, guid: 17872697533067548b50665860ebd905, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 4998080858822476990, guid: 17872697533067548b50665860ebd905, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (54)
       objectReference: {fileID: 0}
     - target: {fileID: 8859927199221589065, guid: 17872697533067548b50665860ebd905, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 185.9
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8859927199221589065, guid: 17872697533067548b50665860ebd905, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 75.7
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8859927199221589065, guid: 17872697533067548b50665860ebd905, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1085,17 +1533,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 1452459636281012078, guid: 018501ac2a5808b4aadc133af234fbe7, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452459636281012078, guid: 018501ac2a5808b4aadc133af234fbe7, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452459636281012078, guid: 018501ac2a5808b4aadc133af234fbe7, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452459636281012078, guid: 018501ac2a5808b4aadc133af234fbe7, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452459636281012078, guid: 018501ac2a5808b4aadc133af234fbe7, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452459636281012078, guid: 018501ac2a5808b4aadc133af234fbe7, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1452459636281012078, guid: 018501ac2a5808b4aadc133af234fbe7, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 5426114245554445945, guid: 018501ac2a5808b4aadc133af234fbe7, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (63)
       objectReference: {fileID: 0}
     - target: {fileID: 7992673631976276891, guid: 018501ac2a5808b4aadc133af234fbe7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 210.4
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7992673631976276891, guid: 018501ac2a5808b4aadc133af234fbe7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 90
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7992673631976276891, guid: 018501ac2a5808b4aadc133af234fbe7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1153,11 +1629,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7784784715095413558, guid: 4bec69f1079186d41adc7968170007a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 199.7
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7784784715095413558, guid: 4bec69f1079186d41adc7968170007a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 110.9
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7784784715095413558, guid: 4bec69f1079186d41adc7968170007a1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1191,6 +1667,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 9001470782669498806, guid: 4bec69f1079186d41adc7968170007a1, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001470782669498806, guid: 4bec69f1079186d41adc7968170007a1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001470782669498806, guid: 4bec69f1079186d41adc7968170007a1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001470782669498806, guid: 4bec69f1079186d41adc7968170007a1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001470782669498806, guid: 4bec69f1079186d41adc7968170007a1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001470782669498806, guid: 4bec69f1079186d41adc7968170007a1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001470782669498806, guid: 4bec69f1079186d41adc7968170007a1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1211,11 +1715,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2786279735114913171, guid: 6881bbf67aec32a4096232c75a232673, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 180.7
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2786279735114913171, guid: 6881bbf67aec32a4096232c75a232673, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 105.2
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2786279735114913171, guid: 6881bbf67aec32a4096232c75a232673, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1253,6 +1757,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 5660065876616667897, guid: 6881bbf67aec32a4096232c75a232673, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660065876616667897, guid: 6881bbf67aec32a4096232c75a232673, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660065876616667897, guid: 6881bbf67aec32a4096232c75a232673, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660065876616667897, guid: 6881bbf67aec32a4096232c75a232673, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660065876616667897, guid: 6881bbf67aec32a4096232c75a232673, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660065876616667897, guid: 6881bbf67aec32a4096232c75a232673, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660065876616667897, guid: 6881bbf67aec32a4096232c75a232673, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1271,17 +1803,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 704699379200832909, guid: ca8df6e0c6e8a314495001885f6d9021, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 704699379200832909, guid: ca8df6e0c6e8a314495001885f6d9021, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 704699379200832909, guid: ca8df6e0c6e8a314495001885f6d9021, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 704699379200832909, guid: ca8df6e0c6e8a314495001885f6d9021, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 704699379200832909, guid: ca8df6e0c6e8a314495001885f6d9021, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 704699379200832909, guid: ca8df6e0c6e8a314495001885f6d9021, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 704699379200832909, guid: ca8df6e0c6e8a314495001885f6d9021, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 1330063939562259783, guid: ca8df6e0c6e8a314495001885f6d9021, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (74)
       objectReference: {fileID: 0}
     - target: {fileID: 6607124219695756675, guid: ca8df6e0c6e8a314495001885f6d9021, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 151.4
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6607124219695756675, guid: ca8df6e0c6e8a314495001885f6d9021, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 97.5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6607124219695756675, guid: ca8df6e0c6e8a314495001885f6d9021, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1335,11 +1895,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6406253408144328577, guid: 763e45ffd72f31c4d8b77b075c8aeb6c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 176.1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6406253408144328577, guid: 763e45ffd72f31c4d8b77b075c8aeb6c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 125.5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6406253408144328577, guid: 763e45ffd72f31c4d8b77b075c8aeb6c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1377,6 +1937,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 8016869671840977951, guid: 763e45ffd72f31c4d8b77b075c8aeb6c, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016869671840977951, guid: 763e45ffd72f31c4d8b77b075c8aeb6c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016869671840977951, guid: 763e45ffd72f31c4d8b77b075c8aeb6c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016869671840977951, guid: 763e45ffd72f31c4d8b77b075c8aeb6c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016869671840977951, guid: 763e45ffd72f31c4d8b77b075c8aeb6c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016869671840977951, guid: 763e45ffd72f31c4d8b77b075c8aeb6c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016869671840977951, guid: 763e45ffd72f31c4d8b77b075c8aeb6c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1397,11 +1985,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5024260578590888801, guid: acdbbede9b738c143855045f9a514bd5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 191.02827
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5024260578590888801, guid: acdbbede9b738c143855045f9a514bd5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 83.3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5024260578590888801, guid: acdbbede9b738c143855045f9a514bd5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1439,6 +2027,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 6781381391175516868, guid: acdbbede9b738c143855045f9a514bd5, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781381391175516868, guid: acdbbede9b738c143855045f9a514bd5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781381391175516868, guid: acdbbede9b738c143855045f9a514bd5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781381391175516868, guid: acdbbede9b738c143855045f9a514bd5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781381391175516868, guid: acdbbede9b738c143855045f9a514bd5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781381391175516868, guid: acdbbede9b738c143855045f9a514bd5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781381391175516868, guid: acdbbede9b738c143855045f9a514bd5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1457,17 +2073,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 73605878967840290, guid: fd8d0312d07de2544942d9d2aeaa2c8b, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 73605878967840290, guid: fd8d0312d07de2544942d9d2aeaa2c8b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 73605878967840290, guid: fd8d0312d07de2544942d9d2aeaa2c8b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 73605878967840290, guid: fd8d0312d07de2544942d9d2aeaa2c8b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 73605878967840290, guid: fd8d0312d07de2544942d9d2aeaa2c8b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 73605878967840290, guid: fd8d0312d07de2544942d9d2aeaa2c8b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 73605878967840290, guid: fd8d0312d07de2544942d9d2aeaa2c8b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 1659024301392747878, guid: fd8d0312d07de2544942d9d2aeaa2c8b, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (42)
       objectReference: {fileID: 0}
     - target: {fileID: 2255499788065789735, guid: fd8d0312d07de2544942d9d2aeaa2c8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 225.3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2255499788065789735, guid: fd8d0312d07de2544942d9d2aeaa2c8b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 138.1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2255499788065789735, guid: fd8d0312d07de2544942d9d2aeaa2c8b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1525,11 +2169,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4046923763411169439, guid: 95258ee11ec636144a2170fcfaca3ef2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 162.12828
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4046923763411169439, guid: 95258ee11ec636144a2170fcfaca3ef2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 78.83011
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4046923763411169439, guid: 95258ee11ec636144a2170fcfaca3ef2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1563,6 +2207,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 278.969
       objectReference: {fileID: 0}
+    - target: {fileID: 6738400236557242783, guid: 95258ee11ec636144a2170fcfaca3ef2, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738400236557242783, guid: 95258ee11ec636144a2170fcfaca3ef2, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738400236557242783, guid: 95258ee11ec636144a2170fcfaca3ef2, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738400236557242783, guid: 95258ee11ec636144a2170fcfaca3ef2, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738400236557242783, guid: 95258ee11ec636144a2170fcfaca3ef2, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738400236557242783, guid: 95258ee11ec636144a2170fcfaca3ef2, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6738400236557242783, guid: 95258ee11ec636144a2170fcfaca3ef2, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1585,13 +2257,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 5975270273977018998, guid: a0525bf84459d484893e4b1134b3e904, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975270273977018998, guid: a0525bf84459d484893e4b1134b3e904, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975270273977018998, guid: a0525bf84459d484893e4b1134b3e904, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975270273977018998, guid: a0525bf84459d484893e4b1134b3e904, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975270273977018998, guid: a0525bf84459d484893e4b1134b3e904, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975270273977018998, guid: a0525bf84459d484893e4b1134b3e904, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975270273977018998, guid: a0525bf84459d484893e4b1134b3e904, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 6398038219945367405, guid: a0525bf84459d484893e4b1134b3e904, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 180.8
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6398038219945367405, guid: a0525bf84459d484893e4b1134b3e904, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 85.5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6398038219945367405, guid: a0525bf84459d484893e4b1134b3e904, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1645,11 +2345,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3411367403368697696, guid: 7ef493cbd8b22414b8e6c6f9ca1ad71e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 166.3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3411367403368697696, guid: 7ef493cbd8b22414b8e6c6f9ca1ad71e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 128.00002
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3411367403368697696, guid: 7ef493cbd8b22414b8e6c6f9ca1ad71e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1683,6 +2383,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 98.969
       objectReference: {fileID: 0}
+    - target: {fileID: 4097314936156068681, guid: 7ef493cbd8b22414b8e6c6f9ca1ad71e, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097314936156068681, guid: 7ef493cbd8b22414b8e6c6f9ca1ad71e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097314936156068681, guid: 7ef493cbd8b22414b8e6c6f9ca1ad71e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097314936156068681, guid: 7ef493cbd8b22414b8e6c6f9ca1ad71e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097314936156068681, guid: 7ef493cbd8b22414b8e6c6f9ca1ad71e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097314936156068681, guid: 7ef493cbd8b22414b8e6c6f9ca1ad71e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4097314936156068681, guid: 7ef493cbd8b22414b8e6c6f9ca1ad71e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 9186577667320714616, guid: 7ef493cbd8b22414b8e6c6f9ca1ad71e, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (28)
@@ -1709,13 +2437,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 7260668233827501359, guid: 809006f0fb00170419d0c2054f3aed22, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260668233827501359, guid: 809006f0fb00170419d0c2054f3aed22, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260668233827501359, guid: 809006f0fb00170419d0c2054f3aed22, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260668233827501359, guid: 809006f0fb00170419d0c2054f3aed22, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260668233827501359, guid: 809006f0fb00170419d0c2054f3aed22, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260668233827501359, guid: 809006f0fb00170419d0c2054f3aed22, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260668233827501359, guid: 809006f0fb00170419d0c2054f3aed22, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 8579607292626203745, guid: 809006f0fb00170419d0c2054f3aed22, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 201.00183
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8579607292626203745, guid: 809006f0fb00170419d0c2054f3aed22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 86.5998
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8579607292626203745, guid: 809006f0fb00170419d0c2054f3aed22, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1767,17 +2523,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 6306311743116318909, guid: 1c7d69089a37117478f9fd3f80a9ca8e, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306311743116318909, guid: 1c7d69089a37117478f9fd3f80a9ca8e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306311743116318909, guid: 1c7d69089a37117478f9fd3f80a9ca8e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306311743116318909, guid: 1c7d69089a37117478f9fd3f80a9ca8e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306311743116318909, guid: 1c7d69089a37117478f9fd3f80a9ca8e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306311743116318909, guid: 1c7d69089a37117478f9fd3f80a9ca8e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6306311743116318909, guid: 1c7d69089a37117478f9fd3f80a9ca8e, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 7513538461779058478, guid: 1c7d69089a37117478f9fd3f80a9ca8e, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (34)
       objectReference: {fileID: 0}
     - target: {fileID: 8839675155200400755, guid: 1c7d69089a37117478f9fd3f80a9ca8e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 158.5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8839675155200400755, guid: 1c7d69089a37117478f9fd3f80a9ca8e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 122.600006
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8839675155200400755, guid: 1c7d69089a37117478f9fd3f80a9ca8e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1831,11 +2615,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 274412102292096635, guid: a05a126b4a4538b4399dda04128a0bf9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 153.89998
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 274412102292096635, guid: a05a126b4a4538b4399dda04128a0bf9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 105.89996
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 274412102292096635, guid: a05a126b4a4538b4399dda04128a0bf9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1869,6 +2653,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 98.969
       objectReference: {fileID: 0}
+    - target: {fileID: 1822015858682554745, guid: a05a126b4a4538b4399dda04128a0bf9, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1822015858682554745, guid: a05a126b4a4538b4399dda04128a0bf9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1822015858682554745, guid: a05a126b4a4538b4399dda04128a0bf9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1822015858682554745, guid: a05a126b4a4538b4399dda04128a0bf9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1822015858682554745, guid: a05a126b4a4538b4399dda04128a0bf9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1822015858682554745, guid: a05a126b4a4538b4399dda04128a0bf9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1822015858682554745, guid: a05a126b4a4538b4399dda04128a0bf9, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 4582473584088138609, guid: a05a126b4a4538b4399dda04128a0bf9, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (66)
@@ -1897,11 +2709,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2457192143162899449, guid: a618d5b0c661e4a47829a651da6bef8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 216.6
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2457192143162899449, guid: a618d5b0c661e4a47829a651da6bef8a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 134.70001
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2457192143162899449, guid: a618d5b0c661e4a47829a651da6bef8a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1935,6 +2747,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 8575877781987365937, guid: a618d5b0c661e4a47829a651da6bef8a, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575877781987365937, guid: a618d5b0c661e4a47829a651da6bef8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575877781987365937, guid: a618d5b0c661e4a47829a651da6bef8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575877781987365937, guid: a618d5b0c661e4a47829a651da6bef8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575877781987365937, guid: a618d5b0c661e4a47829a651da6bef8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575877781987365937, guid: a618d5b0c661e4a47829a651da6bef8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575877781987365937, guid: a618d5b0c661e4a47829a651da6bef8a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1957,13 +2797,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 1706485973111101582, guid: 0bccebc1bc9e9b846a696a8cfafa0b24, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706485973111101582, guid: 0bccebc1bc9e9b846a696a8cfafa0b24, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706485973111101582, guid: 0bccebc1bc9e9b846a696a8cfafa0b24, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706485973111101582, guid: 0bccebc1bc9e9b846a696a8cfafa0b24, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706485973111101582, guid: 0bccebc1bc9e9b846a696a8cfafa0b24, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706485973111101582, guid: 0bccebc1bc9e9b846a696a8cfafa0b24, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706485973111101582, guid: 0bccebc1bc9e9b846a696a8cfafa0b24, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 2608084863784405043, guid: 0bccebc1bc9e9b846a696a8cfafa0b24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 216.8
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2608084863784405043, guid: 0bccebc1bc9e9b846a696a8cfafa0b24, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 107
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2608084863784405043, guid: 0bccebc1bc9e9b846a696a8cfafa0b24, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2017,11 +2885,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2171475938188613871, guid: 2a2b58ae464ee2d43a91c62e71ee7294, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 152.5283
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2171475938188613871, guid: 2a2b58ae464ee2d43a91c62e71ee7294, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 88.1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2171475938188613871, guid: 2a2b58ae464ee2d43a91c62e71ee7294, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2055,6 +2923,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 105
       objectReference: {fileID: 0}
+    - target: {fileID: 6606654897684823992, guid: 2a2b58ae464ee2d43a91c62e71ee7294, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606654897684823992, guid: 2a2b58ae464ee2d43a91c62e71ee7294, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606654897684823992, guid: 2a2b58ae464ee2d43a91c62e71ee7294, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606654897684823992, guid: 2a2b58ae464ee2d43a91c62e71ee7294, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606654897684823992, guid: 2a2b58ae464ee2d43a91c62e71ee7294, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606654897684823992, guid: 2a2b58ae464ee2d43a91c62e71ee7294, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606654897684823992, guid: 2a2b58ae464ee2d43a91c62e71ee7294, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 7922018698029272211, guid: 2a2b58ae464ee2d43a91c62e71ee7294, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (60)
@@ -2077,17 +2973,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 2889943745846469482, guid: 48f6fe37d25a6ee4d81d553e201797c6, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889943745846469482, guid: 48f6fe37d25a6ee4d81d553e201797c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889943745846469482, guid: 48f6fe37d25a6ee4d81d553e201797c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889943745846469482, guid: 48f6fe37d25a6ee4d81d553e201797c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889943745846469482, guid: 48f6fe37d25a6ee4d81d553e201797c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889943745846469482, guid: 48f6fe37d25a6ee4d81d553e201797c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889943745846469482, guid: 48f6fe37d25a6ee4d81d553e201797c6, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 4003322037395673165, guid: 48f6fe37d25a6ee4d81d553e201797c6, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (56)
       objectReference: {fileID: 0}
     - target: {fileID: 5100585421913043134, guid: 48f6fe37d25a6ee4d81d553e201797c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 173.3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5100585421913043134, guid: 48f6fe37d25a6ee4d81d553e201797c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 88.4
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5100585421913043134, guid: 48f6fe37d25a6ee4d81d553e201797c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2141,11 +3065,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 184970933190453022, guid: 86cad19ae6463c549899bb137fb16376, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 196.5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 184970933190453022, guid: 86cad19ae6463c549899bb137fb16376, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 76.9
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 184970933190453022, guid: 86cad19ae6463c549899bb137fb16376, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2179,6 +3103,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 105
       objectReference: {fileID: 0}
+    - target: {fileID: 3037906621707993365, guid: 86cad19ae6463c549899bb137fb16376, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037906621707993365, guid: 86cad19ae6463c549899bb137fb16376, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037906621707993365, guid: 86cad19ae6463c549899bb137fb16376, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037906621707993365, guid: 86cad19ae6463c549899bb137fb16376, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037906621707993365, guid: 86cad19ae6463c549899bb137fb16376, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037906621707993365, guid: 86cad19ae6463c549899bb137fb16376, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3037906621707993365, guid: 86cad19ae6463c549899bb137fb16376, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 7269436113447197660, guid: 86cad19ae6463c549899bb137fb16376, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (65)
@@ -2201,13 +3153,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 2154553239626475578, guid: 04e64ca8b4a767e44a56907a79b95c7b, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154553239626475578, guid: 04e64ca8b4a767e44a56907a79b95c7b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154553239626475578, guid: 04e64ca8b4a767e44a56907a79b95c7b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154553239626475578, guid: 04e64ca8b4a767e44a56907a79b95c7b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154553239626475578, guid: 04e64ca8b4a767e44a56907a79b95c7b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154553239626475578, guid: 04e64ca8b4a767e44a56907a79b95c7b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154553239626475578, guid: 04e64ca8b4a767e44a56907a79b95c7b, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 4089852942271225133, guid: 04e64ca8b4a767e44a56907a79b95c7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 181.1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4089852942271225133, guid: 04e64ca8b4a767e44a56907a79b95c7b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 116.1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4089852942271225133, guid: 04e64ca8b4a767e44a56907a79b95c7b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2265,11 +3245,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1688568890475226787, guid: eff09ef2d6018014daa7dea9c560c472, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 160.99998
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1688568890475226787, guid: eff09ef2d6018014daa7dea9c560c472, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 101.29999
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1688568890475226787, guid: eff09ef2d6018014daa7dea9c560c472, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2307,6 +3287,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 8324485682105547217, guid: eff09ef2d6018014daa7dea9c560c472, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324485682105547217, guid: eff09ef2d6018014daa7dea9c560c472, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324485682105547217, guid: eff09ef2d6018014daa7dea9c560c472, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324485682105547217, guid: eff09ef2d6018014daa7dea9c560c472, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324485682105547217, guid: eff09ef2d6018014daa7dea9c560c472, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324485682105547217, guid: eff09ef2d6018014daa7dea9c560c472, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324485682105547217, guid: eff09ef2d6018014daa7dea9c560c472, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2331,11 +3339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5794214534894111147, guid: 8e94de2155cdb8e439d64f572f4e1882, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 202
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5794214534894111147, guid: 8e94de2155cdb8e439d64f572f4e1882, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 100.5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5794214534894111147, guid: 8e94de2155cdb8e439d64f572f4e1882, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2369,6 +3377,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 7465792843735617865, guid: 8e94de2155cdb8e439d64f572f4e1882, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465792843735617865, guid: 8e94de2155cdb8e439d64f572f4e1882, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465792843735617865, guid: 8e94de2155cdb8e439d64f572f4e1882, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465792843735617865, guid: 8e94de2155cdb8e439d64f572f4e1882, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465792843735617865, guid: 8e94de2155cdb8e439d64f572f4e1882, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465792843735617865, guid: 8e94de2155cdb8e439d64f572f4e1882, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465792843735617865, guid: 8e94de2155cdb8e439d64f572f4e1882, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2393,11 +3429,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4831488171499724110, guid: ae6dc8a29a189024693a8d16a23044fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 210
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4831488171499724110, guid: ae6dc8a29a189024693a8d16a23044fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 119.3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4831488171499724110, guid: ae6dc8a29a189024693a8d16a23044fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2431,6 +3467,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 98.969
       objectReference: {fileID: 0}
+    - target: {fileID: 6929558061602436125, guid: ae6dc8a29a189024693a8d16a23044fd, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929558061602436125, guid: ae6dc8a29a189024693a8d16a23044fd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929558061602436125, guid: ae6dc8a29a189024693a8d16a23044fd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929558061602436125, guid: ae6dc8a29a189024693a8d16a23044fd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929558061602436125, guid: ae6dc8a29a189024693a8d16a23044fd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929558061602436125, guid: ae6dc8a29a189024693a8d16a23044fd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6929558061602436125, guid: ae6dc8a29a189024693a8d16a23044fd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2449,13 +3513,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 970253834609370089, guid: e91396acdc0dfe54497a50da16bdfb8c, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 970253834609370089, guid: e91396acdc0dfe54497a50da16bdfb8c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 970253834609370089, guid: e91396acdc0dfe54497a50da16bdfb8c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 970253834609370089, guid: e91396acdc0dfe54497a50da16bdfb8c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 970253834609370089, guid: e91396acdc0dfe54497a50da16bdfb8c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 970253834609370089, guid: e91396acdc0dfe54497a50da16bdfb8c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 970253834609370089, guid: e91396acdc0dfe54497a50da16bdfb8c, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 1851689243557200794, guid: e91396acdc0dfe54497a50da16bdfb8c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 192.3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1851689243557200794, guid: e91396acdc0dfe54497a50da16bdfb8c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 129.68709
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1851689243557200794, guid: e91396acdc0dfe54497a50da16bdfb8c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2511,17 +3603,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 2390014396943403052, guid: 49878c89da71e7b4d9cbc6a3d983c845, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390014396943403052, guid: 49878c89da71e7b4d9cbc6a3d983c845, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390014396943403052, guid: 49878c89da71e7b4d9cbc6a3d983c845, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390014396943403052, guid: 49878c89da71e7b4d9cbc6a3d983c845, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390014396943403052, guid: 49878c89da71e7b4d9cbc6a3d983c845, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390014396943403052, guid: 49878c89da71e7b4d9cbc6a3d983c845, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390014396943403052, guid: 49878c89da71e7b4d9cbc6a3d983c845, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 5289665143177340091, guid: 49878c89da71e7b4d9cbc6a3d983c845, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (71)
       objectReference: {fileID: 0}
     - target: {fileID: 7598145798488868720, guid: 49878c89da71e7b4d9cbc6a3d983c845, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 183.9
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7598145798488868720, guid: 49878c89da71e7b4d9cbc6a3d983c845, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 96.100006
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7598145798488868720, guid: 49878c89da71e7b4d9cbc6a3d983c845, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2575,11 +3695,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 776352337120095065, guid: 3a78405b727fb2f4da506504efe2250a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 214.2
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 776352337120095065, guid: 3a78405b727fb2f4da506504efe2250a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 140.7
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 776352337120095065, guid: 3a78405b727fb2f4da506504efe2250a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2617,6 +3737,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 7388504627332902456, guid: 3a78405b727fb2f4da506504efe2250a, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388504627332902456, guid: 3a78405b727fb2f4da506504efe2250a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388504627332902456, guid: 3a78405b727fb2f4da506504efe2250a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388504627332902456, guid: 3a78405b727fb2f4da506504efe2250a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388504627332902456, guid: 3a78405b727fb2f4da506504efe2250a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388504627332902456, guid: 3a78405b727fb2f4da506504efe2250a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7388504627332902456, guid: 3a78405b727fb2f4da506504efe2250a, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2637,11 +3785,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 823927735461849340, guid: 38adcf0e57b94294f86b0de4d46fde6d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 175.7
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 823927735461849340, guid: 38adcf0e57b94294f86b0de4d46fde6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 140.7
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 823927735461849340, guid: 38adcf0e57b94294f86b0de4d46fde6d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2679,6 +3827,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 6564803925752937317, guid: 38adcf0e57b94294f86b0de4d46fde6d, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564803925752937317, guid: 38adcf0e57b94294f86b0de4d46fde6d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564803925752937317, guid: 38adcf0e57b94294f86b0de4d46fde6d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564803925752937317, guid: 38adcf0e57b94294f86b0de4d46fde6d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564803925752937317, guid: 38adcf0e57b94294f86b0de4d46fde6d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564803925752937317, guid: 38adcf0e57b94294f86b0de4d46fde6d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564803925752937317, guid: 38adcf0e57b94294f86b0de4d46fde6d, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2697,17 +3873,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 206588015859102522, guid: 2bc73bf85f1db04419adbe8e258a0073, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 206588015859102522, guid: 2bc73bf85f1db04419adbe8e258a0073, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 206588015859102522, guid: 2bc73bf85f1db04419adbe8e258a0073, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 206588015859102522, guid: 2bc73bf85f1db04419adbe8e258a0073, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 206588015859102522, guid: 2bc73bf85f1db04419adbe8e258a0073, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 206588015859102522, guid: 2bc73bf85f1db04419adbe8e258a0073, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 206588015859102522, guid: 2bc73bf85f1db04419adbe8e258a0073, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 6427327232134652346, guid: 2bc73bf85f1db04419adbe8e258a0073, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (25)
       objectReference: {fileID: 0}
     - target: {fileID: 6644245103290595193, guid: 2bc73bf85f1db04419adbe8e258a0073, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 184.5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6644245103290595193, guid: 2bc73bf85f1db04419adbe8e258a0073, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 127.1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6644245103290595193, guid: 2bc73bf85f1db04419adbe8e258a0073, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2761,11 +3965,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2553961831889781707, guid: e9b67643ee7ebe8429be613f1bc86643, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 204.8
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2553961831889781707, guid: e9b67643ee7ebe8429be613f1bc86643, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 128.00002
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2553961831889781707, guid: e9b67643ee7ebe8429be613f1bc86643, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2799,6 +4003,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 98.969
       objectReference: {fileID: 0}
+    - target: {fileID: 2769659221126600677, guid: e9b67643ee7ebe8429be613f1bc86643, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769659221126600677, guid: e9b67643ee7ebe8429be613f1bc86643, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769659221126600677, guid: e9b67643ee7ebe8429be613f1bc86643, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769659221126600677, guid: e9b67643ee7ebe8429be613f1bc86643, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769659221126600677, guid: e9b67643ee7ebe8429be613f1bc86643, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769659221126600677, guid: e9b67643ee7ebe8429be613f1bc86643, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769659221126600677, guid: e9b67643ee7ebe8429be613f1bc86643, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 4209915418583530150, guid: e9b67643ee7ebe8429be613f1bc86643, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (40)
@@ -2821,13 +4053,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 4369448566421611203, guid: 699286a1922d2ce4191d996582c81075, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369448566421611203, guid: 699286a1922d2ce4191d996582c81075, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369448566421611203, guid: 699286a1922d2ce4191d996582c81075, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369448566421611203, guid: 699286a1922d2ce4191d996582c81075, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369448566421611203, guid: 699286a1922d2ce4191d996582c81075, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369448566421611203, guid: 699286a1922d2ce4191d996582c81075, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369448566421611203, guid: 699286a1922d2ce4191d996582c81075, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 5660552359955758824, guid: 699286a1922d2ce4191d996582c81075, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 178.1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5660552359955758824, guid: 699286a1922d2ce4191d996582c81075, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 134.70001
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5660552359955758824, guid: 699286a1922d2ce4191d996582c81075, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2883,13 +4143,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 1525980042869326394, guid: b44d2fde5a6c3f741b67727836e58edd, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525980042869326394, guid: b44d2fde5a6c3f741b67727836e58edd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525980042869326394, guid: b44d2fde5a6c3f741b67727836e58edd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525980042869326394, guid: b44d2fde5a6c3f741b67727836e58edd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525980042869326394, guid: b44d2fde5a6c3f741b67727836e58edd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525980042869326394, guid: b44d2fde5a6c3f741b67727836e58edd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525980042869326394, guid: b44d2fde5a6c3f741b67727836e58edd, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 4233519148119167661, guid: b44d2fde5a6c3f741b67727836e58edd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 208.8
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4233519148119167661, guid: b44d2fde5a6c3f741b67727836e58edd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 78.6
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4233519148119167661, guid: b44d2fde5a6c3f741b67727836e58edd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2945,13 +4233,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 202108073199174510, guid: d0cffd49c1d54344c8bfd76ec2bad50f, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 202108073199174510, guid: d0cffd49c1d54344c8bfd76ec2bad50f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 202108073199174510, guid: d0cffd49c1d54344c8bfd76ec2bad50f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 202108073199174510, guid: d0cffd49c1d54344c8bfd76ec2bad50f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 202108073199174510, guid: d0cffd49c1d54344c8bfd76ec2bad50f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 202108073199174510, guid: d0cffd49c1d54344c8bfd76ec2bad50f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 202108073199174510, guid: d0cffd49c1d54344c8bfd76ec2bad50f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 5175272896245164023, guid: d0cffd49c1d54344c8bfd76ec2bad50f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 160.1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5175272896245164023, guid: d0cffd49c1d54344c8bfd76ec2bad50f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 135.50002
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5175272896245164023, guid: d0cffd49c1d54344c8bfd76ec2bad50f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3007,17 +4323,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 1295446671060782796, guid: 8bd5f1c1be9ec454889e78c52e59a1cb, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295446671060782796, guid: 8bd5f1c1be9ec454889e78c52e59a1cb, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295446671060782796, guid: 8bd5f1c1be9ec454889e78c52e59a1cb, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295446671060782796, guid: 8bd5f1c1be9ec454889e78c52e59a1cb, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295446671060782796, guid: 8bd5f1c1be9ec454889e78c52e59a1cb, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295446671060782796, guid: 8bd5f1c1be9ec454889e78c52e59a1cb, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295446671060782796, guid: 8bd5f1c1be9ec454889e78c52e59a1cb, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 1448590920199566896, guid: 8bd5f1c1be9ec454889e78c52e59a1cb, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (44)
       objectReference: {fileID: 0}
     - target: {fileID: 7388649310596546034, guid: 8bd5f1c1be9ec454889e78c52e59a1cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 198.6
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7388649310596546034, guid: 8bd5f1c1be9ec454889e78c52e59a1cb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 135.50002
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7388649310596546034, guid: 8bd5f1c1be9ec454889e78c52e59a1cb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3069,17 +4413,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 2162599102592532922, guid: 542cffc266d6a6240a9acb39fc4b6502, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162599102592532922, guid: 542cffc266d6a6240a9acb39fc4b6502, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162599102592532922, guid: 542cffc266d6a6240a9acb39fc4b6502, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162599102592532922, guid: 542cffc266d6a6240a9acb39fc4b6502, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162599102592532922, guid: 542cffc266d6a6240a9acb39fc4b6502, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162599102592532922, guid: 542cffc266d6a6240a9acb39fc4b6502, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2162599102592532922, guid: 542cffc266d6a6240a9acb39fc4b6502, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 5879124677787531228, guid: 542cffc266d6a6240a9acb39fc4b6502, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (51)
       objectReference: {fileID: 0}
     - target: {fileID: 8082720602484204965, guid: 542cffc266d6a6240a9acb39fc4b6502, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 214.6
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8082720602484204965, guid: 542cffc266d6a6240a9acb39fc4b6502, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 125.5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8082720602484204965, guid: 542cffc266d6a6240a9acb39fc4b6502, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3137,11 +4509,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1230369858533670059, guid: c1195aac8ed727c4ab327af7971b6449, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 186.8
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1230369858533670059, guid: c1195aac8ed727c4ab327af7971b6449, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 138.1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1230369858533670059, guid: c1195aac8ed727c4ab327af7971b6449, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3175,6 +4547,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 3055636055780858919, guid: c1195aac8ed727c4ab327af7971b6449, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055636055780858919, guid: c1195aac8ed727c4ab327af7971b6449, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055636055780858919, guid: c1195aac8ed727c4ab327af7971b6449, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055636055780858919, guid: c1195aac8ed727c4ab327af7971b6449, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055636055780858919, guid: c1195aac8ed727c4ab327af7971b6449, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055636055780858919, guid: c1195aac8ed727c4ab327af7971b6449, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3055636055780858919, guid: c1195aac8ed727c4ab327af7971b6449, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3199,11 +4599,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8171977533570147893, guid: 0dfe04a326d40574d9d964bbcb356d65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 171.5
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8171977533570147893, guid: 0dfe04a326d40574d9d964bbcb356d65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 119.3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8171977533570147893, guid: 0dfe04a326d40574d9d964bbcb356d65, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3237,6 +4637,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 98.969
       objectReference: {fileID: 0}
+    - target: {fileID: 8605530935146638864, guid: 0dfe04a326d40574d9d964bbcb356d65, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605530935146638864, guid: 0dfe04a326d40574d9d964bbcb356d65, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605530935146638864, guid: 0dfe04a326d40574d9d964bbcb356d65, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605530935146638864, guid: 0dfe04a326d40574d9d964bbcb356d65, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605530935146638864, guid: 0dfe04a326d40574d9d964bbcb356d65, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605530935146638864, guid: 0dfe04a326d40574d9d964bbcb356d65, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8605530935146638864, guid: 0dfe04a326d40574d9d964bbcb356d65, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3257,11 +4685,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1354609715782488400, guid: f49d782349eca9f40b9a42676d3c29f5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 190.3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1354609715782488400, guid: f49d782349eca9f40b9a42676d3c29f5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 105.8
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1354609715782488400, guid: f49d782349eca9f40b9a42676d3c29f5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3295,6 +4723,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -75
       objectReference: {fileID: 0}
+    - target: {fileID: 1617910122856365711, guid: f49d782349eca9f40b9a42676d3c29f5, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617910122856365711, guid: f49d782349eca9f40b9a42676d3c29f5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617910122856365711, guid: f49d782349eca9f40b9a42676d3c29f5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617910122856365711, guid: f49d782349eca9f40b9a42676d3c29f5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617910122856365711, guid: f49d782349eca9f40b9a42676d3c29f5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617910122856365711, guid: f49d782349eca9f40b9a42676d3c29f5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617910122856365711, guid: f49d782349eca9f40b9a42676d3c29f5, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 7482278156279159003, guid: f49d782349eca9f40b9a42676d3c29f5, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (75)
@@ -3319,11 +4775,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 234357878255861939, guid: 6762a159820de3245ae38bee358a42e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 162.50183
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 234357878255861939, guid: 6762a159820de3245ae38bee358a42e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 86.6
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 234357878255861939, guid: 6762a159820de3245ae38bee358a42e1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3361,6 +4817,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2 (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 4837036024003489277, guid: 6762a159820de3245ae38bee358a42e1, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837036024003489277, guid: 6762a159820de3245ae38bee358a42e1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837036024003489277, guid: 6762a159820de3245ae38bee358a42e1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837036024003489277, guid: 6762a159820de3245ae38bee358a42e1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837036024003489277, guid: 6762a159820de3245ae38bee358a42e1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837036024003489277, guid: 6762a159820de3245ae38bee358a42e1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4837036024003489277, guid: 6762a159820de3245ae38bee358a42e1, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3379,17 +4863,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3768599968713934895}
     m_Modifications:
+    - target: {fileID: 1687062656342184298, guid: 216125757fe993e41a4dbb71fb99db5f, type: 3}
+      propertyPath: _currencyPrefab.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687062656342184298, guid: 216125757fe993e41a4dbb71fb99db5f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[0]
+      value: Debris1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687062656342184298, guid: 216125757fe993e41a4dbb71fb99db5f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[1]
+      value: Debris2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687062656342184298, guid: 216125757fe993e41a4dbb71fb99db5f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[2]
+      value: Debris3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687062656342184298, guid: 216125757fe993e41a4dbb71fb99db5f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[3]
+      value: Debris4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687062656342184298, guid: 216125757fe993e41a4dbb71fb99db5f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[4]
+      value: Debris5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687062656342184298, guid: 216125757fe993e41a4dbb71fb99db5f, type: 3}
+      propertyPath: _currencyPrefab.Array.data[5]
+      value: Debris6
+      objectReference: {fileID: 0}
     - target: {fileID: 4794157489202338887, guid: 216125757fe993e41a4dbb71fb99db5f, type: 3}
       propertyPath: m_Name
       value: Asteroid 2 (33)
       objectReference: {fileID: 0}
     - target: {fileID: 9063749426340334460, guid: 216125757fe993e41a4dbb71fb99db5f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 152.3
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 9063749426340334460, guid: 216125757fe993e41a4dbb71fb99db5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 116.9
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 9063749426340334460, guid: 216125757fe993e41a4dbb71fb99db5f, type: 3}
       propertyPath: m_LocalPosition.z
