@@ -25583,7 +25583,7 @@ RectTransform:
   m_GameObject: {fileID: 622746647}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.7976437, y: 3.2839, z: 3.2839}
+  m_LocalScale: {x: 6.7976437, y: 3.2839, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1128218017}
@@ -43888,7 +43888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1128218017
 RectTransform:
   m_ObjectHideFlags: 0
@@ -79013,7 +79013,7 @@ RectTransform:
   m_GameObject: {fileID: 2031031411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.3556027, y: 0.35334042, z: 2.3556027}
+  m_LocalScale: {x: 2.3556027, y: 0.35334042, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1009272522}
@@ -79070,7 +79070,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031031411}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

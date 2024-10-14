@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject prestigePanel;
     [SerializeField] GameObject prestigeContainer;
     [SerializeField] GameObject titleContainer;
-    Vector3 _initContainerScale;
+    float initY, initX;
     [Header("Ultimate Animations")]
     [SerializeField] Material _revealMaterial;
     [SerializeField] Image _cameraCrack;
@@ -191,48 +192,25 @@ public class UIManager : MonoBehaviour
 
     IEnumerator ExpandContainerAndShowTitle(GameObject container, GameObject titleContainer)
     {
-        _initContainerScale = container.transform.localScale;
-        container.transform.localScale = Vector3.zero;  // Start collapsed
-        float t = 0;
-
-        // Expand the container over 0.5 seconds
-        while (t < 0.5f)
-        {
-            t += Time.deltaTime;
-            container.transform.localScale = Vector3.Lerp(Vector3.zero, _initContainerScale, t / 0.5f);
-            yield return null;
-        }
-        // Fade in the title
-        float t2 = 0;
-        CanvasGroup title = titleContainer.GetComponent<CanvasGroup>();
-
-        // Safety check for CanvasGroup
-        if (title == null)
-        {
-            Debug.LogError("No CanvasGroup found on the title container!");
-            yield break;
-        }
-
-        while (t2 < 0.5f)
-        {
-            t2 += Time.deltaTime;
-            title.alpha = Mathf.Lerp(0, 1, t2 / 0.5f); // Fade in over 0.5 seconds
-            yield return null;
-        }
+        initY = container.transform.localScale.y;
+        initX = container.transform.localScale.x;
+        container.transform.localScale = Vector3.zero;
+        container.transform.DOScaleY(initY, 0.2f);
+        yield return new WaitForSeconds(0.2f);
+        container.transform.DOScaleX(initX, 0.2f);
+        yield return new WaitForSeconds(0.4f);
+        titleContainer.GetComponent<CanvasGroup>().DOFade(1, 0.2f);
     }
 
     IEnumerator MinimizeContainerAndFadeOutTitle(GameObject mainPanel, GameObject container, GameObject titleContainer)
     {
-        CanvasGroup title = titleContainer.GetComponent<CanvasGroup>();
-        float t = 0;
-        while (t < 0.5f)
-        {
-            t += Time.deltaTime;
-            container.transform.localScale = Vector3.Lerp(container.transform.localScale, Vector3.zero, t / 0.5f);
-            title.alpha = Mathf.Lerp(1, 0, t / 0.5f);
-            yield return null;
-        }
-        container.transform.localScale = _initContainerScale;
+        titleContainer.GetComponent<CanvasGroup>().DOFade(0, 0.2f);
+
+        container.transform.DOScaleX(0, 0.2f);
+        yield return new WaitForSeconds(0.1f);
+        container.transform.DOScaleY(0, 0.1f);
+        yield return new WaitForSeconds(0.2f);
+        container.transform.localScale = new Vector3(initX, initY, 0);
         mainPanel.SetActive(false);
     }
 
