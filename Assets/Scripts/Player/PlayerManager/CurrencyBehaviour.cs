@@ -8,7 +8,7 @@ public class PlayerCurrencyBehaviour : MonoBehaviour
 
     public void SetCurrency(float amount)
     {
-        currency = amount;
+        currency += amount;
         EventManager.CurrencyChangeEvent(currency);
     }
 

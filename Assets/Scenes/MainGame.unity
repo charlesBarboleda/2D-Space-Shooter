@@ -12839,7 +12839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5.75}
+  m_AnchoredPosition: {x: 0, y: 6.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &303509336
@@ -15198,6 +15198,7 @@ GameObject:
   - component: {fileID: 379093750}
   - component: {fileID: 379093749}
   - component: {fileID: 379093748}
+  - component: {fileID: 379093751}
   m_Layer: 5
   m_Name: PlaguebringerButton
   m_TagString: Untagged
@@ -15225,10 +15226,10 @@ RectTransform:
   - {fileID: 1048290468}
   m_Father: {fileID: 2115081095}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -50}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 33.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &379093748
 MonoBehaviour:
@@ -15324,6 +15325,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 379093746}
   m_CullTransparentMesh: 1
+--- !u!225 &379093751
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379093746}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &382254405 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4212237911574779972, guid: f34d53a9f8cd409428b8d1e3addf4807, type: 3}
@@ -30997,7 +31010,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 408, y: 33.6}
+  m_AnchoredPosition: {x: 408, y: 34.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &746928764
@@ -33363,7 +33376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29.5, y: -13.22}
+  m_AnchoredPosition: {x: 29.5, y: -14.7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &794651031
@@ -41820,7 +41833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 315.78833, y: -10.08}
+  m_AnchoredPosition: {x: 315.78833, y: -11.559999}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1048290469
@@ -44847,7 +44860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1128218017
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45352,8 +45365,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "+You emanate Corrosion \n+Bullets and Abilities apply Corrosion\n+Bullet
     damage is applied to Corrosion\n+Gain 5s bullet lifetime\n+Gain 250 health\n+Gain
-    10 pick-up radius\n-Firerate reset to 3s\n-Bullet count reset to 1\n-Lose 5 movement
-    speed\n-Lose 10 bullet speed"
+    10 pick-up radius\n\n-Firerate reset to 3s\n-Bullet count reset to 1\n-Lose 5
+    movement speed\n-Lose 10 bullet speed"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -51000,7 +51013,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272503188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62922,7 +62935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5.75}
+  m_AnchoredPosition: {x: 0, y: 6.299999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1604387874
@@ -87860,6 +87873,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1667698760}
     - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
+      propertyPath: plaguebringerPanel
+      value: 
+      objectReference: {fileID: 379093746}
+    - target: {fileID: 6989944067021166449, guid: 395cb9b2dfb3994499dcd4ff579b5432, type: 3}
       propertyPath: rapidFireLevelText
       value: 
       objectReference: {fileID: 797665955}
@@ -88511,7 +88528,7 @@ PrefabInstance:
       objectReference: {fileID: 1669424652}
     - target: {fileID: 1500528328037580342, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: currency
-      value: 100000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1583078222676044500, guid: 130b07f53b906714d8f5c055d51310cf, type: 3}
       propertyPath: abilities.Array.size

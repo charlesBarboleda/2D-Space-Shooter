@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject prestigeContainer;
     [SerializeField] GameObject titleContainer;
     [SerializeField] Button yesButton;
+    [SerializeField] GameObject plaguebringerPanel;
     string prestigeColor = "#FFD700";
     Vector3 initScale;
     float initY, initX;
@@ -146,6 +147,7 @@ public class UIManager : MonoBehaviour
 
     public void OnPrestigeSelected(string prestige)
     {
+
         switch (prestige)
         {
             case "Plaguebringer":
@@ -161,18 +163,40 @@ public class UIManager : MonoBehaviour
     void OnPrestigeConfirmation(string prestige)
     {
 
-        switch (prestige)
+        if (PlayerManager.Instance.Currency() >= 50000)
         {
-            case "Plaguebringer":
-                PlayerManager.Instance.PrestigeToPlaguebringer();
-                confirmationPanel.SetActive(false);
-                prestigePanel.SetActive(false);
-                break;
+            switch (prestige)
+            {
+                case "Plaguebringer":
+                    PlayerManager.Instance.PrestigeToPlaguebringer();
+                    confirmationPanel.SetActive(false);
+                    prestigePanel.SetActive(false);
+                    break;
+            }
+
+            PlayerManager.Instance.SetCurrency(-50000);
+        }
+        else
+        {
+            MidScreenWarningText("Not enough currency", 2f);
+            confirmationPanel.SetActive(false);
+            prestigePanel.SetActive(false);
         }
     }
     public void CloseConfirmationPanel()
     {
         StartCoroutine(MinimizeContainer(confirmationPanel, 0.2f));
+    }
+
+    void FadeOutContainer(GameObject Container, float duration)
+    {
+        Container.GetComponent<CanvasGroup>().DOFade(0, duration);
+    }
+
+    IEnumerator FadeInContainer(float initialDelay, GameObject Container, float duration)
+    {
+        yield return new WaitForSeconds(initialDelay);
+        Container.GetComponent<CanvasGroup>().DOFade(1, duration);
     }
 
     void MaximizeContainer(GameObject Container, float duration)
@@ -232,6 +256,7 @@ public class UIManager : MonoBehaviour
 
     public void ClosePrestigePanel()
     {
+        FadeOutContainer(plaguebringerPanel, 0.1f);
         StartCoroutine(MinimizeContainerAndFadeOutTitle(prestigePanel, prestigeContainer, titleContainer));
     }
 
@@ -239,6 +264,8 @@ public class UIManager : MonoBehaviour
     {
         prestigePanel.SetActive(true);
         StartCoroutine(ExpandContainerAndShowTitle(prestigeContainer, titleContainer));
+        StartCoroutine(FadeInContainer(0.5f, plaguebringerPanel, 1f));
+
     }
     void PulseAbilityIcon()
     {
