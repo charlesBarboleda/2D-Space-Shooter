@@ -106,16 +106,6 @@ public class UpgradeShopManager : MonoBehaviour
     {
         upgrade.upgradeDescription = description;
     }
-    public void OpenUpgradeShop()
-    {
-        upgradeShopPanel.SetActive(true);
-    }
-
-
-    public void ExitUpgradeShop()
-    {
-        upgradeShopPanel.SetActive(false);
-    }
 
     public void ApplyHealthUpgrade()
     {

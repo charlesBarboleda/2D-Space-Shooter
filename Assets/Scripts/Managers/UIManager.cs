@@ -17,12 +17,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject prestigeContainer;
     [SerializeField] GameObject titleContainer;
     [SerializeField] Button yesButton;
+    string prestigeColor = "#FFD700";
     Vector3 initScale;
     float initY, initX;
     [Header("Ultimate Animations")]
     [SerializeField] Material _revealMaterial;
     [SerializeField] Image _cameraCrack;
     [SerializeField] Image _whiteFlash;
+    [SerializeField] Image _purpleFlash;
     [SerializeField] ParticleSystem _shatterParticles;
     [SerializeField] AudioClip _shatterSound;
 
@@ -142,22 +144,40 @@ public class UIManager : MonoBehaviour
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
     }
 
-    void InitializeConfirmationPanel()
+    public void OnPrestigeSelected(string prestige)
     {
-        confirmationPanel.SetActive(true);
-        confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text = $"You are about to prestige to {hoveredPrestige}";
-        confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text
+        switch (prestige)
+        {
+            case "Plaguebringer":
+                yesButton.onClick.AddListener(() => OnPrestigeConfirmation(prestige));
+                prestigeColor = "#670074";
+                string message = "You are about to prestige to \n <color=" + prestigeColor + ">" + prestige + "</color>";
+                confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
+                break;
+        }
+        OpenConfirmationPanel();
     }
 
-    public void CloseConfirmationPanel()
+    void OnPrestigeConfirmation(string prestige)
     {
 
+        switch (prestige)
+        {
+            case "Plaguebringer":
+                PlayerManager.Instance.PrestigeToPlaguebringer();
+                confirmationPanel.SetActive(false);
+                prestigePanel.SetActive(false);
+                break;
+        }
+    }
+    public void CloseConfirmationPanel()
+    {
         StartCoroutine(MinimizeContainer(confirmationPanel, 0.2f));
     }
 
     void MaximizeContainer(GameObject Container, float duration)
     {
-        InitializeConfirmationPanel();
+        Container.SetActive(true);
         initScale = Container.transform.localScale;
         Container.transform.localScale = Vector3.zero;
         Container.transform.DOScale(initScale, duration);
@@ -305,19 +325,25 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ActivateCrackAndShatter()
+    public void PrestigeCrackAndShatter()
     {
         _cameraCrack.gameObject.SetActive(true);
-        StartCoroutine(RevealAndShatter());
+        StartCoroutine(RevealAndShatter(_purpleFlash, 50f));
     }
 
-    IEnumerator RevealAndShatter()
+    public void UltimateActivateCrackAndShatter()
+    {
+        _cameraCrack.gameObject.SetActive(true);
+        StartCoroutine(RevealAndShatter(_whiteFlash, 75f));
+    }
+
+    IEnumerator RevealAndShatter(Image imageToFlash, float orthoSize)
     {
         _revealMaterial.SetFloat("_Cutoff", 0f);
         CameraFollowBehaviour.Instance.ShakePlayerCamera(10f, 5f, 1.3f);
         StartCoroutine(AnimateReveal(0.5f));
         yield return new WaitForSeconds(1f);
-        StartCoroutine(Shatter());
+        StartCoroutine(Shatter(imageToFlash, orthoSize));
     }
 
     IEnumerator AnimateReveal(float revealDuration)
@@ -333,29 +359,29 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    IEnumerator Shatter()
+    IEnumerator Shatter(Image imageToFlash, float orthoSize)
     {
         AudioManager.Instance.PlaySound(GameManager.Instance._audioSource, _shatterSound);
-        StartCoroutine(FlashWhite(0.1f));
+        StartCoroutine(FlashImage(imageToFlash, 0.1f));
         yield return new WaitForSeconds(0.2f);
-        CameraFollowBehaviour.Instance.IncreasePlayerOrthographicSize(75f, 6f);
+        CameraFollowBehaviour.Instance.IncreasePlayerOrthographicSize(orthoSize, 6f);
         _shatterParticles.Play();
         _cameraCrack.gameObject.SetActive(false);
     }
 
-    IEnumerator FlashWhite(float duration)
+    IEnumerator FlashImage(Image imageToFlash, float duration)
     {
-        _whiteFlash.gameObject.SetActive(true);
+        imageToFlash.gameObject.SetActive(true);
         yield return new WaitForSeconds(duration);
         float t = 0;
         while (t < 0.5f)
         {
             t += Time.deltaTime;
             float fade = Mathf.Lerp(1, 0, t / 0.5f);
-            _whiteFlash.color = new Color(1, 1, 1, fade);
+            imageToFlash.color = new Color(1, 1, 1, fade);
             yield return null;
         }
-        _whiteFlash.gameObject.SetActive(false);
+        imageToFlash.gameObject.SetActive(false);
     }
 
 

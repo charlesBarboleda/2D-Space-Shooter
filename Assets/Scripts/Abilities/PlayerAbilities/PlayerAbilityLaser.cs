@@ -23,7 +23,7 @@ public class AbilityLaser : Ability
 
         if (isUltimate)
         {
-            UIManager.Instance.ActivateCrackAndShatter();
+            UIManager.Instance.UltimateActivateCrackAndShatter();
             GameManager.Instance.StartCoroutine(ActivateUltimateLasers(owner, ownerAudioSource, isUltimate));
             // Spawn lasers in every direction (360 degrees)
 

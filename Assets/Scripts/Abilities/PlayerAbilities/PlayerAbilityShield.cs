@@ -15,7 +15,7 @@ public class AbilityShield : Ability
     {
         if (isUltimate)
         {
-            UIManager.Instance.ActivateCrackAndShatter();
+            UIManager.Instance.UltimateActivateCrackAndShatter();
             GameManager.Instance.StartCoroutine(UltimateShieldLogic(owner));
         }
         else

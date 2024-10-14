@@ -112,8 +112,8 @@ public class PlayerComboManager : MonoBehaviour
     {
         var emission = _playerManager.arrowEmission.emission;
         emission.rateOverTime = 20;
-        _playerManager.SetMaxHealth(_playerManager.MaxHealth() * 1.5f);
-        _playerManager.SetCurrentHealth(_playerManager.CurrentHealth() * 1.5f);
+        _playerManager.SetMaxHealth(_playerManager.MaxHealth() * 1.25f);
+        _playerManager.SetCurrentHealth(_playerManager.CurrentHealth() * 1.25f);
     }
 
     void DealAOEDamage()
@@ -200,8 +200,8 @@ public class PlayerComboManager : MonoBehaviour
         }
         if (buffsActivated[100] == true)
         {
-            _playerManager.SetMaxHealth(_playerManager.MaxHealth() / 1.5f);
-            _playerManager.SetCurrentHealth(_playerManager.CurrentHealth() / 1.5f);
+            _playerManager.SetMaxHealth(_playerManager.MaxHealth() / 1.25f);
+            _playerManager.SetCurrentHealth(_playerManager.CurrentHealth() / 1.25f);
             buffsActivated[100] = false;
         }
         if (buffsActivated[150] == true)

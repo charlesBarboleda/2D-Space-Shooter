@@ -17,7 +17,7 @@ public class AbilityTeleport : Ability
 
         if (isUltimate)
         {
-            UIManager.Instance.ActivateCrackAndShatter();
+            UIManager.Instance.UltimateActivateCrackAndShatter();
             GameManager.Instance.StartCoroutine(ActivateUltimateTeleport(owner));
         }
         else

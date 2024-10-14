@@ -4,12 +4,14 @@ using CartoonFX;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 [DefaultExecutionOrder(-99)]
 public class PlayerManager : MonoBehaviour, ITargetable
 {
     public static PlayerManager Instance { get; private set; }
 
+    SpriteRenderer _spriteRenderer;
     PlayerHealthBehaviour _health;
     PlayerCurrencyBehaviour _currency;
     PlayerMovementBehaviour _movement;
@@ -23,6 +25,8 @@ public class PlayerManager : MonoBehaviour, ITargetable
     Weapon _weapon;
     public PrestigeType chosenPrestige = PrestigeType.None;
     public ParticleSystem arrowEmission;
+    [SerializeField] Sprite _plaguebringer;
+    [SerializeField] GameObject plaguebringerBuff;
     [SerializeField] GameObject Buff;
     [SerializeField] AudioClip _onDebrisAudio;
     [SerializeField] AudioClip _onPowerUpAudio;
@@ -55,7 +59,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
 
     void Start()
     {
-        // Debug.Log($"WeaponType.PlayerCorrodeBullet type: {WeaponType.PlayerCorrodeBullet.GetType()}");
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _faction = GetComponent<Faction>();
         _combo = GetComponent<PlayerComboManager>();
         _audioSource = GetComponent<AudioSource>();
@@ -78,6 +82,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
         {
             Destroy(gameObject);
         }
+
     }
     public void PrestigeTo(PrestigeType prestige)
     {
@@ -86,6 +91,17 @@ public class PlayerManager : MonoBehaviour, ITargetable
     }
     public void PrestigeToPlaguebringer()
     {
+        StartCoroutine(PrestigeAnimation("PlaguebringerPrestigeAnimation", 1.3f));
+    }
+
+    IEnumerator PrestigeAnimation(string animationName, float animationDuration)
+    {
+        GameObject prestigeAnimation = ObjectPooler.Instance.SpawnFromPool(animationName, transform.position, Quaternion.identity);
+        prestigeAnimation.transform.SetParent(transform);
+        yield return new WaitForSeconds(2f);
+        UIManager.Instance.PrestigeCrackAndShatter();
+        yield return new WaitForSeconds(animationDuration);
+        prestigeAnimation.SetActive(false);
         PrestigeTo(PrestigeType.Plaguebringer);
     }
 
@@ -96,6 +112,9 @@ public class PlayerManager : MonoBehaviour, ITargetable
             case PrestigeType.None:
                 break;
             case PrestigeType.Plaguebringer:
+                plaguebringerBuff.SetActive(true);
+                _spriteRenderer.sprite = _plaguebringer;
+                _spriteRenderer.transform.localScale = new Vector3(1.4f, 1.4f, 1.4f);
                 _weapon.weaponType = WeaponType.PlayerCorrodeBullet;
                 _weapon.amountOfBullets = 1;
                 _weapon.bulletLifetime += 5f;
