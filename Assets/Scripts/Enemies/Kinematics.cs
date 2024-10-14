@@ -39,7 +39,6 @@ public class Kinematics : MonoBehaviour
     {
         _rotateClockwise = Random.value > 0.5f;
         agent = GetComponent<NavMeshAgent>();
-
         StartCoroutine(InitializeAgent());
         if (agent == null)
         {

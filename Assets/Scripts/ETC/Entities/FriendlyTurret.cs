@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class FriendlyTurret : ShooterEnemy
 {
+
     protected override void Attack()
     {
         BulletPattern = BulletPatterns.RandomSpread;
     }
+
+
+
+
 
 }

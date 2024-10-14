@@ -9868,7 +9868,6 @@ GameObject:
   - component: {fileID: 6345799238015220175}
   - component: {fileID: 7573661992567814207}
   - component: {fileID: 3312028033626456625}
-  - component: {fileID: 8048218574253681071}
   - component: {fileID: 8144410556971869979}
   - component: {fileID: 5640835699285431385}
   - component: {fileID: 6562819236652315157}
@@ -9887,6 +9886,7 @@ GameObject:
   - component: {fileID: 6822128116451707238}
   - component: {fileID: 2677676125142884292}
   - component: {fileID: 17942243213214520}
+  - component: {fileID: 5715971083680824490}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -10078,27 +10078,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 7573661992567814207}
   shootingSound: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
---- !u!114 &8048218574253681071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5239728600239547954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5d9fd84d6caaf642bdc8225bd9db3aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponType: 3
-  fireRate: 0.4
-  bulletSpeed: 40
-  bulletDamage: 100
-  amountOfBullets: 1
-  shootingAngle: 3
-  shootSound: {fileID: 8300000, guid: 3a22e16655512ba47a2ab816685f7a30, type: 3}
-  audioSource: {fileID: 7573661992567814207}
-  bulletSpawnPoint: {fileID: 6551266117133465265}
 --- !u!114 &8144410556971869979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10324,6 +10303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec086c6afe84af449f63316f01096f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chosenPrestige: 0
   arrowEmission: {fileID: 8603191781633834710}
   Buff: {fileID: 5380624335121071338}
   _onDebrisAudio: {fileID: 8300000, guid: 6994722157c02c825ac0b6fea74a47ad, type: 3}
@@ -10573,6 +10553,28 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 5239728600239547954}
+--- !u!114 &5715971083680824490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239728600239547954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d9fd84d6caaf642bdc8225bd9db3aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 0
+  fireRate: 0.4
+  bulletSpeed: 40
+  bulletDamage: 100
+  bulletLifetime: 0
+  amountOfBullets: 1
+  shootingAngle: 3
+  shootSound: {fileID: 8300000, guid: 3a22e16655512ba47a2ab816685f7a30, type: 3}
+  audioSource: {fileID: 7573661992567814207}
+  bulletSpawnPoint: {fileID: 6551266117133465265}
 --- !u!1 &6253943412290227433
 GameObject:
   m_ObjectHideFlags: 0

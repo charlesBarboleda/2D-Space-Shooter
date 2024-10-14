@@ -3,18 +3,13 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public enum WeaponType
-    {
-        PlayerBullet,
-        PlayerLeechBullet,
-        PlayerReflectBullet,
-        PlayerCorrodeBullet,
-    }
+
     [Header("Weapon Settings")]
     public WeaponType weaponType;
     public float fireRate = 0.2f;
     public float bulletSpeed = 30f;
     public float bulletDamage = 20f;
+    public float bulletLifetime = 5f;
     public int amountOfBullets = 1; // Number of bullets fired in a burst
     public float shootingAngle = 10f; // Angle to spread bullets
 
@@ -25,13 +20,14 @@ public class Weapon : MonoBehaviour
     bool isFiring = false;
     Coroutine firingCoroutine;
 
-    public Weapon(float fireRate, float bulletSpeed, float bulletDamage, int amountOfBullets, float shootingAngle)
+    public Weapon(float fireRate, float bulletSpeed, float bulletDamage, int amountOfBullets, float shootingAngle, float bulletLifetime)
     {
         this.fireRate = fireRate;
         this.bulletSpeed = bulletSpeed;
         this.bulletDamage = bulletDamage;
         this.amountOfBullets = amountOfBullets;
         this.shootingAngle = shootingAngle;
+        this.bulletLifetime = bulletLifetime;
     }
 
     private void Update()
@@ -91,7 +87,7 @@ public class Weapon : MonoBehaviour
                 float spreadAngle = startAngle + i * shootingAngle;
                 Vector3 bulletDirection = Quaternion.Euler(0, 0, spreadAngle) * direction;
                 bullet.transform.rotation = Quaternion.LookRotation(Vector3.forward, bulletDirection);
-                bulletScript.Initialize(bulletSpeed, bulletDamage, bulletScript.BulletLifetime, bulletDirection);
+                bulletScript.Initialize(bulletSpeed, bulletDamage, bulletLifetime, bulletDirection);
             }
         }
     }

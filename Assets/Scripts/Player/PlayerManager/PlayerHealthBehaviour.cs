@@ -63,9 +63,9 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
         else _healingParticles.gameObject.SetActive(false);
     }
 
-    public void SetMaxHealth(float newMaxHealth) => maxHealth = newMaxHealth;
-    public void SetCurrentHealth(float newCurrentHealth) => currentHealth = newCurrentHealth;
-    public void SetHealthRegenRate(float newHealthRegenRate) => healthRegenRate = newHealthRegenRate;
+    public void SetMaxHealth(float newMaxHealth) => maxHealth += newMaxHealth;
+    public void SetCurrentHealth(float newCurrentHealth) => currentHealth += newCurrentHealth;
+    public void SetHealthRegenRate(float newHealthRegenRate) => healthRegenRate += newHealthRegenRate;
 
     public IEnumerator HandleDeath()
     {

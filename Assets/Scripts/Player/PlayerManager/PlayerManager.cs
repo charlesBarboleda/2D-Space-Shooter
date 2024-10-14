@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using CartoonFX;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [DefaultExecutionOrder(-99)]
@@ -20,6 +21,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
 
     Faction _faction;
     Weapon _weapon;
+    public PrestigeType chosenPrestige = PrestigeType.None;
     public ParticleSystem arrowEmission;
     [SerializeField] GameObject Buff;
     [SerializeField] AudioClip _onDebrisAudio;
@@ -31,16 +33,29 @@ public class PlayerManager : MonoBehaviour, ITargetable
         SetSingleton();
     }
 
+    void OnEnable()
+    {
+        EventManager.OnPrestigeChange += ApplyPrestigeEffects;
+    }
+
+    void OnDisable()
+    {
+        EventManager.OnPrestigeChange -= ApplyPrestigeEffects;
+    }
+
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-
+            PrestigeToPlaguebringer();
+            Debug.Log("Prestiged to Plaguebringer");
         }
     }
 
     void Start()
     {
+        // Debug.Log($"WeaponType.PlayerCorrodeBullet type: {WeaponType.PlayerCorrodeBullet.GetType()}");
         _faction = GetComponent<Faction>();
         _combo = GetComponent<PlayerComboManager>();
         _audioSource = GetComponent<AudioSource>();
@@ -62,6 +77,45 @@ public class PlayerManager : MonoBehaviour, ITargetable
         else
         {
             Destroy(gameObject);
+        }
+    }
+    public void PrestigeTo(PrestigeType prestige)
+    {
+        chosenPrestige = prestige;
+        EventManager.PrestigeChangeEvent(prestige);
+    }
+    public void PrestigeToPlaguebringer()
+    {
+        PrestigeTo(PrestigeType.Plaguebringer);
+    }
+
+    void ApplyPrestigeEffects(PrestigeType prestige)
+    {
+        switch (prestige)
+        {
+            case PrestigeType.None:
+                break;
+            case PrestigeType.Plaguebringer:
+                _weapon.weaponType = WeaponType.PlayerCorrodeBullet;
+                _weapon.amountOfBullets = 1;
+                _weapon.bulletLifetime += 5f;
+                _weapon.bulletSpeed -= 10f;
+                _weapon.fireRate = 3f;
+                _pickUpBehaviour.PickUpRadius += 10f;
+                _movement.SetMoveSpeed(-5f);
+                _health.SetMaxHealth(250f);
+                _health.SetCurrentHealth(250f);
+                StartCoroutine(PlayerCorrosion());
+                break;
+        }
+    }
+    IEnumerator PlayerCorrosion()
+    {
+        while (chosenPrestige == PrestigeType.Plaguebringer)
+        {
+            GameObject corrode = ObjectPooler.Instance.SpawnFromPool("CorrodeEffect", transform.position, Quaternion.identity);
+            corrode.GetComponent<CorrosionEffect>().ApplyCorrode(gameObject, _weapon.bulletDamage * 5);
+            yield return new WaitForSeconds(5f);
         }
     }
     public void ActivateBuffAnimations()

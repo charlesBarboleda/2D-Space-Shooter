@@ -12,9 +12,11 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     [Header("Prestige Shop")]
+    [SerializeField] GameObject confirmationPanel;
     [SerializeField] GameObject prestigePanel;
     [SerializeField] GameObject prestigeContainer;
     [SerializeField] GameObject titleContainer;
+    Vector3 initScale;
     float initY, initX;
     [Header("Ultimate Animations")]
     [SerializeField] Material _revealMaterial;
@@ -133,57 +135,48 @@ public class UIManager : MonoBehaviour
         }
 
         // Update the ability icons fill amount based on the cooldown
-        foreach (Ability ability in _abilityHolder.abilities)
-        {
-            if (ability.isUnlocked)
-            {
-                if (ability is AbilityLaser)
-                {
-                    laserIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
-                }
-                if (ability is AbilityShield)
-                {
-                    shieldIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
-                }
-                if (ability is AbilityTeleport)
-                {
-                    teleportIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
-                }
-                if (ability is AbilityTurrets)
-                {
-                    turretIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
-                }
-            }
-            if (ability.isUltimateUnlocked)
-            {
-                if (ability is AbilityLaser)
-                {
-                    laserUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
-                }
-                if (ability is AbilityShield)
-                {
-                    shieldUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
-                }
-                if (ability is AbilityTeleport)
-                {
-                    teleportUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
-                }
-                if (ability is AbilityTurrets)
-                {
-                    turretUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
-                }
-            }
-        }
+        UpdateAbilityIconCooldowns();
 
         // Set the currency icon position based on the currency text width
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
+    }
+
+    void InitializeConfirmationPanel()
+    {
+        confirmationPanel.SetActive(true);
+        confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text = $"You are about to prestige to Plaguebringer";
+    }
+
+    public void CloseConfirmationPanel()
+    {
+
+        StartCoroutine(MinimizeContainer(confirmationPanel, 0.2f));
+    }
+
+    void MaximizeContainer(GameObject Container, float duration)
+    {
+        InitializeConfirmationPanel();
+        initScale = Container.transform.localScale;
+        Container.transform.localScale = Vector3.zero;
+        Container.transform.DOScale(initScale, duration);
+    }
+    IEnumerator MinimizeContainer(GameObject Container, float duration)
+    {
+        Container.transform.DOScale(0, duration);
+        yield return new WaitForSeconds(duration);
+        Container.transform.localScale = initScale;
+        Container.SetActive(false);
+    }
+
+    public void OpenConfirmationPanel()
+    {
+        MaximizeContainer(confirmationPanel, 0.2f);
     }
     public void OpenUpgradeShop()
     {
         upgradeShopPanel.SetActive(true);
         StartCoroutine(ExpandContainerAndShowTitle(upgradeShopContainer, upgradeShopTitle));
     }
-
 
     public void ExitUpgradeShop()
     {
@@ -232,6 +225,51 @@ public class UIManager : MonoBehaviour
             if (ability.isUltimateReady)
             {
                 StartCoroutine(PulseIcon(ability));
+            }
+        }
+    }
+
+    void UpdateAbilityIconCooldowns()
+    {
+        foreach (Ability ability in _abilityHolder.abilities)
+        {
+            if (ability.isUnlocked)
+            {
+                if (ability is AbilityLaser)
+                {
+                    laserIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+                }
+                if (ability is AbilityShield)
+                {
+                    shieldIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+                }
+                if (ability is AbilityTeleport)
+                {
+                    teleportIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+                }
+                if (ability is AbilityTurrets)
+                {
+                    turretIconFill.fillAmount = ability.currentCooldown / ability.cooldown;
+                }
+            }
+            if (ability.isUltimateUnlocked)
+            {
+                if (ability is AbilityLaser)
+                {
+                    laserUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
+                }
+                if (ability is AbilityShield)
+                {
+                    shieldUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
+                }
+                if (ability is AbilityTeleport)
+                {
+                    teleportUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
+                }
+                if (ability is AbilityTurrets)
+                {
+                    turretUltIconFill.fillAmount = ability.currentUltimateCooldown / ability.ultimateCooldown;
+                }
             }
         }
     }

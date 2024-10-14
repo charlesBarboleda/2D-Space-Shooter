@@ -28,6 +28,24 @@ public class PlayerTeleportPrefab : MonoBehaviour
             }
         }
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // Applies Corrode to the enemy if prestiged
+        if (PlayerManager.Instance.chosenPrestige == PrestigeType.Plaguebringer)
+        {
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                if (other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates") || other.CompareTag("CrimsonFleet") || other.CompareTag("Asteroid"))
+                {
+                    GameObject Corrode = ObjectPooler.Instance.SpawnFromPool("CorrodeEffect", other.transform.position, Quaternion.identity);
+                    Corrode.GetComponent<CorrosionEffect>().ApplyCorrode(other.gameObject, _dps * 10);
+
+                }
+            }
+        }
+    }
+
 
     public void SetDamage(float dps)
     {
