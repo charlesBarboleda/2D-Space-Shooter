@@ -10,6 +10,11 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+    [Header("Prestige Shop")]
+    [SerializeField] GameObject prestigePanel;
+    [SerializeField] GameObject prestigeContainer;
+    [SerializeField] GameObject titleContainer;
+    Vector3 _initContainerScale;
     [Header("Ultimate Animations")]
     [SerializeField] Material _revealMaterial;
     [SerializeField] Image _cameraCrack;
@@ -33,6 +38,8 @@ public class UIManager : MonoBehaviour
 
     [Header("Upgrade Shop")]
     [SerializeField] GameObject upgradeShopPanel;
+    [SerializeField] GameObject upgradeShopContainer;
+    [SerializeField] GameObject upgradeShopTitle;
     [SerializeField] TextMeshProUGUI healthUpgradeText, damageUpgradeText, fireRateUpgradeText, bulletSpeedUpgradeText, extraBulletUpgradeText, speedUpgradeText, pickUpUpgradeText;
     [SerializeField] TextMeshProUGUI healthCost, damageCost, fireRateCost, bulletSpeedCost, extraBulletCost, speedCost, pickUpCost;
 
@@ -65,6 +72,8 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Panels")]
     public GameObject skillTreePanel;
+    public GameObject skillTreeContainer;
+    public GameObject skillTreeTitle;
     public GameObject bossHealthBar;
     public GameObject gameOverPanel;
     public GameObject miniMapContainer;
@@ -167,6 +176,76 @@ public class UIManager : MonoBehaviour
 
         // Set the currency icon position based on the currency text width
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
+    }
+    public void OpenUpgradeShop()
+    {
+        upgradeShopPanel.SetActive(true);
+        StartCoroutine(ExpandContainerAndShowTitle(upgradeShopContainer, upgradeShopTitle));
+    }
+
+
+    public void ExitUpgradeShop()
+    {
+        StartCoroutine(MinimizeContainerAndFadeOutTitle(upgradeShopPanel, upgradeShopContainer, upgradeShopTitle));
+    }
+
+    IEnumerator ExpandContainerAndShowTitle(GameObject container, GameObject titleContainer)
+    {
+        _initContainerScale = container.transform.localScale;
+        container.transform.localScale = Vector3.zero;  // Start collapsed
+        float t = 0;
+
+        // Expand the container over 0.5 seconds
+        while (t < 0.5f)
+        {
+            t += Time.deltaTime;
+            container.transform.localScale = Vector3.Lerp(Vector3.zero, _initContainerScale, t / 0.5f);
+            yield return null;
+        }
+        // Fade in the title
+        float t2 = 0;
+        CanvasGroup title = titleContainer.GetComponent<CanvasGroup>();
+
+        // Safety check for CanvasGroup
+        if (title == null)
+        {
+            Debug.LogError("No CanvasGroup found on the title container!");
+            yield break;
+        }
+
+        while (t2 < 0.5f)
+        {
+            t2 += Time.deltaTime;
+            title.alpha = Mathf.Lerp(0, 1, t2 / 0.5f); // Fade in over 0.5 seconds
+            yield return null;
+        }
+    }
+
+    IEnumerator MinimizeContainerAndFadeOutTitle(GameObject mainPanel, GameObject container, GameObject titleContainer)
+    {
+        CanvasGroup title = titleContainer.GetComponent<CanvasGroup>();
+        float t = 0;
+        while (t < 0.5f)
+        {
+            t += Time.deltaTime;
+            container.transform.localScale = Vector3.Lerp(container.transform.localScale, Vector3.zero, t / 0.5f);
+            title.alpha = Mathf.Lerp(1, 0, t / 0.5f);
+            yield return null;
+        }
+        container.transform.localScale = _initContainerScale;
+        mainPanel.SetActive(false);
+    }
+
+
+    public void ClosePrestigePanel()
+    {
+        StartCoroutine(MinimizeContainerAndFadeOutTitle(prestigePanel, prestigeContainer, titleContainer));
+    }
+
+    public void OpenPrestigePanel()
+    {
+        prestigePanel.SetActive(true);
+        StartCoroutine(ExpandContainerAndShowTitle(prestigeContainer, titleContainer));
     }
     void PulseAbilityIcon()
     {
@@ -592,11 +671,13 @@ public class UIManager : MonoBehaviour
 
     public void ExitSkillTree()
     {
-        skillTreePanel.SetActive(false);
+        StartCoroutine(MinimizeContainerAndFadeOutTitle(skillTreePanel, skillTreeContainer, skillTreeTitle));
     }
 
     public void OpenSkillTree()
     {
         skillTreePanel.SetActive(true);
+        StartCoroutine(ExpandContainerAndShowTitle(skillTreeContainer, skillTreeTitle));
+
     }
 }

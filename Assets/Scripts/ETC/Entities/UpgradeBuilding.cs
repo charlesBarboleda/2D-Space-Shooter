@@ -8,7 +8,7 @@ public class UpgradeBuilding : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            UpgradeShopManager.Instance.OpenUpgradeShop();
+            UIManager.Instance.OpenUpgradeShop();
             Debug.Log("Inside Upgrade building");
         }
     }
@@ -18,7 +18,7 @@ public class UpgradeBuilding : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player"))
         {
-            UpgradeShopManager.Instance.ExitUpgradeShop();
+            UIManager.Instance.ExitUpgradeShop();
             Debug.Log("Exit Upgrade building");
         }
     }
