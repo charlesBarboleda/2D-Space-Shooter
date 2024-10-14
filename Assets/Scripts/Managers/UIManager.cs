@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject prestigePanel;
     [SerializeField] GameObject prestigeContainer;
     [SerializeField] GameObject titleContainer;
+    [SerializeField] Button yesButton;
     Vector3 initScale;
     float initY, initX;
     [Header("Ultimate Animations")]
@@ -144,7 +145,8 @@ public class UIManager : MonoBehaviour
     void InitializeConfirmationPanel()
     {
         confirmationPanel.SetActive(true);
-        confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text = $"You are about to prestige to Plaguebringer";
+        confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text = $"You are about to prestige to {hoveredPrestige}";
+        confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text
     }
 
     public void CloseConfirmationPanel()
