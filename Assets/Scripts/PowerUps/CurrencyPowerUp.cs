@@ -39,10 +39,8 @@ public class CurrencyPowerUp : PowerUp, IPickable
 
     protected override void Effect()
     {
-        Debug.Log("Currency PowerUp Activated");
-
         _player.SetCurrency(_player.Currency() + _currencyAmount);
-        Debug.Log("Speed: " + _player.MoveSpeed());
+        UIManager.Instance.MidScreenWarningText("+" + _currencyAmount + " Currency", 1f);
     }
 
     public override void DeactivateEffect()

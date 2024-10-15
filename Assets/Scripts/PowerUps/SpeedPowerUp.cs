@@ -38,22 +38,19 @@ public class SpeedPowerUp : PowerUp, IPickable
 
     protected override void Effect()
     {
-        Debug.Log("Speed PowerUp Activated");
 
-        _player.SetMoveSpeed(_player.MoveSpeed() * 2);
+        _initSpeed = _player.Movement().moveSpeed;
+        _player.Movement().moveSpeed *= 2;
         UIManager.Instance.SpeedPowerUp.SetActive(true);
-
-        Debug.Log("Speed: " + _player.MoveSpeed());
+        UIManager.Instance.MidScreenWarningText("Speed PowerUp Activated", 1f);
     }
 
     public override void DeactivateEffect()
     {
-        Debug.Log("Speed PowerUp Deactivated");
-        _initSpeed = _player.MoveSpeed() / 2;
-        _player.SetMoveSpeed(_initSpeed);
+        _player.Movement().moveSpeed = _initSpeed;
         UIManager.Instance.SpeedPowerUp.SetActive(false);
 
-        Debug.Log("Speed: " + _player.MoveSpeed());
+
     }
 
 

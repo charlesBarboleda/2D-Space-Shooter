@@ -16,6 +16,7 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
     [SerializeField] string _deathExplosion;
     public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
     public string deathExplosion { get => _deathExplosion; set => _deathExplosion = value; }
+    public float healthCap = 1f;
     bool hasRevived = false;
 
     // Start is called before the first frame update
@@ -28,11 +29,11 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
     void Update()
     {
         RegenHealth();
-        CapHealth();
+        CapHealth(healthCap);
     }
-    void CapHealth()
+    void CapHealth(float percentage = 1f)
     {
-        currentHealth = Mathf.Min(currentHealth, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth * percentage);
     }
 
     public void TakeDamage(float damage)

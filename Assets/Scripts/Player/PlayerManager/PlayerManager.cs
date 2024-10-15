@@ -41,7 +41,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            _prestigeManager.PrestigeToSunlancer();
+            _prestigeManager.PrestigeToBerzerker();
         }
     }
 
@@ -119,11 +119,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
     public PickUpBehaviour PickUpBehaviour() => _pickUpBehaviour;
     public PowerUpBehaviour PowerUpBehaviour() => _powerUpBehaviour;
     public PrestigeManager PrestigeManager() => _prestigeManager;
-
-    #region Movement Management
-    public void SetMoveSpeed(float newMoveSpeed) => _movement.SetMoveSpeed(newMoveSpeed);
-    public float MoveSpeed() => _movement.MoveSpeed();
-    #endregion
+    public PlayerMovementBehaviour Movement() => _movement;
 
     #region Health Management
     public void SetMaxHealth(float newMaxHealth) => _health.SetMaxHealth(newMaxHealth);

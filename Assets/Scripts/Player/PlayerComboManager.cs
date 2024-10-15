@@ -77,7 +77,7 @@ public class PlayerComboManager : MonoBehaviour
     {
         var emission = _playerManager.arrowEmission.emission;
         emission.rateOverTime = 5;
-        _playerManager.SetMoveSpeed(_playerManager.MoveSpeed() * 1.5f);
+        _playerManager.Movement().moveSpeed *= 1.5f;
     }
 
     void IncreasePlayerBulletSpeed()
@@ -183,7 +183,7 @@ public class PlayerComboManager : MonoBehaviour
         _playerManager.DeactivateBuffAnimations();
         if (buffsActivated[25] == true)
         {
-            _playerManager.SetMoveSpeed(_playerManager.MoveSpeed() / 1.5f);
+            _playerManager.Movement().moveSpeed /= 1.5f;
             buffsActivated[25] = false;
         }
 

@@ -77,7 +77,6 @@ public class Weapon : MonoBehaviour
 
         for (int i = 0; i < bulletAmount; i++)
         {
-
             GameObject bullet = ObjectPooler.Instance.SpawnFromPool(weaponType.ToString(), bulletSpawnPoint, Quaternion.identity);
             Bullet bulletScript = bullet.GetComponent<Bullet>();
 

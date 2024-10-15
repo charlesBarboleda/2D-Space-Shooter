@@ -20,12 +20,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject plaguebringerPanel;
     [SerializeField] GameObject lifewardenPanel;
     [SerializeField] GameObject sunlancerPanel;
+    [SerializeField] GameObject berzerkerPanel;
     string prestigeColor = "#FFD700";
     Vector3 initScale;
     float initY, initX;
     [Header("Ultimate Animations")]
     [SerializeField] Material _revealMaterial;
     [SerializeField] Image _cameraCrack;
+    [SerializeField] Image _redFlash;
     [SerializeField] Image _whiteFlash;
     [SerializeField] Image _purpleFlash;
     [SerializeField] Image _greenFlash;
@@ -172,6 +174,12 @@ public class UIManager : MonoBehaviour
                 message = "You are about to prestige to \n <color=" + prestigeColor + ">" + prestige + "</color>";
                 confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
                 break;
+            case "Berzerker":
+                yesButton.onClick.AddListener(() => OnPrestigeConfirmation(prestige));
+                prestigeColor = "#FF0008";
+                message = "You are about to prestige to \n <color=" + prestigeColor + ">" + prestige + "</color>";
+                confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
+                break;
         }
         OpenConfirmationPanel();
     }
@@ -195,6 +203,11 @@ public class UIManager : MonoBehaviour
                     break;
                 case "Sunlancer":
                     PlayerManager.Instance.PrestigeManager().PrestigeToSunlancer();
+                    confirmationPanel.SetActive(false);
+                    prestigePanel.SetActive(false);
+                    break;
+                case "Berzerker":
+                    PlayerManager.Instance.PrestigeManager().PrestigeToBerzerker();
                     confirmationPanel.SetActive(false);
                     prestigePanel.SetActive(false);
                     break;
@@ -293,6 +306,7 @@ public class UIManager : MonoBehaviour
         StartCoroutine(FadeInContainer(0.5f, plaguebringerPanel, 1f));
         StartCoroutine(FadeInContainer(0.5f, lifewardenPanel, 1f));
         StartCoroutine(FadeInContainer(0.5f, sunlancerPanel, 1f));
+        StartCoroutine(FadeInContainer(0.5f, berzerkerPanel, 1f));
 
     }
     void PulseAbilityIcon()
@@ -394,6 +408,14 @@ public class UIManager : MonoBehaviour
     {
         _cameraCrack.gameObject.SetActive(true);
         StartCoroutine(RevealAndShatter(_yellowFlash, 50f));
+    }
+
+    public void BerzerkerPrestigeCrackAndShatter()
+    {
+        _cameraCrack.gameObject.SetActive(true);
+        Debug.Log("Berzerker Prestige Crack and Shatter");
+        StartCoroutine(RevealAndShatter(_redFlash, 50f));
+        Debug.Log("Post Berzerker Prestige Crack and Shatter");
     }
 
     public void UltimateActivateCrackAndShatter()

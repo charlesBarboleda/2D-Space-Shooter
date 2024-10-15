@@ -8,9 +8,12 @@ public class PrestigeManager : MonoBehaviour
     [SerializeField] Sprite _lifewarden;
     [SerializeField] Sprite _plaguebringer;
     [SerializeField] Sprite _sunlancer;
+    [SerializeField] Sprite _berzerker;
     [SerializeField] GameObject lifewardenBuff;
     [SerializeField] GameObject plaguebringerBuff;
     [SerializeField] GameObject sunlancerBuff;
+    [SerializeField] GameObject _berzerkerBuff;
+
     public PrestigeType chosenPrestige = PrestigeType.None;
     SpriteRenderer _spriteRenderer;
     Weapon _weapon;
@@ -45,16 +48,21 @@ public class PrestigeManager : MonoBehaviour
     }
     public void PrestigeToPlaguebringer()
     {
-        StartCoroutine(PrestigeAnimation(PrestigeType.Plaguebringer, "PlaguebringerPrestigeAnimation", 1.3f));
+        StartCoroutine(PrestigeAnimation(PrestigeType.Plaguebringer, "PlaguebringerPrestigeAnimation", 1.2f));
     }
     public void PrestigeToLifewarden()
     {
-        StartCoroutine(PrestigeAnimation(PrestigeType.Lifewarden, "LifewardenPrestigeAnimation", 1.3f));
+        StartCoroutine(PrestigeAnimation(PrestigeType.Lifewarden, "LifewardenPrestigeAnimation", 1.2f));
     }
 
     public void PrestigeToSunlancer()
     {
-        StartCoroutine(PrestigeAnimation(PrestigeType.Sunlancer, "SunlancerPrestigeAnimation", 1.3f));
+        StartCoroutine(PrestigeAnimation(PrestigeType.Sunlancer, "SunlancerPrestigeAnimation", 1.2f));
+    }
+
+    public void PrestigeToBerzerker()
+    {
+        StartCoroutine(PrestigeAnimation(PrestigeType.Berzerker, "BerzerkerPrestigeAnimation", 1.2f));
     }
 
     IEnumerator PrestigeAnimation(PrestigeType prestigeTo, string animationName, float animationDuration)
@@ -74,6 +82,10 @@ public class PrestigeManager : MonoBehaviour
         {
             UIManager.Instance.SunlancerPrestigeCrackAndShatter();
         }
+        else if (prestigeTo == PrestigeType.Berzerker)
+        {
+            UIManager.Instance.BerzerkerPrestigeCrackAndShatter();
+        }
         yield return new WaitForSeconds(animationDuration);
         prestigeAnimation.SetActive(false);
         PrestigeTo(prestigeTo);
@@ -88,14 +100,14 @@ public class PrestigeManager : MonoBehaviour
             case PrestigeType.Plaguebringer:
                 plaguebringerBuff.SetActive(true);
                 _spriteRenderer.sprite = _plaguebringer;
-                _spriteRenderer.transform.localScale = new Vector3(1.4f, 1.4f, 1.4f);
+                _spriteRenderer.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
                 _weapon.weaponType = WeaponType.PlayerCorrodeBullet;
                 _weapon.amountOfBullets = 1;
                 _weapon.bulletLifetime += 5f;
                 _weapon.bulletSpeed -= 10f;
                 _weapon.fireRate = 3f;
                 _pickUpBehaviour.PickUpRadius += 15f;
-                _movement.SetMoveSpeed(-5f);
+                _movement.moveSpeed -= -5f;
                 _health.SetMaxHealth(250f);
                 _health.SetCurrentHealth(250f);
                 StartCoroutine(PlayerCorrosion());
@@ -110,24 +122,35 @@ public class PrestigeManager : MonoBehaviour
                 _weapon.fireRate = 0.25f;
                 _weapon.shootingAngle = 20f;
                 _pickUpBehaviour.PickUpRadius += 10f;
-                _movement.SetMoveSpeed(-5f);
+                _movement.moveSpeed -= -5f;
                 _health.SetMaxHealth(500f);
                 _health.SetCurrentHealth(500f);
                 _health.SetHealthRegenRate(25f);
                 break;
             case PrestigeType.Sunlancer:
+                sunlancerBuff.SetActive(true);
                 _spriteRenderer.sprite = _sunlancer;
-                _spriteRenderer.transform.localScale = new Vector3(1.4f, 1.4f, 1.4f);
+                _spriteRenderer.transform.localScale = new Vector3(1f, 1f, 1f);
                 _weapon.weaponType = WeaponType.PlayerReflectBullet;
-                _weapon.amountOfBullets = 10;
+                _weapon.bulletDamage *= 2;
                 _weapon.bulletSpeed += 20;
                 _weapon.fireRate = 1f;
                 _pickUpBehaviour.PickUpRadius += 20f;
-                _movement.SetMoveSpeed(15f);
+                _movement.moveSpeed *= 2;
                 _health.SetMaxHealth(100f);
                 _health.SetCurrentHealth(100f);
+                _health.healthCap = 0.5f;
                 break;
-
+            case PrestigeType.Berzerker:
+                _berzerkerBuff.SetActive(true);
+                _spriteRenderer.sprite = _berzerker;
+                _spriteRenderer.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+                _weapon.weaponType = WeaponType.PlayerLacerateBullet;
+                _weapon.amountOfBullets = 1;
+                _weapon.bulletLifetime = 10f;
+                _weapon.fireRate = 1f;
+                _weapon.bulletSpeed += 10;
+                break;
 
         }
     }

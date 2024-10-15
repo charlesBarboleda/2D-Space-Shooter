@@ -4,6 +4,7 @@ public enum PrestigeType
     Plaguebringer,
     Lifewarden,
     Sunlancer,
+    Berzerker,
 
 
 }

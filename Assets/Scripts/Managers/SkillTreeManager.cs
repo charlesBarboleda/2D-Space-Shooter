@@ -236,7 +236,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's speed by 5%
                 float _increaseSpeed = 1.05f;
-                                PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
+                                PlayerManager.GetInstance().Movement().moveSpeed *= _increaseSpeed;
 
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
@@ -252,7 +252,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's speed by 4%
                 float _increaseSpeed = 1.04f;
-                                PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
+                                PlayerManager.GetInstance().Movement().moveSpeed *= _increaseSpeed;
 
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
@@ -268,7 +268,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's speed by 3%
                 float _increaseSpeed = 1.03f;
-                PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
+                PlayerManager.GetInstance().Movement().moveSpeed *= _increaseSpeed;
 
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
@@ -283,7 +283,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's speed by 1%
                 float _increaseSpeed = 1.01f;
-                PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() *  _increaseSpeed);
+                PlayerManager.GetInstance().Movement().moveSpeed *= _increaseSpeed;
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };
@@ -683,7 +683,7 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
             {
                 // Increase the player's ship speed by 3%
                 float _increaseSpeed = 1.03f;
-                PlayerManager.GetInstance().SetMoveSpeed(PlayerManager.GetInstance().MoveSpeed() * _increaseSpeed);
+                PlayerManager.GetInstance().Movement().moveSpeed *= _increaseSpeed;
                 Debug.Log("Speed Increased by " + (_increaseSpeed - 1) * 100 + "%");
             }
         };

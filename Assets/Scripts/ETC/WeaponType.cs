@@ -4,4 +4,5 @@ public enum WeaponType
     PlayerLeechBullet,
     PlayerReflectBullet,
     PlayerCorrodeBullet,
+    PlayerLacerateBullet,
 }
