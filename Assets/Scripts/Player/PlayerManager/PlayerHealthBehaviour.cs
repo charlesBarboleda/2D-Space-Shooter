@@ -16,6 +16,7 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
     [SerializeField] string _deathExplosion;
     public List<string> deathEffect { get => _deathEffect; set => _deathEffect = value; }
     public string deathExplosion { get => _deathExplosion; set => _deathExplosion = value; }
+    bool hasRevived = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,11 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
     void Update()
     {
         RegenHealth();
+        CapHealth();
+    }
+    void CapHealth()
+    {
+        currentHealth = Mathf.Min(currentHealth, maxHealth);
     }
 
     public void TakeDamage(float damage)
@@ -38,8 +44,37 @@ public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
 
         if (currentHealth <= 0)
         {
-            Die();
+            if (PlayerManager.Instance.PrestigeManager().chosenPrestige == PrestigeType.Lifewarden && !hasRevived)
+            {
+                Revive();
+                hasRevived = true;
+            }
+            else
+            {
+                Die();
+            }
         }
+    }
+
+    void Revive()
+    {
+        StartCoroutine(ReviveAnimation());
+    }
+
+    IEnumerator ReviveAnimation()
+    {
+        isDead = true;
+        GameObject animation = ObjectPooler.Instance.SpawnFromPool("LifewardenPrestigeAnimation", transform.position, Quaternion.identity);
+        animation.transform.SetParent(transform);
+        float t = 0;
+        while (t < 5)
+        {
+            t += Time.deltaTime;
+            currentHealth = Mathf.Lerp(0, maxHealth, t / 5);
+            yield return null;
+        }
+        isDead = false;
+        animation.SetActive(false);
     }
 
     public void Die()

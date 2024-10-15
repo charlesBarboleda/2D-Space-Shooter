@@ -22,6 +22,11 @@ public class PlayerLaserSettings : MonoBehaviour
             {
                 UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
                 damageable.TakeDamage(_dps);
+                if (PlayerManager.Instance.PrestigeManager().chosenPrestige == PrestigeType.Lifewarden)
+                {
+                    // Heal the player for 5% of the damage dealt if prestiged
+                    PlayerManager.Instance.GetComponent<PlayerHealthBehaviour>().currentHealth += _dps * 0.05f;
+                }
                 if (_comboCount < _maxComboCount)
                 {
                     _comboCount++;
@@ -38,19 +43,20 @@ public class PlayerLaserSettings : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Applies Corrode to the enemy if prestiged
-        if (PlayerManager.Instance.chosenPrestige == PrestigeType.Plaguebringer)
+
+        IDamageable damageable = other.GetComponent<IDamageable>();
+        if (damageable != null)
         {
-            IDamageable damageable = other.GetComponent<IDamageable>();
-            if (damageable != null)
+            if (other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates") || other.CompareTag("CrimsonFleet") || other.CompareTag("Asteroid"))
             {
-                if (other.CompareTag("ThraxArmada") || other.CompareTag("Syndicates") || other.CompareTag("CrimsonFleet") || other.CompareTag("Asteroid"))
+                if (PlayerManager.Instance.PrestigeManager().chosenPrestige == PrestigeType.Plaguebringer)
                 {
                     GameObject Corrode = ObjectPooler.Instance.SpawnFromPool("CorrodeEffect", other.transform.position, Quaternion.identity);
                     Corrode.GetComponent<CorrosionEffect>().ApplyCorrode(other.gameObject, _dps * 10);
-
                 }
             }
         }
+
     }
     public float Dps { get => _dps; set => _dps = value; }
 

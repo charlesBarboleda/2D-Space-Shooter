@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd6a33c3b23a5545af2c9f7940fb743, type: 3}
   m_Name: PlayerTeleport
   m_EditorClassIdentifier: 
-  isUnlocked: 1
+  isUnlocked: 0
   abilityName: PlayerTeleport
   icon: {fileID: 21300000, guid: 4ffbe445930f3214f86656e87c7a1934, type: 3}
   duration: 1
   cooldown: 30
-  currentCooldown: 13.011259
+  currentCooldown: 30
   ultimateCooldown: 180
   ultimateDuration: 6
-  currentUltimateCooldown: 11.659445
+  currentUltimateCooldown: 180
   isUltimateUnlocked: 1
   isUltimateReady: 0
   ultimateTriggerWindow: 3

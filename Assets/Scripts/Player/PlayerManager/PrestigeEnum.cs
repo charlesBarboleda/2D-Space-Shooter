@@ -1,6 +1,7 @@
 public enum PrestigeType
 {
     None,
-    Plaguebringer
+    Plaguebringer,
+    Lifewarden
 
 }

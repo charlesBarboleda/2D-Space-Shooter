@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class LeechBullet : Bullet
 {
     ParticleSystem _particleSystem;
-    public float leechAmount = 0.01f;
+    public float leechAmount = 0.5f;
 
     protected override void Awake()
     {
@@ -59,7 +60,7 @@ public class LeechBullet : Bullet
 
     void Leech()
     {
-        PlayerManager.Instance.SetCurrentHealth(Mathf.Min(PlayerManager.Instance.CurrentHealth() + Mathf.RoundToInt(BulletDamage * leechAmount), PlayerManager.Instance.MaxHealth()));
+        PlayerManager.Instance.SetCurrentHealth(BulletDamage * leechAmount);
 
     }
 }

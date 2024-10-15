@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
 {
     public static PlayerManager Instance { get; private set; }
 
+    PrestigeManager _prestigeManager;
     SpriteRenderer _spriteRenderer;
     PlayerHealthBehaviour _health;
     PlayerCurrencyBehaviour _currency;
@@ -23,10 +24,8 @@ public class PlayerManager : MonoBehaviour, ITargetable
 
     Faction _faction;
     Weapon _weapon;
-    public PrestigeType chosenPrestige = PrestigeType.None;
     public ParticleSystem arrowEmission;
-    [SerializeField] Sprite _plaguebringer;
-    [SerializeField] GameObject plaguebringerBuff;
+
     [SerializeField] GameObject Buff;
     [SerializeField] AudioClip _onDebrisAudio;
     [SerializeField] AudioClip _onPowerUpAudio;
@@ -37,28 +36,18 @@ public class PlayerManager : MonoBehaviour, ITargetable
         SetSingleton();
     }
 
-    void OnEnable()
-    {
-        EventManager.OnPrestigeChange += ApplyPrestigeEffects;
-    }
-
-    void OnDisable()
-    {
-        EventManager.OnPrestigeChange -= ApplyPrestigeEffects;
-    }
-
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            PrestigeToPlaguebringer();
-            Debug.Log("Prestiged to Plaguebringer");
+            _prestigeManager.PrestigeToLifewarden();
         }
     }
 
     void Start()
     {
+        _prestigeManager = GetComponent<PrestigeManager>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _faction = GetComponent<Faction>();
         _combo = GetComponent<PlayerComboManager>();
@@ -84,59 +73,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
         }
 
     }
-    public void PrestigeTo(PrestigeType prestige)
-    {
-        chosenPrestige = prestige;
-        EventManager.PrestigeChangeEvent(prestige);
-    }
-    public void PrestigeToPlaguebringer()
-    {
-        StartCoroutine(PrestigeAnimation("PlaguebringerPrestigeAnimation", 1.3f));
-    }
 
-    IEnumerator PrestigeAnimation(string animationName, float animationDuration)
-    {
-        GameObject prestigeAnimation = ObjectPooler.Instance.SpawnFromPool(animationName, transform.position, Quaternion.identity);
-        prestigeAnimation.transform.SetParent(transform);
-        yield return new WaitForSeconds(2f);
-        UIManager.Instance.PrestigeCrackAndShatter();
-        yield return new WaitForSeconds(animationDuration);
-        prestigeAnimation.SetActive(false);
-        PrestigeTo(PrestigeType.Plaguebringer);
-    }
-
-    void ApplyPrestigeEffects(PrestigeType prestige)
-    {
-        switch (prestige)
-        {
-            case PrestigeType.None:
-                break;
-            case PrestigeType.Plaguebringer:
-                plaguebringerBuff.SetActive(true);
-                _spriteRenderer.sprite = _plaguebringer;
-                _spriteRenderer.transform.localScale = new Vector3(1.4f, 1.4f, 1.4f);
-                _weapon.weaponType = WeaponType.PlayerCorrodeBullet;
-                _weapon.amountOfBullets = 1;
-                _weapon.bulletLifetime += 5f;
-                _weapon.bulletSpeed -= 10f;
-                _weapon.fireRate = 3f;
-                _pickUpBehaviour.PickUpRadius += 10f;
-                _movement.SetMoveSpeed(-5f);
-                _health.SetMaxHealth(250f);
-                _health.SetCurrentHealth(250f);
-                StartCoroutine(PlayerCorrosion());
-                break;
-        }
-    }
-    IEnumerator PlayerCorrosion()
-    {
-        while (chosenPrestige == PrestigeType.Plaguebringer)
-        {
-            GameObject corrode = ObjectPooler.Instance.SpawnFromPool("CorrodeEffect", transform.position, Quaternion.identity);
-            corrode.GetComponent<CorrosionEffect>().ApplyCorrode(gameObject, _weapon.bulletDamage * 5);
-            yield return new WaitForSeconds(5f);
-        }
-    }
     public void ActivateBuffAnimations()
     {
         Buff.SetActive(true);
@@ -181,6 +118,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
     public PlayerComboManager ComboManager() => _combo;
     public PickUpBehaviour PickUpBehaviour() => _pickUpBehaviour;
     public PowerUpBehaviour PowerUpBehaviour() => _powerUpBehaviour;
+    public PrestigeManager PrestigeManager() => _prestigeManager;
 
     #region Movement Management
     public void SetMoveSpeed(float newMoveSpeed) => _movement.SetMoveSpeed(newMoveSpeed);

@@ -16,6 +16,11 @@ public class PlayerTeleportPrefab : MonoBehaviour
             {
                 UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
                 damageable.TakeDamage(_dps);
+                if (PlayerManager.Instance.PrestigeManager().chosenPrestige == PrestigeType.Lifewarden)
+                {
+                    // Heal the player for 5% of the damage dealt if prestiged
+                    PlayerManager.Instance.GetComponent<PlayerHealthBehaviour>().currentHealth += _dps * 0.05f;
+                }
                 if (_comboCount < _maxComboCount)
                 {
                     _comboCount++;
@@ -31,7 +36,7 @@ public class PlayerTeleportPrefab : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Applies Corrode to the enemy if prestiged
-        if (PlayerManager.Instance.chosenPrestige == PrestigeType.Plaguebringer)
+        if (PlayerManager.Instance.PrestigeManager().chosenPrestige == PrestigeType.Plaguebringer)
         {
             IDamageable damageable = other.GetComponent<IDamageable>();
             if (damageable != null)
@@ -45,6 +50,7 @@ public class PlayerTeleportPrefab : MonoBehaviour
             }
         }
     }
+
 
 
     public void SetDamage(float dps)

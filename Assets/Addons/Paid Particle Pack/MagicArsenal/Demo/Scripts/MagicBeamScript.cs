@@ -23,7 +23,7 @@ namespace MagicArsenal
         private GameObject beamEnd;
         private GameObject beam;
         private LineRenderer line;
-        private Transform transform;
+        private Transform _transform;
         private float textureScrollOffset;
 
         [Header("Adjustable Variables")]
@@ -43,7 +43,7 @@ namespace MagicArsenal
         // Use this for initialization
         void Start()
         {
-            transform = gameObject.transform;
+            _transform = gameObject.transform;
             if (textBeamName)
                 textBeamName.text = beamLineRendererPrefab[(int)currentBeam].name;
             if (endOffSetSlider)
@@ -109,39 +109,39 @@ namespace MagicArsenal
         }
 
         void UpdateBeam()
-    {
-        if (textBeamName)
-            textBeamName.text = beamLineRendererPrefab[(int)currentBeam].name;
-        Destroy(beamStart);
-        Destroy(beamEnd);
-        Destroy(beam);
-        CreateBeamObjects();
+        {
+            if (textBeamName)
+                textBeamName.text = beamLineRendererPrefab[(int)currentBeam].name;
+            Destroy(beamStart);
+            Destroy(beamEnd);
+            Destroy(beam);
+            CreateBeamObjects();
+        }
+
+        void ShootBeamInDir(Vector3 start, Vector3 dir)
+        {
+            line.SetPosition(0, start);
+            beamStart.transform.position = start;
+
+            Vector3 end = Vector3.zero;
+            RaycastHit hit;
+            if (Physics.Raycast(start, dir, out hit))
+                end = hit.point - (dir.normalized * beamEndOffset);
+            else
+                end = transform.position + (dir * 100);
+
+            beamEnd.transform.position = end;
+            line.SetPosition(1, end);
+
+            beamStart.transform.LookAt(beamEnd.transform.position);
+            beamEnd.transform.LookAt(beamStart.transform.position);
+
+            float distance = Vector3.Distance(start, end);
+            line.sharedMaterial.mainTextureScale = new Vector2(distance / textureLengthScale, 1);
+            textureScrollOffset -= Time.deltaTime * textureScrollSpeed;
+            if (textureScrollOffset < 0f)
+                textureScrollOffset += 1f;
+            line.sharedMaterial.mainTextureOffset = new Vector2(textureScrollOffset, 0);
+        }
     }
-
-    void ShootBeamInDir(Vector3 start, Vector3 dir)
-    {
-        line.SetPosition(0, start);
-        beamStart.transform.position = start;
-
-        Vector3 end = Vector3.zero;
-        RaycastHit hit;
-        if (Physics.Raycast(start, dir, out hit))
-            end = hit.point - (dir.normalized * beamEndOffset);
-        else
-            end = transform.position + (dir * 100);
-
-        beamEnd.transform.position = end;
-        line.SetPosition(1, end);
-
-        beamStart.transform.LookAt(beamEnd.transform.position);
-        beamEnd.transform.LookAt(beamStart.transform.position);
-
-        float distance = Vector3.Distance(start, end);
-        line.sharedMaterial.mainTextureScale = new Vector2(distance / textureLengthScale, 1);
-        textureScrollOffset -= Time.deltaTime * textureScrollSpeed;
-        if (textureScrollOffset < 0f)
-            textureScrollOffset += 1f;
-        line.sharedMaterial.mainTextureOffset = new Vector2(textureScrollOffset, 0);
-    }
-}
 }

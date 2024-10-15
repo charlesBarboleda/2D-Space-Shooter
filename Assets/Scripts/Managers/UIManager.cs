@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject titleContainer;
     [SerializeField] Button yesButton;
     [SerializeField] GameObject plaguebringerPanel;
+    [SerializeField] GameObject lifewardenPanel;
     string prestigeColor = "#FFD700";
     Vector3 initScale;
     float initY, initX;
@@ -26,6 +27,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image _cameraCrack;
     [SerializeField] Image _whiteFlash;
     [SerializeField] Image _purpleFlash;
+    [SerializeField] Image _greenFlash;
     [SerializeField] ParticleSystem _shatterParticles;
     [SerializeField] AudioClip _shatterSound;
 
@@ -156,6 +158,12 @@ public class UIManager : MonoBehaviour
                 string message = "You are about to prestige to \n <color=" + prestigeColor + ">" + prestige + "</color>";
                 confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
                 break;
+            case "Lifewarden":
+                yesButton.onClick.AddListener(() => OnPrestigeConfirmation(prestige));
+                prestigeColor = "#28FF20";
+                message = "You are about to prestige to \n <color=" + prestigeColor + ">" + prestige + "</color>";
+                confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
+                break;
         }
         OpenConfirmationPanel();
     }
@@ -168,7 +176,12 @@ public class UIManager : MonoBehaviour
             switch (prestige)
             {
                 case "Plaguebringer":
-                    PlayerManager.Instance.PrestigeToPlaguebringer();
+                    PlayerManager.Instance.PrestigeManager().PrestigeToPlaguebringer();
+                    confirmationPanel.SetActive(false);
+                    prestigePanel.SetActive(false);
+                    break;
+                case "Lifewarden":
+                    PlayerManager.Instance.PrestigeManager().PrestigeToLifewarden();
                     confirmationPanel.SetActive(false);
                     prestigePanel.SetActive(false);
                     break;
@@ -265,6 +278,7 @@ public class UIManager : MonoBehaviour
         prestigePanel.SetActive(true);
         StartCoroutine(ExpandContainerAndShowTitle(prestigeContainer, titleContainer));
         StartCoroutine(FadeInContainer(0.5f, plaguebringerPanel, 1f));
+        StartCoroutine(FadeInContainer(0.5f, lifewardenPanel, 1f));
 
     }
     void PulseAbilityIcon()
@@ -351,8 +365,12 @@ public class UIManager : MonoBehaviour
             yield return null;
         }
     }
-
-    public void PrestigeCrackAndShatter()
+    public void LifewardenPrestigeCrackAndShatter()
+    {
+        _cameraCrack.gameObject.SetActive(true);
+        StartCoroutine(RevealAndShatter(_greenFlash, 50f));
+    }
+    public void PlaguebringerPrestigeCrackAndShatter()
     {
         _cameraCrack.gameObject.SetActive(true);
         StartCoroutine(RevealAndShatter(_purpleFlash, 50f));

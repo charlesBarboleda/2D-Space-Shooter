@@ -4,11 +4,12 @@ using UnityEngine;
 public class PlayerTurretPrefab : MonoBehaviour
 {
     [Header("Turret Settings")]
-    public GameObject bulletPrefab;
     public float fireRate = 0.5f;
     public float bulletSpeed = 40f;
     public float bulletDamage = 10f;
+    public float bulletLifetime = 5f;
     public int amountOfBullets = 1;
+    public WeaponType bulletType = WeaponType.PlayerBullet;
 
     bool isFiring = false;
     Coroutine firingCoroutine;
@@ -63,24 +64,24 @@ public class PlayerTurretPrefab : MonoBehaviour
             Vector3 spread = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), 0);
             Vector3 bulletDirection = (direction + spread).normalized;
 
-            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint, Quaternion.identity);
+            GameObject bullet = ObjectPooler.Instance.SpawnFromPool(bulletType.ToString(), bulletSpawnPoint, Quaternion.identity);
             bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;
 
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             if (bulletScript != null)
             {
-                bulletScript.Initialize(bulletSpeed, bulletDamage, bulletScript.BulletLifetime, bulletDirection);
+                bulletScript.Initialize(bulletSpeed, bulletDamage, bulletLifetime, bulletDirection);
             }
         }
     }
 
     public void SetFireRate(float newFireRate)
     {
-        fireRate = newFireRate;
+        fireRate += newFireRate;
     }
     public void SetDamage(float newDamage)
     {
-        bulletDamage = newDamage;
+        bulletDamage += newDamage;
     }
 
     public float GetFireRate()
