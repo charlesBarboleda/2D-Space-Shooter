@@ -41,7 +41,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            _prestigeManager.PrestigeToLifewarden();
+            _prestigeManager.PrestigeToSunlancer();
         }
     }
 

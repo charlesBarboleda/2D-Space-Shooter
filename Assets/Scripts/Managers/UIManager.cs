@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Button yesButton;
     [SerializeField] GameObject plaguebringerPanel;
     [SerializeField] GameObject lifewardenPanel;
+    [SerializeField] GameObject sunlancerPanel;
     string prestigeColor = "#FFD700";
     Vector3 initScale;
     float initY, initX;
@@ -28,6 +29,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image _whiteFlash;
     [SerializeField] Image _purpleFlash;
     [SerializeField] Image _greenFlash;
+    [SerializeField] Image _yellowFlash;
     [SerializeField] ParticleSystem _shatterParticles;
     [SerializeField] AudioClip _shatterSound;
 
@@ -164,6 +166,12 @@ public class UIManager : MonoBehaviour
                 message = "You are about to prestige to \n <color=" + prestigeColor + ">" + prestige + "</color>";
                 confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
                 break;
+            case "Sunlancer":
+                yesButton.onClick.AddListener(() => OnPrestigeConfirmation(prestige));
+                prestigeColor = "#FFE300";
+                message = "You are about to prestige to \n <color=" + prestigeColor + ">" + prestige + "</color>";
+                confirmationPanel.GetComponentInChildren<TextMeshProUGUI>().text = message;
+                break;
         }
         OpenConfirmationPanel();
     }
@@ -182,6 +190,11 @@ public class UIManager : MonoBehaviour
                     break;
                 case "Lifewarden":
                     PlayerManager.Instance.PrestigeManager().PrestigeToLifewarden();
+                    confirmationPanel.SetActive(false);
+                    prestigePanel.SetActive(false);
+                    break;
+                case "Sunlancer":
+                    PlayerManager.Instance.PrestigeManager().PrestigeToSunlancer();
                     confirmationPanel.SetActive(false);
                     prestigePanel.SetActive(false);
                     break;
@@ -279,6 +292,7 @@ public class UIManager : MonoBehaviour
         StartCoroutine(ExpandContainerAndShowTitle(prestigeContainer, titleContainer));
         StartCoroutine(FadeInContainer(0.5f, plaguebringerPanel, 1f));
         StartCoroutine(FadeInContainer(0.5f, lifewardenPanel, 1f));
+        StartCoroutine(FadeInContainer(0.5f, sunlancerPanel, 1f));
 
     }
     void PulseAbilityIcon()
@@ -374,6 +388,12 @@ public class UIManager : MonoBehaviour
     {
         _cameraCrack.gameObject.SetActive(true);
         StartCoroutine(RevealAndShatter(_purpleFlash, 50f));
+    }
+
+    public void SunlancerPrestigeCrackAndShatter()
+    {
+        _cameraCrack.gameObject.SetActive(true);
+        StartCoroutine(RevealAndShatter(_yellowFlash, 50f));
     }
 
     public void UltimateActivateCrackAndShatter()

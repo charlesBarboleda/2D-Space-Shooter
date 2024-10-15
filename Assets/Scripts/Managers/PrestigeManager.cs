@@ -7,8 +7,10 @@ public class PrestigeManager : MonoBehaviour
 {
     [SerializeField] Sprite _lifewarden;
     [SerializeField] Sprite _plaguebringer;
+    [SerializeField] Sprite _sunlancer;
     [SerializeField] GameObject lifewardenBuff;
     [SerializeField] GameObject plaguebringerBuff;
+    [SerializeField] GameObject sunlancerBuff;
     public PrestigeType chosenPrestige = PrestigeType.None;
     SpriteRenderer _spriteRenderer;
     Weapon _weapon;
@@ -50,6 +52,11 @@ public class PrestigeManager : MonoBehaviour
         StartCoroutine(PrestigeAnimation(PrestigeType.Lifewarden, "LifewardenPrestigeAnimation", 1.3f));
     }
 
+    public void PrestigeToSunlancer()
+    {
+        StartCoroutine(PrestigeAnimation(PrestigeType.Sunlancer, "SunlancerPrestigeAnimation", 1.3f));
+    }
+
     IEnumerator PrestigeAnimation(PrestigeType prestigeTo, string animationName, float animationDuration)
     {
         GameObject prestigeAnimation = ObjectPooler.Instance.SpawnFromPool(animationName, transform.position, Quaternion.identity);
@@ -62,6 +69,10 @@ public class PrestigeManager : MonoBehaviour
         else if (prestigeTo == PrestigeType.Lifewarden)
         {
             UIManager.Instance.LifewardenPrestigeCrackAndShatter();
+        }
+        else if (prestigeTo == PrestigeType.Sunlancer)
+        {
+            UIManager.Instance.SunlancerPrestigeCrackAndShatter();
         }
         yield return new WaitForSeconds(animationDuration);
         prestigeAnimation.SetActive(false);
@@ -99,13 +110,25 @@ public class PrestigeManager : MonoBehaviour
                 _weapon.fireRate = 0.25f;
                 _weapon.shootingAngle = 20f;
                 _pickUpBehaviour.PickUpRadius += 10f;
-
                 _movement.SetMoveSpeed(-5f);
                 _health.SetMaxHealth(500f);
                 _health.SetCurrentHealth(500f);
                 _health.SetHealthRegenRate(25f);
-
                 break;
+            case PrestigeType.Sunlancer:
+                _spriteRenderer.sprite = _sunlancer;
+                _spriteRenderer.transform.localScale = new Vector3(1.4f, 1.4f, 1.4f);
+                _weapon.weaponType = WeaponType.PlayerReflectBullet;
+                _weapon.bulletDamage /= 2;
+                _weapon.amountOfBullets = 10;
+                _weapon.bulletSpeed += 20;
+                _weapon.fireRate = 1f;
+                _pickUpBehaviour.PickUpRadius += 20f;
+                _movement.SetMoveSpeed(10f);
+                _health.SetMaxHealth(100f);
+                _health.SetCurrentHealth(100f);
+                break;
+
 
         }
     }
