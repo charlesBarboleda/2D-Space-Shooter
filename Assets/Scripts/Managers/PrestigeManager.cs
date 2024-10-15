@@ -119,12 +119,11 @@ public class PrestigeManager : MonoBehaviour
                 _spriteRenderer.sprite = _sunlancer;
                 _spriteRenderer.transform.localScale = new Vector3(1.4f, 1.4f, 1.4f);
                 _weapon.weaponType = WeaponType.PlayerReflectBullet;
-                _weapon.bulletDamage /= 2;
                 _weapon.amountOfBullets = 10;
                 _weapon.bulletSpeed += 20;
                 _weapon.fireRate = 1f;
                 _pickUpBehaviour.PickUpRadius += 20f;
-                _movement.SetMoveSpeed(10f);
+                _movement.SetMoveSpeed(15f);
                 _health.SetMaxHealth(100f);
                 _health.SetCurrentHealth(100f);
                 break;
