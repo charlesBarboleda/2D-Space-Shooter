@@ -27,7 +27,8 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         _levels.Add(GenerateNextLevel());
-        Debug.Log($"Levels added in Awake. Levels count: {_levels.Count}");
+        Debug.Log($"Levels added in Start. Levels count: {_levels.Count}");
+
     }
 
 
@@ -59,7 +60,7 @@ public class LevelManager : MonoBehaviour
             return CreateCometLevel();
         }
         // Otherwise, create a horde level
-        return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
+        return CreateHordeLevel();
 
     }
 

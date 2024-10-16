@@ -36,7 +36,7 @@ public class Debris : MonoBehaviour, IPickable
     public void OnPickUp()
     {
         _colliders.enabled = false;
-        PlayerManager.Instance.SetCurrency(PlayerManager.Instance.Currency() + currencyWorth);
+        PlayerManager.Instance.SetCurrency(currencyWorth);
         gameObject.SetActive(false);
     }
 

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerHealthBehaviour : MonoBehaviour, IDamageable
 {
-    [SerializeField] public float maxHealth = 100f;
-    [SerializeField] public float currentHealth = 100f;
-    [SerializeField] public float healthRegenRate = 1f;
+    public float maxHealth = 100f;
+    public float currentHealth = 100f;
+    public float healthRegenRate = 1f;
     [SerializeField] ParticleSystem _healingParticles;
     [SerializeField] GameObject _deathExplosionPrefab;
     SpriteRenderer _spriteRenderer;

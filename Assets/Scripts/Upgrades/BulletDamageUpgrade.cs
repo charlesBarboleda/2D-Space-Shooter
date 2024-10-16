@@ -9,7 +9,7 @@ public class BulletDamageUpgrade : Upgrade
     {
         if (PlayerManager.GetInstance().Currency() >= upgradeCost)
         {
-            PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() - upgradeCost);
+            PlayerManager.GetInstance().SetCurrency(-upgradeCost);
             PlayerManager.GetInstance().Weapon().bulletDamage += bulletDamageUpgradeAmount;
             upgradeCost += 50;
 

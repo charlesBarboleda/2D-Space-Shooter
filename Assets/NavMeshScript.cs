@@ -12,21 +12,19 @@ public class NavMeshScript : MonoBehaviour
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+            DontDestroyOnLoad(gameObject);
 
         }
         else
         {
             Instance = this;
         }
-    }
 
-    void Update()
+    }
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            UpdateNavMesh();
-        }
+        navMeshSurface.BuildNavMeshAsync();
     }
 
     // Call this method to update the NavMesh

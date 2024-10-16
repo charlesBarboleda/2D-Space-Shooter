@@ -13,34 +13,59 @@ public class AsteroidSpawnerManager : MonoBehaviour
 
     void Start()
     {
-        SpawnAsteroids();
-        SpawnAsteroidField();
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+        // StartCoroutine(SpawnAsteroidFieldsOnFirstFrame());
+        // StartCoroutine(SpawnAsteroidsOnFirstFrame());
     }
-
-    void SpawnAsteroids()
+    private IEnumerator SpawnAsteroidsOnFirstFrame()
     {
+        // Wait until the first frame has fully loaded
+        yield return null;
+
         for (int i = 0; i < asteroidCount; i++)
         {
-            int randomIndex = Random.Range(0, asteroidsList.Count);
-            GameObject asteroid = ObjectPooler.Instance.SpawnFromPool(asteroidsList[randomIndex], transform.position, Quaternion.identity);
+            Vector3 spawnPosition = SpawnerManager.Instance.GetRandomPositionOutsideBuildings();
+            SpawnAsteroid(spawnPosition);
 
-            asteroid.transform.position = new Vector3(Random.Range(-300, 300), Random.Range(-300, 300), 0);
-            NavMeshScript.Instance.UpdateNavMesh();
         }
     }
 
-    void SpawnAsteroidField()
+    private IEnumerator SpawnAsteroidFieldsOnFirstFrame()
     {
+        // Wait until the first frame has fully loaded
+        yield return null;
+
         for (int i = 0; i < asteroidFieldCount; i++)
         {
-            Vector3 spawnPoint = new Vector3(Random.Range(-250, 250), Random.Range(-250, 250), 0);
-            GameObject asteroidField = ObjectPooler.Instance.SpawnFromPool(asteroidFieldTag, spawnPoint, Quaternion.identity);
-            foreach (Transform child in asteroidField.transform)
-            {
-                child.transform.position = spawnPoint + new Vector3(Random.Range(-60, 60), Random.Range(-60, 60), 0);
-            }
-            NavMeshScript.Instance.UpdateNavMesh();
+            Vector3 spawnPosition = SpawnerManager.Instance.GetRandomPositionOutsideBuildings();
+            SpawnAsteroidField(spawnPosition);
         }
+    }
+
+    void SpawnAsteroid(Vector3 spawnPosition)
+    {
+
+        int randomIndex = Random.Range(0, asteroidsList.Count);
+        GameObject asteroid = ObjectPooler.Instance.SpawnFromPool(asteroidsList[randomIndex], spawnPosition, Quaternion.identity);
+        NavMeshScript.Instance.UpdateNavMesh();
+    }
+
+    void SpawnAsteroidField(Vector3 spawnPosition)
+    {
+
+        GameObject asteroidField = ObjectPooler.Instance.SpawnFromPool(asteroidFieldTag, spawnPosition, Quaternion.identity);
+        foreach (Transform child in asteroidField.transform)
+        {
+            child.transform.position = spawnPosition + new Vector3(Random.Range(-60, 60), Random.Range(-60, 60), 0);
+        }
+        NavMeshScript.Instance.UpdateNavMesh();
     }
 
 

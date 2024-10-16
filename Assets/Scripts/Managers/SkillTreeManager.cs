@@ -55,7 +55,7 @@ public class SkillTreeManager : MonoBehaviour
         {
             if (skill.skillName == skillName && PlayerManager.GetInstance().Currency() >= skill.cost && skill.skillLevel < skill.maxSkillLevel && ArePreqsMet(skill))
             {
-                PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() - skill.cost);
+                PlayerManager.GetInstance().SetCurrency(-skill.cost);
                 skill.skillLevel++;
                 skill.cost += costIncrement;
 
@@ -298,7 +298,7 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's regeneration by 5 hp/s
                 float increaseHealthRegen = 5f;
-                PlayerManager.GetInstance().SetHealthRegenRate(PlayerManager.GetInstance().HealthRegenRate() + increaseHealthRegen);
+                PlayerManager.GetInstance().SetHealthRegenRate(increaseHealthRegen);
                 Debug.Log("Health Regen Increased by " + increaseHealthRegen + "HP/s");
                 increaseHealthRegen++;
             }
@@ -314,8 +314,8 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's max HP by 12%
                 float increaseHealth = 1.12f;
-               PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().CurrentHealth() * increaseHealth);
-                PlayerManager.GetInstance().SetMaxHealth(PlayerManager.GetInstance().MaxHealth() * increaseHealth);
+                 PlayerManager.GetInstance().Health().currentHealth *= increaseHealth;
+                PlayerManager.GetInstance().Health().maxHealth *= increaseHealth;
 
                 Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
             }
@@ -331,8 +331,8 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Increase the player's max HP by 10%
                 float increaseHealth = 1.1f;
-PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().CurrentHealth() * increaseHealth);
-                PlayerManager.GetInstance().SetMaxHealth(PlayerManager.GetInstance().MaxHealth() * increaseHealth);
+                PlayerManager.GetInstance().Health().currentHealth *= increaseHealth;
+                PlayerManager.GetInstance().Health().maxHealth *= increaseHealth;
 
                 Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
             }
@@ -348,8 +348,8 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
             {
                 // Increase the player's max HP by 7%
                 float increaseHealth = 1.07f;
-PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().CurrentHealth() * increaseHealth);
-                PlayerManager.GetInstance().SetMaxHealth(PlayerManager.GetInstance().MaxHealth() * increaseHealth);
+                PlayerManager.GetInstance().Health().currentHealth *= increaseHealth;
+                PlayerManager.GetInstance().Health().maxHealth *= increaseHealth;
                 Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
             }
         };
@@ -365,8 +365,8 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
             {
                 // Increase the player's max HP by 5%
                 float increaseHealth = 1.05f;
-                PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().CurrentHealth() * increaseHealth);
-                PlayerManager.GetInstance().SetMaxHealth(PlayerManager.GetInstance().MaxHealth() * increaseHealth);
+                PlayerManager.GetInstance().Health().currentHealth *= increaseHealth;
+                PlayerManager.GetInstance().Health().maxHealth *= increaseHealth;
                 Debug.Log("Health Increased by " + (increaseHealth - 1) * 100 + "%");
             }
         };
@@ -674,8 +674,8 @@ PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().Current
             {
                 // Increase the player's max HP by 25
                 float increaseHealth = 25f;
-                PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().CurrentHealth() + increaseHealth);
-                PlayerManager.GetInstance().SetMaxHealth(PlayerManager.GetInstance().MaxHealth() + increaseHealth);
+                PlayerManager.GetInstance().SetCurrentHealth(increaseHealth);
+                PlayerManager.GetInstance().SetMaxHealth(increaseHealth);
 
                 Debug.Log("Health Increased by " + increaseHealth);
             },

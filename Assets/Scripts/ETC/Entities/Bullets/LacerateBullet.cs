@@ -5,23 +5,18 @@ using DG.Tweening;
 
 public class LacerateBullet : Bullet
 {
-    SpriteRenderer _spriteRenderer;
+
     protected override void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        transform.localScale = Vector3.zero;
         base.Awake();
     }
 
     protected override void OnEnable()
     {
 
-        transform.localScale = new Vector3(0, 0, 0);
-        if (_spriteRenderer != null) _spriteRenderer.color = Color.yellow;
-        if (_spriteRenderer != null) _spriteRenderer.DOColor(Color.red, 5f);
-        transform.DOScaleY(5f, 5f);
-        transform.DOScaleX(10f, 5f);
-        Invoke(nameof(Deactivate), 10f);
+        transform.localScale = new Vector3(1, 1, 1);
+        transform.DOScale(50, 5f).SetEase(Ease.OutBack);
+        Invoke(nameof(Deactivate), BulletLifetime);
         base.OnEnable();
         StartCoroutine(BulletFlashEffect());
     }

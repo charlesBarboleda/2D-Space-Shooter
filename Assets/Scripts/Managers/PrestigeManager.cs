@@ -13,6 +13,7 @@ public class PrestigeManager : MonoBehaviour
     [SerializeField] GameObject plaguebringerBuff;
     [SerializeField] GameObject sunlancerBuff;
     [SerializeField] GameObject _berzerkerBuff;
+    bool hasPrestiged = false;
 
     public PrestigeType chosenPrestige = PrestigeType.None;
     SpriteRenderer _spriteRenderer;
@@ -43,8 +44,16 @@ public class PrestigeManager : MonoBehaviour
     }
     public void PrestigeTo(PrestigeType prestige)
     {
-        chosenPrestige = prestige;
-        EventManager.PrestigeChangeEvent(prestige);
+        if (!hasPrestiged)
+        {
+            chosenPrestige = prestige;
+            EventManager.PrestigeChangeEvent(prestige);
+            hasPrestiged = true;
+        }
+        else
+        {
+            UIManager.Instance.MidScreenWarningText("You have already prestiged!", 2f);
+        }
     }
     public void PrestigeToPlaguebringer()
     {
@@ -120,6 +129,7 @@ public class PrestigeManager : MonoBehaviour
                 _weapon.amountOfBullets = 5;
                 _weapon.bulletSpeed -= 5;
                 _weapon.fireRate = 0.25f;
+                _weapon.bulletDamage += 50;
                 _weapon.shootingAngle = 20f;
                 _pickUpBehaviour.PickUpRadius += 10f;
                 _movement.moveSpeed -= -5f;
@@ -130,7 +140,7 @@ public class PrestigeManager : MonoBehaviour
             case PrestigeType.Sunlancer:
                 sunlancerBuff.SetActive(true);
                 _spriteRenderer.sprite = _sunlancer;
-                _spriteRenderer.transform.localScale = new Vector3(1f, 1f, 1f);
+                _spriteRenderer.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
                 _weapon.weaponType = WeaponType.PlayerReflectBullet;
                 _weapon.bulletDamage *= 2;
                 _weapon.bulletSpeed += 20;
@@ -147,9 +157,11 @@ public class PrestigeManager : MonoBehaviour
                 _spriteRenderer.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
                 _weapon.weaponType = WeaponType.PlayerLacerateBullet;
                 _weapon.amountOfBullets = 1;
+                _weapon.bulletDamage += 100;
                 _weapon.bulletLifetime = 10f;
                 _weapon.fireRate = 1f;
                 _weapon.bulletSpeed += 10;
+                _pickUpBehaviour.PickUpRadius += 15f;
                 break;
 
         }

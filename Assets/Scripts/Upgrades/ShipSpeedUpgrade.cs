@@ -9,7 +9,7 @@ public class ShipSpeedUpgrade : Upgrade
     {
         if (PlayerManager.GetInstance().Currency() >= upgradeCost)
         {
-            PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() - upgradeCost);
+            PlayerManager.GetInstance().SetCurrency(-upgradeCost);
             PlayerManager.GetInstance().Movement().moveSpeed += _shipSpeedUpgradeAmount;
             upgradeCost += 100;
 

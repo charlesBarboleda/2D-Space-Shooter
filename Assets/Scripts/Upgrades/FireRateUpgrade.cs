@@ -9,7 +9,7 @@ public class FireRateUpgrade : Upgrade
     {
         if (PlayerManager.GetInstance().Currency() >= upgradeCost)
         {
-            PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() - upgradeCost);
+            PlayerManager.GetInstance().SetCurrency(-upgradeCost);
             PlayerManager.GetInstance().Weapon().fireRate -= fireRateUpgradeAmount;
             upgradeCost += 100;
 

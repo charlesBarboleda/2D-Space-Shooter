@@ -9,7 +9,7 @@ public class BulletSpeedUpgrade : Upgrade
     {
         if (PlayerManager.GetInstance().Currency() >= upgradeCost)
         {
-            PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() - upgradeCost);
+            PlayerManager.GetInstance().SetCurrency(-upgradeCost);
             PlayerManager.GetInstance().Weapon().bulletSpeed += bulletSpeedUpgradeAmount;
             upgradeCost += 50;
             bulletSpeedUpgradeAmount += 0.1f;

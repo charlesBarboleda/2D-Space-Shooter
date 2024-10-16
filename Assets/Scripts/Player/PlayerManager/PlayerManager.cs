@@ -41,7 +41,9 @@ public class PlayerManager : MonoBehaviour, ITargetable
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            _prestigeManager.PrestigeToBerzerker();
+            Vector3 capturePosition = SpawnerManager.Instance.GetRandomPositionOutsideBuildings();
+            ObjectPooler.Instance.SpawnFromPool("CaptureCircle", capturePosition, Quaternion.identity);
+            ObjectPooler.Instance.SpawnFromPool("GreenCaptureCircle", capturePosition, Quaternion.identity);
         }
     }
 
@@ -115,6 +117,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
     public static PlayerManager GetInstance() => Instance;
     public AbilityHolder AbilityHolder() => _abilityHolder;
     public Weapon Weapon() => _weapon;
+    public PlayerHealthBehaviour Health() => _health;
     public PlayerComboManager ComboManager() => _combo;
     public PickUpBehaviour PickUpBehaviour() => _pickUpBehaviour;
     public PowerUpBehaviour PowerUpBehaviour() => _powerUpBehaviour;

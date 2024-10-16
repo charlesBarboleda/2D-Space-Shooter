@@ -6,6 +6,15 @@ using UnityEngine;
 public class SpawnerManager : MonoBehaviour
 {
     public static SpawnerManager Instance { get; private set; }
+    Vector3 gameAreaCenter;
+    Vector3 gameAreaSize;
+    [System.Serializable]
+    public struct Building
+    {
+        public Vector3 center;
+        public Vector3 size;
+    }
+    public List<Building> buildings = new List<Building>();
 
     [SerializeField] List<Transform> cometSpawnPoint = new List<Transform>();
     [SerializeField] List<string> cometsList = new List<string>();
@@ -26,6 +35,14 @@ public class SpawnerManager : MonoBehaviour
         {
             Instance = this;
         }
+
+    }
+    void Start()
+    {
+
+        gameAreaCenter = new Vector3(0, 0, 0);
+        gameAreaSize = new Vector3(450, 450, 0);
+
     }
 
     void OnEnable()
@@ -42,6 +59,44 @@ public class SpawnerManager : MonoBehaviour
     {
         EnemiesList.RemoveAll(enemy => enemy == null || !enemy.activeInHierarchy);
     }
+    public Vector3 GetRandomPositionOutsideBuildings()
+    {
+        Vector3 randomPosition;
+
+        // Loop until we find a random position that is outside all buildings
+        do
+        {
+            // Generate random position within the game area
+            randomPosition = new Vector3(
+                Random.Range(gameAreaCenter.x - gameAreaSize.x / 2, gameAreaCenter.x + gameAreaSize.x / 2),
+                Random.Range(gameAreaCenter.y - gameAreaSize.y / 2, gameAreaCenter.y + gameAreaSize.y / 2),
+                Random.Range(gameAreaCenter.z - gameAreaSize.z / 2, gameAreaCenter.z + gameAreaSize.z / 2)
+            );
+        }
+        // Check if the random position is inside any of the building bounds and continue if it is
+        while (IsInsideAnyBuilding(randomPosition));
+
+        return randomPosition;
+    }
+
+    bool IsInsideAnyBuilding(Vector3 position)
+    {
+        // Check against all buildings
+        foreach (Building building in buildings)
+        {
+            bool insideX = position.x > building.center.x - building.size.x / 2 && position.x < building.center.x + building.size.x / 2;
+            bool insideY = position.y > building.center.y - building.size.y / 2 && position.y < building.center.y + building.size.y / 2;
+            bool insideZ = position.z > building.center.z - building.size.z / 2 && position.z < building.center.z + building.size.z / 2;
+
+            // If the position is inside any building, return true
+            if (insideX && insideY && insideZ)
+            {
+                return true;
+            }
+        }
+        // Return false if the position is not inside any building
+        return false;
+    }
 
     public GameObject SpawnComet(Vector3 position, Quaternion rotation)
     {
@@ -56,6 +111,7 @@ public class SpawnerManager : MonoBehaviour
         EnemiesList.Clear();
         EnemiesToSpawnLeft = 0;
     }
+
 
 
 

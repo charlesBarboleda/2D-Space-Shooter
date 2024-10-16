@@ -9,7 +9,7 @@ public class ExtraBulletUpgrade : Upgrade
     {
         if (PlayerManager.GetInstance().Currency() >= upgradeCost)
         {
-            PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() - upgradeCost);
+            PlayerManager.GetInstance().SetCurrency(-upgradeCost);
             PlayerManager.GetInstance().Weapon().amountOfBullets += extraBulletUpgradeAmount;
             upgradeCost *= 2;
 

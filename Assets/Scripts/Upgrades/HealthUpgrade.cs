@@ -9,9 +9,9 @@ public class HealthUpgrade : Upgrade
     {
         if (PlayerManager.GetInstance().Currency() >= upgradeCost)
         {
-            PlayerManager.GetInstance().SetCurrency(PlayerManager.GetInstance().Currency() - upgradeCost);
-            PlayerManager.GetInstance().SetCurrentHealth(PlayerManager.GetInstance().CurrentHealth() + healthUpgradeAmount);
-            PlayerManager.GetInstance().SetMaxHealth(PlayerManager.GetInstance().MaxHealth() + healthUpgradeAmount);
+            PlayerManager.GetInstance().SetCurrency(-upgradeCost);
+            PlayerManager.GetInstance().SetCurrentHealth(healthUpgradeAmount);
+            PlayerManager.GetInstance().SetMaxHealth(healthUpgradeAmount);
 
             upgradeCost += 50;
         }
