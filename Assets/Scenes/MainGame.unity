@@ -13300,7 +13300,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1136222166}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_MethodName: LoadGameScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23148,6 +23148,124 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &554133531
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2094415943}
+    m_Modifications:
+    - target: {fileID: 7245246918862962921, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_Name
+      value: LoadingScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+--- !u!224 &554133532 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8745407779777913420, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+  m_PrefabInstance: {fileID: 554133531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &554133533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7554468877626024156, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+  m_PrefabInstance: {fileID: 554133531}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &554133534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7245246918862962921, guid: 36c140b1098a1054c82ed25442e5196e, type: 3}
+  m_PrefabInstance: {fileID: 554133531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &555570126
 GameObject:
   m_ObjectHideFlags: 0
@@ -45749,6 +45867,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347350bf8d1ed7e46852303334f7314a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingScreen: {fileID: 554133534}
+  loadingSlider: {fileID: 554133533}
 --- !u!4 &1136222167
 Transform:
   m_ObjectHideFlags: 0
@@ -75208,7 +75328,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1136222166}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_MethodName: LoadGameScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -86907,6 +87027,7 @@ RectTransform:
   - {fileID: 878061733}
   - {fileID: 728687428}
   - {fileID: 1128218017}
+  - {fileID: 554133532}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

@@ -21,13 +21,11 @@ public class AsteroidSpawnerManager : MonoBehaviour
         {
             Instance = this;
         }
-        // StartCoroutine(SpawnAsteroidFieldsOnFirstFrame());
-        // StartCoroutine(SpawnAsteroidsOnFirstFrame());
+        // SpawnAsteroidFields();
+        // SpawnAsteroids();
     }
-    private IEnumerator SpawnAsteroidsOnFirstFrame()
+    void SpawnAsteroids()
     {
-        // Wait until the first frame has fully loaded
-        yield return null;
 
         for (int i = 0; i < asteroidCount; i++)
         {
@@ -37,15 +35,14 @@ public class AsteroidSpawnerManager : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnAsteroidFieldsOnFirstFrame()
+    void SpawnAsteroidFields()
     {
-        // Wait until the first frame has fully loaded
-        yield return null;
 
         for (int i = 0; i < asteroidFieldCount; i++)
         {
             Vector3 spawnPosition = SpawnerManager.Instance.GetRandomPositionOutsideBuildings();
             SpawnAsteroidField(spawnPosition);
+
         }
     }
 
