@@ -26,4 +26,14 @@ public class MenuManager : MonoBehaviour
         _mainMenu.SetActive(true);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void PressPlay()
+    {
+        _mainMenu.SetActive(false);
+    }
+
 }
