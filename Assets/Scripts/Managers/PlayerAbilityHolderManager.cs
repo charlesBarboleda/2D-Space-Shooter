@@ -23,9 +23,5 @@ public class PlayerAbilityHolderManager : MonoBehaviour
         _abilityHolder = PlayerManager.GetInstance().AbilityHolder();
     }
 
-    public void UnlockSkill(Ability ability)
-    {
-        ability.isUnlocked = true;
-        Debug.Log($"{ability.name} unlocked!");
-    }
+
 }

@@ -70,7 +70,7 @@ public class Background : MonoBehaviour
         yield return new WaitForSeconds(1f);
         _audioSource.Stop();
         _audioSource.clip = music;
-        _audioSource.PlayOneShot(music);
+        _audioSource.Play();
         _audioSource.DOFade(0.3f, 1f);
     }
     public void PlayCrimsonFleetHordeMusic()

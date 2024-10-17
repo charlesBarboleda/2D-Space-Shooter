@@ -24,15 +24,6 @@ public class AsteroidSpawnerManager : MonoBehaviour
         // SpawnAsteroidFields();
         // SpawnAsteroids();
     }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            SpawnAsteroids();
-            SpawnAsteroidFields();
-        }
-    }
     void SpawnAsteroids()
     {
 

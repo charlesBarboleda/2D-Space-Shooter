@@ -43,34 +43,48 @@ public class PlayerComboManager : MonoBehaviour
             { 100, IncreasePlayerHealth },
             { 150, IncreasePlayerDamage },
             { 250, IncreaseBulletAmount },
-            { 500, DealAOEDamage }
+            { 500, DealAOEDamage } // Can handle any multiple of 500
         };
     }
 
     void Update()
     {
-        comboCount = _comboManager.comboCount;
+        int comboCount = _comboManager.comboCount;
 
         foreach (var comboAction in comboActions)
         {
-            // Check if the combo threshold is reached and the buff hasn't been activated yet
-            if (comboCount >= comboAction.Key && !buffsActivated[comboAction.Key])
+            if (comboCount >= comboAction.Key && ShouldActivateCombo(comboAction.Key))
             {
                 UIManager.Instance.ActivateComboKey();
 
                 if (Input.GetKeyDown(KeyCode.R))
                 {
-                    // Activate the buff and disable the UI once the player presses the key
-                    UIManager.Instance.DeactivateComboKey();
-                    comboAction.Value.Invoke();
-                    ComboAnimation();
-                    _playerManager.ActivateBuffAnimations();
-                    buffsActivated[comboAction.Key] = true;  // Mark this buff as activated
-                    AudioManager.Instance.PlaySound(GameManager.Instance._audioSource, _onComboAbilityExecute);
-                    break;  // Avoid multiple activations at once
+                    ExecuteComboAction(comboAction.Key);
+                    break; // Prevent multiple activations at once
                 }
             }
         }
+    }
+
+    bool ShouldActivateCombo(int comboThreshold)
+    {
+        // For multiples of 500, check divisibility
+        if (comboThreshold == 500)
+        {
+            return (_comboManager.comboCount % 500 == 0) && !buffsActivated[comboThreshold];
+        }
+
+        return !buffsActivated[comboThreshold];
+    }
+
+    void ExecuteComboAction(int comboThreshold)
+    {
+        UIManager.Instance.DeactivateComboKey();
+        comboActions[comboThreshold].Invoke();
+        ComboAnimation();
+        _playerManager.ActivateBuffAnimations();
+        buffsActivated[comboThreshold] = true;
+        AudioManager.Instance.PlaySound(GameManager.Instance._audioSource, _onComboAbilityExecute);
     }
 
     void IncreasePlayerSpeed()
@@ -181,41 +195,40 @@ public class PlayerComboManager : MonoBehaviour
     public void RemoveAllBuffs()
     {
         _playerManager.DeactivateBuffAnimations();
-        if (buffsActivated[25] == true)
+        foreach (var key in buffsActivated.Keys)
         {
-            _playerManager.Movement().moveSpeed /= 1.5f;
-            buffsActivated[25] = false;
+            if (buffsActivated[key])
+            {
+                RemoveBuff(key);
+                buffsActivated[key] = false;
+            }
         }
+    }
 
-        if (buffsActivated[50] == true)
+    void RemoveBuff(int comboThreshold)
+    {
+        switch (comboThreshold)
         {
-            _playerManager.Weapon().bulletSpeed /= 1.5f;
-            buffsActivated[50] = false;
+            case 25:
+                _playerManager.Movement().moveSpeed /= 1.5f;
+                break;
+            case 50:
+                _playerManager.Weapon().bulletSpeed /= 1.5f;
+                break;
+            case 75:
+                _playerManager.PickUpBehaviour().PickUpRadius /= 2f;
+                break;
+            case 100:
+                _playerManager.SetMaxHealth(_playerManager.MaxHealth() / 1.25f);
+                _playerManager.SetCurrentHealth(_playerManager.CurrentHealth() / 1.25f);
+                break;
+            case 150:
+                _playerManager.Weapon().bulletDamage /= 1.5f;
+                break;
+            case 250:
+                _playerManager.Weapon().amountOfBullets -= 2;
+                break;
         }
-
-        if (buffsActivated[75] == true)
-        {
-            _playerManager.PickUpBehaviour().PickUpRadius /= 2f;
-            buffsActivated[75] = false;
-        }
-        if (buffsActivated[100] == true)
-        {
-            _playerManager.SetMaxHealth(_playerManager.MaxHealth() / 1.25f);
-            _playerManager.SetCurrentHealth(_playerManager.CurrentHealth() / 1.25f);
-            buffsActivated[100] = false;
-        }
-        if (buffsActivated[150] == true)
-        {
-            _playerManager.Weapon().bulletDamage /= 1.5f;
-            buffsActivated[150] = false;
-        }
-        if (buffsActivated[250] == true)
-        {
-            _playerManager.Weapon().amountOfBullets -= 2;
-            buffsActivated[250] = false;
-        }
-
-
     }
 }
 

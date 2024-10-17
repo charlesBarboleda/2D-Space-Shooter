@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +13,7 @@ public class EventManager : MonoBehaviour
 
     public static event Action<PrestigeType> OnPrestigeChange;
     public static event Action<PrestigeType> OnPrestigeClick;
+    public static event Action OnCoreEnergize;
     public static event Action OnGameOver;
     public static event Action OnNextLevel;
     public static event Action OnLevelStart;
@@ -21,6 +23,10 @@ public class EventManager : MonoBehaviour
 
     public static event System.Action<float> OnCurrencyChange;
 
+    public static void CoreEnergizeEvent()
+    {
+        OnCoreEnergize?.Invoke();
+    }
     public static void PrestigeClickEvent(PrestigeType prestige)
     {
         OnPrestigeClick?.Invoke(prestige);

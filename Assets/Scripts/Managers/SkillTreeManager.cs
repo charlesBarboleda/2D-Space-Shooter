@@ -140,7 +140,7 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Unlock the Shield ability
-                PlayerAbilityHolderManager.Instance.UnlockSkill(PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityShield));
+                PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityShield).isUnlocked = true;
                 UIManager.Instance.shieldPanel.SetActive(true);
                 Debug.Log("Shield Ability Unlocked");
             },
@@ -219,7 +219,7 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Unlock the Teleport ability
-                PlayerAbilityHolderManager.Instance.UnlockSkill(PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityTeleport));
+                PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityTeleport).isUnlocked = true;
                 UIManager.Instance.teleportPanel.SetActive(true);
                 Debug.Log("Teleport Ability Unlocked");
             },
@@ -394,7 +394,7 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Unlock the Turret ability
-                PlayerAbilityHolderManager.Instance.UnlockSkill(PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityTurrets));
+                PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityTurrets).isUnlocked = true;
                 UIManager.Instance.turretPanel.SetActive(true);
                 Debug.Log("Turret Ability Unlocked");
 
@@ -565,7 +565,7 @@ public class SkillTreeManager : MonoBehaviour
             () =>
             {
                 // Unlock the Laser ability
-                PlayerAbilityHolderManager.Instance.UnlockSkill(PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityLaser));
+                PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityLaser).isUnlocked = true;
                 UIManager.Instance.laserPanel.SetActive(true);
                 Debug.Log("Laser Ability Unlocked");
             },

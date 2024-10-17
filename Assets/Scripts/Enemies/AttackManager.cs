@@ -20,7 +20,7 @@ public class AttackManager : MonoBehaviour
 
     void OnEnable()
     {
-        AimRange = _kinematics.StopDistance + 5f;
+        _aimRange = _kinematics.StopDistance + 5f;
     }
 
 
