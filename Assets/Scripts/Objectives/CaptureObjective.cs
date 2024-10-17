@@ -32,6 +32,8 @@ public class CaptureObjective : ObjectiveBase
     }
     public override void UpdateObjective()
     {
+        Debug.Log("Enemies Count: " + SpawnerManager.Instance.EnemiesList.Count);
+        Debug.Log("Enemies to spawn: " + SpawnerManager.Instance.EnemiesToSpawnLeft);
         if (elapsedTime > 0)
         {
             elapsedTime -= Time.deltaTime;
@@ -44,6 +46,8 @@ public class CaptureObjective : ObjectiveBase
             if (SpawnerManager.Instance.EnemiesToSpawnLeft <= 0 && SpawnerManager.Instance.EnemiesList.Count == 1)
             {
                 CompleteObjective();
+                captureCirclePrefab.SetActive(false);
+                greenCaptureCircle.SetActive(false);
             }
             objectiveDescription = "Capture the Magic Circle: " + Mathf.Round(captureCircle.progress / captureCircle.captureTime * 100).ToString() + "%" + " in " + Mathf.Round(elapsedTime) + " seconds";
             ObjectiveManager.Instance.UpdateObjectivesUI();
@@ -60,12 +64,13 @@ public class CaptureObjective : ObjectiveBase
     {
         // Notify ObjectiveManager of completion
         objectiveDescription = "The Magic Circle has been captured";
+        SpawnerManager.Instance.EnemiesList.Remove(captureCirclePrefab);
         // Force UI to update
         ObjectiveManager.Instance.UpdateObjectivesUI();
         base.CompleteObjective();
         ObjectiveManager.Instance.HandleObjectiveCompletion(this);
         isObjectiveCompleted = true;
-        SpawnerManager.Instance.EnemiesList.Remove(captureCirclePrefab);
+
 
 
         Debug.Log("Completed Objective from Invasion Objective");
@@ -75,6 +80,7 @@ public class CaptureObjective : ObjectiveBase
     {
         isObjectiveFailed = true;
         SpawnerManager.Instance.EnemiesList.Remove(captureCirclePrefab);
+
         objectiveDescription = "The Magic Circle has run out!";
         ObjectiveManager.Instance.UpdateObjectivesUI();
         ObjectiveManager.Instance.HandleObjectiveFailure(this);

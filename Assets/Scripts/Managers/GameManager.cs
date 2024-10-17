@@ -24,7 +24,8 @@ public class GameManager : MonoBehaviour
     public AudioSource _audioSource;
     [SerializeField] AudioClip _nextRoundAudio;
     [SerializeField] AudioClip _gameOverAudio;
-
+    [SerializeField] AudioClip _onButtonHover;
+    [SerializeField] AudioClip _onButtonClick;
     [Header("Managers")]
     SpawnerManager _spawnerManager;
     LevelManager _levelManager;
@@ -132,9 +133,10 @@ public class GameManager : MonoBehaviour
     IEnumerator StartCountdown()
     {
         ObjectiveManager.Instance.ClearActiveObjectives();
+        Background.Instance.PlayCountdownMusic();
         Debug.Log("Countdown Started");
         _isInputActive = true;
-        _roundCountdown = 5f;
+        _roundCountdown = 30f;
         UIManager.Instance.countdownText.gameObject.SetActive(true);
 
         while (_roundCountdown > 0)
@@ -221,6 +223,17 @@ public class GameManager : MonoBehaviour
     private void GameOverSound()
     {
         AudioManager.Instance.PlaySound(_audioSource, _gameOverAudio);
+
+    }
+
+    public void PlayButtonHoverSound()
+    {
+        _audioSource.PlayOneShot(_onButtonHover);
+    }
+
+    public void PlayButtonClickSound()
+    {
+        _audioSource.PlayOneShot(_onButtonClick);
     }
 
     public void DestroyAllShips()

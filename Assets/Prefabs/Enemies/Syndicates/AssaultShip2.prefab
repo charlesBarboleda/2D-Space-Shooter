@@ -350,7 +350,7 @@ AudioSource:
   m_GameObject: {fileID: 6354811038995012457}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: bf6b580793ab42a4395b2967f46e2521, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.126
@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9216c03e867f274db5aaf93c01462f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _aimRange: 80
+  _aimRange: 65
   _attackCooldown: 3
   _isSilenced: 0
 --- !u!195 &3389582575560845445
@@ -945,6 +945,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.479
       objectReference: {fileID: 0}
+    - target: {fileID: -1632575951528345661, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4269631521700113, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_SortingOrder
       value: 13
@@ -1107,6 +1111,10 @@ PrefabInstance:
     - target: {fileID: -1632575951528345661, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_Volume
       value: 0.479
+      objectReference: {fileID: 0}
+    - target: {fileID: -1632575951528345661, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4269631521700113, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_SortingOrder
@@ -1271,6 +1279,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.479
       objectReference: {fileID: 0}
+    - target: {fileID: -1632575951528345661, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4269631521700113, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_SortingOrder
       value: 13
@@ -1433,6 +1445,10 @@ PrefabInstance:
     - target: {fileID: -1632575951528345661, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_Volume
       value: 0.479
+      objectReference: {fileID: 0}
+    - target: {fileID: -1632575951528345661, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4269631521700113, guid: 3df9ac868ad199b40923b0cbf423c5c6, type: 3}
       propertyPath: m_SortingOrder

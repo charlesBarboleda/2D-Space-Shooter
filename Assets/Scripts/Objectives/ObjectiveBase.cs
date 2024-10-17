@@ -14,7 +14,7 @@ public abstract class ObjectiveBase : ScriptableObject
     public virtual void CompleteObjective()
     {
         isObjectiveCompleted = true;
-        PlayerManager.Instance.SetCurrency(PlayerManager.Instance.Currency() + rewardPoints);
+        PlayerManager.Instance.SetCurrency(rewardPoints);
     }
 
     public virtual void ResetObjective()

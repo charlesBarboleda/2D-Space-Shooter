@@ -22,11 +22,13 @@ public class HordeLevel : Level
     }
     public override void StartLevel()
     {
+        Background.Instance.PlayHordeMusic(_factionType);
         // 10% chance to start a random objective
         if (Random.value < 0.99f)
         {
             _spawnerManager.StartCoroutine(StartRandomObjective());
         }
+
         _spawnerManager.ResetRound();
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesToSpawn;
         Debug.Log("Starting Horde Level");

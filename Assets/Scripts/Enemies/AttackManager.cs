@@ -7,14 +7,22 @@ public class AttackManager : MonoBehaviour
     [SerializeField] float _aimRange = 20f;
     [SerializeField] float _attackCooldown = 1f;
     [SerializeField] bool _isSilenced;
+    Kinematics _kinematics;
     TargetManager _targetManager;
     float _elapsedCooldown;
 
 
-    void Awake()
+    void Start()
     {
+        _kinematics = GetComponent<Kinematics>();
         _targetManager = GetComponent<TargetManager>();
     }
+
+    void OnEnable()
+    {
+        AimRange = _kinematics.StopDistance + 5f;
+    }
+
 
     // Update is called once per frame
     void Update()

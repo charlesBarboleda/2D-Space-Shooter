@@ -75,7 +75,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         spawnerManager.StartCoroutine(spawnerManager.SpawnEnemiesWaves(7, 10f));
 
         // Play phase 1 music
-        spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase1Music());
+        Background.Instance.PlayThraxBossPhase1Music();
 
         // Spawn the boss in idle mode
         bossShip = spawnerManager.SpawnShip(bossName, SpawnerManager.Instance.SoloBossSpawnPoints[Random.Range(0, SpawnerManager.Instance.SoloBossSpawnPoints.Count)], Quaternion.identity);
@@ -118,7 +118,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         bossKinematicsPhase1.ShouldMove = true;
 
         // Pan camera to boss and play Phase 2 music
-        spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase2Music());
+        Background.Instance.PlayThraxBossPhase2Music();
         UIManager.Instance.bossHealthBar.gameObject.SetActive(true);
         yield return cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShip.transform, 11f));
         // Unlock the boss' first and second abilities
@@ -146,7 +146,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
         }
         UIManager.Instance.bossHealthBar.gameObject.SetActive(false);
         // Play Phase 3 music and disable boss movement and health
-        spawnerManager.StartCoroutine(Background.Instance.PlayThraxBossPhase3Music());
+        Background.Instance.PlayThraxBossPhase3Music();
 
         navMeshAgent.enabled = false;
         bossKinematicsPhase1.ShouldMove = false; // Disable boss movement
@@ -262,7 +262,6 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
     {
         Debug.Log("Completing Level");
         UIManager.Instance.bossHealthBar.gameObject.SetActive(false);
-        spawnerManager.StartCoroutine(Background.Instance.PlayOriginalBackgroundMusic());
         levelManager.CompleteLevel();
     }
 

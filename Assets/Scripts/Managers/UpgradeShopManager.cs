@@ -72,17 +72,17 @@ public class UpgradeShopManager : MonoBehaviour
         bulletSpeedUpgrade.Initialize(
             "Increase Bullet Speed",
             $"Increase Bullet Speed by {bulletSpeedUpgrade.bulletSpeedUpgradeAmount}",
-            10
+            50
         );
         extraBulletUpgrade.Initialize(
             "Extra Bullet",
             $"Increase Bullet Count by {extraBulletUpgrade.extraBulletUpgradeAmount}",
-            1000
+            2500
         );
         shipSpeedUpgrade.Initialize(
             "Increase Ship Speed",
             $"Increase Ship Speed by {shipSpeedUpgrade.GetShipSpeedUpgradeAmount()} km/h",
-            50
+            100
         );
         pickUpUpgrade.Initialize(
             "Increase Pick Up Radius",

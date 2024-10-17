@@ -1,14 +1,20 @@
 using System.Collections;
+using DG.Tweening;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class Background : MonoBehaviour
 {
     public static Background Instance { get; private set; }
     [SerializeField] AudioSource _audioSource;
-    [SerializeField] AudioClip _backgroundMusic;
+    [SerializeField] AudioClip _syndicatesMusic;
     [SerializeField] AudioClip _thraxBossPhase1Music;
     [SerializeField] AudioClip _thraxBossPhase2Music;
     [SerializeField] AudioClip _thraxBossPhase3Music;
+    [SerializeField] AudioClip _countdownMusic;
+    [SerializeField] AudioClip _thraxMusic;
+    [SerializeField] AudioClip _crimsonFleetMusic;
+
     [SerializeField] AudioClip _invasionMusic;
 
 
@@ -26,21 +32,6 @@ public class Background : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
-    void Start()
-    {
-        StartCoroutine(PlayOriginalBackgroundMusic());
-    }
-
-    public IEnumerator FadeOut(float duration)
-    {
-        while (_audioSource.volume > 0)
-        {
-            _audioSource.volume -= Time.deltaTime * duration; // You can also multiply by a fade speed factor
-            yield return null;
-        }
-        _audioSource.Stop();
-    }
-
     public IEnumerator FadeIn(float duration)
     {
         _audioSource.volume = 0f;  // Ensure the volume starts from 0
@@ -52,41 +43,69 @@ public class Background : MonoBehaviour
         }
     }
 
-    public IEnumerator TransitionBackgroundMusic(AudioClip backgroundMusic)
+    public void PlayInvasionMusic()
     {
-        yield return StartCoroutine(FadeOut(0.1f)); // Ensure fade out completes
-        _audioSource.clip = backgroundMusic;
-        yield return new WaitForSeconds(0.1f);
-        yield return StartCoroutine(FadeIn(0.1f)); // Start fading in after setting the new clip
+        StartCoroutine(TransitionToMusic(_invasionMusic));
     }
 
-    public IEnumerator PlayInvasionMusic()
+    public void PlayHordeMusic(FactionType faction)
     {
-        Debug.Log("Playing Invasion Music");
-        yield return StartCoroutine(TransitionBackgroundMusic(_invasionMusic));
+        switch (faction)
+        {
+            case FactionType.Syndicates:
+                PlaySyndicatesHordeMusic();
+                break;
+            case FactionType.ThraxArmada:
+                PlayThraxArmadaHordeMusic();
+                break;
+            case FactionType.CrimsonFleet:
+                PlayCrimsonFleetHordeMusic();
+                break;
+        }
     }
 
-    public IEnumerator PlayOriginalBackgroundMusic()
+    public IEnumerator TransitionToMusic(AudioClip music)
     {
-        Debug.Log("Playing Original Background Music");
-        yield return StartCoroutine(TransitionBackgroundMusic(_backgroundMusic));
+        _audioSource.DOFade(0f, 1f);
+        yield return new WaitForSeconds(1f);
+        _audioSource.Stop();
+        _audioSource.clip = music;
+        _audioSource.PlayOneShot(music);
+        _audioSource.DOFade(0.3f, 1f);
+    }
+    public void PlayCrimsonFleetHordeMusic()
+    {
+        StartCoroutine(TransitionToMusic(_crimsonFleetMusic));
     }
 
-    public IEnumerator PlayThraxBossPhase1Music()
+    public void PlayThraxArmadaHordeMusic()
     {
-        Debug.Log("Playing Thrax Boss Phase 1 Music");
-        yield return StartCoroutine(TransitionBackgroundMusic(_thraxBossPhase1Music));
+        StartCoroutine(TransitionToMusic(_thraxMusic));
     }
 
-    public IEnumerator PlayThraxBossPhase2Music()
+    public void PlaySyndicatesHordeMusic()
     {
-        Debug.Log("Playing Thrax Boss Phase 2 Music");
-        yield return StartCoroutine(TransitionBackgroundMusic(_thraxBossPhase2Music));
+        StartCoroutine(TransitionToMusic(_syndicatesMusic));
     }
 
-    public IEnumerator PlayThraxBossPhase3Music()
+    public void PlayThraxBossPhase1Music()
     {
-        Debug.Log("Playing Thrax Boss Phase 3 Music");
-        yield return StartCoroutine(TransitionBackgroundMusic(_thraxBossPhase3Music));
+        StartCoroutine(TransitionToMusic(_thraxBossPhase1Music));
+    }
+
+    public void PlayThraxBossPhase2Music()
+    {
+        StartCoroutine(TransitionToMusic(_thraxBossPhase2Music));
+    }
+
+    public void PlayThraxBossPhase3Music()
+    {
+        StartCoroutine(TransitionToMusic(_thraxBossPhase3Music));
+    }
+
+    public void PlayCountdownMusic()
+    {
+        StartCoroutine(TransitionToMusic(_countdownMusic));
+
     }
 }

@@ -441,14 +441,14 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's bullet count by 3
+                // Increase the player's bullet count by 1
                 int bulletIncrease = 1;
                 PlayerManager.GetInstance().Weapon().amountOfBullets += bulletIncrease;
                 Debug.Log("Bullet Count Increased by " + bulletIncrease + " Bullet");
             }
         };
 
-        ApplySkillEffect("Bullet Hell", 1000, skillEffects);
+        ApplySkillEffect("Bullet Hell", 3000, skillEffects);
     }
     public void ApplyBlitzShotEffect()
     {
@@ -602,7 +602,7 @@ public class SkillTreeManager : MonoBehaviour
             },
         };
 
-        ApplySkillEffect("Spray And Pray", 1000, skillEffects);
+        ApplySkillEffect("Spray And Pray", 3000, skillEffects);
     }
     public void ApplyFerocityEffect()
     {

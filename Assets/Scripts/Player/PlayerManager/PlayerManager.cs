@@ -41,9 +41,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            Vector3 capturePosition = SpawnerManager.Instance.GetRandomPositionOutsideBuildings();
-            ObjectPooler.Instance.SpawnFromPool("CaptureCircle", capturePosition, Quaternion.identity);
-            ObjectPooler.Instance.SpawnFromPool("GreenCaptureCircle", capturePosition, Quaternion.identity);
+
         }
     }
 

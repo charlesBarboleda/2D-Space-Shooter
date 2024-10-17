@@ -127,8 +127,7 @@ public class LevelManager : MonoBehaviour
         int amountOfEnemies = _currentLevelIndex * 3;
         List<Ship> shipsToSpawn = _spawnerManager.DetermineDefendingShips();
         float spawnRate = Mathf.Min(0.5f, _currentLevelIndex * 0.01f);
-        FactionType factionType = FactionType.Syndicates;
-
+        FactionType factionType = InvasionManager.Instance.DefendingFaction;
         return new HordeLevel(
             amountOfEnemies,
             this,

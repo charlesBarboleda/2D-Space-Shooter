@@ -113,7 +113,7 @@ AudioSource:
   m_GameObject: {fileID: 3920351723424583824}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: bf6b580793ab42a4395b2967f46e2521, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -752,6 +752,10 @@ PrefabInstance:
       propertyPath: _bossShooterEnemy
       value: 
       objectReference: {fileID: 3269395750644134770}
+    - target: {fileID: 7173449283542260596, guid: f25d6954f52309b4bb038715c8338cd0, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7355890466775476538, guid: f25d6954f52309b4bb038715c8338cd0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15467845
@@ -839,6 +843,10 @@ PrefabInstance:
       propertyPath: _bossShooterEnemy
       value: 
       objectReference: {fileID: 3269395750644134770}
+    - target: {fileID: 7173449283542260596, guid: f25d6954f52309b4bb038715c8338cd0, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7355890466775476538, guid: f25d6954f52309b4bb038715c8338cd0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.15467845
