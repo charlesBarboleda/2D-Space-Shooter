@@ -13,30 +13,24 @@ public class EscortObjective : ObjectiveBase
     Vector2 _mapMaxSize = new Vector2(200, 200);
     public override void Initialize()
     {
-
+        objectiveName = "Escort";
         _wayPoints = GeneratePath(_waypointsAmount);
         _cargoShip = ObjectPooler.Instance.SpawnFromPool("CargoShip", _wayPoints[0], Quaternion.identity);
-        SpawnerManager.Instance.EnemiesList.Add(_cargoShip);
+
         _cargoShipHealth = _cargoShip.GetComponent<Health>();
         _cargoShipHealth.MaxHealth = LevelManager.Instance.CurrentLevelIndex * 1000;
         _cargoShipHealth.CurrentHealth = _cargoShipHealth.MaxHealth;
         rewardPoints = (int)_cargoShipHealth.MaxHealth / 2;
         _cargoShip.GetComponent<CargoShip>().SetWaypoints(_wayPoints);
+
         objectiveDescription = "Escort the Cargo Ship to its destination";
         ObjectiveManager.Instance.UpdateObjectivesUI();
     }
 
     public override void UpdateObjective()
     {
-        Debug.Log("Enemies Count: " + SpawnerManager.Instance.EnemiesList.Count);
-        Debug.Log("Enemies to spawn: " + SpawnerManager.Instance.EnemiesToSpawnLeft);
         if (_cargoShip == null || !_cargoShip.activeInHierarchy)
         {
-            CompleteObjective();
-        }
-        if (SpawnerManager.Instance.EnemiesToSpawnLeft <= 0 && SpawnerManager.Instance.EnemiesList.Count == 1)
-        {
-            _cargoShip.GetComponent<CargoShip>().TeleportAway();
             CompleteObjective();
         }
         if (_cargoShipHealth.isDead)
@@ -51,11 +45,11 @@ public class EscortObjective : ObjectiveBase
         base.CompleteObjective();
         ObjectiveManager.Instance.HandleObjectiveCompletion(this);
         isObjectiveCompleted = true;
-        SpawnerManager.Instance.EnemiesList.Remove(_cargoShip);
 
         objectiveDescription = "The Cargo Ship has reached its destination and sucessfully escaped!";
         // Force UI to update
-        ObjectiveManager.Instance.UpdateObjectivesUI();
+        ObjectiveManager.Instance.RemoveObjective("Escort");
+        UIManager.Instance.RemoveObjectiveFromUI("Escort");
 
         Debug.Log("Completed Objective from Invasion Objective");
 
@@ -63,9 +57,8 @@ public class EscortObjective : ObjectiveBase
     public override void FailObjective()
     {
         isObjectiveFailed = true;
-        SpawnerManager.Instance.EnemiesList.Remove(_cargoShip);
-        objectiveDescription = "The Cargo Ship has been destroyed";
-        ObjectiveManager.Instance.UpdateObjectivesUI();
+        ObjectiveManager.Instance.RemoveObjective("Escort");
+        UIManager.Instance.RemoveObjectiveFromUI("Escort");
         ObjectiveManager.Instance.HandleObjectiveFailure(this);
         Debug.Log("Failed Objective from Invasion Objective");
     }

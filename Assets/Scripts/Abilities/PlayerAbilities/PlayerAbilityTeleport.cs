@@ -22,6 +22,7 @@ public class AbilityTeleport : Ability
         }
         else
         {
+            EventManager.TeleportEvent();
             GameManager.Instance.StartCoroutine(NormalTeleport(owner));
         }
 
@@ -54,7 +55,7 @@ public class AbilityTeleport : Ability
         yield return new WaitForSeconds(1f);
 
         GameObject tpEffect = ObjectPooler.Instance.SpawnFromPool("PlayerTeleport", owner.transform.position, Quaternion.identity);
-        tpEffect.transform.localScale = new Vector3(40, 40, 40);
+        tpEffect.transform.localScale = new Vector3(60, 60, 60);
         tpEffect.transform.SetParent(owner.transform);
         PlayerTeleportPrefab teleportScript = tpEffect.GetComponent<PlayerTeleportPrefab>();
         teleportScript.SetDamage(teleportDamage * ultimateDamageMultiplier);

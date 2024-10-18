@@ -49,6 +49,7 @@ public class LacerateBullet : Bullet
         {
             IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
             damageable.TakeDamage(BulletDamage);
+            EventManager.BulletDamageEvent(BulletDamage);
             StartCoroutine(BulletOnHitEffect());
             UIManager.Instance.CreateOnHitDamageText(Mathf.Round(BulletDamage).ToString(), transform.position);
             if (shouldIncreaseCombo)

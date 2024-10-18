@@ -8732,7 +8732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildings:
   - center: {x: -11.6, y: 135, z: 0}
-    size: {x: 40, y: 40, z: 0}
+    size: {x: 80, y: 80, z: 0}
   - center: {x: -11.6, y: 135, z: 0}
     size: {x: 20, y: 20, z: 0}
   - center: {x: -111.8, y: -73.4, z: 0}
@@ -8807,6 +8807,8 @@ MonoBehaviour:
   specialObjectives:
   - {fileID: 11400000, guid: 576b150b37410b94fbdabc52c069889e, type: 2}
   - {fileID: 11400000, guid: d9f1b31732808bf479eb2655b162a7d0, type: 2}
+  - {fileID: 11400000, guid: 257e13bf181bad94eb1b7a2f020e23c2, type: 2}
+  - {fileID: 11400000, guid: ebe32a9b62793194f923d22eb43025bb, type: 2}
   generalObjectives:
   - {fileID: 11400000, guid: 5d162767d14f83949937785651eeecd6, type: 2}
   - {fileID: 11400000, guid: 9374f8bbc6efae942a801014e940dc2c, type: 2}

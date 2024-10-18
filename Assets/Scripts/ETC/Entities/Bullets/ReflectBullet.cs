@@ -45,6 +45,7 @@ public class ReflectBullet : Bullet
             {
                 damageable.TakeDamage(BulletDamage);
                 StartCoroutine(BulletOnHitEffect());
+                EventManager.BulletDamageEvent(BulletDamage);
                 if (shouldIncreaseCombo)
                     ComboManager.Instance.IncreaseCombo();
                 // Reflect the bullet
@@ -57,7 +58,7 @@ public class ReflectBullet : Bullet
                         Vector2 direction = Vector2.Reflect(_rb.velocity.normalized, hit.normal);
 
                         // Randomize the angle slightly by rotating the direction vector
-                        float randomAngle = Random.Range(-25f, 25f); // You can adjust the angle range
+                        float randomAngle = Random.Range(-90f, 90f); // You can adjust the angle range
                         direction = Quaternion.Euler(0, 0, randomAngle) * direction;
 
                         _rb.velocity = direction * BulletSpeed;

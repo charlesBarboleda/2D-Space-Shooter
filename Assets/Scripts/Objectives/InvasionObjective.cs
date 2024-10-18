@@ -13,6 +13,7 @@ public class InvasionObjective : ObjectiveBase
 
     public override void Initialize()
     {
+        objectiveName = "Invasion";
         EventManager.OnEnemyDestroyed += RegisterShipDestroyed;
         _spawnerManager = SpawnerManager.Instance;
         _defendingShips = _spawnerManager.DefendingShipsList;
@@ -56,12 +57,10 @@ public class InvasionObjective : ObjectiveBase
     private void CompleteObjective(bool defendersWin)
     {
         isObjectiveCompleted = true;
-        string resultMessage = defendersWin ? $"Invasion over! The {InvasionManager.Instance.InvadingFactions[0]} have lost!" : $"Invasion over! The {InvasionManager.Instance.DefendingFaction} have been eliminated!";
-        objectiveDescription = resultMessage;
 
         // Force UI to update
-        ObjectiveManager.Instance.UpdateObjectivesUI();
-        Debug.Log("Updated Objective from Invasion Objective");
+        ObjectiveManager.Instance.RemoveObjective("Invasion");
+        UIManager.Instance.RemoveObjectiveFromUI("Invasion");
 
         // Notify ObjectiveManager of completion
         ObjectiveManager.Instance.HandleObjectiveCompletion(this);

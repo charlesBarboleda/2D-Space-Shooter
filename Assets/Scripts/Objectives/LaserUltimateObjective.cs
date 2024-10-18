@@ -9,6 +9,7 @@ public class LaserUltimateObjective : ObjectiveBase
 
     public override void Initialize()
     {
+        objectiveName = "Laser";
         hitsRequired = 5000;
         rewardPoints = 0;
         EventManager.OnLaserHit += OnLaserHit;
@@ -23,6 +24,7 @@ public class LaserUltimateObjective : ObjectiveBase
             CompleteObjective();
         }
         objectiveDescription = $"Hit {hitsRequired} times with your Laser ability to unlock a special reward!";
+        ObjectiveManager.Instance.UpdateObjectivesUI();
     }
     public override void FailObjective()
     {
@@ -35,8 +37,9 @@ public class LaserUltimateObjective : ObjectiveBase
         objectiveDescription = "You have unlocked the Laser Ultimate ability";
         PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityLaser).isUltimateUnlocked = true;
         UIManager.Instance.laserUltIconFill.gameObject.SetActive(true);
-        UIManager.Instance.MidScreenWarningText("Unlocked Laser Ultimate", 5f);
+        UIManager.Instance.MidScreenWarningText("Unlocked Laser Ultimate", 3f);
         ObjectiveManager.Instance.RemoveObjective("Laser");
+        UIManager.Instance.RemoveObjectiveFromUI("Laser");
         // Force UI to update
         ObjectiveManager.Instance.UpdateObjectivesUI();
         base.CompleteObjective();

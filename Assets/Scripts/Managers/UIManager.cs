@@ -623,14 +623,36 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// Clears all objective UI elements from the screen.
     /// </summary>
-    public void ClearObjectivesFromUI()
+    public void RemoveObjectiveFromUI(string objectiveName)
     {
-        foreach (var uiElement in _objectiveUIElements.Values)
+        // Find the objective in the dictionary by matching the objective name
+        ObjectiveBase objectiveToRemove = null;
+
+        foreach (var objective in _objectiveUIElements.Keys)
         {
-            Destroy(uiElement.gameObject); // Destroy the UI GameObjects
+            if (objective.objectiveName == objectiveName)
+            {
+                objectiveToRemove = objective;
+                break;
+            }
         }
-        _objectiveUIElements.Clear(); // Clear the dictionary
-        Debug.Log("Cleared all objective UI elements.");
+
+        // If the objective was found, remove its UI element and dictionary entry
+        if (objectiveToRemove != null)
+        {
+            // Deactivate and remove the UI element
+            TextMeshProUGUI uiElement = _objectiveUIElements[objectiveToRemove];
+            Destroy(uiElement.gameObject);
+
+            // Remove the objective from the dictionary
+            _objectiveUIElements.Remove(objectiveToRemove);
+
+            Debug.Log($"Objective '{objectiveName}' removed from the UI.");
+        }
+        else
+        {
+            Debug.LogWarning($"Objective '{objectiveName}' not found in the UI.");
+        }
     }
 
     void UpdateHighScoreUI()

@@ -46,6 +46,11 @@ public class PlayerShieldPrefab : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("EnemyBullet"))
+        {
+            Bullet script = other.GetComponent<Bullet>();
+            EventManager.ShieldAbsorbEvent(script.BulletDamage);
+        }
         // Applies Corrode to the enemy if prestiged
         if (PlayerManager.Instance.PrestigeManager().chosenPrestige == PrestigeType.Plaguebringer)
         {

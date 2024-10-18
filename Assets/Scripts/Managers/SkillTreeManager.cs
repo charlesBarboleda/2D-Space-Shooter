@@ -143,6 +143,13 @@ public class SkillTreeManager : MonoBehaviour
                 PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityShield).isUnlocked = true;
                 UIManager.Instance.shieldPanel.SetActive(true);
                 Debug.Log("Shield Ability Unlocked");
+                // Start the Laser Ultimate unlocking quest
+                ObjectiveBase shieldUltimateObjective = ObjectiveManager.Instance.GetObjectiveFromPool("Shield");
+                ObjectiveManager.Instance.StartObjective(shieldUltimateObjective);
+                ObjectiveManager.Instance.UpdateObjectivesUI();
+                UIManager.Instance.shieldUltIconFill.gameObject.SetActive(false);
+
+
             },
         };
 
@@ -154,10 +161,10 @@ public class SkillTreeManager : MonoBehaviour
         {
             () =>
             {
-                // Increase the player's teleport distance by 8%
-                float increaseDistance = 1.08f;
+                // Increase the player's teleport distance by 12%
+                float increaseDistance = 1.12f;
                 abilityHolder.abilities.OfType<AbilityTeleport>().FirstOrDefault().teleportDistance *= increaseDistance;
-                Debug.Log("Teleport Distance Increased by 8%");
+                Debug.Log("Teleport Distance Increased by 12%");
             }
         };
 
@@ -220,7 +227,12 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Unlock the Teleport ability
                 PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityTeleport).isUnlocked = true;
+                // Start the Laser Ultimate unlocking quest
+                ObjectiveBase teleportUltimateObjective = ObjectiveManager.Instance.GetObjectiveFromPool("Teleport");
+                ObjectiveManager.Instance.StartObjective(teleportUltimateObjective);
+                ObjectiveManager.Instance.UpdateObjectivesUI();
                 UIManager.Instance.teleportPanel.SetActive(true);
+                UIManager.Instance.teleportUltIconFill.gameObject.SetActive(false);
                 Debug.Log("Teleport Ability Unlocked");
             },
         };
@@ -395,12 +407,19 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Unlock the Turret ability
                 PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityTurrets).isUnlocked = true;
-                UIManager.Instance.turretPanel.SetActive(true);
                 Debug.Log("Turret Ability Unlocked");
 
                 // Increase the player's turret count by 2
                 PlayerManager.GetInstance().GetComponent<TurretManager>().SpawnTurrets();
+                // Start the Turret Ultimate unlocking quest
+                ObjectiveBase turretUltimateObjective = ObjectiveManager.Instance.GetObjectiveFromPool("Turret");
+                ObjectiveManager.Instance.StartObjective(turretUltimateObjective);
+                ObjectiveManager.Instance.UpdateObjectivesUI();
+                UIManager.Instance.turretPanel.SetActive(true);
+                UIManager.Instance.turretUltIconFill.gameObject.SetActive(false);
+
             },
+
         };
 
         ApplySkillEffect("Unlock Turret", 0, skillEffects);

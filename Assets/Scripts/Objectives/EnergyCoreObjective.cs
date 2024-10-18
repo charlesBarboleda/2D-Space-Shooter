@@ -13,6 +13,7 @@ public class EnergyCoreObjective : ObjectiveBase
 
     public override void Initialize()
     {
+        objectiveName = "Push";
         Vector3 spawnPoint = SpawnerManager.Instance.GetRandomPositionOutsideBuildings();
         energyBuilding = ObjectPooler.Instance.SpawnFromPool("EnergyCoreBuilding", spawnPoint, Quaternion.identity);
         NavMeshScript.Instance.UpdateNavMesh();
@@ -40,10 +41,6 @@ public class EnergyCoreObjective : ObjectiveBase
             {
                 CompleteObjective();
             }
-            if (SpawnerManager.Instance.EnemiesToSpawnLeft <= 0 && SpawnerManager.Instance.EnemiesList.Count == 1)
-            {
-                CompleteObjective();
-            }
             objectiveDescription = $"{coresNeeded} Energy Core has spawned around the map; Push them into the Ancient Relic to activate its power!: " + Mathf.Round(elapsedTime) + " seconds";
             ObjectiveManager.Instance.UpdateObjectivesUI();
 
@@ -61,6 +58,8 @@ public class EnergyCoreObjective : ObjectiveBase
         // Notify ObjectiveManager of completion
         objectiveDescription = "The Ancient Relic has erupted!";
         // Force UI to update
+        ObjectiveManager.Instance.RemoveObjective("Push");
+        UIManager.Instance.RemoveObjectiveFromUI("Push");
         ObjectiveManager.Instance.UpdateObjectivesUI();
         base.CompleteObjective();
         ObjectiveManager.Instance.HandleObjectiveCompletion(this);
@@ -74,7 +73,8 @@ public class EnergyCoreObjective : ObjectiveBase
         SpawnerManager.Instance.EnemiesList.Remove(energyBuilding);
 
         objectiveDescription = "The Ancient Relic has deactivated";
-        ObjectiveManager.Instance.UpdateObjectivesUI();
+        ObjectiveManager.Instance.RemoveObjective("Push");
+        UIManager.Instance.RemoveObjectiveFromUI("Push");
         ObjectiveManager.Instance.HandleObjectiveFailure(this);
 
         EventManager.OnCoreEnergize -= DecreaseCoreRequirement;

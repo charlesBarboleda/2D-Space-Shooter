@@ -49,6 +49,7 @@ public class LeechBullet : Bullet
             if (damageable != null)
             {
                 damageable.TakeDamage(BulletDamage);
+                EventManager.BulletDamageEvent(BulletDamage);
                 // Increase player health by 1% of the bullet damage by leeching
                 Leech();
                 StartCoroutine(BulletOnHitEffect());

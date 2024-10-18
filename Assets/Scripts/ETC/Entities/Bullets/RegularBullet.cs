@@ -47,6 +47,7 @@ public class RegularBullet : Bullet
             if (damageable != null)
             {
                 damageable.TakeDamage(BulletDamage);
+                EventManager.BulletDamageEvent(BulletDamage);
                 StartCoroutine(BulletOnHitEffect());
                 if (shouldIncreaseCombo)
                     ComboManager.Instance.IncreaseCombo();

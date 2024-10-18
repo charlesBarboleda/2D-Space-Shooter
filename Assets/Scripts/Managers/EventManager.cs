@@ -13,6 +13,9 @@ public class EventManager : MonoBehaviour
 
     public static event Action<PrestigeType> OnPrestigeChange;
     public static event Action<PrestigeType> OnPrestigeClick;
+    public static event Action<float> OnBulletDamage;
+    public static event Action OnTeleport;
+    public static event Action<float> OnShieldAbsorb;
     public static event Action OnLaserHit;
     public static event Action OnCoreEnergize;
     public static event Action OnGameOver;
@@ -23,6 +26,19 @@ public class EventManager : MonoBehaviour
     public static event Action<Ability> OnUltimateUnready;
 
     public static event System.Action<float> OnCurrencyChange;
+    public static void BulletDamageEvent(float damage)
+    {
+        OnBulletDamage?.Invoke(damage);
+    }
+    public static void TeleportEvent()
+    {
+        OnTeleport?.Invoke();
+    }
+
+    public static void ShieldAbsorbEvent(float damage)
+    {
+        OnShieldAbsorb?.Invoke(damage);
+    }
 
     public static void LaserHitEvent()
     {

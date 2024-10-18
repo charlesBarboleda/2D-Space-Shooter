@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb9b543dd1f4443488856a7c4d1e18e2, type: 3}
-  m_Name: CaptureObjective30s
+  m_Script: {fileID: 11500000, guid: 76d37855f5035b449b27adefbe0078ab, type: 3}
+  m_Name: ShieldUltimateObjective
   m_EditorClassIdentifier: 
-  objectiveName: Capture
-  objectiveDescription: Capture the Magic Circle
+  objectiveName: Shield
+  objectiveDescription: 
   isObjectiveCompleted: 0
   isObjectiveFailed: 0
   rewardPoints: 0
-  captureTime: 30
-  captureProgress: 0
-  timeToCapture: 90
+  damageAbsorbed: 5000

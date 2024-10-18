@@ -132,7 +132,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
-        ObjectiveManager.Instance.ClearActiveObjectives();
         Background.Instance.PlayCountdownMusic();
         Debug.Log("Countdown Started");
         _isInputActive = true;
