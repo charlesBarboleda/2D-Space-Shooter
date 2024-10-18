@@ -46,7 +46,6 @@ public class CorrodeBullet : Bullet
             if (damageable != null)
             {
                 // Apply Corrode Effect to Enemy
-
                 GameObject CorrodeEffect = ObjectPooler.Instance.SpawnFromPool("CorrodeEffect", collision.transform.position, Quaternion.identity);
                 enemyDebuffs.debuffsList["Corrode"] = true;
                 CorrodeEffect.GetComponent<CorrosionEffect>().ApplyCorrode(collision.gameObject, BulletDamage);

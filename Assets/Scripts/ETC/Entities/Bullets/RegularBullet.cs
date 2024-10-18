@@ -47,10 +47,14 @@ public class RegularBullet : Bullet
             if (damageable != null)
             {
                 damageable.TakeDamage(BulletDamage);
-                EventManager.BulletDamageEvent(BulletDamage);
+                if (gameObject.CompareTag("PlayerBullet"))
+                {
+                    EventManager.BulletDamageEvent(BulletDamage);
+                    EventManager.PlayerDamageDealtEvent(BulletDamage);
+                    if (shouldIncreaseCombo)
+                        ComboManager.Instance.IncreaseCombo();
+                }
                 StartCoroutine(BulletOnHitEffect());
-                if (shouldIncreaseCombo)
-                    ComboManager.Instance.IncreaseCombo();
             }
         }
     }

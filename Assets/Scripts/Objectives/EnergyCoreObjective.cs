@@ -24,7 +24,6 @@ public class EnergyCoreObjective : ObjectiveBase
             Vector3 spawn = SpawnerManager.Instance.GetRandomPositionOutsideBuildings();
             ObjectPooler.Instance.SpawnFromPool("EnergyCore", spawn, Quaternion.identity);
         }
-        SpawnerManager.Instance.AddEnemy(energyBuilding);
         rewardPoints = LevelManager.Instance.CurrentLevelIndex * 100 * coresNeeded;
 
         elapsedTime = timeRestriction;
@@ -54,9 +53,9 @@ public class EnergyCoreObjective : ObjectiveBase
     public override void CompleteObjective()
     {
         isObjectiveCompleted = true;
-        SpawnerManager.Instance.EnemiesList.Remove(energyBuilding);
         // Notify ObjectiveManager of completion
         objectiveDescription = "The Ancient Relic has erupted!";
+        EventManager.ObjectiveCompletedEvent();
         // Force UI to update
         ObjectiveManager.Instance.RemoveObjective("Push");
         UIManager.Instance.RemoveObjectiveFromUI("Push");
@@ -70,7 +69,6 @@ public class EnergyCoreObjective : ObjectiveBase
     public override void FailObjective()
     {
         isObjectiveFailed = true;
-        SpawnerManager.Instance.EnemiesList.Remove(energyBuilding);
 
         objectiveDescription = "The Ancient Relic has deactivated";
         ObjectiveManager.Instance.RemoveObjective("Push");

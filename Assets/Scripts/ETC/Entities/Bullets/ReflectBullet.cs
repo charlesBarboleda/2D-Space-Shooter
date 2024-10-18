@@ -45,9 +45,13 @@ public class ReflectBullet : Bullet
             {
                 damageable.TakeDamage(BulletDamage);
                 StartCoroutine(BulletOnHitEffect());
-                EventManager.BulletDamageEvent(BulletDamage);
-                if (shouldIncreaseCombo)
-                    ComboManager.Instance.IncreaseCombo();
+                if (gameObject.CompareTag("PlayerBullet"))
+                {
+                    EventManager.BulletDamageEvent(BulletDamage);
+                    EventManager.PlayerDamageDealtEvent(BulletDamage);
+                    if (shouldIncreaseCombo)
+                        ComboManager.Instance.IncreaseCombo();
+                }
                 // Reflect the bullet
                 if (amountOfReflections > 0)
                 {

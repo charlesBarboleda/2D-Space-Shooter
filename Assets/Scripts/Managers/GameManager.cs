@@ -32,13 +32,18 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Round Settings")]
+    float _permanentCurrency;
+    public float totalDamageDealt;
+    public int totalObjectivesCompleted = 0;
+    bool _shouldTrackTime = false;
+    public int totalShipKills;
+    public float playTime = 0;
     [SerializeField] int _cometsPerRound = 1;
     [SerializeField] float _cometSpawnRate = 30f;
 
 
     [Header("Round States")]
     float _roundCountdown;
-
 
     void Awake()
     {
@@ -57,6 +62,9 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        EventManager.OnObjectiveCompleted += IncrementTotalObjectivesCompleted;
+        EventManager.OnEnemyDestroyed += IncrementTotalShipKills;
+        EventManager.OnPlayerDamageDealt += OnPlayerDamageDealt;
         _levelManager.CurrentLevelIndex = 1;
         if (_levelManager != null)
         {
@@ -69,29 +77,63 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Level Manager not found");
         }
-        StartCoroutine(DisableShipCollision());
+        playTime = 0;
+        totalShipKills = 0;
+        totalObjectivesCompleted = 0;
+        totalDamageDealt = 0;
+        _permanentCurrency = 0;
     }
 
-    IEnumerator DisableShipCollision()
+    void Update()
     {
-        yield return new WaitForSeconds(1f);
-        Collider2D[] ships = Physics2D.OverlapCircleAll(new Vector2(0, 0), 300f);
-        foreach (var ship1 in ships)
-        {
-            if (!ship1.CompareTag("Player")) continue;
-            foreach (var ship2 in ships)
-            {
-                if (ship1 != ship2)
-                {
-                    Physics2D.IgnoreCollision(ship1.GetComponent<Collider2D>(), ship2.GetComponent<Collider2D>());
-                }
-            }
-        }
+        if (_shouldTrackTime)
+            playTime += Time.deltaTime;
     }
+    void OnPlayerDamageDealt(float damage)
+    {
+        totalDamageDealt += damage;
+    }
+    public float CurrencyCalculator(int amountOfKills, int levelsSurvived, float objectivesCompleted, float timeSurvived)
+    {
+        float baseRewardPerLevel = 100f;
+        float levelsSurvivedReward = baseRewardPerLevel * Mathf.Pow(2, (levelsSurvived / 10f));
+
+        return (amountOfKills * 10) + (levelsSurvivedReward) + (objectivesCompleted * 500) + (timeSurvived * 2) + (totalDamageDealt / 100);
+    }
+
+
+    void SavePermanentCurrency()
+    {
+        float i = PlayerPrefs.GetFloat("PermanentCurrency");
+        float finalAmount = i + _permanentCurrency;
+        PlayerPrefs.SetFloat("PermanentCurrency", finalAmount);
+        PlayerPrefs.Save();
+
+    }
+    void IncrementTotalObjectivesCompleted()
+    {
+        totalObjectivesCompleted++;
+    }
+    void IncrementTotalShipKills(GameObject ship)
+    {
+        totalShipKills++;
+    }
+    public void StopTimer()
+    {
+        _shouldTrackTime = false;
+    }
+
+    public void StartTimer()
+    {
+        _shouldTrackTime = true;
+    }
+
+
 
     IEnumerator GameStartCoroutine()
     {
         yield return new WaitForSeconds(0.5f);
+        StartTimer();
         if (_levelManager.Levels.Count > 0)
         {
             Debug.Log("Game Started... Counting down");
@@ -188,15 +230,24 @@ public class GameManager : MonoBehaviour
         _isInputActive = false;
         GameOverSound();
         UpdateHighScore();
+        StopTimer();
+        CalculateCurrency();
+        SavePermanentCurrency();
+    }
+
+    void CalculateCurrency()
+    {
+        float amount = CurrencyCalculator(totalShipKills, LevelManager.Instance.CurrentLevelIndex, totalObjectivesCompleted, playTime);
+        _permanentCurrency = amount;
     }
 
 
 
     void UpdateHighScore()
     {
-        if (_levelManager.CurrentLevelIndex + 1 > PlayerPrefs.GetFloat("HighScore"))
+        if (_levelManager.CurrentLevelIndex > PlayerPrefs.GetFloat("HighScore"))
         {
-            PlayerPrefs.SetFloat("HighScore", _levelManager.CurrentLevelIndex + 1);
+            PlayerPrefs.SetFloat("HighScore", _levelManager.CurrentLevelIndex);
         }
     }
 

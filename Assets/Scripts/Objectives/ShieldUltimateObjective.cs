@@ -37,6 +37,7 @@ public class ShieldUltimateObjective : ObjectiveBase
         PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityShield).isUltimateUnlocked = true;
         UIManager.Instance.shieldUltIconFill.gameObject.SetActive(true);
         UIManager.Instance.MidScreenWarningText("Unlocked Shield Ultimate", 3f);
+        EventManager.ObjectiveCompletedEvent();
         ObjectiveManager.Instance.RemoveObjective("Shield");
         UIManager.Instance.RemoveObjectiveFromUI("Shield");
         // Force UI to update

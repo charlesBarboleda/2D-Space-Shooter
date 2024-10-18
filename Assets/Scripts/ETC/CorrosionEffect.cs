@@ -44,8 +44,13 @@ public class CorrosionEffect : MonoBehaviour
 
                     if (damageable != null)
                     {
-                        if (shouldIncreaseCombo)
-                            ComboManager.Instance.IncreaseCombo();
+                        if (gameObject.CompareTag("PlayerBullet"))
+                        {
+                            EventManager.BulletDamageEvent(damage);
+                            EventManager.PlayerDamageDealtEvent(damage);
+                            if (shouldIncreaseCombo)
+                                ComboManager.Instance.IncreaseCombo();
+                        }
                         UIManager.Instance.CreateOnHitDamageText(Mathf.Round(damage).ToString(), hit.collider.transform.position);
                         damageable.TakeDamage(damage);
                         if (!enemyDebuffs.debuffsList["Corrode"])

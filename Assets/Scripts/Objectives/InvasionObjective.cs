@@ -57,7 +57,7 @@ public class InvasionObjective : ObjectiveBase
     private void CompleteObjective(bool defendersWin)
     {
         isObjectiveCompleted = true;
-
+        EventManager.ObjectiveCompletedEvent();
         // Force UI to update
         ObjectiveManager.Instance.RemoveObjective("Invasion");
         UIManager.Instance.RemoveObjectiveFromUI("Invasion");

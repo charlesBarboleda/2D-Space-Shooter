@@ -39,6 +39,7 @@ public class TurretUltimateObjective : ObjectiveBase
         UIManager.Instance.MidScreenWarningText("Unlocked Turret Ultimate", 3f);
         ObjectiveManager.Instance.RemoveObjective("Turret");
         UIManager.Instance.RemoveObjectiveFromUI("Turret");
+        EventManager.ObjectiveCompletedEvent();
         // Force UI to update
         ObjectiveManager.Instance.UpdateObjectivesUI();
         base.CompleteObjective();

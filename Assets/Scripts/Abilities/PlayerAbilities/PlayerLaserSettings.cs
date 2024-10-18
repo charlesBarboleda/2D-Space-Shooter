@@ -22,6 +22,7 @@ public class PlayerLaserSettings : MonoBehaviour
             {
                 UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
                 damageable.TakeDamage(_dps);
+                EventManager.PlayerDamageDealtEvent(_dps);
                 EventManager.LaserHitEvent();
                 if (PlayerManager.Instance.PrestigeManager().chosenPrestige == PrestigeType.Lifewarden)
                 {

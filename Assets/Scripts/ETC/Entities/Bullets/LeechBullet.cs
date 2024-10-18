@@ -49,12 +49,16 @@ public class LeechBullet : Bullet
             if (damageable != null)
             {
                 damageable.TakeDamage(BulletDamage);
-                EventManager.BulletDamageEvent(BulletDamage);
+                if (gameObject.CompareTag("PlayerBullet"))
+                {
+                    EventManager.BulletDamageEvent(BulletDamage);
+                    EventManager.PlayerDamageDealtEvent(BulletDamage);
+                    if (shouldIncreaseCombo)
+                        ComboManager.Instance.IncreaseCombo();
+                }
                 // Increase player health by 1% of the bullet damage by leeching
                 Leech();
                 StartCoroutine(BulletOnHitEffect());
-                if (shouldIncreaseCombo)
-                    ComboManager.Instance.IncreaseCombo();
             }
         }
     }

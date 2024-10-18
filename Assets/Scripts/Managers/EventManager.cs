@@ -13,6 +13,8 @@ public class EventManager : MonoBehaviour
 
     public static event Action<PrestigeType> OnPrestigeChange;
     public static event Action<PrestigeType> OnPrestigeClick;
+    public static event Action<float> OnPlayerDamageDealt;
+    public static event Action OnObjectiveCompleted;
     public static event Action<float> OnBulletDamage;
     public static event Action OnTeleport;
     public static event Action<float> OnShieldAbsorb;
@@ -26,6 +28,16 @@ public class EventManager : MonoBehaviour
     public static event Action<Ability> OnUltimateUnready;
 
     public static event System.Action<float> OnCurrencyChange;
+
+    public static void PlayerDamageDealtEvent(float damage)
+    {
+        OnPlayerDamageDealt?.Invoke(damage);
+    }
+
+    public static void ObjectiveCompletedEvent()
+    {
+        OnObjectiveCompleted?.Invoke();
+    }
     public static void BulletDamageEvent(float damage)
     {
         OnBulletDamage?.Invoke(damage);

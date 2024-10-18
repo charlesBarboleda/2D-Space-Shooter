@@ -22,6 +22,8 @@ public class PlayerShieldPrefab : MonoBehaviour
             {
                 UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
                 damageable.TakeDamage(_dps);
+                EventManager.PlayerDamageDealtEvent(_dps);
+
                 if (PlayerManager.Instance.PrestigeManager().chosenPrestige == PrestigeType.Lifewarden)
                 {
                     // Heal the player for 1% of the damage dealt if prestiged

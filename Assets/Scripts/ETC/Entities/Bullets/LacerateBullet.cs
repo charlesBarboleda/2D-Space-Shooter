@@ -49,11 +49,16 @@ public class LacerateBullet : Bullet
         {
             IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
             damageable.TakeDamage(BulletDamage);
-            EventManager.BulletDamageEvent(BulletDamage);
+            if (gameObject.CompareTag("PlayerBullet"))
+            {
+                EventManager.BulletDamageEvent(BulletDamage);
+                EventManager.PlayerDamageDealtEvent(BulletDamage);
+                if (shouldIncreaseCombo)
+                    ComboManager.Instance.IncreaseCombo();
+            }
             StartCoroutine(BulletOnHitEffect());
             UIManager.Instance.CreateOnHitDamageText(Mathf.Round(BulletDamage).ToString(), transform.position);
-            if (shouldIncreaseCombo)
-                ComboManager.Instance.IncreaseCombo();
+
         }
         if (other.gameObject.CompareTag("EnemyBullet"))
         {

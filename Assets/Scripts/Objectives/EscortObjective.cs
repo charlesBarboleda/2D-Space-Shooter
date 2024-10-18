@@ -45,7 +45,7 @@ public class EscortObjective : ObjectiveBase
         base.CompleteObjective();
         ObjectiveManager.Instance.HandleObjectiveCompletion(this);
         isObjectiveCompleted = true;
-
+        EventManager.ObjectiveCompletedEvent();
         objectiveDescription = "The Cargo Ship has reached its destination and sucessfully escaped!";
         // Force UI to update
         ObjectiveManager.Instance.RemoveObjective("Escort");

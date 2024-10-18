@@ -40,6 +40,7 @@ public class LaserUltimateObjective : ObjectiveBase
         UIManager.Instance.MidScreenWarningText("Unlocked Laser Ultimate", 3f);
         ObjectiveManager.Instance.RemoveObjective("Laser");
         UIManager.Instance.RemoveObjectiveFromUI("Laser");
+        EventManager.ObjectiveCompletedEvent();
         // Force UI to update
         ObjectiveManager.Instance.UpdateObjectivesUI();
         base.CompleteObjective();

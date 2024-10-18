@@ -6,7 +6,7 @@ public class PlayerTeleportPrefab : MonoBehaviour
 {
     private float _dps;
     private int _comboCount = 0;
-    private int _maxComboCount = 20;
+    private int _maxComboCount = 5;
     private void OnTriggerStay2D(Collider2D other)
     {
         IDamageable damageable = other.GetComponent<IDamageable>();
@@ -16,6 +16,8 @@ public class PlayerTeleportPrefab : MonoBehaviour
             {
                 UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
                 damageable.TakeDamage(_dps);
+                EventManager.PlayerDamageDealtEvent(_dps);
+
                 if (PlayerManager.Instance.PrestigeManager().chosenPrestige == PrestigeType.Lifewarden)
                 {
                     // Heal the player for 5% of the damage dealt if prestiged

@@ -37,6 +37,7 @@ public class TeleportUltimateObjective : ObjectiveBase
         PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityTeleport).isUltimateUnlocked = true;
         UIManager.Instance.teleportUltIconFill.gameObject.SetActive(true);
         UIManager.Instance.MidScreenWarningText("Unlocked Teleport Ultimate", 3f);
+        EventManager.ObjectiveCompletedEvent();
         ObjectiveManager.Instance.RemoveObjective("Teleport");
         UIManager.Instance.RemoveObjectiveFromUI("Teleport");
         // Force UI to update

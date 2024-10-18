@@ -57,7 +57,7 @@ public class CaptureObjective : ObjectiveBase
         // Notify ObjectiveManager of completion
         objectiveDescription = "The Magic Circle has been captured";
         UIManager.Instance.MidScreenWarningText("Bonus Objective succeeded!", 3f);
-
+        EventManager.ObjectiveCompletedEvent();
         // Force UI to update
         ObjectiveManager.Instance.UpdateObjectivesUI();
         base.CompleteObjective();

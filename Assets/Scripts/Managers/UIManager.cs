@@ -63,10 +63,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI countdownText;
     [SerializeField] TextMeshProUGUI roundText;
     [SerializeField] TextMeshProUGUI highscoreText;
-
     [SerializeField] Image currencyIcon;
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] GameObject _pauseMenu;
+    public TextMeshProUGUI totalKillsText, playtimeText, objectivesText, damageDealtText;
 
     [Header("Player Abilities UI")]
     [SerializeField] GameObject abilitiesPanel;
@@ -582,7 +582,7 @@ public class UIManager : MonoBehaviour
     /// <param name="objective">The objective to update.</param>
     public void UpdateObjectiveUI(ObjectiveBase objective)
     {
-        Debug.Log("Update Objective UI called from UIManager");
+
 
         // Check if the objective is already mapped to a UI element
         if (_objectiveUIElements.TryGetValue(objective, out TextMeshProUGUI textComponent))
@@ -835,6 +835,12 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
+        totalKillsText.text = $"{GameManager.Instance.totalShipKills}";
+        playtimeText.text = $"{GameManager.Instance.playTime}";
+        objectivesText.text = $"{GameManager.Instance.totalObjectivesCompleted}";
+        damageDealtText.text = $"{GameManager.Instance.totalDamageDealt}";
+
+
         gameOverPanel.SetActive(true);
     }
 
