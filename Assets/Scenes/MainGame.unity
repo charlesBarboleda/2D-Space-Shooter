@@ -8809,6 +8809,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9f1b31732808bf479eb2655b162a7d0, type: 2}
   - {fileID: 11400000, guid: 257e13bf181bad94eb1b7a2f020e23c2, type: 2}
   - {fileID: 11400000, guid: ebe32a9b62793194f923d22eb43025bb, type: 2}
+  - {fileID: 11400000, guid: d3c82639720d08549b94eda165b594bf, type: 2}
   generalObjectives:
   - {fileID: 11400000, guid: 5d162767d14f83949937785651eeecd6, type: 2}
   - {fileID: 11400000, guid: 9374f8bbc6efae942a801014e940dc2c, type: 2}
@@ -95333,6 +95334,10 @@ PrefabInstance:
       propertyPath: spawnRate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 215415216}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: maxSpawnRate
       value: 0.4
