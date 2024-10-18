@@ -13,13 +13,4 @@ public class UpgradeBuilding : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-
-        if (other.gameObject.CompareTag("Player"))
-        {
-            UIManager.Instance.ExitUpgradeShop();
-            Debug.Log("Exit Upgrade building");
-        }
-    }
 }

@@ -22,6 +22,7 @@ public class PlayerLaserSettings : MonoBehaviour
             {
                 UIManager.Instance.CreateOnHitDamageText(Mathf.Round(_dps).ToString(), other.transform.position);
                 damageable.TakeDamage(_dps);
+                EventManager.LaserHitEvent();
                 if (PlayerManager.Instance.PrestigeManager().chosenPrestige == PrestigeType.Lifewarden)
                 {
                     // Heal the player for 5% of the damage dealt if prestiged

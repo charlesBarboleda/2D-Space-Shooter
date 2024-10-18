@@ -38,5 +38,6 @@ public class AbilityTurrets : Ability
         bulletDamage = 10f;
         fireRate = 0.4f;
         isUnlocked = false;
+        isUltimateUnlocked = false;
     }
 }

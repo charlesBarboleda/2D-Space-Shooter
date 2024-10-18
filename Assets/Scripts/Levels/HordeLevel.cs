@@ -36,16 +36,6 @@ public class HordeLevel : Level
         Debug.Log("Spawning Enemies");
     }
 
-    IEnumerator StartRandomObjective()
-    {
-        yield return new WaitForSeconds(Random.Range(5, 15));
-        ObjectiveBase randomObjective = ObjectiveManager.Instance.GetRandomObjectiveFromPool();
-        if (randomObjective != null)
-        {
-            _levelObjectives.Add(randomObjective);
-        }
-        ObjectiveManager.Instance.StartObjectivesForLevel(this);
-    }
 
     public override void UpdateLevel()
     {
@@ -62,6 +52,16 @@ public class HordeLevel : Level
         _levelManager.CompleteLevel();
         _spawnerManager.EnemiesToSpawnLeft = 0;
         _spawnerManager.EnemiesList.Clear();
+    }
+    IEnumerator StartRandomObjective()
+    {
+        yield return new WaitForSeconds(Random.Range(5, 15));
+        ObjectiveBase randomObjective = ObjectiveManager.Instance.GetRandomObjectiveFromPool();
+        if (randomObjective != null)
+        {
+            _levelObjectives.Add(randomObjective);
+        }
+        ObjectiveManager.Instance.StartObjectivesForLevel(this);
     }
 
 

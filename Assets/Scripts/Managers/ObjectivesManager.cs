@@ -36,7 +36,6 @@ public class ObjectiveManager : MonoBehaviour
     // Method to start objectives for a specific level
     public void StartObjectivesForLevel(Level level)
     {
-        ClearActiveObjectives();
         List<ObjectiveBase> objectivesToAssign = level.GetLevelObjectives();
 
         foreach (var objective in objectivesToAssign)
@@ -48,6 +47,14 @@ public class ObjectiveManager : MonoBehaviour
         }
 
         Debug.Log($"Objectives initialized for Level: {level.GetType().Name}");
+    }
+
+    public void StartObjective(ObjectiveBase objective)
+    {
+        ObjectiveBase objectiveInstance = Instantiate(objective);
+        objectiveInstance.Initialize();
+        activeObjectives.Add(objectiveInstance);
+        _UIManager.AddObjectiveToUI(objectiveInstance);
     }
 
     // Update all active objectives
@@ -63,7 +70,15 @@ public class ObjectiveManager : MonoBehaviour
     }
 
 
+
     // Clear all active objectives and reset the UI
+
+    public void RemoveObjective(string objectiveName)
+    {
+        ObjectiveBase foundObjective = specialObjectives.Find(obj => obj.objectiveName == objectiveName);
+        activeObjectives.Remove(foundObjective);
+    }
+
     public void ClearActiveObjectives()
     {
         foreach (var objective in activeObjectives)

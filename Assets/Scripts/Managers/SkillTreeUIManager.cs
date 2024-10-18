@@ -193,15 +193,5 @@ public class SkillTreeUIManager : MonoBehaviour
         }
     }
 
-    void ExitSkillTree()
-    {
-        skillTreePanel.SetActive(false);
-    }
-
-    public void OpenSkillTree()
-    {
-        skillTreePanel.SetActive(true);
-    }
-
 
 }

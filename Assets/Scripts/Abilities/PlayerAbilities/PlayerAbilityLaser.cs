@@ -7,7 +7,6 @@ public class AbilityLaser : Ability
 {
     public float dps;
     public float ultimateDpsMultiplier = 3f; // Example: ultimate deals more damage
-    MagicBeamStatic laserSettings;
     public override void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false)
     {
         // Play audio for normal and ultimate abilities
@@ -60,8 +59,7 @@ public class AbilityLaser : Ability
             PlayerLaserSettings laserScript = laser.GetComponent<PlayerLaserSettings>();
             laserScript.Dps = dps * ultimateDpsMultiplier;
 
-            // Start the coroutine for each laser to follow the player and rotate accordingly
-            // GameManager.Instance.StartCoroutine(HandleLaser(laser, owner, ownerAudioSource, isUltimate, angle));
+            GameManager.Instance.StartCoroutine(HandleLaser(laser, owner, ownerAudioSource, isUltimate, angle));
         }
     }
 
@@ -123,6 +121,7 @@ public class AbilityLaser : Ability
         cooldown = 45f;
         ultimateCooldown = 180f; // Different cooldown for ultimate
         isUnlocked = false;
+        isUltimateUnlocked = false;
     }
 }
 

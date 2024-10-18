@@ -118,5 +118,6 @@ public class AbilityShield : Ability
         shieldTravelSpeed = 50f;
         ultimateDamageMultiplier = 3f;
         isUnlocked = false;
+        isUltimateUnlocked = false;
     }
 }

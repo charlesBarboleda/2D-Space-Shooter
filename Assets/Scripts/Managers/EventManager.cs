@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
 
     public static event Action<PrestigeType> OnPrestigeChange;
     public static event Action<PrestigeType> OnPrestigeClick;
+    public static event Action OnLaserHit;
     public static event Action OnCoreEnergize;
     public static event Action OnGameOver;
     public static event Action OnNextLevel;
@@ -23,6 +24,10 @@ public class EventManager : MonoBehaviour
 
     public static event System.Action<float> OnCurrencyChange;
 
+    public static void LaserHitEvent()
+    {
+        OnLaserHit?.Invoke();
+    }
     public static void CoreEnergizeEvent()
     {
         OnCoreEnergize?.Invoke();

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerComboManager : MonoBehaviour
 {
+    float playerCurrentPostHealth;
+    float playerPostHealth;
     ComboManager _comboManager;
     int comboCount;
     PlayerManager _playerManager;
@@ -126,8 +128,10 @@ public class PlayerComboManager : MonoBehaviour
     {
         var emission = _playerManager.arrowEmission.emission;
         emission.rateOverTime = 20;
-        _playerManager.SetMaxHealth(_playerManager.MaxHealth() * 1.25f);
-        _playerManager.SetCurrentHealth(_playerManager.CurrentHealth() * 1.25f);
+        playerPostHealth = (_playerManager.MaxHealth() * 1.25f) - _playerManager.MaxHealth();
+        playerCurrentPostHealth = (_playerManager.CurrentHealth() * 1.25f) - _playerManager.CurrentHealth();
+        _playerManager.SetMaxHealth(playerPostHealth);
+        _playerManager.SetCurrentHealth(playerCurrentPostHealth);
     }
 
     void DealAOEDamage()
@@ -195,7 +199,8 @@ public class PlayerComboManager : MonoBehaviour
     public void RemoveAllBuffs()
     {
         _playerManager.DeactivateBuffAnimations();
-        foreach (var key in buffsActivated.Keys)
+        var keys = new List<int>(buffsActivated.Keys);
+        foreach (var key in keys)
         {
             if (buffsActivated[key])
             {
@@ -219,8 +224,8 @@ public class PlayerComboManager : MonoBehaviour
                 _playerManager.PickUpBehaviour().PickUpRadius /= 2f;
                 break;
             case 100:
-                _playerManager.SetMaxHealth(_playerManager.MaxHealth() / 1.25f);
-                _playerManager.SetCurrentHealth(_playerManager.CurrentHealth() / 1.25f);
+                _playerManager.SetMaxHealth(-playerPostHealth);
+                _playerManager.SetCurrentHealth(-playerCurrentPostHealth);
                 break;
             case 150:
                 _playerManager.Weapon().bulletDamage /= 1.5f;

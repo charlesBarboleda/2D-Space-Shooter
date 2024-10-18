@@ -15,11 +15,4 @@ public class PrestigeBuilding : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            UIManager.Instance.ClosePrestigePanel();
-        }
-    }
 }

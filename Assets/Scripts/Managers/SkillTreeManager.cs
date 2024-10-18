@@ -566,7 +566,13 @@ public class SkillTreeManager : MonoBehaviour
             {
                 // Unlock the Laser ability
                 PlayerManager.GetInstance().AbilityHolder().abilities.Find(ability => ability is AbilityLaser).isUnlocked = true;
+                
+                // Start the Laser Ultimate unlocking quest
+                ObjectiveBase laserUltimateObjective = ObjectiveManager.Instance.GetObjectiveFromPool("Laser");
+                ObjectiveManager.Instance.StartObjective(laserUltimateObjective);
+                ObjectiveManager.Instance.UpdateObjectivesUI();
                 UIManager.Instance.laserPanel.SetActive(true);
+                UIManager.Instance.laserUltIconFill.gameObject.SetActive(false);
                 Debug.Log("Laser Ability Unlocked");
             },
         };

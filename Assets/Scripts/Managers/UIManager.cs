@@ -50,6 +50,7 @@ public class UIManager : MonoBehaviour
     Dictionary<ObjectiveBase, TextMeshProUGUI> _objectiveUIElements = new Dictionary<ObjectiveBase, TextMeshProUGUI>();
 
     [Header("Upgrade Shop")]
+    [SerializeField] GameObject upgradesContainer;
     [SerializeField] GameObject upgradeShopPanel;
     [SerializeField] GameObject upgradeShopContainer;
     [SerializeField] GameObject upgradeShopTitle;
@@ -70,7 +71,7 @@ public class UIManager : MonoBehaviour
     [Header("Player Abilities UI")]
     [SerializeField] GameObject abilitiesPanel;
     [SerializeField] Image laserIconFill, shieldIconFill, teleportIconFill, turretIconFill;
-    [SerializeField] Image laserUltIconFill, shieldUltIconFill, teleportUltIconFill, turretUltIconFill;
+    public Image laserUltIconFill, shieldUltIconFill, teleportUltIconFill, turretUltIconFill;
 
     public GameObject laserPanel, shieldPanel, teleportPanel, turretPanel;
 
@@ -261,11 +262,14 @@ public class UIManager : MonoBehaviour
     {
         upgradeShopPanel.SetActive(true);
         StartCoroutine(ExpandContainerAndShowTitle(upgradeShopContainer, upgradeShopTitle));
+        StartCoroutine(FadeInContainer(0.25f, upgradesContainer, 0.25f));
     }
 
     public void ExitUpgradeShop()
     {
         StartCoroutine(MinimizeContainerAndFadeOutTitle(upgradeShopPanel, upgradeShopContainer, upgradeShopTitle));
+        FadeOutContainer(upgradesContainer, 0.5f);
+
     }
 
     IEnumerator ExpandContainerAndShowTitle(GameObject container, GameObject titleContainer)
@@ -276,8 +280,9 @@ public class UIManager : MonoBehaviour
         container.transform.DOScaleY(initY, 0.2f);
         yield return new WaitForSeconds(0.2f);
         container.transform.DOScaleX(initX, 0.2f);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.25f);
         titleContainer.GetComponent<CanvasGroup>().DOFade(1, 0.2f);
+
     }
 
     IEnumerator MinimizeContainerAndFadeOutTitle(GameObject mainPanel, GameObject container, GameObject titleContainer)
@@ -296,6 +301,10 @@ public class UIManager : MonoBehaviour
     public void ClosePrestigePanel()
     {
         FadeOutContainer(plaguebringerPanel, 0.1f);
+        FadeOutContainer(lifewardenPanel, 0.1f);
+        FadeOutContainer(sunlancerPanel, 0.1f);
+        FadeOutContainer(berzerkerPanel, 0.1f);
+
         StartCoroutine(MinimizeContainerAndFadeOutTitle(prestigePanel, prestigeContainer, titleContainer));
     }
 
@@ -304,9 +313,9 @@ public class UIManager : MonoBehaviour
         prestigePanel.SetActive(true);
         StartCoroutine(ExpandContainerAndShowTitle(prestigeContainer, titleContainer));
         StartCoroutine(FadeInContainer(0.5f, plaguebringerPanel, 1f));
-        StartCoroutine(FadeInContainer(0.5f, lifewardenPanel, 1f));
-        StartCoroutine(FadeInContainer(0.5f, sunlancerPanel, 1f));
-        StartCoroutine(FadeInContainer(0.5f, berzerkerPanel, 1f));
+        StartCoroutine(FadeInContainer(0.7f, lifewardenPanel, 1f));
+        StartCoroutine(FadeInContainer(0.9f, sunlancerPanel, 1f));
+        StartCoroutine(FadeInContainer(1.1f, berzerkerPanel, 1f));
 
     }
     void PulseAbilityIcon()
@@ -368,11 +377,12 @@ public class UIManager : MonoBehaviour
     IEnumerator PulseIcon(Ability ability)
     {
         float t = 0;
-        while (ability.isUltimateReady)
+        while (ability.isUltimateReady && ability.isUltimateUnlocked)
         {
             t += Time.deltaTime;
             if (ability is AbilityLaser)
             {
+
                 laserUltIconFill.transform.localScale = new Vector3(1 + Mathf.PingPong(Time.time, 0.1f), 1 + Mathf.PingPong(Time.time, 0.1f), 1);
             }
             else
@@ -383,6 +393,7 @@ public class UIManager : MonoBehaviour
             else
             if (ability is AbilityTeleport)
             {
+
                 teleportUltIconFill.transform.localScale = new Vector3(1 + Mathf.PingPong(Time.time, 0.1f), 1 + Mathf.PingPong(Time.time, 0.1f), 1);
             }
             else
@@ -392,6 +403,11 @@ public class UIManager : MonoBehaviour
             }
             yield return null;
         }
+        laserUltIconFill.transform.localScale = Vector3.one;
+        shieldUltIconFill.transform.localScale = Vector3.one;
+        teleportUltIconFill.transform.localScale = Vector3.one;
+        turretUltIconFill.transform.localScale = Vector3.one;
+
     }
     public void LifewardenPrestigeCrackAndShatter()
     {

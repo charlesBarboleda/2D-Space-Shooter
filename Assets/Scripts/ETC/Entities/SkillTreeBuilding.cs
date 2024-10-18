@@ -14,13 +14,4 @@ public class SkillTreeBuilding : MonoBehaviour
 
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-
-        if (other.gameObject.CompareTag("Player"))
-        {
-            UIManager.Instance.ExitSkillTree();
-            Debug.Log("Exit Skill Tree building");
-        }
-    }
 }

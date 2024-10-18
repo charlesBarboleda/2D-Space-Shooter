@@ -74,6 +74,7 @@ public class AbilityTeleport : Ability
         ultimateDuration = 6f;
         ultimateDamageMultiplier = 10f;
         isUnlocked = false;
+        isUltimateUnlocked = false;
     }
 
 }
