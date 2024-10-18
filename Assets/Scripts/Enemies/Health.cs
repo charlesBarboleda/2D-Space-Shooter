@@ -23,7 +23,7 @@ public class Health : MonoBehaviour, IDamageable
     Collider2D[] _colliders;
     Rigidbody2D _rigidbody;
     Faction _faction;
-    public enum ShakeType { Small, Mid, Large }
+    public enum ShakeType { None, Small, Mid, Large }
     [SerializeField] ShakeType shakeType;
     public bool isDead { get; set; }
 
@@ -111,6 +111,8 @@ public class Health : MonoBehaviour, IDamageable
         // Shake the camera
         switch (shakeType)
         {
+            case ShakeType.None:
+                break;
             case ShakeType.Small:
                 CameraFollowBehaviour.Instance.ShakePlayerCamera(6f, 5.0f, 0.25f); ;
                 break;
@@ -147,8 +149,8 @@ public class Health : MonoBehaviour, IDamageable
     }
     public IEnumerator DeathAnimation()
     {
-        GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(_deathEffect[Random.Range(0, _deathEffect.Count)], transform.position, Quaternion.identity);
         GameObject exp = ObjectPooler.Instance.SpawnFromPool(_deathExplosion, transform.position, Quaternion.identity);
+        GameObject exp2 = ObjectPooler.Instance.SpawnFromPool(_deathEffect[Random.Range(0, _deathEffect.Count)], transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.5f); // Wait for the animation to finish
         exp.SetActive(false);
         exp2.SetActive(false);

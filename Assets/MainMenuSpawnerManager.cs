@@ -16,22 +16,15 @@ public class MainMenuSpawnerManager : MonoBehaviour
     {
         StartCoroutine(SpawnEnemiesOverTime());
     }
-    void Update()
-    {
-        ship.GetComponent<Health>().CurrentHealth = 1;
-        ship.GetComponent<AttackManager>().AimRange = 20;
-        ship.GetComponent<NavMeshAgent>().stoppingDistance = 20;
-        ship.GetComponent<NavMeshAgent>().speed = 5;
-    }
 
     IEnumerator SpawnEnemiesOverTime()
     {
         float t = 0;
         while (t < Mathf.Infinity)
         {
-            SpawnOffenceEnemy();
             SpawnDefenceEnemy();
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(Random.Range(1, 2));
+            SpawnOffenceEnemy();
         }
 
     }
