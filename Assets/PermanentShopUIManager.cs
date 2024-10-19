@@ -16,11 +16,11 @@ public class PermanentShopManager : MonoBehaviour
         BulletLifetime,
         FireRate,
     }
-    public TextMeshProUGUI healthAmountText;
+    public TextMeshProUGUI healthAmountText, speedAmountText;
     public Image currencyIcon;
     public TextMeshProUGUI currencyText, confirmationText, confirmationCurrencyText;
     public GameObject confirmationPanel, upgradesShopMenu, playMenu;
-    int _healthAmountToUpgrade;
+    int _healthAmountToUpgrade, _speedAmountToUpgrade;
     int _totalCost;
     void Start()
     {
@@ -42,10 +42,15 @@ public class PermanentShopManager : MonoBehaviour
         {
             case "Health":
                 _healthAmountToUpgrade++;
-                _totalCost += 1000;
                 healthAmountText.text = $"{_healthAmountToUpgrade}";
                 break;
+            case "Speed":
+                _speedAmountToUpgrade++;
+                speedAmountText.text = $"{_speedAmountToUpgrade}";
+                break;
+
         }
+        _totalCost += 1000;
     }
     public void DecreaseAmountToUpgrade(string typeToUpgrade)
     {
@@ -56,8 +61,16 @@ public class PermanentShopManager : MonoBehaviour
                 {
                     _totalCost -= 1000;
                     _healthAmountToUpgrade--;
+                    healthAmountText.text = $"{_healthAmountToUpgrade}";
                 }
-                healthAmountText.text = $"{_healthAmountToUpgrade}";
+                break;
+            case "Speed":
+                if (_speedAmountToUpgrade > 0)
+                {
+                    _totalCost -= 1000;
+                    _speedAmountToUpgrade--;
+                    speedAmountText.text = $"{_speedAmountToUpgrade}";
+                }
                 break;
         }
     }
@@ -100,6 +113,9 @@ public class PermanentShopManager : MonoBehaviour
 
         _healthAmountToUpgrade = 0;
         healthAmountText.text = $"{_healthAmountToUpgrade}";
+
+        _speedAmountToUpgrade = 0;
+        speedAmountText.text = $"{_speedAmountToUpgrade}";
     }
 
     void UpdateCurrentPermanentCurrency()
@@ -119,7 +135,9 @@ public class PermanentShopManager : MonoBehaviour
         float finalAmount = i + _healthAmountToUpgrade;
         PlayerPrefs.SetFloat("Health", finalAmount);
 
-
+        float i2 = PlayerPrefs.GetFloat("Speed", 15);
+        float finalAmount2 = i2 + (_speedAmountToUpgrade * 0.1f);
+        PlayerPrefs.SetFloat("Speed", finalAmount2);
 
 
 
