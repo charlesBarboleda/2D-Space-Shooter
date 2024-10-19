@@ -113,7 +113,7 @@ public class PrestigeManager : MonoBehaviour
                 _weapon.amountOfBullets = 1;
                 _weapon.bulletLifetime += 5f;
                 _weapon.bulletSpeed -= 10f;
-                _weapon.fireRate = 3f;
+                _weapon.fireRate += 3f;
                 _pickUpBehaviour.PickUpRadius += 15f;
                 _movement.moveSpeed -= -5f;
                 _health.SetMaxHealth(250f);
@@ -127,7 +127,7 @@ public class PrestigeManager : MonoBehaviour
                 _weapon.weaponType = WeaponType.PlayerLeechBullet;
                 _weapon.amountOfBullets = 5;
                 _weapon.bulletSpeed -= 5;
-                _weapon.fireRate = 0.25f;
+                _weapon.fireRate += 0.5f;
                 _weapon.bulletDamage += 50;
                 _weapon.shootingAngle = 20f;
                 _pickUpBehaviour.PickUpRadius += 10f;
@@ -143,7 +143,7 @@ public class PrestigeManager : MonoBehaviour
                 _weapon.weaponType = WeaponType.PlayerReflectBullet;
                 _weapon.bulletDamage *= 2;
                 _weapon.bulletSpeed += 20;
-                _weapon.fireRate = 1f;
+                _weapon.fireRate += 0.5f;
                 _pickUpBehaviour.PickUpRadius += 20f;
                 _movement.moveSpeed *= 2;
                 _health.SetMaxHealth(100f);
@@ -158,7 +158,7 @@ public class PrestigeManager : MonoBehaviour
                 _weapon.amountOfBullets = 1;
                 _weapon.bulletDamage += 100;
                 _weapon.bulletLifetime = 10f;
-                _weapon.fireRate = 1f;
+                _weapon.fireRate += 1f;
                 _weapon.bulletSpeed += 10;
                 _pickUpBehaviour.PickUpRadius += 15f;
                 break;

@@ -16,11 +16,11 @@ public class PermanentShopManager : MonoBehaviour
         BulletLifetime,
         FireRate,
     }
-    public TextMeshProUGUI healthAmountText, speedAmountText;
+    public TextMeshProUGUI healthAmountText, speedAmountText, radiusAmountText, bulletDamageAmountText, fireRateAmountText, bulletSpeedAmountText, bulletLifetimeAmountText;
     public Image currencyIcon;
     public TextMeshProUGUI currencyText, confirmationText, confirmationCurrencyText;
     public GameObject confirmationPanel, upgradesShopMenu, playMenu;
-    int _healthAmountToUpgrade, _speedAmountToUpgrade;
+    int _healthAmountToUpgrade, _speedAmountToUpgrade, _radiusAmountToUpgrade, _bulletDamageAmountToUpgrade, _fireRateAmountToUpgrade, _bulletSpeedAmountToUpgrade, _bulletLifetimeAmountToUpgrade;
     int _totalCost;
     void Start()
     {
@@ -33,8 +33,6 @@ public class PermanentShopManager : MonoBehaviour
     {
         // Set the currency icon position based on the currency text width
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
-        Debug.Log($"Total Credits: {PlayerPrefs.GetFloat("Credits")}");
-
     }
     public void IncreaseAmountToUpgrade(string typeToUpgrade)
     {
@@ -48,7 +46,26 @@ public class PermanentShopManager : MonoBehaviour
                 _speedAmountToUpgrade++;
                 speedAmountText.text = $"{_speedAmountToUpgrade}";
                 break;
-
+            case "PickUpRadius":
+                _radiusAmountToUpgrade++;
+                radiusAmountText.text = $"{_radiusAmountToUpgrade}";
+                break;
+            case "BulletDamage":
+                _bulletDamageAmountToUpgrade++;
+                bulletDamageAmountText.text = $"{_bulletDamageAmountToUpgrade}";
+                break;
+            case "FireRate":
+                _fireRateAmountToUpgrade++;
+                fireRateAmountText.text = $"{_fireRateAmountToUpgrade}";
+                break;
+            case "BulletSpeed":
+                _bulletSpeedAmountToUpgrade++;
+                bulletSpeedAmountText.text = $"{_bulletSpeedAmountToUpgrade}";
+                break;
+            case "BulletLifetime":
+                _bulletLifetimeAmountToUpgrade++;
+                bulletLifetimeAmountText.text = $"{_bulletLifetimeAmountToUpgrade}";
+                break;
         }
         _totalCost += 1000;
     }
@@ -72,12 +89,54 @@ public class PermanentShopManager : MonoBehaviour
                     speedAmountText.text = $"{_speedAmountToUpgrade}";
                 }
                 break;
+            case "PickUpRadius":
+                if (_radiusAmountToUpgrade > 0)
+                {
+                    _totalCost -= 1000;
+                    _radiusAmountToUpgrade--;
+                    radiusAmountText.text = $"{_radiusAmountToUpgrade}";
+                }
+                break;
+            case "BulletDamage":
+                if (_bulletDamageAmountToUpgrade > 0)
+                {
+                    _totalCost -= 1000;
+                    _bulletDamageAmountToUpgrade--;
+                    bulletDamageAmountText.text = $"{_bulletDamageAmountToUpgrade}";
+                }
+                break;
+            case "FireRate":
+                if (_fireRateAmountToUpgrade > 0)
+                {
+                    _totalCost -= 1000;
+                    _fireRateAmountToUpgrade--;
+                    fireRateAmountText.text = $"{_fireRateAmountToUpgrade}";
+                }
+                break;
+            case "BulletSpeed":
+                if (_bulletSpeedAmountToUpgrade > 0)
+                {
+                    _totalCost -= 1000;
+                    _bulletSpeedAmountToUpgrade--;
+                    bulletSpeedAmountText.text = $"{_bulletSpeedAmountToUpgrade}";
+                }
+                break;
+            case "BulletLifetime":
+                if (_bulletLifetimeAmountToUpgrade > 0)
+                {
+                    _totalCost -= 1000;
+                    _bulletLifetimeAmountToUpgrade--;
+                    bulletLifetimeAmountText.text = $"{_bulletLifetimeAmountToUpgrade}";
+                }
+                break;
         }
     }
 
     public void PressConfirmButton()
     {
         confirmationPanel.SetActive(true);
+        confirmationText.color = Color.white;
+        confirmationText.text = "Purchase Upgrades?";
         confirmationCurrencyText.text = $"{_totalCost}";
     }
 
@@ -93,6 +152,7 @@ public class PermanentShopManager : MonoBehaviour
         }
         else
         {
+            confirmationText.color = Color.red;
             confirmationText.text = "Not enough Credits!";
         }
     }
@@ -116,6 +176,21 @@ public class PermanentShopManager : MonoBehaviour
 
         _speedAmountToUpgrade = 0;
         speedAmountText.text = $"{_speedAmountToUpgrade}";
+
+        _radiusAmountToUpgrade = 0;
+        radiusAmountText.text = $"{_radiusAmountToUpgrade}";
+
+        _bulletDamageAmountToUpgrade = 0;
+        bulletDamageAmountText.text = $"{_bulletDamageAmountToUpgrade}";
+
+        _fireRateAmountToUpgrade = 0;
+        fireRateAmountText.text = $"{_fireRateAmountToUpgrade}";
+
+        _bulletSpeedAmountToUpgrade = 0;
+        bulletSpeedAmountText.text = $"{_bulletSpeedAmountToUpgrade}";
+
+        _bulletLifetimeAmountToUpgrade = 0;
+        bulletLifetimeAmountText.text = $"{_bulletLifetimeAmountToUpgrade}";
     }
 
     void UpdateCurrentPermanentCurrency()
@@ -140,7 +215,25 @@ public class PermanentShopManager : MonoBehaviour
         PlayerPrefs.SetFloat("Speed", finalAmount2);
 
 
+        float i3 = PlayerPrefs.GetFloat("PickUpRadius", 5);
+        float finalAmount3 = i3 + (_radiusAmountToUpgrade * 0.1f);
+        PlayerPrefs.SetFloat("PickUpRadius", finalAmount3);
 
+        float i4 = PlayerPrefs.GetFloat("BulletDamage", 50);
+        float finalAmount4 = i4 + _bulletDamageAmountToUpgrade;
+        PlayerPrefs.SetFloat("BulletDamage", finalAmount4);
+
+        float i5 = PlayerPrefs.GetFloat("FireRate", 1);
+        float finalAmount5 = i5 - (_fireRateAmountToUpgrade * 0.01f);
+        PlayerPrefs.SetFloat("FireRate", finalAmount5);
+
+        float i6 = PlayerPrefs.GetFloat("BulletSpeed", 5);
+        float finalAmount6 = i6 - (_bulletSpeedAmountToUpgrade * 0.1f);
+        PlayerPrefs.SetFloat("BulletSpeed", finalAmount6);
+
+        float i7 = PlayerPrefs.GetFloat("BulletLifetime", 5);
+        float finalAmount7 = i7 - (_bulletLifetimeAmountToUpgrade * 0.1f);
+        PlayerPrefs.SetFloat("BulletLifetime", finalAmount7);
 
 
         PlayerPrefs.Save();

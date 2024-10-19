@@ -1,6 +1,5 @@
 using System.Collections;
 using DG.Tweening;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class Background : MonoBehaviour
