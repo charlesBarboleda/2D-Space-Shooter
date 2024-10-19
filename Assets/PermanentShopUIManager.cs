@@ -19,7 +19,7 @@ public class PermanentShopManager : MonoBehaviour
     public TextMeshProUGUI healthAmountText, speedAmountText, radiusAmountText, bulletDamageAmountText, fireRateAmountText, bulletSpeedAmountText, bulletLifetimeAmountText;
     public Image currencyIcon;
     public TextMeshProUGUI currencyText, confirmationText, confirmationCurrencyText;
-    public GameObject confirmationPanel, upgradesShopMenu, playMenu;
+    public GameObject confirmationPanel, upgradesShopMenu, upgradesButtons, playMenu;
     int _healthAmountToUpgrade, _speedAmountToUpgrade, _radiusAmountToUpgrade, _bulletDamageAmountToUpgrade, _fireRateAmountToUpgrade, _bulletSpeedAmountToUpgrade, _bulletLifetimeAmountToUpgrade;
     int _totalCost;
     void Start()
@@ -165,6 +165,7 @@ public class PermanentShopManager : MonoBehaviour
         ResetAmountToUpgrade();
         confirmationPanel.SetActive(false);
         upgradesShopMenu.SetActive(false);
+        upgradesButtons.SetActive(false);
         playMenu.SetActive(true);
     }
     void ResetAmountToUpgrade()

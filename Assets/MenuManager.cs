@@ -9,9 +9,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject _instructionsMenu;
     [SerializeField] GameObject _playMenu;
     [SerializeField] GameObject _upgradesMenu;
+    [SerializeField] GameObject _upgradesButtons;
+
     public void EnableUpgradesMenu()
     {
+
         _playMenu.SetActive(false);
+        _upgradesButtons.SetActive(true);
         _upgradesMenu.SetActive(true);
     }
     public void EnableSettingsMenu()
