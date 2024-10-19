@@ -104,9 +104,9 @@ public class GameManager : MonoBehaviour
 
     void SavePermanentCurrency()
     {
-        float i = PlayerPrefs.GetFloat("PermanentCurrency");
+        float i = PlayerPrefs.GetFloat("Credits");
         float finalAmount = i + _permanentCurrency;
-        PlayerPrefs.SetFloat("PermanentCurrency", finalAmount);
+        PlayerPrefs.SetFloat("Credits", finalAmount);
         PlayerPrefs.Save();
 
     }

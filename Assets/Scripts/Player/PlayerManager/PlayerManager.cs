@@ -59,8 +59,23 @@ public class PlayerManager : MonoBehaviour, ITargetable
         _movement = GetComponent<PlayerMovementBehaviour>();
         _health = GetComponent<PlayerHealthBehaviour>();
         _currency = GetComponent<PlayerCurrencyBehaviour>();
+        ApplyPermanentUpgrades();
     }
 
+    void ApplyPermanentUpgrades()
+    {
+        _health.currentHealth = PlayerPrefs.GetFloat("Health", 100);
+        _health.maxHealth = PlayerPrefs.GetFloat("Health", 100);
+        _movement.moveSpeed = PlayerPrefs.GetFloat("Speed", 15);
+        _pickUpBehaviour.PickUpRadius = PlayerPrefs.GetFloat("PickUpRadius", 5);
+        _weapon.bulletDamage = PlayerPrefs.GetFloat("BulletDamage", 50);
+        _weapon.bulletSpeed = PlayerPrefs.GetFloat("BulletSpeed", 30);
+        _weapon.fireRate = PlayerPrefs.GetFloat("FireRate", 1);
+        _weapon.bulletLifetime = PlayerPrefs.GetFloat("BulletLifetime", 3);
+
+
+
+    }
     void SetSingleton()
     {
         if (Instance == null)

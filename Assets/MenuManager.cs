@@ -7,7 +7,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject _mainMenu;
     [SerializeField] GameObject _settingsMenu;
     [SerializeField] GameObject _instructionsMenu;
-
+    [SerializeField] GameObject _playMenu;
+    [SerializeField] GameObject _upgradesMenu;
+    public void EnableUpgradesMenu()
+    {
+        _playMenu.SetActive(false);
+        _upgradesMenu.SetActive(true);
+    }
     public void EnableSettingsMenu()
     {
         _mainMenu.SetActive(false);
@@ -21,19 +27,26 @@ public class MenuManager : MonoBehaviour
 
     public void EnableMainMenu()
     {
+        _playMenu.SetActive(false);
         _settingsMenu.SetActive(false);
         _instructionsMenu.SetActive(false);
         _mainMenu.SetActive(true);
     }
+    public void EnablePlayMenu()
+    {
+        _mainMenu.SetActive(false);
+        _playMenu.SetActive(true);
+    }
+
 
     public void QuitGame()
     {
         Application.Quit();
     }
 
-    public void PressPlay()
+    public void PressStartGame()
     {
-        _mainMenu.SetActive(false);
+        _playMenu.SetActive(false);
     }
 
 }

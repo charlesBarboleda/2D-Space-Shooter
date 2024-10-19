@@ -28,6 +28,7 @@ public class SoloInvasionLevel : Level
 
     public override void StartLevel()
     {
+
         EventManager.OnEnemyDestroyed += RegisterInvaderKill;
         _spawnerManager.ResetRound();
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesDefending + (_amountOfEnemiesDefending * _spawnAmountRatio);

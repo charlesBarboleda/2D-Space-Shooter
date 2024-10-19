@@ -85,7 +85,6 @@ public class ObjectiveManager : MonoBehaviour
 
     public void UpdateObjectivesUI()
     {
-        Debug.Log("UpdateObjectivesUI called from ObjectiveManager");
         foreach (var objective in activeObjectives)
         {
             UIManager.Instance.UpdateObjectiveUI(objective);
