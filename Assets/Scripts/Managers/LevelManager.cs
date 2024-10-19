@@ -159,7 +159,7 @@ public class LevelManager : MonoBehaviour
         float formationRadius = Mathf.Min(Mathf.Max(_currentLevelIndex * 2, 25f), 50f);
         List<string> formationShipName = new List<string>(_spawnerManager.GetFormationShipNames());
 
-        return new MultiPhaseBossLevel(
+        return new ThraxMultiPhaseBossLevel(
             health,
             bulletAmount,
             bulletDamage,

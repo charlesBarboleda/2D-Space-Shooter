@@ -34,18 +34,18 @@ public class SoloShooterBossLevel : Level
                                 FormationType formationType, int numberOfShipsInFormation,
                                  float formationRadius, List<string> formationShipName)
     {
-        this.health = health;
-        this.bulletAmount = bulletAmount;
-        this.bulletDamage = bulletDamage;
-        this.bulletSpeed = bulletSpeed;
-        this.fireRate = firerate;
-        this.speed = speed;
-        this.stopDistance = stopDistance;
-        this.attackRange = attackRange;
+        this.health += health;
+        this.bulletAmount += bulletAmount;
+        this.bulletDamage += bulletDamage;
+        this.bulletSpeed += bulletSpeed;
+        this.fireRate += firerate;
+        this.speed += speed;
+        this.stopDistance += stopDistance;
+        this.attackRange += attackRange;
         this.fireAngle = fireAngle;
         this.spawnPoints = spawnPoints;
         this.bossName = bossName;
-        this.currencyDrop = currencyDrop;
+        this.currencyDrop += currencyDrop;
         this.levelManager = levelManager;
         this.spawnerManager = spawnerManager;
         this.formationType = formationType;

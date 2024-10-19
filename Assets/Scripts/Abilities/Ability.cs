@@ -21,7 +21,7 @@ public abstract class Ability : ScriptableObject
     public abstract void ResetStats();
     public abstract void AbilityLogic(GameObject owner, Transform target, bool isUltimate = false); // Add flag for ultimate
 
-    public void TriggerAbility(GameObject owner, Transform target)
+    public void TriggerAbility(GameObject owner, Transform target, Transform spawnPoint = null)
     {
         if (!isUnlocked)
         {

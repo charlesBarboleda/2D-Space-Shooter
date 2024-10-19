@@ -22,8 +22,6 @@ public class AbilityHolder : MonoBehaviour
         {
             ability.UpdateCooldown(Time.deltaTime);
         }
-
-
     }
 
     void ResetAbilityStats()

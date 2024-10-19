@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MultiPhaseBossLevel : SoloShooterBossLevel
+public class ThraxMultiPhaseBossLevel : SoloShooterBossLevel
 {
     private enum BossPhase
     {
@@ -28,7 +28,7 @@ public class MultiPhaseBossLevel : SoloShooterBossLevel
     CameraFollowBehaviour cameraFollow;
     NavMeshAgent navMeshAgent;
 
-    public MultiPhaseBossLevel(float health, int bulletAmount, float bulletDamage, float bulletSpeed,
+    public ThraxMultiPhaseBossLevel(float health, int bulletAmount, float bulletDamage, float bulletSpeed,
     float firerate, float speed, float stopDistance, float attackRange, float fireAngle,
     float currencyDrop, List<Vector3> spawnPoints, string bossName, LevelManager levelManager,
     SpawnerManager spawnerManager, FormationType formationType, int numberOfShipsInFormation,

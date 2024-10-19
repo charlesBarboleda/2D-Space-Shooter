@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd704b2eb987f84fa3461ac022a1677, type: 3}
+  m_Name: EnemyMissile 1
+  m_EditorClassIdentifier: 
+  isUnlocked: 1
+  abilityName: 
+  icon: {fileID: 0}
+  duration: 0
+  cooldown: 5
+  currentCooldown: 4.8974266
+  ultimateCooldown: 30
+  ultimateDuration: 0
+  currentUltimateCooldown: 30
+  isUltimateUnlocked: 0
+  isUltimateReady: 0
+  ultimateTriggerWindow: 3
+  _audioSource: {fileID: 0}
+  _audioClip: {fileID: 0}
+  damage: 100
+  missileSpeed: 20
+  turnSpeed: 5
+  radius: 20

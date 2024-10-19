@@ -70,21 +70,21 @@ public class PlayerController : MonoBehaviour
         // Use the Ability Laser
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            abilityHolder.abilities[0].TriggerAbility(gameObject, abilityHolder.target);
+            // abilityHolder.abilities[0].TriggerAbility(gameObject, abilityHolder.target);
 
         }
 
         // Use the Ability Shield
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            abilityHolder.abilities[2].TriggerAbility(gameObject, transform);
+            // abilityHolder.abilities[2].TriggerAbility(gameObject, transform);
 
         }
 
         // Use the Ability Teleport
         if (Input.GetKeyDown(KeyCode.E))
         {
-            abilityHolder.abilities[3].TriggerAbility(gameObject, abilityHolder.target);
+            // abilityHolder.abilities[3].TriggerAbility(gameObject, abilityHolder.target);
 
         }
 

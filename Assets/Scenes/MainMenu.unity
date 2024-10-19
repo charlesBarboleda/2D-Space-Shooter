@@ -5429,6 +5429,10 @@ MonoBehaviour:
   _playMenu: {fileID: 708931220}
   _upgradesMenu: {fileID: 332966498}
   _upgradesButtons: {fileID: 1981918088}
+  playButton: {fileID: 1329985093}
+  instructionsButton: {fileID: 595308101}
+  settingsButton: {fileID: 1645494428}
+  quitButton: {fileID: 769970450}
 --- !u!1 &559441261 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5915947355115139000, guid: 2b3fd592aa79bac41bf7bafd0a2ed3e9, type: 3}
@@ -5677,6 +5681,7 @@ GameObject:
   - component: {fileID: 595308104}
   - component: {fileID: 595308103}
   - component: {fileID: 595308106}
+  - component: {fileID: 595308107}
   m_Layer: 5
   m_Name: InstructionsButton
   m_TagString: Untagged
@@ -5843,6 +5848,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!225 &595308107
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595308101}
+  m_Enabled: 1
+  m_Alpha: -0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &603648720
 GameObject:
   m_ObjectHideFlags: 0
@@ -7193,6 +7210,7 @@ GameObject:
   - component: {fileID: 769970453}
   - component: {fileID: 769970452}
   - component: {fileID: 769970455}
+  - component: {fileID: 769970456}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -7359,6 +7377,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!225 &769970456
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769970450}
+  m_Enabled: 1
+  m_Alpha: -0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &785108265
 GameObject:
   m_ObjectHideFlags: 0
@@ -11274,6 +11304,7 @@ GameObject:
   - component: {fileID: 1329985096}
   - component: {fileID: 1329985095}
   - component: {fileID: 1329985098}
+  - component: {fileID: 1329985099}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -11440,6 +11471,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!225 &1329985099
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329985093}
+  m_Enabled: 1
+  m_Alpha: -0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1340338160
 GameObject:
   m_ObjectHideFlags: 0
@@ -13044,6 +13087,7 @@ GameObject:
   - component: {fileID: 1645494431}
   - component: {fileID: 1645494430}
   - component: {fileID: 1645494433}
+  - component: {fileID: 1645494434}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -13210,6 +13254,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!225 &1645494434
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645494428}
+  m_Enabled: 1
+  m_Alpha: -0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1748651183
 GameObject:
   m_ObjectHideFlags: 0

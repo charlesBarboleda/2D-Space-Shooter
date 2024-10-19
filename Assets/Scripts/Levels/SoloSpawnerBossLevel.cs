@@ -21,10 +21,10 @@ public class SoloSpawnerBossLevel : Level
 
     public SoloSpawnerBossLevel(float health, float speed, float spawnRate, float stopDistance, int shipsPerSpawn, float attackRange, float currencyDrop, List<Vector3> spawnPoints, string bossName, LevelManager levelManager, SpawnerManager spawnerManager)
     {
-        _health = health;
-        _speed = speed;
-        _stopDistance = stopDistance;
-        _attackRange = attackRange;
+        _health += health;
+        _speed += speed;
+        _stopDistance += stopDistance;
+        _attackRange += attackRange;
         _spawnPoints = spawnPoints;
         _spawnRate = spawnRate;
         _bossName = bossName;

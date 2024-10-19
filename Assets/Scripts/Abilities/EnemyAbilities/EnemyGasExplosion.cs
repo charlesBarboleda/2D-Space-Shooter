@@ -61,9 +61,6 @@ public class EnemyGasExplosion : MonoBehaviour
             return;
         }
 
-        // Log the position to ensure it is set correctly
-
-
         // Create or reset the countdown circle at the object's position
         _circleTargetCountdown = ObjectPooler.Instance.SpawnFromPool("TargetHitCircle", transform.position, Quaternion.identity);
 

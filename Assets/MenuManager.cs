@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
@@ -10,6 +11,29 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject _playMenu;
     [SerializeField] GameObject _upgradesMenu;
     [SerializeField] GameObject _upgradesButtons;
+
+    public GameObject playButton, instructionsButton, settingsButton, quitButton;
+
+    void Start()
+    {
+        StartCoroutine(FadeInMainMenu());
+
+    }
+
+    IEnumerator FadeInMainMenu()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        playButton.GetComponent<CanvasGroup>().DOFade(1, 2f);
+        yield return new WaitForSeconds(0.25f);
+        instructionsButton.GetComponent<CanvasGroup>().DOFade(1, 2f);
+        yield return new WaitForSeconds(0.25f);
+
+        settingsButton.GetComponent<CanvasGroup>().DOFade(1, 2f);
+        yield return new WaitForSeconds(0.25f);
+
+        quitButton.GetComponent<CanvasGroup>().DOFade(1, 2f);
+    }
 
     public void EnableUpgradesMenu()
     {
