@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FireRateUpgrade : Upgrade
 {
-    public float fireRateUpgradeAmount = 0.001f;
+    public float fireRateUpgradeAmount = 0.01f;
     public override void ApplyUpgrade()
     {
         if (PlayerManager.GetInstance().Currency() >= upgradeCost)

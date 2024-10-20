@@ -14,6 +14,8 @@ public class InvasionObjective : ObjectiveBase
     public override void Initialize()
     {
         objectiveName = "Invasion";
+        isObjectiveCompleted = false;
+        isObjectiveFailed = false;
         EventManager.OnEnemyDestroyed += RegisterShipDestroyed;
         _spawnerManager = SpawnerManager.Instance;
         _defendingShips = _spawnerManager.DefendingShipsList;

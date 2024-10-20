@@ -19,6 +19,8 @@ public class CaptureObjective : ObjectiveBase
     {
         objectiveName = "Capture";
         elapsedTime = timeToCapture;
+        isObjectiveCompleted = false;
+        isObjectiveFailed = false;
 
         capturePosition = SpawnerManager.Instance.GetRandomPositionOutsideBuildings();
         captureCirclePrefab = ObjectPooler.Instance.SpawnFromPool("CaptureCircle", capturePosition, Quaternion.identity);

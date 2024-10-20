@@ -21,8 +21,8 @@ public class AsteroidSpawnerManager : MonoBehaviour
         {
             Instance = this;
         }
-        // SpawnAsteroidFields();
-        // SpawnAsteroids();
+        SpawnAsteroidFields();
+        SpawnAsteroids();
     }
     void SpawnAsteroids()
     {

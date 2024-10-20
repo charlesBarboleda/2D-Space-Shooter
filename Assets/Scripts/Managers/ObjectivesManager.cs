@@ -72,14 +72,10 @@ public class ObjectiveManager : MonoBehaviour
 
 
     // Clear all active objectives and reset the UI
-    public void RemoveObjectiveFromUI(string objectiveName)
-    {
-        ObjectiveBase foundObjective = specialObjectives.Find(obj => obj.objectiveName == objectiveName);
 
-    }
     public void RemoveObjective(string objectiveName)
     {
-        ObjectiveBase foundObjective = specialObjectives.Find(obj => obj.objectiveName == objectiveName);
+        ObjectiveBase foundObjective = activeObjectives.Find(obj => obj.objectiveName == objectiveName);
         activeObjectives.Remove(foundObjective);
     }
 

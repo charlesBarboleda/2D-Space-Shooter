@@ -10,6 +10,8 @@ public class TeleportUltimateObjective : ObjectiveBase
     public override void Initialize()
     {
         objectiveName = "Teleport";
+        isObjectiveCompleted = false;
+        isObjectiveFailed = false;
         teleportUses = 20;
         rewardPoints = 0;
         EventManager.OnTeleport += OnTeleport;

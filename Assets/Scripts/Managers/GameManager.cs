@@ -104,9 +104,10 @@ public class GameManager : MonoBehaviour
 
     void SavePermanentCurrency()
     {
-        float i = PlayerPrefs.GetFloat("Credits");
+        float i = PlayerPrefs.GetFloat("Credits", 0);
         float finalAmount = i + _permanentCurrency;
         PlayerPrefs.SetFloat("Credits", finalAmount);
+        Debug.Log("Currency Saved to PlayerPrefs " + finalAmount);
         PlayerPrefs.Save();
 
     }
@@ -226,7 +227,6 @@ public class GameManager : MonoBehaviour
     void GameEnd()
     {
         Debug.Log("Game Over");
-        ChangeState(GameState.GameOver);
         _isInputActive = false;
         GameOverSound();
         UpdateHighScore();
@@ -256,6 +256,7 @@ public class GameManager : MonoBehaviour
     void OnEnable()
     {
         EventManager.OnGameOver += GameOverSound;
+        EventManager.OnGameOver += GameEnd;
         EventManager.OnGameOver += UpdateHighScore;
 
     }
@@ -263,6 +264,7 @@ public class GameManager : MonoBehaviour
     void OnDisable()
     {
         EventManager.OnGameOver -= UpdateHighScore;
+        EventManager.OnGameOver -= GameEnd;
         EventManager.OnGameOver -= GameOverSound;
     }
 

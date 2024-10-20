@@ -14,6 +14,8 @@ public class EnergyCoreObjective : ObjectiveBase
     public override void Initialize()
     {
         objectiveName = "Push";
+        isObjectiveCompleted = false;
+        isObjectiveFailed = false;
         Vector3 spawnPoint = SpawnerManager.Instance.GetRandomPositionOutsideBuildings();
         energyBuilding = ObjectPooler.Instance.SpawnFromPool("EnergyCoreBuilding", spawnPoint, Quaternion.identity);
         NavMeshScript.Instance.UpdateNavMesh();

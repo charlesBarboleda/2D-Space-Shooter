@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-
     [Header("Weapon Settings")]
     public WeaponType weaponType;
     public float fireRate = 0.2f;
@@ -17,22 +16,18 @@ public class Weapon : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] Transform bulletSpawnPoint;
 
-    bool isFiring = false;
-    Coroutine firingCoroutine;
+    private bool isFiring = false;
+    private Coroutine firingCoroutine;
 
-    public Weapon(float fireRate, float bulletSpeed, float bulletDamage, int amountOfBullets, float shootingAngle, float bulletLifetime)
-    {
-        this.fireRate = fireRate;
-        this.bulletSpeed = bulletSpeed;
-        this.bulletDamage = bulletDamage;
-        this.amountOfBullets = amountOfBullets;
-        this.shootingAngle = shootingAngle;
-        this.bulletLifetime = bulletLifetime;
-    }
+    private float _timeSinceLastShot = 0f; // Time tracking for fire rate cooldown
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && !isFiring)
+        // Update the cooldown timer
+        _timeSinceLastShot += Time.deltaTime;
+
+        // If mouse button is pressed and the fire rate cooldown has passed, fire the weapon
+        if (Input.GetMouseButton(0) && !isFiring && _timeSinceLastShot >= fireRate)
         {
             StartFiring();
         }
@@ -61,8 +56,16 @@ public class Weapon : MonoBehaviour
     {
         while (isFiring)
         {
-            AudioSource.PlayClipAtPoint(shootSound, transform.position);
+            // Play the shooting sound and fire bullets
             FireBullets(amountOfBullets, bulletSpawnPoint.position);
+
+            audioSource.pitch = Random.Range(0.85f, 1.15f);
+            // Play the shooting sound
+            audioSource.PlayOneShot(shootSound);
+
+            // Reset the cooldown timer after firing
+            _timeSinceLastShot = 0f;
+
             yield return new WaitForSeconds(fireRate);
         }
     }

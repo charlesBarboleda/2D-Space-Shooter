@@ -11,6 +11,8 @@ public class SurviveObjective : ObjectiveBase
     public override void Initialize()
     {
         objectiveName = "Survive";
+        isObjectiveCompleted = false;
+        isObjectiveFailed = false;
         elapsedTime = requiredTime;
         rewardPoints = (LevelManager.Instance.CurrentLevelIndex * 200) + ((int)requiredTime * 10);
         shipsToSpawn = new List<string>(SpawnerManager.Instance.GetFormationShipNames());

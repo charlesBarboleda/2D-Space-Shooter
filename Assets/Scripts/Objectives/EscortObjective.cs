@@ -14,6 +14,8 @@ public class EscortObjective : ObjectiveBase
     public override void Initialize()
     {
         objectiveName = "Escort";
+        isObjectiveCompleted = false;
+        isObjectiveFailed = false;
         _wayPoints = GeneratePath(_waypointsAmount);
         _cargoShip = ObjectPooler.Instance.SpawnFromPool("CargoShip", _wayPoints[0], Quaternion.identity);
 

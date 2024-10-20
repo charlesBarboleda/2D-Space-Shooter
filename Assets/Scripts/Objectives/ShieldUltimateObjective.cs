@@ -10,6 +10,8 @@ public class ShieldUltimateObjective : ObjectiveBase
     public override void Initialize()
     {
         objectiveName = "Shield";
+        isObjectiveCompleted = false;
+        isObjectiveFailed = false;
         damageAbsorbed = 20000;
         rewardPoints = 0;
         EventManager.OnShieldAbsorb += OnShieldAbsorb;

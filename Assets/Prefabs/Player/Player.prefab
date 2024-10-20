@@ -9867,7 +9867,6 @@ GameObject:
   - component: {fileID: 8408294533076223621}
   - component: {fileID: 6345799238015220175}
   - component: {fileID: 7573661992567814207}
-  - component: {fileID: 3312028033626456625}
   - component: {fileID: 8144410556971869979}
   - component: {fileID: 5640835699285431385}
   - component: {fileID: 6562819236652315157}
@@ -10064,20 +10063,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3312028033626456625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5239728600239547954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c9a658cac396774792634bb0d4840bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 7573661992567814207}
-  shootingSound: {fileID: 8300000, guid: 4310474905e266640852f43bd609a1a4, type: 3}
 --- !u!114 &8144410556971869979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10291,6 +10276,7 @@ MonoBehaviour:
   - DeathEffectMid
   - DeathEffectMid2
   _deathExplosion: MidExp
+  healthCap: 1
 --- !u!114 &1119447363669336013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10303,7 +10289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ec086c6afe84af449f63316f01096f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chosenPrestige: 0
   arrowEmission: {fileID: 8603191781633834710}
   Buff: {fileID: 5380624335121071338}
   _onDebrisAudio: {fileID: 8300000, guid: 6994722157c02c825ac0b6fea74a47ad, type: 3}

@@ -18,7 +18,7 @@ public class Kinematics : MonoBehaviour
     public bool outOfBounds = false;
 
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
     }
@@ -38,18 +38,10 @@ public class Kinematics : MonoBehaviour
     protected virtual void OnEnable()
     {
         _rotateClockwise = Random.value > 0.5f;
-        agent = GetComponent<NavMeshAgent>();
         StartCoroutine(InitializeAgent());
-        if (agent == null)
-        {
-            Debug.LogError("NavMeshAgent component missing!");
-            return;
-        }
-        _targetManager = GetComponent<TargetManager>();
         if (_targetManager == null)
         {
-            Debug.LogError("TargetManager component missing!");
-            return;
+            _targetManager = GetComponent<TargetManager>();
         }
 
     }
@@ -169,7 +161,17 @@ public class Kinematics : MonoBehaviour
         _cachedDirection = (target - transform.position).normalized;
     }
 
-    public float Speed { get => agent.speed; set => agent.speed = value; }
+    public float Speed
+    {
+        get => agent != null ? agent.speed : _speed;  // Fallback to default _speed if agent is not assigned
+        set
+        {
+            if (agent != null)
+                agent.speed = value;
+            else
+                _speed = value;  // Store the value in _speed to apply later when agent is assigned
+        }
+    }
     public float StopDistance { get => agent.stoppingDistance; set => agent.stoppingDistance = value; }
     public bool ShouldMove { get => _shouldMove; set => _shouldMove = value; }
     public bool ShouldRotate { get => _shouldRotate; set => _shouldRotate = value; }

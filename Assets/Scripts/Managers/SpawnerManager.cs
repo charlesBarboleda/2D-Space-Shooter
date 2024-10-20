@@ -45,12 +45,6 @@ public class SpawnerManager : MonoBehaviour
 
     }
 
-    void OnEnable()
-    {
-        StartCoroutine(SpawnCometsOverTime(GameManager.Instance.CometsPerRound, GameManager.Instance.CometSpawnRate));
-
-    }
-
     void OnDisable()
     {
         StopAllCoroutines();

@@ -14,7 +14,7 @@ public class PermanentShopManager : MonoBehaviour
     int _totalCost;
     void Start()
     {
-        currencyText.text = $"{PlayerPrefs.GetFloat("Credits")}";
+        currencyText.text = $"{Mathf.Round(PlayerPrefs.GetFloat("Credits"))}";
     }
 
     void Update()
@@ -188,7 +188,7 @@ public class PermanentShopManager : MonoBehaviour
         float finalAmount = currentAmount - _totalCost;
         PlayerPrefs.SetFloat("Credits", finalAmount);
         PlayerPrefs.Save();
-        currencyText.text = $"{PlayerPrefs.GetFloat("Credits")}";
+        currencyText.text = $"{Mathf.Round(PlayerPrefs.GetFloat("Credits"))}";
 
 
     }

@@ -10,6 +10,8 @@ public class LaserUltimateObjective : ObjectiveBase
     public override void Initialize()
     {
         objectiveName = "Laser";
+        isObjectiveCompleted = false;
+        isObjectiveFailed = false;
         hitsRequired = 10000;
         rewardPoints = 0;
         EventManager.OnLaserHit += OnLaserHit;

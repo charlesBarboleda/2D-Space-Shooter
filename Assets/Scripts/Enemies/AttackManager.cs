@@ -12,15 +12,10 @@ public class AttackManager : MonoBehaviour
     float _elapsedCooldown;
 
 
-    void Start()
+    void OnEnable()
     {
         _kinematics = GetComponent<Kinematics>();
         _targetManager = GetComponent<TargetManager>();
-    }
-
-    void OnEnable()
-    {
-        _aimRange = _kinematics.StopDistance + 5f;
     }
 
 

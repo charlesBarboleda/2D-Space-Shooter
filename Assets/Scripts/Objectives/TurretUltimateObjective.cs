@@ -10,6 +10,8 @@ public class TurretUltimateObjective : ObjectiveBase
     public override void Initialize()
     {
         objectiveName = "Turret";
+        isObjectiveCompleted = false;
+        isObjectiveFailed = false;
         damageNeeded = 30000;
         rewardPoints = 0;
         EventManager.OnBulletDamage += OnBulletDamage;

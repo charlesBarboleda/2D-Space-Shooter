@@ -839,7 +839,11 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         totalKillsText.text = $"{GameManager.Instance.totalShipKills}";
-        playtimeText.text = $"{GameManager.Instance.playTime}";
+        // Convert the playtime to minutes and seconds
+        int minutes = Mathf.FloorToInt(GameManager.Instance.playTime / 60);
+        int seconds = Mathf.FloorToInt(GameManager.Instance.playTime % 60);
+
+        playtimeText.text = $"{minutes}m {seconds}s";
         objectivesText.text = $"{GameManager.Instance.totalObjectivesCompleted}";
         damageDealtText.text = $"{GameManager.Instance.totalDamageDealt}";
 
