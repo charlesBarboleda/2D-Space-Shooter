@@ -24,7 +24,7 @@ public class HordeLevel : Level
     {
         Background.Instance.PlayHordeMusic(_factionType);
         // 10% chance to start a random objective
-        if (Random.value < 0.99f)
+        if (Random.value < 0.10f)
         {
             _spawnerManager.StartCoroutine(StartRandomObjective());
         }

@@ -55,6 +55,7 @@ public class EnergyCoreObjective : ObjectiveBase
         isObjectiveCompleted = true;
         // Notify ObjectiveManager of completion
         objectiveDescription = "The Ancient Relic has erupted!";
+        UIManager.Instance.MidScreenWarningText("Bonus Objective succeeded!", 3f);
         EventManager.ObjectiveCompletedEvent();
         // Force UI to update
         ObjectiveManager.Instance.RemoveObjective("Push");

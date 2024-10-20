@@ -34,22 +34,22 @@ public class LevelManager : MonoBehaviour
 
     Level GenerateNextLevel()
     {
-        // There's a 25% chance of creating a solo invasion level after level 5
-        if (Random.value > 0.75f && _currentLevelIndex > 5)
+
+        // There's a 10% chance of creating a solo invasion level after level 10
+        if (Random.value > 0.90f && _currentLevelIndex > 10)
         {
             return CreateSoloInvasionLevel();
         }
 
-
-        // There's a 10% chance of creating a solo boss level after level 5
-        else if (Random.value > 0.5f && _currentLevelIndex > 5)
+        // There's a 5% chance of creating a solo boss level after level 10
+        else if (Random.value > 0.95f && _currentLevelIndex > 10)
         {
             if (Random.value > 0.5f) return CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
             else return CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
         }
 
-        // There's a 10% chance of creating a multi-phase boss level
-        else if (Random.value > 0.90f && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
+        // There's a 5% chance of creating a multi-phase boss level
+        else if (Random.value > 0.95f && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
         {
             return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
 

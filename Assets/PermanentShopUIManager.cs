@@ -6,16 +6,6 @@ using UnityEngine;
 
 public class PermanentShopManager : MonoBehaviour
 {
-    public enum UpgradesType
-    {
-        Health,
-        Speed,
-        PickUpRadius,
-        BulletDamage,
-        BulletSpeed,
-        BulletLifetime,
-        FireRate,
-    }
     public TextMeshProUGUI healthAmountText, speedAmountText, radiusAmountText, bulletDamageAmountText, fireRateAmountText, bulletSpeedAmountText, bulletLifetimeAmountText;
     public Image currencyIcon;
     public TextMeshProUGUI currencyText, confirmationText, confirmationCurrencyText;
@@ -24,8 +14,6 @@ public class PermanentShopManager : MonoBehaviour
     int _totalCost;
     void Start()
     {
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetFloat("Credits", 10000);
         currencyText.text = $"{PlayerPrefs.GetFloat("Credits")}";
     }
 

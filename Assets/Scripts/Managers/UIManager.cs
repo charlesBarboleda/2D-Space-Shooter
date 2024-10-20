@@ -187,34 +187,36 @@ public class UIManager : MonoBehaviour
 
     void OnPrestigeConfirmation(string prestige)
     {
-
         if (PlayerManager.Instance.Currency() >= 50000)
         {
-            switch (prestige)
+            if (!PlayerManager.Instance.PrestigeManager().HasAlreadyPrestiged()) // New check
             {
-                case "Plaguebringer":
-                    PlayerManager.Instance.PrestigeManager().PrestigeToPlaguebringer();
-                    confirmationPanel.SetActive(false);
-                    prestigePanel.SetActive(false);
-                    break;
-                case "Lifewarden":
-                    PlayerManager.Instance.PrestigeManager().PrestigeToLifewarden();
-                    confirmationPanel.SetActive(false);
-                    prestigePanel.SetActive(false);
-                    break;
-                case "Sunlancer":
-                    PlayerManager.Instance.PrestigeManager().PrestigeToSunlancer();
-                    confirmationPanel.SetActive(false);
-                    prestigePanel.SetActive(false);
-                    break;
-                case "Berzerker":
-                    PlayerManager.Instance.PrestigeManager().PrestigeToBerzerker();
-                    confirmationPanel.SetActive(false);
-                    prestigePanel.SetActive(false);
-                    break;
-            }
+                switch (prestige)
+                {
+                    case "Plaguebringer":
+                        PlayerManager.Instance.PrestigeManager().PrestigeToPlaguebringer();
+                        break;
+                    case "Lifewarden":
+                        PlayerManager.Instance.PrestigeManager().PrestigeToLifewarden();
+                        break;
+                    case "Sunlancer":
+                        PlayerManager.Instance.PrestigeManager().PrestigeToSunlancer();
+                        break;
+                    case "Berzerker":
+                        PlayerManager.Instance.PrestigeManager().PrestigeToBerzerker();
+                        break;
+                }
 
-            PlayerManager.Instance.SetCurrency(-50000);
+                PlayerManager.Instance.SetCurrency(-50000);
+                confirmationPanel.SetActive(false);
+                prestigePanel.SetActive(false);
+            }
+            else
+            {
+                UIManager.Instance.MidScreenWarningText("You have already prestiged!", 2f);
+                confirmationPanel.SetActive(false);
+                prestigePanel.SetActive(false);
+            }
         }
         else
         {
@@ -223,6 +225,7 @@ public class UIManager : MonoBehaviour
             prestigePanel.SetActive(false);
         }
     }
+
     public void CloseConfirmationPanel()
     {
         StartCoroutine(MinimizeContainer(confirmationPanel, 0.2f));
@@ -657,7 +660,7 @@ public class UIManager : MonoBehaviour
 
     void UpdateHighScoreUI()
     {
-        highscoreText.text = $"Highscore: Level {PlayerPrefs.GetFloat("HighScore")}";
+        highscoreText.text = $"Highscore: Level {PlayerPrefs.GetFloat("HighScore", 1)}";
     }
 
     void PauseMenu()

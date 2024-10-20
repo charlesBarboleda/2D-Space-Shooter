@@ -47,6 +47,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
 
     void Start()
     {
+
         _prestigeManager = GetComponent<PrestigeManager>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _faction = GetComponent<Faction>();

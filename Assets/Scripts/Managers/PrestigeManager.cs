@@ -13,7 +13,6 @@ public class PrestigeManager : MonoBehaviour
     [SerializeField] GameObject sunlancerBuff;
     [SerializeField] GameObject _berzerkerBuff;
     bool hasPrestiged = false;
-
     public PrestigeType chosenPrestige = PrestigeType.None;
     SpriteRenderer _spriteRenderer;
     Weapon _weapon;
@@ -45,9 +44,9 @@ public class PrestigeManager : MonoBehaviour
     {
         if (!hasPrestiged)
         {
+            hasPrestiged = true;
             chosenPrestige = prestige;
             EventManager.PrestigeChangeEvent(prestige);
-            hasPrestiged = true;
         }
         else
         {
@@ -56,21 +55,56 @@ public class PrestigeManager : MonoBehaviour
     }
     public void PrestigeToPlaguebringer()
     {
-        StartCoroutine(PrestigeAnimation(PrestigeType.Plaguebringer, "PlaguebringerPrestigeAnimation", 1.2f));
+        if (!hasPrestiged) // Add this check to prevent animation from starting
+        {
+            StartCoroutine(PrestigeAnimation(PrestigeType.Plaguebringer, "PlaguebringerPrestigeAnimation", 1.2f));
+        }
+        else
+        {
+            UIManager.Instance.MidScreenWarningText("You have already prestiged!", 2f);
+        }
     }
+
     public void PrestigeToLifewarden()
     {
-        StartCoroutine(PrestigeAnimation(PrestigeType.Lifewarden, "LifewardenPrestigeAnimation", 1.2f));
+        if (!hasPrestiged)
+        {
+            StartCoroutine(PrestigeAnimation(PrestigeType.Lifewarden, "LifewardenPrestigeAnimation", 1.2f));
+        }
+        else
+        {
+            UIManager.Instance.MidScreenWarningText("You have already prestiged!", 2f);
+        }
     }
 
     public void PrestigeToSunlancer()
     {
-        StartCoroutine(PrestigeAnimation(PrestigeType.Sunlancer, "SunlancerPrestigeAnimation", 1.2f));
+        if (!hasPrestiged)
+        {
+            StartCoroutine(PrestigeAnimation(PrestigeType.Sunlancer, "SunlancerPrestigeAnimation", 1.2f));
+        }
+        else
+        {
+            UIManager.Instance.MidScreenWarningText("You have already prestiged!", 2f);
+        }
     }
 
     public void PrestigeToBerzerker()
     {
-        StartCoroutine(PrestigeAnimation(PrestigeType.Berzerker, "BerzerkerPrestigeAnimation", 1.2f));
+        if (!hasPrestiged)
+        {
+            StartCoroutine(PrestigeAnimation(PrestigeType.Berzerker, "BerzerkerPrestigeAnimation", 1.2f));
+        }
+        else
+        {
+            UIManager.Instance.MidScreenWarningText("You have already prestiged!", 2f);
+        }
+    }
+
+
+    public bool HasAlreadyPrestiged()
+    {
+        return hasPrestiged;
     }
 
     IEnumerator PrestigeAnimation(PrestigeType prestigeTo, string animationName, float animationDuration)

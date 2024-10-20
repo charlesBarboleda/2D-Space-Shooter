@@ -57,6 +57,8 @@ public class SoloShooterBossLevel : Level
     public override void StartLevel()
     {
         Debug.Log("Starting Boss Level");
+        if (Random.value < 0.05f)
+            spawnerManager.StartCoroutine(StartRandomObjective());
         bossShip = spawnerManager.SpawnShip(bossName, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
         spawnerManager.StartCoroutine(CameraFollowBehaviour.Instance.PanToTargetAndBack(bossShip.transform, 6f));
         SetBossShooterStats(bossShip);
@@ -127,6 +129,16 @@ public class SoloShooterBossLevel : Level
         levelManager.CompleteLevel();
     }
 
+    IEnumerator StartRandomObjective()
+    {
+        yield return new WaitForSeconds(Random.Range(0, 10));
+        ObjectiveBase randomObjective = ObjectiveManager.Instance.GetRandomObjectiveFromPool();
+        if (randomObjective != null)
+        {
+            _levelObjectives.Add(randomObjective);
+        }
+        ObjectiveManager.Instance.StartObjectivesForLevel(this);
+    }
 
 
 }

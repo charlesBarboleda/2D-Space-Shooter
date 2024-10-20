@@ -244,31 +244,31 @@ public class SpawnerManager : MonoBehaviour
     private List<Ship> GetSyndicatesShips()
     {
         int level = LevelManager.Instance.CurrentLevelIndex + 1;
-        if (level < 5) return ShipDatabase.SyndicatesEarly;
-        else if (level < 10) return ShipDatabase.SyndicatesEarly2;
-        else if (level < 15) return ShipDatabase.SyndicatesEarly3;
-        else if (level < 20) return ShipDatabase.SyndicatesMid;
-        else if (level < 25) return ShipDatabase.SyndicatesMid2;
-        else if (level < 30) return ShipDatabase.SyndicatesMid3;
-        else if (level < 35) return ShipDatabase.SyndicateLate;
-        else if (level < 40) return ShipDatabase.SyndicatesLate2;
-        else if (level < 45) return ShipDatabase.SyndicatesLate3;
+        if (level < 15) return ShipDatabase.SyndicatesEarly;
+        else if (level < 20) return ShipDatabase.SyndicatesEarly2;
+        else if (level < 25) return ShipDatabase.SyndicatesEarly3;
+        else if (level < 30) return ShipDatabase.SyndicatesMid;
+        else if (level < 35) return ShipDatabase.SyndicatesMid2;
+        else if (level < 40) return ShipDatabase.SyndicatesMid3;
+        else if (level < 45) return ShipDatabase.SyndicateLate;
+        else if (level < 50) return ShipDatabase.SyndicatesLate2;
+        else if (level < 55) return ShipDatabase.SyndicatesLate3;
 
         return null;
     }
 
     private List<Ship> GetShipsBasedOnLevel(List<Ship> early, List<Ship> mid, List<Ship> late)
     {
-        int level = LevelManager.Instance.CurrentLevelIndex + 1;
-        if (level < 10) return early;
-        else if (level < 20) return mid;
+        int level = LevelManager.Instance.CurrentLevelIndex;
+        if (level < 20) return early;
+        else if (level < 40) return mid;
         else return late;
     }
     public List<string> GetFormationShipNames()
     {
         Debug.Log("GetFormationShipNames called.");
         List<string> crimsonFleetShipNames = new List<string> { "CrimsonSmall1", "CrimsonSmall2", "CrimsonSmall3", "CrimsonSmall4" };
-        List<string> syndicatesShipNames = new List<string> { "MediumShip", "MediumShip2" };
+        List<string> syndicatesShipNames = new List<string> { "MediumShip", "MediumShip2", "SmallShip", "MeleeShip" };
         List<string> thraxArmadaShipNames = new List<string> { "ThraxSmall1", "ThraxSmall2", "ThraxSmall3" };
 
 

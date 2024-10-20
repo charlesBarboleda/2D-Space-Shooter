@@ -5,12 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ShieldUltimateObjective", menuName = "Objectives/ShieldUltimateObjective")]
 public class ShieldUltimateObjective : ObjectiveBase
 {
-    public float damageAbsorbed = 5000;
+    public float damageAbsorbed = 20000;
 
     public override void Initialize()
     {
         objectiveName = "Shield";
-        damageAbsorbed = 5000;
+        damageAbsorbed = 20000;
         rewardPoints = 0;
         EventManager.OnShieldAbsorb += OnShieldAbsorb;
         objectiveDescription = $"Absorb {damageAbsorbed} damage with your Shield ability to unlock a special reward!";

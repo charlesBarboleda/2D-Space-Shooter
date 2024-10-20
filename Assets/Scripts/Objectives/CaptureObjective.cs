@@ -59,6 +59,8 @@ public class CaptureObjective : ObjectiveBase
         UIManager.Instance.MidScreenWarningText("Bonus Objective succeeded!", 3f);
         EventManager.ObjectiveCompletedEvent();
         // Force UI to update
+        ObjectiveManager.Instance.RemoveObjective("Capture");
+        UIManager.Instance.RemoveObjectiveFromUI("Capture");
         ObjectiveManager.Instance.UpdateObjectivesUI();
         base.CompleteObjective();
         ObjectiveManager.Instance.HandleObjectiveCompletion(this);

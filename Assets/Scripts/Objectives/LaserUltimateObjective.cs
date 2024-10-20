@@ -5,12 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LaserUltimateObjective", menuName = "Objectives/LaserUltimateObjective")]
 public class LaserUltimateObjective : ObjectiveBase
 {
-    public int hitsRequired = 5000;
+    public int hitsRequired = 10000;
 
     public override void Initialize()
     {
         objectiveName = "Laser";
-        hitsRequired = 5000;
+        hitsRequired = 10000;
         rewardPoints = 0;
         EventManager.OnLaserHit += OnLaserHit;
         objectiveDescription = $"Hit {hitsRequired} times with your Laser ability to unlock a special reward!";
