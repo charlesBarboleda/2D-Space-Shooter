@@ -40,7 +40,7 @@ public class CurrencyPowerUp : PowerUp, IPickable
     protected override void Effect()
     {
         _player.SetCurrency(_player.Currency() + _currencyAmount);
-        UIManager.Instance.MidScreenWarningText("+" + _currencyAmount + " Currency", 1f);
+        UIManager.Instance.MidScreenWarningText("+" + _currencyAmount + " Currency!", 1f);
     }
 
     public override void DeactivateEffect()

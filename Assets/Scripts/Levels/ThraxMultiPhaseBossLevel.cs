@@ -72,7 +72,7 @@ public class ThraxMultiPhaseBossLevel : SoloShooterBossLevel
     void StartPhase1()
     {
         // Start the spawning of enemies
-        spawnerManager.StartCoroutine(spawnerManager.SpawnEnemiesWaves(7, 10f));
+        spawnerManager.StartCoroutine(spawnerManager.SpawnEnemiesWaves(7, 10f, 20));
 
         // Play phase 1 music
         Background.Instance.PlayThraxBossPhase1Music();
@@ -84,6 +84,8 @@ public class ThraxMultiPhaseBossLevel : SoloShooterBossLevel
         bossHealthPhase1 = bossShip.GetComponent<Health>();
         bossKinematicsPhase1 = bossShip.GetComponent<Kinematics>();
         bossAttackManagerPhase1 = bossShip.GetComponent<AttackManager>();
+
+
         cameraFollow = Camera.main.GetComponent<CameraFollowBehaviour>();
 
 
@@ -119,7 +121,7 @@ public class ThraxMultiPhaseBossLevel : SoloShooterBossLevel
 
         // Pan camera to boss and play Phase 2 music
         Background.Instance.PlayThraxBossPhase2Music();
-        UIManager.Instance.bossHealthBar.gameObject.SetActive(true);
+        UIManager.Instance.thraxBossHealthBar.gameObject.SetActive(true);
         yield return cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShip.transform, 11f));
         // Unlock the boss' first and second abilities
         yield return new WaitForSeconds(5f);
@@ -144,7 +146,7 @@ public class ThraxMultiPhaseBossLevel : SoloShooterBossLevel
         {
             turret.IsSilenced = true;
         }
-        UIManager.Instance.bossHealthBar.gameObject.SetActive(false);
+        UIManager.Instance.thraxBossHealthBar.gameObject.SetActive(false);
         // Play Phase 3 music and disable boss movement and health
         Background.Instance.PlayThraxBossPhase3Music();
 
@@ -234,8 +236,8 @@ public class ThraxMultiPhaseBossLevel : SoloShooterBossLevel
         yield return cameraFollow.StartCoroutine(cameraFollow.PanToTargetAndBack(bossShipPhase2.transform, 3f));
 
         // Enable the UI panels
-        UIManager.Instance.bossHealthBar.gameObject.SetActive(true);
-        UIManager.Instance.ActivateAllUIPanels();
+        UIManager.Instance.thraxBossHealthBar.gameObject.SetActive(true);
+        UIManager.Instance.ActivateAllUIPanels("ThraxArmada");
 
         yield return new WaitForSeconds(15f);
         // Unlock the boss' first ability
@@ -261,7 +263,7 @@ public class ThraxMultiPhaseBossLevel : SoloShooterBossLevel
     public override void CompleteLevel()
     {
         Debug.Log("Completing Level");
-        UIManager.Instance.bossHealthBar.gameObject.SetActive(false);
+        UIManager.Instance.thraxBossHealthBar.gameObject.SetActive(false);
         levelManager.CompleteLevel();
     }
 

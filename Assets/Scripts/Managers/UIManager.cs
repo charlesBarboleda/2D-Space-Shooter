@@ -39,6 +39,14 @@ public class UIManager : MonoBehaviour
     [Header("Combo System")]
     [SerializeField] TextMeshProUGUI _comboText;
     [SerializeField] GameObject _comboHotkey;
+
+    public GameObject movespeedBuff;
+    public GameObject bulletspeedBuff;
+    public GameObject pickupradiusBuff;
+    public GameObject healthBuff;
+    public GameObject bulletdamageBuff;
+    public GameObject bulletcountBuff;
+
     int _lastComboCount = 0;
 
 
@@ -90,7 +98,9 @@ public class UIManager : MonoBehaviour
     public GameObject skillTreePanel;
     public GameObject skillTreeContainer;
     public GameObject skillTreeTitle;
-    public GameObject bossHealthBar;
+    public GameObject thraxBossHealthBar;
+    public GameObject syndicatesBossHealthBar;
+
     public GameObject gameOverPanel;
     public GameObject miniMapContainer;
     public GameObject playerHealthBar;
@@ -177,6 +187,15 @@ public class UIManager : MonoBehaviour
 
         // Set the currency icon position based on the currency text width
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
+    }
+    public void DeactivateAllBuffIcons()
+    {
+        movespeedBuff.SetActive(false);
+        bulletspeedBuff.SetActive(false);
+        pickupradiusBuff.SetActive(false);
+        healthBuff.SetActive(false);
+        bulletdamageBuff.SetActive(false);
+        bulletcountBuff.SetActive(false);
     }
     public void SetQuality(int qualityIndex)
     {
@@ -729,13 +748,13 @@ public class UIManager : MonoBehaviour
             if (_pauseMenu.activeSelf)
             {
                 _pauseMenu.SetActive(false);
+                settingsDropdowns.SetActive(false);
                 Time.timeScale = 1;
             }
             else
             {
                 Time.timeScale = 0;
                 _pauseMenu.SetActive(true);
-                settingsDropdowns.SetActive(false);
             }
         }
     }
@@ -749,13 +768,14 @@ public class UIManager : MonoBehaviour
         powerUpsPanel.SetActive(false);
         currencyPanel.SetActive(false);
         roundNumber.SetActive(false);
-        bossHealthBar.SetActive(false);
+        thraxBossHealthBar.SetActive(false);
+        syndicatesBossHealthBar.SetActive(false);
         miniMapContainer.SetActive(false);
         abilitiesPanel.SetActive(false);
         comboPanel.SetActive(false);
     }
 
-    public void ActivateAllUIPanels()
+    public void ActivateAllUIPanels(string bossType)
     {
         playerHealthBar.SetActive(true);
         objectivesPanel.SetActive(true);
@@ -765,6 +785,16 @@ public class UIManager : MonoBehaviour
         miniMapContainer.SetActive(true);
         abilitiesPanel.SetActive(true);
         comboPanel.SetActive(true);
+        switch (bossType)
+        {
+            case "ThraxArmada":
+                thraxBossHealthBar.SetActive(true);
+                break;
+            case "Syndicates":
+                syndicatesBossHealthBar.SetActive(true);
+                break;
+        }
+
     }
 
     public void UnPauseButton()

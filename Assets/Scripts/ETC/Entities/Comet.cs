@@ -29,6 +29,7 @@ public class Comet : MonoBehaviour, IDamageable
     void OnDisable()
     {
         isDead = true;
+        SpawnerManager.Instance.cometsCount.Remove(gameObject);
     }
     void Update()
     {
@@ -66,6 +67,7 @@ public class Comet : MonoBehaviour, IDamageable
     {
         // Hide the ship visually and start the death animation coroutine
         StartCoroutine(HandleDeath());
+        EventManager.CometDestructionEvent();
     }
 
     public IEnumerator HandleDeath()

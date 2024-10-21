@@ -13,7 +13,7 @@ public class EnemyMissileAbility : Ability
     {
         GameObject missile = ObjectPooler.Instance.SpawnFromPool("EnemyMissile", owner.transform.position, Quaternion.identity);
         EnemyMissile missileScript = missile.GetComponent<EnemyMissile>();
-        missileScript.target = new Vector3(target.position.x + Random.Range(-20f, 20f), target.position.y + Random.Range(-20f, 20f), 0f);
+        missileScript.target = new Vector3(target.position.x + Random.Range(-30f, 30f), target.position.y + Random.Range(-20f, 20f), 0f);
         missileScript.damage = damage;
         missileScript.maxSpeed = missileSpeed;
         missileScript.turnSpeed = turnSpeed;

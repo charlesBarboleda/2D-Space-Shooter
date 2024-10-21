@@ -87,21 +87,36 @@ public class CameraFollowBehaviour : MonoBehaviour
     public IEnumerator ChangePlayerOrthographicSize(float targetSize, float duration)
     {
         float startSize = playerCamera.m_Lens.OrthographicSize;
-        playerCamera.m_Lens.OrthographicSize = targetSize;
-        yield return new WaitForSeconds(duration);
-        float t = 0f;
+        float elapsedTime = 0f;
 
-        while (t < 2f)
+        // Gradually interpolate from startSize to targetSize over the duration
+        while (elapsedTime < duration)
         {
-            t += Time.deltaTime;
-            playerCamera.m_Lens.OrthographicSize = Mathf.Lerp(targetSize, startSize, t);
+            elapsedTime += Time.deltaTime;
+            playerCamera.m_Lens.OrthographicSize = Mathf.Lerp(startSize, targetSize, elapsedTime / duration);
             yield return null;
         }
+
+        // Ensure the orthographic size is set exactly to the target size at the end
+        playerCamera.m_Lens.OrthographicSize = targetSize;
+
+        yield return new WaitForSeconds(duration);
+
+        // Reset elapsed time for returning back to the original size
+        elapsedTime = 0f;
+
+        // Gradually interpolate back from targetSize to startSize over the same duration
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            playerCamera.m_Lens.OrthographicSize = Mathf.Lerp(targetSize, startSize, elapsedTime / duration);
+            yield return null;
+        }
+
+        // Ensure the orthographic size is set exactly to the original size at the end
         playerCamera.m_Lens.OrthographicSize = startSize;
-
-
-
     }
+
 
     public IEnumerator ChangeOrthographicSize(float targetSize, float duration)
     {

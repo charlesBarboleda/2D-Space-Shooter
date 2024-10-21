@@ -17,7 +17,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   duration: 0
   cooldown: 5
-  currentCooldown: 4.8974266
+  currentCooldown: 5
   ultimateCooldown: 30
   ultimateDuration: 0
   currentUltimateCooldown: 30
@@ -26,7 +26,7 @@ MonoBehaviour:
   ultimateTriggerWindow: 3
   _audioSource: {fileID: 0}
   _audioClip: {fileID: 0}
-  damage: 100
-  missileSpeed: 20
+  damage: 50
+  missileSpeed: 60
   turnSpeed: 5
   radius: 20

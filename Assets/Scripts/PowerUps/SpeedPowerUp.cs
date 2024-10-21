@@ -42,7 +42,7 @@ public class SpeedPowerUp : PowerUp, IPickable
         _initSpeed = _player.Movement().moveSpeed;
         _player.Movement().moveSpeed *= 2;
         UIManager.Instance.SpeedPowerUp.SetActive(true);
-        UIManager.Instance.MidScreenWarningText("Speed PowerUp Activated", 1f);
+        UIManager.Instance.MidScreenWarningText("Speed Power Up!", 1f);
     }
 
     public override void DeactivateEffect()

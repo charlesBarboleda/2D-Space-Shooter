@@ -37,7 +37,7 @@ public class SoloSpawnerBossLevel : Level
     public override void StartLevel()
     {
         Debug.Log("Starting Boss Level");
-        if (Random.value < 0.05f)
+        if (Random.value < 0.15f)
             _spawnerManager.StartCoroutine(StartRandomObjective());
         _bossShip = _spawnerManager.SpawnShip(_bossName, _spawnPoints[Random.Range(0, _spawnPoints.Count)], Quaternion.identity);
         _spawnerManager.StartCoroutine(CameraFollowBehaviour.Instance.PanToTargetAndBack(_bossShip.transform, 6f));

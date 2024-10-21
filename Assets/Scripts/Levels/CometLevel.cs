@@ -17,6 +17,14 @@ public class CometLevel : Level
     public override void StartLevel()
     {
         SpawnerManager.Instance.StartCoroutine(SpawnerManager.Instance.SpawnCometsOverTime(_cometCount, _cometSpawnRate));
+        GameManager.Instance.StartCoroutine(ActivateCometObjective());
+
+    }
+
+    IEnumerator ActivateCometObjective()
+    {
+        yield return new WaitForSeconds(3f);
+        ObjectiveManager.Instance.ActivateSpecialObjective("Comet", this, _levelObjectives);
     }
 
     public override void UpdateLevel()

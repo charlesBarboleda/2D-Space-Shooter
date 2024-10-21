@@ -23,7 +23,7 @@ public class EnemyMissileBarrageAbility : Ability
         missileSpeed = 80f;
         turnSpeed = 5f;
         radius = 10f;
-        isUnlocked = true;
+        isUnlocked = false;
 
     }
 
@@ -33,7 +33,7 @@ public class EnemyMissileBarrageAbility : Ability
         {
             GameObject missile = ObjectPooler.Instance.SpawnFromPool("EnemyMissile", owner.transform.position, Quaternion.identity);
             EnemyMissile missileScript = missile.GetComponent<EnemyMissile>();
-            missileScript.target = new Vector3(target.x + Random.Range(-20f, 20f), target.y + Random.Range(-20f, 20f), 0f);
+            missileScript.target = new Vector3(target.x + Random.Range(-30f, 30f), target.y + Random.Range(-20f, 20f), 0f);
             missileScript.damage = damage;
             missileScript.maxSpeed = missileSpeed;
             missileScript.turnSpeed = turnSpeed;

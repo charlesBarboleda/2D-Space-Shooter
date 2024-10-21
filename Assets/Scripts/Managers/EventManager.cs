@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
 
     public static event Action<PrestigeType> OnPrestigeChange;
     public static event Action<PrestigeType> OnPrestigeClick;
+    public static event Action OnCometDestruction;
     public static event Action<float> OnPlayerDamageDealt;
     public static event Action OnObjectiveCompleted;
     public static event Action<float> OnBulletDamage;
@@ -29,6 +30,10 @@ public class EventManager : MonoBehaviour
 
     public static event System.Action<float> OnCurrencyChange;
 
+    public static void CometDestructionEvent()
+    {
+        OnCometDestruction?.Invoke();
+    }
     public static void PlayerDamageDealtEvent(float damage)
     {
         OnPlayerDamageDealt?.Invoke(damage);

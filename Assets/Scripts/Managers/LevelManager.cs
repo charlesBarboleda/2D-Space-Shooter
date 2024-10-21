@@ -36,26 +36,30 @@ public class LevelManager : MonoBehaviour
     {
 
         // There's a 10% chance of creating a solo invasion level after level 10
-        if (Random.value > 0.90f && _currentLevelIndex > 10)
+        if (Random.value < 0.2f && _currentLevelIndex > 10)
         {
             return CreateSoloInvasionLevel();
         }
 
-        // There's a 5% chance of creating a solo boss level after level 10
-        else if (Random.value > 0.95f && _currentLevelIndex > 10)
+        // There's a 15% chance of creating a solo boss level after level 10
+        else if (Random.value < 0.15f && _currentLevelIndex > 10)
         {
-            if (Random.value > 0.5f) return CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
+            if (Random.value < 0.5f) return CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
             else return CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
         }
 
-        // There's a 5% chance of creating a multi-phase boss level
-        else if (Random.value > 0.95f && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
+        // There's a 10% chance of creating a multi-phase boss level
+        else if (Random.value < 0.1f && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
         {
-            return CreateMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
+            return CreateThraxMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
 
         }
-        // There's a 1% chance of creating a comet level
-        else if (Random.value > 0.99f)
+        else if (Random.value < 0.1f && InvasionManager.Instance.DefendingFaction == FactionType.Syndicates)
+        {
+            return CreateSyndicatesMultiPhaseBossLevel();
+        }
+        // There's a 5% chance of creating a comet level
+        else if (Random.value < 0.05f)
         {
             return CreateCometLevel();
         }
@@ -98,13 +102,46 @@ public class LevelManager : MonoBehaviour
         return new CometLevel(cometCount, cometSpawnRate);
     }
 
+    public Level CreateSyndicatesMultiPhaseBossLevel()
+    {
+        float health = CurrentLevelIndex * 1000f;
+        int bulletAmount = Mathf.Max(CurrentLevelIndex, 10);
+        float bulletDamage = Mathf.Max(CurrentLevelIndex * 2.5f, 50f);
+        float bulletSpeed = Mathf.Min(Mathf.Max(CurrentLevelIndex * 1, 10), 60);
+        float fireRate = 3f;
+        float speed = Mathf.Min(Mathf.Max(CurrentLevelIndex * 1, 10), 60);
+        float stopDistance = Mathf.Min(Mathf.Max(CurrentLevelIndex * 2.5f, 50f), 80f);
+        float attackRange = Mathf.Min(Mathf.Max(CurrentLevelIndex * 2.4f, 70f), 100f);
+        float fireAngle = bulletAmount * 4;
+        float currencyDrop = health / 4;
+
+        return new SyndicatesMultiPhaseBossLevel(
+            health,
+            bulletAmount,
+            bulletDamage,
+            bulletSpeed,
+            fireRate,
+            speed,
+            stopDistance,
+            attackRange,
+            fireAngle,
+            currencyDrop,
+            SpawnerManager.Instance.SoloBossSpawnPoints,
+            "SyndicatesFinalBoss",
+            this,
+            _spawnerManager,
+            FormationType.Circle,
+            10,
+            30f,
+            new List<string> { "MediumShip", "MediumShip2", "SmallShip", "MeleeShip" }
+        );
+    }
+
     public Level CreateSoloInvasionLevel()
     {
         float spawnRateDefending = 0.5f;
         List<Ship> shipsToSpawnInvading = _spawnerManager.DetermineSoloInvadingShips();
-        Debug.Log($"Ships to spawn invading: {shipsToSpawnInvading.Count}");
         List<Ship> shipsToSpawnDefending = _spawnerManager.DetermineDefendingShips();
-        Debug.Log($"Ships to spawn defending: {shipsToSpawnDefending.Count}");
         int spawnAmountRatio = 1 / 2;
         int amountOfEnemiesLosing = _currentLevelIndex * 3;
         FactionType factionType = InvasionManager.Instance.InvadingFactions[0];
@@ -138,7 +175,7 @@ public class LevelManager : MonoBehaviour
         );
     }
 
-    public Level CreateMultiPhaseBossLevel(string bossName, string bossNamePhase2)
+    public Level CreateThraxMultiPhaseBossLevel(string bossName, string bossNamePhase2)
     {
         float health = Mathf.Max(_currentLevelIndex * 15000f, 500000f);
         int bulletAmount = Mathf.Min(Mathf.Max(_currentLevelIndex * 2, 30), 60);

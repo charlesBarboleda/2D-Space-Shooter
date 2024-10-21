@@ -10,6 +10,9 @@ public class Background : MonoBehaviour
     [SerializeField] AudioClip _thraxBossPhase1Music;
     [SerializeField] AudioClip _thraxBossPhase2Music;
     [SerializeField] AudioClip _thraxBossPhase3Music;
+    [SerializeField] AudioClip _syndicatesBossPhase1Music;
+    [SerializeField] AudioClip _syndicatesBossPhase2Music;
+
     [SerializeField] AudioClip _countdownMusic;
     [SerializeField] AudioClip _thraxMusic;
     [SerializeField] AudioClip _crimsonFleetMusic;
@@ -85,6 +88,15 @@ public class Background : MonoBehaviour
     public void PlaySyndicatesHordeMusic()
     {
         StartCoroutine(TransitionToMusic(_syndicatesMusic));
+    }
+
+    public void PlaySyndicatesBossPhase1Music()
+    {
+        StartCoroutine(TransitionToMusic(_syndicatesBossPhase1Music));
+    }
+    public void PlaySyndicatesBossPhase2Music()
+    {
+        StartCoroutine(TransitionToMusic(_syndicatesBossPhase2Music));
     }
 
     public void PlayThraxBossPhase1Music()

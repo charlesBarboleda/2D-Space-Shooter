@@ -17,6 +17,7 @@ public class SpawnerManager : MonoBehaviour
     public List<Building> buildings = new List<Building>();
 
     [SerializeField] List<Transform> cometSpawnPoint = new List<Transform>();
+    public List<GameObject> cometsCount = new List<GameObject>();
     [SerializeField] List<string> cometsList = new List<string>();
     [SerializeField] int numberOfSpawnPoints = 360;
     [SerializeField] List<GameObject> _enemiesList;
@@ -95,6 +96,7 @@ public class SpawnerManager : MonoBehaviour
     public GameObject SpawnComet(Vector3 position, Quaternion rotation)
     {
         GameObject comet = ObjectPooler.Instance.SpawnFromPool(cometsList[Random.Range(0, cometsList.Count)], position, rotation);
+        cometsCount.Add(comet);
         return comet;
     }
 
@@ -405,16 +407,16 @@ public class SpawnerManager : MonoBehaviour
     }
 
 
-    public IEnumerator SpawnEnemiesWaves(int numberOfWaves, float spawnRate)
+    public IEnumerator SpawnEnemiesWaves(int numberOfWaves, float spawnRate, int numberOfShipsPerWave)
     {
-        int numberOfShips = 15;
+        int numberOfShips = numberOfShipsPerWave;
         EnemiesToSpawnLeft = numberOfWaves * numberOfShips;
         while (numberOfWaves > 0)
         {
             SpawnStarFormation(numberOfShips, 500, new Vector3(0, 0, 0), new List<string>(GetFormationShipNames()));
             yield return new WaitForSeconds(spawnRate);
             numberOfWaves--;
-            numberOfShips += 15;
+            numberOfShips += 20;
         }
     }
 

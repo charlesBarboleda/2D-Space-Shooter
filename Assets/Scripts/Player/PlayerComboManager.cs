@@ -123,6 +123,7 @@ public class PlayerComboManager : MonoBehaviour
         var emission = _playerManager.arrowEmission.emission;
         emission.rateOverTime = 5;
         _playerManager.Movement().moveSpeed *= 1.5f;
+        UIManager.Instance.movespeedBuff.SetActive(true);
     }
 
     void IncreasePlayerBulletSpeed()
@@ -130,6 +131,7 @@ public class PlayerComboManager : MonoBehaviour
         var emission = _playerManager.arrowEmission.emission;
         emission.rateOverTime = 10;
         _playerManager.Weapon().bulletSpeed *= 1.5f;
+        UIManager.Instance.bulletspeedBuff.SetActive(true);
     }
 
     void IncreasePlayerDamage()
@@ -137,6 +139,7 @@ public class PlayerComboManager : MonoBehaviour
         var emission = _playerManager.arrowEmission.emission;
         emission.rateOverTime = 20;
         _playerManager.Weapon().bulletDamage *= 1.5f;
+        UIManager.Instance.bulletdamageBuff.SetActive(true);
     }
 
     void IncreasePlayerPickUpRadius()
@@ -144,6 +147,7 @@ public class PlayerComboManager : MonoBehaviour
         var emission = _playerManager.arrowEmission.emission;
         emission.rateOverTime = 15;
         _playerManager.PickUpBehaviour().PickUpRadius *= 2f;
+        UIManager.Instance.pickupradiusBuff.SetActive(true);
     }
 
     void IncreaseBulletAmount()
@@ -151,6 +155,7 @@ public class PlayerComboManager : MonoBehaviour
         var emission = _playerManager.arrowEmission.emission;
         emission.rateOverTime = 25;
         _playerManager.Weapon().amountOfBullets += 2;
+        UIManager.Instance.bulletcountBuff.SetActive(true);
     }
 
     void IncreasePlayerHealth()
@@ -161,6 +166,7 @@ public class PlayerComboManager : MonoBehaviour
         playerCurrentPostHealth = (_playerManager.CurrentHealth() * 1.25f) - _playerManager.CurrentHealth();
         _playerManager.SetMaxHealth(playerPostHealth);
         _playerManager.SetCurrentHealth(playerCurrentPostHealth);
+        UIManager.Instance.healthBuff.SetActive(true);
     }
 
     void DealAOEDamage()
@@ -228,6 +234,7 @@ public class PlayerComboManager : MonoBehaviour
     public void RemoveAllBuffs()
     {
         _playerManager.DeactivateBuffAnimations();
+        UIManager.Instance.DeactivateAllBuffIcons();
 
         // Copy the keys into a list to avoid modifying the collection while iterating
         List<int> keys = new List<int>(buffsActivated.Keys);

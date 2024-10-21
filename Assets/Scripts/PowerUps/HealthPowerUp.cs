@@ -34,14 +34,12 @@ public class HealthPowerUp : PowerUp, IPickable
 
     protected override void Effect()
     {
-        Debug.Log("Health PowerUp Activated");
 
         PlayerManager.Instance.SetCurrentHealth(PlayerManager.Instance.CurrentHealth() * 2);
         PlayerManager.Instance.SetMaxHealth(PlayerManager.Instance.MaxHealth() * 2);
         UIManager.Instance.HealthPowerUp.SetActive(true);
 
-
-        Debug.Log("Health: " + PlayerManager.Instance.CurrentHealth());
+        UIManager.Instance.MidScreenWarningText("Health power up!", 1f);
     }
 
     public override void DeactivateEffect()
@@ -52,6 +50,7 @@ public class HealthPowerUp : PowerUp, IPickable
         PlayerManager.Instance.SetCurrentHealth(_initHealth);
         PlayerManager.Instance.SetMaxHealth(_initMaxHealth);
         UIManager.Instance.HealthPowerUp.SetActive(false);
+
 
         Debug.Log("Health: " + PlayerManager.Instance.CurrentHealth());
     }

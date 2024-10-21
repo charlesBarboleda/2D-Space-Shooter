@@ -23,8 +23,8 @@ public class HordeLevel : Level
     public override void StartLevel()
     {
         Background.Instance.PlayHordeMusic(_factionType);
-        // 10% chance to start a random objective
-        if (Random.value < 0.10f)
+        // 15% chance to start a random objective
+        if (Random.value < 0.15f)
         {
             _spawnerManager.StartCoroutine(StartRandomObjective());
         }

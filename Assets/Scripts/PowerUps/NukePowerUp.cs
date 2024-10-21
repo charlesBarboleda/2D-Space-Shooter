@@ -32,9 +32,9 @@ public class NukePowerUp : PowerUp, IPickable
 
     protected override void Effect()
     {
-        Debug.Log("Nuke PowerUp Activated");
         CameraFollowBehaviour.Instance.ShakePlayerCamera(20f, 2f, 2f);
         GameManager.Instance.DestroyAllShips();
+        UIManager.Instance.MidScreenWarningText("Nuke power up!", 1f);
     }
 
     public override void DeactivateEffect()

@@ -38,8 +38,9 @@ public class DamagePowerUp : PowerUp, IPickable
 
     protected override void Effect()
     {
-        Debug.Log("Damage PowerUp Activated");
         _weapon.bulletDamage *= 2;
+        UIManager.Instance.MidScreenWarningText("Damage power up!", 1f);
+
         UIManager.Instance.DamagePowerUp.SetActive(true);
         Debug.Log("Damage: " + _weapon.bulletDamage);
     }

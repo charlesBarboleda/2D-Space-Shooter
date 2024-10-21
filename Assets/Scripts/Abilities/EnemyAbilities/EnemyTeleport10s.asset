@@ -17,7 +17,13 @@ MonoBehaviour:
   icon: {fileID: 0}
   duration: 0
   cooldown: 10
-  currentCooldown: 0
+  currentCooldown: 10
+  ultimateCooldown: 30
+  ultimateDuration: 0
+  currentUltimateCooldown: 30
+  isUltimateUnlocked: 0
+  isUltimateReady: 0
+  ultimateTriggerWindow: 3
   _audioSource: {fileID: 0}
   _audioClip: {fileID: 0}
-  teleportDistance: 50
+  teleportDistance: 75

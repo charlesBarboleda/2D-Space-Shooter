@@ -35,7 +35,8 @@ public class EnemyTeleport : Ability
 
     public override void ResetStats()
     {
-        cooldown = 10f;
-        teleportDistance = 50f;
+        isUnlocked = false;
+        cooldown = 15f;
+        teleportDistance = 75f;
     }
 }

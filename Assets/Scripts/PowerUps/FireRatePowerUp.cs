@@ -38,8 +38,8 @@ public class FireRatePowerUp : PowerUp, IPickable
 
     protected override void Effect()
     {
-        Debug.Log("FireRate PowerUp Activated");
         UIManager.Instance.FireRatePowerUp.SetActive(true);
+        UIManager.Instance.MidScreenWarningText("Fire Rate power up!", 1f);
 
         _weapon.fireRate /= 2;
         Debug.Log("FireRate: " + _weapon.fireRate);

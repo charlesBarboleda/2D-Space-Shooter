@@ -28,7 +28,7 @@ public class SoloInvasionLevel : Level
 
     public override void StartLevel()
     {
-        if (Random.value < 0.05f)
+        if (Random.value < 0.15f)
         {
             SpawnerManager.Instance.StartCoroutine(StartRandomObjective());
         }
@@ -87,13 +87,7 @@ public class SoloInvasionLevel : Level
         Background.Instance.PlayInvasionMusic();
         UIManager.Instance.MidScreenWarningText($"An invasion is occuring!", 3.5f);
         yield return new WaitForSeconds(3.5f);
-        ObjectiveBase invasionObjective = ObjectiveManager.Instance.GetObjectiveFromPool("InvasionObjective");
-        if (invasionObjective != null)
-        {
-
-            _levelObjectives.Add(invasionObjective);
-        }
-        ObjectiveManager.Instance.StartObjectivesForLevel(this);
+        ObjectiveManager.Instance.ActivateSpecialObjective("Invasion", this, _levelObjectives);
     }
 
     public void RegisterInvaderKill(GameObject invader)

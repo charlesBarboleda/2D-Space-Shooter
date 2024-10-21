@@ -43,6 +43,7 @@ public class PickUpRadiusPowerUp : PowerUp, IPickable
 
         _player.PickUpRadius *= 10;
         UIManager.Instance.PickUpRadiusPowerUp.SetActive(true);
+        UIManager.Instance.MidScreenWarningText("Pick Up Radius power up!", 1f);
 
 
     }
