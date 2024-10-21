@@ -112,14 +112,14 @@ public class AbilityLaser : Ability
 
     public override void ResetStats()
     {
-        currentCooldown = 45f;
-        currentUltimateCooldown = 60f; // Separate cooldown for ultimate
+        currentCooldown = 90f;
+        currentUltimateCooldown = 300f; // Separate cooldown for ultimate
         duration = 3f;
         dps = 10f;
         ultimateDpsMultiplier = 4f;
         ultimateDuration = 6f;
-        cooldown = 45f;
-        ultimateCooldown = 180f; // Different cooldown for ultimate
+        cooldown = 90f;
+        ultimateCooldown = 300f; // Different cooldown for ultimate
         isUnlocked = false;
         isUltimateUnlocked = false;
     }

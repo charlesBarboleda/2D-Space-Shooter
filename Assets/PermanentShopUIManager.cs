@@ -216,7 +216,7 @@ public class PermanentShopManager : MonoBehaviour
         float finalAmount5 = i5 - (_fireRateAmountToUpgrade * 0.01f);
         PlayerPrefs.SetFloat("FireRate", finalAmount5);
 
-        float i6 = PlayerPrefs.GetFloat("BulletSpeed", 5);
+        float i6 = PlayerPrefs.GetFloat("BulletSpeed", 30);
         float finalAmount6 = i6 - (_bulletSpeedAmountToUpgrade * 0.1f);
         PlayerPrefs.SetFloat("BulletSpeed", finalAmount6);
 

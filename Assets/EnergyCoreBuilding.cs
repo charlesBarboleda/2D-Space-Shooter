@@ -27,6 +27,7 @@ public class EnergyCoreBuilding : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         GameObject teleportAnim = ObjectPooler.Instance.SpawnFromPool("BlinkLarge", transform.position, Quaternion.identity);
+        NavMeshScript.Instance.UpdateNavMesh();
         yield return new WaitForSeconds(0.1f);
         teleportAnim.SetActive(false);
         gameObject.SetActive(false);

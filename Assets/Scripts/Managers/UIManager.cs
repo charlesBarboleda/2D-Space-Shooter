@@ -66,6 +66,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image currencyIcon;
     [SerializeField] TextMeshProUGUI currencyText;
     [SerializeField] GameObject _pauseMenu;
+    [SerializeField] GameObject _pauseMenuButtons;
+    [SerializeField] GameObject _settingsMenu;
     public TextMeshProUGUI totalKillsText, playtimeText, objectivesText, damageDealtText;
 
     [Header("Player Abilities UI")]
@@ -96,6 +98,12 @@ public class UIManager : MonoBehaviour
     public GameObject powerUpsPanel;
     public GameObject currencyPanel;
     public GameObject roundNumber;
+    public GameObject comboPanel;
+
+    [Header("SettingsMenu")]
+    Resolution[] resolutions;
+    public TMP_Dropdown resolutionDropdown;
+    public GameObject settingsDropdowns;
 
     void Awake()
     {
@@ -111,6 +119,25 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+        List<string> options = new List<string>();
+        int currentResolutionIndex = 0;
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + " x " + resolutions[i].height;
+            options.Add(option);
+
+            if (resolutions[i].width == Screen.currentResolution.width &&
+                resolutions[i].height == Screen.currentResolution.height)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
         _abilityHolder = PlayerManager.GetInstance().AbilityHolder();
 
     }
@@ -151,7 +178,34 @@ public class UIManager : MonoBehaviour
         // Set the currency icon position based on the currency text width
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
     }
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
 
+
+    public void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
+
+    public void BackButton()
+    {
+        _settingsMenu.SetActive(false);
+        settingsDropdowns.SetActive(false);
+        _pauseMenuButtons.SetActive(true);
+    }
+    public void SettingsButton()
+    {
+        _settingsMenu.SetActive(true);
+        settingsDropdowns.SetActive(true);
+        _pauseMenuButtons.SetActive(false);
+    }
     public void OnPrestigeSelected(string prestige)
     {
 
@@ -566,6 +620,9 @@ public class UIManager : MonoBehaviour
     /// <param name="objective">The objective to display in the UI.</param>
     public void AddObjectiveToUI(ObjectiveBase objective)
     {
+        // Play a sound effect when a new objective is added
+        AudioManager.Instance.PlaySound(GameManager.Instance._audioSource, GameManager.Instance.objectiveAddedSound);
+
         // Create a new UI element for the objective
         GameObject objectiveDescription = Instantiate(objectiveDescriptionText, objectivePanel.transform);
         TextMeshProUGUI textComponent = objectiveDescription.GetComponent<TextMeshProUGUI>();
@@ -605,6 +662,8 @@ public class UIManager : MonoBehaviour
     /// <param name="objective">The completed objective.</param>
     public void MarkObjectiveAsComplete(ObjectiveBase objective)
     {
+        AudioManager.Instance.PlaySound(GameManager.Instance._audioSource, GameManager.Instance.objectiveCompletedSound);
+
         if (_objectiveUIElements.TryGetValue(objective, out TextMeshProUGUI textComponent))
         {
             textComponent.text += " [COMPLETED]";
@@ -676,6 +735,7 @@ public class UIManager : MonoBehaviour
             {
                 Time.timeScale = 0;
                 _pauseMenu.SetActive(true);
+                settingsDropdowns.SetActive(false);
             }
         }
     }
@@ -692,6 +752,7 @@ public class UIManager : MonoBehaviour
         bossHealthBar.SetActive(false);
         miniMapContainer.SetActive(false);
         abilitiesPanel.SetActive(false);
+        comboPanel.SetActive(false);
     }
 
     public void ActivateAllUIPanels()
@@ -703,6 +764,7 @@ public class UIManager : MonoBehaviour
         roundNumber.SetActive(true);
         miniMapContainer.SetActive(true);
         abilitiesPanel.SetActive(true);
+        comboPanel.SetActive(true);
     }
 
     public void UnPauseButton()

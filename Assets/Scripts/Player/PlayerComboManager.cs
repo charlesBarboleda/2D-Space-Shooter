@@ -40,23 +40,33 @@ public class PlayerComboManager : MonoBehaviour
 
     void Update()
     {
-        int comboCount = _comboManager.comboCount;
+        comboCount = _comboManager.comboCount;  // Correctly assign the comboCount from the ComboManager
 
-        // Handle smaller combo buffs (25, 50, 100, etc.)
+        List<int> comboActionsToActivate = new List<int>();
+
+        // First pass: Determine which combo actions need to be activated
         foreach (var comboAction in buffsActivated.Keys)
         {
             if (comboCount >= comboAction && !buffsActivated[comboAction])
             {
-                ExecuteComboAction(comboAction);
-                buffsActivated[comboAction] = true;
+                comboActionsToActivate.Add(comboAction);
             }
         }
 
-        // Handle the 500 combo ability (and multiples of 500) after passing a threshold
+        // Second pass: Activate those combo actions and update the dictionary
+        foreach (var comboAction in comboActionsToActivate)
+        {
+            ExecuteComboAction(comboAction);
+            buffsActivated[comboAction] = true; // Now it’s safe to modify the dictionary
+        }
+
+        // Check for the AOE combo ability (multiple of 500)
         if (comboCount >= 500 && CanUseAOECombo(comboCount))
         {
+            // Activate the UI to show the combo ability is ready
             UIManager.Instance.ActivateComboKey();
 
+            // Check for input to trigger the AOE ability
             if (Input.GetKeyDown(KeyCode.R))
             {
                 ExecuteAOEComboAction();
@@ -64,6 +74,8 @@ public class PlayerComboManager : MonoBehaviour
             }
         }
     }
+
+
 
     bool CanUseAOECombo(int comboCount)
     {
@@ -95,6 +107,8 @@ public class PlayerComboManager : MonoBehaviour
                 IncreaseBulletAmount();
                 break;
         }
+        ComboAnimation();
+        AudioManager.Instance.PlaySound(GameManager.Instance._audioSource, _onComboAbilityExecute);
         _playerManager.ActivateBuffAnimations();
     }
 
@@ -102,8 +116,6 @@ public class PlayerComboManager : MonoBehaviour
     {
         UIManager.Instance.DeactivateComboKey();
         DealAOEDamage(); // Trigger the AOE ability
-        ComboAnimation();
-        AudioManager.Instance.PlaySound(GameManager.Instance._audioSource, _onComboAbilityExecute);
     }
 
     void IncreasePlayerSpeed()
@@ -217,8 +229,11 @@ public class PlayerComboManager : MonoBehaviour
     {
         _playerManager.DeactivateBuffAnimations();
 
+        // Copy the keys into a list to avoid modifying the collection while iterating
+        List<int> keys = new List<int>(buffsActivated.Keys);
+
         // Reset all buffs activated for each threshold
-        foreach (var key in buffsActivated.Keys)
+        foreach (var key in keys)
         {
             if (buffsActivated[key])
             {
@@ -230,6 +245,7 @@ public class PlayerComboManager : MonoBehaviour
         // Reset the last combo threshold used for AOE
         _lastComboThresholdUsed = 0;
     }
+
 
     // Method to remove individual buffs based on combo threshold
     void RemoveBuff(int comboThreshold)

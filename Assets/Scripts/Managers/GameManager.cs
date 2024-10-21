@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip _gameOverAudio;
     [SerializeField] AudioClip _onButtonHover;
     [SerializeField] AudioClip _onButtonClick;
+    public AudioClip objectiveAddedSound;
+    public AudioClip objectiveCompletedSound;
+
+
     [Header("Managers")]
     SpawnerManager _spawnerManager;
     LevelManager _levelManager;
@@ -45,6 +49,11 @@ public class GameManager : MonoBehaviour
     [Header("Round States")]
     float _roundCountdown;
 
+    [Header("UI")]
+    public Texture2D customCursor;  // Reference to your custom cursor image
+    Vector2 _hotSpot = Vector2.zero;  // Hotspot of the cursor (usually the pointy tip)
+    CursorMode _cursorMode = CursorMode.Auto;
+
     void Awake()
     {
         // Singleton Pattern
@@ -62,6 +71,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        Cursor.SetCursor(customCursor, _hotSpot, _cursorMode);
         EventManager.OnObjectiveCompleted += IncrementTotalObjectivesCompleted;
         EventManager.OnEnemyDestroyed += IncrementTotalShipKills;
         EventManager.OnPlayerDamageDealt += OnPlayerDamageDealt;

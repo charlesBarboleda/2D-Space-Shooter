@@ -15,7 +15,7 @@ public class LacerateBullet : Bullet
     {
 
         transform.localScale = new Vector3(1, 1, 1);
-        transform.DOScale(50, 5f).SetEase(Ease.OutBack);
+        transform.DOScale(25, 5f).SetEase(Ease.OutBack);
         Invoke(nameof(Deactivate), BulletLifetime);
         base.OnEnable();
         StartCoroutine(BulletFlashEffect());
