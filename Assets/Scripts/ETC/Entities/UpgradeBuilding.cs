@@ -4,19 +4,26 @@ using UnityEngine;
 
 public class UpgradeBuilding : MonoBehaviour
 {
-    bool isShopOpen = false;
+    bool isConfirmBoxOpen = false;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (isShopOpen)
+            if (isConfirmBoxOpen)
             {
                 return;
             }
-            isShopOpen = true;
-            UIManager.Instance.OpenUpgradeShop();
-            Debug.Log("Inside Upgrade building");
+            isConfirmBoxOpen = true;
+            UIManager.Instance.OpenBuildingConfirmationPanel("Upgrade");
         }
     }
-    public void TurnUpgradeShopOff() => isShopOpen = false;
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isConfirmBoxOpen = false;
+            UIManager.Instance.CloseBuildingConfirmationPanel();
+        }
+    }
 }

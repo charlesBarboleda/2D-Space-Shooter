@@ -66,6 +66,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthCost, damageCost, fireRateCost, bulletSpeedCost, extraBulletCost, speedCost, pickUpCost;
 
     [Header("Game UI Elements")]
+
     public Canvas worldCanvas;
     public TextMeshProUGUI midScreenText;
     public TextMeshProUGUI countdownText;
@@ -73,6 +74,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI highscoreText;
     [SerializeField] Image currencyIcon;
     [SerializeField] TextMeshProUGUI currencyText;
+    public GameObject buildingConfirmationBox;
+    public Button yesBuildingButton;
+    public TextMeshProUGUI buildingConfirmBoxText;
     [SerializeField] GameObject _pauseMenu;
     [SerializeField] GameObject _pauseMenuButtons;
     [SerializeField] GameObject _settingsMenu;
@@ -187,6 +191,25 @@ public class UIManager : MonoBehaviour
 
         // Set the currency icon position based on the currency text width
         currencyIcon.rectTransform.anchoredPosition = new Vector2(currencyText.preferredWidth + 130, currencyIcon.rectTransform.anchoredPosition.y);
+    }
+    public void CloseBuildingConfirmationPanel()
+    {
+        buildingConfirmationBox.SetActive(false);
+    }
+
+    public void OpenBuildingConfirmationPanel(string buildingType)
+    {
+        buildingConfirmationBox.SetActive(true);
+
+        switch (buildingType)
+        {
+            case "Upgrade":
+                yesBuildingButton.onClick.AddListener(() => OpenUpgradeShop());
+                yesBuildingButton.onClick.AddListener(() => CloseBuildingConfirmationPanel());
+                buildingConfirmBoxText.text = "Open Upgrade Shop";
+                break;
+        }
+
     }
     public void DeactivateAllBuffIcons()
     {
@@ -339,15 +362,25 @@ public class UIManager : MonoBehaviour
         upgradeShopPanel.SetActive(true);
         StartCoroutine(ExpandContainerAndShowTitle(upgradeShopContainer, upgradeShopTitle));
         StartCoroutine(FadeInContainer(0.25f, upgradesContainer, 0.25f));
+        StartCoroutine(ExpandContainer(0.25f, upgradesContainer, 0.9f, 0.25f));
+
     }
 
     public void ExitUpgradeShop()
     {
-        StartCoroutine(MinimizeContainerAndFadeOutTitle(upgradeShopPanel, upgradeShopContainer, upgradeShopTitle));
         FadeOutContainer(upgradesContainer, 0.5f);
+        StartCoroutine(MinimizeContainerAndFadeOutTitle(upgradeShopPanel, upgradeShopContainer, upgradeShopTitle));
 
     }
 
+    IEnumerator ExpandContainer(float waitTime, GameObject container, float scaleTo, float duration)
+    {
+        container.transform.localScale = Vector3.zero;
+        yield return new WaitForSeconds(waitTime);
+        container.transform.DOScale(scaleTo, duration);
+
+
+    }
     IEnumerator ExpandContainerAndShowTitle(GameObject container, GameObject titleContainer)
     {
         initY = container.transform.localScale.y;
