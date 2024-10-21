@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class SkillTreeBuilding : MonoBehaviour
 {
-    bool isShopOpen = false;
+    bool isConfirmBoxOpen = false;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (isShopOpen)
+            if (isConfirmBoxOpen)
             {
                 return;
             }
-            isShopOpen = true;
-            UIManager.Instance.OpenSkillTree();
-            Debug.Log("Inside Skill Tree building");
+            isConfirmBoxOpen = true;
+            UIManager.Instance.OpenBuildingConfirmationPanel("SkillTree");
         }
-
     }
 
-    public void TurnSkillTreeOff() => isShopOpen = false;
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isConfirmBoxOpen = false;
+            UIManager.Instance.CloseBuildingConfirmationPanel();
+        }
+    }
 }

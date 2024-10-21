@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Mkey;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -200,13 +199,25 @@ public class UIManager : MonoBehaviour
     public void OpenBuildingConfirmationPanel(string buildingType)
     {
         buildingConfirmationBox.SetActive(true);
+        yesBuildingButton.onClick.RemoveAllListeners();
 
         switch (buildingType)
         {
             case "Upgrade":
+
                 yesBuildingButton.onClick.AddListener(() => OpenUpgradeShop());
                 yesBuildingButton.onClick.AddListener(() => CloseBuildingConfirmationPanel());
                 buildingConfirmBoxText.text = "Open Upgrade Shop";
+                break;
+            case "SkillTree":
+                yesBuildingButton.onClick.AddListener(() => OpenSkillTree());
+                yesBuildingButton.onClick.AddListener(() => CloseBuildingConfirmationPanel());
+                buildingConfirmBoxText.text = "Open Skill Tree";
+                break;
+            case "Prestige":
+                yesBuildingButton.onClick.AddListener(() => OpenPrestigePanel());
+                yesBuildingButton.onClick.AddListener(() => CloseBuildingConfirmationPanel());
+                buildingConfirmBoxText.text = "Open Prestige Panel";
                 break;
         }
 
@@ -359,28 +370,51 @@ public class UIManager : MonoBehaviour
     }
     public void OpenUpgradeShop()
     {
-        upgradeShopPanel.SetActive(true);
-        StartCoroutine(ExpandContainerAndShowTitle(upgradeShopContainer, upgradeShopTitle));
-        StartCoroutine(FadeInContainer(0.25f, upgradesContainer, 0.25f));
-        StartCoroutine(ExpandContainer(0.25f, upgradesContainer, 0.9f, 0.25f));
+        // Reset scale to avoid scaling issues
+        upgradeShopContainer.transform.localScale = Vector3.zero;
 
+        // Make sure panel is active
+        upgradeShopPanel.SetActive(true);
+
+        // Start the animation for opening the shop
+        Sequence openSequence = DOTween.Sequence();
+
+        // Scale up the container
+        openSequence.Append(upgradeShopContainer.transform.DOScale(new Vector3(0.9f, 0.7f, 0), 0.3f).SetEase(Ease.OutBack));
+
+        // Fade in the container content
+        CanvasGroup canvasGroup = upgradesContainer.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = upgradesContainer.AddComponent<CanvasGroup>();
+        }
+        canvasGroup.alpha = 0;
+        openSequence.Join(canvasGroup.DOFade(1, 0.3f));
+
+        // Play the sequence
+        openSequence.Play();
     }
 
     public void ExitUpgradeShop()
     {
-        FadeOutContainer(upgradesContainer, 0.5f);
-        StartCoroutine(MinimizeContainerAndFadeOutTitle(upgradeShopPanel, upgradeShopContainer, upgradeShopTitle));
+        // Start the animation for closing the shop
+        Sequence closeSequence = DOTween.Sequence();
 
+        // Fade out the container content
+        CanvasGroup canvasGroup = upgradesContainer.GetComponent<CanvasGroup>();
+        closeSequence.Append(canvasGroup.DOFade(0, 0.3f));
+
+        // Scale down the container
+        closeSequence.Join(upgradeShopContainer.transform.DOScale(Vector3.zero, 0.3f).SetEase(Ease.InBack));
+
+        // Deactivate the panel after the animation completes
+        closeSequence.OnComplete(() => upgradeShopPanel.SetActive(false));
+
+        // Play the sequence
+        closeSequence.Play();
     }
 
-    IEnumerator ExpandContainer(float waitTime, GameObject container, float scaleTo, float duration)
-    {
-        container.transform.localScale = Vector3.zero;
-        yield return new WaitForSeconds(waitTime);
-        container.transform.DOScale(scaleTo, duration);
 
-
-    }
     IEnumerator ExpandContainerAndShowTitle(GameObject container, GameObject titleContainer)
     {
         initY = container.transform.localScale.y;
@@ -976,15 +1010,64 @@ public class UIManager : MonoBehaviour
         gameOverPanel.SetActive(true);
     }
 
-    public void ExitSkillTree()
-    {
-        StartCoroutine(MinimizeContainerAndFadeOutTitle(skillTreePanel, skillTreeContainer, skillTreeTitle));
-    }
-
     public void OpenSkillTree()
     {
-        skillTreePanel.SetActive(true);
-        StartCoroutine(ExpandContainerAndShowTitle(skillTreeContainer, skillTreeTitle));
+        // Reset scale to avoid issues
+        skillTreeContainer.transform.localScale = new Vector3(0.8f, 0.8f, 1); // Start slightly smaller for a smooth scale-up
+        skillTreeTitle.GetComponent<CanvasGroup>().alpha = 0; // Reset title alpha
 
+        // Make sure panel is active
+        skillTreePanel.SetActive(true);
+
+        // Start the animation for opening the skill tree
+        Sequence openSequence = DOTween.Sequence();
+
+        // Smoothly scale up the container
+        openSequence.Append(skillTreeContainer.transform.DOScale(new Vector3(0.9f, 0.8f, 0), 0.5f).SetEase(Ease.OutQuad));
+
+        // Fade in the content and the title
+        CanvasGroup containerCanvasGroup = skillTreeContainer.GetComponent<CanvasGroup>();
+        if (containerCanvasGroup == null)
+        {
+            containerCanvasGroup = skillTreeContainer.AddComponent<CanvasGroup>();
+        }
+        containerCanvasGroup.alpha = 0;
+        openSequence.Join(containerCanvasGroup.DOFade(1, 0.5f));
+
+        // Fade in the title at the same time
+        CanvasGroup titleCanvasGroup = skillTreeTitle.GetComponent<CanvasGroup>();
+        if (titleCanvasGroup == null)
+        {
+            titleCanvasGroup = skillTreeTitle.AddComponent<CanvasGroup>();
+        }
+        openSequence.Join(titleCanvasGroup.DOFade(1, 0.5f));
+
+        // Play the sequence
+        openSequence.Play();
     }
+
+    public void ExitSkillTree()
+    {
+        // Start the animation for closing the skill tree
+        Sequence closeSequence = DOTween.Sequence();
+
+        // Fade out the content and the title
+        CanvasGroup containerCanvasGroup = skillTreeContainer.GetComponent<CanvasGroup>();
+        closeSequence.Append(containerCanvasGroup.DOFade(0, 0.5f));
+
+        CanvasGroup titleCanvasGroup = skillTreeTitle.GetComponent<CanvasGroup>();
+        closeSequence.Join(titleCanvasGroup.DOFade(0, 0.5f));
+
+        // Smoothly scale down the container
+        closeSequence.Join(skillTreeContainer.transform.DOScale(new Vector3(0.8f, 0.8f, 1), 0.5f).SetEase(Ease.InQuad));
+
+        // Deactivate the panel after the animation completes
+        closeSequence.OnComplete(() => skillTreePanel.SetActive(false));
+
+        // Play the sequence
+        closeSequence.Play();
+    }
+
+
+
 }
