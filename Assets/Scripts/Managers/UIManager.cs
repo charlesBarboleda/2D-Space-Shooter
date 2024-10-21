@@ -338,17 +338,6 @@ public class UIManager : MonoBehaviour
         StartCoroutine(MinimizeContainer(confirmationPanel, 0.2f));
     }
 
-    void FadeOutContainer(GameObject Container, float duration)
-    {
-        Container.GetComponent<CanvasGroup>().DOFade(0, duration);
-    }
-
-    IEnumerator FadeInContainer(float initialDelay, GameObject Container, float duration)
-    {
-        yield return new WaitForSeconds(initialDelay);
-        Container.GetComponent<CanvasGroup>().DOFade(1, duration);
-    }
-
     void MaximizeContainer(GameObject Container, float duration)
     {
         Container.SetActive(true);
@@ -441,26 +430,113 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void ClosePrestigePanel()
-    {
-        FadeOutContainer(plaguebringerPanel, 0.1f);
-        FadeOutContainer(lifewardenPanel, 0.1f);
-        FadeOutContainer(sunlancerPanel, 0.1f);
-        FadeOutContainer(berzerkerPanel, 0.1f);
-
-        StartCoroutine(MinimizeContainerAndFadeOutTitle(prestigePanel, prestigeContainer, titleContainer));
-    }
-
     public void OpenPrestigePanel()
     {
-        prestigePanel.SetActive(true);
-        StartCoroutine(ExpandContainerAndShowTitle(prestigeContainer, titleContainer));
-        StartCoroutine(FadeInContainer(0.5f, plaguebringerPanel, 1f));
-        StartCoroutine(FadeInContainer(0.7f, lifewardenPanel, 1f));
-        StartCoroutine(FadeInContainer(0.9f, sunlancerPanel, 1f));
-        StartCoroutine(FadeInContainer(1.1f, berzerkerPanel, 1f));
+        // Reset scale and alpha for the main prestige container
+        prestigeContainer.transform.localScale = Vector3.zero;
+        prestigeContainer.GetComponent<CanvasGroup>().alpha = 0;
 
+        // Reset each prestige panel's state before animation
+        ResetPanelState(plaguebringerPanel);
+        ResetPanelState(lifewardenPanel);
+        ResetPanelState(sunlancerPanel);
+        ResetPanelState(berzerkerPanel);
+
+        // Make sure the main prestige panel is active
+        prestigePanel.SetActive(true);
+
+        // Sequence for opening the main prestige container
+        Sequence openSequence = DOTween.Sequence();
+
+        // Scale up and fade in the main prestige container
+        openSequence.Append(prestigeContainer.transform.DOScale(new Vector3(10, 10, 0), 0.4f).SetEase(Ease.OutQuad));
+        CanvasGroup prestigeCanvasGroup = prestigeContainer.GetComponent<CanvasGroup>();
+        openSequence.Join(prestigeCanvasGroup.DOFade(1, 0.4f));
+
+        // Staggered animation for individual prestige panels (with smooth scaling and fading)
+        openSequence.AppendCallback(() => AnimatePrestigePanel(plaguebringerPanel, 0.5f)); // First
+        openSequence.AppendInterval(0.1f);
+        openSequence.AppendCallback(() => AnimatePrestigePanel(lifewardenPanel, 0.5f)); // Second
+        openSequence.AppendInterval(0.1f);
+        openSequence.AppendCallback(() => AnimatePrestigePanel(sunlancerPanel, 0.5f)); // Third
+        openSequence.AppendInterval(0.1f);
+        openSequence.AppendCallback(() => AnimatePrestigePanel(berzerkerPanel, 0.5f)); // Fourth
+
+        // Play the sequence
+        openSequence.Play();
     }
+
+    public void ClosePrestigePanel()
+    {
+        // Sequence for closing the prestige shop
+        Sequence closeSequence = DOTween.Sequence();
+
+        // Animate each prestige panel exiting in reverse order
+        closeSequence.AppendCallback(() => AnimatePanelExit(berzerkerPanel, 0.4f)); // Exit last entered first
+        closeSequence.AppendInterval(0.1f);
+        closeSequence.AppendCallback(() => AnimatePanelExit(sunlancerPanel, 0.4f)); // Exit
+        closeSequence.AppendInterval(0.1f);
+        closeSequence.AppendCallback(() => AnimatePanelExit(lifewardenPanel, 0.4f)); // Exit
+        closeSequence.AppendInterval(0.1f);
+        closeSequence.AppendCallback(() => AnimatePanelExit(plaguebringerPanel, 0.4f)); // Exit
+
+        // After all panels exit, close the main prestige container
+        closeSequence.Append(prestigeContainer.transform.DOScale(Vector3.zero, 0.4f).SetEase(Ease.InQuad));
+        CanvasGroup prestigeCanvasGroup = prestigeContainer.GetComponent<CanvasGroup>();
+        closeSequence.Join(prestigeCanvasGroup.DOFade(0, 0.4f));
+
+        // Deactivate the prestige panel after everything is done
+        closeSequence.OnComplete(() => prestigePanel.SetActive(false));
+
+        // Play the closing sequence
+        closeSequence.Play();
+    }
+
+    // Helper method to reset the panel's scale and alpha before animation
+    void ResetPanelState(GameObject panel)
+    {
+        panel.transform.localScale = Vector3.zero;
+        CanvasGroup canvasGroup = panel.GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+        {
+            canvasGroup = panel.AddComponent<CanvasGroup>();
+        }
+        canvasGroup.alpha = 0;
+    }
+
+    // Helper method to animate each prestige panel's entrance (scaling and fading)
+    void AnimatePrestigePanel(GameObject panel, float duration)
+    {
+        Sequence panelSequence = DOTween.Sequence();
+
+        // Scale up the panel
+        panelSequence.Append(panel.transform.DOScale(new Vector3(1f, 8f, 0), duration).SetEase(Ease.OutBack));
+
+        // Fade in the panel
+        CanvasGroup canvasGroup = panel.GetComponent<CanvasGroup>();
+        panelSequence.Join(canvasGroup.DOFade(1, duration));
+
+        // Play the panel animation
+        panelSequence.Play();
+    }
+
+    // Helper method to animate each prestige panel's exit (scaling and fading out)
+    void AnimatePanelExit(GameObject panel, float duration)
+    {
+        Sequence panelExitSequence = DOTween.Sequence();
+
+        // Scale down the panel
+        panelExitSequence.Append(panel.transform.DOScale(Vector3.zero, duration).SetEase(Ease.InBack));
+
+        // Fade out the panel
+        CanvasGroup canvasGroup = panel.GetComponent<CanvasGroup>();
+        panelExitSequence.Join(canvasGroup.DOFade(0, duration));
+
+        // Play the exit animation for the panel
+        panelExitSequence.Play();
+    }
+
+
     void PulseAbilityIcon()
     {
         foreach (Ability ability in _abilityHolder.abilities)
