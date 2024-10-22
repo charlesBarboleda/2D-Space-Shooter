@@ -12,6 +12,7 @@ public class Background : MonoBehaviour
     [SerializeField] AudioClip _thraxBossPhase3Music;
     [SerializeField] AudioClip _syndicatesBossPhase1Music;
     [SerializeField] AudioClip _syndicatesBossPhase2Music;
+    [SerializeField] AudioClip _soloBossMusic;
 
     [SerializeField] AudioClip _countdownMusic;
     [SerializeField] AudioClip _thraxMusic;
@@ -73,7 +74,11 @@ public class Background : MonoBehaviour
         _audioSource.Stop();
         _audioSource.clip = music;
         _audioSource.Play();
-        _audioSource.DOFade(0.3f, 1f);
+        _audioSource.DOFade(0.15f, 1f);
+    }
+    public void PlaySoloBossMusic()
+    {
+        StartCoroutine(TransitionToMusic(_soloBossMusic));
     }
     public void PlayCrimsonFleetHordeMusic()
     {

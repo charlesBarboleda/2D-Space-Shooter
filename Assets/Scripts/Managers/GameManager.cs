@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GameStartCoroutine()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         StartTimer();
         if (_levelManager.Levels.Count > 0)
         {
@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour
         Background.Instance.PlayCountdownMusic();
         Debug.Log("Countdown Started");
         _isInputActive = true;
-        _roundCountdown = 30f;
+        _roundCountdown = 15f;
         UIManager.Instance.countdownText.gameObject.SetActive(true);
 
         while (_roundCountdown > 0)

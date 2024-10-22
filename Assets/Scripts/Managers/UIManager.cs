@@ -369,7 +369,7 @@ public class UIManager : MonoBehaviour
         Sequence openSequence = DOTween.Sequence();
 
         // Scale up the container
-        openSequence.Append(upgradeShopContainer.transform.DOScale(new Vector3(0.9f, 0.7f, 0), 0.3f).SetEase(Ease.OutBack));
+        openSequence.Append(upgradeShopContainer.transform.DOScale(new Vector3(1f, 0.7f, 0), 0.3f).SetEase(Ease.OutBack));
 
         // Fade in the container content
         CanvasGroup canvasGroup = upgradesContainer.GetComponent<CanvasGroup>();
@@ -685,6 +685,7 @@ public class UIManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(GameManager.Instance._audioSource, _shatterSound);
         StartCoroutine(FlashImage(imageToFlash, 0.1f));
+        PlayerManager.Instance.PlayPrestigeAudio();
         yield return new WaitForSeconds(0.2f);
         CameraFollowBehaviour.Instance.IncreasePlayerOrthographicSize(orthoSize, 6f);
         _shatterParticles.Play();

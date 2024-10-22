@@ -195,36 +195,53 @@ public class PermanentShopManager : MonoBehaviour
 
     void ApplyAllUpgrades()
     {
+        // Health Upgrade (Linear)
         float i = PlayerPrefs.GetFloat("Health", 100);
         float finalAmount = i + _healthAmountToUpgrade;
         PlayerPrefs.SetFloat("Health", finalAmount);
 
-        float i2 = PlayerPrefs.GetFloat("Speed", 15);
-        float finalAmount2 = i2 + (_speedAmountToUpgrade * 0.1f);
-        PlayerPrefs.SetFloat("Speed", finalAmount2);
+        // Speed with diminishing returns
+        float baseSpeed = PlayerPrefs.GetFloat("SpeedBase", 15f); // Store the base speed
+        int speedUpgrades = PlayerPrefs.GetInt("SpeedUpgrades", 0) + _speedAmountToUpgrade;
+        float speedReductionFactor = 0.05f; // Define a reduction factor for speed
+        float finalSpeed = baseSpeed * (1 + (1 - Mathf.Pow(1f - speedReductionFactor, speedUpgrades))); // Apply reduction factor for speed
+        PlayerPrefs.SetFloat("Speed", finalSpeed); // Save the new speed
+        PlayerPrefs.SetInt("SpeedUpgrades", speedUpgrades); // Save the number of speed upgrades
 
+        // Pick Up Radius with diminishing returns
+        float basePickUpRadius = PlayerPrefs.GetFloat("PickUpRadiusBase", 5f); // Store the base pickup radius
+        int pickUpRadiusUpgrades = PlayerPrefs.GetInt("PickUpRadiusUpgrades", 0) + _radiusAmountToUpgrade;
+        float radiusReductionFactor = 0.05f; // Define a reduction factor for pickup radius
+        float finalPickUpRadius = basePickUpRadius * (1 + (1 - Mathf.Pow(1f - radiusReductionFactor, pickUpRadiusUpgrades))); // Apply reduction factor for pickup radius
+        PlayerPrefs.SetFloat("PickUpRadius", finalPickUpRadius); // Save the new pickup radius
+        PlayerPrefs.SetInt("PickUpRadiusUpgrades", pickUpRadiusUpgrades); // Save the number of pickup radius upgrades
 
-        float i3 = PlayerPrefs.GetFloat("PickUpRadius", 5);
-        float finalAmount3 = i3 + (_radiusAmountToUpgrade * 0.1f);
-        PlayerPrefs.SetFloat("PickUpRadius", finalAmount3);
-
+        // Bullet Damage (Linear)
         float i4 = PlayerPrefs.GetFloat("BulletDamage", 50);
         float finalAmount4 = i4 + _bulletDamageAmountToUpgrade;
         PlayerPrefs.SetFloat("BulletDamage", finalAmount4);
 
-        float i5 = PlayerPrefs.GetFloat("FireRate", 1);
-        float finalAmount5 = i5 - (_fireRateAmountToUpgrade * 0.01f);
-        PlayerPrefs.SetFloat("FireRate", finalAmount5);
+        // Fire rate with diminishing returns (already implemented)
+        float baseFireRate = PlayerPrefs.GetFloat("FireRateBase", 1f); // Store your base fire rate
+        int fireRateUpgrades = PlayerPrefs.GetInt("FireRateUpgrades", 0) + _fireRateAmountToUpgrade;
+        float fireRateReductionFactor = 0.025f; // Define a reduction factor for fire rate
+        float finalFireRate = baseFireRate / (1 + fireRateUpgrades * fireRateReductionFactor); // Fire rate calculation
+        PlayerPrefs.SetFloat("FireRate", finalFireRate); // Save the new fire rate
+        PlayerPrefs.SetInt("FireRateUpgrades", fireRateUpgrades); // Save the number of fire rate upgrades
 
+        // Bullet Speed (Linear)
         float i6 = PlayerPrefs.GetFloat("BulletSpeed", 30);
         float finalAmount6 = i6 - (_bulletSpeedAmountToUpgrade * 0.1f);
         PlayerPrefs.SetFloat("BulletSpeed", finalAmount6);
 
+        // Bullet Lifetime (Linear)
         float i7 = PlayerPrefs.GetFloat("BulletLifetime", 5);
         float finalAmount7 = i7 - (_bulletLifetimeAmountToUpgrade * 0.1f);
         PlayerPrefs.SetFloat("BulletLifetime", finalAmount7);
 
-
         PlayerPrefs.Save();
     }
+
+
+
 }

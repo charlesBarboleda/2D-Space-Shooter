@@ -35,31 +35,30 @@ public class LevelManager : MonoBehaviour
     Level GenerateNextLevel()
     {
 
-        // There's a 10% chance of creating a solo invasion level after level 10
+        // There's a 20% chance of creating a solo invasion level after level 10
         if (Random.value < 0.2f && _currentLevelIndex > 10)
         {
             return CreateSoloInvasionLevel();
         }
 
-        // There's a 15% chance of creating a solo boss level after level 10
-        else if (Random.value < 0.15f && _currentLevelIndex > 10)
+        // There's a 20% chance of creating a solo boss level after level 10
+        else if (Random.value < 0.2f && _currentLevelIndex > 10)
         {
             if (Random.value < 0.5f) return CreateSoloShooterBossLevel(_spawnerManager.GetShooterBossName());
             else return CreateSoloSpawnerBossLevel(_spawnerManager.GetSpawnerBossName());
         }
 
-        // There's a 10% chance of creating a multi-phase boss level
-        else if (Random.value < 0.1f && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada)
+        // There's a 15% chance of creating a multi-phase boss level
+        else if (Random.value < 0.15f && InvasionManager.Instance.DefendingFaction == FactionType.ThraxArmada && _currentLevelIndex > 10)
         {
             return CreateThraxMultiPhaseBossLevel("ThraxBoss2Phase1", "ThraxBoss2Phase2");
-
         }
-        else if (Random.value < 0.1f && InvasionManager.Instance.DefendingFaction == FactionType.Syndicates)
+        else if (Random.value < 0.15f && InvasionManager.Instance.DefendingFaction == FactionType.Syndicates && _currentLevelIndex > 10)
         {
             return CreateSyndicatesMultiPhaseBossLevel();
         }
-        // There's a 5% chance of creating a comet level
-        else if (Random.value < 0.05f)
+        // There's a 2.5% chance of creating a comet level
+        else if (Random.value < 0.025f)
         {
             return CreateCometLevel();
         }

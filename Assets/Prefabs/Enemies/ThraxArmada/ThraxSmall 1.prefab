@@ -561,8 +561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 250
-  _maxHealth: 250
+  _currentHealth: 150
+  _maxHealth: 150
   _currencyDrop: 50
   _currencyPrefab:
   - Debris1
@@ -971,6 +971,10 @@ PrefabInstance:
       value: ThraxBullet
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: _amountOfBullets
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: bulletSpawnPoint
       value: 
       objectReference: {fileID: 3565353680348215905}
@@ -1163,6 +1167,10 @@ PrefabInstance:
     - target: {fileID: 8304196999121283581, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: _bulletType
       value: ThraxBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 8304196999121283581, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
+      propertyPath: _amountOfBullets
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8304196999121283581, guid: b3bc14b2ba3b0c541aa07380018e2269, type: 3}
       propertyPath: bulletSpawnPoint

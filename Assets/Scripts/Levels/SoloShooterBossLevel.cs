@@ -59,7 +59,8 @@ public class SoloShooterBossLevel : Level
         Debug.Log("Starting Boss Level");
         if (Random.value < 0.15f)
             spawnerManager.StartCoroutine(StartRandomObjective());
-        bossShip = spawnerManager.SpawnShip(bossName, spawnPoints[Random.Range(0, spawnPoints.Count)], Quaternion.identity);
+        Background.Instance.PlaySoloBossMusic();
+        bossShip = spawnerManager.SpawnShip(bossName, SpawnerManager.Instance.SoloBossSpawnPoints[Random.Range(0, SpawnerManager.Instance.SoloBossSpawnPoints.Count)], Quaternion.identity);
         spawnerManager.StartCoroutine(CameraFollowBehaviour.Instance.PanToTargetAndBack(bossShip.transform, 6f));
         SetBossShooterStats(bossShip);
         switch (formationType)

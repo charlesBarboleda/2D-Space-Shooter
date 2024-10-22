@@ -29,6 +29,8 @@ public class PlayerManager : MonoBehaviour, ITargetable
     [SerializeField] GameObject Buff;
     [SerializeField] AudioClip _onDebrisAudio;
     [SerializeField] AudioClip _onPowerUpAudio;
+    [SerializeField] AudioClip _onPrestigeAudio;
+
 
 
     private void Awake()
@@ -36,12 +38,11 @@ public class PlayerManager : MonoBehaviour, ITargetable
         SetSingleton();
     }
 
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            _prestigeManager.PrestigeToSunlancer();
+
         }
     }
 
@@ -88,6 +89,10 @@ public class PlayerManager : MonoBehaviour, ITargetable
             Destroy(gameObject);
         }
 
+    }
+    public void PlayPrestigeAudio()
+    {
+        GameManager.Instance._audioSource.PlayOneShot(_onPrestigeAudio);
     }
 
     public void ActivateBuffAnimations()

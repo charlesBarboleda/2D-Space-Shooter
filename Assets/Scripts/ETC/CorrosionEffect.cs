@@ -46,10 +46,15 @@ public class CorrosionEffect : MonoBehaviour
                     {
                         if (gameObject.CompareTag("PlayerBullet"))
                         {
+                            Debug.Log("Player Bullet Damage Event");
                             EventManager.BulletDamageEvent(damage);
                             EventManager.PlayerDamageDealtEvent(damage);
                             if (shouldIncreaseCombo)
+                            {
+                                Debug.Log("Increasing Combo");
                                 ComboManager.Instance.IncreaseCombo();
+                                Debug.Log("Combo Increased");
+                            }
                         }
                         UIManager.Instance.CreateOnHitDamageText(Mathf.Round(damage).ToString(), hit.collider.transform.position);
                         damageable.TakeDamage(damage);

@@ -68,7 +68,7 @@ public class SyndicatesMultiPhaseBossLevel : SoloShooterBossLevel
     IEnumerator StartPhase1()
     {
         // Spawn 2 waves of ships simultaneously
-        SpawnerManager.Instance.StartCoroutine(SpawnerManager.Instance.SpawnEnemiesWaves(3, 2f, 10));
+        SpawnerManager.Instance.StartCoroutine(SpawnerManager.Instance.SpawnEnemiesWaves(6, 1f, 10));
 
         // Start Phase 1 music
         Background.Instance.PlaySyndicatesBossPhase1Music();

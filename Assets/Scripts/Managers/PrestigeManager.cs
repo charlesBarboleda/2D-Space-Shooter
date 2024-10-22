@@ -12,6 +12,7 @@ public class PrestigeManager : MonoBehaviour
     [SerializeField] GameObject plaguebringerBuff;
     [SerializeField] GameObject sunlancerBuff;
     [SerializeField] GameObject _berzerkerBuff;
+    [SerializeField] AudioClip _onPrestigeAudio;
     bool hasPrestiged = false;
     public PrestigeType chosenPrestige = PrestigeType.None;
     SpriteRenderer _spriteRenderer;

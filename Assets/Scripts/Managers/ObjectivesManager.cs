@@ -36,13 +36,13 @@ public class ObjectiveManager : MonoBehaviour
     // Method to start objectives for a specific level
     public void ActivateSpecialObjective(string objectivename, Level level, List<ObjectiveBase> _levelObjectives)
     {
-        ObjectiveBase invasionObjective = ObjectiveManager.Instance.GetObjectiveFromPool(objectivename);
-        if (invasionObjective != null)
+        ObjectiveBase invasionObjective = GetObjectiveFromPool(objectivename);
+        if (invasionObjective != null && !_levelObjectives.Contains(invasionObjective))
         {
 
             _levelObjectives.Add(invasionObjective);
         }
-        ObjectiveManager.Instance.StartObjectivesForLevel(level);
+        StartObjectivesForLevel(level);
     }
     public void StartObjectivesForLevel(Level level)
     {

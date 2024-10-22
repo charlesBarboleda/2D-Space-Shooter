@@ -28,10 +28,6 @@ public class SoloInvasionLevel : Level
 
     public override void StartLevel()
     {
-        if (Random.value < 0.15f)
-        {
-            SpawnerManager.Instance.StartCoroutine(StartRandomObjective());
-        }
         EventManager.OnEnemyDestroyed += RegisterInvaderKill;
         _spawnerManager.ResetRound();
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesDefending + (_amountOfEnemiesDefending * _spawnAmountRatio);
@@ -96,17 +92,6 @@ public class SoloInvasionLevel : Level
         {
             _spawnerManager.SpecialEnemiesList.Remove(invader);
         }
-    }
-
-    IEnumerator StartRandomObjective()
-    {
-        yield return new WaitForSeconds(Random.Range(5, 10));
-        ObjectiveBase randomObjective = ObjectiveManager.Instance.GetRandomObjectiveFromPool();
-        if (randomObjective != null)
-        {
-            _levelObjectives.Add(randomObjective);
-        }
-        ObjectiveManager.Instance.StartObjectivesForLevel(this);
     }
 
 }

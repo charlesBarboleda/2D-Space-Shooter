@@ -152,7 +152,7 @@ MonoBehaviour:
   _bulletType: SyndicatesBullet
   _bulletSpeed: 10
   _bulletDamage: 10
-  _amountOfBullets: 1
+  _amountOfBullets: 2
   _shootingAngle: 10
   _bulletLifetime: 5
   _bulletPattern: 3
@@ -408,8 +408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9bf90662c1dd1841b09c6c817373d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 3
-  _maxHealth: 3
+  _currentHealth: 4
+  _maxHealth: 4
   _currencyDrop: 0
   _currencyPrefab: []
   exhaustChildren:

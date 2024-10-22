@@ -37,13 +37,28 @@ public class Kinematics : MonoBehaviour
     }
     protected virtual void OnEnable()
     {
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
+
+        if (agent != null && !agent.enabled)
+        {
+            agent.enabled = true;
+            agent.stoppingDistance = _stopDistance;  // Ensure stopping distance is reset
+        }
+        else if (_stopDistance == 0)
+        {
+            _stopDistance = 20f;  // Provide a default stop distance to avoid 0
+        }
+
         _rotateClockwise = Random.value > 0.5f;
         StartCoroutine(InitializeAgent());
+
         if (_targetManager == null)
         {
             _targetManager = GetComponent<TargetManager>();
         }
-
     }
 
     // Update is called once per frame
@@ -172,7 +187,18 @@ public class Kinematics : MonoBehaviour
                 _speed = value;  // Store the value in _speed to apply later when agent is assigned
         }
     }
-    public float StopDistance { get => agent.stoppingDistance; set => agent.stoppingDistance = value; }
+    public float StopDistance
+    {
+        get => agent != null ? agent.stoppingDistance : _stopDistance;  // Fallback to _stopDistance if agent is null
+        set
+        {
+            if (agent != null)
+                agent.stoppingDistance = value;
+            else
+                _stopDistance = value;  // Store the value in _stopDistance to apply later
+        }
+    }
+
     public bool ShouldMove { get => _shouldMove; set => _shouldMove = value; }
     public bool ShouldRotate { get => _shouldRotate; set => _shouldRotate = value; }
 }

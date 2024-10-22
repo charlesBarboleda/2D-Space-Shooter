@@ -131,8 +131,20 @@ public class ShooterEnemy : Enemy
         base.IncreaseStatsPerLevel();
         _bulletSpeed += LevelManager.Instance.CurrentLevelIndex * 0.01f;
         _bulletDamage += LevelManager.Instance.CurrentLevelIndex * 0.5f;
-        AttackManager.AimRange = Mathf.Max(LevelManager.Instance.CurrentLevelIndex * 0.1f, 100f);
+
+        // Don't calculate AimRange yet
+        StartCoroutine(DelayedAimRangeCalculation());
     }
+
+    private IEnumerator DelayedAimRangeCalculation()
+    {
+        // Wait for one frame to ensure that Kinematics.StopDistance has been properly set
+        yield return new WaitForSeconds(0.1f);
+
+        // Now calculate AimRange based on the correctly initialized StopDistance
+        AttackManager.AimRange = Kinematics.StopDistance + 5f;
+    }
+
 
     public override void BuffedState()
     {
