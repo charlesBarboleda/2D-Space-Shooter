@@ -30,7 +30,7 @@ public class LeechBullet : Bullet
     protected override IEnumerator BulletOnHitEffect()
     {
         if (_collider2D != null) _collider2D.enabled = false;
-        if (_rb != null) _rb.velocity = Vector2.zero;
+        if (_rb != null) _rb.linearVelocity = Vector2.zero;
         if (_particleSystem != null) _particleSystem.Play();
         _bulletOnHitEffect = ObjectPooler.Instance.SpawnFromPool("LeechBulletOnHitEffect", transform.position, Quaternion.identity);
         UIManager.Instance.CreateOnHitDamageText(Mathf.Round(BulletDamage).ToString(), transform.position);

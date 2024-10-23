@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour
         if (_rb != null)
         {
             _rb.simulated = true;
-            _rb.velocity = Vector2.zero;
+            _rb.linearVelocity = Vector2.zero;
         }
 
     }
@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour
         BulletDamage = damage;
         BulletLifetime = lifetime;
 
-        _rb.velocity = direction.normalized * BulletSpeed;
+        _rb.linearVelocity = direction.normalized * BulletSpeed;
 
         if (BulletLifetime > 0)
         {

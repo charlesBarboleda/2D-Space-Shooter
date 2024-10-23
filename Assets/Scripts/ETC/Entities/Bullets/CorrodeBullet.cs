@@ -29,7 +29,7 @@ public class CorrodeBullet : Bullet
     {
         if (_collider2D != null) _collider2D.enabled = false;
         if (_rb != null) _rb.simulated = false;
-        if (_rb != null) _rb.velocity = Vector2.zero;
+        if (_rb != null) _rb.linearVelocity = Vector2.zero;
         if (_particleSystem != null) _particleSystem.Stop();
         _bulletOnHitEffect = ObjectPooler.Instance.SpawnFromPool("CorrodeBulletOnHitEffect", transform.position, Quaternion.identity);
         yield return new WaitForSeconds(0.3f);

@@ -105,6 +105,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -126,6 +127,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -146,6 +148,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.033333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 44
@@ -166,6 +169,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 84
@@ -186,6 +190,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.033333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 44
@@ -206,6 +211,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -226,6 +232,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.033333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 44
@@ -246,6 +253,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.071428575}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 84
@@ -266,6 +274,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.033333335}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 44
@@ -286,6 +295,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 84
@@ -306,6 +316,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 44
@@ -326,6 +337,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -346,6 +358,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -366,6 +379,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 84
@@ -386,6 +400,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 44
@@ -406,6 +421,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -426,6 +442,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -450,7 +467,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: UI_FlatAnimated_Frame_0
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -459,7 +476,7 @@ ScriptedImporter:
         width: 32
         height: 32
       spriteId: 6545738147c21da4b856fc10ed7df9c9
-    - name: UI_FlatAnimated_Frame_1
+    - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -468,7 +485,7 @@ ScriptedImporter:
         width: 30
         height: 30
       spriteId: f4ae0551bad3dda4aba7b21a4deb3bda
-    - name: UI_FlatAnimated_Frame_2
+    - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -477,7 +494,7 @@ ScriptedImporter:
         width: 28
         height: 28
       spriteId: 13f4a1a2a515bfc448244de4589fd674
-    - name: UI_FlatAnimated_Frame_3
+    - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -486,7 +503,7 @@ ScriptedImporter:
         width: 30
         height: 30
       spriteId: 0261f1f68d0979b4eac78cd1195ad75b
-    - name: UI_FlatAnimated_Frame_4
+    - name: Frame_4
       frameIndex: 4
       additiveSortOrder: 0
       cellRect:
@@ -495,7 +512,7 @@ ScriptedImporter:
         width: 32
         height: 32
       spriteId: 050337ebfdf531a419983f7a6f5f22bd
-    - name: UI_FlatAnimated_Frame_5
+    - name: Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
@@ -504,7 +521,7 @@ ScriptedImporter:
         width: 30
         height: 30
       spriteId: 04e8f816a74be384d949d97fb658932f
-    - name: UI_FlatAnimated_Frame_6
+    - name: Frame_6
       frameIndex: 6
       additiveSortOrder: 0
       cellRect:
@@ -513,7 +530,7 @@ ScriptedImporter:
         width: 28
         height: 28
       spriteId: 0cac2770e8cc1e84ea1b0cba2a258e16
-    - name: UI_FlatAnimated_Frame_7
+    - name: Frame_7
       frameIndex: 7
       additiveSortOrder: 0
       cellRect:
@@ -522,7 +539,7 @@ ScriptedImporter:
         width: 30
         height: 30
       spriteId: 7bc8b5027c7af5a48bdd4273d5e27c71
-    - name: UI_FlatAnimated_Frame_8
+    - name: Frame_8
       frameIndex: 8
       additiveSortOrder: 0
       cellRect:
@@ -531,7 +548,7 @@ ScriptedImporter:
         width: 32
         height: 28
       spriteId: 633fe4a6f68bc9b44a9a04b4ff18270e
-    - name: UI_FlatAnimated_Frame_9
+    - name: Frame_9
       frameIndex: 9
       additiveSortOrder: 0
       cellRect:
@@ -540,7 +557,7 @@ ScriptedImporter:
         width: 32
         height: 29
       spriteId: 3d0969a97fbae1c4d978bebe34a26f89
-    - name: UI_FlatAnimated_Frame_10
+    - name: Frame_10
       frameIndex: 10
       additiveSortOrder: 0
       cellRect:
@@ -549,7 +566,7 @@ ScriptedImporter:
         width: 32
         height: 31
       spriteId: 5c77ae2cd1e23334a9e4a7e289b5481a
-    - name: UI_FlatAnimated_Frame_11
+    - name: Frame_11
       frameIndex: 11
       additiveSortOrder: 0
       cellRect:
@@ -558,7 +575,7 @@ ScriptedImporter:
         width: 32
         height: 32
       spriteId: 2fab2e9c97c27eb4eb9ade4f055a0740
-    - name: UI_FlatAnimated_Frame_12
+    - name: Frame_12
       frameIndex: 12
       additiveSortOrder: 0
       cellRect:
@@ -567,7 +584,7 @@ ScriptedImporter:
         width: 32
         height: 28
       spriteId: 6f760750bc18fa243954e201d0622406
-    - name: UI_FlatAnimated_Frame_13
+    - name: Frame_13
       frameIndex: 13
       additiveSortOrder: 0
       cellRect:
@@ -576,7 +593,7 @@ ScriptedImporter:
         width: 32
         height: 29
       spriteId: 8faf529aae65641448bd7e5473783139
-    - name: UI_FlatAnimated_Frame_14
+    - name: Frame_14
       frameIndex: 14
       additiveSortOrder: 0
       cellRect:
@@ -585,7 +602,7 @@ ScriptedImporter:
         width: 32
         height: 31
       spriteId: f50bf2e9960947d419a98ac8cfb9fb64
-    - name: UI_FlatAnimated_Frame_15
+    - name: Frame_15
       frameIndex: 15
       additiveSortOrder: 0
       cellRect:

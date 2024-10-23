@@ -65,7 +65,7 @@ public class PlayerTurretPrefab : MonoBehaviour
             Vector3 bulletDirection = (direction + spread).normalized;
 
             GameObject bullet = ObjectPooler.Instance.SpawnFromPool(bulletType.ToString(), bulletSpawnPoint, Quaternion.identity);
-            bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection * bulletSpeed;
+            bullet.GetComponent<Rigidbody2D>().linearVelocity = bulletDirection * bulletSpeed;
 
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             if (bulletScript != null)

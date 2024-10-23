@@ -22,7 +22,7 @@ public class RegularBullet : Bullet
     protected override IEnumerator BulletOnHitEffect()
     {
         if (_collider2D != null) _collider2D.enabled = false;
-        if (_rb != null) _rb.velocity = Vector2.zero;
+        if (_rb != null) _rb.linearVelocity = Vector2.zero;
         if (_spriteRenderer != null) _spriteRenderer.enabled = false;
         _bulletOnHitEffect = ObjectPooler.Instance.SpawnFromPool("RegularBulletOnHitEffect", transform.position, Quaternion.identity);
         UIManager.Instance.CreateOnHitDamageText(Mathf.Round(BulletDamage).ToString(), transform.position);

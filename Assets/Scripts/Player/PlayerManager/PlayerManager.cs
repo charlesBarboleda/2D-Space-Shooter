@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour, ITargetable
         {
             // SpawnerManager.Instance.SpawnCircleFormation(
             //     150,
-            //     700,
+            //     450,
             //     new Vector3(0, 0, 0),
             //     SpawnerManager.Instance.GetFormationShipNames()
             // );

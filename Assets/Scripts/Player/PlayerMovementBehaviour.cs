@@ -30,7 +30,7 @@ public class PlayerMovementBehaviour : MonoBehaviour
         _moveInput.y = Input.GetAxisRaw("Vertical");
 
 
-        _rb.velocity = _moveInput.normalized * moveSpeed;
+        _rb.linearVelocity = _moveInput.normalized * moveSpeed;
 
     }
 

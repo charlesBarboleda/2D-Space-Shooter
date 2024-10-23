@@ -55,17 +55,17 @@ public class ReflectBullet : Bullet
                 // Reflect the bullet
                 if (amountOfReflections > 0)
                 {
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position, _rb.velocity.normalized);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, _rb.linearVelocity.normalized);
                     if (hit.collider != null)
                     {
                         // Reflect the bullet and add randomization to the angle
-                        Vector2 direction = Vector2.Reflect(_rb.velocity.normalized, hit.normal);
+                        Vector2 direction = Vector2.Reflect(_rb.linearVelocity.normalized, hit.normal);
 
                         // Randomize the angle slightly by rotating the direction vector
                         float randomAngle = Random.Range(-90f, 90f); // You can adjust the angle range
                         direction = Quaternion.Euler(0, 0, randomAngle) * direction;
 
-                        _rb.velocity = direction * BulletSpeed;
+                        _rb.linearVelocity = direction * BulletSpeed;
                         amountOfReflections--;
                     }
                 }

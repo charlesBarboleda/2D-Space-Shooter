@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-        rb.velocity = moveInput * moveSpeed; // Movement
+        rb.linearVelocity = moveInput * moveSpeed; // Movement
     }
 
 
