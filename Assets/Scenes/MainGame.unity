@@ -1001,6 +1001,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2353,6 +2361,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4619,6 +4635,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5123,6 +5147,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8571,11 +8603,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildings:
   - center: {x: -11.6, y: 135, z: 0}
-    size: {x: 80, y: 80, z: 0}
+    size: {x: 100, y: 100, z: 0}
   - center: {x: -11.6, y: 135, z: 0}
-    size: {x: 20, y: 20, z: 0}
+    size: {x: 40, y: 40, z: 0}
   - center: {x: -111.8, y: -73.4, z: 0}
-    size: {x: 18, y: 18, z: 0}
+    size: {x: 30, y: 30, z: 0}
   cometSpawnPoint:
   - {fileID: 1874667251}
   - {fileID: 697929460}
@@ -8599,13 +8631,13 @@ MonoBehaviour:
   _enemiesList: []
   enemiesToSpawnLeft: 0
   _soloBossSpawnPoints:
-  - {x: -550, y: 0, z: 0}
-  - {x: -550, y: -550, z: 0}
-  - {x: 0, y: -550, z: 0}
-  - {x: 550, y: -550, z: 0}
-  - {x: 550, y: 550, z: 0}
-  - {x: 0, y: 550, z: 0}
-  - {x: -550, y: 550, z: 0}
+  - {x: -450, y: 0, z: 0}
+  - {x: -450, y: -450, z: 0}
+  - {x: 0, y: -450, z: 0}
+  - {x: 450, y: -450, z: 0}
+  - {x: 450, y: 450, z: 0}
+  - {x: 0, y: 450, z: 0}
+  - {x: -450, y: 450, z: 0}
 --- !u!114 &215415226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9072,6 +9104,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9781,6 +9821,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10380,6 +10428,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13337,6 +13393,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14046,6 +14110,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19709,6 +19781,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21718,6 +21798,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22143,6 +22231,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25570,6 +25666,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27238,6 +27342,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35222,6 +35334,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39707,6 +39827,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40387,6 +40515,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46161,6 +46297,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47307,6 +47451,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -47431,6 +47583,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49184,6 +49344,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (36)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50632,6 +50800,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -52411,6 +52587,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -53586,6 +53770,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -56378,6 +56570,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -56808,6 +57008,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -58549,6 +58757,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -58717,6 +58933,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -68224,6 +68448,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -69168,6 +69400,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -70612,6 +70852,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75366,6 +75614,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -78585,6 +78841,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -79768,7 +80032,7 @@ GameObject:
   - component: {fileID: 1840538628}
   - component: {fileID: 1840538627}
   - component: {fileID: 1840538626}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: MainBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82827,6 +83091,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -84757,6 +85029,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -88380,6 +88660,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -91477,6 +91765,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasBlockade (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -91725,6 +92021,14 @@ PrefabInstance:
     - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
       propertyPath: m_Name
       value: GasBlockade (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019681976535225041, guid: ad4ed540180742040a8a3255bbe33d3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -98538,7 +98842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: _cometSpawnRate
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 755186050306758537, guid: e9eb7bec22458f9418c324bc14cb0b14, type: 3}
       propertyPath: _cometsPerRound

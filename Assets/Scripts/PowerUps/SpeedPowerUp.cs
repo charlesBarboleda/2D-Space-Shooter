@@ -47,7 +47,7 @@ public class SpeedPowerUp : PowerUp, IPickable
 
     public override void DeactivateEffect()
     {
-        _player.Movement().moveSpeed = _initSpeed;
+        _player.Movement().moveSpeed /= 2;
         UIManager.Instance.SpeedPowerUp.SetActive(false);
 
 

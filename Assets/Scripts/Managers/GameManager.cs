@@ -188,6 +188,7 @@ public class GameManager : MonoBehaviour
         Background.Instance.PlayCountdownMusic();
         Debug.Log("Countdown Started");
         _isInputActive = true;
+        NavMeshScript.Instance.UpdateNavMesh();
         _roundCountdown = 15f;
         UIManager.Instance.countdownText.gameObject.SetActive(true);
 

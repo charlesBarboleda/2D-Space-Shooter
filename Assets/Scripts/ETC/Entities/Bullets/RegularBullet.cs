@@ -41,7 +41,7 @@ public class RegularBullet : Bullet
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("ThraxArmada") || collision.gameObject.CompareTag("Syndicates") || collision.gameObject.CompareTag("CrimsonFleet") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Asteroid"))
+        if (collision.gameObject.CompareTag("ThraxArmada") || collision.gameObject.CompareTag("Syndicates") || collision.gameObject.CompareTag("CrimsonFleet") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Asteroid") || collision.gameObject.CompareTag("EnemyDestroyable"))
         {
             IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
             if (damageable != null)

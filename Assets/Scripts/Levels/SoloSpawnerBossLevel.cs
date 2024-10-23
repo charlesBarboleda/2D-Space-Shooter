@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SoloSpawnerBossLevel : Level
 {
@@ -40,13 +41,23 @@ public class SoloSpawnerBossLevel : Level
         if (Random.value < 0.15f)
             _spawnerManager.StartCoroutine(StartRandomObjective());
         Background.Instance.PlaySoloBossMusic();
-        _bossShip = _spawnerManager.SpawnShip(_bossName, SpawnerManager.Instance.SoloBossSpawnPoints[Random.Range(0, SpawnerManager.Instance.SoloBossSpawnPoints.Count)], Quaternion.identity);
+        var chosenSpawnPoint = SpawnerManager.Instance.SoloBossSpawnPoints[Random.Range(0, SpawnerManager.Instance.SoloBossSpawnPoints.Count)];
+        Debug.Log("Chosen Boss Spawn Point: " + chosenSpawnPoint);
+        _bossShip = _spawnerManager.SpawnShip(_bossName, chosenSpawnPoint, Quaternion.identity);
+
+        Debug.Log("Boss Ship Spawned at: " + _bossShip.transform.position);
+        _spawnerManager.StartCoroutine(CheckBossPositionAfterDelay());
+
         _spawnerManager.StartCoroutine(CameraFollowBehaviour.Instance.PanToTargetAndBack(_bossShip.transform, 6f));
         // Get the components
         Health health = _bossShip.GetComponent<Health>();
         Kinematics kinematics = _bossShip.GetComponent<Kinematics>();
         AttackManager attackManager = _bossShip.GetComponent<AttackManager>();
         SpawnerEnemy enemy = _bossShip.GetComponent<SpawnerEnemy>();
+        NavMeshAgent navMeshAgent = _bossShip.GetComponent<NavMeshAgent>();
+        navMeshAgent.enabled = false;
+        navMeshAgent.enabled = true;
+
 
         // Set the stats
         health.MaxHealth = _health;
@@ -57,6 +68,11 @@ public class SoloSpawnerBossLevel : Level
         kinematics.StopDistance = _stopDistance;
         attackManager.AttackCooldown = _spawnRate;
         attackManager.AimRange = _attackRange;
+    }
+    IEnumerator CheckBossPositionAfterDelay()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("Boss Ship Position After Delay: " + _bossShip.transform.position);
     }
 
     public override void UpdateLevel()

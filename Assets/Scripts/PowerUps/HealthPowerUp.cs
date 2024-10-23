@@ -35,8 +35,8 @@ public class HealthPowerUp : PowerUp, IPickable
     protected override void Effect()
     {
 
-        PlayerManager.Instance.SetCurrentHealth(PlayerManager.Instance.CurrentHealth() * 2);
-        PlayerManager.Instance.SetMaxHealth(PlayerManager.Instance.MaxHealth() * 2);
+        PlayerManager.Instance.SetCurrentHealth(PlayerManager.Instance.MaxHealth());
+        PlayerManager.Instance.SetMaxHealth(PlayerManager.Instance.MaxHealth());
         UIManager.Instance.HealthPowerUp.SetActive(true);
 
         UIManager.Instance.MidScreenWarningText("Health power up!", 1f);

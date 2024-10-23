@@ -36,7 +36,7 @@ public class Comet : MonoBehaviour, IDamageable
         int RandomTarget = Random.Range(0, _targets.Count);
         transform.position = Vector3.MoveTowards(transform.position, _targets[RandomTarget].position, _speed * Time.deltaTime);
 
-        if (Vector2.Distance(transform.position, _targets[RandomTarget].position) < 1f)
+        if (Vector2.Distance(transform.position, _targets[RandomTarget].position) < 20f)
         {
             gameObject.SetActive(false);
         }

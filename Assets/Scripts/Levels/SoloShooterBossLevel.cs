@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SoloShooterBossLevel : Level
 {
@@ -60,8 +61,18 @@ public class SoloShooterBossLevel : Level
         if (Random.value < 0.15f)
             spawnerManager.StartCoroutine(StartRandomObjective());
         Background.Instance.PlaySoloBossMusic();
-        bossShip = spawnerManager.SpawnShip(bossName, SpawnerManager.Instance.SoloBossSpawnPoints[Random.Range(0, SpawnerManager.Instance.SoloBossSpawnPoints.Count)], Quaternion.identity);
+        var chosenSpawnPoint = SpawnerManager.Instance.SoloBossSpawnPoints[Random.Range(0, SpawnerManager.Instance.SoloBossSpawnPoints.Count)];
+        Debug.Log("Chosen Boss Spawn Point: " + chosenSpawnPoint);
+        bossShip = spawnerManager.SpawnShip(bossName, chosenSpawnPoint, Quaternion.identity);
+
+        Debug.Log("Boss Ship Spawned at: " + bossShip.transform.position);
+        spawnerManager.StartCoroutine(CheckBossPositionAfterDelay());
         spawnerManager.StartCoroutine(CameraFollowBehaviour.Instance.PanToTargetAndBack(bossShip.transform, 6f));
+        NavMeshAgent navMeshAgent = bossShip.GetComponent<NavMeshAgent>();
+        navMeshAgent.enabled = false;
+        navMeshAgent.enabled = true;
+
+
         SetBossShooterStats(bossShip);
         switch (formationType)
         {
@@ -90,6 +101,13 @@ public class SoloShooterBossLevel : Level
                 spawnerManager.SpawnSpiralFormation(numberOfShipsInFormation, formationRadius, bossShip.transform.position, formationShipName);
                 break;
         }
+
+    }
+
+    IEnumerator CheckBossPositionAfterDelay()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("Boss Ship Position After Delay: " + bossShip.transform.position);
 
     }
 

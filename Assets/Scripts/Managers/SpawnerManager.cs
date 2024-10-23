@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SpawnerManager : MonoBehaviour
 {
@@ -118,6 +119,12 @@ public class SpawnerManager : MonoBehaviour
         if (enemy != null)
         {
             AddEnemy(enemy);
+            NavMeshAgent navMeshAgent = enemy.GetComponent<NavMeshAgent>();
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.enabled = false;
+                navMeshAgent.enabled = true;
+            }
             EnemiesToSpawnLeft--;
         }
 

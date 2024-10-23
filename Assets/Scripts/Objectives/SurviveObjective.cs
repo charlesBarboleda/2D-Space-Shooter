@@ -8,9 +8,11 @@ public class SurviveObjective : ObjectiveBase
     public float elapsedTime;
     public float requiredTime;
     List<string> shipsToSpawn = new List<string>();
+    public int shipsToSpawnCount = 0;
     public override void Initialize()
     {
         objectiveName = "Survive";
+        shipsToSpawnCount = LevelManager.Instance.CurrentLevelIndex * 10;
         isObjectiveCompleted = false;
         isObjectiveFailed = false;
         elapsedTime = requiredTime;
@@ -57,9 +59,12 @@ public class SurviveObjective : ObjectiveBase
     }
     IEnumerator SpawnShipsInfinitely()
     {
-        while (elapsedTime > 0)
+        while (shipsToSpawnCount > 0)
         {
-            SpawnerManager.Instance.SpawnShip(shipsToSpawn[Random.Range(0, shipsToSpawn.Count)], PlayerManager.Instance.transform.position + new Vector3(Random.Range(-200, 200), Random.Range(-200, 200), 0), Quaternion.identity);
+            GameObject ship = SpawnerManager.Instance.SpawnShip(shipsToSpawn[Random.Range(0, shipsToSpawn.Count)], PlayerManager.Instance.transform.position + new Vector3(Random.Range(-200, 200), Random.Range(-200, 200), 0), Quaternion.identity);
+            ship.GetComponent<Health>().CurrentHealth /= 2;
+            ship.GetComponent<Health>().MaxHealth /= 2;
+            shipsToSpawnCount--;
             yield return new WaitForSeconds(0.25f);
         }
 

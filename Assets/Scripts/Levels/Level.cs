@@ -7,10 +7,9 @@ public enum LevelType
 {
     Horde,
     Boss,
-    Survival,
+    MultiPhaseBoss,
     Invasion,
-    Protect,
-    Rescue,
+    Comet
 }
 public abstract class Level
 {

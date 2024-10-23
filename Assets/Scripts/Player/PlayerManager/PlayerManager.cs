@@ -42,7 +42,12 @@ public class PlayerManager : MonoBehaviour, ITargetable
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-
+            // SpawnerManager.Instance.SpawnCircleFormation(
+            //     150,
+            //     700,
+            //     new Vector3(0, 0, 0),
+            //     SpawnerManager.Instance.GetFormationShipNames()
+            // );
         }
     }
 

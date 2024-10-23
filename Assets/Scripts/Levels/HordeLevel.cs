@@ -23,8 +23,8 @@ public class HordeLevel : Level
     public override void StartLevel()
     {
         Background.Instance.PlayHordeMusic(_factionType);
-        // 15% chance to start a random objective
-        if (Random.value < 0.15f)
+        // 30% chance to start a random objective
+        if (Random.value < 0.30f)
         {
             _spawnerManager.StartCoroutine(StartRandomObjective());
         }
@@ -32,7 +32,7 @@ public class HordeLevel : Level
         _spawnerManager.ResetRound();
         _spawnerManager.EnemiesToSpawnLeft = _amountOfEnemiesToSpawn;
         Debug.Log("Starting Horde Level");
-        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRate, _amountOfEnemiesToSpawn, 300f, shipList));
+        _spawnerManager.StartCoroutine(_spawnerManager.SpawnEnemiesOverTime(_shipsToSpawn, _spawnRate, _amountOfEnemiesToSpawn, 350f, shipList));
         Debug.Log("Spawning Enemies");
     }
 
